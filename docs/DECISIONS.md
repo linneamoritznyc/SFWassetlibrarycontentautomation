@@ -153,3 +153,55 @@ test the shape and the discipline. Swap in the real text when you have it:
 
 **2026-09-20 — `tsconfig.json` for typechecking, `tsconfig.build.json` for building.**
 Tests are typechecked but do not end up in `dist`.
+
+## Phase 2
+
+**2026-09-20 — Supabase for who you are, Postgres for everything else.**
+A refinement of the Phase 1 decision. `apps/web` uses supabase-js only for
+magic-link auth and the session cookie; every data read and write in the API
+routes goes through the same `pg` pool the workers use. The library query is
+joins, aggregated tag arrays, facet counts and a vector ordering, and the
+PostgREST query builder would fight all four. One query language across the
+whole codebase is also one fewer thing to learn.
+
+**2026-09-20 — The allowlist is enforced in middleware, once.**
+Not per page and not per route. An empty or missing `APP_ALLOWLIST` means
+nobody gets in, not everybody: failing closed is the only safe reading of a
+variable that has gone missing in production. Someone signed in but not on the
+list is told so rather than bounced in a loop.
+
+**2026-09-20 — Thumbnails are made in the browser.**
+800px JPEG at quality 0.82, from a canvas; for video, a frame at two seconds.
+It means a 4 GB original never has to be read by a server just to get a preview
+out of it, and the upload is one presigned PUT for the file and one for the
+thumbnail. A codec the browser cannot decode is not an error: the asset uploads
+without a thumbnail and the media worker makes one in Phase 3.
+
+**2026-09-20 — `ingest` moves an asset to `tagged`, and the Inbox shows both.**
+The spec calls the output of `ingest` a "tagged-in-inbox asset", and the DB
+trigger that creates the `embed` job fires on `status = 'tagged'`. So ingest
+sets `tagged`, which is what makes an asset searchable, and the Inbox view
+filters `status in ('inbox', 'tagged')` so it is still sitting there waiting for
+a human to confirm the tags. Clearing or archiving is what takes it out.
+
+**2026-09-20 — Confirming a tag keeps `source = 'ai'`; rejecting deletes the row.**
+Confirming only flips `confirmed`, so the library still knows the AI suggested
+it and `learn_weekly` can measure how often its guesses survive. Rejecting
+removes the row outright, because `ingest` clears only its own unconfirmed rows
+on a re-run and a rejected suggestion coming straight back would be the most
+annoying possible behaviour.
+
+**2026-09-20 — A pasted screenshot is uploaded through the API route.**
+Everything else gets a presigned PUT straight to R2, but a screenshot is a
+couple of megabytes and the two-step presign dance would put a visible pause
+between pasting and anything happening. Capped at 12 MB; anything bigger is an
+upload, not a paste.
+
+**2026-09-20 — Plain `<img>`, not `next/image`.**
+Every thumbnail is a presigned R2 URL whose host and query string change every
+hour. `next/image` cannot cache that and would only proxy it.
+
+**2026-09-20 — Relative imports in `apps/web` carry no `.js` extension.**
+The packages are ESM under NodeNext and need the extension; Next uses bundler
+resolution and its webpack build fails with it. The two conventions sit either
+side of the workspace boundary.

@@ -6,7 +6,7 @@ What works, and how to check it. Updated at the end of every phase.
 | --- | --- | --- |
 | 0 | Repo and folders | done |
 | 1 | Database and queue | done |
-| 2 | Library (web) + ingest | in progress: storage, AI and the worker jobs done; the web app is next |
+| 2 | Library (web) + ingest | done, except uploading the fixtures, which needs your keys |
 | 3 | Clipping machine | not started |
 | 4 | Knowledge, writing and review | not started |
 | 5 | Planner, cron, export, results | not started |
@@ -122,51 +122,85 @@ while the job is live and frees up when it finishes.
 
 ---
 
-## Phase 2 so far: storage, AI and the ingest jobs
-
-The web app is not built yet. Everything the jobs need is.
+## Phase 2: Library and ingest
 
 **What works**
 
-- `packages/storage`: the R2 layout from spec section 3 built in one place,
-  presigned PUT and GET at one hour, and a filename sanitiser so nothing can
-  escape its folder. Video originals go to `sfw-raw`, everything else to
-  `sfw-media`.
-- `packages/ai`: one Claude call path used by every job. It loads the active
-  prompt from the table, constrains the reply to a zod schema server-side,
-  validates it again on the way back, retries once with the failure quoted if
-  it still does not match, and logs tokens, latency and cost to `ai_calls`
-  whether the call succeeded or not.
-- `packages/ai`: a zod schema per AI contract, and embeddings at 1024
-  dimensions to match the `vector(1024)` columns.
-- `workers/light` with five jobs: `ingest`, `embed`, `extract_doc`,
-  `paste_intake` and `web_fetch`. It claims what `WORKER_TYPES` names, runs at
-  concurrency 4, heartbeats every 60 seconds and shuts down gracefully.
+*Auth.* Supabase magic link. The allowlist is checked in middleware on every
+request, so no page or route can forget it. An empty `APP_ALLOWLIST` lets nobody
+in. A `/setup` page explains what is missing rather than crashing when the app
+has no configuration yet.
 
-**The paste flow, end to end in the queue**
+*Upload.* A batch form (Drive link, original path, creator, workshop) entered
+once and copied onto every asset. Drag and drop anything. The browser makes an
+800px JPEG thumbnail (a frame at two seconds for video), reads EXIF with exifr,
+and uploads straight to R2 with presigned PUTs, so nothing large passes through
+a serverless function. `POST /api/assets` then creates the batch and enqueues
+one `ingest` per asset.
 
-`paste_intake` reads the screenshot with Claude vision, pulls out the sender,
-the message and the links, and enqueues `web_fetch` for each link. `web_fetch`
-fetches the page, hashes it, and turns it into sourced facts, retiring the
-facts from any previous read of the same URL. It then enqueues `propose_story`,
-whose handler arrives in Phase 4; until then those jobs sit in the queue, which
-is exactly what should happen.
+*Paste.* Cmd-V anywhere on the library or inbox page. A screenshot goes in as a
+`reference` asset and is read by `paste_intake`; a link goes straight to
+`web_fetch`; a note is stored as a source. See `docs/paste-intake.md`.
+
+*Library.* Sidebar of smart folders grouped Workshops / Asset types / Views /
+Saved. Facet chips with live counts over the filtered set. Text search and
+meaning search, switchable. Tile size slider, default 170px, remembered.
+Videos in their own row at the top of every folder. A detail panel with the
+large preview, every provenance field, a clickable Drive link, copy credit
+line, find similar, AI tags with accept and reject, status, release status,
+quality, hero, notes and usage history. "Save current filters as folder".
+
+*Inbox.* Everything on the keyboard: arrows to move, 1 to 5 for quality, A to
+accept all AI tags, C for cleared, X to archive, H for hero. Clearing or
+archiving drops the asset from the list so the next one slides under the cursor.
+
+*Errors.* Dead jobs with a retry button, what is queued, and whether each
+worker has checked in within five minutes.
+
+*Jobs.* `ingest`, `embed`, `extract_doc`, `paste_intake`, `web_fetch` in
+`workers/light`, at concurrency 4 with a heartbeat and graceful shutdown.
+
+*Bulk upload.* `scripts/bulk-upload` has the rclone guide for pushing the
+footage drive into `sfw-raw`, and a script that registers objects already there
+as assets and enqueues ingest. Idempotent, so an interrupted rclone copy is
+safe to resume.
 
 **How to test**
 
-The jobs need real keys (`ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, the four R2
-variables) and a Supabase project, so they are not covered by the automated
-tests. What is covered without keys:
+Without any keys:
 
 ```bash
-pnpm test
+pnpm build && pnpm lint && pnpm typecheck
+TEST_DATABASE_URL=postgres://postgres@127.0.0.1:5433/postgres pnpm test
 ```
 
-10 tests over the R2 key layout and the cost calculation, on top of the 29 from
-Phase 1.
+59 tests. The 10 new ones run the library query against a real database: type
+and status filters, tags that must all match rather than any, Untagged, Unused
+before and after a post uses an asset, text search, paging, and facet counts
+narrowing with the filter.
 
-**Still to do in Phase 2**
+With your keys, once `pnpm db:setup` has run and a worker is up:
 
-Auth with the allowlist, the upload form and presigned PUT, `POST /api/assets`
-and the rest of the routes, the library UI, the inbox with its keyboard
-shortcuts, the errors view, and the bulk-upload script.
+```bash
+pnpm dev
+# worker in another terminal:
+WORKER_TYPES=ingest,embed,extract_doc,paste_intake,web_fetch \
+  node workers/light/dist/index.js
+```
+
+1. Sign in at http://localhost:3000. Your address must be in `APP_ALLOWLIST`.
+2. Library, Upload, fill in the batch fields, drop in the 30 fixture photos and
+   the 2 videos. They appear immediately with thumbnails.
+3. Within a minute each one has a description and suggested tags. Watch
+   progress on `/errors`.
+4. Search "steaming compost at sunrise" with the toggle on Meaning. Click a
+   folder in the sidebar. Open one and check the Drive link opens.
+5. Go to Inbox and clear the lot with A then C, without touching the mouse.
+6. Paste a screenshot of a chat message. Within a minute the links in it have
+   been fetched and turned into facts.
+
+**Not done in this phase**
+
+Uploading the actual fixtures, which needs R2 and Anthropic keys that only
+Linnea can create. Everything the upload path does is exercised by the tests
+except the two network calls out to R2 and Claude.
