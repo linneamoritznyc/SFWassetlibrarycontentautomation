@@ -48,3 +48,29 @@ is not in spec section 12, since section 12 lists no mail variable at all.
 `NEXT_PUBLIC_APP_URL` (magic-link redirects and the Monday email's link),
 `OPENAI_WHISPER_MODEL`, and the three model ids above. Everything in spec 12 is
 present and unchanged.
+
+## Requirement change, 20 Sep 2026
+
+**2026-09-20 — No Drive, no Google Chat, no Monday.com. Paste is the interface.**
+Linnea's call. The spec already ruled out Google Drive (section 9, and PRD
+constraint 3); this extends it to Google Chat and Monday.com, which were never
+in either document but are the obvious next things someone would wire up. The
+replacement is a paste intake: drop a screenshot, a link or text into the inbox
+and the machine reads it, fetches what it links to, turns it into sourced facts,
+and proposes a story with an angle. Designed in `docs/paste-intake.md`. Capture
+and the vision read go in Phase 2, the story and draft spin-up in Phase 4.
+
+Three things follow from it, and each one is a rule in code rather than a note:
+
+- A pasted screenshot is `assets(type=reference)`: provenance, never a post
+  visual. CLAUDE.md section 5 allows real SFW images only.
+- Outside news goes to LinkedIn first with a real question at the end, per
+  CLAUDE.md section 4, not to Instagram by default.
+- Someone else's research keeps its own evidence rung. It is cited, never
+  restated as an SFW claim.
+
+**2026-09-20 — `paste_intake` and `propose_story` are new job types.**
+Neither is in spec section 6. They are additions, not replacements, and they
+reuse `sources`, `facts`, `stories` and `assets(type=reference)` exactly as the
+schema already defines them, so no table changes. `web_fetch` is the single-URL
+version of the spec's `web_refresh`.

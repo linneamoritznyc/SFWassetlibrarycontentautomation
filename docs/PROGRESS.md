@@ -14,6 +14,10 @@ What works, and how to check it. Updated at the end of every phase.
 | 7 | Reels and Canva | not started |
 | 8 | Scout, then polish | not started |
 
+Paste intake (`docs/paste-intake.md`) is threaded through Phase 2 (capture and
+the vision read) and Phase 4 (story and draft spin-up). No Drive, Google Chat or
+Monday.com connection, by decision of 20 Sep 2026.
+
 ---
 
 ## Phase 0: Repo and folders
