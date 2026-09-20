@@ -17,5 +17,11 @@
     "lint": "eslint src",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.127.0",
+    "@sfw/db": "workspace:*",
+    "openai": "^7.20.0",
+    "zod": "^4.6.5"
   }
 }

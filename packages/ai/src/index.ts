@@ -1,3 +1,5 @@
-// Claude and Whisper clients, zod schemas, prompt loader, cost logging.
-// Filled in Phase 2.
-export const PACKAGE_NAME = '@sfw/ai';
+export * from './models.js';
+export * from './schemas.js';
+export * from './prompts.js';
+export * from './claude.js';
+export * from './embed.js';

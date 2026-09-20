@@ -6,7 +6,7 @@ What works, and how to check it. Updated at the end of every phase.
 | --- | --- | --- |
 | 0 | Repo and folders | done |
 | 1 | Database and queue | done |
-| 2 | Library (web) + ingest | not started |
+| 2 | Library (web) + ingest | in progress: storage, AI and the worker jobs done; the web app is next |
 | 3 | Clipping machine | not started |
 | 4 | Knowledge, writing and review | not started |
 | 5 | Planner, cron, export, results | not started |
@@ -119,3 +119,54 @@ fail, retry with backoff, and complete. They also check that two workers racing
 for the same job get one each, that a job waiting on its backoff is not
 claimable, that priority beats age, and that a dedupe key blocks a duplicate
 while the job is live and frees up when it finishes.
+
+---
+
+## Phase 2 so far: storage, AI and the ingest jobs
+
+The web app is not built yet. Everything the jobs need is.
+
+**What works**
+
+- `packages/storage`: the R2 layout from spec section 3 built in one place,
+  presigned PUT and GET at one hour, and a filename sanitiser so nothing can
+  escape its folder. Video originals go to `sfw-raw`, everything else to
+  `sfw-media`.
+- `packages/ai`: one Claude call path used by every job. It loads the active
+  prompt from the table, constrains the reply to a zod schema server-side,
+  validates it again on the way back, retries once with the failure quoted if
+  it still does not match, and logs tokens, latency and cost to `ai_calls`
+  whether the call succeeded or not.
+- `packages/ai`: a zod schema per AI contract, and embeddings at 1024
+  dimensions to match the `vector(1024)` columns.
+- `workers/light` with five jobs: `ingest`, `embed`, `extract_doc`,
+  `paste_intake` and `web_fetch`. It claims what `WORKER_TYPES` names, runs at
+  concurrency 4, heartbeats every 60 seconds and shuts down gracefully.
+
+**The paste flow, end to end in the queue**
+
+`paste_intake` reads the screenshot with Claude vision, pulls out the sender,
+the message and the links, and enqueues `web_fetch` for each link. `web_fetch`
+fetches the page, hashes it, and turns it into sourced facts, retiring the
+facts from any previous read of the same URL. It then enqueues `propose_story`,
+whose handler arrives in Phase 4; until then those jobs sit in the queue, which
+is exactly what should happen.
+
+**How to test**
+
+The jobs need real keys (`ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, the four R2
+variables) and a Supabase project, so they are not covered by the automated
+tests. What is covered without keys:
+
+```bash
+pnpm test
+```
+
+10 tests over the R2 key layout and the cost calculation, on top of the 29 from
+Phase 1.
+
+**Still to do in Phase 2**
+
+Auth with the allowlist, the upload form and presigned PUT, `POST /api/assets`
+and the rest of the routes, the library UI, the inbox with its keyboard
+shortcuts, the errors view, and the bulk-upload script.
