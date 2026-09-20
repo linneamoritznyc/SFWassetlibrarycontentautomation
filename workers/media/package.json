@@ -10,5 +10,13 @@
     "lint": "eslint src",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@sfw/ai": "workspace:*",
+    "@sfw/brand": "workspace:*",
+    "@sfw/db": "workspace:*",
+    "@sfw/queue": "workspace:*",
+    "@sfw/shared": "workspace:*",
+    "@sfw/storage": "workspace:*"
   }
 }

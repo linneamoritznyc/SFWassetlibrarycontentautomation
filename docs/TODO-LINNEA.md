@@ -203,3 +203,26 @@ CLAUDE.md, not the real posts, which are not in any document you sent.
 4. Re-run `pnpm db:seed`.
 
 **Mock in place:** reconstructed captions that carry the same concrete detail.
+
+---
+
+## 10. Check the captions are in Montserrat, not DejaVu
+
+**Why:** burned-in captions are meant to be Montserrat 600 (CLAUDE.md section
+5). It is not in the Debian archive, so the `workers/media` image downloads it
+from Google Fonts at build time. If that download fails the image still builds
+and falls back to DejaVu Sans Bold. The clips are legible either way, but off
+brand.
+
+**Steps**
+
+1. After the first deploy, cut one clip and look at it.
+2. If the caption is not Montserrat, open the Railway build log for
+   `worker-media` and search for "Montserrat unavailable at build time".
+3. If it is there, the simplest fix is to commit the font file: download
+   Montserrat from https://fonts.google.com/specimen/Montserrat, put
+   `Montserrat-SemiBold.ttf` in `packages/brand/fonts/`, and tell me. It is
+   Open Font Licensed, so it can live in the repository.
+
+**Mock in place:** the fallback chain, which produces legible captions in
+DejaVu Sans Bold.

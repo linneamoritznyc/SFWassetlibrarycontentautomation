@@ -4,6 +4,9 @@ import { db } from '@/lib/db';
 import { queryAssets } from '@/lib/assets';
 import { fail, route } from '@/lib/http';
 
+/** Reads the database on every call, so it is never prerendered. */
+export const dynamic = 'force-dynamic';
+
 type IncomingAsset = {
   assetId: string;
   type: string;

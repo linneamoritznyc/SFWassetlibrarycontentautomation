@@ -205,3 +205,53 @@ hour. `next/image` cannot cache that and would only proxy it.
 The packages are ESM under NodeNext and need the extension; Next uses bundler
 resolution and its webpack build fails with it. The two conventions sit either
 side of the workspace boundary.
+
+## Phase 3
+
+**2026-09-20 — Whisper does not do speaker diarization, so `speaker` comes back null.**
+Spec section 6 asks `transcribe` for "word timestamps, speaker diarization".
+Word timestamps it does; diarization it does not, and nothing in the OpenAI API
+does. Real diarization means pyannote, a Hugging Face token and a GPU-ish
+workload, which is a bigger dependency than this phase can justify. So every
+word carries `speaker: null`, and `find_clips` fills in the speaker from what
+is being said and who the transcript names. Proper diarization sits with the
+speaker-tracking crop in Phase 8, where the same face detection would feed it.
+
+**2026-09-20 — Captions are ASS, not SRT.**
+SRT cannot colour part of a line, and the spec wants the word being spoken
+picked out. The burner emits one ASS dialogue event per word, each showing the
+same one or two lines with a different word highlighted, which produces the
+word-by-word effect with no animation and nothing to go out of sync. The `.srt`
+the spec stores next to each clip is still written, for anything that wants
+plain captions.
+
+**2026-09-20 — Audio is split by time, not by size.**
+Whisper refuses anything over 25 MB. Splitting into ten-minute pieces of 64k
+mono keeps each one well under, and shifting the word timestamps back is then
+multiplication rather than bookkeeping.
+
+**2026-09-20 — Clips are cut from the original, never from the proxy.**
+The proxy is 720p. A 9:16 crop out of it would be soft on a phone. The cut uses
+`-ss` before `-i` so seeking a multi-gigabyte file is fast, and because the
+video is re-encoded anyway the cut still lands on the exact frame.
+
+**2026-09-20 — Only 9:16 is cut up front; the other ratios wait for Keep.**
+Fifteen candidates times four ratios is sixty encodes, and twelve of the
+candidates get thrown away. The preview is 9:16 because that is what most
+clips go out as; pressing Keep cuts the rest.
+
+**2026-09-20 — A candidate that snaps outside 20 to 60 seconds is dropped, not trimmed.**
+Trimming it back into range would cut mid-sentence, which is the exact thing
+the snapping exists to prevent. The model is asked for 12 to 15 candidates so
+losing one or two to this costs nothing.
+
+**2026-09-20 — `find_clips` clears only untouched candidates on a re-run.**
+A clip somebody kept, trimmed or archived is theirs. Re-running replaces the
+ones still sitting at `inbox` and never used.
+
+**2026-09-20 — Montserrat is downloaded at image build, with a fallback.**
+It is not in the Debian archive. The `workers/media` image fetches it from
+Google Fonts under the Open Font License; if that fails the build still
+succeeds and fontconfig falls back to DejaVu Sans Bold, which is legible but
+off brand. Logged in `docs/TODO-LINNEA.md` as something to check after the
+first deploy.

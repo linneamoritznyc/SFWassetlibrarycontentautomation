@@ -3,6 +3,9 @@ import { retry } from '@sfw/queue';
 import { db } from '@/lib/db';
 import { fail, route } from '@/lib/http';
 
+/** Reads the database on every call, so it is never prerendered. */
+export const dynamic = 'force-dynamic';
+
 /**
  * Put a dead job back on the queue with a fresh budget. Returns 409 when a
  * live job already holds the same dedupe key, because the retry has in effect

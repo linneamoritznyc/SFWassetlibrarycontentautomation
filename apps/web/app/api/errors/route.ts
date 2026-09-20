@@ -3,6 +3,9 @@ import { deadJobs, heartbeats } from '@sfw/queue';
 import { db } from '@/lib/db';
 import { route } from '@/lib/http';
 
+/** Reads the database on every call, so it is never prerendered. */
+export const dynamic = 'force-dynamic';
+
 /**
  * Dead jobs, and whether the workers are alive. The two belong on one screen:
  * a pile of queued work and no heartbeat means the worker is down, which is a

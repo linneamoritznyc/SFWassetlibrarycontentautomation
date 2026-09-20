@@ -3,6 +3,9 @@ import { NextResponse, type NextRequest } from 'next/server';
 import { bucketForType, keys, presignPut, safeFilename } from '@sfw/storage';
 import { fail, route } from '@/lib/http';
 
+/** Reads the database on every call, so it is never prerendered. */
+export const dynamic = 'force-dynamic';
+
 /**
  * Hands back presigned PUTs so the browser uploads straight to R2. A 4 GB
  * workshop video never passes through a serverless function, and no key ever

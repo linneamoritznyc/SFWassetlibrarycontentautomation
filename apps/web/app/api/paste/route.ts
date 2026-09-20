@@ -5,6 +5,9 @@ import { keys, putObject } from '@sfw/storage';
 import { db } from '@/lib/db';
 import { fail, route } from '@/lib/http';
 
+/** Reads the database on every call, so it is never prerendered. */
+export const dynamic = 'force-dynamic';
+
 /** A screenshot is small. Anything larger than this is not a paste. */
 const MAX_IMAGE_BYTES = 12 * 1024 * 1024;
 

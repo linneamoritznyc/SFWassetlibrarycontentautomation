@@ -2,6 +2,9 @@ import { NextResponse, type NextRequest } from 'next/server';
 import { db } from '@/lib/db';
 import { fail, route } from '@/lib/http';
 
+/** Reads the database on every call, so it is never prerendered. */
+export const dynamic = 'force-dynamic';
+
 /** The sidebar. Smart folders are saved filters, grouped into four sections. */
 export const GET = route(async () => {
   const { rows } = await db().query(

@@ -4,6 +4,9 @@ import { getAsset } from '@/lib/assets';
 import { db } from '@/lib/db';
 import { fail, route } from '@/lib/http';
 
+/** Reads the database on every call, so it is never prerendered. */
+export const dynamic = 'force-dynamic';
+
 type Params = { params: Promise<{ id: string }> };
 
 export const GET = route(async (_request: NextRequest, { params }: Params) => {

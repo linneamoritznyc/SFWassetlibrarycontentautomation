@@ -189,7 +189,26 @@ importers:
         specifier: ^4.6.5
         version: 4.6.5
 
-  workers/media: {}
+  workers/media:
+    dependencies:
+      '@sfw/ai':
+        specifier: workspace:*
+        version: link:../../packages/ai
+      '@sfw/brand':
+        specifier: workspace:*
+        version: link:../../packages/brand
+      '@sfw/db':
+        specifier: workspace:*
+        version: link:../../packages/db
+      '@sfw/queue':
+        specifier: workspace:*
+        version: link:../../packages/queue
+      '@sfw/shared':
+        specifier: workspace:*
+        version: link:../../packages/shared
+      '@sfw/storage':
+        specifier: workspace:*
+        version: link:../../packages/storage
 
   workers/render: {}
 

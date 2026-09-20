@@ -1,6 +1,7 @@
 import type { HandlerMap } from '@sfw/queue';
 import { embed } from './embed.js';
 import { extractDoc } from './extract_doc.js';
+import { findClips } from './find_clips.js';
 import { ingest } from './ingest.js';
 import { pasteIntake } from './paste_intake.js';
 import { webFetch } from './web_fetch.js';
@@ -10,6 +11,7 @@ export const handlers: HandlerMap = {
   ingest,
   embed,
   extract_doc: extractDoc,
+  find_clips: findClips,
   paste_intake: pasteIntake,
   web_fetch: webFetch,
 };

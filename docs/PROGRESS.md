@@ -7,7 +7,7 @@ What works, and how to check it. Updated at the end of every phase.
 | 0 | Repo and folders | done |
 | 1 | Database and queue | done |
 | 2 | Library (web) + ingest | done, except uploading the fixtures, which needs your keys |
-| 3 | Clipping machine | not started |
+| 3 | Clipping machine | done, except the contractor test, which needs a real video |
 | 4 | Knowledge, writing and review | not started |
 | 5 | Planner, cron, export, results | not started |
 | 6 | Self-improvement | not started |
@@ -204,3 +204,58 @@ WORKER_TYPES=ingest,embed,extract_doc,paste_intake,web_fetch \
 Uploading the actual fixtures, which needs R2 and Anthropic keys that only
 Linnea can create. Everything the upload path does is exercised by the tests
 except the two network calls out to R2 and Claude.
+
+---
+
+## Phase 3: Clipping machine
+
+**What works**
+
+- `workers/media` with FFmpeg: `proxy` (720p H.264 plus mono 16 kHz audio),
+  `transcribe` (Whisper with word timestamps, splitting audio over 25 MB into
+  ten-minute pieces and shifting the timestamps back), and `cut_clip`.
+- `find_clips` on the light worker: Claude reads the transcript and proposes 12
+  to 15 candidates against the expertise bar, the active reel rules and the
+  hooks that performed best. Its timings are then snapped to real word
+  boundaries and padded by 0.3 s, and anything that lands outside 20 to 60
+  seconds is dropped.
+- `cut_clip` cuts from the original in `sfw-raw`, centre crops to 9:16, 4:5,
+  1:1 or 16:9, burns captions in the brand style with the current word picked
+  out, and normalises loudness to -14 LUFS. It writes `captions.srt` alongside.
+- The triggers from spec section 5, end to end: ingest on a video queues proxy
+  and transcribe; transcribe queues find_clips when the video is over three
+  minutes; find_clips queues a 9:16 preview for each candidate; Keep queues the
+  other three ratios.
+- Clips view: source videos on the left, candidates on the right with the hook,
+  why, pillar, speaker and score, and Keep / Trim / Cut. Trim takes new
+  boundaries and re-cuts. The header shows what the week proposed, what was
+  kept, and the dollars per kept clip.
+
+**How to test**
+
+Without keys, the parts that can be tested in isolation are:
+
+```bash
+TEST_DATABASE_URL=postgres://postgres@127.0.0.1:5433/postgres pnpm test
+```
+
+80 tests. The 21 new ones cover the caption builder (two lines at most, every
+word in exactly one window, breaking at a pause, one highlight per event, ASS
+byte-order colours, brace escaping so a transcript cannot inject markup, and
+each word held until the next begins) and the clip snapping (edges moved onto
+real words, padding, never before zero, and dropping anything outside 20 to 60
+seconds).
+
+The FFmpeg pipeline itself was run end to end during the build against a
+generated test video: probe, proxy, audio extraction, captions and all four
+ratios cut at the exact requested duration with audio intact, and the burn-in
+verified by diffing a captioned frame against a plain one.
+
+With keys and a real video, follow "Running the contractor test on a real
+workshop video" in `docs/RUNBOOK.md`.
+
+**Known gap**
+
+Whisper does not do speaker diarization, so every word has `speaker: null` and
+the speaker on a clip is whatever Claude infers from the transcript. Real
+diarization goes with the speaker-tracking crop in Phase 8.
