@@ -351,3 +351,49 @@ A week of posts with video in it is too big to hold in a serverless response,
 and the bundle is worth keeping: it is the record of exactly what was handed
 over. A missing file becomes a `MISSING.txt` inside the bundle rather than
 losing the whole export.
+
+## Phase 6
+
+**2026-09-20 — The edit diff is word-level and order-insensitive.**
+"vermicompost" becoming "worm castings" is one change, not eleven characters,
+and moving a sentence is not an edit in any sense that matters. So it is a
+multiset difference over words rather than a character edit distance. A true
+Levenshtein over a caption is a lot of work to answer a question that "which
+words are gone" already answers.
+
+Underscores are kept when splitting words, because `@visionary_permaculture` is
+one token and splitting it would read as an edit on every post carrying the
+collab tag.
+
+**2026-09-20 — A candidate rule is tested by handing it to the critic.**
+The whole test set is run with the candidate added to the active rules, and the
+rule only goes live if nothing that used to pass now fails. A rule that makes
+the critic flag the Pratik post is a bad rule however sensible it reads. Rules
+that fail are still written to the table, inactive, so the "What it learned"
+screen can show what was proposed and rejected.
+
+**2026-09-20 — The eval is an eval of the critic.**
+The test cases are captions to be judged, so running them means asking the
+critic to judge them: a good caption must come back clean and well scored, a
+bad one must be caught. That is what makes the nightly rollback meaningful.
+Running with `--no-model` exercises the mechanical half for free, and honestly
+fails the three cases that need judgement rather than passing them.
+
+**2026-09-20 — A bad case caught for the wrong reason still counts as caught.**
+The post does not go out either way. The report says which check actually fired
+so a drift in the critic's reasoning is visible, but it is not a failure.
+
+**2026-09-20 — Weights move by a capped moving average, and only with three data points.**
+The cap is the spec's ±20% a week; the moving average is the midpoint between
+the current weight and the capped target, so a weight drifts rather than jumps.
+A format with fewer than three posts behind it is left alone, which is what
+makes the exploration slots worth having: an untried format is not penalised
+for being untried.
+
+**2026-09-20 — A rejected post's story goes back in the pool.**
+The angle may have been fine and the execution wrong. The story returns to
+`candidate` rather than dying with the post.
+
+**2026-09-20 — Rejections are stored as version rows.**
+Same table as edits, with `diff.rejected = true` and the reason, so
+`learn_weekly` reads corrections from one place instead of joining two.

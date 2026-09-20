@@ -4,9 +4,13 @@ import { embed } from './embed.js';
 import { exportBundle } from './export_bundle.js';
 import { extractDoc } from './extract_doc.js';
 import { findClips } from './find_clips.js';
+import { evalNightly } from './eval_nightly.js';
 import { gapCheck } from './gap_check.js';
 import { ingest } from './ingest.js';
+import { learnWeekly } from './learn_weekly.js';
 import { linkAssetUsage } from './link_asset_usage.js';
+import { logEdit } from './log_edit.js';
+import { logRejection } from './log_rejection.js';
 import { pasteIntake } from './paste_intake.js';
 import { planWeek } from './plan_week.js';
 import { proposeStory } from './propose_story.js';
@@ -42,6 +46,11 @@ export const handlers: HandlerMap = {
   plan_week: planWeek,
   export_bundle: exportBundle,
   link_asset_usage: linkAssetUsage,
+  // Learning
+  log_edit: logEdit,
+  log_rejection: logRejection,
+  learn_weekly: learnWeekly,
+  eval_nightly: evalNightly,
   // Results and notices
   results_pull: resultsPull,
   review_ready_notify: reviewReadyNotify,

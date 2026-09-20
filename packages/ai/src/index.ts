@@ -4,3 +4,4 @@ export * from './prompts.js';
 export * from './claude.js';
 export * from './embed.js';
 export * from './whisper.js';
+export * from './evaluate.js';

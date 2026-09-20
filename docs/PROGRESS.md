@@ -10,7 +10,7 @@ What works, and how to check it. Updated at the end of every phase.
 | 3 | Clipping machine | done, except the contractor test, which needs a real video |
 | 4 | Knowledge, writing and review | done, except a live end-to-end run, which needs keys |
 | 5 | Planner, cron, export, results | done, except a live dry-run Monday, which needs keys |
-| 6 | Self-improvement | not started |
+| 6 | Self-improvement | done |
 | 7 | Reels and Canva | not started |
 | 8 | Scout, then polish | not started |
 
@@ -379,3 +379,58 @@ node workers/cron/dist/index.js review_ready_notify
 
 Then `/week` has the proposed week, each post critiqued, and an "Export
 approved" button that writes the ZIP to `sfw-media` under `docs/exports/`.
+
+---
+
+## Phase 6: Self-improvement
+
+**What works**
+
+- `log_edit` measures what a human changed: a word-level diff that ignores
+  punctuation, case and sentence order, plus the sentences dropped and added
+  and the hashtags changed. The ratio is what the autonomy ladder reads.
+- `log_rejection` stores the reason with enough of the post to see the pattern
+  later, and puts the story back in the pool, since the angle may have been
+  fine and the execution wrong.
+- `learn_weekly` does six things in order: read four weeks of edits and
+  rejections, propose rules that at least three separate posts argue for, test
+  each candidate by handing it to the critic and re-running the whole test set,
+  reweight the planner from saves and shares per impression with the spec's
+  ±20% cap, promote barely-edited top-quartile posts to examples, and flag post
+  types approved without edits nine times in ten. Then it writes one sentence a
+  person can read.
+- `eval_nightly` runs the test set, records the run, and rolls the active
+  prompt back to its previous version if the pass rate dropped by more than ten
+  points, emailing what failed.
+- `scripts/eval` runs the same thing locally, with `--no-model` for the free
+  half and `--activate` to promote a version that passed.
+- "What it learned": rules in force with their evidence and origin, rules that
+  were proposed and discarded for making the test set worse, the planner
+  weights with how many data points are behind each, and the eval history with
+  the failures named.
+
+**How to test**
+
+```bash
+TEST_DATABASE_URL=postgres://postgres@127.0.0.1:5433/postgres pnpm test
+```
+
+151 tests. The 18 new ones cover the diff (zero when nothing changed, small for
+a tweak, large for a rewrite, unchanged by reordering, handles for
+`@visionary_permaculture` kept whole, empty drafts without dividing by zero)
+and the evaluator running against the real seeded test set.
+
+The eval CLI was run against a live database:
+
+```
+8 of 11 (73%)
+```
+
+with the model off, failing exactly the three cases that need judgement, which
+is the honest answer rather than a pass.
+
+**How to use it**
+
+Changing a prompt is: edit `packages/prompts/src/`, bump the version, seed,
+run the eval, activate. A new version is seeded inactive, so a prompt change
+cannot reach production just by being deployed.

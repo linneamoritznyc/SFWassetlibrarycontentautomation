@@ -21,6 +21,7 @@
   "dependencies": {
     "@anthropic-ai/sdk": "^0.127.0",
     "@sfw/db": "workspace:*",
+    "@sfw/shared": "workspace:*",
     "openai": "^7.20.0",
     "zod": "^4.6.5"
   }

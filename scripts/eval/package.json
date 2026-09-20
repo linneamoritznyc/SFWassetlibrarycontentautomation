@@ -8,5 +8,9 @@
     "lint": "eslint src",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@sfw/ai": "workspace:*",
+    "@sfw/db": "workspace:*"
   }
 }
