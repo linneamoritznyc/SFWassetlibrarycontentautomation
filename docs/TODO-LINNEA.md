@@ -269,3 +269,26 @@ the two templates over.
 
 **Mock in place:** none. The templates work; this is a legal question, not a
 technical one.
+
+---
+
+## 13. Check the scout's feed list
+
+**Why:** the fourteen feeds are seeded from known soil, policy, partner and
+regenerative-agriculture sources, but the sandbox this was built in could not
+reach the open internet, so none of the URLs was confirmed to still work.
+
+**Steps**
+
+1. After the first `scout_fetch` run, open `/scout` and scroll to the Feeds
+   list at the bottom.
+2. Any feed showing zero items after a couple of days is a dead URL. Untick it
+   in Settings, which stops it being fetched.
+3. To replace one, find the site's RSS link (usually `/feed` or `/rss`) and add
+   it to `packages/shared/src/feeds.ts`, then `pnpm db:seed`.
+
+Worth adding if you have them: the journals you already follow, and any
+newsletter with an RSS mirror.
+
+**Mock in place:** a failing feed is logged and skipped, so the other thirteen
+still run.

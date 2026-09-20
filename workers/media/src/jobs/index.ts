@@ -1,6 +1,7 @@
 import type { HandlerMap } from '@sfw/queue';
 import { buildPost } from './build_post.js';
 import { cutClip } from './cut_clip.js';
+import { editClip } from './edit_clip.js';
 import { proxy } from './proxy.js';
 import { transcribe } from './transcribe.js';
 
@@ -10,6 +11,7 @@ export const handlers: HandlerMap = {
   transcribe,
   cut_clip: cutClip,
   build_post: buildPost,
+  edit_clip: editClip,
 };
 
 export const AVAILABLE_TYPES = Object.keys(handlers);

@@ -444,3 +444,63 @@ verifier never leaves the server, and the state cookie is httpOnly, scoped to
 The callback sets `canva_enabled`. Going through an OAuth flow is a clear
 enough statement of intent; making someone then find a toggle would be
 pointless. Autofill stays behind its own flag until Canva approves that scope.
+
+## Phase 8
+
+**2026-09-20 — A feed that fails is reported, not thrown.**
+One dead URL out of fourteen should not stop the other thirteen. `scout_fetch`
+collects the failures and logs them together, and the Settings view shows a
+feed with no items so a dead URL is visible rather than silent.
+
+**2026-09-20 — The feed list could not be verified from the build sandbox.**
+Every outbound request to a feed was refused by the sandbox proxy, so the URLs
+in `packages/shared/src/feeds.ts` are plausible rather than confirmed. The
+parser is tested against fixtures of the four shapes real feeds come in (RSS
+2.0, Atom with the link in an attribute, RDF, and a single non-array item),
+which is the part worth testing anyway. Checking the feeds is in
+`docs/TODO-LINNEA.md`.
+
+**2026-09-20 — `scout_rank` works in batches and re-queues itself.**
+Forty items a run. A hundred items in one job is a job that runs for ten
+minutes and loses everything if it dies at minute nine.
+
+**2026-09-20 — OpenCV is pinned below 5.**
+OpenCV 5 dropped the bundled Haar cascades, and its DNN replacement needs a
+model file fetched at runtime, which is a network dependency inside a container
+that should not need one.
+
+**2026-09-20 — The speaker crop drifts rather than chases.**
+Three passes over the detections: carry the last known position through frames
+with no face, average over a window, then limit the speed to a quarter of the
+frame a second with a deadzone. A crop that snaps to every detection is
+unwatchable and worse than the centre crop it replaced. Half of workshop
+footage is someone's hands in compost, so holding position through a gap
+matters more than reacting quickly.
+
+**2026-09-20 — The crop expression steps rather than interpolates.**
+An ffmpeg expression with interpolation between a dozen keypoints is
+unreadable, and a step every half second under a deadzone is not visible.
+Points where nothing changed are dropped, so a static shot compiles to a
+constant.
+
+**2026-09-20 — Trim, split and reorder are one list of segments.**
+They are three verbs for the same operation. The editor offers three buttons
+and `edit_clip` implements one thing, which is also why a round of changes is
+one re-render rather than four.
+
+**2026-09-20 — Prompts are read-only in Settings.**
+Editing one in a text box would let a change reach production without passing
+the test set, which is the one rule the self-improvement loop rests on. The
+screen shows which version is live; changing it goes through the eval.
+
+**2026-09-20 — The worker health endpoint checks the database, not the process.**
+"The process is running" is not the question worth asking: a worker that cannot
+reach Postgres is up and useless. It answers 200 only when a query succeeds,
+and it only listens when `PORT` is set, because a worker otherwise needs no
+socket.
+
+**2026-09-20 — There are no down migrations.**
+An automatic reverse of a destructive change is a way to lose data twice. To
+undo a migration, write a new one that undoes it, so the history stays
+forwards-only and readable. Supabase's point-in-time recovery is the right tool
+when data is actually lost.

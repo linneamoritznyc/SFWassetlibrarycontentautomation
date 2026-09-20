@@ -66,7 +66,102 @@ FFmpeg has to be on the PATH for `worker-media`, or set `FFMPEG_PATH` and
 
 ## Deploy
 
-Phase 8. Not written yet.
+Five services. The web app on Vercel, three workers and the cron on Railway.
+All of them read the same `DATABASE_URL` and the same R2 and API keys.
+
+### Vercel, for apps/web
+
+1. https://vercel.com/new, import the repository.
+2. **Root Directory**: `apps/web`. Vercel reads `apps/web/vercel.json`, which
+   builds from the monorepo root so the workspace packages come along.
+3. Environment variables, in **Settings, Environment Variables**, for Production
+   and Preview both:
+   `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `APP_ALLOWLIST`,
+   `DATABASE_URL`, `NEXT_PUBLIC_APP_URL`, the four `R2_*`, `ANTHROPIC_API_KEY`,
+   `OPENAI_API_KEY`, `TOKEN_ENC_KEY`, `INBOUND_EMAIL_SECRET`, the three
+   `CANVA_*`.
+4. Deploy. Then set `NEXT_PUBLIC_APP_URL` and `CANVA_REDIRECT_URI` to the real
+   domain and redeploy, because magic links and the Canva callback both come
+   back to whatever those say.
+5. Add the Vercel domain to both R2 buckets' CORS policy (TODO-LINNEA item 2).
+
+### Railway, for the workers
+
+One service per worker, all from the same repository.
+
+| Service | Dockerfile | `WORKER_TYPES` |
+| --- | --- | --- |
+| worker-light | `workers/light/Dockerfile` | leave unset: it claims everything it can do |
+| worker-media | `workers/media/Dockerfile` | `proxy,transcribe,cut_clip,build_post,edit_clip` |
+| worker-render | `workers/render/Dockerfile` | `render_reel` |
+| cron | `workers/cron/Dockerfile` | not applicable |
+
+1. https://railway.app, New Project, Deploy from GitHub repo.
+2. For each service: **Settings, Build**, set the Dockerfile path from the
+   table. Each folder also has a `railway.json` with the start command, the
+   health check and the restart policy.
+3. **Variables**, shared across all four: `DATABASE_URL`, the four `R2_*`,
+   `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, `NOTIFY_EMAIL`, `RESEND_API_KEY`,
+   `NEXT_PUBLIC_APP_URL`. worker-light also wants `TOKEN_ENC_KEY` and the
+   `CANVA_*` ones; cron wants `CRON_TIMEZONE=Europe/Berlin`.
+4. Sizes: worker-media needs **4 GB** (spec section 2) and worker-render at
+   least 4 GB, because Chromium and ffmpeg are both memory hungry. worker-light
+   and cron are happy at 512 MB.
+5. Set `PORT` on the three workers so Railway's health check has something to
+   poll. The endpoint answers 200 only when the database is reachable, so a
+   worker that is up but cut off is reported as unhealthy rather than fine.
+
+### Is it working
+
+- `/errors` in the app shows a heartbeat per worker. A red dot means nothing
+  has been heard for five minutes.
+- `/api/health` on the web app.
+- `curl https://<worker>.up.railway.app/` returns the worker's name and the
+  job types it claims.
+
+## Rollback
+
+**The web app.** Vercel keeps every deployment. Open the one that worked,
+**Promote to Production**. It is instant and changes no data.
+
+**A worker.** Railway keeps the previous image. Open the service, **Deployments**,
+find the last good one, **Redeploy**. Jobs in flight fail and are retried, which
+is what the backoff is for.
+
+**A prompt.** Nothing needs deploying. `eval_nightly` rolls back automatically
+on a regression of more than ten points. By hand:
+
+```bash
+node scripts/eval/dist/index.js --prompt write            # see where it stands
+node scripts/eval/dist/index.js --prompt write --activate 2
+```
+
+**A migration.** There is no down migration, on purpose: an automatic reverse
+of a destructive change is a way to lose data twice. To undo one, write a new
+migration that undoes it and apply that, so the history stays forwards-only and
+readable. Supabase also has point-in-time recovery on the Pro plan, which is
+the right tool if data is actually lost.
+
+**Everything at once.** The database is the system. The services are
+disposable: redeploy them from any commit and they pick up where they left off,
+because all the state is in Postgres and R2.
+
+## Adding a workshop
+
+A workshop is a tag, a smart folder and a batch of material.
+
+1. Add it to `WORKSHOPS` in `packages/shared/src/folders.ts` and to the
+   `workshop` facet in `packages/shared/src/tags.ts`.
+2. `pnpm db:seed`. The tag and the folder appear; nothing else changes.
+3. Upload the material through Library, Upload, with the workshop name in the
+   batch form. It is copied onto every asset in the batch.
+4. For the footage drive, use `scripts/bulk-upload` instead: rclone it into
+   `sfw-raw`, then run the register script with `--workshop "<name>"`.
+5. Anything over three minutes gets transcribed and clipped on its own.
+
+If the workshop has a course page, add it to `SOURCE_PAGES` in
+`packages/shared/src/sources.ts` too. It is then re-read weekly, and its dates
+and prices become facts the writer can cite.
 
 ## Rollback
 

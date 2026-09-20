@@ -1,4 +1,5 @@
 import type { Pool } from '@sfw/db';
+import { startHealthServer } from './health.js';
 import { startHeartbeat } from './heartbeat.js';
 import { claim, complete, enqueue, fail } from './queue.js';
 import type { HandlerMap, Job } from './types.js';
@@ -44,6 +45,7 @@ export function runWorker(options: WorkerOptions): { stop: () => Promise<void> }
   let stopping = false;
 
   const stopHeartbeat = startHeartbeat(pool, name, types);
+  const health = startHealthServer({ pool, name, types });
 
   async function runOne(job: Job): Promise<void> {
     running += 1;
@@ -98,6 +100,7 @@ export function runWorker(options: WorkerOptions): { stop: () => Promise<void> }
   async function stop(): Promise<void> {
     stopping = true;
     stopHeartbeat();
+    health?.close();
     await loop;
     while (running > 0) await sleep(100);
   }

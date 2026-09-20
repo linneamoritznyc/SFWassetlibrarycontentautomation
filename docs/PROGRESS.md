@@ -12,7 +12,7 @@ What works, and how to check it. Updated at the end of every phase.
 | 5 | Planner, cron, export, results | done, except a live dry-run Monday, which needs keys |
 | 6 | Self-improvement | done |
 | 7 | Reels and Canva | done, except a live Canva round trip, which needs the integration |
-| 8 | Scout, then polish | not started |
+| 8 | Scout, then polish | done, except deploying, which needs your accounts |
 
 Paste intake (`docs/paste-intake.md`) is threaded through Phase 2 (capture and
 the vision read) and Phase 4 (story and draft spin-up). No Drive, Google Chat or
@@ -486,3 +486,188 @@ into the library as the asset the post goes out with.
 
 `TOKEN_ENC_KEY` has to be generated before Canva can connect, and the Remotion
 licence is worth checking. Both are in `docs/TODO-LINNEA.md`, items 11 and 12.
+
+---
+
+## Phase 8: Scout, then polish
+
+**What works**
+
+- `scout_fetch` reads fourteen seeded feeds across soil research, policy in the
+  EU, US and India, the partners, the permaculture network and the regenerative
+  agriculture press. A feed that fails is reported and skipped rather than
+  taking the run down with it.
+- `scout_rank` summarises each item with Haiku, scores its relevance, links it
+  to the nearest facts and assets by meaning, and turns anything at 0.7 or
+  above into a story candidate. It works in batches of forty and re-queues
+  itself.
+- Scout view: cards sorted by relevance with what the Foundation already knows
+  that touches them and whether the library has anything to carry them. Make a
+  story, or dismiss.
+- Speaker-tracking crop in `cut_clip`, behind its flag: OpenCV finds the
+  largest face twice a second, and the track is filled, averaged and
+  speed-limited before it becomes an ffmpeg crop expression. It drifts rather
+  than chases.
+- The light editor: trim, split and reorder as one list of segments, caption
+  fixes applied to the words before they are burned in, crop focus, and a music
+  bed mixed under the speech. One save, one re-render.
+- Settings: the cadence, who answers what with editable emails, the feeds with
+  on/off switches, the live prompt versions read-only, a thirty-day cost table
+  by prompt and model, the Canva connect button, the Later CSV import, and
+  worker heartbeats.
+- Deploy: `vercel.json` for the web app, a `railway.json` per worker, and a
+  health endpoint on each worker that answers 200 only when the database is
+  actually reachable.
+
+**How to test**
+
+```bash
+TEST_DATABASE_URL=postgres://postgres@127.0.0.1:5433/postgres pnpm test
+```
+
+193 tests. The 30 new ones cover the RSS parser against fixtures of all four
+shapes real feeds come in, the speaker-track smoothing (holding position
+through frames with no face, never cropping outside the frame, drifting rather
+than chasing, ignoring jitter), the crop expression, and the caption
+corrections.
+
+The moving crop and the multi-segment edit were both run through real ffmpeg
+during the build: two segments in reverse order concatenated to exactly 4.00s
+with a music bed mixed under, at the right dimensions and codecs.
+
+**Known gap**
+
+The sandbox this was built in could not reach the open internet, so the feed
+URLs are plausible rather than confirmed. See `docs/TODO-LINNEA.md` item 13.
+
+---
+
+# Everything, and how to check it
+
+The final checklist. Each row is something the system does and the quickest way
+to see it doing it.
+
+## Before any of it works
+
+`docs/TODO-LINNEA.md` has thirteen things only you can do: the Supabase
+project, the two R2 buckets, the API keys, the Canva integration, the token
+encryption key, the team's email addresses. Until the first four are done,
+`pnpm dev` shows a page telling you so.
+
+```bash
+cp .env.example .env.local     # fill it in
+pnpm install && pnpm db:setup  # nine migrations, then the seed
+pnpm dev                       # web on :3000
+```
+
+Workers, in other terminals:
+
+```bash
+node workers/light/dist/index.js     # claims everything it can do
+WORKER_TYPES=proxy,transcribe,cut_clip,build_post,edit_clip \
+  node workers/media/dist/index.js
+WORKER_TYPES=render_reel node workers/render/dist/index.js
+node workers/cron/dist/index.js      # or one-shot: ... dist/index.js plan_week
+```
+
+## Library
+
+| It does | Check it by |
+| --- | --- |
+| Signs you in by magic link, allowlist only | Sign in. Try an address not in `APP_ALLOWLIST`: it is turned away. |
+| Batch upload with provenance entered once | Library, Upload. Fill in workshop, creator, Drive link. Drop 30 photos. |
+| Thumbnails and EXIF in the browser | They appear immediately, with the date and camera on the detail panel. |
+| Uploads straight to R2 | Network tab: the PUTs go to `r2.cloudflarestorage.com`, not to the app. |
+| Describes and tags each asset | Within a minute each has a description and suggested tags. |
+| Meaning search | Toggle to Meaning, search "steaming compost at sunrise". |
+| Find similar | Open an asset, Find similar. |
+| Smart folders as saved filters | Click a workshop in the sidebar. Filter, then Save current filters as folder. |
+| Videos in their own row | Any folder with a video in it. |
+| Drive link and credit line | Detail panel, Open original in Drive, Copy credit line. |
+| Inbox on the keyboard | `/inbox`: arrows, 1 to 5, A, C, X, H. No mouse. |
+| Dead jobs with retry | `/errors`. |
+
+## Paste
+
+| It does | Check it by |
+| --- | --- |
+| Reads a pasted screenshot | Cmd-V a screenshot of a chat message on `/library`. |
+| Pulls out sender, message and links | The reference asset's description, within a minute. |
+| Fetches each link and extracts facts | `/errors` shows `web_fetch` then `propose_story`. |
+| Refuses to use the screenshot as a visual | The asset is `reference` and its notes say so. |
+| Sends outside news to LinkedIn | The proposed story's platform. |
+
+## Clips
+
+| It does | Check it by |
+| --- | --- |
+| Proxy and transcript on upload | Upload a video. It gets a 720p proxy and a transcript. |
+| Finds clips over three minutes | `find_clips` runs on its own; or press Find clips. |
+| 12 to 15 candidates on word boundaries | `/clips`. Each has a hook, why, pillar, speaker and score. |
+| Cuts at four ratios with captions | Keep one. The other three ratios are cut. |
+| Loudness at -14 LUFS | `ffmpeg -i clip.mp4 -af ebur128 -f null -` |
+| Cost per kept clip | The header on `/clips`. |
+| Trim, split, reorder, caption fixes, music | Edit on any clip. |
+| Follows the speaker | Turn on `speaker_tracking_crop` in the `flags` setting. |
+
+## Writing and review
+
+| It does | Check it by |
+| --- | --- |
+| Builds a briefing from facts, images and rules | Any post's write job. |
+| Asks a person what it does not know | `/questions`. |
+| Turns an answer into facts and rewrites | Answer one. The post is rewritten using it. |
+| Refuses a post with no material | Try approving one. The database refuses it. |
+| Critiques with the images attached | The critic score and must-fix list on `/week`. |
+| Catches em dashes, acronyms and AI cadence | They cap the score at 55. |
+| Shows posts in real phone frames | `/week`: the caption truncates where Instagram truncates. |
+| Approve, edit inline, reject with a reason | The buttons on each post. |
+| Answers by email reply | Reply to a question email. |
+
+## The week
+
+| It does | Check it by |
+| --- | --- |
+| Plans a week from the cadence | `node workers/cron/dist/index.js plan_week` |
+| Holds a fifth of slots for experiments | Posts marked experiment on `/week`. |
+| Turns a slot with no material into an ask | `/questions`. |
+| Writes and critiques everything | `write_batch`, then `/week`. |
+| Monday email with link, count, questions, cost | `review_ready_notify` |
+| Exports a ZIP for Later | Export approved on `/week`. Look in `sfw-media/docs/exports/`. |
+| Pulls results, or takes a CSV | `results_pull`, or Settings, Import results. |
+
+## Learning
+
+| It does | Check it by |
+| --- | --- |
+| Measures what you changed | Edit a post. The diff lands on the version row. |
+| Proposes rules from three or more edits | `learn_weekly` |
+| Tests a rule before switching it on | `/learned` shows rules proposed and discarded. |
+| Reweights the planner, capped at 20% | `/learned`, the weights table. |
+| Promotes barely-edited top posts to examples | They appear in the next briefing. |
+| Flags what could go to lighter review | `/learned`, top of the page. |
+| Rolls a prompt back on a regression | `eval_nightly`, or `scripts/eval` locally. |
+
+## Reels and Canva
+
+| It does | Check it by |
+| --- | --- |
+| Renders Field Notes and Workshop moment | Approve a reel post. |
+| Works out its own length | The MP4 is intro plus clips plus end card, exactly. |
+| Sends a post into Canva | Settings, Connect Canva, then approve a photo post. |
+| Brings the finished design back | `canva_pull`. The post points at the new asset. |
+
+## Scout
+
+| It does | Check it by |
+| --- | --- |
+| Reads the feeds daily | `node workers/cron/dist/index.js scout_fetch` |
+| Ranks and links to what we know | `/scout` |
+| Promotes anything at 0.7 or above | It becomes a story candidate. |
+| Shows a dead feed | Feeds list at the bottom of `/scout`. |
+
+## What it costs
+
+Settings has a thirty-day table by prompt and model. The spec estimated $140 to
+$190 a month all in, of which $20 to $40 is Claude. The rest is storage,
+Supabase, Railway and Whisper, billed by those providers.

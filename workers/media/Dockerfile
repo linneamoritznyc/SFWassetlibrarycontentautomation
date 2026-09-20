@@ -19,6 +19,11 @@ RUN apt-get update \
     ffmpeg python3 python3-pip curl ca-certificates fontconfig fonts-dejavu-core \
  && rm -rf /var/lib/apt/lists/*
 
+# Face detection for the speaker-tracking crop. Pinned below 5 because OpenCV 5
+# dropped the bundled Haar cascades, and the DNN replacement needs a model file
+# fetched at runtime. Headless: there is no display in a container.
+RUN pip3 install --no-cache-dir --break-system-packages 'opencv-python-headless<5'
+
 # Montserrat 600 is the brand caption face (CLAUDE.md section 5). It is not in
 # the Debian archive, so it comes from Google Fonts, which publishes it under
 # the Open Font License. If the download fails the image still builds and

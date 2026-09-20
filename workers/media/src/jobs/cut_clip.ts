@@ -6,6 +6,7 @@ import { getObject, keys, putObject, type Bucket } from '@sfw/storage';
 import { db } from '../db.js';
 import { buildAss, buildSrt, shiftWords, wordsBetween, type Word } from '../captions.js';
 import { cutClip as runCut, probe } from '../ffmpeg.js';
+import { cropExpression, smooth, trackSpeaker } from '../speaker.js';
 import { withTempDir } from '../temp.js';
 
 /**
@@ -79,6 +80,34 @@ export const cutClip = handler<{ clip_id: string; ratio?: Ratio }>(async ({ job 
       }
     }
 
+    // Speaker tracking, when it is switched on. A centre crop loses whoever is
+    // standing off to one side, which in workshop footage is most of the time.
+    let cropX: string | null = null;
+    const flags = (
+      await pool.query<{ value: { speaker_tracking_crop?: boolean } }>(
+        `select value from settings where key = 'flags'`,
+      )
+    ).rows[0]?.value;
+
+    // Only worth it when the crop is narrower than the source. A 16:9 cut out
+    // of 16:9 footage has nowhere to pan to.
+    const narrower = size.width / size.height < (info.width ?? 16) / (info.height ?? 9);
+
+    if (flags?.speaker_tracking_crop && narrower && info.width) {
+      const track = await trackSpeaker(input, {
+        startS: clip.clip_start_s,
+        durationS: duration,
+      });
+
+      if (track && track.samples.some((s) => s.x !== null)) {
+        // The crop width in the scaled frame, expressed on the source frame so
+        // the track and the crop agree about coordinates.
+        const scaled = (info.height ?? size.height) * (size.width / size.height);
+        cropX = cropExpression(smooth(track, scaled), clip.clip_start_s);
+        console.log(`[cut_clip] ${clipId} ${ratio}: following the speaker`);
+      }
+    }
+
     const output = join(dir, `${ratio}.mp4`);
     await runCut({
       input,
@@ -90,6 +119,8 @@ export const cutClip = handler<{ clip_id: string; ratio?: Ratio }>(async ({ job 
       assPath,
       hasAudio: info.hasAudio,
       loudness: LOUDNESS,
+      cropX,
+      sourceWidth: info.width,
     });
 
     await putObject('sfw-media', keys.clip(clipId, ratio), await readFile(output), 'video/mp4');

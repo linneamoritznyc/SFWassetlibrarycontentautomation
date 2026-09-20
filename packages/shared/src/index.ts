@@ -7,3 +7,4 @@ export * from './checks.js';
 export * from './test-cases.js';
 export * from './sources.js';
 export * from './diff.js';
+export * from './feeds.js';

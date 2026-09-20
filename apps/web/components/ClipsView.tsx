@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
+import { ClipEditor } from './ClipEditor';
 
 type Clip = {
   id: string;
@@ -42,6 +43,7 @@ export function ClipsView() {
   const [week, setWeek] = useState<Week | null>(null);
   const [note, setNote] = useState('');
   const [loading, setLoading] = useState(true);
+  const [editing, setEditing] = useState<string | null>(null);
 
   useEffect(() => {
     void fetch('/api/clips', { method: 'POST' })
@@ -82,6 +84,10 @@ export function ClipsView() {
     if (videoId) void loadClips(videoId);
   }
 
+  function openEditor(clip: Clip) {
+    setEditing((current) => (current === clip.id ? null : clip.id));
+  }
+
   async function trim(clip: Clip) {
     const start = Number(window.prompt('Start, in seconds', clip.clip_start_s.toFixed(1)));
     if (Number.isNaN(start)) return;
@@ -107,6 +113,19 @@ export function ClipsView() {
     setNote(body.error ?? body.note ?? `Queued ${body.queued}. This takes a few minutes.`);
     setTimeout(() => setNote(''), 5000);
   }
+
+  // The same handlers for both sections; only the title and the list differ.
+  const sectionProps = {
+    onAct: act,
+    onTrim: trim,
+    editing,
+    onEdit: openEditor,
+    onSaved: (message: string) => {
+      setNote(message);
+      setTimeout(() => setNote(''), 4000);
+      if (videoId) void loadClips(videoId);
+    },
+  };
 
   const pending = clips.filter((c) => c.status === 'inbox');
   const kept = clips.filter((c) => c.status === 'cleared' || c.status === 'used');
@@ -180,13 +199,8 @@ export function ClipsView() {
           </p>
         )}
 
-        <Section
-          title={`To decide (${pending.length})`}
-          clips={pending}
-          onAct={act}
-          onTrim={trim}
-        />
-        <Section title={`Kept (${kept.length})`} clips={kept} onAct={act} onTrim={trim} />
+        <Section title={`To decide (${pending.length})`} clips={pending} {...sectionProps} />
+        <Section title={`Kept (${kept.length})`} clips={kept} {...sectionProps} />
       </main>
     </div>
   );
@@ -197,11 +211,17 @@ function Section({
   clips,
   onAct,
   onTrim,
+  editing,
+  onEdit,
+  onSaved,
 }: {
   title: string;
   clips: Clip[];
   onAct: (clip: Clip, action: 'keep' | 'cut') => void;
   onTrim: (clip: Clip) => void;
+  editing: string | null;
+  onEdit: (clip: Clip) => void;
+  onSaved: (note: string) => void;
 }) {
   if (clips.length === 0) return null;
 
@@ -254,6 +274,14 @@ function Section({
                   Cut
                 </button>
               </div>
+            )}
+
+            <button onClick={() => onEdit(clip)} className="mt-2 text-xs text-green-mid underline">
+              {editing === clip.id ? 'Hide editor' : 'Edit'}
+            </button>
+
+            {editing === clip.id && (
+              <ClipEditor clip={clip} onClose={() => onEdit(clip)} onSaved={onSaved} />
             )}
           </article>
         ))}

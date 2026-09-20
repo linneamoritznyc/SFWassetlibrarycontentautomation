@@ -190,6 +190,13 @@ export type CutOptions = {
   hasAudio: boolean;
   /** Integrated loudness target, LUFS. */
   loudness?: { integrated: number; truePeak: number; range: number };
+  /**
+   * An ffmpeg expression for the crop's left edge, in the scaled frame's
+   * coordinates. Omit for a centre crop.
+   */
+  cropX?: string | null;
+  /** The frame the crop expression was computed against, so it can be scaled. */
+  sourceWidth?: number | null;
 };
 
 /**
@@ -208,11 +215,23 @@ export async function cutClip(options: CutOptions): Promise<void> {
   const { width, height } = options;
 
   const filters = [
-    // Cover the target frame, then take the centre of it.
+    // Cover the target frame, then take a slice of it.
     `scale=${width}:${height}:force_original_aspect_ratio=increase`,
-    `crop=${width}:${height}`,
-    'setsar=1',
   ];
+
+  if (options.cropX) {
+    // The track was measured on the original frame; the crop happens after
+    // the scale, so the expression is scaled with it. `iw` is the scaled
+    // width, and min/max keep it inside the frame whatever the track says.
+    const ratio = options.sourceWidth ? `*(iw/${options.sourceWidth})` : '';
+    filters.push(
+      `crop=${width}:${height}:x='max(0,min(iw-${width},(${options.cropX})${ratio}))':y=0`,
+    );
+  } else {
+    filters.push(`crop=${width}:${height}`);
+  }
+
+  filters.push('setsar=1');
 
   if (options.assPath) {
     // ffmpeg's filter syntax needs colons and backslashes escaped inside a

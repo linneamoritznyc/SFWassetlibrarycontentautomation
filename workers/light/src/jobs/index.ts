@@ -18,6 +18,8 @@ import { planWeek } from './plan_week.js';
 import { proposeStory } from './propose_story.js';
 import { questionsNudge } from './questions_nudge.js';
 import { resultsPull } from './results_pull.js';
+import { scoutFetch } from './scout_fetch.js';
+import { scoutRank } from './scout_rank.js';
 import { reviewReadyNotify } from './review_ready_notify.js';
 import { saveFact } from './save_fact.js';
 import { webFetch } from './web_fetch.js';
@@ -56,6 +58,9 @@ export const handlers: HandlerMap = {
   log_rejection: logRejection,
   learn_weekly: learnWeekly,
   eval_nightly: evalNightly,
+  // Scout
+  scout_fetch: scoutFetch,
+  scout_rank: scoutRank,
   // Results and notices
   results_pull: resultsPull,
   review_ready_notify: reviewReadyNotify,

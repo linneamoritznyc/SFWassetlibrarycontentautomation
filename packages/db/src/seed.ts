@@ -1,5 +1,6 @@
 import {
   CADENCE,
+  FEEDS,
   SOURCE_PAGES,
   FORMAT_WEIGHTS,
   PEOPLE,
@@ -35,6 +36,7 @@ export async function seed(pool: Pool): Promise<Record<string, number>> {
   counts.prompts = await seedPrompts(pool);
   counts.test_cases = await seedTestCases(pool);
   counts.sources = await seedSources(pool);
+  counts.feeds = await seedFeeds(pool);
 
   return counts;
 }
@@ -146,6 +148,21 @@ async function seedPrompts(pool: Pool): Promise<number> {
          and not exists (select 1 from prompts where name = $1 and active)`,
       [p.name, p.version],
     );
+  }
+  return n;
+}
+
+async function seedFeeds(pool: Pool): Promise<number> {
+  let n = 0;
+  for (const feed of FEEDS) {
+    // `active` is left alone on update: turning a dead feed off in Settings
+    // must survive a re-seed.
+    const res = await pool.query(
+      `insert into feeds (name, url, kind, active) values ($1, $2, $3, true)
+       on conflict (url) do update set name = excluded.name, kind = excluded.kind`,
+      [feed.name, feed.url, feed.kind],
+    );
+    n += res.rowCount ?? 0;
   }
   return n;
 }
