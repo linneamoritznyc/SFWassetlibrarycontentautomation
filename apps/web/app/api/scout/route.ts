@@ -10,7 +10,8 @@ export const GET = route(async (request: NextRequest) => {
 
   const { rows } = await db().query(
     `select n.id, n.url, n.title, n.published_at, n.summary, n.relevance, n.status,
-            f.name as feed,
+            n.language, n.original_title, n.original_summary,
+            f.name as feed, f.region,
             coalesce((
               select json_agg(fa.text order by fa.confidence desc)
               from facts fa where fa.id = any(n.linked_facts)
@@ -31,9 +32,10 @@ export const GET = route(async (request: NextRequest) => {
   );
 
   const feeds = await db().query(
-    `select f.id, f.name, f.url, f.kind, f.active,
+    `select f.id, f.name, f.url, f.kind, f.active, f.region,
+            f.last_ok_at, f.last_error, f.last_checked_at, f.consecutive_failures,
             (select count(*)::int from news_items n where n.feed_id = f.id) as items
-     from feeds f order by f.name`,
+     from feeds f order by f.region, f.name`,
   );
 
   return NextResponse.json({ items: rows, feeds: feeds.rows });

@@ -18,10 +18,12 @@ export const GET = route(async () => {
   const [settings, feeds, people, prompts, cost, byPrompt] = await Promise.all([
     pool.query(`select key, value, updated_at from settings order by key`),
     pool.query(
-      `select f.id, f.name, f.url, f.kind, f.active,
+      `select f.id, f.name, f.url, f.kind, f.active, f.region,
+              f.last_ok_at, f.last_error, f.last_checked_at, f.consecutive_failures,
               (select count(*)::int from news_items n where n.feed_id = f.id) as items,
               (select max(n.created_at) from news_items n where n.feed_id = f.id) as last_item
-       from feeds f order by f.name`,
+       from feeds f
+       order by f.consecutive_failures desc, f.region, f.name`,
     ),
     pool.query(
       `select id, name, role, org, email, topics,

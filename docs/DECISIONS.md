@@ -504,3 +504,45 @@ An automatic reverse of a destructive change is a way to lose data twice. To
 undo a migration, write a new one that undoes it, so the history stays
 forwards-only and readable. Supabase's point-in-time recovery is the right tool
 when data is actually lost.
+
+**2026-09-20 — The scout source list is global, and non-English feeds are welcome.**
+A source list that is all English-language North American press would keep
+handing the planner the same five stories, and the Foundation has graduates in
+over 100 countries. The list now reaches the UN bodies, the research networks
+and the regional programmes: FAO Global Soil Partnership, UNCCD, IPBES, CGIAR,
+WRI, the African Union, AGRA, Regeneration International, Embrapa, IICA, Soils
+For Life, APCNF, ICRISAT, the EU Soil Observatory, and the rest. Twenty-seven
+feeds across seven regions.
+
+**2026-09-20 — `scout_rank` summarises in English and keeps the source's own words.**
+Everything downstream reads `summary`: the planner, the writer, the critique.
+So it is always English, whatever the item was published in. For a non-English
+item the original title and the feed's own description are stored beside it and
+shown on the card, because the English summary is ours, not the source's, and a
+reader who does speak the language has to be able to check us.
+
+**2026-09-20 — Feed health is recorded on the feed row, not hoped about.**
+None of the feed URLs could be reached from the sandbox this was built in: its
+egress proxy refuses every host not on its allowlist. Rather than claim they
+work, `scout_fetch` records `last_ok_at`, `last_error`, `last_checked_at` and
+`consecutive_failures` on every feed, and Settings shows the failures at the
+top of the Feeds panel with the actual error. `pnpm feeds:check` tests all of
+them from a machine with a normal internet connection and prints a table.
+
+**2026-09-20 — A feed that answers 200 with nothing parseable has failed.**
+A redirect to a landing page, a cookie wall, or a feed that quietly moved are
+the most common ways a feed dies, and all three return 200. Treating them as a
+quiet day would mean a feed stops working and nobody ever hears about it.
+
+**2026-09-20 — A feed switches itself off after five failures in a row.**
+A URL that has been dead for a week will still be dead tomorrow. Switching it
+off stops the pointless request and puts it in front of a human in Settings,
+which is where someone decides what to replace it with. Coming back clears the
+count.
+
+**2026-09-20 — A new prompt version is activated by switching the old one off first.**
+`prompts_one_active_idx` allows exactly one active version per prompt name, so
+activating a new version while the old one is still active either violates the
+index or silently does nothing. The seed now does both updates on one
+connection in one transaction, old off then new on, so a crash in between
+cannot leave a prompt with no active version at all.

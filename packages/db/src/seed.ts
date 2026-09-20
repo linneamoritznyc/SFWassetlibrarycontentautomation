@@ -130,26 +130,75 @@ async function seedPlannerWeights(pool: Pool): Promise<number> {
 async function seedPrompts(pool: Pool): Promise<number> {
   let n = 0;
   for (const p of PROMPTS) {
-    const inserted = await pool.query(
-      `insert into prompts (name, version, body, active)
-       values ($1, $2, $3, false)
-       on conflict (name, version) do update set body = excluded.body
-       returning id`,
-      [p.name, p.version, p.body],
-    );
-    n += inserted.rowCount ?? 0;
-
-    // First time this prompt has been seeded at all: activate it, otherwise
-    // nothing could ever run. Later versions arrive inactive and wait for the
-    // eval to promote them.
-    await pool.query(
-      `update prompts set active = true
-       where name = $1 and version = $2
-         and not exists (select 1 from prompts where name = $1 and active)`,
-      [p.name, p.version],
-    );
+    n += await seedOnePrompt(pool, p);
   }
   return n;
+}
+
+/**
+ * Stores one prompt version and decides whether it goes live.
+ *
+ * A new version is activated only when nothing is active yet, or when this
+ * prompt has never been through the eval. The rule that a prompt change must
+ * pass the test set protects a *running* system; before the first eval there
+ * is nothing to protect, and leaving a brand new prompt dormant would only
+ * mean the feature silently does nothing.
+ *
+ * Exported for the tests, which need to run the rule against a prompt they
+ * made up rather than against the real list.
+ *
+ * @returns 1 if the version was new, 0 if it already existed.
+ */
+export async function seedOnePrompt(
+  pool: Pool,
+  p: { name: string; version: number; body: string },
+): Promise<number> {
+  const inserted = await pool.query(
+    `insert into prompts (name, version, body, active)
+     values ($1, $2, $3, false)
+     on conflict (name, version) do update set body = excluded.body
+     returning id, (xmax = 0) as is_new`,
+    [p.name, p.version, p.body],
+  );
+  const isNew = (inserted.rows[0] as { is_new: boolean } | undefined)?.is_new ? 1 : 0;
+
+  const state = await pool.query<{
+    has_active: boolean;
+    has_eval: boolean;
+    already: boolean;
+  }>(
+    `select
+       exists (select 1 from prompts where name = $1 and active) as has_active,
+       exists (select 1 from eval_runs where prompt_name = $1) as has_eval,
+       exists (select 1 from prompts where name = $1 and version = $2 and active) as already`,
+    [p.name, p.version],
+  );
+
+  const row = state.rows[0];
+  if (!row || row.already) return isNew;
+  if (row.has_active && row.has_eval) return isNew;
+
+  // `prompts_one_active_idx` allows exactly one active version per name, so
+  // the old version has to be switched off *before* the new one comes on, and
+  // both have to happen on one connection inside one transaction or a crash in
+  // between would leave the prompt with no active version at all.
+  const client = await pool.connect();
+  try {
+    await client.query('begin');
+    await client.query(`update prompts set active = false where name = $1 and active`, [p.name]);
+    await client.query(`update prompts set active = true where name = $1 and version = $2`, [
+      p.name,
+      p.version,
+    ]);
+    await client.query('commit');
+  } catch (err) {
+    await client.query('rollback');
+    throw err;
+  } finally {
+    client.release();
+  }
+
+  return isNew;
 }
 
 async function seedFeeds(pool: Pool): Promise<number> {
@@ -158,9 +207,10 @@ async function seedFeeds(pool: Pool): Promise<number> {
     // `active` is left alone on update: turning a dead feed off in Settings
     // must survive a re-seed.
     const res = await pool.query(
-      `insert into feeds (name, url, kind, active) values ($1, $2, $3, true)
-       on conflict (url) do update set name = excluded.name, kind = excluded.kind`,
-      [feed.name, feed.url, feed.kind],
+      `insert into feeds (name, url, kind, region, active) values ($1, $2, $3, $4, true)
+       on conflict (url) do update
+         set name = excluded.name, kind = excluded.kind, region = excluded.region`,
+      [feed.name, feed.url, feed.kind, feed.region],
     );
     n += res.rowCount ?? 0;
   }

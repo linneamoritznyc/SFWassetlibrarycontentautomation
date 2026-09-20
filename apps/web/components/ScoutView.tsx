@@ -11,12 +11,41 @@ type Item = {
   relevance: number | null;
   status: string;
   feed: string | null;
+  region: string | null;
+  language: string | null;
+  original_title: string | null;
+  original_summary: string | null;
   facts: string[];
   assets: { id: string; description: string | null }[];
   stories: number;
 };
 
-type Feed = { id: number; name: string; url: string; kind: string; active: boolean; items: number };
+type Feed = {
+  id: number;
+  name: string;
+  url: string;
+  kind: string;
+  active: boolean;
+  region: string | null;
+  items: number;
+  last_ok_at: string | null;
+  last_error: string | null;
+  last_checked_at: string | null;
+  consecutive_failures: number;
+};
+
+/**
+ * "pt-BR" on a card reads as a file format, not a language. Browsers already
+ * carry the full list, so ask them; fall back to the raw tag when they cannot
+ * name it rather than showing nothing.
+ */
+function languageName(tag: string): string {
+  try {
+    return new Intl.DisplayNames(['en'], { type: 'language' }).of(tag) ?? tag;
+  } catch {
+    return tag;
+  }
+}
 
 /**
  * What the scout found.
@@ -58,6 +87,8 @@ export function ScoutView() {
 
   const strong = items.filter((i) => (i.relevance ?? 0) >= 0.7 && i.status !== 'dismissed');
   const rest = items.filter((i) => (i.relevance ?? 0) < 0.7 && i.status !== 'dismissed');
+  const failing = feeds.filter((f) => f.consecutive_failures > 0);
+  const regions = [...new Set(feeds.map((f) => f.region ?? 'Unknown'))];
 
   return (
     <main className="mx-auto max-w-4xl p-6">
@@ -85,20 +116,40 @@ export function ScoutView() {
         <h2 className="mb-2 text-xs font-semibold uppercase tracking-wide text-green-mid">
           Feeds ({feeds.length})
         </h2>
-        <ul className="space-y-0.5 text-xs">
-          {feeds.map((feed) => (
-            <li key={feed.id} className="flex gap-2">
-              <span className={feed.active ? '' : 'text-green-mid line-through'}>{feed.name}</span>
-              <span className="text-green-mid">
-                {feed.items} item{feed.items === 1 ? '' : 's'}
-                {feed.kind !== 'rss' && ` · ${feed.kind}`}
-              </span>
-            </li>
-          ))}
-        </ul>
+
+        {failing.length > 0 && (
+          <p className="mb-2 text-xs font-medium text-green-deep">
+            {failing.length} feed{failing.length === 1 ? ' is' : 's are'} failing. Settings has the
+            errors.
+          </p>
+        )}
+
+        {regions.map((region) => (
+          <div key={region} className="mb-2">
+            <p className="text-xs font-medium">{region}</p>
+            <ul className="space-y-0.5 text-xs">
+              {feeds
+                .filter((f) => (f.region ?? 'Unknown') === region)
+                .map((feed) => (
+                  <li key={feed.id} className="flex gap-2">
+                    <span className={feed.active ? '' : 'text-green-mid line-through'}>
+                      {feed.name}
+                    </span>
+                    <span className="text-green-mid">
+                      {feed.items} item{feed.items === 1 ? '' : 's'}
+                      {feed.kind !== 'rss' && ` · ${feed.kind}`}
+                      {feed.consecutive_failures > 0 && ` · failing (${feed.consecutive_failures})`}
+                    </span>
+                  </li>
+                ))}
+            </ul>
+          </div>
+        ))}
+
         <p className="mt-2 text-xs text-green-mid">
           A feed with no items after a few days is probably a dead URL. They are listed in
-          <code> packages/shared/src/feeds.ts</code>.
+          <code> packages/shared/src/feeds.ts</code>, and <code>pnpm feeds:check</code> tests every
+          one of them from a machine with a normal internet connection.
         </p>
       </section>
     </main>
@@ -131,13 +182,35 @@ function Cards({
               </span>
             </div>
 
-            <p className="mt-1 text-xs text-green-mid">
-              {item.feed}
-              {item.published_at && ` · ${new Date(item.published_at).toLocaleDateString()}`}
-              {item.stories > 0 && ' · already a story candidate'}
+            <p className="mt-1 flex flex-wrap items-center gap-1 text-xs text-green-mid">
+              {item.region && (
+                <span className="rounded bg-green-deep/10 px-1.5 py-0.5 text-green-deep">
+                  {item.region}
+                </span>
+              )}
+              {item.original_title && item.language && (
+                <span className="rounded bg-green-deep/10 px-1.5 py-0.5 text-green-deep">
+                  {languageName(item.language)}
+                </span>
+              )}
+              <span>
+                {item.feed}
+                {item.published_at && ` · ${new Date(item.published_at).toLocaleDateString()}`}
+                {item.stories > 0 && ' · already a story candidate'}
+              </span>
             </p>
 
             {item.summary && <p className="mt-2 text-sm">{item.summary}</p>}
+
+            {/* Published in another language: the summary above is ours, in
+                English. These are the source's own words, kept so a reader who
+                does speak it can check us. */}
+            {item.original_title && (
+              <p className="mt-1 text-xs text-green-mid" lang={item.language ?? undefined}>
+                {item.original_title}
+                {item.original_summary && ` — ${item.original_summary}`}
+              </p>
+            )}
 
             {item.facts.length > 0 && (
               <details className="mt-2 text-xs">

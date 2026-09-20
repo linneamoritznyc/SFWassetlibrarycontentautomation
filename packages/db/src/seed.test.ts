@@ -1,7 +1,7 @@
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { PROMPTS } from '@sfw/prompts';
-import { PEOPLE, TAG_VOCABULARY, TEST_CASES } from '@sfw/shared';
-import { seed } from './seed.js';
+import { FEEDS, PEOPLE, TAG_VOCABULARY, TEST_CASES } from '@sfw/shared';
+import { seed, seedOnePrompt } from './seed.js';
 import { createTestDatabase, testDatabaseUrl } from './testing.js';
 import type { Pool } from './pool.js';
 
@@ -27,6 +27,11 @@ describeDb('schema and seed', () => {
   async function one<T>(sql: string, params: unknown[] = []): Promise<T> {
     const { rows } = await pool.query(sql, params);
     return rows[0] as T;
+  }
+
+  /** Runs the seed's prompt rule against one made-up prompt. */
+  async function activate(name: string, version: number, body: string): Promise<void> {
+    await seedOnePrompt(pool, { name, version, body });
   }
 
   it('creates every table the spec names', async () => {
@@ -133,6 +138,78 @@ describeDb('schema and seed', () => {
     for (const row of rows) {
       expect(row.n, `${row.name} should have one active version`).toBe(1);
     }
+  });
+
+  it('a new prompt version supersedes the old one before the first eval', async () => {
+    // `prompts_one_active_idx` allows one active version per name, so the old
+    // one has to be switched off before the new one comes on. Getting that
+    // order wrong leaves the new version dormant and the feature silently
+    // running last month's prompt.
+    await pool.query(
+      `insert into prompts (name, version, body, active)
+       values ('scratch_prompt', 1, 'v1 body', true)`,
+    );
+
+    await activate('scratch_prompt', 2, 'v2 body');
+
+    const { rows } = await pool.query<{ version: number; active: boolean }>(
+      `select version, active from prompts where name = 'scratch_prompt' order by version`,
+    );
+    expect(rows).toEqual([
+      { version: 1, active: false },
+      { version: 2, active: true },
+    ]);
+  });
+
+  it('a new prompt version waits for the eval once the prompt has been through one', async () => {
+    await pool.query(
+      `insert into prompts (name, version, body, active)
+       values ('evalled_prompt', 1, 'v1 body', true)`,
+    );
+    await pool.query(
+      `insert into eval_runs (prompt_name, prompt_version, passed, failed)
+       values ('evalled_prompt', 1, 11, 0)`,
+    );
+
+    await activate('evalled_prompt', 2, 'v2 body');
+
+    const { rows } = await pool.query<{ version: number; active: boolean }>(
+      `select version, active from prompts where name = 'evalled_prompt' order by version`,
+    );
+    expect(rows).toEqual([
+      { version: 1, active: true },
+      { version: 2, active: false },
+    ]);
+  });
+
+  it('gives every feed a region', async () => {
+    const { n } = await one<{ n: number }>(
+      'select count(*)::int as n from feeds where region is null',
+    );
+    expect(n).toBe(0);
+
+    const { regions } = await one<{ regions: number }>(
+      'select count(distinct region)::int as regions from feeds',
+    );
+    expect(regions).toBeGreaterThanOrEqual(5);
+  });
+
+  it('starts every feed healthy', async () => {
+    const { n } = await one<{ n: number }>(
+      `select count(*)::int as n from feeds
+       where consecutive_failures <> 0 or last_error is not null`,
+    );
+    expect(n).toBe(0);
+  });
+
+  it('a re-seed does not switch a feed someone turned off back on', async () => {
+    await pool.query(`update feeds set active = false where name = $1`, [FEEDS[0]!.name]);
+    await seed(pool);
+    const row = await one<{ active: boolean }>('select active from feeds where name = $1', [
+      FEEDS[0]!.name,
+    ]);
+    expect(row.active).toBe(false);
+    await pool.query(`update feeds set active = true where name = $1`, [FEEDS[0]!.name]);
   });
 
   it('seeds the eval test set with good and bad cases', async () => {

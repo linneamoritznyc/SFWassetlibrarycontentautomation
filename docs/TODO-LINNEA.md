@@ -12,20 +12,66 @@ has a mock or a stub in the code, so the build is never blocked waiting on it.
 **Steps**
 
 1. Go to https://supabase.com/dashboard and sign in.
-2. Click **New project**. Organisation: your own. Name: `sfw-content-studio`.
-   Region: **Europe (Frankfurt)** (closest to you; R2 is region-free).
-3. Set a database password and save it in your password manager.
-4. Plan: **Pro** ($25/month). The free tier pauses after a week of no traffic,
-   which would stop the cron jobs.
-5. Wait for the project to finish provisioning (about two minutes).
-6. Left sidebar → **Project Settings** → **Data API**. Copy **Project URL** into
+2. Click **New project**. Organisation: your own. Name: anything; the name is
+   only a label. Region: **Europe**, which is closest to you and to where the
+   web app and the workers will run. R2 is region-free, so nothing else cares.
+3. Set a database password and save it in your password manager. If you ever
+   paste it into a connection string, percent-encode it: `@` becomes `%40`,
+   `#` becomes `%23`, `/` becomes `%2F`.
+4. On the **Security** block of the new-project form:
+   - **Enable Data API** — leave **on**. The app reads data through Postgres
+     directly, not through this API, so it is not doing any work for us, but
+     it is the default and turning it off buys nothing.
+   - **Automatically expose new tables** — turn it **off**. Migration
+     `0009_rls.sql` revokes those grants anyway; off means there is nothing to
+     revoke.
+   - **Enable automatic RLS** — turn it **on**. The migrations already switch
+     Row Level Security on for all 29 tables, so this changes nothing today. It
+     is a safety net for a table someone adds by hand in the dashboard later.
+5. Plan: **Free** is fine to start with. A free project pauses after a week
+   with no traffic, and the cron hits the database every morning, so it should
+   not pause. Move to **Pro** ($25/month) if it ever does, or when the database
+   outgrows the 500 MB free limit.
+6. Wait for the project to finish provisioning (about two minutes).
+7. Left sidebar → **Project Settings** → **Data API**. Copy **Project URL** into
    `.env.local` as both `SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_URL`.
-7. Same page → **API Keys**. Copy the **anon / public** key into
+8. Same page → **API Keys**. Copy the **anon / public** key into
    `NEXT_PUBLIC_SUPABASE_ANON_KEY`. Click **Reveal** on **service_role** and copy
    it into `SUPABASE_SERVICE_ROLE_KEY`. The service_role key bypasses every
    security rule, so it never goes in a browser and never in git.
-8. Left sidebar → **Database** → **Extensions**. Search `vector`, toggle it on.
-   Search `pgcrypto`, toggle it on.
+9. Left sidebar → **Database** → **Extensions**. Search `vector`, toggle it on.
+   Search `pgcrypto`, toggle it on. (Migration `0001` also creates them, but
+   toggling them here first means a clearer error if the plan does not allow
+   one.)
+10. Left sidebar → **Project Settings** → **Database** → **Connection string**.
+    There are two, and they are not interchangeable:
+    - **Direct connection** (port 5432): use this one for `DATABASE_URL` when
+      you run `pnpm db:setup`, which creates extensions and functions.
+    - **Transaction pooler** (port 6543): use this one for `DATABASE_URL` on
+      Vercel and on Railway. Serverless and a worker pool both open and close
+      connections constantly, which is what the pooler is for.
+    If the direct connection will not resolve from Vercel or Railway, that is
+    IPv6: use the **session pooler** string instead.
+
+**How the security model actually works**
+
+The app never lets a browser talk to the database. Every read and write goes
+through an API route on the server, which holds the service_role key.
+
+- Row Level Security is **on and forced** for all 29 tables, with **zero
+  policies** on any of them. On Supabase, `service_role` bypasses RLS; `anon`
+  and `authenticated` do not. So a key that leaks into a browser can read
+  nothing and write nothing.
+- The grants are **revoked** as well, from `anon` and `authenticated`, on every
+  table, sequence and function, plus the default privileges for anything added
+  later. The answer is no twice.
+- The queue functions (`claim_job`, `enqueue_job` and the rest) have their
+  execute permission revoked from those two roles too.
+- Signing in is Supabase magic link, and `middleware.ts` then checks the email
+  against `APP_ALLOWLIST`. It fails closed: an empty allowlist lets nobody in.
+
+That is all in `supabase/migrations/0009_rls.sql`, which is worth a read if you
+want to see it rather than take my word for it.
 
 **Mock in place:** the tests build their own throwaway database from
 `TEST_DATABASE_URL`, so nothing in the repo needs your Supabase project to run.
@@ -274,21 +320,28 @@ technical one.
 
 ## 13. Check the scout's feed list
 
-**Why:** the fourteen feeds are seeded from known soil, policy, partner and
-regenerative-agriculture sources, but the sandbox this was built in could not
-reach the open internet, so none of the URLs was confirmed to still work.
+**Why:** the twenty-seven feeds are seeded from the UN bodies, the research
+networks and the regional programmes the Foundation asked for, but the sandbox
+this was built in could not reach the open internet, so **none** of the URLs was
+confirmed to still work. They are the best known URL for each organisation, not
+tested ones.
 
 **Steps**
 
-1. After the first `scout_fetch` run, open `/scout` and scroll to the Feeds
-   list at the bottom.
-2. Any feed showing zero items after a couple of days is a dead URL. Untick it
-   in Settings, which stops it being fetched.
-3. To replace one, find the site's RSS link (usually `/feed` or `/rss`) and add
-   it to `packages/shared/src/feeds.ts`, then `pnpm db:seed`.
+1. Run `pnpm feeds:check` from your laptop. It tests every feed, prints a table
+   by region, and lists the failing URLs at the end. It touches no database and
+   needs no API key.
+2. Fix any failures in `packages/shared/src/feeds.ts`, then `pnpm db:seed`.
+   A site's feed is usually at `/feed`, `/rss`, `/rss.xml` or `/feed/`.
+   If an organisation has no feed at all, set `kind: 'page'` and the scout reads
+   the page as a source instead of trying to parse it.
+3. Once it is running, Settings shows the same thing live: the Feeds panel puts
+   any failing feed at the top with the actual error and the date it last
+   worked. A feed that fails five mornings in a row switches itself off.
 
 Worth adding if you have them: the journals you already follow, and any
-newsletter with an RSS mirror.
+newsletter with an RSS mirror. Non-English is welcome, the scout summarises
+everything in English and keeps the original on the card.
 
-**Mock in place:** a failing feed is logged and skipped, so the other thirteen
-still run.
+**Mock in place:** a failing feed is recorded and skipped, so one dead URL out
+of twenty-seven never stops the other twenty-six.

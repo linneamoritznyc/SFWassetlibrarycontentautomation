@@ -8,8 +8,13 @@ type Feed = {
   url: string;
   kind: string;
   active: boolean;
+  region: string | null;
   items: number;
   last_item: string | null;
+  last_ok_at: string | null;
+  last_error: string | null;
+  last_checked_at: string | null;
+  consecutive_failures: number;
 };
 
 type Person = {
@@ -113,6 +118,8 @@ export function SettingsView() {
       }
     | undefined;
 
+  const failingFeeds = data.feeds.filter((f) => f.consecutive_failures > 0);
+
   return (
     <main className="mx-auto max-w-3xl p-6">
       <h1 className="text-lg font-semibold">Settings</h1>
@@ -169,6 +176,46 @@ export function SettingsView() {
       <Panel
         title={`Feeds (${data.feeds.filter((f) => f.active).length} of ${data.feeds.length} on)`}
       >
+        {/* A feed that stopped working is the one thing on this screen that
+            needs doing something about, so it goes at the top with the actual
+            error, not a "check the URL". */}
+        {failingFeeds.length > 0 && (
+          <div className="mb-3 rounded border border-gold/60 bg-gold/10 p-2">
+            <p className="text-sm font-medium">
+              {failingFeeds.length} feed{failingFeeds.length === 1 ? '' : 's'} not returning items
+            </p>
+            <ul className="mt-1 space-y-1 text-xs">
+              {failingFeeds.map((feed) => (
+                <li key={feed.id}>
+                  <span className="font-medium">{feed.name}</span>
+                  {feed.region && <span className="text-green-mid"> · {feed.region}</span>}
+                  <span className="text-green-mid">
+                    {' · '}
+                    {feed.consecutive_failures} fail
+                    {feed.consecutive_failures === 1 ? '' : 's'} in a row
+                    {!feed.active && ' · switched off automatically'}
+                  </span>
+                  <br />
+                  <span className="text-green-mid">{feed.last_error ?? 'no error recorded'}</span>
+                  <br />
+                  <a href={feed.url} target="_blank" rel="noreferrer" className="underline">
+                    {feed.url}
+                  </a>
+                  <span className="text-green-mid">
+                    {feed.last_ok_at
+                      ? ` · last worked ${new Date(feed.last_ok_at).toLocaleDateString()}`
+                      : ' · has never worked'}
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-2 text-xs text-green-mid">
+              Fix a URL in <code>packages/shared/src/feeds.ts</code>, then re-seed. Run{' '}
+              <code>pnpm feeds:check</code> to test every feed at once.
+            </p>
+          </div>
+        )}
+
         <ul className="space-y-0.5 text-sm">
           {data.feeds.map((feed) => (
             <li key={feed.id} className="flex items-center gap-2">
@@ -184,8 +231,9 @@ export function SettingsView() {
               />
               <span className={feed.active ? '' : 'text-green-mid'}>{feed.name}</span>
               <span className="text-xs text-green-mid">
+                {feed.region && `${feed.region} · `}
                 {feed.items} item{feed.items === 1 ? '' : 's'}
-                {feed.active && feed.items === 0 && ' · nothing yet, check the URL'}
+                {feed.consecutive_failures > 0 && ' · failing'}
               </span>
             </li>
           ))}

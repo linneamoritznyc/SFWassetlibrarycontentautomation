@@ -72,10 +72,13 @@ export const scoutRank = handler(async ({ enqueue }) => {
       [vector],
     );
 
+    const { originalTitle, originalSummary } = originalWords(result, item);
+
     await pool.query(
       `update news_items
        set summary = $2, relevance = $3, embedding = $4::vector,
-           linked_facts = $5::int[], linked_assets = $6::uuid[]
+           linked_facts = $5::int[], linked_assets = $6::uuid[],
+           language = $7, original_title = $8, original_summary = $9
        where id = $1`,
       [
         item.id,
@@ -84,6 +87,9 @@ export const scoutRank = handler(async ({ enqueue }) => {
         vector,
         facts.rows.map((f) => f.id),
         assets.rows.map((a) => a.id),
+        result.language,
+        originalTitle,
+        originalSummary,
       ],
     );
 
@@ -125,3 +131,30 @@ export const scoutRank = handler(async ({ enqueue }) => {
     });
   }
 });
+
+/**
+ * Decides what of the source's own words to keep.
+ *
+ * `summary` on a news item is always English, because everything downstream
+ * reads it: the planner, the writer, the critique. For an item that was not
+ * published in English that summary is ours, not the source's, so the original
+ * title and the feed's own description are kept beside it. The Scout card
+ * shows them, and a reader who does speak the language can check us.
+ *
+ * An English item keeps nothing extra: `title` and `summary` already are the
+ * source's words, and storing them twice would only make the card repeat
+ * itself.
+ */
+export function originalWords(
+  result: { language: string; original_title: string },
+  item: { title: string | null; summary: string | null },
+): { originalTitle: string | null; originalSummary: string | null } {
+  // BCP 47, so "en", "en-GB" and "EN" are all English and "nl" is not.
+  const english = /^en(-|$)/i.test(result.language.trim());
+  if (english) return { originalTitle: null, originalSummary: null };
+
+  return {
+    originalTitle: result.original_title.trim() || item.title || null,
+    originalSummary: item.summary || null,
+  };
+}

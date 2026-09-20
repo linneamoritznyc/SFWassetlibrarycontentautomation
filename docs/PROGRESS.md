@@ -661,10 +661,14 @@ node workers/cron/dist/index.js      # or one-shot: ... dist/index.js plan_week
 
 | It does | Check it by |
 | --- | --- |
-| Reads the feeds daily | `node workers/cron/dist/index.js scout_fetch` |
+| Reads 27 feeds daily, across 7 regions | `node workers/cron/dist/index.js scout_fetch` |
 | Ranks and links to what we know | `/scout` |
 | Promotes anything at 0.7 or above | It becomes a story candidate. |
-| Shows a dead feed | Feeds list at the bottom of `/scout`. |
+| Summarises a non-English item in English | The card shows the English summary, the source's own title under it, and a language badge. |
+| Shows which region a story came from | The badge on each Scout card. |
+| Notices a feed that stopped working | Settings, Feeds panel. Failures sit at the top with the actual error. |
+| Switches a feed off after 5 failures | Settings shows it as switched off automatically. |
+| Tests every feed URL in one go | `pnpm feeds:check` |
 
 ## What it costs
 

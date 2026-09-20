@@ -16,7 +16,8 @@
     "format:check": "prettier --check \"**/*.{ts,tsx,js,json,md,css}\"",
     "db:migrate": "pnpm --filter @sfw/db build && node packages/db/dist/cli.js migrate",
     "db:seed": "pnpm --filter @sfw/db build && node packages/db/dist/cli.js seed",
-    "db:setup": "pnpm --filter @sfw/db build && node packages/db/dist/cli.js setup"
+    "db:setup": "pnpm --filter @sfw/db build && node packages/db/dist/cli.js setup",
+    "feeds:check": "pnpm --filter @sfw/worker-light build && node workers/light/dist/feeds-check.js"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",

@@ -128,6 +128,10 @@ export const scoutRankSchema = z.object({
   summary: z.string(),
   relevance: confidence,
   topics: z.array(z.string()),
+  // Added in scout_rank v2, with defaults so a database still running v1
+  // validates rather than failing every item.
+  language: z.string().default('en'),
+  original_title: z.string().default(''),
 });
 export type ScoutRankResult = z.infer<typeof scoutRankSchema>;
 
