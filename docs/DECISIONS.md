@@ -295,3 +295,59 @@ on the 21st" would file the question itself as a fact.
 Facts from `save_fact` get a confidence floor of 0.85 and carry the person's
 name in `confirmed_by`. A named colleague saying so outranks a page that might
 be a year out of date.
+
+## Phase 5
+
+**2026-09-20 — The cron service runs two ways.**
+`node dist/index.js plan_week` enqueues one job and exits, which is what a
+Railway cron trigger calls. With no argument it stays up and fires on its own
+schedule, which is what local development and any host without a scheduler
+needs. Both use the same dedupe key, so running both at once is harmless rather
+than double work.
+
+**2026-09-20 — The slots come from code, the choices come from the model.**
+How many posts a week is a decision, not a judgement: the cadence produces the
+slots and marks a fifth of them as exploration before the planner sees them.
+What goes in each slot is the judgement, and every candidate arrives
+pre-scored, so Claude is arguing against arithmetic rather than inventing it.
+
+**2026-09-20 — Freshness halves every three weeks.**
+Nothing in the spec fixes the decay. Three weeks means a month-old story has to
+be about twice as good as a new one to take a slot, which matches a cadence of
+three feed posts a week.
+
+**2026-09-20 — The planner filters the asset ids it is given back.**
+Only ids that exist and are cleared or tagged survive. A hallucinated id would
+otherwise become a post with a picture nobody chose. A slot whose assets all
+fail becomes a shot-list question instead.
+
+**2026-09-20 — `write_batch` spreads the writes over a few minutes.**
+Each post is two or three Claude calls. A dozen starting at once is a rate
+limit, not a fast week.
+
+**2026-09-20 — Email falls back to the console.**
+Without `RESEND_API_KEY` the Monday notice and the question nudges are logged
+instead of sent, and the whole system still works: the Week and Questions views
+are the other way in. It means Linnea can use this before she has a mail
+provider.
+
+**2026-09-20 — One nudge, tracked by `nudged_at`.**
+The hourly job only picks up questions that have never been nudged. A second
+reminder is nagging, and nagging is how people start ignoring the first one.
+
+**2026-09-20 — `build_post` crops towards the subject and stays plain.**
+Sharp's attention crop rather than a centre crop, so a photo of a person does
+not lose their head to a 4:5 frame. No type is drawn on: CLAUDE.md section 5
+says graphics are built on the existing Canva templates with real photos
+swapped in, so anything with words on it goes through Canva in Phase 7.
+
+**2026-09-20 — The Later CSV is matched by what a header contains.**
+Later's column names have changed more than once and differ by plan. The
+importer matches loosely, understands "12,480" and "2.1k", and reports which
+columns it could not find rather than quietly importing zeros.
+
+**2026-09-20 — Export writes a ZIP to R2 rather than streaming it.**
+A week of posts with video in it is too big to hold in a serverless response,
+and the bundle is worth keeping: it is the record of exactly what was handed
+over. A missing file becomes a `MISSING.txt` inside the bundle rather than
+losing the whole export.

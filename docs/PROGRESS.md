@@ -9,7 +9,7 @@ What works, and how to check it. Updated at the end of every phase.
 | 2 | Library (web) + ingest | done, except uploading the fixtures, which needs your keys |
 | 3 | Clipping machine | done, except the contractor test, which needs a real video |
 | 4 | Knowledge, writing and review | done, except a live end-to-end run, which needs keys |
-| 5 | Planner, cron, export, results | not started |
+| 5 | Planner, cron, export, results | done, except a live dry-run Monday, which needs keys |
 | 6 | Self-improvement | not started |
 | 7 | Reels and Canva | not started |
 | 8 | Scout, then polish | not started |
@@ -324,3 +324,58 @@ With keys, the acceptance run from the build prompt:
 `build_post`, `render_reel`, `log_edit` and `log_rejection` are queued by the
 approve, reject and edit buttons but their handlers arrive in Phases 5 to 7.
 Until then those jobs sit in the queue, which is what should happen.
+
+---
+
+## Phase 5: Planner, cron, export and results
+
+**What works**
+
+- `workers/cron` with every schedule from spec section 5, in CET. It inserts
+  job rows and does nothing else. One-shot mode for Railway cron triggers,
+  long-running mode for anywhere else, both deduped so running both is safe.
+- `plan_week`: slots from the cadence, a fifth held for experiments and spread
+  so two never land next to each other, candidates scored with the spec's
+  formula (relevance x freshness x material strength x format weight x pillar
+  balance), and pillar balance computed from what actually ran in the last four
+  weeks. Slots with no material become shot-list questions rather than empty
+  posts.
+- `write_batch` fans out the writing, spread over a few minutes.
+- `review_ready_notify`: the Monday email with the link, the count, the open
+  questions and what the week cost in AI. `questions_nudge` sends one reminder
+  after 48 hours and only one.
+- `build_post`: Sharp, 4:5 for feed and carousel, 9:16 for Stories and Reels,
+  cropped towards the subject.
+- `export_bundle`: a ZIP per run with one folder per post holding the media,
+  `caption.txt` ready to paste, and `meta.json` with the time, platform,
+  hashtags, collaborators and the UTM-tagged link. Exported posts then have
+  their assets marked used.
+- `results_pull` from the Instagram Graph API when both tokens are set, and a
+  Later CSV import screen in Settings when they are not.
+
+**How to test**
+
+```bash
+TEST_DATABASE_URL=postgres://postgres@127.0.0.1:5433/postgres pnpm test
+```
+
+133 tests. The 35 new ones cover slot generation against the cadence, the
+exploration spread, the scoring formula and its decay, pillar balance, UTM
+tagging, Instagram permalink parsing, and the Later CSV reader including quoted
+cells with commas and newlines, thousands separators and the abbreviated "2.1k"
+form.
+
+The cron service was run for real against a local database: it queued a job,
+deduped an immediate second call to the same row, and rejected an unknown job
+name. Sharp was run against a real frame and produced 1080x1350 and 1080x1920.
+
+With keys, the dry-run Monday:
+
+```bash
+node workers/cron/dist/index.js plan_week
+node workers/cron/dist/index.js write_batch
+node workers/cron/dist/index.js review_ready_notify
+```
+
+Then `/week` has the proposed week, each post critiqued, and an "Export
+approved" button that writes the ZIP to `sfw-media` under `docs/exports/`.

@@ -10,5 +10,10 @@
     "lint": "eslint src",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@sfw/db": "workspace:*",
+    "@sfw/queue": "workspace:*",
+    "croner": "^10.0.1"
   }
 }

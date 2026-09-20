@@ -93,6 +93,23 @@ export function WeekView() {
             ? 'Loading'
             : `${waiting.length} to review, ${stuck.length} waiting, ${done.length} approved`}
         </p>
+        {done.length > 0 && (
+          <button
+            onClick={async () => {
+              const res = await fetch('/api/posts/export', { method: 'POST' });
+              const body = (await res.json()) as { posts?: number; error?: string };
+              setNote(
+                res.ok
+                  ? `Packing ${body.posts} post(s). The ZIP lands in sfw-media under docs/exports.`
+                  : (body.error ?? 'Could not export.'),
+              );
+              setTimeout(() => setNote(''), 5000);
+            }}
+            className="ml-auto rounded bg-green-deep px-3 py-1.5 text-sm text-cream"
+          >
+            Export {done.length} approved
+          </button>
+        )}
       </header>
 
       {note && <p className="mb-3 text-sm font-medium text-green-deep">{note}</p>}
