@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@sfw/ai": "workspace:*",
+    "@sfw/brand": "workspace:*",
     "@sfw/db": "workspace:*",
     "@sfw/prompts": "workspace:*",
     "@sfw/queue": "workspace:*",

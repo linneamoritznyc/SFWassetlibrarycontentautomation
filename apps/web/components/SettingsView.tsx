@@ -18,6 +18,11 @@ export function SettingsView() {
   const [health, setHealth] = useState<Health | null>(null);
   const [result, setResult] = useState<string>('');
   const [busy, setBusy] = useState(false);
+  const [connected, setConnected] = useState(false);
+
+  useEffect(() => {
+    setConnected(new URLSearchParams(window.location.search).get('canva') === 'connected');
+  }, []);
 
   useEffect(() => {
     void fetch('/api/errors')
@@ -90,6 +95,22 @@ export function SettingsView() {
 
         {busy && <p className="mt-2 text-xs text-green-mid">Reading it</p>}
         {result && <p className="mt-2 text-xs">{result}</p>}
+      </section>
+
+      <section className="mt-4 rounded border border-green-mid/20 bg-white p-4">
+        <h2 className="text-sm font-semibold">Canva</h2>
+        <p className="mt-1 text-xs text-green-mid">
+          Connects through your own Canva account. Approved photo posts get sent into a Canva folder
+          as an Instagram-sized design, and the finished design comes back into the library. Brand
+          template autofill needs a separate approval from Canva and stays off until then.
+        </p>
+        <a
+          href="/api/canva/auth"
+          className="mt-3 inline-block rounded bg-green-deep px-3 py-1.5 text-sm text-cream"
+        >
+          {connected ? 'Reconnect Canva' : 'Connect Canva'}
+        </a>
+        {connected && <p className="mt-2 text-xs text-green-deep">Connected.</p>}
       </section>
 
       <section className="mt-4 rounded border border-green-mid/20 bg-white p-4">

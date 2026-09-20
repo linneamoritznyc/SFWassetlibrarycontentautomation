@@ -11,7 +11,7 @@ What works, and how to check it. Updated at the end of every phase.
 | 4 | Knowledge, writing and review | done, except a live end-to-end run, which needs keys |
 | 5 | Planner, cron, export, results | done, except a live dry-run Monday, which needs keys |
 | 6 | Self-improvement | done |
-| 7 | Reels and Canva | not started |
+| 7 | Reels and Canva | done, except a live Canva round trip, which needs the integration |
 | 8 | Scout, then polish | not started |
 
 Paste intake (`docs/paste-intake.md`) is threaded through Phase 2 (capture and
@@ -434,3 +434,55 @@ is the honest answer rather than a pass.
 Changing a prompt is: edit `packages/prompts/src/`, bump the version, seed,
 run the eval, activate. A new version is seeded inactive, so a prompt change
 cannot reach production just by being deployed.
+
+---
+
+## Phase 7: Reels and Canva
+
+**What works**
+
+- `packages/remotion` with the two templates the build prompt named. **Field
+  Notes** carries the series convention from CLAUDE.md section 7: the eyebrow
+  number and a subtitle with the named person, place and season. **Workshop
+  moment** leads with the speaker's own line and names who said it and where.
+  Both have the intro card, the clips, the end card with the CTA, and the
+  wordmark, in the brand greens and cream with cream used as a shape.
+- Each composition works out its own length from the clips it is given, so a
+  render is never padded or cut short.
+- `render_reel` in `workers/render`: bundles once per process, hands the clips
+  over as presigned URLs, renders at 1080x1920 H.264, uploads to
+  `renders/{id}.mp4` and points the post at the render row.
+- Canva Connect: the PKCE OAuth flow at `/api/canva/auth` and its callback,
+  tokens encrypted with AES-256-GCM before they touch the database,
+  `canva_push` (upload by URL into a folder, create an Instagram-sized design,
+  save the edit URL on the post) and `canva_pull` (export the finished design
+  and bring it back as a `render` asset the post then points at).
+- Autofill is behind its own flag, off until Canva approves that scope.
+- A Connect Canva button in Settings.
+
+**How to test**
+
+```bash
+TEST_DATABASE_URL=postgres://postgres@127.0.0.1:5433/postgres pnpm test
+```
+
+163 tests. The 12 new ones cover the token encryption: a round trip, a
+different ciphertext each time, refusing a tampered ciphertext and the wrong
+key, a key of the wrong length, and the authorize URL asking for every scope
+the jobs need with PKCE set to S256.
+
+A Reel was rendered end to end during the build: the templates bundled, a
+headless Chromium rendered 1080x1920 H.264, and the output was 11.05 seconds
+for a 2.5s intro, a 6s clip and a 2.5s end card. The intro card came out on
+brand: deep green, the hook in a cream block, the attribution under it, the
+wordmark bottom left.
+
+With the integration connected, the round trip is: approve a photo post, which
+queues `build_post` and then `canva_push`; open the edit URL on the post;
+finish it on the existing SFW templates; then run `canva_pull` to bring it back
+into the library as the asset the post goes out with.
+
+**Needs you**
+
+`TOKEN_ENC_KEY` has to be generated before Canva can connect, and the Remotion
+licence is worth checking. Both are in `docs/TODO-LINNEA.md`, items 11 and 12.

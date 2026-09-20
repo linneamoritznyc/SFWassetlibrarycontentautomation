@@ -9,6 +9,10 @@
     ".": {
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
+    },
+    "./canva": {
+      "types": "./dist/canva.d.ts",
+      "default": "./dist/canva.js"
     }
   },
   "scripts": {

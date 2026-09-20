@@ -226,3 +226,46 @@ brand.
 
 **Mock in place:** the fallback chain, which produces legible captions in
 DejaVu Sans Bold.
+
+---
+
+## 11. Generate the token encryption key
+
+**Why:** Canva's access and refresh tokens are encrypted before they touch the
+database (backend spec section 9). Without the key, connecting Canva fails with
+a message saying so.
+
+**Steps**
+
+1. Run this and paste the result into `TOKEN_ENC_KEY` in `.env.local`:
+
+   ```bash
+   node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"
+   ```
+
+2. Keep a copy somewhere safe. Changing it makes the stored tokens
+   unreadable, and you would have to reconnect Canva.
+
+**Mock in place:** none. Canva simply stays disconnected until this is set.
+
+---
+
+## 12. Check the Remotion licence
+
+**Why:** the Reel templates are built with Remotion, which is free for
+individuals and small companies but needs a paid company licence above a
+certain size. The PRD flags it as an open question.
+
+**Steps**
+
+1. Read https://www.remotion.dev/docs/licensing
+2. Count the Foundation's employees against their threshold.
+3. If a licence is needed, it is bought per seat per month and the licence key
+   goes in the Remotion config.
+
+If the answer is no, the alternative is building Reels in Canva instead, which
+the Canva integration already covers for still posts. Tell me and I will move
+the two templates over.
+
+**Mock in place:** none. The templates work; this is a legal question, not a
+technical one.

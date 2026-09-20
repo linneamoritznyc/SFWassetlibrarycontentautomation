@@ -397,3 +397,50 @@ The angle may have been fine and the execution wrong. The story returns to
 **2026-09-20 — Rejections are stored as version rows.**
 Same table as edits, with `diff.rejected = true` and the reason, so
 `learn_weekly` reads corrections from one place instead of joining two.
+
+## Phase 7
+
+**2026-09-20 — The Remotion bundler is told to resolve `.js` to `.tsx`.**
+The package's own `index.ts` and `schema.ts` are compiled by tsc and loaded by
+the render worker as Node ESM, which needs the `.js` extension on relative
+imports. Remotion bundles with webpack, which resolves like a bundler and looks
+for a literal `.js` file. Rather than run two import conventions in one folder,
+the bundler is given `extensionAlias: { '.js': ['.js', '.ts', '.tsx'] }`.
+
+**2026-09-20 — `@sfw/remotion` exports its own `package.json`.**
+The render worker resolves the bundler entry point from the installed package
+rather than guessing a relative path, so it works the same in the Docker image
+as from the repository root. That needs `./package.json` in the exports map.
+
+**2026-09-20 — Clips are handed to the renderer as presigned URLs.**
+Remotion fetches them itself while rendering. Downloading three clips first
+would mean a few hundred megabytes on disk before anything starts.
+
+**2026-09-20 — A composition works out its own length.**
+`calculateMetadata` sums the clips plus the two cards, so a render is never
+padded with black or cut short. The job hands over clips; the composition is
+exactly as long as they are.
+
+**2026-09-20 — Canva helpers live in `@sfw/shared/canva`, a server-only subpath.**
+Both the web app's OAuth routes and the worker's push and pull jobs need them.
+They use `node:crypto`, so exporting them from the main entry point pulled that
+into the client bundle and broke the Next build. A separate subpath keeps the
+main entry point safe for components.
+
+The pool-dependent functions take a minimal `Queryable` interface rather than
+importing `@sfw/db`, so `@sfw/shared` still has no database dependency.
+
+**2026-09-20 — Canva tokens are stored in `settings`, not a table.**
+There is exactly one Canva account. A table for one row is a table that will
+be wrong about something later. They are AES-256-GCM encrypted with a fresh IV
+each time, so two encryptions of the same token do not look alike.
+
+**2026-09-20 — The OAuth flow uses PKCE even though the exchange is server-side.**
+The browser does the redirect, so an intercepted code is otherwise usable. The
+verifier never leaves the server, and the state cookie is httpOnly, scoped to
+`/api/canva` and expires in ten minutes.
+
+**2026-09-20 — Connecting Canva switches it on.**
+The callback sets `canva_enabled`. Going through an OAuth flow is a clear
+enough statement of intent; making someone then find a toggle would be
+pointless. Autofill stays behind its own flag until Canva approves that scope.

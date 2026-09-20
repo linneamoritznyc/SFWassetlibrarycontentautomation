@@ -1,4 +1,6 @@
 import type { HandlerMap } from '@sfw/queue';
+import { canvaPull } from './canva_pull.js';
+import { canvaPush } from './canva_push.js';
 import { critique } from './critique.js';
 import { embed } from './embed.js';
 import { exportBundle } from './export_bundle.js';
@@ -42,6 +44,9 @@ export const handlers: HandlerMap = {
   write,
   write_batch: writeBatch,
   critique,
+  // Canva
+  canva_push: canvaPush,
+  canva_pull: canvaPull,
   // Planning and distribution
   plan_week: planWeek,
   export_bundle: exportBundle,
