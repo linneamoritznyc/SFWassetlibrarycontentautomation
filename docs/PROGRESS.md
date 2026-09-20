@@ -8,7 +8,7 @@ What works, and how to check it. Updated at the end of every phase.
 | 1 | Database and queue | done |
 | 2 | Library (web) + ingest | done, except uploading the fixtures, which needs your keys |
 | 3 | Clipping machine | done, except the contractor test, which needs a real video |
-| 4 | Knowledge, writing and review | not started |
+| 4 | Knowledge, writing and review | done, except a live end-to-end run, which needs keys |
 | 5 | Planner, cron, export, results | not started |
 | 6 | Self-improvement | not started |
 | 7 | Reels and Canva | not started |
@@ -259,3 +259,68 @@ workshop video" in `docs/RUNBOOK.md`.
 Whisper does not do speaker diarization, so every word has `speaker: null` and
 the speaker on a clip is whatever Claude infers from the transcript. Real
 diarization goes with the speaker-tracking crop in Phase 8.
+
+---
+
+## Phase 4: Knowledge, writing and review
+
+**What works**
+
+- `brief` builds the briefing packet from spec section 6. Facts come from three
+  places: linked to the story outright, the closest fifteen by meaning against
+  the angle, and everything known about whoever is in the chosen images. It
+  also carries the active rules for that platform, the three best past posts of
+  the same shape, the brand rules and the calendar.
+- `gap_check` lists what the writer would be assuming, looks each unknown up in
+  the knowledge base, and only asks a person when it genuinely cannot answer
+  itself. Questions are routed by topic through `people.topics`: programs to
+  Stephanie, mentors and graduates to Carla, India and partners to Kavi,
+  workshops to Loida, and anything unmatched to Stephanie. A blocking unknown
+  holds the post at `revising` for 72 hours, then it goes to review flagged.
+- `write` drafts with the chosen thumbnails attached, so the caption describes
+  what is actually in the picture. Every run appends a `post_versions` row.
+- `critique` is a separate call with a different prompt and the same images.
+  The mechanical checks run first and cap the score at 55 if any fire.
+  `must_fix` sends the draft back at most twice.
+- `save_fact` turns an answer into permanent facts with the person's name on
+  them and releases the post that was waiting.
+- `web_refresh` re-queues every source page weekly, spread out so a burst of
+  fetches does not look like an attack. `propose_story` decides whether a
+  pasted link has a post in it, and which pillar, platform and visual.
+- The six SFW pages from CLAUDE.md section 9 are seeded as sources.
+- Week view: every post in a real phone frame at the right ratio, with the
+  profile header and the caption truncated where Instagram truncates it. Why
+  this post, the critic score and its must-fix list, and any question still
+  unanswered behind it. Approve, edit inline, or reject with one of the five
+  reason codes.
+- Questions view: answer in one line, or drop it. Answering does the same thing
+  as replying to the email.
+- `POST /api/webhooks/email` takes replies. The signature is checked before
+  anything is written, the question id is found in the address, the subject or
+  the body, and the quoted original is stripped.
+
+**How to test**
+
+```bash
+TEST_DATABASE_URL=postgres://postgres@127.0.0.1:5433/postgres pnpm test
+```
+
+98 tests. The 18 new ones cover the reply parsing (Gmail and Outlook quoting,
+phone signatures, the three places a question id hides, signature verification
+including the wrong-length case that would otherwise throw) and rule scoping.
+
+With keys, the acceptance run from the build prompt:
+
+1. Make a story by hand against a fixture asset, or paste a link and let
+   `propose_story` make one.
+2. A post on that story gets written and critiqued. Watch `/errors`.
+3. If it needed something it did not know, `/questions` has a one-line question
+   against a named person.
+4. Answer it. The answer becomes facts, and the post is rewritten using them.
+5. `/week` shows the draft in a real phone frame with the critic's score.
+
+**Known gaps**
+
+`build_post`, `render_reel`, `log_edit` and `log_rejection` are queued by the
+approve, reject and edit buttons but their handlers arrive in Phases 5 to 7.
+Until then those jobs sit in the queue, which is what should happen.

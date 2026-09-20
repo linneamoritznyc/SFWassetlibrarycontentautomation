@@ -1,5 +1,6 @@
 import {
   CADENCE,
+  SOURCE_PAGES,
   FORMAT_WEIGHTS,
   PEOPLE,
   PILLARS,
@@ -33,6 +34,7 @@ export async function seed(pool: Pool): Promise<Record<string, number>> {
   counts.planner_weights = await seedPlannerWeights(pool);
   counts.prompts = await seedPrompts(pool);
   counts.test_cases = await seedTestCases(pool);
+  counts.sources = await seedSources(pool);
 
   return counts;
 }
@@ -144,6 +146,21 @@ async function seedPrompts(pool: Pool): Promise<number> {
          and not exists (select 1 from prompts where name = $1 and active)`,
       [p.name, p.version],
     );
+  }
+  return n;
+}
+
+async function seedSources(pool: Pool): Promise<number> {
+  let n = 0;
+  for (const source of SOURCE_PAGES) {
+    // fetched_at and content_hash are left alone: web_fetch owns them, and a
+    // re-seed must not make an already-read page look unread.
+    const res = await pool.query(
+      `insert into sources (kind, ref, title) values ('url', $1, $2)
+       on conflict (kind, ref) do update set title = excluded.title`,
+      [source.url, source.title],
+    );
+    n += res.rowCount ?? 0;
   }
   return n;
 }

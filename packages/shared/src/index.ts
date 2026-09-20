@@ -5,3 +5,4 @@ export * from './cadence.js';
 export * from './jobs.js';
 export * from './checks.js';
 export * from './test-cases.js';
+export * from './sources.js';

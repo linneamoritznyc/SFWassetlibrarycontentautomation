@@ -255,3 +255,43 @@ Google Fonts under the Open Font License; if that fails the build still
 succeeds and fontconfig falls back to DejaVu Sans Bold, which is legible but
 off brand. Logged in `docs/TODO-LINNEA.md` as something to check after the
 first deploy.
+
+## Phase 4
+
+**2026-09-20 — `gap_check` needs both similarity and confidence before it answers itself.**
+An unknown is only treated as answered when the nearest fact is close in
+meaning (similarity above 0.55) *and* the fact itself is confident (0.8, which
+is the spec's number). Either alone is not enough: a confident fact about
+something else is worse than no fact, because it produces a post that is wrong
+rather than a post that is late.
+
+**2026-09-20 — The mechanical checks run inside the critic and cap the score.**
+`runStringChecks` runs before the Claude call and its hits are added to
+`must_fix`. A regular expression cannot be talked out of an em dash, and a
+draft that trips one is capped at 55 however well the critic rated the rest.
+
+**2026-09-20 — The rewrite loop stops at two, and the post goes to review anyway.**
+With the critic's notes attached. A loop that never terminates is worse than a
+draft a human has to fix, and by the third pass the model is usually arguing
+rather than improving.
+
+**2026-09-20 — The gap check runs on the first pass only.**
+A rewrite is answering the critic, not re-asking the same questions. Running it
+every loop would re-ask a person who has not had time to reply.
+
+**2026-09-20 — `propose_story` may only pick a visual from the assets it was handed.**
+The returned ids are filtered against what was offered. A hallucinated id would
+otherwise become a post with a picture nobody chose. When nothing fits, the
+story is created without a visual and a question goes out asking for one,
+rather than the post borrowing the linked page's photograph.
+
+**2026-09-20 — Replies are parsed for the question id in three places.**
+The reply-to address (`questions+42@`), then `[#42]` in the subject, then a
+marker in the body. Providers and mail clients mangle different ones. The
+quoted original is stripped before anything is stored, or answering "it closes
+on the 21st" would file the question itself as a fact.
+
+**2026-09-20 — An answered question is worth more than a web page.**
+Facts from `save_fact` get a confidence floor of 0.85 and carry the person's
+name in `confirmed_by`. A named colleague saying so outranks a page that might
+be a year out of date.
