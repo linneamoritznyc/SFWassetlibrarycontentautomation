@@ -1,0 +1,11 @@
+node_modules
+dist
+.next
+.turbo
+coverage
+pnpm-lock.yaml
+
+# Prose and the verbatim source documents. CLAUDE.md, the PRD and the backend
+# spec were supplied exactly as they are and must stay byte-for-byte; Prettier
+# would rewrap their tables. Every other .md here is hand-written prose.
+*.md
