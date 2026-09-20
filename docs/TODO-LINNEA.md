@@ -27,7 +27,8 @@ has a mock or a stub in the code, so the build is never blocked waiting on it.
 8. Left sidebar → **Database** → **Extensions**. Search `vector`, toggle it on.
    Search `pgcrypto`, toggle it on.
 
-**Mock in place:** none yet. Phase 1 adds a local Postgres fallback for tests.
+**Mock in place:** the tests build their own throwaway database from
+`TEST_DATABASE_URL`, so nothing in the repo needs your Supabase project to run.
 
 ---
 
@@ -161,3 +162,44 @@ key is set, and the Questions view lets you answer in the app instead.
 ## 7. Railway and Vercel (Phase 8)
 
 Filled in when Phase 8 lands. Nothing to do yet.
+
+---
+
+## 8. Fill in the team's email addresses
+
+**Why:** `gap_check` turns an unknown into a one-line question and emails it to
+the right person. Right now every person is seeded with their name, role and
+topics, but no address, because none of the source documents contains one and
+guessing would mean mailing a stranger.
+
+**Steps**
+
+1. Open the app, Settings, People (Phase 8), or ask me to do it.
+2. Add an address for at least these four, who are the routing targets:
+   Stephanie McDaniel (programs), Carla Portugal (mentors and graduates),
+   Kavi Reddy (India and partners), Loida Vasquez (workshops).
+3. Until then, questions are created and shown in the Questions view but not
+   emailed. Nothing is lost, you just have to look.
+
+**Mock in place:** questions appear in the app and can be answered there.
+
+---
+
+## 9. Paste the two real captions into the test set
+
+**Why:** the eval test set has the Pratik vermicompost post and the Sandra
+Niggemeyer Field Notes post as its two "good" cases, and every prompt change is
+measured against them. The versions in the repo are rebuilt from the details in
+CLAUDE.md, not the real posts, which are not in any document you sent.
+
+**Steps**
+
+1. Open Instagram, @soilfoodwebschool, find the 16 September Pratik vermicompost
+   post and the Sandra Niggemeyer Field Notes carousel.
+2. Copy each caption in full, including hashtags.
+3. Paste them to me, or edit
+   `packages/shared/src/test-cases.ts` and replace the `caption` on the two
+   entries whose names start `good:`.
+4. Re-run `pnpm db:seed`.
+
+**Mock in place:** reconstructed captions that carry the same concrete detail.

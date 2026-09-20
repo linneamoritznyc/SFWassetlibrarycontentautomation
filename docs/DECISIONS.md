@@ -74,3 +74,82 @@ Neither is in spec section 6. They are additions, not replacements, and they
 reuse `sources`, `facts`, `stories` and `assets(type=reference)` exactly as the
 schema already defines them, so no table changes. `web_fetch` is the single-URL
 version of the spec's `web_refresh`.
+
+## Phase 1
+
+**2026-09-20 — Workers connect to Postgres directly; the web app uses supabase-js.**
+The queue is a polling loop, and routing `claim_job` through PostgREST would be
+an HTTP round trip per tick for what is one `update ... returning`. So
+`packages/queue` and `packages/db` take a `DATABASE_URL` (the connection string
+from the Supabase dashboard, pooled, port 6543) and `apps/web` keeps supabase-js
+for auth and the query builder. `DATABASE_URL` is not in spec section 12; it is
+added to `.env.example` with the rest.
+
+**2026-09-20 — RLS on every table, with no policies at all.**
+Spec section 9 says "Row Level Security on all tables; API routes use service
+role server-side only". The simplest thing that means is: enable RLS, write zero
+policies, and revoke the grants from `anon` and `authenticated` as well. Only a
+role with `bypassrls`, which is what Supabase's service_role has, gets through.
+A key that ever leaks into a browser can then read nothing. Also `force row
+level security`, so the table owner is not an exception either.
+
+**2026-09-20 — `dedupe_key` is unique only among live jobs.**
+The spec writes it as `dedupe_key text unique null`, which would mean a key could
+be used once in the lifetime of the database: after the first `embed:<asset_id>`
+finished, that asset could never be re-embedded. Instead there is a partial
+unique index over `status in ('queued','running')`. A duplicate is blocked while
+the work is pending and the key frees up when it finishes, which is what makes
+"re-tag this asset" and the Errors view's retry button work at all.
+
+**2026-09-20 — `claim_job` takes an optional second argument.**
+`claim_job(types text[], lim integer default 1)`. The spec's one-argument call
+still works. A worker at concurrency 4 with four free slots should claim four
+jobs in one round trip rather than four.
+
+**2026-09-20 — Seven additions to the schema, all of them things a spec job needs.**
+Each one exists because a job in spec section 6 or a screen in section 8 has
+nowhere else to put its state:
+
+- `asset_usage` — `link_asset_usage` says "usage rows written"; the library's
+  "used in" list and the Unused view read it.
+- `planner_weights` — `learn_weekly` updates `format_weight` and
+  `pillar_balance` and the planner reads them back.
+- `settings` — the cadence config and the feature flags, editable from the
+  Settings view.
+- `worker_heartbeats` — spec section 10's red dot after 5 minutes.
+- `posts.is_example` — `learn_weekly` step 4 promotes posts to examples and
+  `brief` reads back the three best of a format.
+- `questions.created_at` and `nudged_at` — the hourly nudge at 48 h and the
+  `gap_check` timeout at 72 h both need to know when the question was asked.
+- `people.topics` — this *is* the question-routing map. Rather than a separate
+  table, each person carries the topics they answer for, so routing is one
+  query and adding a topic is editing a person.
+
+**2026-09-20 — Three rules enforced by the database, not only by code.**
+`post_has_material` (a post past `proposed` has at least one asset or a render,
+which is PRD principle 1), `rejection_has_reason`, and `clip_has_range`. A check
+constraint cannot be forgotten by a future job, and the first of these is the
+rule the whole product rests on.
+
+**2026-09-20 — Seed data lives in TypeScript, not in SQL.**
+The tag vocabulary, cadence and people are read at runtime by the workers as
+well as written once by the seeder. Keeping them in `@sfw/shared` and seeding
+from there means one source of truth; a `supabase/seed.sql` would drift from the
+copy the tagger actually offers Claude. `supabase/migrations` stays pure SQL.
+
+**2026-09-20 — A new prompt version is seeded inactive.**
+Seeding activates a prompt only when its name has no active version at all,
+which is the first run. After that, a new version arrives dormant and something
+has to run the test set and promote it. That is what makes PRD 7.4 true in
+practice: a prompt change cannot reach production just by being deployed.
+
+**2026-09-20 — The two good test cases are reconstructed, and say so.**
+The real Pratik and Sandra captions are not in any of the source documents. The
+seeded versions are built from the details CLAUDE.md records (moisture range,
+aggregates, air channels, no foul smell; Van, Texas, butternut squash on fallow
+clay and sand) and each one's `notes` field says it is a reconstruction. They
+test the shape and the discipline. Swap in the real text when you have it:
+`docs/TODO-LINNEA.md`.
+
+**2026-09-20 — `tsconfig.json` for typechecking, `tsconfig.build.json` for building.**
+Tests are typechecked but do not end up in `dist`.
