@@ -26,11 +26,20 @@ export const SHADOW = '0 2px 8px rgba(29, 59, 42, 0.12)';
 
 export const FONTS = {
   /**
-   * Montserrat 600 for burned-in captions, per the spec. The Docker image for
-   * workers/media installs it; the fallbacks are there so a local run without
-   * it still produces a legible clip rather than failing.
+   * Montserrat 600 for burned-in captions, per the spec. The face itself is
+   * checked in at `packages/brand/fonts/Montserrat-SemiBold.ttf` (Open Font
+   * License, `OFL-Montserrat.txt` beside it), so the media worker points
+   * libass straight at it and the two Docker images copy it in for fontconfig.
+   *
+   * This is the face's own name, not the family's. libass matches a static
+   * font by its family name, which for a single-weight file is "Montserrat
+   * SemiBold", and fontconfig and Chromium answer to it too. Asking for plain
+   * "Montserrat" finds nothing and quietly falls back to DejaVu.
+   *
+   * The fallbacks are there so a run with no font at all still produces a
+   * legible clip rather than failing.
    */
-  caption: 'Montserrat',
+  caption: 'Montserrat SemiBold',
   captionWeight: 600,
   captionFallbacks: ['DejaVu Sans', 'Liberation Sans', 'sans-serif'],
 } as const;

@@ -111,7 +111,10 @@ export function buildAss(
       assColour(style.highlight),
       assColour(style.outline),
       assColour(style.outline),
-      // Bold on: Montserrat 600 is the nearest the renderer can pick.
+      // Bold on. The brand face is a single 600 weight, so libass uses it as
+      // is (it only synthesises bold when the face is 150 or more lighter
+      // than asked). The flag matters for the fallback: with no Montserrat at
+      // all, DejaVu Sans Bold is closer to the look than DejaVu Sans.
       '1',
       '0',
       '0',

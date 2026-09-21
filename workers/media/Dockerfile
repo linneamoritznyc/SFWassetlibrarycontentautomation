@@ -25,15 +25,12 @@ RUN apt-get update \
 RUN pip3 install --no-cache-dir --break-system-packages 'opencv-python-headless<5'
 
 # Montserrat 600 is the brand caption face (CLAUDE.md section 5). It is not in
-# the Debian archive, so it comes from Google Fonts, which publishes it under
-# the Open Font License. If the download fails the image still builds and
-# fontconfig falls back to DejaVu Sans Bold: the clips are legible but off
-# brand, which is better than a broken image. See docs/TODO-LINNEA.md.
-RUN mkdir -p /usr/local/share/fonts/montserrat \
- && curl -fsSL -o /usr/local/share/fonts/montserrat/Montserrat-SemiBold.ttf \
-      "https://github.com/google/fonts/raw/main/ofl/montserrat/static/Montserrat-SemiBold.ttf" \
-    || echo "Montserrat unavailable at build time, falling back to DejaVu" \
- && fc-cache -f
+# the Debian archive, so the file is checked into the repository under the Open
+# Font License and copied into the image. Nothing is fetched at build time.
+# libass is also pointed at packages/brand/fonts directly, so the captions come
+# out in Montserrat whether or not fontconfig knows about it.
+COPY packages/brand/fonts/Montserrat-SemiBold.ttf /usr/local/share/fonts/montserrat/
+RUN fc-cache -f
 
 ENV NODE_ENV=production
 COPY --from=build /app ./

@@ -22,12 +22,10 @@ RUN apt-get update \
     libxcomposite1 libxdamage1 libxfixes3 libxrandr2 libgbm1 libasound2 libpango-1.0-0 \
  && rm -rf /var/lib/apt/lists/*
 
-# Same brand face as the caption burner, same fallback if it cannot be fetched.
-RUN mkdir -p /usr/local/share/fonts/montserrat \
- && curl -fsSL -o /usr/local/share/fonts/montserrat/Montserrat-SemiBold.ttf \
-      "https://github.com/google/fonts/raw/main/ofl/montserrat/static/Montserrat-SemiBold.ttf" \
-    || echo "Montserrat unavailable at build time, falling back to DejaVu" \
- && fc-cache -f
+# Same brand face as the caption burner, from the repository rather than a
+# download. Chromium finds it through fontconfig.
+COPY packages/brand/fonts/Montserrat-SemiBold.ttf /usr/local/share/fonts/montserrat/
+RUN fc-cache -f
 
 ENV NODE_ENV=production
 COPY --from=build /app ./

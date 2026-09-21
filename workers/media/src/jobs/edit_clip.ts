@@ -5,7 +5,7 @@ import { handler } from '@sfw/queue';
 import { getObject, keys, putObject, type Bucket } from '@sfw/storage';
 import { buildAss, buildSrt, shiftWords, wordsBetween, type Word } from '../captions.js';
 import { db } from '../db.js';
-import { FFMPEG, probe, run } from '../ffmpeg.js';
+import { FFMPEG, assFilter, probe, run } from '../ffmpeg.js';
 import { withTempDir } from '../temp.js';
 
 export type Segment = { start: number; end: number };
@@ -106,7 +106,7 @@ export const editClip = handler<EditPayload>(async ({ job }) => {
         `crop=${size.width}:${size.height}:x='(iw-${size.width})*${focus.toFixed(3)}':y=0`,
         'setsar=1',
       ];
-      if (assPath) filters.push(`ass='${assPath.replace(/\\/g, '/').replace(/:/g, '\\:')}'`);
+      if (assPath) filters.push(assFilter(assPath));
 
       const args = [
         '-y',

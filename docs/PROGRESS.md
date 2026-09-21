@@ -18,6 +18,15 @@ Paste intake (`docs/paste-intake.md`) is threaded through Phase 2 (capture and
 the vision read) and Phase 4 (story and draft spin-up). No Drive, Google Chat or
 Monday.com connection, by decision of 20 Sep 2026.
 
+**Checked on 21 Sep 2026** against a local Postgres 16 with pgvector, which the
+earlier sandbox did not have: `pnpm build`, `lint`, `typecheck` and
+`format:check` clean; all 219 tests pass, including the 53 that need a
+database; `pnpm db:setup` twice on an empty database applies ten migrations
+then reports "No new migrations" and seeds the same counts; the eval CLI with
+the model off scores 8 of 11; the cron one-shot queues `plan_week` once and
+dedupes the second call. ffmpeg was installed and a caption burned: libass
+now picks the brand face (see Phase 3 below and item 10 of the TODO).
+
 ---
 
 ## Phase 0: Repo and folders
@@ -60,7 +69,7 @@ fills it: `/library`, `/inbox`, `/clips`, `/week`, `/scout`, `/learned`,
 
 **What works**
 
-- Nine migrations in `supabase/migrations`, covering every table in backend spec
+- Ten migrations in `supabase/migrations`, covering every table in backend spec
   section 4: 29 tables with foreign keys, check constraints and indexes,
   including HNSW vector indexes on `assets`, `facts` and `news_items`.
 - Row Level Security on all 29, with no policies and the grants revoked from
@@ -93,9 +102,9 @@ Against your Supabase project, once `DATABASE_URL` is set:
 
 ```bash
 pnpm db:setup
-# Applied: 0001_extensions.sql ... 0009_rls.sql
+# Applied: 0001_extensions.sql ... 0010_scout_global.sql
 # Seeded: tags 88, smart_folders 16, people 12, settings 2,
-#         planner_weights 10, prompts 11, test_cases 11
+#         planner_weights 10, prompts 11, test_cases 11, sources 6, feeds 27
 ```
 
 Run it twice. The second run says "No new migrations" and seeds the same counts
@@ -253,6 +262,14 @@ verified by diffing a captioned frame against a plain one.
 
 With keys and a real video, follow "Running the contractor test on a real
 workshop video" in `docs/RUNBOOK.md`.
+
+**Font**
+
+Captions burn in Montserrat SemiBold from
+`packages/brand/fonts/Montserrat-SemiBold.ttf`, which the `ass` filter is
+pointed at directly, so this holds on a laptop with nothing installed as well
+as in the container. Verified 21 Sep 2026 by burning a caption with ffmpeg and
+reading libass's own font selection line.
 
 **Known gap**
 
@@ -556,7 +573,7 @@ encryption key, the team's email addresses. Until the first four are done,
 
 ```bash
 cp .env.example .env.local     # fill it in
-pnpm install && pnpm db:setup  # nine migrations, then the seed
+pnpm install && pnpm db:setup  # ten migrations, then the seed
 pnpm dev                       # web on :3000
 ```
 
@@ -606,6 +623,7 @@ node workers/cron/dist/index.js      # or one-shot: ... dist/index.js plan_week
 | 12 to 15 candidates on word boundaries | `/clips`. Each has a hook, why, pillar, speaker and score. |
 | Cuts at four ratios with captions | Keep one. The other three ratios are cut. |
 | Loudness at -14 LUFS | `ffmpeg -i clip.mp4 -af ebur128 -f null -` |
+| Captions in Montserrat, not DejaVu | Run the cut with `-loglevel debug`: libass logs `fontselect: (Montserrat SemiBold, 700, 0) -> Montserrat-SemiBold`. |
 | Cost per kept clip | The header on `/clips`. |
 | Trim, split, reorder, caption fixes, music | Edit on any clip. |
 | Follows the speaker | Turn on `speaker_tracking_crop` in the `flags` setting. |

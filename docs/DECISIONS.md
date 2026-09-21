@@ -546,3 +546,29 @@ activating a new version while the old one is still active either violates the
 index or silently does nothing. The seed now does both updates on one
 connection in one transaction, old off then new on, so a crash in between
 cannot leave a prompt with no active version at all.
+
+## After Phase 8
+
+**2026-09-21 — Montserrat lives in the repository, and libass is pointed at it.**
+The build-time download never had a chance: Google Fonts removed the
+`static/` folder for Montserrat from its repository, so the URL both
+Dockerfiles fetched answers 404 and every image would have fallen back to
+DejaVu. The face is now `packages/brand/fonts/Montserrat-SemiBold.ttf`, a
+weight-600 instance cut from the variable font with fontTools so the name
+table is right and the full 2,747-glyph coverage is kept (the per-weight file
+Google serves to browsers is a 320-glyph Latin subset with a broken family
+name). The Open Font License allows this; the licence text is beside the
+directory, not in it, because libass tries to open every file in `fontsdir` as
+a font. Both Dockerfiles copy the file in for fontconfig, and the `ass` filter
+carries `fontsdir=` so a laptop with nothing installed burns the same captions
+as the container.
+
+**2026-09-21 — The caption face is named "Montserrat SemiBold", not "Montserrat".**
+Checked against libass 0.17.1 with the font loaded: a style asking for
+`Montserrat` at weight 700 selects `DejaVuSans-Bold`, and the same style asking
+for `Montserrat SemiBold` selects the brand face. libass matches a static font
+on its own family name, which for a single-weight file is the face name.
+fontconfig and Chromium answer to the face name too, so the Remotion templates
+use the same token. The `Bold` flag stays on: libass does not synthesise bold
+for a face only 100 lighter than asked (the two renders are byte-identical),
+and with no Montserrat at all DejaVu Sans Bold is the closer fallback.

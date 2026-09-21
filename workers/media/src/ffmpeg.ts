@@ -1,5 +1,6 @@
 import { spawn } from 'node:child_process';
 import { once } from 'node:events';
+import { brandFontsDir } from './fonts.js';
 
 /**
  * A thin wrapper over the ffmpeg and ffprobe binaries.
@@ -200,6 +201,24 @@ export type CutOptions = {
 };
 
 /**
+ * ffmpeg's filter syntax needs colons and backslashes escaped inside a value,
+ * which Windows paths and absolute paths both hit.
+ */
+function filterValue(path: string): string {
+  return `'${path.replace(/\\/g, '/').replace(/:/g, '\\:')}'`;
+}
+
+/**
+ * The `ass` filter that burns a caption file in, with libass told where the
+ * brand font is. `fontsdir` is searched before the system's fontconfig, so
+ * the captions come out in Montserrat wherever the worker runs, and fall back
+ * to whatever fontconfig has if the directory is missing.
+ */
+export function assFilter(assPath: string, fontsDir: string = brandFontsDir()): string {
+  return `ass=${filterValue(assPath)}:fontsdir=${filterValue(fontsDir)}`;
+}
+
+/**
  * Cuts one clip out of the original and reframes it.
  *
  * `-ss` before `-i` seeks by keyframe, which is fast on a multi-gigabyte file,
@@ -233,11 +252,7 @@ export async function cutClip(options: CutOptions): Promise<void> {
 
   filters.push('setsar=1');
 
-  if (options.assPath) {
-    // ffmpeg's filter syntax needs colons and backslashes escaped inside a
-    // filename, which Windows paths and absolute paths both hit.
-    filters.push(`ass='${options.assPath.replace(/\\/g, '/').replace(/:/g, '\\:')}'`);
-  }
+  if (options.assPath) filters.push(assFilter(options.assPath));
 
   const args = [
     '-y',
