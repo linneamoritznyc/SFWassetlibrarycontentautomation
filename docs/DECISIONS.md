@@ -572,3 +572,49 @@ fontconfig and Chromium answer to the face name too, so the Remotion templates
 use the same token. The `Bold` flag stays on: libass does not synthesise bold
 for a face only 100 lighter than asked (the two renders are byte-identical),
 and with no Montserrat at all DejaVu Sans Bold is the closer fallback.
+
+**2026-09-22 — A failed feed is classified, and only a dead one is switched off.**
+The first version counted every failure the same and switched a feed off after
+five. That retires the wrong feeds: a partner site behind bot protection and a
+site down for maintenance both disappear from the source list after five
+mornings, and a switched-off feed is one nobody looks at. Failures are now
+`moved` (404, 410, or a web page where a feed should be), `empty` (parsed to
+nothing), `blocked` (401, 403, 429) or `transient` (5xx, timeout, reset). Only
+`moved` and `empty` count towards giving up, because only those mean the URL
+itself is wrong. A blocked or flaky feed keeps being asked, once a day, and
+keeps showing in Settings with what is actually happening to it.
+
+**2026-09-22 — The scout looks for a feed that moved rather than waiting to be told.**
+Every URL in the seed is the best known URL for that organisation rather than a
+tested one, and feeds move anyway: a site changes CMS, a newsroom moves under a
+new path. So when a feed 404s or answers with a web page, `scout_fetch` does
+what a person would do. It reads the `<link rel="alternate">` tags that
+browsers have used for autodiscovery since 2002, starting at the broken URL,
+then walking up its path to the section page and the site root, and failing
+that tries the ten paths publishing systems actually use. A candidate is only
+accepted if it parses into at least one item, so this cannot repair a feed into
+something unreadable. The repair is recorded in `previous_url` and
+`url_fixed_at` and shown in Settings, because changing a source list is a
+change someone should be able to see and undo.
+
+**2026-09-22 — The seeder matches a repaired feed on where it came from.**
+`seed_feeds` upserted on `url`. Once the scout had moved a feed, the seeded URL
+matched nothing, so the next `pnpm db:seed` inserted the broken URL again as a
+second row and undid the repair. A feed whose `previous_url` is the seeded URL
+is now updated in place and keeps its new address. Found by writing the test
+for the repair, not by reading the code.
+
+**2026-09-22 — Feeds are fetched six at a time, with validators.**
+Twenty-seven feeds one after another, each waiting up to twenty seconds on a
+dead host, is nine minutes of a worker doing nothing. They go in batches of six.
+A feed that gives us an ETag or Last-Modified gets it back on the next ask, so
+an unchanged feed answers 304 with no body: cheaper for us and considerably
+politer to the small institutional servers we hit every morning.
+
+**2026-09-22 — Newsletters are not the way in, except where there is no feed.**
+Linnea's call, and the right one. A newsletter arrives later than the source,
+is already somebody's edit of it, and buries the link we actually want in
+marketing HTML. Where it earns its place is the six sources here that publish
+no machine-readable feed at all, which are read as pages today. If one of those
+offers a mailing list, that is a better channel than scraping their front page.
+Not built; noted so the option is not rediscovered from scratch.

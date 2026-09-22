@@ -204,6 +204,20 @@ export async function seedOnePrompt(
 async function seedFeeds(pool: Pool): Promise<number> {
   let n = 0;
   for (const feed of FEEDS) {
+    // A feed the scout has repaired no longer sits at its seeded URL, so
+    // matching on `url` alone would find nothing, insert the broken URL again
+    // as a second row, and undo the repair every time anyone re-seeds. Such a
+    // row is matched on where it came from instead, and keeps its new URL.
+    const moved = await pool.query(
+      `update feeds set name = $1, kind = $3, region = $4 where previous_url = $2`,
+      [feed.name, feed.url, feed.kind, feed.region],
+    );
+
+    if ((moved.rowCount ?? 0) > 0) {
+      n += moved.rowCount ?? 0;
+      continue;
+    }
+
     // `active` is left alone on update: turning a dead feed off in Settings
     // must survive a re-seed.
     const res = await pool.query(

@@ -212,6 +212,41 @@ describeDb('schema and seed', () => {
     await pool.query(`update feeds set active = true where name = $1`, [FEEDS[0]!.name]);
   });
 
+  it('a re-seed leaves a feed the scout repaired where it now is', async () => {
+    // What scout_fetch does when it finds a feed somewhere else: the row keeps
+    // its identity and remembers where it came from.
+    const seeded = FEEDS[1]!;
+    const repaired = 'https://example.test/newsroom/feed/';
+    await pool.query(
+      `update feeds set previous_url = url, url = $2, url_fixed_at = now() where name = $1`,
+      [seeded.name, repaired],
+    );
+
+    await seed(pool);
+
+    // Matching on the seeded URL alone would have inserted it a second time
+    // and put the broken URL straight back into the morning run.
+    const { n } = await one<{ n: number }>('select count(*)::int as n from feeds where name = $1', [
+      seeded.name,
+    ]);
+    expect(n).toBe(1);
+
+    const row = await one<{ url: string }>('select url from feeds where name = $1', [seeded.name]);
+    expect(row.url).toBe(repaired);
+
+    const { gone } = await one<{ gone: number }>(
+      'select count(*)::int as gone from feeds where url = $1',
+      [seeded.url],
+    );
+    expect(gone).toBe(0);
+
+    await pool.query(
+      `update feeds set url = $2, previous_url = null, url_fixed_at = null
+                      where name = $1`,
+      [seeded.name, seeded.url],
+    );
+  });
+
   it('seeds the eval test set with good and bad cases', async () => {
     const { n } = await one<{ n: number }>('select count(*)::int as n from test_cases');
     expect(n).toBe(TEST_CASES.length);

@@ -313,28 +313,44 @@ technical one.
 
 ## 13. Check the scout's feed list
 
-**Why:** the twenty-seven feeds are seeded from the UN bodies, the research
-networks and the regional programmes the Foundation asked for, but the sandbox
-this was built in could not reach the open internet, so **none** of the URLs was
-confirmed to still work. They are the best known URL for each organisation, not
-tested ones.
+**Smaller than it was.** The twenty-seven feeds are still the best known URL
+for each organisation rather than tested ones, and still could not be reached
+from the sandbox this was built in. What changed on 22 September is that the
+scout no longer needs you to notice. A feed that 404s or hands back a web page
+is looked for: the site's own autodiscovery tags, the section page it used to
+sit under, then the paths publishing systems use. Anything found that parses
+into real items is adopted on the spot, with the old URL kept beside it.
+
+So the realistic outcome of the first morning run is that most of the wrong
+URLs fix themselves, and Settings tells you about each one.
 
 **Steps**
 
-1. Run `pnpm feeds:check` from your laptop. It tests every feed, prints a table
-   by region, and lists the failing URLs at the end. It touches no database and
-   needs no API key.
-2. Fix any failures in `packages/shared/src/feeds.ts`, then `pnpm db:seed`.
-   A site's feed is usually at `/feed`, `/rss`, `/rss.xml` or `/feed/`.
-   If an organisation has no feed at all, set `kind: 'page'` and the scout reads
-   the page as a source instead of trying to parse it.
-3. Once it is running, Settings shows the same thing live: the Feeds panel puts
-   any failing feed at the top with the actual error and the date it last
-   worked. A feed that fails five mornings in a row switches itself off.
+1. Run `pnpm feeds:check` from your laptop. It tests every feed with exactly
+   the code the morning job uses, prints a table by region, and for anything
+   that moved prints the replacement URL ready to paste. It touches no
+   database and needs no API key.
+
+   Do not run it behind a corporate VPN or proxy. One of those refuses hosts
+   it does not know and every feed comes back `403 blocked`, which is what
+   happens in the sandbox and is indistinguishable from a real bot wall.
+
+2. Paste any replacement URLs into `packages/shared/src/feeds.ts`, then
+   `pnpm db:seed`. This is only so a fresh database starts from the working
+   URL; the running system has already repaired itself.
+
+3. What is left after that is the feeds nothing could be found for. Those need
+   a real URL, or `kind: 'page'` so the scout reads the page as a source
+   instead of trying to parse it.
+
+4. A feed marked `blocked` is a different problem: the feed is fine and
+   something in front of it is refusing us. Those are never switched off
+   automatically, because that would lose the source. Some want a contact
+   email, some want the newsletter instead, some just want asking less often.
 
 Worth adding if you have them: the journals you already follow, and any
 newsletter with an RSS mirror. Non-English is welcome, the scout summarises
 everything in English and keeps the original on the card.
 
-**Mock in place:** a failing feed is recorded and skipped, so one dead URL out
-of twenty-seven never stops the other twenty-six.
+**Mock in place:** a failing feed is recorded, looked for, and skipped, so one
+dead URL out of twenty-seven never stops the other twenty-six.

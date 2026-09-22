@@ -15,7 +15,27 @@ type Feed = {
   last_error: string | null;
   last_checked_at: string | null;
   consecutive_failures: number;
+  failure_kind: 'moved' | 'empty' | 'blocked' | 'transient' | null;
+  previous_url: string | null;
+  url_fixed_at: string | null;
 };
+
+/**
+ * What a failure actually means, and whether it is yours to do something
+ * about. The distinction matters: a feed behind bot protection needs a
+ * decision from a person, while a feed having a bad morning needs nothing.
+ */
+const FAILURE_LABEL: Record<string, string> = {
+  moved: 'the URL is wrong or the feed moved, and nothing was found to replace it',
+  empty: 'answered, but nothing could be read out of it',
+  blocked: 'something in front of the feed is refusing us, usually bot protection',
+  transient: 'the server was unreachable or having trouble',
+};
+
+/** Only these mean the source list itself needs editing. */
+function needsAPerson(kind: string | null): boolean {
+  return kind === 'moved' || kind === 'empty' || kind === 'blocked';
+}
 
 type Person = {
   id: number;
@@ -119,6 +139,7 @@ export function SettingsView() {
     | undefined;
 
   const failingFeeds = data.feeds.filter((f) => f.consecutive_failures > 0);
+  const repairedFeeds = data.feeds.filter((f) => f.previous_url);
 
   return (
     <main className="mx-auto max-w-3xl p-6">
@@ -194,9 +215,14 @@ export function SettingsView() {
                     {feed.consecutive_failures} fail
                     {feed.consecutive_failures === 1 ? '' : 's'} in a row
                     {!feed.active && ' · switched off automatically'}
+                    {feed.failure_kind === 'transient' && ' · nothing to do, it should come back'}
                   </span>
                   <br />
-                  <span className="text-green-mid">{feed.last_error ?? 'no error recorded'}</span>
+                  <span className="text-green-mid">
+                    {feed.failure_kind ? FAILURE_LABEL[feed.failure_kind] : 'no error recorded'}
+                  </span>
+                  <br />
+                  <span className="text-green-mid">{feed.last_error ?? ''}</span>
                   <br />
                   <a href={feed.url} target="_blank" rel="noreferrer" className="underline">
                     {feed.url}
@@ -210,8 +236,46 @@ export function SettingsView() {
               ))}
             </ul>
             <p className="mt-2 text-xs text-green-mid">
-              Fix a URL in <code>packages/shared/src/feeds.ts</code>, then re-seed. Run{' '}
+              {failingFeeds.some((f) => needsAPerson(f.failure_kind))
+                ? 'A feed that moved has already been looked for at the addresses sites normally use. These are the ones that turned up nothing, so they need a real URL: '
+                : 'Nothing here needs doing yet. '}
+              fix one in <code>packages/shared/src/feeds.ts</code>, then re-seed. Run{' '}
               <code>pnpm feeds:check</code> to test every feed at once.
+            </p>
+          </div>
+        )}
+
+        {/* The scout moving a feed by itself is a change to the source list,
+            so it says so rather than doing it quietly. */}
+        {repairedFeeds.length > 0 && (
+          <div className="mb-3 rounded border border-green-mid/40 p-2">
+            <p className="text-sm font-medium">
+              {repairedFeeds.length} feed{repairedFeeds.length === 1 ? '' : 's'} found at a new
+              address
+            </p>
+            <ul className="mt-1 space-y-1 text-xs">
+              {repairedFeeds.map((feed) => (
+                <li key={feed.id}>
+                  <span className="font-medium">{feed.name}</span>
+                  {feed.url_fixed_at && (
+                    <span className="text-green-mid">
+                      {' · '}
+                      {new Date(feed.url_fixed_at).toLocaleDateString()}
+                    </span>
+                  )}
+                  <br />
+                  <span className="text-green-mid line-through">{feed.previous_url}</span>
+                  <br />
+                  <a href={feed.url} target="_blank" rel="noreferrer" className="underline">
+                    {feed.url}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-2 text-xs text-green-mid">
+              The new address is in use already. Paste it into{' '}
+              <code>packages/shared/src/feeds.ts</code> so a fresh database starts from the working
+              one.
             </p>
           </div>
         )}

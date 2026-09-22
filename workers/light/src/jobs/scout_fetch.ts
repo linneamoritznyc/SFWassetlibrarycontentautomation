@@ -1,44 +1,91 @@
 import { handler } from '@sfw/queue';
 import { db } from '../db.js';
-import { parseFeed } from '../rss.js';
+import { discoverFeed } from '../discover.js';
+import { fetchFeed, isDead, type FetchOutcome } from '../feed-fetch.js';
+import type { FeedItem } from '../rss.js';
 
 /** Nothing older than this is worth reacting to. */
 const MAX_AGE_DAYS = 14;
 
-/** After this many failures in a row, stop asking. */
+/** After this many dead mornings in a row, stop asking. */
 const GIVE_UP_AFTER = 5;
+
+/** Feeds fetched at once. Enough to finish quickly, few enough to be polite. */
+const CONCURRENCY = 6;
+
+type FeedRow = {
+  id: number;
+  name: string;
+  url: string;
+  kind: string;
+  consecutive_failures: number;
+  etag: string | null;
+  last_modified: string | null;
+};
 
 /**
  * Pulls every active feed and stores what is new.
  *
  * A feed that fails is recorded and skipped, never thrown: one dead URL out of
- * twenty-seven should not stop the other twenty-six. The failure is counted on
- * the feed row, and after five in a row the feed switches itself off, because
- * a URL that has been dead for a week will still be dead tomorrow and the
- * Settings screen is where someone decides what to replace it with.
+ * twenty-seven should not stop the other twenty-six.
  *
- * A feed that answers but parses to nothing counts as a failure too. A page
- * that returns 200 and a cookie banner is the most common way a feed dies.
+ * What happens next depends on how it failed. A feed that 404s or hands back a
+ * web page has moved, so the scout goes and looks for it: the site's
+ * autodiscovery tags first, then the usual feed paths, and if something there
+ * parses into real items the feed's URL is repaired on the spot and the old
+ * one kept beside it. Only a feed that is dead and cannot be found again gets
+ * switched off, after five mornings. A feed behind bot protection, or one
+ * whose server is having a bad week, stays in the list and stays visible in
+ * Settings, because switching it off would lose the source and fix nothing.
  */
 export const scoutFetch = handler(async ({ enqueue }) => {
   const pool = db();
 
-  const { rows: feeds } = await pool.query<{
-    id: number;
-    name: string;
-    url: string;
-    kind: string;
-    consecutive_failures: number;
-  }>(
-    `select id, name, url, kind, consecutive_failures
+  const { rows: feeds } = await pool.query<FeedRow>(
+    `select id, name, url, kind, consecutive_failures, etag, last_modified
      from feeds where active order by name`,
   );
 
   let added = 0;
+  let unchanged = 0;
   const failures: string[] = [];
+  const repaired: string[] = [];
   const switchedOff: string[] = [];
 
-  for (const feed of feeds) {
+  // Feeds are independent, so they go in small batches rather than one after
+  // another: twenty-seven sequential fetches that each wait twenty seconds for
+  // a dead host is nine minutes of a worker doing nothing.
+  for (let i = 0; i < feeds.length; i += CONCURRENCY) {
+    await Promise.all(feeds.slice(i, i + CONCURRENCY).map(runFeed));
+  }
+
+  if (repaired.length > 0) {
+    console.log(`[scout_fetch] repaired ${repaired.length} feed URL(s): ${repaired.join('; ')}`);
+  }
+  if (failures.length > 0) {
+    console.warn(`[scout_fetch] ${failures.length} feed(s) failed: ${failures.join('; ')}`);
+  }
+  if (switchedOff.length > 0) {
+    console.warn(
+      `[scout_fetch] switched off after ${GIVE_UP_AFTER} dead mornings each: ` +
+        `${switchedOff.join(', ')}. Replace or re-enable them in Settings.`,
+    );
+  }
+  console.log(
+    `[scout_fetch] ${added} new item(s) from ${feeds.length} feed(s)` +
+      (unchanged > 0 ? `, ${unchanged} unchanged` : ''),
+  );
+
+  if (added > 0) {
+    await enqueue({
+      type: 'scout_rank',
+      payload: {},
+      priority: 7,
+      dedupeKey: `scout_rank:${new Date().toISOString().slice(0, 10)}`,
+    });
+  }
+
+  async function runFeed(feed: FeedRow): Promise<void> {
     try {
       // A `page` feed has no RSS. It is read as a source page instead, which
       // turns it into facts rather than news cards, and is the right answer
@@ -51,108 +98,118 @@ export const scoutFetch = handler(async ({ enqueue }) => {
           priority: 8,
           dedupeKey: `web_fetch:${feed.url}`,
         });
-        await recordOk(feed.id);
-        continue;
+        await recordOk(feed.id, null, null);
+        return;
       }
 
-      const res = await fetch(feed.url, {
-        headers: {
-          'user-agent': 'SFWContentStudio/0.1 (+https://soilfoodweb.com)',
-          // Some feeds serve HTML unless asked for XML.
-          accept:
-            'application/rss+xml, application/atom+xml, application/xml, text/xml;q=0.9, */*;q=0.5',
-        },
-        redirect: 'follow',
-        signal: AbortSignal.timeout(20_000),
+      let outcome = await fetchFeed(feed.url, {
+        conditional: { etag: feed.etag, lastModified: feed.last_modified },
       });
 
-      if (!res.ok) {
-        await recordFailure(feed, `HTTP ${res.status}`);
-        failures.push(`${feed.name} (${res.status})`);
-        continue;
+      // The URL looks wrong. Go and find where the feed went.
+      if (isDead(outcome.kind)) {
+        const found = await discoverFeed(feed.url);
+
+        if (found) {
+          await pool.query(
+            `update feeds
+             set previous_url = url, url = $2, url_fixed_at = now()
+             where id = $1`,
+            [feed.id, found.url],
+          );
+          repaired.push(`${feed.name} -> ${found.url} (${found.how})`);
+          // The validated candidate is re-fetched rather than reused, so this
+          // run stores items under the same code path as every other feed.
+          outcome = await fetchFeed(found.url);
+          feed.url = found.url;
+        }
       }
 
-      const items = parseFeed(await res.text());
-
-      if (items.length === 0) {
-        // 200 and nothing usable: a redirect to a landing page, a cookie
-        // wall, or a feed that moved. Worth reporting as a failure.
-        await recordFailure(feed, 'answered, but no items could be parsed');
-        failures.push(`${feed.name} (no items)`);
-        continue;
+      if (outcome.kind === 'unchanged') {
+        unchanged += 1;
+        await recordOk(feed.id, feed.etag, feed.last_modified);
+        return;
       }
 
-      const cutoff = Date.now() - MAX_AGE_DAYS * 86_400_000;
-      let fromThisFeed = 0;
-
-      for (const item of items) {
-        if (item.publishedAt && item.publishedAt.getTime() < cutoff) continue;
-
-        const inserted = await pool.query<{ id: number }>(
-          `insert into news_items (feed_id, url, title, published_at, summary, status)
-           values ($1, $2, $3, $4, $5, 'new')
-           on conflict (url) do nothing
-           returning id`,
-          [feed.id, item.url, item.title, item.publishedAt, item.summary],
-        );
-
-        if (inserted.rows[0]) fromThisFeed += 1;
+      if (outcome.kind !== 'ok') {
+        await recordFailure(feed, outcome);
+        failures.push(`${feed.name} (${outcome.detail})`);
+        return;
       }
 
-      added += fromThisFeed;
-      await recordOk(feed.id);
+      // Read into a local first. `added += await store(...)` would capture
+      // `added` before the await resolved, and with six feeds in flight two
+      // finishing together would lose an increment.
+      const stored = await store(feed.id, outcome.items);
+      added += stored;
+
+      await recordOk(feed.id, outcome.etag, outcome.lastModified);
     } catch (err) {
+      // Anything unexpected is the worker's problem, not the feed's, so it is
+      // recorded as transient and never counts towards switching a feed off.
       const message = err instanceof Error ? err.message : 'failed';
-      await recordFailure(feed, message);
+      await recordFailure(feed, { kind: 'transient', detail: message });
       failures.push(`${feed.name} (${message})`);
     }
   }
 
-  if (failures.length > 0) {
-    console.warn(`[scout_fetch] ${failures.length} feed(s) failed: ${failures.join('; ')}`);
-  }
-  if (switchedOff.length > 0) {
-    console.warn(
-      `[scout_fetch] switched off after ${GIVE_UP_AFTER} failures each: ${switchedOff.join(', ')}. ` +
-        'Replace or re-enable them in Settings.',
-    );
-  }
-  console.log(`[scout_fetch] ${added} new item(s) from ${feeds.length} feed(s)`);
+  async function store(feedId: number, items: FeedItem[]): Promise<number> {
+    const cutoff = Date.now() - MAX_AGE_DAYS * 86_400_000;
+    let stored = 0;
 
-  if (added > 0) {
-    await enqueue({
-      type: 'scout_rank',
-      payload: {},
-      priority: 7,
-      dedupeKey: `scout_rank:${new Date().toISOString().slice(0, 10)}`,
-    });
+    for (const item of items) {
+      if (item.publishedAt && item.publishedAt.getTime() < cutoff) continue;
+
+      const inserted = await pool.query<{ id: number }>(
+        `insert into news_items (feed_id, url, title, published_at, summary, status)
+         values ($1, $2, $3, $4, $5, 'new')
+         on conflict (url) do nothing
+         returning id`,
+        [feedId, item.url, item.title, item.publishedAt, item.summary],
+      );
+
+      if (inserted.rows[0]) stored += 1;
+    }
+
+    return stored;
   }
 
-  async function recordOk(feedId: number): Promise<void> {
+  async function recordOk(
+    feedId: number,
+    etag: string | null,
+    lastModified: string | null,
+  ): Promise<void> {
     await pool.query(
       `update feeds
        set last_ok_at = now(), last_checked_at = now(),
-           last_error = null, consecutive_failures = 0
+           last_error = null, failure_kind = null, consecutive_failures = 0,
+           etag = $2, last_modified = $3
        where id = $1`,
-      [feedId],
+      [feedId, etag, lastModified],
     );
   }
 
   async function recordFailure(
     feed: { id: number; name: string; consecutive_failures: number },
-    reason: string,
+    outcome: Exclude<FetchOutcome, { kind: 'ok' } | { kind: 'unchanged' }>,
   ): Promise<void> {
     const failures = feed.consecutive_failures + 1;
-    const disable = failures >= GIVE_UP_AFTER;
+
+    // Only a feed whose URL is dead, and which could not be found anywhere
+    // else, is worth giving up on. Bot protection and a flaky server are both
+    // things a person has to look at, and a switched-off feed is one nobody
+    // looks at.
+    const disable = isDead(outcome.kind) && failures >= GIVE_UP_AFTER;
 
     await pool.query(
       `update feeds
        set last_checked_at = now(),
            last_error = $2,
-           consecutive_failures = $3,
-           active = case when $4 then false else active end
+           failure_kind = $3,
+           consecutive_failures = $4,
+           active = case when $5 then false else active end
        where id = $1`,
-      [feed.id, reason.slice(0, 500), failures, disable],
+      [feed.id, outcome.detail.slice(0, 500), outcome.kind, failures, disable],
     );
 
     if (disable) switchedOff.push(feed.name);

@@ -56,14 +56,18 @@ describeDb('scout_fetch', () => {
   }
 
   async function feed(name: string): Promise<{
+    url: string;
     active: boolean;
     last_error: string | null;
     last_ok_at: Date | null;
     last_checked_at: Date | null;
     consecutive_failures: number;
+    failure_kind: string | null;
+    previous_url: string | null;
   }> {
     const { rows } = await pool.query(
-      `select active, last_error, last_ok_at, last_checked_at, consecutive_failures
+      `select url, active, last_error, last_ok_at, last_checked_at, consecutive_failures,
+              failure_kind, previous_url
        from feeds where name = $1`,
       [name],
     );
@@ -102,11 +106,13 @@ describeDb('scout_fetch', () => {
     expect(gone.last_ok_at).toBeNull();
     expect(gone.active, 'one failure is not enough to switch a feed off').toBe(true);
 
-    // 200 with nothing parseable is the most common way a feed dies, so it
-    // counts as a failure rather than as a quiet day.
+    // 200 with a web page is the most common way a feed dies, so it counts as
+    // a failure rather than as a quiet day, and it is called a move rather
+    // than an unreadable feed because the two need different answers.
     const wall = await feed('Cookie wall');
     expect(wall.consecutive_failures).toBe(1);
-    expect(wall.last_error).toContain('no items');
+    expect(wall.last_error).toContain('not a feed');
+    expect(wall.failure_kind).toBe('moved');
 
     const { rows } = await pool.query<{ n: number }>(`select count(*)::int as n from news_items`);
     expect(rows[0]!.n, 'the working feed still delivered').toBe(1);
@@ -138,6 +144,89 @@ describeDb('scout_fetch', () => {
     expect(gone.consecutive_failures).toBe(0);
     expect(gone.last_error).toBeNull();
     expect(gone.last_ok_at).toBeInstanceOf(Date);
+  });
+
+  it('finds a feed that moved, and uses the new address from then on', async () => {
+    await pool.query(`delete from news_items`);
+    await pool.query(`delete from feeds`);
+    await pool.query(
+      `insert into feeds (name, url, kind, region, active)
+       values ('Moved', 'https://example.org/news/rss.xml', 'rss', 'Europe', true)`,
+    );
+
+    // The shape this takes in the wild: the old URL is gone, and the section
+    // page it lived under declares where the feed went.
+    vi.stubGlobal(
+      'fetch',
+      vi.fn(async (url: string) => {
+        if (url.endsWith('/news/rss.xml')) return new Response('gone', { status: 404 });
+        if (url.endsWith('/news/')) {
+          return new Response(
+            `<!doctype html><html><head><link rel="alternate"
+               type="application/rss+xml" href="/news/feed.xml"></head></html>`,
+            { status: 200, headers: { 'content-type': 'text/html' } },
+          );
+        }
+        if (url.endsWith('/news/feed.xml')) return new Response(RSS, { status: 200 });
+        return new Response('<html></html>', { status: 200 });
+      }),
+    );
+
+    await run();
+
+    const moved = await feed('Moved');
+    expect(moved.url).toBe('https://example.org/news/feed.xml');
+    expect(moved.previous_url, 'the old URL is kept so the change is visible').toBe(
+      'https://example.org/news/rss.xml',
+    );
+    expect(moved.consecutive_failures, 'a repaired feed is not a failing feed').toBe(0);
+    expect(moved.last_ok_at).toBeInstanceOf(Date);
+
+    const { rows } = await pool.query<{ n: number }>(`select count(*)::int as n from news_items`);
+    expect(rows[0]!.n, 'and it delivered on the same run').toBe(1);
+  });
+
+  it('never switches off a feed that is only being refused', async () => {
+    await pool.query(`delete from news_items`);
+    await pool.query(`delete from feeds`);
+    await pool.query(
+      `insert into feeds (name, url, kind, region, active)
+       values ('Walled', 'https://example.org/walled.xml', 'rss', 'Asia', true)`,
+    );
+
+    vi.stubGlobal(
+      'fetch',
+      vi.fn(async () => new Response('Forbidden', { status: 403 })),
+    );
+
+    // Well past the five that would retire a dead URL.
+    for (let i = 0; i < 7; i += 1) await run();
+
+    const walled = await feed('Walled');
+    expect(walled.consecutive_failures).toBe(7);
+    expect(walled.failure_kind).toBe('blocked');
+    // Bot protection is a decision for a person. Switching the source off
+    // would lose it and fix nothing.
+    expect(walled.active).toBe(true);
+  });
+
+  it('keeps a feed whose server is having a bad week', async () => {
+    await pool.query(`delete from feeds`);
+    await pool.query(
+      `insert into feeds (name, url, kind, region, active)
+       values ('Flaky', 'https://example.org/flaky.xml', 'rss', 'Global', true)`,
+    );
+
+    vi.stubGlobal(
+      'fetch',
+      vi.fn(async () => new Response('Service Unavailable', { status: 503 })),
+    );
+
+    for (let i = 0; i < 6; i += 1) await run();
+
+    const flaky = await feed('Flaky');
+    expect(flaky.failure_kind).toBe('transient');
+    expect(flaky.active).toBe(true);
   });
 
   it('sends a page feed to web_fetch instead of trying to parse it', async () => {

@@ -20,12 +20,18 @@ Monday.com connection, by decision of 20 Sep 2026.
 
 **Checked on 21 Sep 2026** against a local Postgres 16 with pgvector, which the
 earlier sandbox did not have: `pnpm build`, `lint`, `typecheck` and
-`format:check` clean; all 219 tests pass, including the 53 that need a
+`format:check` clean; all tests pass, including the ones that need a
 database; `pnpm db:setup` twice on an empty database applies ten migrations
 then reports "No new migrations" and seeds the same counts; the eval CLI with
 the model off scores 8 of 11; the cron one-shot queues `plan_week` once and
 dedupes the second call. ffmpeg was installed and a caption burned: libass
 now picks the brand face (see Phase 3 below and item 10 of the TODO).
+
+**Scout repair, 22 Sep 2026.** The feed URLs still cannot be reached from here,
+so the scout was made to cope with that rather than depend on someone noticing.
+A feed that moves is now looked for and adopted; a feed that is merely blocked
+or flaky is no longer switched off. 239 tests pass, twenty of them new. See
+Phase 8.
 
 ---
 
@@ -510,10 +516,25 @@ licence is worth checking. Both are in `docs/TODO-LINNEA.md`, items 11 and 12.
 
 **What works**
 
-- `scout_fetch` reads fourteen seeded feeds across soil research, policy in the
-  EU, US and India, the partners, the permaculture network and the regenerative
-  agriculture press. A feed that fails is reported and skipped rather than
-  taking the run down with it.
+- `scout_fetch` reads twenty-seven seeded feeds across seven regions: the UN
+  bodies, the research networks, the regional programmes, the partners, the
+  permaculture network and the regenerative agriculture press. A feed that
+  fails is reported and skipped rather than taking the run down with it.
+- **A feed that moves is found again.** 404, 410, or a web page where a feed
+  should be, and the scout goes looking: the site's `<link rel="alternate">`
+  tags, starting at the broken URL and walking up its path to the section page
+  and the site root, then the ten paths publishing systems actually use. A
+  candidate is adopted only if it parses into at least one item, so a repair
+  can never make a feed unreadable. The old URL is kept in `previous_url` and
+  the change is shown in Settings.
+- **A failure is classified before it is acted on.** `moved`, `empty`,
+  `blocked` (401, 403, 429) or `transient` (5xx, timeout, reset). Only a feed
+  whose URL is genuinely dead is switched off, after five mornings. A partner
+  behind bot protection and a server having a bad week both stay in the list,
+  where Settings says in plain words what is happening to each.
+- Feeds are fetched six at a time rather than one after another, and a feed
+  that offers an ETag or Last-Modified gets it back next time, so an unchanged
+  feed answers 304 with no body.
 - `scout_rank` summarises each item with Haiku, scores its relevance, links it
   to the nearest facts and assets by meaning, and turns anything at 0.7 or
   above into a story candidate. It works in batches of forty and re-queues
@@ -542,7 +563,15 @@ licence is worth checking. Both are in `docs/TODO-LINNEA.md`, items 11 and 12.
 TEST_DATABASE_URL=postgres://postgres@127.0.0.1:5433/postgres pnpm test
 ```
 
-193 tests. The 30 new ones cover the RSS parser against fixtures of all four
+239 tests. The scout ones run against a small fake internet: a local server
+serving the ways a feed actually breaks, so the repair is shown working rather
+than asserted. A newsroom that moved and declares the new feed in its head
+tags, one that moved and declares nothing, a cookie wall, a 403, a 503, a
+connection that goes nowhere, and a 304 answered to a validator we sent. Plus
+the seed case that matters: a feed the scout repaired is not put back to its
+broken URL by the next `pnpm db:seed`.
+
+The rest cover the RSS parser against fixtures of all four
 shapes real feeds come in, the speaker-track smoothing (holding position
 through frames with no face, never cropping outside the frame, drifting rather
 than chasing, ignoring jitter), the crop expression, and the caption
@@ -554,8 +583,16 @@ with a music bed mixed under, at the right dimensions and codecs.
 
 **Known gap**
 
-The sandbox this was built in could not reach the open internet, so the feed
-URLs are plausible rather than confirmed. See `docs/TODO-LINNEA.md` item 13.
+The sandbox this was built in cannot reach the open internet, so the feed URLs
+are plausible rather than confirmed. That is now mostly self-correcting: the
+first morning run looks for anything that 404s and adopts what it finds. What
+it cannot fix by itself is a feed nothing was found for, and a feed that is
+being refused. Both are listed in Settings with what to do. See
+`docs/TODO-LINNEA.md` item 13.
+
+One caveat worth knowing: from behind a proxy that refuses unknown hosts,
+every feed reports `blocked: HTTP 403`, which is exactly what a real bot wall
+looks like. Run `pnpm feeds:check` from an ordinary connection.
 
 ---
 
@@ -680,12 +717,15 @@ node workers/cron/dist/index.js      # or one-shot: ... dist/index.js plan_week
 | It does | Check it by |
 | --- | --- |
 | Reads 27 feeds daily, across 7 regions | `node workers/cron/dist/index.js scout_fetch` |
+| Finds a feed that moved and adopts it | Settings, Feeds panel: "found at a new address", with the old URL struck through. |
+| Refuses to adopt something that is not a feed | A candidate is only taken if it parses into items. |
+| Tells a blocked feed apart from a dead one | Settings names which, in words. A blocked feed is never switched off. |
 | Ranks and links to what we know | `/scout` |
 | Promotes anything at 0.7 or above | It becomes a story candidate. |
 | Summarises a non-English item in English | The card shows the English summary, the source's own title under it, and a language badge. |
 | Shows which region a story came from | The badge on each Scout card. |
 | Notices a feed that stopped working | Settings, Feeds panel. Failures sit at the top with the actual error. |
-| Switches a feed off after 5 failures | Settings shows it as switched off automatically. |
+| Switches a dead feed off after 5 mornings | Settings shows it as switched off automatically. Only `moved` and `empty` count. |
 | Tests every feed URL in one go | `pnpm feeds:check` |
 
 ## What it costs

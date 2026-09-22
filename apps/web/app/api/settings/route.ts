@@ -20,6 +20,7 @@ export const GET = route(async () => {
     pool.query(
       `select f.id, f.name, f.url, f.kind, f.active, f.region,
               f.last_ok_at, f.last_error, f.last_checked_at, f.consecutive_failures,
+              f.failure_kind, f.previous_url, f.url_fixed_at,
               (select count(*)::int from news_items n where n.feed_id = f.id) as items,
               (select max(n.created_at) from news_items n where n.feed_id = f.id) as last_item
        from feeds f

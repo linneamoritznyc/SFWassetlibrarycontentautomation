@@ -18,11 +18,21 @@
  * proxy refuses every host that is not on its allowlist. So they are the best
  * known URL for each organisation, not confirmed-working ones.
  *
- * That is handled rather than hoped about. `scout_fetch` records
- * `last_ok_at`, `last_error` and `consecutive_failures` on every feed, switches
- * one off after five failures in a row, and the Settings screen shows exactly
- * which are broken. `pnpm feeds:check` tests all of them in one go and prints
- * a table.
+ * That is handled rather than hoped about, and the handling does not assume
+ * anyone is watching. When a URL here stops working, `scout_fetch` goes and
+ * looks for the feed the way a person would: the site's own autodiscovery
+ * tags first, then the paths publishing systems use, and a candidate only
+ * wins if it parses into real items. A feed found somewhere else is repaired
+ * on the spot, keeps its old URL beside it, and says so in Settings.
+ *
+ * Only a feed that is dead and cannot be found again is switched off, after
+ * five mornings. A feed behind bot protection, or one whose server is having
+ * a bad week, stays in the list: those need a person, and a switched-off feed
+ * is one nobody looks at.
+ *
+ * `pnpm feeds:check` runs the same code over the whole list from a machine
+ * with a normal internet connection, and prints the replacement URL for
+ * anything it had to repair.
  */
 
 export type Region =
