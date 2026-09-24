@@ -21,6 +21,15 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL('/setup', request.url));
   }
 
+  // A magic link that lands anywhere but the callback (Supabase falls back to
+  // the Site URL when the redirect is not on its list) still signs you in.
+  const code = request.nextUrl.searchParams.get('code');
+  if (code && request.nextUrl.pathname !== '/auth/callback') {
+    const to = new URL('/auth/callback', request.url);
+    to.searchParams.set('code', code);
+    return NextResponse.redirect(to);
+  }
+
   const supabase = createServerClient(url, key, {
     cookies: {
       getAll() {
