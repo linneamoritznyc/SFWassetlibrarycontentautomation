@@ -17,7 +17,8 @@
     "db:migrate": "pnpm --filter @sfw/db build && node packages/db/dist/cli.js migrate",
     "db:seed": "pnpm --filter @sfw/db build && node packages/db/dist/cli.js seed",
     "db:setup": "pnpm --filter @sfw/db build && node packages/db/dist/cli.js setup",
-    "feeds:check": "pnpm --filter @sfw/worker-light build && node workers/light/dist/feeds-check.js"
+    "feeds:check": "pnpm --filter @sfw/worker-light build && node workers/light/dist/feeds-check.js",
+    "wormhole:seed": "node scripts/wormhole-seed.mjs"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
