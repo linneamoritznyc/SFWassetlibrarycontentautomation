@@ -20,9 +20,24 @@ export function dayLabel(iso: string, style: 'long' | 'short' = 'long'): string 
   });
 }
 
-/** Monday of the week the date falls in, as YYYY-MM-DD. */
-export function weekOf(iso: string): string {
-  const d = new Date(`${iso}T12:00:00Z`);
+/** The post's day as people read it, or "Date TBD". */
+export function postDay(post: WormholePost, style: 'long' | 'short' = 'long'): string {
+  return post.date_tbd ? 'Date TBD' : dayLabel(post.iso_date, style);
+}
+
+/** Dated posts in date order, then the ones with no date yet. */
+export function byDate(a: WormholePost, b: WormholePost): number {
+  return (
+    Number(a.date_tbd) - Number(b.date_tbd) ||
+    a.iso_date.localeCompare(b.iso_date) ||
+    a.id.localeCompare(b.id)
+  );
+}
+
+/** Monday of the week the post falls in, as YYYY-MM-DD, or "tbd". */
+export function weekOf(post: WormholePost): string {
+  if (post.date_tbd) return 'tbd';
+  const d = new Date(`${post.iso_date}T12:00:00Z`);
   const dow = (d.getUTCDay() + 6) % 7;
   d.setUTCDate(d.getUTCDate() - dow);
   return d.toISOString().slice(0, 10);
@@ -111,7 +126,7 @@ export function toDocHtml(posts: WormholePost[], title: string): string {
       .join('');
     const sources = p.sources.filter((s) => s.trim()).map((s) => `<p>${linkify(s)}</p>`).join('');
     return [
-      `<h2>${esc(dayLabel(p.iso_date))}</h2>`,
+      `<h2>${esc(postDay(p))}</h2>`,
       `<h3>${esc(p.topic)}</h3>`,
       `<h3>CTA (Optional): ${esc(p.cta)}</h3>`,
       `<p>Words:</p>${words}`,

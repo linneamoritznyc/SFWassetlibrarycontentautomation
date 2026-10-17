@@ -14,7 +14,9 @@ export async function middleware(request: NextRequest) {
   // Wormhole has its own shared-password door and never touches Supabase auth.
   const p = request.nextUrl.pathname;
   if (p === '/wormhole' || p.startsWith('/wormhole/') || p.startsWith('/api/wormhole')) {
-    const open = p === '/wormhole/login' || p === '/api/wormhole/login';
+    // The doc sync carries its own token (WORMHOLE_SYNC_TOKEN), checked in the route.
+    const open =
+      p === '/wormhole/login' || p === '/api/wormhole/login' || p === '/api/wormhole/sync';
     if (open || (await isValidToken(request.cookies.get(AUTH_COOKIE)?.value))) {
       return NextResponse.next({ request });
     }

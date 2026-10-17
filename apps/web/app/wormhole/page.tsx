@@ -6,5 +6,6 @@ export const dynamic = 'force-dynamic';
 
 export default function WormholePage() {
   const editor = cleanName(cookies().get(NAME_COOKIE)?.value);
-  return <Wormhole editor={editor} />;
+  const docUrl = process.env.WORMHOLE_DOC_URL || null;
+  return <Wormhole editor={editor} docUrl={docUrl} />;
 }

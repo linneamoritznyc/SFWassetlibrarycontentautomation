@@ -4,7 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { STATUSES, type WormholePost, type WormholeStatus } from '@/lib/wormhole-types';
 import { Editor } from './Editor';
 import { DateChip, GridTile, InstagramPost, LinkedInPost, PostBar } from './Posts';
-import { toDocHtml, weekLabel, weekOf } from './util';
+import { byDate, toDocHtml, weekLabel, weekOf } from './util';
 
 type View = 'instagram' | 'grid' | 'linkedin';
 type SaveState = 'saving' | 'saved' | 'error';
@@ -13,7 +13,7 @@ type Patch = Partial<WormholePost>;
 const POLL_MS = 3000;
 const SAVE_DELAY = 800;
 
-export function Wormhole({ editor }: { editor: string }) {
+export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | null }) {
   const [posts, setPosts] = useState<WormholePost[]>([]);
   const [loaded, setLoaded] = useState(false);
   const [loadError, setLoadError] = useState('');
@@ -54,9 +54,7 @@ export function Wormhole({ editor }: { editor: string }) {
         if (pending.current[p.id] || inFlight.current[p.id]) continue;
         map.set(p.id, p);
       }
-      return Array.from(map.values()).sort(
-        (a, b) => a.iso_date.localeCompare(b.iso_date) || a.id.localeCompare(b.id),
-      );
+      return Array.from(map.values()).sort(byDate);
     });
   }, []);
 
@@ -138,7 +136,7 @@ export function Wormhole({ editor }: { editor: string }) {
   }, []);
 
   const weeks = useMemo(
-    () => Array.from(new Set(posts.map((p) => weekOf(p.iso_date)))).sort(),
+    () => Array.from(new Set(posts.map((p) => weekOf(p)))).sort(),
     [posts],
   );
 
@@ -146,14 +144,14 @@ export function Wormhole({ editor }: { editor: string }) {
     () =>
       posts.filter(
         (p) =>
-          (week === 'all' || weekOf(p.iso_date) === week) &&
+          (week === 'all' || weekOf(p) === week) &&
           (status === 'all' || p.status === status),
       ),
     [posts, week, status],
   );
 
   async function newPost() {
-    const iso = week !== 'all' ? week : new Date().toISOString().slice(0, 10);
+    const iso = week !== 'all' && week !== 'tbd' ? week : new Date().toISOString().slice(0, 10);
     const res = await fetch('/api/wormhole/posts', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -161,7 +159,7 @@ export function Wormhole({ editor }: { editor: string }) {
     });
     if (!res.ok) return;
     const { post } = await res.json();
-    setPosts((prev) => [...prev, post].sort((a, b) => a.iso_date.localeCompare(b.iso_date)));
+    setPosts((prev) => [...prev, post].sort(byDate));
     setStatus('all');
     setView('instagram');
     setEditing(post.id);
@@ -169,7 +167,8 @@ export function Wormhole({ editor }: { editor: string }) {
   }
 
   function exportTitle() {
-    return week === 'all' ? 'Wormhole, all planned posts' : `Wormhole, week of ${weekLabel(week)}`;
+    if (week === 'all') return 'Wormhole, all planned posts';
+    return week === 'tbd' ? 'Wormhole, posts without a date' : `Wormhole, week of ${weekLabel(week)}`;
   }
 
   function download() {
@@ -212,12 +211,13 @@ export function Wormhole({ editor }: { editor: string }) {
     'rounded-lg border border-neutral-300 bg-white px-3 py-2 text-base text-black outline-none focus:border-[#2f6b46]';
 
   function card(p: WormholePost, Kind: typeof InstagramPost, i: number, list: WormholePost[]) {
-    const firstOfDay = i === 0 || list[i - 1]!.iso_date !== p.iso_date;
-    const sameDay = list.filter((q) => q.iso_date === p.iso_date).length;
+    const day = (q: WormholePost) => (q.date_tbd ? 'tbd' : q.iso_date);
+    const firstOfDay = i === 0 || day(list[i - 1]!) !== day(p);
+    const sameDay = list.filter((q) => day(q) === day(p)).length;
     const isEditing = editing === p.id;
     return (
       <section key={p.id} id={`post-${p.id}`} className="scroll-mt-40">
-        {firstOfDay && <DateChip iso={p.iso_date} count={sameDay} />}
+        {firstOfDay && <DateChip iso={p.iso_date} tbd={p.date_tbd} count={sameDay} />}
         <Kind post={p}>
           <PostBar
             post={p}
@@ -262,6 +262,16 @@ export function Wormhole({ editor }: { editor: string }) {
               <button onClick={download} className="rounded-lg border border-neutral-300 px-3 py-2 text-base">
                 Download
               </button>
+              {docUrl && (
+                <a
+                  href={docUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded-lg border border-neutral-300 px-3 py-2 text-base underline"
+                >
+                  Open the Google Doc
+                </a>
+              )}
             </div>
           </div>
           <nav className="mt-3 grid grid-cols-3 gap-1 rounded-xl bg-neutral-100 p-1">
@@ -288,7 +298,7 @@ export function Wormhole({ editor }: { editor: string }) {
               <option value="all">All weeks</option>
               {weeks.map((w) => (
                 <option key={w} value={w}>
-                  Week of {weekLabel(w)}
+                  {w === 'tbd' ? 'Date TBD' : `Week of ${weekLabel(w)}`}
                 </option>
               ))}
             </select>

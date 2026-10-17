@@ -5,7 +5,7 @@ import { STATUSES, type WormholePost } from '@/lib/wormhole-types';
 import { Caption } from './Caption';
 import { Carousel } from './Carousel';
 import { SlideView } from './SlideView';
-import { STATUS_STYLE, ago, dayLabel, slidesOf } from './util';
+import { STATUS_STYLE, ago, dayLabel, postDay, slidesOf } from './util';
 
 const Icon = ({ d }: { d: string }) => (
   <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8">
@@ -84,11 +84,11 @@ export function PostBar({
   );
 }
 
-export function DateChip({ iso, count }: { iso: string; count?: number }) {
+export function DateChip({ iso, tbd, count }: { iso: string; tbd?: boolean; count?: number }) {
   return (
     <div className="mb-2 flex items-center gap-2">
       <span className="rounded-full bg-[#2f6b46] px-3 py-1 text-sm font-semibold text-white">
-        {dayLabel(iso, 'short')}
+        {tbd ? 'Date TBD' : dayLabel(iso, 'short')}
       </span>
       {count !== undefined && count > 1 && (
         <span className="text-sm text-neutral-500">{count} posts this day</span>
@@ -140,7 +140,7 @@ export function LinkedInPost({ post, children }: { post: WormholePost; children?
         <div className="leading-tight">
           <p className="font-semibold">Soil Food Web Foundation</p>
           <p className="text-xs text-neutral-500">Nonprofit Organization</p>
-          <p className="text-xs text-neutral-500">{dayLabel(post.iso_date, 'short')} · 🌐</p>
+          <p className="text-xs text-neutral-500">{postDay(post, 'short')} · 🌐</p>
         </div>
         <span className="ml-auto text-xl leading-none text-neutral-600">···</span>
       </header>
@@ -179,7 +179,7 @@ export function GridTile({ post, onOpen }: { post: WormholePost; onOpen: () => v
         </svg>
       )}
       <span className="absolute bottom-1 left-1 rounded bg-black/60 px-1.5 py-0.5 text-[11px] text-white">
-        {dayLabel(post.iso_date, 'short')}
+        {postDay(post, 'short')}
       </span>
     </button>
   );

@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { db } from '@/lib/db';
-import { POST_COLUMNS, guard, sanitizePatch } from '@/lib/wormhole';
+import { POST_COLUMNS, createPost, guard, sanitizePatch } from '@/lib/wormhole';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -29,14 +29,9 @@ export async function POST(request: Request) {
 
   const body = (await request.json().catch(() => ({}))) as Record<string, unknown>;
   const patch = sanitizePatch(body);
-  const iso = patch.iso_date ?? new Date().toISOString().slice(0, 10);
-  const id = `n${Date.now().toString(36)}`;
-
-  const { rows } = await db().query(
-    `insert into wormhole_posts (id, iso_date, topic, slides, created_by, updated_by)
-     values ($1, $2, $3, $4, $5, $5)
-     returning ${POST_COLUMNS}`,
-    [id, iso, patch.topic ?? 'New post', JSON.stringify([{ text: '', image: null }]), g.editor],
+  const post = await createPost(
+    { iso_date: patch.iso_date, topic: patch.topic ?? 'New post' },
+    g.editor,
   );
-  return NextResponse.json({ post: rows[0] });
+  return NextResponse.json({ post });
 }

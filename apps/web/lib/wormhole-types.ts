@@ -13,6 +13,8 @@ export const STATUSES: { value: WormholeStatus; label: string }[] = [
 export type WormholePost = {
   id: string;
   iso_date: string;
+  /** True while the post has no day yet ("Date TBD" in the doc). */
+  date_tbd: boolean;
   topic: string;
   platform: string;
   caption: string;
@@ -29,6 +31,7 @@ export type WormholePost = {
 
 export const EDITABLE = [
   'iso_date',
+  'date_tbd',
   'topic',
   'platform',
   'caption',

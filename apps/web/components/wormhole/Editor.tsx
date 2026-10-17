@@ -124,8 +124,17 @@ export function Editor({ post, onChange }: { post: WormholePost; onChange: (p: P
             type="date"
             className={field}
             value={post.iso_date}
+            disabled={post.date_tbd}
             onChange={(e) => e.target.value && onChange({ iso_date: e.target.value })}
           />
+          <span className="mt-1 flex items-center gap-2 text-base">
+            <input
+              type="checkbox"
+              checked={post.date_tbd}
+              onChange={(e) => onChange({ date_tbd: e.target.checked })}
+            />
+            No date yet (Date TBD)
+          </span>
         </label>
       </div>
 
