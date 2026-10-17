@@ -6,6 +6,9 @@
  * (Project Settings > Script Properties) hold:
  *   WORMHOLE_URL         e.g. https://sf-wassetlibrarycontentautomation-web.vercel.app
  *   WORMHOLE_SYNC_TOKEN  the same value as WORMHOLE_SYNC_TOKEN in Vercel
+ *   VERCEL_BYPASS        only while Wormhole runs on a protected preview URL:
+ *                        Vercel > Settings > Deployment Protection >
+ *                        Protection Bypass for Automation
  *
  * The doc follows Stephanie's template. Every post is one block under the
  * Heading 1 "Posts":
@@ -494,7 +497,7 @@ function config_() {
   var url = (props.getProperty('WORMHOLE_URL') || '').replace(/\/+$/, '');
   var token = props.getProperty('WORMHOLE_SYNC_TOKEN') || '';
   if (!url || !token) throw new Error('Set WORMHOLE_URL and WORMHOLE_SYNC_TOKEN in Project Settings > Script Properties.');
-  return { url: url, token: token };
+  return { url: url, token: token, bypass: props.getProperty('VERCEL_BYPASS') || '' };
 }
 
 function call_(method, payload) {
@@ -502,7 +505,9 @@ function call_(method, payload) {
   var res = UrlFetchApp.fetch(c.url + '/api/wormhole/sync', {
     method: method,
     contentType: 'application/json',
-    headers: { Authorization: 'Bearer ' + c.token },
+    headers: c.bypass
+      ? { Authorization: 'Bearer ' + c.token, 'x-vercel-protection-bypass': c.bypass }
+      : { Authorization: 'Bearer ' + c.token },
     payload: payload ? JSON.stringify(payload) : undefined,
     muteHttpExceptions: true,
   });
