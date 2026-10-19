@@ -1,5 +1,6 @@
 import { createServerClient } from '@supabase/ssr';
 import { NextResponse, type NextRequest } from 'next/server';
+import { AUTH_COOKIE, isValidToken } from './lib/wormhole-auth';
 
 /**
  * The door. Every request refreshes the Supabase session and is then checked
@@ -10,6 +11,19 @@ import { NextResponse, type NextRequest } from 'next/server';
  * get it wrong. An empty or missing allowlist means nobody gets in.
  */
 export async function middleware(request: NextRequest) {
+  // Wormhole has its own shared-password door and never touches Supabase auth.
+  const p = request.nextUrl.pathname;
+  if (p === '/wormhole' || p.startsWith('/wormhole/') || p.startsWith('/api/wormhole')) {
+    const open = p === '/wormhole/login' || p === '/api/wormhole/login';
+    if (open || (await isValidToken(request.cookies.get(AUTH_COOKIE)?.value))) {
+      return NextResponse.next({ request });
+    }
+    if (p.startsWith('/api/')) {
+      return NextResponse.json({ error: 'Password needed' }, { status: 401 });
+    }
+    return NextResponse.redirect(new URL('/wormhole/login', request.url));
+  }
+
   let response = NextResponse.next({ request });
 
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -19,6 +33,15 @@ export async function middleware(request: NextRequest) {
   if (!url || !key) {
     if (request.nextUrl.pathname === '/setup') return response;
     return NextResponse.redirect(new URL('/setup', request.url));
+  }
+
+  // A magic link that lands anywhere but the callback (Supabase falls back to
+  // the Site URL when the redirect is not on its list) still signs you in.
+  const code = request.nextUrl.searchParams.get('code');
+  if (code && request.nextUrl.pathname !== '/auth/callback') {
+    const to = new URL('/auth/callback', request.url);
+    to.searchParams.set('code', code);
+    return NextResponse.redirect(to);
   }
 
   const supabase = createServerClient(url, key, {

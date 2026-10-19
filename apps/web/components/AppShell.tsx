@@ -16,7 +16,7 @@ const NAV = [
   { href: '/settings', label: 'Settings' },
 ];
 
-const BARE = ['/login', '/setup', '/auth'];
+const BARE = ['/login', '/setup', '/auth', '/wormhole'];
 
 export function AppShell({ children }: { children: ReactNode }) {
   const pathname = usePathname();

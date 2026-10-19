@@ -546,3 +546,33 @@ activating a new version while the old one is still active either violates the
 index or silently does nothing. The seed now does both updates on one
 connection in one transaction, old off then new on, so a crash in between
 cannot leave a prompt with no active version at all.
+
+## Going live, 24 to 26 Sep 2026
+
+**2026-09-24 — Keys live only in Vercel and Railway.**
+Not in the Claude Code environment, not in chat, not in the repository. The
+coding assistant is not part of the running system and works through the
+Supabase and Vercel connections, which need no keys. See `docs/SECURITY.md`.
+
+**2026-09-24 — The Supabase `service_role` key is not used.**
+Nothing in the code reads it: the web app and the workers reach the database
+through `DATABASE_URL`. So it is not copied anywhere. `DATABASE_URL` is the
+master key and lives in Vercel and Railway only.
+
+**2026-09-24 — Vercel functions run in Dublin (`dub1`).**
+The database is in eu-west-1 (Ireland). Every page runs several queries, so the
+functions sit next to it rather than in Stockholm.
+
+**2026-09-24 — Vercel Authentication stays on.**
+It was on by default for the project. It is a third lock in front of the
+Supabase login and the allowlist. The email webhook will need a bypass once
+email replies are switched on.
+
+**2026-09-24 — Linnea signs in with her personal Gmail as well as the SFW address.**
+Her call. `APP_ALLOWLIST` is `linneamoritz1@gmail.com,linnea@soilfoodweb.com`.
+Removing either one is a one-line change in Vercel.
+
+**2026-09-24 — A login code that lands on the wrong page still signs you in.**
+When the callback URL is not on Supabase's redirect list, Supabase sends the
+link to the Site URL instead, and the code was ignored there. The middleware
+now forwards any `?code=` to `/auth/callback`.
