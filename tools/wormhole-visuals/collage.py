@@ -33,8 +33,11 @@ FONT_FILES = {
     ("garamond", False): "eb-garamond-latin-400-normal.ttf",
     ("garamond-bold", False): "eb-garamond-latin-600-normal.ttf",
     ("montserrat", False): "Montserrat-SemiBold.ttf",
+    ("montserrat-bold", False): "Montserrat-Bold.ttf",
+    ("source", False): "SourceSans3-SemiBold.ttf",
 }
-PPT_FONT = {"garamond": "EB Garamond", "garamond-bold": "EB Garamond", "montserrat": "Montserrat"}
+PPT_FONT = {"garamond": "EB Garamond", "garamond-bold": "EB Garamond", "montserrat": "Montserrat",
+            "montserrat-bold": "Montserrat", "source": "Source Sans 3"}
 _EMOJI = re.compile("[\U0001F000-\U0001FAFF☀-➿️‍]")
 
 
@@ -398,7 +401,7 @@ class Deck:
                 f.name = PPT_FONT[it["kind"]]
                 f.size = Pt(round(it["size"] * 72 / 108, 1))
                 f.italic = it["italic"]
-                f.bold = it["kind"] in ("garamond-bold", "montserrat")
+                f.bold = it["kind"] in ("garamond-bold", "montserrat", "montserrat-bold", "source")
                 f.color.rgb = RGBColor(*hexrgb(it["color"]))
         prs.save(path)
 
