@@ -13,6 +13,13 @@ import { AUTH_COOKIE, isValidToken } from './lib/wormhole-auth';
 export async function middleware(request: NextRequest) {
   // Wormhole has its own shared-password door and never touches Supabase auth.
   const p = request.nextUrl.pathname;
+
+  // On Wormhole's own address the whole site is Wormhole: anything outside it
+  // (the front page, the studio's login) leads to the planner instead.
+  const wormholeHost = request.nextUrl.hostname.startsWith('wormholelinnea.');
+  if (wormholeHost && !(p === '/wormhole' || p.startsWith('/wormhole/') || p.startsWith('/api/'))) {
+    return NextResponse.redirect(new URL('/wormhole', request.url));
+  }
   if (p === '/wormhole' || p.startsWith('/wormhole/') || p.startsWith('/api/wormhole')) {
     // The doc sync carries its own token (WORMHOLE_SYNC_TOKEN), checked in the route.
     const open =
