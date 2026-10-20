@@ -153,20 +153,6 @@ export function Editor({ post, onChange }: { post: WormholePost; onChange: (p: P
         </select>
       </label>
 
-      <label className="block">
-        <span className={label}>Caption</span>
-        <AutoText
-          rows={6}
-          value={post.caption}
-          onChange={(v) => onChange({ caption: v })}
-          placeholder="Paste or write the caption"
-        />
-        <span className="mt-1 block text-sm text-neutral-500">
-          {post.caption.length} characters
-          {post.caption.length > 2200 ? ' (Instagram stops at 2,200)' : ''}
-        </span>
-      </label>
-
       <div>
         <span className={label}>Slides</span>
         <div

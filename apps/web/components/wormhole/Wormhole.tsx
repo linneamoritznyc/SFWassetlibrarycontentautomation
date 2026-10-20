@@ -218,7 +218,14 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
     return (
       <section key={p.id} id={`post-${p.id}`} className="scroll-mt-40">
         {firstOfDay && <DateChip iso={p.iso_date} tbd={p.date_tbd} count={sameDay} />}
-        <Kind post={p}>
+        <Kind
+          post={p}
+          caption={{
+            editing: isEditing,
+            onChange: (v) => update(p.id, { caption: v }),
+            onStart: () => setEditing(p.id),
+          }}
+        >
           <PostBar
             post={p}
             editing={isEditing}
