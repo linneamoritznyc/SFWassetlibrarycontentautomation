@@ -197,10 +197,18 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
     }
   }
 
-  function openInFeed(id: string) {
-    setView('instagram');
-    setTimeout(() => document.getElementById(`post-${id}`)?.scrollIntoView({ behavior: 'smooth' }), 80);
-  }
+  const [expanded, setExpanded] = useState<string | null>(null);
+  useEffect(() => {
+    if (!expanded) return;
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setExpanded(null);
+    window.addEventListener('keydown', onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [expanded]);
 
   async function signOut() {
     await fetch('/api/wormhole/logout', { method: 'POST' });
@@ -218,7 +226,14 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
     return (
       <section key={p.id} id={`post-${p.id}`} className="scroll-mt-40">
         {firstOfDay && <DateChip iso={p.iso_date} tbd={p.date_tbd} count={sameDay} />}
-        <Kind post={p}>
+        <Kind
+          post={p}
+          caption={{
+            editing: isEditing,
+            onChange: (v) => update(p.id, { caption: v }),
+            onStart: () => setEditing(p.id),
+          }}
+        >
           <PostBar
             post={p}
             editing={isEditing}
@@ -361,16 +376,38 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
         {view === 'grid' && (
           <div className="mx-auto max-w-[935px]">
             <p className="mb-3 text-base text-neutral-500">
-              Newest first, the way the profile will look. Tap a post to open it in the feed.
+              Newest first, the way the profile will look. Tap a post to open it.
             </p>
             <div className="grid grid-cols-3 gap-px border border-neutral-200 bg-neutral-200">
               {gridPosts.map((p) => (
-                <GridTile key={p.id} post={p} onOpen={() => openInFeed(p.id)} />
+                <GridTile key={p.id} post={p} onOpen={() => setExpanded(p.id)} />
               ))}
             </div>
           </div>
         )}
       </main>
+      {expanded &&
+        (() => {
+          const p = visible.find((q) => q.id === expanded) ?? posts.find((q) => q.id === expanded);
+          if (!p) return null;
+          return (
+            <div
+              className="fixed inset-0 z-50 overflow-y-auto bg-black/60 px-3 py-6 sm:py-10"
+              onClick={() => setExpanded(null)}
+            >
+              <div className="relative mx-auto max-w-[470px]" onClick={(e) => e.stopPropagation()}>
+                <button
+                  onClick={() => setExpanded(null)}
+                  aria-label="Close"
+                  className="absolute -top-1 right-0 z-10 -translate-y-full rounded-full bg-white/90 px-3 py-1 text-base font-semibold text-black shadow"
+                >
+                  Close
+                </button>
+                {card(p, InstagramPost, 0, [p])}
+              </div>
+            </div>
+          );
+        })()}
     </div>
   );
 }

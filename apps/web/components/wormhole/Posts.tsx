@@ -1,6 +1,6 @@
 'use client';
 
-import type { ReactNode } from 'react';
+import { useEffect, useRef, type ReactNode } from 'react';
 import { STATUSES, type WormholePost } from '@/lib/wormhole-types';
 import { Caption } from './Caption';
 import { Carousel } from './Carousel';
@@ -97,7 +97,44 @@ export function DateChip({ iso, tbd, count }: { iso: string; tbd?: boolean; coun
   );
 }
 
-export function InstagramPost({ post, children }: { post: WormholePost; children?: ReactNode }) {
+/** The caption as a box you type in, sized to its text, styled like the caption. */
+function CaptionBox({ value, onChange }: { value: string; onChange: (v: string) => void }) {
+  const ref = useRef<HTMLTextAreaElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    el.style.height = 'auto';
+    el.style.height = `${el.scrollHeight + 2}px`;
+  }, [value]);
+  return (
+    <>
+      <textarea
+        ref={ref}
+        autoFocus
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        placeholder="Write the caption"
+        className="block w-full resize-none rounded-md border border-[#2f6b46]/40 bg-[#f6faf7] p-2 leading-snug outline-none focus:border-[#2f6b46]"
+      />
+      <span className="mt-1 block text-xs text-neutral-500">
+        {value.length} characters{value.length > 2200 ? ' (Instagram stops at 2,200)' : ''}
+      </span>
+    </>
+  );
+}
+
+export type CaptionEdit = { editing: boolean; onChange: (v: string) => void; onStart: () => void };
+
+function EditableCaption({ edit, children }: { edit?: CaptionEdit; children: ReactNode }) {
+  if (!edit) return <>{children}</>;
+  return (
+    <div onClick={edit.editing ? undefined : edit.onStart} className={edit.editing ? '' : 'cursor-text'} title={edit.editing ? undefined : 'Click to edit the caption'}>
+      {children}
+    </div>
+  );
+}
+
+export function InstagramPost({ post, children, caption }: { post: WormholePost; children?: ReactNode; caption?: CaptionEdit }) {
   return (
     <article className="overflow-hidden rounded-xl border border-neutral-200 bg-white text-[15px] text-black">
       <header className="flex items-center gap-3 px-3 py-2.5">
@@ -118,20 +155,26 @@ export function InstagramPost({ post, children }: { post: WormholePost; children
         </span>
       </div>
       <div className="px-3 pb-3 pt-2">
-        <Caption
-          text={post.caption}
-          prefix="soilfoodwebschool"
-          limit={125}
-          moreLabel="more"
-          color="#00376b"
-        />
+        <EditableCaption edit={caption}>
+          {caption?.editing ? (
+            <CaptionBox value={post.caption} onChange={caption.onChange} />
+          ) : (
+            <Caption
+              text={post.caption}
+              prefix="soilfoodwebschool"
+              limit={125}
+              moreLabel="more"
+              color="#00376b"
+            />
+          )}
+        </EditableCaption>
       </div>
       {children}
     </article>
   );
 }
 
-export function LinkedInPost({ post, children }: { post: WormholePost; children?: ReactNode }) {
+export function LinkedInPost({ post, children, caption }: { post: WormholePost; children?: ReactNode; caption?: CaptionEdit }) {
   const slides = slidesOf(post);
   return (
     <article className="overflow-hidden rounded-lg border border-neutral-300 bg-white text-[15px] text-[#191919]">
@@ -145,7 +188,13 @@ export function LinkedInPost({ post, children }: { post: WormholePost; children?
         <span className="ml-auto text-xl leading-none text-neutral-600">···</span>
       </header>
       <div className="px-4 py-3">
-        <Caption text={post.caption} limit={210} moreLabel="…see more" color="#0a66c2" />
+        <EditableCaption edit={caption}>
+          {caption?.editing ? (
+            <CaptionBox value={post.caption} onChange={caption.onChange} />
+          ) : (
+            <Caption text={post.caption} limit={210} moreLabel="…see more" color="#0a66c2" />
+          )}
+        </EditableCaption>
       </div>
       {slides.length > 1 ? (
         <div className="border-y border-neutral-200">
