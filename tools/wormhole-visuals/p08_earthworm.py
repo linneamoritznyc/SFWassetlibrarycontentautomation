@@ -115,7 +115,7 @@ def p08(d):
     d.put(6, "mushrooms", soil("mushrooms", w=200), 760, SOIL_TOP - 70)
 
     texts = [
-        ("How do worms work their magic?", "World Earthworm Day, 21 October"),
+        ("Happy World Earthworm Day!", "How do worms work their magic?"),
         ("Anecic earthworms dig vertical burrows that can reach 1 to 2 meters deep to break up compaction.", None),
         ("They spread microbes around as they move by lining the walls with mucus and casts, rich in nutrients and microbes.", None),
         ("Their channels let rain soak in fast without causing the ground to go anaerobic.", None),
