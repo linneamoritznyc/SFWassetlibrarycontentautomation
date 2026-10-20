@@ -20,14 +20,15 @@ const D = data as unknown as Designs;
 const hasImages = (p: WormholePost) => p.slides?.some((s) => s.image);
 
 export function withDesigns(rows: WormholePost[], includeVirtual = true): WormholePost[] {
-  const out = rows.map((p) => {
+  const out = rows.map((p): WormholePost => {
     if (hasImages(p)) return p;
     const design = D.designs[p.id];
     if (design) return { ...p, slides: design };
     const tile = D.posted[p.id];
     if (tile) {
-      const slides = p.slides?.length ? p.slides : [{ text: '', image: null }];
-      return { ...p, status: 'scheduled' as const, slides: [{ ...slides[0], image: tile }, ...slides.slice(1)] };
+      const slides: Slide[] = p.slides?.length ? p.slides : [{ text: '', image: null }];
+      const first: Slide = { text: slides[0].text, image: tile };
+      return { ...p, status: 'scheduled' as const, slides: [first, ...slides.slice(1)] };
     }
     return p;
   });
