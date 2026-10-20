@@ -25,6 +25,8 @@ export type WormholePost = {
   visual_note: string;
   note: string;
   status: WormholeStatus;
+  /** 1, 2, 3 for the posts pinned to the top of the Instagram profile. */
+  pinned?: number | null;
   updated_by: string;
   updated_at: string;
 };

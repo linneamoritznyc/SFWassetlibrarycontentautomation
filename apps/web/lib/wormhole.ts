@@ -13,7 +13,7 @@ export function isRepoImage(v: string): boolean {
 export * from './wormhole-types';
 
 export const POST_COLUMNS = `id, to_char(iso_date, 'YYYY-MM-DD') as iso_date, date_tbd, topic, platform, caption,
-  slides, cta, link, sources, visual_note, note, status, updated_by, updated_at`;
+  slides, cta, link, sources, visual_note, note, status, pinned, updated_by, updated_at`;
 
 /** Second check behind the middleware, so a route never runs unguarded. */
 export async function guard(): Promise<{ editor: string } | NextResponse> {

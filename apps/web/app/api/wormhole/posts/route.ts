@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { db } from '@/lib/db';
 import { POST_COLUMNS, createPost, guard, sanitizePatch } from '@/lib/wormhole';
+import { withDesigns } from '@/lib/wormhole-designs';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -19,7 +20,7 @@ export async function GET(request: Request) {
     : await db().query(`select ${POST_COLUMNS} from wormhole_posts order by iso_date, id`);
 
   const { rows: clock } = await db().query(`select now() as now`);
-  return NextResponse.json({ posts: rows, now: clock[0].now });
+  return NextResponse.json({ posts: withDesigns(rows, !since), now: clock[0].now });
 }
 
 /** A new post, for an idea that is not in the plan yet. */

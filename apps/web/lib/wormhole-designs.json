@@ -1,0 +1,465 @@
+{
+ "designs": {
+  "d24": [
+   {
+    "text": "Read the drop. Predators turn bacterial nitrogen into ammonium.",
+    "image": "/wormhole/tiles/d24-1.jpg"
+   }
+  ],
+  "p18": [
+   {
+    "text": "Vampire amoeba.",
+    "image": "/wormhole/tiles/p18-1.jpg"
+   }
+  ],
+  "d20": [
+   {
+    "text": "Julia's worm bin. Vermicompost, made at home.",
+    "image": "/wormhole/tiles/d20-1.jpg"
+   }
+  ],
+  "p12": [
+   {
+    "text": "Before you bag those leaves, read this.",
+    "image": "/wormhole/tiles/p12-1.jpg"
+   },
+   {
+    "text": "Leaf litter is rich in carbon and lignin.",
+    "image": "/wormhole/tiles/p12-2.jpg"
+   },
+   {
+    "text": "Fungi are the main decomposers of lignin.",
+    "image": "/wormhole/tiles/p12-3.jpg"
+   },
+   {
+    "text": "That feeds the fungal soils trees and shrubs prefer.",
+    "image": "/wormhole/tiles/p12-4.jpg"
+   },
+   {
+    "text": "A layer of leaves shields the soil over winter.",
+    "image": "/wormhole/tiles/p12-5.jpg"
+   },
+   {
+    "text": "On a lawn, shred the leaves and move them onto your beds.",
+    "image": "/wormhole/tiles/p12-6.jpg"
+   }
+  ],
+  "p24": [
+   {
+    "text": "440,000,000,000,000,000,000 soil nematodes on Earth, by the 2019 estimate in Nature.",
+    "image": "/wormhole/tiles/p24-1.jpg"
+   },
+   {
+    "text": "57 billion for every person alive.",
+    "image": "/wormhole/tiles/p24-2.jpg"
+   },
+   {
+    "text": "Most feed on bacteria and fungi, and release nitrogen right at the root.",
+    "image": "/wormhole/tiles/p24-3.jpg"
+   }
+  ],
+  "p02": [
+   {
+    "text": "Meet our mentors Casey Williams",
+    "image": "/wormhole/tiles/p02-1.jpg"
+   },
+   {
+    "text": "A bacterial-feeding nematode, 40x, photographed by Casey. “I am deeply grateful that I get to learn from my students as well as teach them.”",
+    "image": "/wormhole/tiles/p02-2.jpg"
+   },
+   {
+    "text": "Thank you, Casey.",
+    "image": "/wormhole/tiles/p02-3.jpg"
+   }
+  ]
+ },
+ "posted": {
+  "p01": "/wormhole/ig/p01.jpg",
+  "d09": "/wormhole/ig/d09.jpg",
+  "d08": "/wormhole/ig/d08.jpg",
+  "d07": "/wormhole/ig/d07.jpg",
+  "d04": "/wormhole/ig/d04.jpg",
+  "d03": "/wormhole/ig/d03.jpg",
+  "d01": "/wormhole/ig/d01.jpg"
+ },
+ "virtual": [
+  {
+   "id": "ig-pin1",
+   "iso_date": "2026-09-01",
+   "date_tbd": false,
+   "topic": "Pinned: New York Times, Elaine Ingham, who taught that soil is alive",
+   "platform": "Instagram",
+   "caption": "",
+   "slides": [
+    {
+     "text": "",
+     "image": "/wormhole/ig/pin1-nyt.jpg"
+    }
+   ],
+   "cta": "",
+   "link": "",
+   "sources": [],
+   "visual_note": "",
+   "note": "Date unknown, posted. Image cropped from the profile screenshot of 18 October 2026.",
+   "status": "scheduled",
+   "pinned": 1
+  },
+  {
+   "id": "ig-pin2",
+   "iso_date": "2026-09-01",
+   "date_tbd": false,
+   "topic": "Pinned: drawn portrait of Dr. Elaine Ingham",
+   "platform": "Instagram",
+   "caption": "",
+   "slides": [
+    {
+     "text": "",
+     "image": "/wormhole/ig/pin2-portrait.jpg"
+    }
+   ],
+   "cta": "",
+   "link": "",
+   "sources": [],
+   "visual_note": "",
+   "note": "Date unknown, posted. Image cropped from the profile screenshot of 18 October 2026.",
+   "status": "scheduled",
+   "pinned": 2
+  },
+  {
+   "id": "ig-pin3",
+   "iso_date": "2026-09-01",
+   "date_tbd": false,
+   "topic": "Pinned: The Soil Foodweb, Dr. Elaine in a field",
+   "platform": "Instagram",
+   "caption": "",
+   "slides": [
+    {
+     "text": "",
+     "image": "/wormhole/ig/pin3-soil-foodweb.jpg"
+    }
+   ],
+   "cta": "",
+   "link": "",
+   "sources": [],
+   "visual_note": "",
+   "note": "Date unknown, posted. Image cropped from the profile screenshot of 18 October 2026.",
+   "status": "scheduled",
+   "pinned": 3
+  },
+  {
+   "id": "d04a",
+   "iso_date": "2026-10-07",
+   "date_tbd": false,
+   "topic": "Hyderabad panel: Voices of Regeneration poster",
+   "platform": "Instagram",
+   "caption": "",
+   "slides": [
+    {
+     "text": "",
+     "image": "/wormhole/ig/d04a.jpg"
+    }
+   ],
+   "cta": "",
+   "link": "",
+   "sources": [],
+   "visual_note": "",
+   "note": "Posted 7 October 2026 next to d04 (Tangy illustration).",
+   "status": "scheduled",
+   "pinned": null
+  },
+  {
+   "id": "ig-wild-ones",
+   "iso_date": "2026-10-02",
+   "date_tbd": false,
+   "topic": "Wild Ones repost: Our soil is living infrastructure",
+   "platform": "Instagram",
+   "caption": "",
+   "slides": [
+    {
+     "text": "",
+     "image": "/wormhole/ig/ig-wild-ones.jpg"
+    }
+   ],
+   "cta": "",
+   "link": "",
+   "sources": [],
+   "visual_note": "",
+   "note": "Date unknown, posted. Image cropped from the profile screenshot of 18 October 2026.",
+   "status": "scheduled",
+   "pinned": null
+  },
+  {
+   "id": "ig-pov-reel",
+   "iso_date": "2026-09-30",
+   "date_tbd": false,
+   "topic": "POV: you're scrolling through your phone (Reel)",
+   "platform": "Instagram",
+   "caption": "",
+   "slides": [
+    {
+     "text": "",
+     "image": "/wormhole/ig/ig-pov-reel.jpg"
+    }
+   ],
+   "cta": "",
+   "link": "",
+   "sources": [],
+   "visual_note": "Reel",
+   "note": "Date unknown, posted. Image cropped from the profile screenshot of 18 October 2026.",
+   "status": "scheduled",
+   "pinned": null
+  },
+  {
+   "id": "ig-blue-reel",
+   "iso_date": "2026-09-29",
+   "date_tbd": false,
+   "topic": "Blue Reel with leaf line drawings",
+   "platform": "Instagram",
+   "caption": "",
+   "slides": [
+    {
+     "text": "",
+     "image": "/wormhole/ig/ig-blue-reel.jpg"
+    }
+   ],
+   "cta": "",
+   "link": "",
+   "sources": [],
+   "visual_note": "Reel",
+   "note": "Date unknown, posted. Image cropped from the profile screenshot of 18 October 2026.",
+   "status": "scheduled",
+   "pinned": null
+  },
+  {
+   "id": "ig-soil-reel",
+   "iso_date": "2026-09-28",
+   "date_tbd": false,
+   "topic": "Soil close-up (Reel)",
+   "platform": "Instagram",
+   "caption": "",
+   "slides": [
+    {
+     "text": "",
+     "image": "/wormhole/ig/ig-soil-reel.jpg"
+    }
+   ],
+   "cta": "",
+   "link": "",
+   "sources": [],
+   "visual_note": "Reel",
+   "note": "Date unknown, posted. Image cropped from the profile screenshot of 18 October 2026.",
+   "status": "scheduled",
+   "pinned": null
+  },
+  {
+   "id": "ig-green-reel",
+   "iso_date": "2026-09-27",
+   "date_tbd": false,
+   "topic": "Green Reel with vegetable line drawings",
+   "platform": "Instagram",
+   "caption": "",
+   "slides": [
+    {
+     "text": "",
+     "image": "/wormhole/ig/ig-green-reel.jpg"
+    }
+   ],
+   "cta": "",
+   "link": "",
+   "sources": [],
+   "visual_note": "Reel",
+   "note": "Date unknown, posted. Image cropped from the profile screenshot of 18 October 2026.",
+   "status": "scheduled",
+   "pinned": null
+  },
+  {
+   "id": "ig-brown-reel",
+   "iso_date": "2026-09-26",
+   "date_tbd": false,
+   "topic": "Brown Reel with flower line drawings",
+   "platform": "Instagram",
+   "caption": "",
+   "slides": [
+    {
+     "text": "",
+     "image": "/wormhole/ig/ig-brown-reel.jpg"
+    }
+   ],
+   "cta": "",
+   "link": "",
+   "sources": [],
+   "visual_note": "Reel",
+   "note": "Date unknown, posted. Image cropped from the profile screenshot of 18 October 2026.",
+   "status": "scheduled",
+   "pinned": null
+  },
+  {
+   "id": "ig-sifting-reel",
+   "iso_date": "2026-09-25",
+   "date_tbd": false,
+   "topic": "Man sifting compost (Reel)",
+   "platform": "Instagram",
+   "caption": "",
+   "slides": [
+    {
+     "text": "",
+     "image": "/wormhole/ig/ig-sifting-reel.jpg"
+    }
+   ],
+   "cta": "",
+   "link": "",
+   "sources": [],
+   "visual_note": "Reel",
+   "note": "Date unknown, posted. Image cropped from the profile screenshot of 18 October 2026.",
+   "status": "scheduled",
+   "pinned": null
+  },
+  {
+   "id": "ig-woman-chin",
+   "iso_date": "2026-09-24",
+   "date_tbd": false,
+   "topic": "Woman in a white shirt, chin on her hand",
+   "platform": "Instagram",
+   "caption": "",
+   "slides": [
+    {
+     "text": "",
+     "image": "/wormhole/ig/ig-woman-chin.jpg"
+    }
+   ],
+   "cta": "",
+   "link": "",
+   "sources": [],
+   "visual_note": "",
+   "note": "Date unknown, posted. Image cropped from the profile screenshot of 18 October 2026.",
+   "status": "scheduled",
+   "pinned": null
+  },
+  {
+   "id": "ig-leaves",
+   "iso_date": "2026-09-23",
+   "date_tbd": false,
+   "topic": "White tile with leaf drawings",
+   "platform": "Instagram",
+   "caption": "",
+   "slides": [
+    {
+     "text": "",
+     "image": "/wormhole/ig/ig-leaves.jpg"
+    }
+   ],
+   "cta": "",
+   "link": "",
+   "sources": [],
+   "visual_note": "",
+   "note": "Date unknown, posted. Image cropped from the profile screenshot of 18 October 2026.",
+   "status": "scheduled",
+   "pinned": null
+  },
+  {
+   "id": "ig-house-drawing",
+   "iso_date": "2026-09-22",
+   "date_tbd": false,
+   "topic": "Line drawing of a house and garden",
+   "platform": "Instagram",
+   "caption": "",
+   "slides": [
+    {
+     "text": "",
+     "image": "/wormhole/ig/ig-house-drawing.jpg"
+    }
+   ],
+   "cta": "",
+   "link": "",
+   "sources": [],
+   "visual_note": "",
+   "note": "Date unknown, posted. Image cropped from the profile screenshot of 18 October 2026.",
+   "status": "scheduled",
+   "pinned": null
+  },
+  {
+   "id": "ig-woman-dog",
+   "iso_date": "2026-09-21",
+   "date_tbd": false,
+   "topic": "Woman in a garden with a white dog",
+   "platform": "Instagram",
+   "caption": "",
+   "slides": [
+    {
+     "text": "",
+     "image": "/wormhole/ig/ig-woman-dog.jpg"
+    }
+   ],
+   "cta": "",
+   "link": "",
+   "sources": [],
+   "visual_note": "",
+   "note": "Date unknown, posted. Image cropped from the profile screenshot of 18 October 2026.",
+   "status": "scheduled",
+   "pinned": null
+  },
+  {
+   "id": "ig-webinar-series",
+   "iso_date": "2026-09-20",
+   "date_tbd": false,
+   "topic": "Webinar Series: Designing the Regeneration, Rewilding & Restoring",
+   "platform": "Instagram",
+   "caption": "",
+   "slides": [
+    {
+     "text": "",
+     "image": "/wormhole/ig/ig-webinar-series.jpg"
+    }
+   ],
+   "cta": "",
+   "link": "",
+   "sources": [],
+   "visual_note": "",
+   "note": "Date unknown, posted. Image cropped from the profile screenshot of 18 October 2026.",
+   "status": "scheduled",
+   "pinned": null
+  },
+  {
+   "id": "ig-geoff-lawton",
+   "iso_date": "2026-09-19",
+   "date_tbd": false,
+   "topic": "Geoff Lawton, live now, discussing permaculture design",
+   "platform": "Instagram",
+   "caption": "",
+   "slides": [
+    {
+     "text": "",
+     "image": "/wormhole/ig/ig-geoff-lawton.jpg"
+    }
+   ],
+   "cta": "",
+   "link": "",
+   "sources": [],
+   "visual_note": "",
+   "note": "Date unknown, posted. Image cropped from the profile screenshot of 18 October 2026.",
+   "status": "scheduled",
+   "pinned": null
+  },
+  {
+   "id": "ig-black-reel",
+   "iso_date": "2026-09-18",
+   "date_tbd": false,
+   "topic": "Black Reel",
+   "platform": "Instagram",
+   "caption": "",
+   "slides": [
+    {
+     "text": "",
+     "image": "/wormhole/ig/ig-black-reel.jpg"
+    }
+   ],
+   "cta": "",
+   "link": "",
+   "sources": [],
+   "visual_note": "Reel",
+   "note": "Date unknown, posted. Image cropped from the profile screenshot of 18 October 2026.",
+   "status": "scheduled",
+   "pinned": null
+  }
+ ]
+}

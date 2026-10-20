@@ -232,7 +232,11 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
     );
   }
 
-  const gridPosts = [...visible].reverse();
+  // Instagram shows pinned posts first, then newest first.
+  const gridPosts = [
+    ...visible.filter((p) => p.pinned).sort((a, b) => (a.pinned ?? 0) - (b.pinned ?? 0)),
+    ...visible.filter((p) => !p.pinned).reverse(),
+  ];
 
   return (
     <div className="min-h-screen bg-white text-black">
