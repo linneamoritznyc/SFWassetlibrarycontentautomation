@@ -16,6 +16,7 @@ import {
   keepImages,
   syncTokenMatches,
 } from '@/lib/wormhole-sync';
+import { applyChanges } from '@/lib/wormhole-changes';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -40,6 +41,7 @@ function unauthorized() {
 /** Every post, in the shape the doc script reads. */
 export async function GET(request: Request) {
   if (!syncTokenMatches(request.headers.get('authorization'))) return unauthorized();
+  await applyChanges();
   const { rows } = await db().query(
     `select ${POST_COLUMNS} from wormhole_posts order by iso_date, id`,
   );

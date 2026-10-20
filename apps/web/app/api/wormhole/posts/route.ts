@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { db } from '@/lib/db';
 import { POST_COLUMNS, createPost, guard, sanitizePatch } from '@/lib/wormhole';
 import { withDesigns } from '@/lib/wormhole-designs';
+import { applyChanges } from '@/lib/wormhole-changes';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -11,6 +12,7 @@ export async function GET(request: Request) {
   const g = await guard();
   if (g instanceof NextResponse) return g;
 
+  await applyChanges();
   const since = new URL(request.url).searchParams.get('since');
   const { rows } = since
     ? await db().query(
