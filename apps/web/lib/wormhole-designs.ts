@@ -27,7 +27,7 @@ export function withDesigns(rows: WormholePost[], includeVirtual = true): Wormho
     const tile = D.posted[p.id];
     if (tile) {
       const slides: Slide[] = p.slides?.length ? p.slides : [{ text: '', image: null }];
-      const first: Slide = { text: slides[0].text, image: tile };
+      const first: Slide = { text: slides[0]?.text ?? '', image: tile };
       return { ...p, status: 'scheduled' as const, slides: [first, ...slides.slice(1)] };
     }
     return p;
