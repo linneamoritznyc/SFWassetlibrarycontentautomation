@@ -34,6 +34,7 @@ for i, (img, topic, reel) in enumerate([
     ("ig-geoff-lawton", "Geoff Lawton, live now, discussing permaculture design", False),
     ("ig-black-reel", "Black Reel", True)]):
     v(img, f"2026-09-{30 - i:02d}", topic, img, reel=reel)
-out = dict(designs=designs, posted={k: f"/wormhole/ig/{f}.jpg" for k, f in posted.items()}, virtual=virtual)
+# The old Instagram posts now live in the database (added 20 Oct), so no virtual posts or tile overrides here.
+out = dict(designs=designs, posted={}, virtual=[])
 json.dump(out, open(os.path.join(REPO, "apps", "web", "lib", "wormhole-designs.json"), "w"), indent=1, ensure_ascii=False)
 print(len(designs), "designed,", len(virtual), "virtual")
