@@ -66,7 +66,8 @@ export function slidesOf(post: WormholePost): Slide[] {
 }
 
 export function imageUrl(id: string): string {
-  return `/api/wormhole/images/${id}`;
+  // Generated tiles are static files; uploads come from the database.
+  return id.startsWith('/wormhole/') ? id : `/api/wormhole/images/${id}`;
 }
 
 export const STATUS_STYLE: Record<WormholeStatus, string> = {

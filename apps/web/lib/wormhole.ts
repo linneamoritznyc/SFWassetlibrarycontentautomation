@@ -5,6 +5,11 @@ import { AUTH_COOKIE, NAME_COOKIE, cleanName, isValidToken } from './wormhole-au
 
 import { EDITABLE, STATUSES, type Slide, type WormholePost } from './wormhole-types';
 
+/** Tiles built by tools/wormhole-visuals live in the app's public folder. */
+export function isRepoImage(v: string): boolean {
+  return /^\/wormhole\/(tiles|ig)\/[a-z0-9._-]+\.(jpg|png)$/i.test(v);
+}
+
 export * from './wormhole-types';
 
 export const POST_COLUMNS = `id, to_char(iso_date, 'YYYY-MM-DD') as iso_date, date_tbd, topic, platform, caption,
@@ -33,7 +38,10 @@ export function sanitizePatch(body: Record<string, unknown>): Partial<WormholePo
       if (!Array.isArray(v)) continue;
       out.slides = v.slice(0, 20).map((s) => {
         const slide = (s ?? {}) as Partial<Slide>;
-        const image = typeof slide.image === 'string' && isUuid(slide.image) ? slide.image : null;
+        const image =
+          typeof slide.image === 'string' && (isUuid(slide.image) || isRepoImage(slide.image))
+            ? slide.image
+            : null;
         return { text: String(slide.text ?? '').slice(0, 2000), image };
       });
     } else if (key === 'sources') {
