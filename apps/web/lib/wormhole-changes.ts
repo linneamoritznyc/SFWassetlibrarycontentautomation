@@ -120,7 +120,7 @@ export const CHANGES: Change[] = [
       ],
     },
     reason:
-      "New slides (Linnea, 20 Oct): the doc's own slide text in the earthworm-cover style. Deck: 21-10-2026-world-earthworm-day.pptx.",
+      "New slides (Linnea, 20 Oct): the doc's own slide text , each mentor in their own style. Deck: 21-10-2026-world-earthworm-day.pptx.",
   },
   {
     key: '2026-10-20 n20261023a',
@@ -214,7 +214,7 @@ export const CHANGES: Change[] = [
       ],
     },
     reason:
-      'New slides (2026-10-21) in the earthworm-cover style. Deck: 21-10-2026-meet-casey-williams.pptx.',
+      'New slides (2026-10-21) , each mentor in their own style. Deck: 21-10-2026-meet-casey-williams.pptx.',
   },
   {
     key: '2026-10-21 p03 slides',
@@ -233,7 +233,7 @@ export const CHANGES: Change[] = [
       ],
     },
     reason:
-      'New slides (2026-10-21) in the earthworm-cover style. Deck: 22-10-2026-meet-nick-padwick.pptx.',
+      'New slides (2026-10-21) , each mentor in their own style. Deck: 22-10-2026-meet-nick-padwick.pptx.',
   },
   {
     key: '2026-10-21 p04 slides',
@@ -255,7 +255,7 @@ export const CHANGES: Change[] = [
       ],
     },
     reason:
-      'New slides (2026-10-21) in the earthworm-cover style. Deck: 23-10-2026-meet-wes-sander.pptx.',
+      'New slides (2026-10-21) , each mentor in their own style. Deck: 23-10-2026-meet-wes-sander.pptx.',
   },
   {
     key: '2026-10-21 p06 slides',
@@ -274,7 +274,7 @@ export const CHANGES: Change[] = [
       ],
     },
     reason:
-      'New slides (2026-10-21) in the earthworm-cover style. Deck: 24-10-2026-meet-gerald-ramirez.pptx.',
+      'New slides (2026-10-21) , each mentor in their own style. Deck: 24-10-2026-meet-gerald-ramirez.pptx.',
   },
   {
     key: '2026-10-21 p09 slides',
@@ -293,7 +293,108 @@ export const CHANGES: Change[] = [
       ],
     },
     reason:
-      'New slides (2026-10-21) in the earthworm-cover style. Deck: 25-10-2026-meet-dora-tkalec.pptx.',
+      'New slides (2026-10-21) , each mentor in their own style. Deck: 25-10-2026-meet-dora-tkalec.pptx.',
+  },
+  {
+    key: '2026-10-21-varied p02 slides',
+    post: 'p02',
+    set: {
+      slides: [
+        { text: 'Meet our mentors Casey Williams', image: '/wormhole/tiles/p02-1.jpg' },
+        {
+          text: '“I am deeply grateful that I get to learn from my students as well as teach them.” A bacterial-feeding nematode at 40x, photographed by Casey.',
+          image: '/wormhole/tiles/p02-2.jpg',
+        },
+        {
+          text: 'His advice: put your hands in the soil. We learn best by doing. Thank you, Casey!',
+          image: '/wormhole/tiles/p02-3.jpg',
+        },
+      ],
+    },
+    reason:
+      'New slides (2026-10-21-varied) , each mentor in their own style. Deck: 21-10-2026-meet-casey-williams.pptx.',
+  },
+  {
+    key: '2026-10-21-varied p03 slides',
+    post: 'p03',
+    set: {
+      slides: [
+        {
+          text: 'Meet our mentors Nick Padwick Norfolk, England',
+          image: '/wormhole/tiles/p03-1.jpg',
+        },
+        {
+          text: 'More than 40 years farming at scale, in the UK, Italy, Spain and Argentina.',
+          image: '/wormhole/tiles/p03-2.jpg',
+        },
+        {
+          text: 'Today he makes around 750 tons of compost a year. Thank you, Nick, for showing our students what this looks like at scale.',
+          image: '/wormhole/tiles/p03-3.jpg',
+        },
+      ],
+    },
+    reason:
+      'New slides (2026-10-21-varied) , each mentor in their own style. Deck: 22-10-2026-meet-nick-padwick.pptx.',
+  },
+  {
+    key: '2026-10-21-varied p04 slides',
+    post: 'p04',
+    set: {
+      slides: [
+        {
+          text: 'Meet our mentors Wes Sander Microscopy mentor',
+          image: '/wormhole/tiles/p04-1.jpg',
+        },
+        {
+          text: "His favourite organism: the Arcella amoeba. “There's just something about that large test that you can almost see inside of, with the amoeba squished up against the wall. So cool.” Arcella at 40x, photographed by student Mark Horton.",
+          image: '/wormhole/tiles/p04-2.jpg',
+        },
+        {
+          text: "“It depends,” as Dr. Elaine loved to say. Wes's advice: success hinges on reading the signs. Thank you, Wes!",
+          image: '/wormhole/tiles/p04-3.jpg',
+        },
+      ],
+    },
+    reason:
+      'New slides (2026-10-21-varied) , each mentor in their own style. Deck: 23-10-2026-meet-wes-sander.pptx.',
+  },
+  {
+    key: '2026-10-21-varied p06 slides',
+    post: 'p06',
+    set: {
+      slides: [
+        { text: 'Meet our mentors Gerald Ramirez', image: '/wormhole/tiles/p06-1.jpg' },
+        {
+          text: 'Gerald teaches students to make compost extracts and teas. Costa Rica, March 2025',
+          image: '/wormhole/tiles/p06-2.jpg',
+        },
+        {
+          text: 'They carry living biology from the compost out onto the fields. Thank you, Gerald!',
+          image: '/wormhole/tiles/p06-3.jpg',
+        },
+      ],
+    },
+    reason:
+      'New slides (2026-10-21-varied) , each mentor in their own style. Deck: 24-10-2026-meet-gerald-ramirez.pptx.',
+  },
+  {
+    key: '2026-10-21-varied p09 slides',
+    post: 'p09',
+    set: {
+      slides: [
+        { text: 'Meet our mentors Dora Tkalec', image: '/wormhole/tiles/p09-1.jpg' },
+        {
+          text: 'Her favourite microbe: the naked amoeba. “A slimy splotch that changes shape, and every species keeps its own.”',
+          image: '/wormhole/tiles/p09-2.jpg',
+        },
+        {
+          text: '“I have seen plants treated with BioComplete™ compost extract being more resistant to bacterial disease.” Thank you, Dora!',
+          image: '/wormhole/tiles/p09-3.jpg',
+        },
+      ],
+    },
+    reason:
+      'New slides (2026-10-21-varied) , each mentor in their own style. Deck: 25-10-2026-meet-dora-tkalec.pptx.',
   },
 ];
 
