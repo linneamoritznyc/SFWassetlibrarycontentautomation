@@ -120,7 +120,7 @@ export const CHANGES: Change[] = [
       ],
     },
     reason:
-      "New slides (Linnea, 20 Oct): the doc's own slide text , each mentor in their own style. Deck: 21-10-2026-world-earthworm-day.pptx.",
+      "New slides (Linnea, 20 Oct): the doc's own slide text in the earthworm-cover style. Deck: 21-10-2026-world-earthworm-day.pptx.",
   },
   {
     key: '2026-10-20 n20261023a',
