@@ -180,6 +180,11 @@ def build(pid):
     os.makedirs(DECKS, exist_ok=True)
     names, slides = d.save(TILES, DECKS)
     BUILT[pid] = dict(iso=iso, slides=["/wormhole/tiles/" + x for x in names], texts=d.slide_texts(), pptx=d.pptx_name(), notes=d.notes)
+    # keep the manifest current whichever script did the build
+    mpath = os.path.join(OUT, "manifest.json")
+    manifest = json.load(open(mpath)) if os.path.exists(mpath) else {}
+    manifest[pid] = BUILT[pid]
+    json.dump(manifest, open(mpath, "w"), indent=1)
     return slides
 
 
