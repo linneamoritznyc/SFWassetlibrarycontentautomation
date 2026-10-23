@@ -76,9 +76,14 @@ class Page:
     def __init__(self, d, t, h):
         self.d, self.t, self.h = d, t, h
         self.credits = []
+        self.hb = {}
 
     # text ------------------------------------------------------------
     def heading(self, k, text, y=110, size=84, w=900, x=90, h=420, align="left", color=None):
+        self.hb[k] = self._heading(k, text, y, size, w, x, h, align, color)
+        return self.hb[k]
+
+    def _heading(self, k, text, y, size, w, x, h, align, color):
         return self.d.text(k, "heading", text, x, round(y), w, h, size, kind="fredoka", italic=False,
                            color=color or self.t.head, lh=1.12, align=align, min_size=64)
 
@@ -101,8 +106,12 @@ class Page:
         return (round(x), round(y), im.width, im.height)
 
     def photo(self, k, src, x, y, w, h, fx=0.5, fy=0.5, seed=1, name="photo"):
-        """A real photo set into the page in a thin hand-drawn ink frame."""
+        """A real photo set into the page in a thin hand-drawn ink frame, never under the heading."""
         pad = 10
+        if k in self.hb and y < self.hb[k] + 40:
+            shift = round(self.hb[k] + 40 - y)
+            y += shift
+            h = max(200, h - shift)
         ph = cover(src, w, h, fx, fy).convert("RGBA")
         out = Image.new("RGBA", (w + 2 * pad, h + 2 * pad), (0, 0, 0, 0))
         out.alpha_composite(ph, (pad, pad))
@@ -1366,4 +1375,220 @@ def tardigrades(p):
     p.put(1, "leaves", leaves(7, 9), 100, 960)
     p.small(1, "Tardigrade: Stec et al. 2018, PLOS ONE, CC BY 4.0", y=1240, w=700)
     for k in range(2):
+        p.logo(k)
+
+
+# ================================================================== photo posts (openly licensed photos, credited on the slide)
+_CRED = None
+
+
+def credit_of(name):
+    global _CRED
+    if _CRED is None:
+        _CRED = {}
+        for fn in ("credits-land.json", "credits-micro.json"):
+            for e in json.load(open(os.path.join(CC, fn))):
+                _CRED[e["file"].replace(".jpg", "")] = e
+    e = _CRED[name]
+    lic = e["license"].split(" (")[0]
+    note = e.get("notes", "")
+    who = "Lynn Betts, NRCS/SWCS" if "Lynn Betts" in note else (
+        "Lance Cheung, USDA" if "Lance Cheung" in note else e["author"].replace(" (iNaturalist)", " / iNaturalist"))
+    return f"{who}, {lic}"
+
+
+def ph(name):
+    return f"{CC}/{name}.jpg"
+
+
+def credits_line(p, k, names, y=None):
+    p.small(k, "Photos: " + "; ".join(credit_of(n) for n in names) if len(names) > 1 else
+            "Photo: " + credit_of(names[0]), y=y, w=720)
+
+
+@post("pl20261114", "2026-11-14", "do-this-weekend-leaf-mold-v1", 5, TAN)
+def leaf_mold(p):
+    p.heading(0, "Your fallen leaves can become fungal compost.", y=110, size=88)
+    p.photo(0, ph("leaf-mulch-bed-1"), 90, 440, 900, 620, seed=1)
+    credits_line(p, 0, ["leaf-mulch-bed-1"], y=1250)
+
+    p.heading(1, "Pack wet leaves into a wire cage or a bag with holes.", y=110, size=88)
+    p.photo(1, ph("leaf-mold-bin-1"), 90, 470, 900, 600, fx=0.35, seed=2)
+    p.label(1, "a wire cage full of leaves", 90, 1095, w=600)
+    credits_line(p, 1, ["leaf-mold-bin-1"], y=1250)
+
+    p.heading(2, "Keep them damp. Fungi do the work, slowly.", y=110, size=88)
+    p.photo(2, ph("leaf-mold-closeup-1"), 90, 440, 640, 640, seed=3)
+    p.cut(2, f"{SOILC}/compost-white-fungal-threads.png", 660, 780, w=330)
+    p.label(2, "white fungal threads", 760, 640, w=260)
+    p.arrow(2, (820, 720), (800, 820), bend=0.25, seed=1)
+    credits_line(p, 2, ["leaf-mold-closeup-1"], y=1250)
+
+    p.heading(3, "In 1 to 2 years you get dark, crumbly leaf mold.", y=110, size=88)
+    p.photo(3, ph("leaf-mold-bin-3"), 90, 440, 900, 560, seed=4)
+    p.cut(3, f"{SOILC}/dark-soil-clump.png", 620, 900, w=330)
+    p.label(3, "dark and crumbly", 120, 1080, w=360)
+    p.arrow(3, (380, 1100), (610, 1040), bend=-0.2, seed=2)
+    credits_line(p, 3, ["leaf-mold-bin-3"], y=1250)
+
+    p.heading(4, "Use it as mulch or mix it into potting soil.", y=110, size=88)
+    p.photo(4, ph("straw-mulch-1"), 90, 440, 520, 640, seed=5)
+    def pot(dr, s):
+        poly(dr, s, [(40, 120), (300, 120), (260, 420), (80, 420)], "#C1693F")
+        outline(dr, s, "rectangle", (20, 90, 320, 140), "#B05A33")
+        crumb(dr, s, 170, 100, 70, 4, fill="#4A3426", pores=False)
+        leaf_shape(dr, s, 140, 20, 90, -1.0, "#59A66C")
+        leaf_shape(dr, s, 205, 25, 90, -2.1, "#59A66C")
+    p.drawn(4, 340, 440, pot, 650, 600, name="drawn-pot")
+    p.label(4, "as mulch", 90, 1100, w=300)
+    p.label(4, "in potting soil", 680, 1060, w=300)
+    credits_line(p, 4, ["straw-mulch-1"], y=1250)
+    for k in range(5):
+        p.logo(k)
+
+
+@post("pl20261115", "2026-11-15", "a-world-without-worms-v1", 5, SAGE, reel=True)
+def no_worms(p):
+    h = p.h
+    texts = ["Imagine a world without earthworms.", "It already exists.",
+             "Many northern North American forests evolved without them after the last Ice Age.",
+             "Introduced worms now eat through the leaf litter those forests depend on.",
+             "Even a good organism can be the wrong one in the wrong place."]
+    photos = ["forest-floor-1", "forest-floor-3", "forest-floor-2", "jumping-worm-litter-2", "earthworm-litter-4"]
+    labels = [None, "a thick layer of leaf litter", "Pennsylvania hardwood forest, autumn",
+              "worms on bare, worm-worked soil", "an introduced earthworm, Minnesota"]
+    for k, t in enumerate(texts):
+        hb = p.heading(k, t, y=120, size=88 if len(t) < 45 else 76)
+        top = max(hb + 60, h * 0.36)
+        top = round(top)
+        ph_h = round(min(720, h - top - 300))
+        p.photo(k, ph(photos[k]), 90, top, 900, ph_h, seed=k + 1)
+        if labels[k]:
+            p.label(k, labels[k], 90, top + ph_h + 26, w=640)
+        credits_line(p, k, [photos[k]], y=h - 70)
+        p.logo(k)
+
+
+@post("pl20261121", "2026-11-21", "do-this-weekend-cover-bare-beds-v1", 4, LGREEN)
+def cover_beds(p):
+    p.heading(0, "Bare soil in winter is soil you're losing.", y=110, size=92)
+    p.photo(0, ph("bare-soil-bed-1"), 90, 440, 900, 640, seed=1)
+    credits_line(p, 0, ["bare-soil-bed-1"], y=1250)
+
+    p.heading(1, "Rain hits bare soil hard, breaks aggregates apart and washes the fine particles away.", y=110,
+              size=76, h=460)
+    def splash(dr, s):
+        outline(dr, s, "rectangle", (0, 330, 880, 560), WASH["soil"])
+        crumb(dr, s, 330, 330, 80, 2)
+        drop(dr, s, 330, 160, 40, WASH["water"])
+        rnd = random.Random(4)
+        for _ in range(16):
+            a = rnd.uniform(-2.8, -0.3)
+            x, y = 330 + 150 * math.cos(a) * rnd.uniform(0.6, 1.3), 300 + 110 * math.sin(a) * rnd.uniform(0.6, 1.2)
+            outline(dr, s, "ellipse", (x - 9, y - 9, x + 9, y + 9), WASH["soil2"], width=1.6)
+        pts = [(520 + i * 22, 370 + i * 6 + 6 * math.sin(i)) for i in range(16)]
+        dr.line([(a * s, b * s) for a, b in pts], fill=hexrgb("#6E9FB0") + (255,), width=round(10 * s), joint="curve")
+        poly(dr, s, [(860, 450), (884, 466), (852, 476)], "#6E9FB0")
+    p.drawn(1, 900, 580, splash, 90, 560, name="drawn-raindrop-splash")
+    p.label(1, "a raindrop", 470, 560, w=240)
+    p.arrow(1, (480, 610), (460, 700), bend=0.25, seed=1)
+    p.label(1, "fine particles wash away", 600, 1150, w=360)
+    p.arrow(1, (700, 1145), (800, 1000), bend=-0.25, seed=2)
+
+    p.heading(2, "Cover it: leaf mulch, straw, woodchips or a winter cover crop.", y=110, size=80)
+    covers = [("leaf-mulch-bed-1", "leaf mulch"), ("straw-mulch-1", "straw"), ("woodchip-mulch-1", "woodchips"),
+              ("cover-crop-rye-1", "a winter cover crop")]
+    for i, (n, lab) in enumerate(covers):
+        x, y = 90 + (i % 2) * 460, 440 + (i // 2) * 370
+        p.photo(2, ph(n), x, y, 430, 280, seed=10 + i, name="photo-" + n)
+        p.label(2, lab, x, y + 292, w=430, size=28)
+    p.small(2, "Photos: " + "; ".join(credit_of(n) for n, _ in covers), y=1215, w=740)
+
+    p.heading(3, "Soil life keeps working under the cover, and your beds are ready in spring.", y=110, size=80)
+    p.photo(3, ph("straw-mulch-2"), 90, 470, 600, 640, fx=0.5, fy=0.6, seed=5)
+    p.cut(3, f"{SOILC}/earthworm.png", 720, 640, h=360)
+    p.label(3, "still busy in winter", 720, 1030, w=260)
+    credits_line(p, 3, ["straw-mulch-2"], y=1250)
+    for k in range(4):
+        p.logo(k)
+
+
+@post("pl20261126", "2026-11-26", "thanksgiving-soil-life-v1", 5, CREAM)
+def thanksgiving(p):
+    p.heading(0, "This Thanksgiving, thank the soil life that grew your dinner.", y=110, size=88)
+    p.photo(0, ph("pumpkin-vine-3"), 90, 470, 900, 620, seed=1)
+    credits_line(p, 0, ["pumpkin-vine-3"], y=1250)
+
+    p.heading(1, "The potatoes: fungi and bacteria cycled the nutrients.", y=110, size=88)
+    p.photo(1, ph("potato-dug-2"), 90, 450, 640, 560, seed=2)
+    p.lens(1, f"{NEW}/Fungal hypha, 100x obj, Marco Trevisan.jpg", 820, 900, 300, center=(0.55, 0.5), zoom=1.6)
+    p.label(1, "a fungal hypha at 100x", 700, 1070, w=300, size=28)
+    p.small(1, "Photo: " + credit_of("potato-dug-2") + ". Micrograph: Marco Trevisan.", y=1250, w=720)
+
+    p.heading(2, "The green beans: rhizobia in the roots turned air into nitrogen.", y=110, size=86)
+    p.photo(2, ph("root-nodules-1"), 90, 470, 560, 620, fy=0.5, seed=3)
+    p.label(2, "root nodules, where rhizobia live (here on a soybean, a cousin of the green bean)", 690, 600, w=320,
+            size=28)
+    p.arrow(2, (720, 830), (520, 800), bend=-0.25, seed=1)
+    credits_line(p, 2, ["root-nodules-1"], y=1250)
+
+    p.heading(3, "The pumpkin pie: mycorrhizal fungi helped the vines find water and phosphorus.", y=110, size=80)
+    p.photo(3, ph("pumpkin-vine-1"), 90, 470, 620, 520, seed=4)
+    def root(dr, s):
+        pts = [(140 + 8 * math.sin(i / 3), i * 12) for i in range(30)]
+        dr.line([(a * s, b * s) for a, b in pts], fill=hexrgb("#E9DCC3") + (255,), width=round(16 * s), joint="curve")
+        for i in range(8):
+            threads(dr, s, 140, 60 + i * 38, 0 if i % 2 else math.pi, 120, 50 + i, color="#8A6A55", width=1.8)
+    p.drawn(3, 280, 380, root, 740, 560, name="drawn-root-with-fungi")
+    p.label(3, "fungal threads at the roots", 720, 950, w=290, size=28)
+    credits_line(p, 3, ["pumpkin-vine-1"], y=1250)
+
+    p.heading(4, "Happy Thanksgiving from all of us. \U0001F49A", y=110, size=96)
+    p.photo(4, ph("pumpkin-vine-2"), 90, 420, 900, 640, seed=5)
+    credits_line(p, 4, ["pumpkin-vine-2"], y=1250)
+    for k in range(5):
+        p.logo(k)
+
+
+@post("pl20261211", "2026-12-11", "mountain-day-mountain-soils-v1", 4, TAN)
+def mountains(p):
+    p.heading(0, "Mountain soils are thin, young and fragile.", y=110, size=92)
+    def mountain(dr, s):
+        poly(dr, s, [(0, 560), (300, 120), (430, 260), (560, 60), (880, 560)], "#B5B0A6")
+        pts = [(0, 560), (300, 120), (430, 260), (560, 60), (880, 560)]
+        thin = [(x, y + 46) for x, y in pts[1:-1]]
+        poly(dr, s, [(20, 540)] + [(300, 120), (430, 260), (560, 60)] + [(860, 540)] +
+             [(840, 520)] + thin[::-1] + [(40, 520)], "#7A5E48")
+        for x in (250, 360, 500, 640):
+            for i in range(3):
+                dr.line((x * s, (180 + (x % 7) * 10) * s, (x - 12 + i * 12) * s, (240 + (x % 7) * 10) * s),
+                        fill=hexrgb("#E9DCC3") + (255,), width=round(3 * s))
+    p.drawn(0, 900, 580, mountain, 90, 520, name="drawn-mountain")
+    p.label(0, "a thin layer of soil over rock", 560, 1130, w=380)
+    p.arrow(0, (640, 1125), (620, 900), bend=0.25, seed=1)
+
+    p.heading(1, "Cold and steep slopes slow soil formation.", y=110, size=92)
+    p.photo(1, ph("rocky-soil-profile-1"), 90, 440, 900, 680, seed=2)
+    p.label(1, "thin, rocky mountain soil, Montana", 90, 1140, w=640, size=28)
+    credits_line(p, 1, ["rocky-soil-profile-1"], y=1250)
+
+    p.heading(2, "Without roots and cover, one heavy storm can wash away centuries of soil.", y=110, size=82)
+    def storm(dr, s):
+        poly(dr, s, [(0, 120), (880, 520), (880, 580), (0, 580)], "#B5B0A6")
+        poly(dr, s, [(0, 120), (880, 520), (880, 548), (0, 160)], "#7A5E48")
+        rnd = random.Random(7)
+        for _ in range(40):
+            x, y = rnd.uniform(0, 880), rnd.uniform(0, 90)
+            dr.line((x * s, y * s, (x - 10) * s, (y + 40) * s), fill=hexrgb("#6E9FB0") + (220,), width=round(3 * s))
+        pts = [(100 + i * 50, 200 + i * 22 + 6 * math.sin(i)) for i in range(15)]
+        dr.line([(a * s, b * s) for a, b in pts], fill=hexrgb("#8A6A55") + (255,), width=round(12 * s), joint="curve")
+    p.drawn(2, 900, 600, storm, 90, 520, name="drawn-storm")
+    p.label(2, "soil washing downhill", 500, 600, w=300)
+    p.arrow(2, (560, 680), (520, 820), bend=0.25, seed=2)
+
+    p.heading(3, "Terraces, cover and living roots hold mountain farms together.", y=110, size=86)
+    p.photo(3, ph("terraces-3"), 90, 450, 900, 640, seed=4)
+    p.label(3, "Hapao rice terraces, Ifugao, Philippines", 90, 1110, w=700, size=28)
+    credits_line(p, 3, ["terraces-3"], y=1250)
+    for k in range(4):
         p.logo(k)

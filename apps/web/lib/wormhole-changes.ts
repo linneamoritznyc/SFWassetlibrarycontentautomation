@@ -2490,6 +2490,145 @@ export const CHANGES: Change[] = [
     reason:
       'New card (Linnea, 23 Oct): real tardigrades cut out of micrographs, drawn Santa hats and leaves, on cream. Credits on the slides: Stec et al. 2018 PLOS ONE; Jan Ebr and Ivana Ebrová / iNaturalist; CC BY 4.0. Deck: /wormhole/decks/25-12-2026-holiday-card-tardigrades-v1.pptx.',
   },
+  {
+    key: '2026-10-23 pl20261114 slides v1',
+    post: 'pl20261114',
+    set: {
+      slides: [
+        {
+          text: 'Your fallen leaves can become fungal compost.',
+          image: '/wormhole/tiles/pl20261114-v1-1.jpg',
+        },
+        {
+          text: 'Pack wet leaves into a wire cage or a bag with holes.',
+          image: '/wormhole/tiles/pl20261114-v1-2.jpg',
+        },
+        {
+          text: 'Keep them damp. Fungi do the work, slowly.',
+          image: '/wormhole/tiles/pl20261114-v1-3.jpg',
+        },
+        {
+          text: 'In 1 to 2 years you get dark, crumbly leaf mold.',
+          image: '/wormhole/tiles/pl20261114-v1-4.jpg',
+        },
+        {
+          text: 'Use it as mulch or mix it into potting soil.',
+          image: '/wormhole/tiles/pl20261114-v1-5.jpg',
+        },
+      ],
+    },
+    reason:
+      'New slides (Linnea, 23 Oct): openly licensed real photos (CC BY, CC0 or public domain, credited on each slide) and simple drawn diagrams on a flat brand colour. Deck: /wormhole/decks/14-11-2026-do-this-weekend-leaf-mold-v1.pptx.',
+  },
+  {
+    key: '2026-10-23 pl20261115 slides v1',
+    post: 'pl20261115',
+    set: {
+      slides: [
+        {
+          text: 'Imagine a world without earthworms.',
+          image: '/wormhole/tiles/pl20261115-v1-1.jpg',
+        },
+        { text: 'It already exists.', image: '/wormhole/tiles/pl20261115-v1-2.jpg' },
+        {
+          text: 'Many northern North American forests evolved without them after the last Ice Age.',
+          image: '/wormhole/tiles/pl20261115-v1-3.jpg',
+        },
+        {
+          text: 'Introduced worms now eat through the leaf litter those forests depend on.',
+          image: '/wormhole/tiles/pl20261115-v1-4.jpg',
+        },
+        {
+          text: 'Even a good organism can be the wrong one in the wrong place.',
+          image: '/wormhole/tiles/pl20261115-v1-5.jpg',
+        },
+      ],
+    },
+    reason:
+      'New slides (Linnea, 23 Oct): openly licensed real photos (CC BY, CC0 or public domain, credited on each slide) and simple drawn diagrams on a flat brand colour. Reel: 1080 x 1920 cards in the deck. Deck: /wormhole/decks/15-11-2026-a-world-without-worms-v1.pptx.',
+  },
+  {
+    key: '2026-10-23 pl20261121 slides v1',
+    post: 'pl20261121',
+    set: {
+      slides: [
+        {
+          text: "Bare soil in winter is soil you're losing.",
+          image: '/wormhole/tiles/pl20261121-v1-1.jpg',
+        },
+        {
+          text: 'Rain hits bare soil hard, breaks aggregates apart and washes the fine particles away.',
+          image: '/wormhole/tiles/pl20261121-v1-2.jpg',
+        },
+        {
+          text: 'Cover it: leaf mulch, straw, woodchips or a winter cover crop.',
+          image: '/wormhole/tiles/pl20261121-v1-3.jpg',
+        },
+        {
+          text: 'Soil life keeps working under the cover, and your beds are ready in spring.',
+          image: '/wormhole/tiles/pl20261121-v1-4.jpg',
+        },
+      ],
+    },
+    reason:
+      'New slides (Linnea, 23 Oct): openly licensed real photos (CC BY, CC0 or public domain, credited on each slide) and simple drawn diagrams on a flat brand colour. Deck: /wormhole/decks/21-11-2026-do-this-weekend-cover-bare-beds-v1.pptx.',
+  },
+  {
+    key: '2026-10-23 pl20261126 slides v1',
+    post: 'pl20261126',
+    set: {
+      slides: [
+        {
+          text: 'This Thanksgiving, thank the soil life that grew your dinner.',
+          image: '/wormhole/tiles/pl20261126-v1-1.jpg',
+        },
+        {
+          text: 'The potatoes: fungi and bacteria cycled the nutrients.',
+          image: '/wormhole/tiles/pl20261126-v1-2.jpg',
+        },
+        {
+          text: 'The green beans: rhizobia in the roots turned air into nitrogen.',
+          image: '/wormhole/tiles/pl20261126-v1-3.jpg',
+        },
+        {
+          text: 'The pumpkin pie: mycorrhizal fungi helped the vines find water and phosphorus.',
+          image: '/wormhole/tiles/pl20261126-v1-4.jpg',
+        },
+        {
+          text: 'Happy Thanksgiving from all of us. 💚',
+          image: '/wormhole/tiles/pl20261126-v1-5.jpg',
+        },
+      ],
+    },
+    reason:
+      'New slides (Linnea, 23 Oct): openly licensed real photos (CC BY, CC0 or public domain, credited on each slide) and simple drawn diagrams on a flat brand colour. The nodule photo is a soybean (no openly licensed green-bean nodule photo found); the label says so. Deck: /wormhole/decks/26-11-2026-thanksgiving-soil-life-v1.pptx.',
+  },
+  {
+    key: '2026-10-23 pl20261211 slides v1',
+    post: 'pl20261211',
+    set: {
+      slides: [
+        {
+          text: 'Mountain soils are thin, young and fragile.',
+          image: '/wormhole/tiles/pl20261211-v1-1.jpg',
+        },
+        {
+          text: 'Cold and steep slopes slow soil formation.',
+          image: '/wormhole/tiles/pl20261211-v1-2.jpg',
+        },
+        {
+          text: 'Without roots and cover, one heavy storm can wash away centuries of soil.',
+          image: '/wormhole/tiles/pl20261211-v1-3.jpg',
+        },
+        {
+          text: 'Terraces, cover and living roots hold mountain farms together.',
+          image: '/wormhole/tiles/pl20261211-v1-4.jpg',
+        },
+      ],
+    },
+    reason:
+      'New slides (Linnea, 23 Oct): openly licensed real photos (CC BY, CC0 or public domain, credited on each slide) and simple drawn diagrams on a flat brand colour. Deck: /wormhole/decks/11-12-2026-mountain-day-mountain-soils-v1.pptx.',
+  },
 ];
 
 const editorOf = (c: Change) => `Change: ${c.key}`;
