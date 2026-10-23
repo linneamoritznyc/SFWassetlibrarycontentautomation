@@ -1873,6 +1873,92 @@ export const CHANGES: Change[] = [
     reason:
       'New cover (23 Oct): a plain drawn moon with clouds; the vampire amoebae are below it in two lenses: Vampyrella lateritia with its radiating threads, and one draining an algal cell. Source: Hess, Sausen & Melkonian (2012), Shedding light on vampires, PLoS ONE 7: e31165, Fig. 2 A and H, CC BY 4.0, credited on the slide.',
   },
+  {
+    key: '2026-10-23 sh-w1-01',
+    post: 'sh-w1-01',
+    create: {
+      iso_date: '2026-10-23',
+      date_tbd: true,
+      topic: 'Can Soil Heal Itself After a Fire?',
+      platform: 'Instagram Reels, YouTube Shorts',
+      caption: '',
+      slides: [
+        { text: 'Can Soil Heal Itself After a Fire?', image: '/wormhole/tiles/sh-w1-01-v1-1.jpg' },
+      ],
+      cta: '',
+      link: '',
+      sources: [],
+      visual_note:
+        'Reel and Short cover, 1080 x 1920, from branch covers/shorts-webinar-1 (covers/shorts/webinar-1/01-can-soil-heal-itself-after-a-fire.png). Clip: Ivan, Webinar 1 "Wildfire Recovery & Bioremediation with Soil Biology".',
+      note: 'Short 1 of 4 from Webinar 1. Caption and date still to write.',
+      status: 'draft',
+    },
+    reason: 'Added 23 Oct: Webinar 1 Short 1 of 4, cover only, no date yet.',
+  },
+  {
+    key: '2026-10-23 sh-w1-02',
+    post: 'sh-w1-02',
+    create: {
+      iso_date: '2026-10-23',
+      date_tbd: true,
+      topic: 'Why Weeds Are Good After a Fire?',
+      platform: 'Instagram Reels, YouTube Shorts',
+      caption: '',
+      slides: [
+        { text: 'Why Weeds Are Good After a Fire?', image: '/wormhole/tiles/sh-w1-02-v1-1.jpg' },
+      ],
+      cta: '',
+      link: '',
+      sources: [],
+      visual_note:
+        'Reel and Short cover, 1080 x 1920, from branch covers/shorts-webinar-1 (covers/shorts/webinar-1/02-why-weeds-are-good-after-a-fire.png). Clip: Ivan, Webinar 1 "Wildfire Recovery & Bioremediation with Soil Biology".',
+      note: 'Short 2 of 4 from Webinar 1. Caption and date still to write.',
+      status: 'draft',
+    },
+    reason: 'Added 23 Oct: Webinar 1 Short 2 of 4, cover only, no date yet.',
+  },
+  {
+    key: '2026-10-23 sh-w1-03',
+    post: 'sh-w1-03',
+    create: {
+      iso_date: '2026-10-23',
+      date_tbd: true,
+      topic: 'How Our Garden Survived a Wildfire',
+      platform: 'Instagram Reels, YouTube Shorts',
+      caption: '',
+      slides: [
+        { text: 'How Our Garden Survived a Wildfire', image: '/wormhole/tiles/sh-w1-03-v1-1.jpg' },
+      ],
+      cta: '',
+      link: '',
+      sources: [],
+      visual_note:
+        'Reel and Short cover, 1080 x 1920, from branch covers/shorts-webinar-1 (covers/shorts/webinar-1/03-how-our-garden-survived-a-wildfire.png). Clip: Ivan, Webinar 1 "Wildfire Recovery & Bioremediation with Soil Biology".',
+      note: 'Short 3 of 4 from Webinar 1. Caption and date still to write.',
+      status: 'draft',
+    },
+    reason: 'Added 23 Oct: Webinar 1 Short 3 of 4, cover only, no date yet.',
+  },
+  {
+    key: '2026-10-23 sh-w1-04',
+    post: 'sh-w1-04',
+    create: {
+      iso_date: '2026-10-23',
+      date_tbd: true,
+      topic: 'Where Do Heavy Metals Go?',
+      platform: 'Instagram Reels, YouTube Shorts',
+      caption: '',
+      slides: [{ text: 'Where Do Heavy Metals Go?', image: '/wormhole/tiles/sh-w1-04-v1-1.jpg' }],
+      cta: '',
+      link: '',
+      sources: [],
+      visual_note:
+        'Reel and Short cover, 1080 x 1920, from branch covers/shorts-webinar-1 (covers/shorts/webinar-1/04-where-do-heavy-metals-go.png). Clip: Ivan, Webinar 1 "Wildfire Recovery & Bioremediation with Soil Biology".',
+      note: 'Short 4 of 4 from Webinar 1. Caption and date still to write.',
+      status: 'draft',
+    },
+    reason: 'Added 23 Oct: Webinar 1 Short 4 of 4, cover only, no date yet.',
+  },
 ];
 
 const editorOf = (c: Change) => `Change: ${c.key}`;
