@@ -84,23 +84,48 @@ def spooky_cloud(cw, ch, seed, dark=(30, 40, 34), lit=(150, 160, 150), opacity=0
     return Image.fromarray(out, "RGBA").filter(ImageFilter.GaussianBlur(2.5))
 
 
+def plain_moon(d, seed=5):
+    """A drawn full moon: pale disc, soft glow, a few faint grey patches."""
+    import numpy as np
+    from PIL import Image, ImageDraw, ImageFilter
+    rng = np.random.default_rng(seed)
+    pad = d // 3
+    size = d + 2 * pad
+    glow = Image.new("L", (size, size), 0)
+    ImageDraw.Draw(glow).ellipse((pad - 20, pad - 20, pad + d + 20, pad + d + 20), fill=90)
+    glow = glow.filter(ImageFilter.GaussianBlur(pad / 2.5))
+    out = Image.new("RGBA", (size, size), (236, 232, 210, 0))
+    out.putalpha(glow)
+    disc = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+    ImageDraw.Draw(disc).ellipse((pad, pad, pad + d, pad + d), fill=(236, 232, 212, 255))
+    marks = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+    md = ImageDraw.Draw(marks)
+    for _ in range(9):
+        r = rng.uniform(0.05, 0.16) * d
+        cx, cy = pad + rng.uniform(0.25, 0.75) * d, pad + rng.uniform(0.25, 0.75) * d
+        md.ellipse((cx - r, cy - r * 0.8, cx + r, cy + r * 0.8), fill=(190, 190, 172, 55))
+    marks = marks.filter(ImageFilter.GaussianBlur(d / 40))
+    mask = Image.new("L", (size, size), 0)
+    ImageDraw.Draw(mask).ellipse((pad, pad, pad + d, pad + d), fill=255)
+    disc = Image.alpha_composite(disc, Image.composite(marks, Image.new("RGBA", (size, size), (0, 0, 0, 0)), mask))
+    return Image.alpha_composite(out, disc)
+
+
 VAMP = "/home/user/photos/vampyrella-download"
 VAMP_CREDIT = ("Vampyrella lateritia. Photos: Hess, Sausen & Melkonian, PLoS ONE 2012, CC BY 4.0")
 
 
-@post("p18", "2026-10-31", "vampire-amoeba-reel-cover-v3", 1)
+@post("p18", "2026-10-31", "vampire-amoeba-reel-cover-v4", 1)
 def p18(d):
     d.bg(0, gradient(W, H, [(0, "#101A12"), (0.6, "#1D3020"), (1, "#2C4128")], 181))
-    # the moon is a real vampire amoeba (Vampyrella lateritia) with its fine radiating threads
-    moon = round_photo(f"{VAMP}/vampyrella-lateritia-hess-2012-A.jpg", 360, ring=0)
-    d.put(0, "moon-vampyrella", moon, 790, 310, off=(0, 0), blur=24, alpha=0.25)
+    d.put(0, "moon", plain_moon(280), 820, 260, shadowed=False)
     # clouds drifting across the moon
-    d.put(0, "cloud-1", spooky_cloud(620, 230, 4), 790, 450, shadowed=False)
-    d.put(0, "cloud-2", spooky_cloud(460, 130, 12, opacity=0.8), 880, 220, shadowed=False)
-    d.put(0, "cloud-3", spooky_cloud(380, 140, 21, lit=(95, 108, 98), opacity=0.7), 520, 560, shadowed=False)
+    d.put(0, "cloud-1", spooky_cloud(560, 210, 4), 820, 370, shadowed=False)
+    d.put(0, "cloud-2", spooky_cloud(420, 120, 12, opacity=0.8), 900, 190, shadowed=False)
     d.put(0, "fungal-threads", hyphae(1080, 520, 18, color="#D9D2BE", n=5, width=2.0), 540, 1080, shadowed=False)
-    # the bite: a vampire amoeba draining an algal cell
-    d.put(0, "vampyrella-feeding", lens(f"{VAMP}/vampyrella-lateritia-feeding-hess-2012-H.jpg", 560), 560, 930)
+    # real vampire amoebae: one with its radiating threads, one draining an algal cell
+    d.put(0, "vampyrella", lens(f"{VAMP}/vampyrella-lateritia-hess-2012-A.jpg", 560), 470, 830)
+    d.put(0, "vampyrella-feeding", lens(f"{VAMP}/vampyrella-lateritia-feeding-hess-2012-H.jpg", 330), 830, 1060)
     head(d, 0, "Vampire amoeba.", CREAM, y=150, size=120, w=520, h=300, shade=True)
     small(d, 0, VAMP_CREDIT, CREAM, 1268, size=22, w=820, h=60, x=180, shade=True)
     d.logo(0, "bl")

@@ -1864,6 +1864,15 @@ export const CHANGES: Change[] = [
     reason:
       'New slides (Linnea, 23 Oct) in the Costa Rica look: real workshop photos, flat colour, flower cutouts. Deck: /wormhole/decks/01-11-2026-early-bird-last-call.pptx.',
   },
+  {
+    key: '2026-10-23 p18 slides v4',
+    post: 'p18',
+    set: {
+      slides: [{ text: 'Vampire amoeba.', image: '/wormhole/tiles/p18-v4-1.jpg' }],
+    },
+    reason:
+      'New cover (23 Oct): a plain drawn moon with clouds; the vampire amoebae are below it in two lenses: Vampyrella lateritia with its radiating threads, and one draining an algal cell. Source: Hess, Sausen & Melkonian (2012), Shedding light on vampires, PLoS ONE 7: e31165, Fig. 2 A and H, CC BY 4.0, credited on the slide.',
+  },
 ];
 
 const editorOf = (c: Change) => `Change: ${c.key}`;
