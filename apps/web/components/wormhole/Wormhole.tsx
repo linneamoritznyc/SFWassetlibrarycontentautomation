@@ -4,9 +4,10 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { STATUSES, type WormholePost, type WormholeStatus } from '@/lib/wormhole-types';
 import { Editor } from './Editor';
 import { DateChip, GridTile, InstagramPost, LinkedInPost, PostBar } from './Posts';
+import { Stories, isStory } from './Stories';
 import { byDate, toDocHtml, weekLabel, weekOf } from './util';
 
-type View = 'instagram' | 'grid' | 'linkedin';
+type View = 'instagram' | 'grid' | 'stories' | 'linkedin';
 type SaveState = 'saving' | 'saved' | 'error';
 type Patch = Partial<WormholePost>;
 
@@ -135,17 +136,12 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
     return () => window.removeEventListener('beforeunload', warn);
   }, []);
 
-  const weeks = useMemo(
-    () => Array.from(new Set(posts.map((p) => weekOf(p)))).sort(),
-    [posts],
-  );
+  const weeks = useMemo(() => Array.from(new Set(posts.map((p) => weekOf(p)))).sort(), [posts]);
 
   const visible = useMemo(
     () =>
       posts.filter(
-        (p) =>
-          (week === 'all' || weekOf(p) === week) &&
-          (status === 'all' || p.status === status),
+        (p) => (week === 'all' || weekOf(p) === week) && (status === 'all' || p.status === status),
       ),
     [posts, week, status],
   );
@@ -161,14 +157,23 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
     const { post } = await res.json();
     setPosts((prev) => [...prev, post].sort(byDate));
     setStatus('all');
-    setView('instagram');
+    if (view === 'stories') {
+      update(post.id, { platform: 'Instagram Stories', topic: 'New story' }, true);
+    } else {
+      setView('instagram');
+    }
     setEditing(post.id);
-    setTimeout(() => document.getElementById(`post-${post.id}`)?.scrollIntoView({ behavior: 'smooth' }), 100);
+    setTimeout(
+      () => document.getElementById(`post-${post.id}`)?.scrollIntoView({ behavior: 'smooth' }),
+      100,
+    );
   }
 
   function exportTitle() {
     if (week === 'all') return 'Wormhole, all planned posts';
-    return week === 'tbd' ? 'Wormhole, posts without a date' : `Wormhole, week of ${weekLabel(week)}`;
+    return week === 'tbd'
+      ? 'Wormhole, posts without a date'
+      : `Wormhole, week of ${weekLabel(week)}`;
   }
 
   function download() {
@@ -176,7 +181,9 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
     const url = URL.createObjectURL(new Blob([html], { type: 'text/html' }));
     const a = document.createElement('a');
     a.href = url;
-    a.download = `${exportTitle().replace(/[^\w]+/g, '-').toLowerCase()}.html`;
+    a.download = `${exportTitle()
+      .replace(/[^\w]+/g, '-')
+      .toLowerCase()}.html`;
     a.click();
     URL.revokeObjectURL(url);
   }
@@ -248,9 +255,11 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
   }
 
   // Instagram shows pinned posts first, then newest first.
+  const feedPosts = visible.filter((p) => !isStory(p));
+  const storyPosts = visible.filter(isStory);
   const gridPosts = [
-    ...visible.filter((p) => p.pinned).sort((a, b) => (a.pinned ?? 0) - (b.pinned ?? 0)),
-    ...visible.filter((p) => !p.pinned).reverse(),
+    ...feedPosts.filter((p) => p.pinned).sort((a, b) => (a.pinned ?? 0) - (b.pinned ?? 0)),
+    ...feedPosts.filter((p) => !p.pinned).reverse(),
   ];
 
   return (
@@ -272,13 +281,22 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
               >
                 {big ? 'A−' : 'A+'}
               </button>
-              <button onClick={newPost} className="rounded-lg border border-[#2f6b46] px-3 py-2 text-base font-semibold text-[#2f6b46]">
-                + New post
+              <button
+                onClick={newPost}
+                className="rounded-lg border border-[#2f6b46] px-3 py-2 text-base font-semibold text-[#2f6b46]"
+              >
+                {view === 'stories' ? '+ New story' : '+ New post'}
               </button>
-              <button onClick={copyForDoc} className="rounded-lg bg-[#2f6b46] px-3 py-2 text-base font-semibold text-white">
+              <button
+                onClick={copyForDoc}
+                className="rounded-lg bg-[#2f6b46] px-3 py-2 text-base font-semibold text-white"
+              >
                 {copied ? 'Copied. Paste in the doc' : 'Copy for the doc'}
               </button>
-              <button onClick={download} className="rounded-lg border border-neutral-300 px-3 py-2 text-base">
+              <button
+                onClick={download}
+                className="rounded-lg border border-neutral-300 px-3 py-2 text-base"
+              >
                 Download
               </button>
               {docUrl && (
@@ -293,11 +311,12 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
               )}
             </div>
           </div>
-          <nav className="mt-3 grid grid-cols-3 gap-1 rounded-xl bg-neutral-100 p-1">
+          <nav className="mt-3 grid grid-cols-2 gap-1 sm:grid-cols-4 rounded-xl bg-neutral-100 p-1">
             {(
               [
                 ['instagram', 'Instagram feed'],
                 ['grid', 'Instagram grid'],
+                ['stories', 'Instagram stories'],
                 ['linkedin', 'LinkedIn'],
               ] as const
             ).map(([v, label]) => (
@@ -313,7 +332,12 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
             ))}
           </nav>
           <div className="mt-3 flex flex-wrap items-center gap-2">
-            <select className={select} value={week} onChange={(e) => setWeek(e.target.value)} aria-label="Week">
+            <select
+              className={select}
+              value={week}
+              onChange={(e) => setWeek(e.target.value)}
+              aria-label="Week"
+            >
               <option value="all">All weeks</option>
               {weeks.map((w) => (
                 <option key={w} value={w}>
@@ -361,7 +385,7 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
 
         {view === 'instagram' && (
           <div className="mx-auto max-w-[470px] space-y-8">
-            {visible.map((p, i, list) => card(p, InstagramPost, i, list))}
+            {feedPosts.map((p, i, list) => card(p, InstagramPost, i, list))}
           </div>
         )}
 
@@ -371,6 +395,24 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
               .filter((p) => /linkedin/i.test(p.platform))
               .map((p, i, list) => card(p, LinkedInPost, i, list))}
           </div>
+        )}
+
+        {view === 'stories' && (
+          <Stories
+            stories={storyPosts}
+            controls={(p) => (
+              <>
+                <PostBar
+                  post={p}
+                  editing={editing === p.id}
+                  saveState={saveState[p.id]}
+                  onEdit={() => setEditing(editing === p.id ? null : p.id)}
+                  onStatus={(s) => update(p.id, { status: s }, true)}
+                />
+                {editing === p.id && <Editor post={p} onChange={(patch) => update(p.id, patch)} />}
+              </>
+            )}
+          />
         )}
 
         {view === 'grid' && (
