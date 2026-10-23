@@ -1758,6 +1758,103 @@ export const CHANGES: Change[] = [
     set: { date_tbd: true },
     reason: "Hold (Linnea, 23 Oct): we haven't emailed Jason Gearheart yet. Was Wed 28 Oct.",
   },
+  {
+    key: '2026-10-23 p14 slides v1',
+    post: 'p14',
+    set: {
+      slides: [
+        { text: "We're going back to Costa Rica.", image: '/wormhole/tiles/p14-v1-1.jpg' },
+        {
+          text: 'Ten days of compost piles, extracts and the microscope.',
+          image: '/wormhole/tiles/p14-v1-2.jpg',
+        },
+        {
+          text: 'Where we learn: Armonía Agricultura Orgánica, 11 km north of San José.',
+          image: '/wormhole/tiles/p14-v1-3.jpg',
+        },
+        {
+          text: 'The early bird ends 4 November. 18 to 29 January 2027. Register, link in bio.',
+          image: '/wormhole/tiles/p14-v1-4.jpg',
+        },
+      ],
+    },
+    caption: [
+      [
+        'Ready to take what you learned online into your hands? 🌿',
+        "We're going back to Costa Rica! 🌺",
+      ],
+      [
+        'runs January 18 to 25, 2027. Join the interest list at the link in bio.',
+        'runs January 18 to 29, 2027. The early bird ends November 4. Register now, link in bio.',
+      ],
+    ],
+    reason:
+      'New slides (Linnea, 23 Oct) in the Costa Rica look: real workshop photos, flat colour, flower cutouts. Deck: /wormhole/decks/26-10-2026-costa-rica-going-back.pptx. Dates fixed to 18 to 29 January, CTA is Register.',
+  },
+  {
+    key: '2026-10-23 p16 slides v1',
+    post: 'p16',
+    set: {
+      slides: [
+        { text: 'Every event in one place.', image: '/wormhole/tiles/p16-v1-1.jpg' },
+        {
+          text: "What you'll find: free webinars, in-person workshops, course start dates.",
+          image: '/wormhole/tiles/p16-v1-2.jpg',
+        },
+        {
+          text: 'soilfoodweb.com/events [VERIFY URL]. Link in bio.',
+          image: '/wormhole/tiles/p16-v1-3.jpg',
+        },
+      ],
+    },
+    reason:
+      'New slides (Linnea, 23 Oct) in the Costa Rica look: real workshop photos, flat colour, flower cutouts. Deck: /wormhole/decks/29-10-2026-every-event.pptx.',
+  },
+  {
+    key: '2026-10-23 p17 slides v1',
+    post: 'p17',
+    set: {
+      slides: [
+        { text: 'Fun Soil News, October 2026.', image: '/wormhole/tiles/p17-v1-1.jpg' },
+        {
+          text: 'Australia: six years after replanting, the fungi in restored farmland were still recovering. Flinders University News, 20 Oct 2026 [VERIFY]',
+          image: '/wormhole/tiles/p17-v1-2.jpg',
+        },
+        {
+          text: 'Forests: climate warming can slow how tree roots feed soil microbes. Phys.org, Oct 2026 [VERIFY]',
+          image: '/wormhole/tiles/p17-v1-3.jpg',
+        },
+        {
+          text: 'Biochar: "bomb carbon" in wood shavings measures how long biochar stays in soil. Phys.org, Oct 2026 [VERIFY]',
+          image: '/wormhole/tiles/p17-v1-4.jpg',
+        },
+      ],
+    },
+    reason:
+      'New slides (Linnea, 23 Oct) in the Costa Rica look: real workshop photos, flat colour, flower cutouts. Deck: /wormhole/decks/30-10-2026-fun-soil-news-october.pptx.',
+  },
+  {
+    key: '2026-10-23 p19 slides v1',
+    post: 'p19',
+    set: {
+      slides: [
+        {
+          text: 'Last call for the early bird: Foundation Courses and the Compost Intensive.',
+          image: '/wormhole/tiles/p19-v1-1.jpg',
+        },
+        {
+          text: 'Foundation Courses: online, at your own pace.',
+          image: '/wormhole/tiles/p19-v1-2.jpg',
+        },
+        {
+          text: 'Compost Intensive: open to anyone, starts 18 January. Early bird for both ends 1 November.',
+          image: '/wormhole/tiles/p19-v1-3.jpg',
+        },
+      ],
+    },
+    reason:
+      'New slides (Linnea, 23 Oct) in the Costa Rica look: real workshop photos, flat colour, flower cutouts. Deck: /wormhole/decks/01-11-2026-early-bird-last-call.pptx.',
+  },
 ];
 
 const editorOf = (c: Change) => `Change: ${c.key}`;
