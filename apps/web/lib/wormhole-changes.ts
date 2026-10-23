@@ -2629,6 +2629,304 @@ export const CHANGES: Change[] = [
     reason:
       'New slides (Linnea, 23 Oct): openly licensed real photos (CC BY, CC0 or public domain, credited on each slide) and simple drawn diagrams on a flat brand colour. Deck: /wormhole/decks/11-12-2026-mountain-day-mountain-soils-v1.pptx.',
   },
+  {
+    key: '2026-10-23 save soil ss-01',
+    post: 'ss-01',
+    create: {
+      iso_date: '2026-10-23',
+      date_tbd: true,
+      topic: "Save Soil shoutout: Valluvan's coconut farm, 0.86% to 2.33% organic matter",
+      platform: 'Instagram',
+      caption:
+        "Valluvan's yields did nothing for three years. Then they climbed. 🌴\n\nHis Tamil Nadu coconut farm started at 0.86% soil organic matter. He dug trenches between the coconut rows and filled them with leaf litter, stopped burning fronds, mulched around every crop, and planted nutmeg, banana, black pepper, turmeric and timber trees in layers under the palms.\n\nFrom year four the coconuts rose: 140 nuts per tree, up from 90-100. By year seven the soil read 1.5% organic matter, and the latest test reads 2.33%. Fertiliser costs are under a tenth of what they were.\n\nIn 2018, after two years of drought, more than 1,200 mm of rain fell in a few days. His neighbours' open wells stood 6-7 feet lower than his.\n\nThat buried leaf litter is food for fungi and bacteria, and their glues and threads are what turn soil into a sponge.\n\nFull case study from Save Soil (Isha Foundation). Link in bio: https://consciousplanet.org/en/save-soil/news/save-soil-movement-model-farm-proof-of-concept\n\n#SaveSoil #ConsciousPlanet #SoilFoodWeb #SoilHealth #SoilBiology #LivingSoil",
+      slides: [
+        {
+          text: 'A coconut farm went from 0.86% to 2.33% soil organic matter',
+          image: '/wormhole/tiles/ss-01-v1-1.jpg',
+        },
+        {
+          text: 'Coconuts per tree: 90-100 before, 140 now. Nothing changed in the first three years.',
+          image: '/wormhole/tiles/ss-01-v1-2.jpg',
+        },
+        {
+          text: 'Fertiliser spending: under 10% of what it was. Workers: 1, down from 10-20.',
+          image: '/wormhole/tiles/ss-01-v1-3.jpg',
+        },
+        {
+          text: '2018: over 1,200 mm of rain in a few days, after two years of drought.',
+          image: '/wormhole/tiles/ss-01-v1-4.jpg',
+        },
+        {
+          text: "His neighbours' open wells stood 6-7 feet lower than his.",
+          image: '/wormhole/tiles/ss-01-v1-5.jpg',
+        },
+        {
+          text: 'What he did: leaf litter trenches between rows, mulch, layered crops, no burning, no summer ploughing.',
+          image: '/wormhole/tiles/ss-01-v1-6.jpg',
+        },
+      ],
+      cta: 'Read the full case study',
+      link: 'https://consciousplanet.org/en/save-soil/news/save-soil-movement-model-farm-proof-of-concept',
+      sources: [
+        'https://consciousplanet.org/en/save-soil/news/save-soil-movement-model-farm-proof-of-concept',
+      ],
+      visual_note:
+        'Instagram carousel, 6 slides, article repost card (the pinned New York Times format). Built with tools/wormhole-visuals/savesoil.py. Photo: Save Soil (Isha Foundation), from the article.',
+      note: "Checked against the Save Soil page on 23 Oct. The article's own table gives different figures (160 nuts per tree now, fertigation down 75%) from its text (140 nuts, fertiliser under 10%); the caption uses the text. 'No runoff' was cut: not on the page. Collab tag: add Save Soil's Instagram handle if Linnea confirms it.",
+      status: 'draft',
+    },
+    reason:
+      "Save Soil shoutout (Linnea, 23 Oct): from Evan's share of the Save Soil analysis library. Undated draft with its repost card.",
+  },
+  {
+    key: '2026-10-23 save soil ss-02',
+    post: 'ss-02',
+    create: {
+      iso_date: '2026-10-23',
+      date_tbd: true,
+      topic: 'Save Soil shoutout: 5 numbers that show what soil life does',
+      platform: 'Instagram',
+      caption:
+        'Same almond yields, twice the profit, and water that soaks in six times faster. 🌱\n\nThat is one of the numbers Save Soil (Isha Foundation) gathered to argue that soil biology belongs in how countries track climate adaptation. Our favourites:\n\n1. Infiltration 6x faster in regenerative almond orchards (LaCanne et al. 2021).\n2. Microbial biomass carbon 133% higher in regenerative organic systems (Mäder et al. 2025).\n3. Diversified rotations had 2.4 to 13.5 times more earthworm biomass than rye monoculture in a long-term Lithuanian trial (Bogušas et al. 2022).\n4. Glomalin-related soil protein, made by mycorrhizal fungi, up 24% under perennial pasture restoration (Abán et al. 2025).\n5. In drought years, maize in legume and manure systems outyielded conventional by 38 to 137% (Lotter et al. 2003).\n\nEvery one of these is the soil food web at work. Save this for the next time someone asks whether biology shows up in the numbers.\n\nLink in bio: https://consciousplanet.org/en/save-soil/news/soil-as-a-lead-indicator-of-the-global-goal-on-adaptation-gga\n\n#SaveSoil #ConsciousPlanet #SoilFoodWeb #SoilHealth #SoilBiology #LivingSoil',
+      slides: [
+        {
+          text: '5 numbers that show what soil life does',
+          image: '/wormhole/tiles/ss-02-v1-1.jpg',
+        },
+        {
+          text: '6x faster: water soaking into regenerative almond orchards (LaCanne et al. 2021)',
+          image: '/wormhole/tiles/ss-02-v1-2.jpg',
+        },
+        {
+          text: '133% more microbial biomass carbon in regenerative organic soils (Mäder et al. 2025)',
+          image: '/wormhole/tiles/ss-02-v1-3.jpg',
+        },
+        {
+          text: '2.4 to 13.5x more earthworm biomass in diversified rotations than in rye monoculture (Bogušas et al. 2022)',
+          image: '/wormhole/tiles/ss-02-v1-4.jpg',
+        },
+        {
+          text: '+24% glomalin, the fungal protein that glues soil crumbs together, under perennial pasture (Abán et al. 2025)',
+          image: '/wormhole/tiles/ss-02-v1-5.jpg',
+        },
+        {
+          text: '+38-137% maize yield in drought years in legume and manure systems (Lotter et al. 2003)',
+          image: '/wormhole/tiles/ss-02-v1-6.jpg',
+        },
+      ],
+      cta: 'Save this',
+      link: 'https://consciousplanet.org/en/save-soil/news/soil-as-a-lead-indicator-of-the-global-goal-on-adaptation-gga',
+      sources: [
+        'https://consciousplanet.org/en/save-soil/news/soil-as-a-lead-indicator-of-the-global-goal-on-adaptation-gga',
+      ],
+      visual_note:
+        'Instagram carousel, 6 slides, article repost card (the pinned New York Times format). Built with tools/wormhole-visuals/savesoil.py. Photo: Donald Hobern, CC BY 2.0 (Wikimedia Commons, Lumbricus terrestris 26559560801).',
+      note: "Checked against the Save Soil page on 23 Oct. 'Continuous rye' became 'rye monoculture' and 'bean monoculture' was cut: the page says neither. Collab tag: add Save Soil's Instagram handle if Linnea confirms it.",
+      status: 'draft',
+    },
+    reason:
+      "Save Soil shoutout (Linnea, 23 Oct): from Evan's share of the Save Soil analysis library. Undated draft with its repost card.",
+  },
+  {
+    key: '2026-10-23 save soil ss-03',
+    post: 'ss-03',
+    create: {
+      iso_date: '2026-10-23',
+      date_tbd: true,
+      topic: 'Save Soil shoutout: COP30, USD 1 trillion for energy, USD 9 billion for agriculture',
+      platform: 'LinkedIn',
+      caption:
+        "COP30's Action Agenda put nearly USD 1 trillion behind renewable energy and modern grids. Agriculture and food systems: USD 9 billion.\n\nSave Soil's (Isha Foundation) COP30 analysis lays out the gap. The Sharm el-Sheikh Joint Work, the only official negotiation track on agriculture and food systems, closed with no outcome, and its mandate ends in 2026. Their verdict on the USD 9 billion: an order of magnitude too small to unlock what soils can do for the climate.\n\nWhat would it take for soil to get its own line in climate finance?\n\nhttps://consciousplanet.org/en/save-soil/news/cop30-a-turning-point-for-climate-action-but-agriculture-and-soils-left-behind",
+      slides: [
+        {
+          text: 'USD 1 trillion for energy. USD 9 billion for agriculture.',
+          image: '/wormhole/tiles/ss-03-v1-1.jpg',
+        },
+      ],
+      cta: '',
+      link: 'https://consciousplanet.org/en/save-soil/news/cop30-a-turning-point-for-climate-action-but-agriculture-and-soils-left-behind',
+      sources: [
+        'https://consciousplanet.org/en/save-soil/news/cop30-a-turning-point-for-climate-action-but-agriculture-and-soils-left-behind',
+      ],
+      visual_note:
+        'LinkedIn single image, 1200 x 627, article repost card (the pinned New York Times format). Built with tools/wormhole-visuals/savesoil.py. Photo: High-Level Champions, CC BY 4.0 (Wikimedia Commons, COP30 High Level Event, 19 Nov 2025).',
+      note: "Checked against the Save Soil page on 23 Oct. The paragraph about farmers carrying the cost of the transition years was cut: not in the article. Collab tag: add Save Soil's Instagram handle if Linnea confirms it.",
+      status: 'draft',
+    },
+    reason:
+      "Save Soil shoutout (Linnea, 23 Oct): from Evan's share of the Save Soil analysis library. Undated draft with its repost card.",
+  },
+  {
+    key: '2026-10-23 save soil ss-04',
+    post: 'ss-04',
+    create: {
+      iso_date: '2026-10-23',
+      date_tbd: true,
+      topic: 'Save Soil shoutout: tillage releases carbon that soil life locked away',
+      platform: 'LinkedIn',
+      caption:
+        'A plough releases carbon that soil life spent years locking away.\n\nRoots feed microbes, microbes make sticky polysaccharides, fungal hyphae wrap soil particles into aggregates, and carbon inside those crumbs is shielded from decomposition. Tillage breaks the crumbs open.\n\nA meta-analysis of 46 studies found tilled soils emitted 21% more CO2 than untilled ones, and 29% more where soil organic carbon was below 1% (Abdalla et al. 2016). A six-year field trial measured 51% less CO2 on average under no-till with surface mulch (Mühlbachová et al. 2023).\n\nSave Soil (Isha Foundation) gathers these in their paper on regenerative agriculture and climate.\n\nWhat has cutting tillage looked like on the land you work with?\n\nhttps://consciousplanet.org/en/save-soil/news/mitigating-climate-change-through-soil-revitalization-using-regenerative-ag',
+      slides: [
+        {
+          text: 'Tilled soil released 21% more CO2. In low-carbon soil, 29%.',
+          image: '/wormhole/tiles/ss-04-v1-1.jpg',
+        },
+      ],
+      cta: '',
+      link: 'https://consciousplanet.org/en/save-soil/news/mitigating-climate-change-through-soil-revitalization-using-regenerative-ag',
+      sources: [
+        'https://consciousplanet.org/en/save-soil/news/mitigating-climate-change-through-soil-revitalization-using-regenerative-ag',
+      ],
+      visual_note:
+        'LinkedIn single image, 1200 x 627, article repost card (the pinned New York Times format). Built with tools/wormhole-visuals/savesoil.py. Photo: USDA NRCS South Dakota, public domain (Wikimedia Commons, No-till farming system in Brookings Co., SD).',
+      note: "Checked against the Save Soil page on 23 Oct. The mechanism paragraph is SFW's own explanation; the Save Soil page covers roots, microbes and aggregates but not polysaccharides or hyphae. Collab tag: add Save Soil's Instagram handle if Linnea confirms it.",
+      status: 'draft',
+    },
+    reason:
+      "Save Soil shoutout (Linnea, 23 Oct): from Evan's share of the Save Soil analysis library. Undated draft with its repost card.",
+  },
+  {
+    key: '2026-10-23 save soil ss-05',
+    post: 'ss-05',
+    create: {
+      iso_date: '2026-10-23',
+      date_tbd: true,
+      topic: 'Save Soil shoutout: soil may hold 59% of all life on Earth',
+      platform: 'Instagram',
+      caption:
+        "Soil may be home to 59% of all life on Earth (Anthony et al., PNAS 2023). 🔬\n\nBacteria, archaea, fungi, protozoa, nematodes, mites, springtails, earthworms, beetles. Save Soil's (Isha Foundation) paper on soil degradation and biodiversity walks through how they build the ground: microbes feed on sugars from roots and make sticky substances, fungal hyphae bind particles into crumbs, and earthworms and mites open channels for air and water.\n\nAbout 33% of the world's soils are already moderately to highly degraded. Every one of those organisms is what regeneration brings back.\n\nLink in bio: https://consciousplanet.org/en/save-soil/news/soil-degradation-and-biodiversity-loss\n\n#SaveSoil #ConsciousPlanet #SoilFoodWeb #SoilHealth #SoilBiology #LivingSoil",
+      slides: [
+        {
+          text: 'Soil may be home to 59% of all life on Earth',
+          image: '/wormhole/tiles/ss-05-v1-1.jpg',
+        },
+      ],
+      cta: 'Send this to someone who thinks soil is just dirt',
+      link: 'https://consciousplanet.org/en/save-soil/news/soil-degradation-and-biodiversity-loss',
+      sources: [
+        'https://consciousplanet.org/en/save-soil/news/soil-degradation-and-biodiversity-loss',
+      ],
+      visual_note:
+        'Instagram single image, article repost card (the pinned New York Times format). Built with tools/wormhole-visuals/savesoil.py. Photo: Lewis Fausak, CC BY-SA 4.0 (Wikimedia Commons, Springtail on soil).',
+      note: "Checked against the Save Soil page on 23 Oct. 'More than half of all species' became '59% of all life', the paper's wording. Collab tag: add Save Soil's Instagram handle if Linnea confirms it.",
+      status: 'draft',
+    },
+    reason:
+      "Save Soil shoutout (Linnea, 23 Oct): from Evan's share of the Save Soil analysis library. Undated draft with its repost card.",
+  },
+  {
+    key: '2026-10-23 save soil ss-06',
+    post: 'ss-06',
+    create: {
+      iso_date: '2026-10-23',
+      date_tbd: true,
+      topic: 'Save Soil shoutout: healthy soil and healthy humans',
+      platform: 'Instagram',
+      caption:
+        "In baboons, the soil they lived on shaped their gut bacteria 15 times more strongly than their genes. 🦠\n\nIn people, a study of over 1,000 adults found that less than 8% of the gut microbiome is inherited (Rothschild et al. 2018). The rest comes from what we eat and where we live, and soil is part of that.\n\nThe same soil life decides what is in our food. Mycorrhizal fungi move copper, iron, nitrogen, phosphorus and zinc into roots. Rhizobia in legume roots fix nitrogen from the air.\n\nFrom Save Soil's (Isha Foundation) paper Healthy Soil and Healthy Humans. Link in bio: https://consciousplanet.org/en/save-soil/news/healthy-soil-and-healthy-humans\n\n#SaveSoil #ConsciousPlanet #SoilFoodWeb #SoilHealth #SoilBiology #LivingSoil",
+      slides: [
+        {
+          text: 'Where you live shapes your gut more than your genes do',
+          image: '/wormhole/tiles/ss-06-v1-1.jpg',
+        },
+        {
+          text: 'Baboons: the soil around them shaped their gut microbes 15x more strongly than their genetics',
+          image: '/wormhole/tiles/ss-06-v1-2.jpg',
+        },
+        {
+          text: 'People: under 8% of the gut microbiome is inherited (Rothschild et al. 2018)',
+          image: '/wormhole/tiles/ss-06-v1-3.jpg',
+        },
+        {
+          text: 'Mycorrhizal fungi carry copper, iron, nitrogen, phosphorus and zinc into crops',
+          image: '/wormhole/tiles/ss-06-v1-4.jpg',
+        },
+        {
+          text: 'Rhizobia in legume roots turn nitrogen from the air into plant food',
+          image: '/wormhole/tiles/ss-06-v1-5.jpg',
+        },
+      ],
+      cta: 'Save this',
+      link: 'https://consciousplanet.org/en/save-soil/news/healthy-soil-and-healthy-humans',
+      sources: ['https://consciousplanet.org/en/save-soil/news/healthy-soil-and-healthy-humans'],
+      visual_note:
+        'Instagram carousel, 5 slides, article repost card (the pinned New York Times format). Built with tools/wormhole-visuals/savesoil.py. Photo: Marc-André Selosse, CC0 (Wikimedia Commons, arbuscular mycorrhiza in maize root), cropped to remove its labels.',
+      note: "Checked against the Save Soil page on 23 Oct. The leafy greens figure (80% less magnesium and calcium) was cut: it is not on the page. The hook says 'where you live' because the human study measured environment, not soil alone. Collab tag: add Save Soil's Instagram handle if Linnea confirms it.",
+      status: 'draft',
+    },
+    reason:
+      "Save Soil shoutout (Linnea, 23 Oct): from Evan's share of the Save Soil analysis library. Undated draft with its repost card.",
+  },
+  {
+    key: '2026-10-23 save soil ss-07',
+    post: 'ss-07',
+    create: {
+      iso_date: '2026-10-23',
+      date_tbd: true,
+      topic: 'Save Soil shoutout: Secure Soil, Save Life',
+      platform: 'LinkedIn',
+      caption:
+        "Soil is starting to be written into law as a matter of security.\n\nThree recent steps: the IUCN's mandate, from the World Conservation Congress, to develop a global legal instrument for soil security; the Pan-African Parliament's endorsement of a Model Law on sustainable soil management; and the European Union's Soil Monitoring Law.\n\nSecure Soil, Save Life, from the Aroura Soil Security Think Tank, IUCN's World Commission on Environmental Law and Save Soil (Isha Foundation), calls soil \"the planet's quiet infrastructure\": it feeds people, filters water, regulates climate and holds biodiversity.\n\nShould soil be treated as critical infrastructure where you work?\n\nhttps://consciousplanet.org/en/save-soil/news/secure-soil-save-life",
+      slides: [
+        {
+          text: 'Soil is becoming security policy.',
+          image: '/wormhole/tiles/ss-07-v1-1.jpg',
+        },
+      ],
+      cta: '',
+      link: 'https://consciousplanet.org/en/save-soil/news/secure-soil-save-life',
+      sources: ['https://consciousplanet.org/en/save-soil/news/secure-soil-save-life'],
+      visual_note:
+        'LinkedIn single image, 1200 x 627, article repost card (the pinned New York Times format). Built with tools/wormhole-visuals/savesoil.py. Photo: Mclund, CC BY 4.0 (Wikimedia Commons, Soil profile 0-125cm).',
+      note: "Checked against the Save Soil page on 23 Oct. 'Soil law moved further in 2025 than in the decade before it' was cut: the report does not claim it. Collab tag: add Save Soil's Instagram handle if Linnea confirms it.",
+      status: 'draft',
+    },
+    reason:
+      "Save Soil shoutout (Linnea, 23 Oct): from Evan's share of the Save Soil analysis library. Undated draft with its repost card.",
+  },
+  {
+    key: '2026-10-23 save soil ss-08',
+    post: 'ss-08',
+    create: {
+      iso_date: '2026-10-23',
+      date_tbd: true,
+      topic: 'Save Soil shoutout: the soil carbon sponge cools the land',
+      platform: 'Instagram',
+      caption:
+        "Land with living soil runs cooler than bare ground, and water is the reason. 💧\n\nSave Soil's (Isha Foundation) report The Soil Carbon Sponge, built on Walter Jehne's work, explains it. Soil rich in organic matter soaks up rain and holds it. Plants pull that water up and release it through their leaves, and evaporation carries heat away. When soil degrades, the water runs off, and the same sunlight heats the air instead.\n\nFrom the soil food web side: the sponge is built by biology. Fungal hyphae and bacterial glues hold the pores open, and cover crops and mulch keep it from drying out.\n\nLink in bio: https://consciousplanet.org/en/save-soil/news/the-soil-carbon-sponge\n\n#SaveSoil #ConsciousPlanet #SoilFoodWeb #SoilHealth #SoilBiology #LivingSoil",
+      slides: [
+        {
+          text: 'Healthy soil cools the land',
+          image: '/wormhole/tiles/ss-08-v1-1.jpg',
+        },
+        {
+          text: 'Water in soil evaporates through plants and carries heat away',
+          image: '/wormhole/tiles/ss-08-v1-2.jpg',
+        },
+        {
+          text: "Bare, degraded soil can't hold that water, so the sun heats the air instead",
+          image: '/wormhole/tiles/ss-08-v1-3.jpg',
+        },
+        {
+          text: 'Cover crops and mulch keep the ground from baking',
+          image: '/wormhole/tiles/ss-08-v1-4.jpg',
+        },
+        {
+          text: "Fungal threads and bacterial glues hold the sponge's pores open",
+          image: '/wormhole/tiles/ss-08-v1-5.jpg',
+        },
+      ],
+      cta: 'Save this',
+      link: 'https://consciousplanet.org/en/save-soil/news/the-soil-carbon-sponge',
+      sources: ['https://consciousplanet.org/en/save-soil/news/the-soil-carbon-sponge'],
+      visual_note:
+        'Instagram carousel, 5 slides, article repost card (the pinned New York Times format). Built with tools/wormhole-visuals/savesoil.py. Photo: Antonio Jordán, CC BY-SA 3.0 (Wikimedia Commons, Subangular Blocky Soil Aggregate in Spain).',
+      note: "Checked against the Save Soil page on 23 Oct. 'Organic matter holds many times its own weight in water' was cut: not on the page. The page's 250,000 litres per 1% figure is unsourced, so it is not used. Collab tag: add Save Soil's Instagram handle if Linnea confirms it.",
+      status: 'draft',
+    },
+    reason:
+      "Save Soil shoutout (Linnea, 23 Oct): from Evan's share of the Save Soil analysis library. Undated draft with its repost card.",
+  },
 ];
 
 const editorOf = (c: Change) => `Change: ${c.key}`;
