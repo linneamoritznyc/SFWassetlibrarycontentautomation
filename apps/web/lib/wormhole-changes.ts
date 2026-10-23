@@ -396,6 +396,814 @@ export const CHANGES: Change[] = [
     reason:
       'New slides (2026-10-21-varied) , each mentor in their own style. Deck: 25-10-2026-meet-dora-tkalec.pptx.',
   },
+  {
+    key: '2026-10-23 plan pl20261102',
+    post: 'pl20261102',
+    create: {
+      iso_date: '2026-11-02',
+      date_tbd: false,
+      topic: 'Read the drop: meet the nematodes by their mouthparts',
+      platform: 'Instagram Reel',
+      caption:
+        'Every nematode tells you what it eats. Look at the mouth. 🔬\nBacterial feeders have an open, tube-shaped mouth. Fungal feeders carry a thin stylet, a hollow spear, to pierce fungal hyphae. Root feeders have a heavier stylet for plant roots, and predators have teeth or a wide mouth for eating other nematodes. The balance between these groups tells a consultant whether nutrients are cycling or roots are under attack.\n💾 Save this for your next slide.\n#Nematodes #Microscopy #SoilBiology #SoilFoodWeb',
+      slides: [
+        { text: 'Bacterial feeder: open, tube-shaped mouth', image: null },
+        { text: 'Fungal feeder: a thin stylet to pierce hyphae', image: null },
+        { text: 'Root feeder: a heavy stylet to pierce roots', image: null },
+        { text: 'Predator: teeth or a wide mouth', image: null },
+        { text: 'Read the mouth, know the job.', image: null },
+      ],
+      cta: 'Save this for your next slide',
+      link: '',
+      sources: [
+        'https://scholar.google.com/scholar?q=Yeates+1993+Feeding+habits+in+soil+nematode+families+and+genera',
+      ],
+      visual_note:
+        'Reel, 15 to 20 seconds, one label as each nematode appears. Footage: repo microscopy of nematodes. Cover: four nematode heads side by side.',
+      note: 'From the November/December plan doc (30 Sep). Visual still to make.',
+      status: 'draft',
+    },
+    reason:
+      'Added from the November/December plan doc (Linnea, 23 Oct). Caption and slide text drafted; visual still to make.',
+  },
+  {
+    key: '2026-10-23 plan pl20261107',
+    post: 'pl20261107',
+    create: {
+      iso_date: '2026-11-07',
+      date_tbd: false,
+      topic: 'Field Notes #1',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        "[PLACEHOLDER] Open with the result number, then the question, method and the honest surprise, in the graduate's words.\n#FieldNotes #SoilFoodWeb #SoilScience",
+      slides: [
+        { text: 'Trial name, place and season.', image: null },
+        { text: 'The question they tested.', image: null },
+        { text: 'The method in 3 lines.', image: null },
+        { text: 'The result, one big number.', image: null },
+        { text: "What surprised them, including what didn't work.", image: null },
+        { text: 'Who ran it.', image: null },
+      ],
+      cta: 'Save this trial',
+      link: 'Collab with the graduate.',
+      sources: [
+        'https://docs.google.com/spreadsheets/d/10UHLwzJLBQAsmJqmg4hiCQRjBKXPAx7UnOudU-Vsg5U/edit',
+      ],
+      visual_note:
+        "Carousel, 6 slides, field notebook style. Graduate trial still to pick from the impact sheet. Use the graduate's own trial photos.",
+      note: 'From the November/December plan doc (30 Sep). Visual still to make.',
+      status: 'draft',
+    },
+    reason:
+      'Added from the November/December plan doc (Linnea, 23 Oct). Caption and slide text drafted; visual still to make.',
+  },
+  {
+    key: '2026-10-23 plan pl20261114',
+    post: 'pl20261114',
+    create: {
+      iso_date: '2026-11-14',
+      date_tbd: false,
+      topic: 'Do this weekend: make leaf mold',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        "Before you bag your leaves, try this. 🍂\nLeaf mold is compost made almost entirely by fungi. Pack damp leaves into a wire cage or a bag with holes and leave them. Fungi break down the lignin slowly, and in one to two years you get a dark, crumbly, fungal-rich material that's perfect as mulch or in potting mixes.\n💾 Save this for raking day.\n#LeafMold #Compost #FallGarden #SoilFoodWeb",
+      slides: [
+        { text: 'Your fallen leaves can become fungal compost.', image: null },
+        { text: 'Pack wet leaves into a wire cage or a bag with holes.', image: null },
+        { text: 'Keep them damp. Fungi do the work, slowly.', image: null },
+        { text: 'In 1 to 2 years you get dark, crumbly leaf mold.', image: null },
+        { text: 'Use it as mulch or mix it into potting soil.', image: null },
+      ],
+      cta: 'Save this for raking day',
+      link: '',
+      sources: ['https://www.rhs.org.uk/soil-composts-mulches/leafmould'],
+      visual_note:
+        'Carousel, 5 step slides. Wire cage full of leaves, fungal threads in the leaves, a hand holding dark leaf mold. Verify the RHS link.',
+      note: 'From the November/December plan doc (30 Sep). Visual still to make.',
+      status: 'draft',
+    },
+    reason:
+      'Added from the November/December plan doc (Linnea, 23 Oct). Caption and slide text drafted; visual still to make.',
+  },
+  {
+    key: '2026-10-23 plan pl20261115',
+    post: 'pl20261115',
+    create: {
+      iso_date: '2026-11-15',
+      date_tbd: false,
+      topic: 'A world without worms already exists',
+      platform: 'Instagram Reel',
+      caption:
+        "A world without earthworms already exists, and you can walk through it. 🌲\nAfter the last Ice Age, glaciers scraped the earthworms out of large parts of northern North America. The forests that grew back evolved without them, on a thick layer of slowly decaying leaf litter full of fungi. Today, earthworms introduced through fishing bait, gardens and soil movement are eating through that litter layer, and the forest floor is changing with it.\nIt's a good reminder for everyone who works with soil: an organism's value depends on the system it lives in.\n📤 Send this to the gardener who thinks worms are always good news.\n#Earthworms #SoilEcology #ForestSoil #SoilFoodWeb",
+      slides: [
+        { text: 'Imagine a world without earthworms.', image: null },
+        { text: 'It already exists.', image: null },
+        {
+          text: 'Many northern North American forests evolved without them after the last Ice Age.',
+          image: null,
+        },
+        {
+          text: 'Introduced worms now eat through the leaf litter those forests depend on.',
+          image: null,
+        },
+        { text: 'Even a good organism can be the wrong one in the wrong place.', image: null },
+      ],
+      cta: 'Send this to the gardener who thinks worms are always good news',
+      link: '',
+      sources: [
+        "https://scholar.google.com/scholar?q=Hendrix+2008+Pandora's+box+contained+bait+introduced+earthworms",
+      ],
+      visual_note:
+        'Reel, 20 to 30 seconds. Northern forest floor footage, an earthworm crossing a thick leaf litter layer. Idea: Stina (SLU).',
+      note: 'From the November/December plan doc (30 Sep). Visual still to make.',
+      status: 'draft',
+    },
+    reason:
+      'Added from the November/December plan doc (Linnea, 23 Oct). Caption and slide text drafted; visual still to make.',
+  },
+  {
+    key: '2026-10-23 plan pl20261116',
+    post: 'pl20261116',
+    create: {
+      iso_date: '2026-11-16',
+      date_tbd: false,
+      topic: 'Myth vs mechanism: the "wood wide web" is overstated',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        'The "wood wide web" is one of the most shared ideas in soil science, and the evidence is weaker than the story. 🌳\nMycorrhizal fungi do connect the roots of neighboring trees. But a 2023 review in Nature Ecology and Evolution found that field evidence for trees sending meaningful resources to each other through those networks is thin, and that popular claims had outrun the data. What is solid: each tree trades sugars with its fungal partners for nutrients and water. That\'s remarkable on its own.\n📤 Send this to the friend who loved that tree documentary.\n#Mycorrhiza #ForestScience #MythVsMechanism #SoilFoodWeb',
+      slides: [
+        {
+          text: 'Myth: "Mother trees feed their seedlings through a fungal internet."',
+          image: null,
+        },
+        {
+          text: 'Mycorrhizal fungi do connect the roots of different trees. That part is real.',
+          image: null,
+        },
+        {
+          text: 'But field evidence that trees send meaningful resources to each other through them is thin.',
+          image: null,
+        },
+        {
+          text: 'A 2023 review found positive citation bias: papers cited the dramatic claims more than the data supported.',
+          image: null,
+        },
+        {
+          text: 'What is solid: mycorrhizal fungi trade nutrients and water for plant sugars, one plant at a time.',
+          image: null,
+        },
+        { text: 'Real science is exciting enough. Source on the slide.', image: null },
+      ],
+      cta: 'Send this to the friend who loved that tree documentary',
+      link: '',
+      sources: [
+        'https://scholar.google.com/scholar?q=Karst+2023+Positive+citation+bias+overinterpreted+results+common+mycorrhizal+networks+forests',
+      ],
+      visual_note:
+        'Carousel, 6 slides. Two tree root systems with fungal threads between them, a single root tip wrapped in hyphae.',
+      note: 'From the November/December plan doc (30 Sep). Visual still to make.',
+      status: 'draft',
+    },
+    reason:
+      'Added from the November/December plan doc (Linnea, 23 Oct). Caption and slide text drafted; visual still to make.',
+  },
+  {
+    key: '2026-10-23 plan pl20261121',
+    post: 'pl20261121',
+    create: {
+      iso_date: '2026-11-21',
+      date_tbd: false,
+      topic: 'Do this weekend: cover bare beds before winter',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        "Bare soil in winter is soil you're losing. 🌧️\nRaindrops hit exposed soil hard enough to break its aggregates apart, and the finest, richest particles wash away. A layer of leaves, straw, woodchips or a winter cover crop takes the hit instead, and the soil life underneath keeps working all season.\n💾 Save this for your fall cleanup.\n#SoilCover #FallGarden #SoilHealth #SoilFoodWeb",
+      slides: [
+        { text: "Bare soil in winter is soil you're losing.", image: null },
+        {
+          text: 'Rain hits bare soil hard, breaks aggregates apart and washes the fine particles away.',
+          image: null,
+        },
+        { text: 'Cover it: leaf mulch, straw, woodchips or a winter cover crop.', image: null },
+        {
+          text: 'Soil life keeps working under the cover, and your beds are ready in spring.',
+          image: null,
+        },
+      ],
+      cta: 'Save this for your fall cleanup',
+      link: '',
+      sources: [
+        'https://www.nrcs.usda.gov/conservation-basics/natural-resource-concerns/soil/soil-health',
+      ],
+      visual_note:
+        'Carousel, 4 slides. Raindrop hitting dry soil, a row of four covers (leaves, straw, woodchips, cover crop), a mulched bed. Verify the NRCS link.',
+      note: 'From the November/December plan doc (30 Sep). Visual still to make.',
+      status: 'draft',
+    },
+    reason:
+      'Added from the November/December plan doc (Linnea, 23 Oct). Caption and slide text drafted; visual still to make.',
+  },
+  {
+    key: '2026-10-23 plan pl20261123',
+    post: 'pl20261123',
+    create: {
+      iso_date: '2026-11-23',
+      date_tbd: false,
+      topic: 'Two levels: soil aggregates, explained twice',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        'Two levels, one idea. Swipe until it gets too nerdy for you. 🤓\nLevel 1: healthy soil forms crumbs, and those crumbs are held together by roots, fungi and bacteria. Level 2: microaggregates are bound by persistent organic compounds, while macroaggregates are held by roots and fungal hyphae, so they fall apart when tillage cuts those networks.\n💾 Save this for the day level 2 clicks.\n#SoilStructure #SoilScience #TwoLevels #SoilFoodWeb',
+      slides: [
+        {
+          text: 'Soil aggregates, explained twice. Level 1 for new gardeners, level 2 for consultants.',
+          image: null,
+        },
+        {
+          text: 'Level 1: Healthy soil clumps into crumbs. Those crumbs are aggregates.',
+          image: null,
+        },
+        { text: 'Level 1: Roots, fungi and bacteria glue them together.', image: null },
+        { text: 'Level 1: Crumbs leave spaces for air, water and roots.', image: null },
+        {
+          text: 'Level 2: Microaggregates are bound by persistent organic compounds and bacterial glues.',
+          image: null,
+        },
+        {
+          text: 'Level 2: Macroaggregates are held by roots and fungal hyphae, so they break down when tillage cuts those networks.',
+          image: null,
+        },
+        { text: 'Source: Tisdall and Oades, 1982.', image: null },
+      ],
+      cta: 'Save this for the day level 2 clicks',
+      link: '',
+      sources: [
+        'https://scholar.google.com/scholar?q=Tisdall+Oades+1982+Organic+matter+and+water-stable+aggregates+in+soils',
+      ],
+      visual_note:
+        'Carousel, 7 slides. A soil crumb held by roots and fungal threads, a magnified macroaggregate made of microaggregates. Idea: Stina (SLU), Two levels series.',
+      note: 'From the November/December plan doc (30 Sep). Visual still to make.',
+      status: 'draft',
+    },
+    reason:
+      'Added from the November/December plan doc (Linnea, 23 Oct). Caption and slide text drafted; visual still to make.',
+  },
+  {
+    key: '2026-10-23 plan pl20261125',
+    post: 'pl20261125',
+    create: {
+      iso_date: '2026-11-25',
+      date_tbd: false,
+      topic: 'Mentor spotlight',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        '[PLACEHOLDER] Meet [Name]: where they are, what they teach, and their best advice in their own words. Thank you, [Name]!\n#SoilFoodWeb #Mentors #SoilScience',
+      slides: [
+        { text: 'Meet our mentors. [Name], [role].', image: null },
+        { text: '[Their one line of advice, in their words.]', image: null },
+      ],
+      cta: '',
+      link: 'Tag the mentor [VERIFY handle].',
+      sources: ['https://soilfoodweb.com'],
+      visual_note: "Next mentor from Stephanie's list. Their website headshot.",
+      note: 'From the November/December plan doc (30 Sep). Visual still to make.',
+      status: 'draft',
+    },
+    reason:
+      'Added from the November/December plan doc (Linnea, 23 Oct). Caption and slide text drafted; visual still to make.',
+  },
+  {
+    key: '2026-10-23 plan pl20261126',
+    post: 'pl20261126',
+    create: {
+      iso_date: '2026-11-26',
+      date_tbd: false,
+      topic: 'Thanksgiving: thank the soil life that grew your dinner',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        'Before the first bite, thank the soil life that grew your dinner. 🥧\nEvery dish on the table started with microbes: fungi and bacteria cycling nutrients for the potatoes, rhizobia in bean roots turning air into nitrogen, and mycorrhizal fungi helping pumpkin vines reach water and phosphorus. Happy Thanksgiving from all of us at the Soil Food Web School. 💚\n#Thanksgiving #SoilLife #Gratitude #SoilFoodWeb',
+      slides: [
+        { text: 'This Thanksgiving, thank the soil life that grew your dinner.', image: null },
+        { text: 'The potatoes: fungi and bacteria cycled the nutrients.', image: null },
+        { text: 'The green beans: rhizobia in the roots turned air into nitrogen.', image: null },
+        {
+          text: 'The pumpkin pie: mycorrhizal fungi helped the vines find water and phosphorus.',
+          image: null,
+        },
+        { text: 'Happy Thanksgiving from all of us. 💚', image: null },
+      ],
+      cta: "Tag who's cooking this year",
+      link: '',
+      sources: [
+        'https://scholar.google.com/scholar?q=Brundrett+Tedersoo+2018+Evolutionary+history+of+mycorrhizal+symbioses+and+global+host+plant+diversity',
+      ],
+      visual_note:
+        'Carousel, 5 slides. A potato plant with tubers, a green bean plant with pink root nodules, a pumpkin on its vine with fungal threads at the roots.',
+      note: 'From the November/December plan doc (30 Sep). Visual still to make.',
+      status: 'draft',
+    },
+    reason:
+      'Added from the November/December plan doc (Linnea, 23 Oct). Caption and slide text drafted; visual still to make.',
+  },
+  {
+    key: '2026-10-23 plan pl20261127',
+    post: 'pl20261127',
+    create: {
+      iso_date: '2026-11-27',
+      date_tbd: false,
+      topic: 'Fun Soil News: November 2026',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        'Five pieces of good soil news from around the world this month. 🌍\n[One line per story, with the country and the source.]\n📤 Send this to a friend who needs good news.\n#FunSoilNews #SoilHealth #GoodNews #SoilFoodWeb',
+      slides: [
+        { text: 'Fun Soil News: November 2026.', image: null },
+        { text: 'Story 1. Country in big type, one sentence, source.', image: null },
+        { text: 'Story 2. Country in big type, one sentence, source.', image: null },
+        { text: 'Story 3. Country in big type, one sentence, source.', image: null },
+        { text: 'Story 4. Country in big type, one sentence, source.', image: null },
+        { text: 'Story 5. Country in big type, one sentence, source.', image: null },
+      ],
+      cta: 'Send this to a friend who needs good news',
+      link: '',
+      sources: [],
+      visual_note:
+        'Same format as Fun Soil News October. Stories from the news scout, verify every item.',
+      note: 'From the November/December plan doc (30 Sep). Visual still to make.',
+      status: 'draft',
+    },
+    reason:
+      'Added from the November/December plan doc (Linnea, 23 Oct). Caption and slide text drafted; visual still to make.',
+  },
+  {
+    key: '2026-10-23 plan pl20261130',
+    post: 'pl20261130',
+    create: {
+      iso_date: '2026-11-30',
+      date_tbd: false,
+      topic: 'Read the drop: ciliates, the anaerobic warning sign',
+      platform: 'Instagram Reel',
+      caption:
+        'When you see lots of these, your compost has run out of air. 🔬\nCiliates are protozoa covered in fine hair-like cilia, and they thrive when oxygen drops and anaerobic bacteria take over. A few are normal. A slide full of them in compost or compost tea is a warning: turn the pile, add structure or aerate the brew before it goes on your plants.\n📤 Send this to someone making compost tea.\n#Ciliates #Microscopy #Compost #SoilFoodWeb',
+      slides: [
+        { text: 'This is a ciliate.', image: null },
+        { text: 'Hair-like cilia cover its body.', image: null },
+        { text: 'Lots of them in compost or tea?', image: null },
+        { text: 'Oxygen has run low. Fix it before you apply.', image: null },
+      ],
+      cta: 'Send this to someone making compost tea',
+      link: '',
+      sources: ['https://scholar.google.com/scholar?q=Ingham+Soil+Biology+Primer+USDA+NRCS'],
+      visual_note: 'Reel, 15 seconds. Repo microscopy of a ciliate.',
+      note: 'From the November/December plan doc (30 Sep). Visual still to make.',
+      status: 'draft',
+    },
+    reason:
+      'Added from the November/December plan doc (Linnea, 23 Oct). Caption and slide text drafted; visual still to make.',
+  },
+  {
+    key: '2026-10-23 plan pl20261205',
+    post: 'pl20261205',
+    create: {
+      iso_date: '2026-12-05',
+      date_tbd: false,
+      topic: 'World Soil Day: a year of living soil',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        'Happy World Soil Day! 🌍\nThis year our graduates brought soil back to life on coffee farms in Guinea, pastures in Tennessee, olive groves in Turkey, a farm school in Brazil and community plots in Kenya. Every one of them started by learning what lives in a single drop of soil. Thank you for protecting the ground we all stand on. 💚\n#WorldSoilDay #SoilHealth #LivingSoil #SoilFoodWeb',
+      slides: [
+        { text: "Happy World Soil Day. Here's a year of living soil.", image: null },
+        { text: 'Boubacar, Guinea. Coffee grown in a syntropic agroforest.', image: null },
+        { text: 'Christina, Tennessee. From advertising to a soil business.', image: null },
+        { text: 'Ibrahim, Turkey. More than 80 growers going regenerative.', image: null },
+        { text: 'Arthur, Brazil. A prize-winning farm school.', image: null },
+        { text: 'Joseph, Kenya. Teaching his whole community.', image: null },
+        { text: 'Thank you for protecting the ground we all stand on.', image: null },
+      ],
+      cta: "Share how you'll celebrate World Soil Day",
+      link: '',
+      sources: [
+        'https://www.fao.org/world-soil-day/en',
+        'https://docs.google.com/spreadsheets/d/10UHLwzJLBQAsmJqmg4hiCQRjBKXPAx7UnOudU-Vsg5U/edit',
+      ],
+      visual_note:
+        "Carousel, 7 slides. Reuse each graduate's photo from their own post. Add this year's FAO theme.",
+      note: 'From the November/December plan doc (30 Sep). Visual still to make.',
+      status: 'draft',
+    },
+    reason:
+      'Added from the November/December plan doc (Linnea, 23 Oct). Caption and slide text drafted; visual still to make.',
+  },
+  {
+    key: '2026-10-23 plan pl20261206',
+    post: 'pl20261206',
+    create: {
+      iso_date: '2026-12-06',
+      date_tbd: false,
+      topic: 'Field Notes #2',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        '[PLACEHOLDER] Open with the result number, then the question, method and the honest surprise.\n#FieldNotes #SoilFoodWeb #SoilScience',
+      slides: [
+        { text: 'Trial name, place and season.', image: null },
+        { text: 'The question they tested.', image: null },
+        { text: 'The method in 3 lines.', image: null },
+        { text: 'The result, one big number.', image: null },
+        { text: "What surprised them, including what didn't work.", image: null },
+        { text: 'Who ran it.', image: null },
+      ],
+      cta: 'Save this trial',
+      link: 'Collab with the graduate.',
+      sources: [
+        'https://docs.google.com/spreadsheets/d/10UHLwzJLBQAsmJqmg4hiCQRjBKXPAx7UnOudU-Vsg5U/edit',
+      ],
+      visual_note: 'Same layout as Field Notes #1. Graduate trial still to pick.',
+      note: 'From the November/December plan doc (30 Sep). Visual still to make.',
+      status: 'draft',
+    },
+    reason:
+      'Added from the November/December plan doc (Linnea, 23 Oct). Caption and slide text drafted; visual still to make.',
+  },
+  {
+    key: '2026-10-23 plan pl20261207',
+    post: 'pl20261207',
+    create: {
+      iso_date: '2026-12-07',
+      date_tbd: false,
+      topic: 'Myth vs mechanism: organic matter and water',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        '"1% more organic matter holds 20,000 more gallons per acre." You\'ve heard it. The data says the effect is much smaller. 💧\nA 2018 review in the European Journal of Soil Science pooled results from dozens of studies and found that raising soil organic carbon by 1% increased available water only slightly on average, more in sandy soils and less in clays. Where living soil really changes water is infiltration: stable aggregates and biopores let rain soak in instead of running off.\n📤 Send this to the consultant who quotes the 20,000 gallons.\n#SoilWater #MythVsMechanism #SoilScience #SoilFoodWeb',
+      slides: [
+        {
+          text: 'Myth: "Add 1% organic matter and your soil holds 20,000 more gallons of water per acre."',
+          image: null,
+        },
+        { text: 'A 2018 review of about 60 studies tested that claim.', image: null },
+        {
+          text: 'A 1% rise in soil organic carbon raised available water only slightly, on average about 1 mm per 10 cm of soil.',
+          image: null,
+        },
+        { text: 'The effect was larger in sandy soils and smaller in clays.', image: null },
+        {
+          text: 'Where biology really helps water: aggregates and pores that let rain soak in instead of running off.',
+          image: null,
+        },
+        { text: 'Honest numbers build trust. Source on the slide.', image: null },
+      ],
+      cta: 'Send this to the consultant who quotes the 20,000 gallons',
+      link: '',
+      sources: [
+        'https://scholar.google.com/scholar?q=Minasny+McBratney+2018+Limited+effect+of+organic+matter+on+soil+available+water+capacity',
+      ],
+      visual_note: 'Carousel, 6 slides. Claimed vs measured bar. Wes to confirm the numbers.',
+      note: 'From the November/December plan doc (30 Sep). Visual still to make.',
+      status: 'draft',
+    },
+    reason:
+      'Added from the November/December plan doc (Linnea, 23 Oct). Caption and slide text drafted; visual still to make.',
+  },
+  {
+    key: '2026-10-23 plan pl20261209',
+    post: 'pl20261209',
+    create: {
+      iso_date: '2026-12-09',
+      date_tbd: false,
+      topic: 'Free webinar this month',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        '[PLACEHOLDER] One line on what people will learn, who\'s teaching, the date and time, and "Free. Link in bio."\n#SoilFoodWeb #FreeWebinar #SoilEducation',
+      slides: [
+        { text: 'FREE WEBINAR', image: null },
+        { text: '[Webinar title]', image: null },
+        { text: '[Date and time, three time zones]', image: null },
+        { text: '[Host name]', image: null },
+        { text: 'Free. Link in bio.', image: null },
+      ],
+      cta: 'Sign up, link in bio',
+      link: '[PLACEHOLDER] Webinar signup link',
+      sources: [],
+      visual_note: 'Single image. Host headshot or a microscope.',
+      note: 'From the November/December plan doc (30 Sep). Visual still to make.',
+      status: 'draft',
+    },
+    reason:
+      'Added from the November/December plan doc (Linnea, 23 Oct). Caption and slide text drafted; visual still to make.',
+  },
+  {
+    key: '2026-10-23 plan pl20261211',
+    post: 'pl20261211',
+    create: {
+      iso_date: '2026-12-11',
+      date_tbd: false,
+      topic: 'International Mountain Day: mountain soils',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        'On a mountain, soil is precious. 🏔️\nCold temperatures and steep slopes slow soil formation, so mountain soils are often thin and young. Strip away the roots and plant cover, and a single heavy storm can wash away soil that took centuries to build. Terraces, permanent cover and living roots are what hold mountain farms together.\n📤 Send this to your hiking friend.\n#InternationalMountainDay #SoilErosion #SoilHealth #SoilFoodWeb',
+      slides: [
+        { text: 'Mountain soils are thin, young and fragile.', image: null },
+        { text: 'Cold and steep slopes slow soil formation.', image: null },
+        {
+          text: 'Without roots and cover, one heavy storm can wash away centuries of soil.',
+          image: null,
+        },
+        { text: 'Terraces, cover and living roots hold mountain farms together.', image: null },
+      ],
+      cta: 'Send this to your hiking friend',
+      link: '',
+      sources: [
+        'https://www.fao.org/international-mountain-day/en',
+        "https://scholar.google.com/scholar?q=FAO+ITPS+2015+Status+of+the+World's+Soil+Resources",
+      ],
+      visual_note:
+        'Carousel, 4 slides. Mountain cross-section with a thin soil layer and roots. Real photo of farming terraces.',
+      note: 'From the November/December plan doc (30 Sep). Visual still to make.',
+      status: 'draft',
+    },
+    reason:
+      'Added from the November/December plan doc (Linnea, 23 Oct). Caption and slide text drafted; visual still to make.',
+  },
+  {
+    key: '2026-10-23 plan pl20261212',
+    post: 'pl20261212',
+    create: {
+      iso_date: '2026-12-12',
+      date_tbd: false,
+      topic: 'Do this weekend: winter care for your worm bin',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        "Your worms feel the cold too. 🥶🪱\nRed wigglers slow down below about 10°C and die if their bin freezes. Move the bin somewhere sheltered, add extra shredded cardboard as insulation, feed a little less, and keep the bedding damp like a wrung-out sponge. They'll be ready to work hard again in spring.\n💾 Save this before the first frost.\n#WormBin #Vermicompost #WinterGarden #SoilFoodWeb",
+      slides: [
+        { text: 'Your worms get cold too.', image: null },
+        {
+          text: 'Red wigglers slow down below about 10°C and die if the bin freezes.',
+          image: null,
+        },
+        { text: 'Move the bin to a shed, garage or basement.', image: null },
+        { text: 'Add extra shredded cardboard as insulation, and feed less.', image: null },
+        { text: 'Keep the bedding damp, like a wrung-out sponge.', image: null },
+      ],
+      cta: 'Save this before the first frost',
+      link: '',
+      sources: [
+        'https://scholar.google.com/scholar?q=Cornell+Waste+Management+Institute+composting+with+worms+red+wigglers+temperature',
+      ],
+      visual_note:
+        'Carousel, 5 slides. A red wiggler in a tiny scarf, a worm bin in a shed, a hand squeezing a damp sponge. Wes to verify the 10°C figure.',
+      note: 'From the November/December plan doc (30 Sep). Visual still to make.',
+      status: 'draft',
+    },
+    reason:
+      'Added from the November/December plan doc (Linnea, 23 Oct). Caption and slide text drafted; visual still to make.',
+  },
+  {
+    key: '2026-10-23 plan pl20261214',
+    post: 'pl20261214',
+    create: {
+      iso_date: '2026-12-14',
+      date_tbd: false,
+      topic: "Soil in numbers: a third of the world's soils are degraded",
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        "One third of the world's soils are degraded. 🌍\nThe FAO's global soil assessment found about 33% of soils moderately to highly degraded, through erosion, carbon loss, salinization, compaction, acidification and pollution. New soil forms slowly, so protecting and restoring the soil we have is the work that matters.\n📤 Send this to someone who works in food.\n#SoilInNumbers #SoilDegradation #SoilHealth #SoilFoodWeb",
+      slides: [
+        { text: "33% of the world's soils are moderately to highly degraded.", image: null },
+        {
+          text: 'The causes: erosion, loss of organic carbon, salinization, compaction, acidification and pollution.',
+          image: null,
+        },
+        { text: 'Forming a few centimeters of new soil can take centuries.', image: null },
+        { text: 'Restoring soil biology is one of the fastest ways to rebuild it.', image: null },
+      ],
+      cta: 'Send this to someone who works in food',
+      link: '',
+      sources: [
+        "https://scholar.google.com/scholar?q=FAO+ITPS+2015+Status+of+the+World's+Soil+Resources",
+      ],
+      visual_note:
+        'Carousel, 4 slides, same format as the nematode Soil in numbers post. Pie chart with one third shaded.',
+      note: 'From the November/December plan doc (30 Sep). Visual still to make.',
+      status: 'draft',
+    },
+    reason:
+      'Added from the November/December plan doc (Linnea, 23 Oct). Caption and slide text drafted; visual still to make.',
+  },
+  {
+    key: '2026-10-23 plan pl20261218',
+    post: 'pl20261218',
+    create: {
+      iso_date: '2026-12-18',
+      date_tbd: false,
+      topic: 'Fun Soil News: December 2026',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        'Five pieces of good soil news to end the year. 🌍\n[One line per story, with the country and the source.]\n📤 Send this to a friend who needs good news.\n#FunSoilNews #SoilHealth #GoodNews #SoilFoodWeb',
+      slides: [
+        { text: 'Fun Soil News: December 2026.', image: null },
+        { text: 'Story 1. Country in big type, one sentence, source.', image: null },
+        { text: 'Story 2. Country in big type, one sentence, source.', image: null },
+        { text: 'Story 3. Country in big type, one sentence, source.', image: null },
+        { text: 'Story 4. Country in big type, one sentence, source.', image: null },
+        { text: 'Story 5. Country in big type, one sentence, source.', image: null },
+      ],
+      cta: 'Send this to a friend who needs good news',
+      link: '',
+      sources: [],
+      visual_note: 'Same format as Fun Soil News October. Verify every item.',
+      note: 'From the November/December plan doc (30 Sep). Visual still to make.',
+      status: 'draft',
+    },
+    reason:
+      'Added from the November/December plan doc (Linnea, 23 Oct). Caption and slide text drafted; visual still to make.',
+  },
+  {
+    key: '2026-10-23 plan pl20261219',
+    post: 'pl20261219',
+    create: {
+      iso_date: '2026-12-19',
+      date_tbd: false,
+      topic: 'Do this weekend: the jar test',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        "All you need to know your soil texture is a jar. 🫙\nFill a jar a third of the way with soil, add water and a pinch of dish soap, and shake hard. Sand drops out in about a minute, silt over a few hours, and clay can take a day or more. Mark each layer and you'll know what you're working with, and how your soil biology can help it.\n💾 Save this for a rainy afternoon.\n#SoilTexture #JarTest #GardenScience #SoilFoodWeb",
+      slides: [
+        { text: 'What is your soil made of? Find out with a jar.', image: null },
+        {
+          text: 'Fill a jar one third with soil, top up with water and a pinch of dish soap. Shake hard.',
+          image: null,
+        },
+        { text: 'Sand settles in about a minute. Mark the line.', image: null },
+        {
+          text: 'Silt settles over a few hours. Mark it. Clay can take a day or more.',
+          image: null,
+        },
+        { text: 'Compare the layers to find your texture.', image: null },
+      ],
+      cta: 'Save this for a rainy afternoon',
+      link: '',
+      sources: ['https://scholar.google.com/scholar?q=USDA+NRCS+soil+texture+jar+test'],
+      visual_note:
+        'Carousel, 5 slides. A glass jar with sand, silt and clay layers and water on top, with labelled arrows. Fits the watercolor jar style.',
+      note: 'From the November/December plan doc (30 Sep). Visual still to make.',
+      status: 'draft',
+    },
+    reason:
+      'Added from the November/December plan doc (Linnea, 23 Oct). Caption and slide text drafted; visual still to make.',
+  },
+  {
+    key: '2026-10-23 plan pl20261221',
+    post: 'pl20261221',
+    create: {
+      iso_date: '2026-12-21',
+      date_tbd: false,
+      topic: 'Read the drop: fungal hyphae or debris?',
+      platform: 'Instagram Reel',
+      caption:
+        'Is it a fungal hypha or just a scrap of plant debris? 🔬\nReal hyphae keep the same width along their whole length, with parallel walls, and they often branch. Debris has irregular edges and changes width. And if the thread is much thinner, you may be looking at actinomycetes, filamentous bacteria. Getting this right is the difference between a fungal and a bacterial compost reading.\n💾 Save this for your next slide.\n#FungalHyphae #Microscopy #Compost #SoilFoodWeb',
+      slides: [
+        { text: 'Fungal hypha: same width along its whole length.', image: null },
+        { text: 'Parallel walls, often branching.', image: null },
+        { text: 'Debris: irregular edges, changing width.', image: null },
+        { text: 'Actinomycetes: much thinner threads.', image: null },
+      ],
+      cta: 'Save this for your next slide',
+      link: '',
+      sources: ['https://scholar.google.com/scholar?q=Ingham+Soil+Biology+Primer+USDA+NRCS'],
+      visual_note: 'Reel, 15 to 20 seconds. Repo microscopy of hyphae and debris side by side.',
+      note: 'From the November/December plan doc (30 Sep). Visual still to make.',
+      status: 'draft',
+    },
+    reason:
+      'Added from the November/December plan doc (Linnea, 23 Oct). Caption and slide text drafted; visual still to make.',
+  },
+  {
+    key: '2026-10-23 plan pl20261223',
+    post: 'pl20261223',
+    create: {
+      iso_date: '2026-12-23',
+      date_tbd: false,
+      topic: 'Partner share',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        '[PLACEHOLDER] One line on who the partner is and why we love their work.\n#SoilFoodWeb #Partners',
+      slides: [
+        { text: 'FROM OUR PARTNERS', image: null },
+        { text: '[Partner name]', image: null },
+        { text: '[One line on their work]', image: null },
+      ],
+      cta: 'Follow our partner',
+      link: 'Tag the partner.',
+      sources: [],
+      visual_note: "Single image. The partner's own post. Partner to pick with Stephanie.",
+      note: 'From the November/December plan doc (30 Sep). Visual still to make.',
+      status: 'draft',
+    },
+    reason:
+      'Added from the November/December plan doc (Linnea, 23 Oct). Caption and slide text drafted; visual still to make.',
+  },
+  {
+    key: '2026-10-23 plan pl20261225',
+    post: 'pl20261225',
+    create: {
+      iso_date: '2026-12-25',
+      date_tbd: false,
+      topic: 'Holiday card: tardigrades in Santa hats',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        'Happy holidays from all of us, and from the tardigrades. 🎄\nThank you for a year of looking closer at the life in our soils. See you in 2027. 💚\n#HappyHolidays #Tardigrades #SoilFoodWeb',
+      slides: [
+        { text: 'Happy holidays', image: null },
+        { text: 'from all of us at the Soil Food Web School.', image: null },
+      ],
+      cta: '',
+      link: '',
+      sources: [],
+      visual_note:
+        'Single image. Two chubby tardigrades in little red Santa hats with green leaves around them, on cream.',
+      note: 'From the November/December plan doc (30 Sep). Visual still to make.',
+      status: 'draft',
+    },
+    reason:
+      'Added from the November/December plan doc (Linnea, 23 Oct). Caption and slide text drafted; visual still to make.',
+  },
+  {
+    key: '2026-10-23 plan pl20261228',
+    post: 'pl20261228',
+    create: {
+      iso_date: '2026-12-28',
+      date_tbd: false,
+      topic: "Myth vs mechanism: humus isn't what you learned",
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        "The humus you learned about in school may not exist the way it was taught. 🧪\nFor a century, soil science described humic substances as large, unique molecules. A 2015 Nature paper argued that much of that picture came from the harsh chemical extraction used to study them. The current view is a continuum: organic matter keeps being broken down by microbes, and carbon lasts when it's protected inside aggregates or bound to minerals.\n📤 Send this to the soil scientist in your life.\n#SoilOrganicMatter #SoilScience #MythVsMechanism #SoilFoodWeb",
+      slides: [
+        { text: 'Myth: "Humus is a special, stable substance in soil."', image: null },
+        {
+          text: 'For a century, textbooks described humic substances as large, unique molecules.',
+          image: null,
+        },
+        {
+          text: 'Modern imaging found little of that in intact soil. Much of it came from the harsh extraction method.',
+          image: null,
+        },
+        {
+          text: 'The current view: organic matter is a continuum of compounds being broken down by microbes.',
+          image: null,
+        },
+        {
+          text: "Carbon stays in soil mainly when it's protected in aggregates or bound to minerals.",
+          image: null,
+        },
+        { text: 'Microbes are part of the answer. Source on the slide.', image: null },
+      ],
+      cta: 'Send this to the soil scientist in your life',
+      link: '',
+      sources: [
+        'https://scholar.google.com/scholar?q=Lehmann+Kleber+2015+The+contentious+nature+of+soil+organic+matter',
+      ],
+      visual_note:
+        'Carousel, 6 slides. A leaf breaking down into smaller and smaller fragments, a soil crumb, fungal hyphae.',
+      note: 'From the November/December plan doc (30 Sep). Visual still to make.',
+      status: 'draft',
+    },
+    reason:
+      'Added from the November/December plan doc (Linnea, 23 Oct). Caption and slide text drafted; visual still to make.',
+  },
+  {
+    key: '2026-10-23 plan pl20261230',
+    post: 'pl20261230',
+    create: {
+      iso_date: '2026-12-30',
+      date_tbd: false,
+      topic: 'Soil Regenerators in the wild: tree crop farmer, Sumatra',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        'They farmed the way their parents did. Then they looked under a microscope. 🌳\nIn the Simalungun Regency of Sumatra, Indonesia, [Name] started out farming organically. At the Soil Food Web School, they learned to make regenerative compost and check it under a microscope, then mapped their fields and planted companion plants and ground cover to feed the soil life their trees depend on. Today they teach other tree crop farmers across Sumatra. 💚\n🤝 Tag a farmer who should hear this.\n#SoilRegeneratorsInTheWild #Indonesia #Agroforestry #SoilFoodWeb',
+      slides: [
+        {
+          text: 'Soil Regenerators in the wild. [Name], Simalungun Regency, Sumatra, Indonesia',
+          image: null,
+        },
+        {
+          text: 'Farming the way their parents did. Then they looked under a microscope.',
+          image: null,
+        },
+        { text: 'Regenerative compost, checked under the microscope.', image: null },
+        { text: 'Fields mapped, companion plants and ground cover planted.', image: null },
+        {
+          text: '"It has enriched the people, plants and animals in the Simalungun regency where I call home."',
+          image: null,
+        },
+      ],
+      cta: 'Tag a farmer who should hear this',
+      link: 'Collab with the farmer [VERIFY name and handle].',
+      sources: [
+        'https://docs.google.com/spreadsheets/d/10UHLwzJLBQAsmJqmg4hiCQRjBKXPAx7UnOudU-Vsg5U/edit',
+      ],
+      visual_note: "Carousel, 5 slides. The farmer's own photos. Name and handle still to verify.",
+      note: 'From the November/December plan doc (30 Sep). Visual still to make.',
+      status: 'draft',
+    },
+    reason:
+      'Added from the November/December plan doc (Linnea, 23 Oct). Caption and slide text drafted; visual still to make.',
+  },
 ];
 
 const editorOf = (c: Change) => `Change: ${c.key}`;
