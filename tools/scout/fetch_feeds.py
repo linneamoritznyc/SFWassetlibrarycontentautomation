@@ -4,8 +4,9 @@
     -> tools/scout/out/candidates.json  (newest first, one entry per story)
     -> tools/scout/out/feed-health.json (which feeds answered, which failed)
 
-No API key and no database: a Claude Code session reads candidates.json, picks
-and writes the posts (see tools/scout/RUN.md).
+The same list Wormhole's Soil news tab reads live (apps/web/lib/scout.ts).
+No API key and no database: a Claude Code session can read candidates.json,
+pick stories and draft the posts (see tools/scout/README.md).
 """
 import argparse
 import email.utils
@@ -21,7 +22,7 @@ from datetime import datetime, timedelta, timezone
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.abspath(os.path.join(HERE, "..", ".."))
 OUT = os.path.join(HERE, "out")
-UA = "SFWContentStudio/0.1 (+https://soilfoodweb.com)"
+UA = "SoilFoodWebScout/1.0 (+https://soilfoodweb.com)"
 
 
 def feeds():
@@ -29,7 +30,8 @@ def feeds():
     out = []
     for block in re.findall(r"\{[^{}]*?url:\s*'[^']+'[^{}]*?\}", src, re.S):
         get = lambda k: (re.search(rf"{k}:\s*'([^']*)'", block) or [None, None])[1]
-        out.append(dict(name=get("name"), url=get("url"), kind=get("kind") or "rss", region=get("region")))
+        out.append(dict(name=get("name"), url=get("url"), kind=get("kind") or "rss", region=get("region"),
+                        fallback=get("fallback")))
     return out
 
 
@@ -55,7 +57,13 @@ def when(s):
 
 
 def parse(xml):
-    root = ET.fromstring(xml)
+    try:
+        root = ET.fromstring(xml)
+    except ET.ParseError:
+        # One stray character should not lose a whole feed: keep the items that parse.
+        root = ET.fromstring(b"<rss>" + b"".join(
+            m.group(0) for m in re.finditer(rb"<(item|entry)[\s>].*?</\1>", xml, re.S)
+            if _parses(m.group(0))) + b"</rss>")
     items = []
     for it in root.iter():
         tag = it.tag.split("}")[-1]
@@ -71,15 +79,34 @@ def parse(xml):
     return items
 
 
+def _parses(chunk):
+    try:
+        ET.fromstring(chunk)
+        return True
+    except ET.ParseError:
+        return False
+
+
+def read(url):
+    req = urllib.request.Request(url, headers={
+        "user-agent": UA,
+        "accept": "application/rss+xml, application/atom+xml, application/xml, text/xml;q=0.9, */*;q=0.5"})
+    with urllib.request.urlopen(req, timeout=25) as r:
+        items = parse(r.read())
+    if not items:
+        raise ValueError("answered, but no items could be parsed")
+    return items
+
+
 def fetch(feed):
     try:
-        req = urllib.request.Request(feed["url"], headers={
-            "user-agent": UA,
-            "accept": "application/rss+xml, application/atom+xml, application/xml, text/xml;q=0.9, */*;q=0.5"})
-        with urllib.request.urlopen(req, timeout=25) as r:
-            items = parse(r.read())
-        return feed, items, None if items else "answered, but no items could be parsed"
+        return feed, read(feed["url"]), None
     except Exception as e:
+        if feed.get("fallback"):
+            try:
+                return feed, read(feed["fallback"]), None
+            except Exception as e2:
+                e = e2
         return feed, [], str(e)[:200]
 
 
