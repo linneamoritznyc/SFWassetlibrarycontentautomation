@@ -1959,6 +1959,389 @@ export const CHANGES: Change[] = [
     },
     reason: 'Added 23 Oct: Webinar 1 Short 4 of 4, cover only, no date yet.',
   },
+  {
+    key: '2026-10-23 pl20261116 slides v1',
+    post: 'pl20261116',
+    set: {
+      slides: [
+        {
+          text: 'Myth: "Mother trees feed their seedlings through a fungal internet."',
+          image: '/wormhole/tiles/pl20261116-v1-1.jpg',
+        },
+        {
+          text: 'Mycorrhizal fungi do connect the roots of different trees. That part is real.',
+          image: '/wormhole/tiles/pl20261116-v1-2.jpg',
+        },
+        {
+          text: 'But field evidence that trees send meaningful resources to each other through them is thin.',
+          image: '/wormhole/tiles/pl20261116-v1-3.jpg',
+        },
+        {
+          text: 'A 2023 review found positive citation bias: papers cited the dramatic claims more than the data supported.',
+          image: '/wormhole/tiles/pl20261116-v1-4.jpg',
+        },
+        {
+          text: 'What is solid: mycorrhizal fungi trade nutrients and water for plant sugars, one plant at a time.',
+          image: '/wormhole/tiles/pl20261116-v1-5.jpg',
+        },
+        {
+          text: 'Real science is exciting enough. Source on the slide.',
+          image: '/wormhole/tiles/pl20261116-v1-6.jpg',
+        },
+      ],
+    },
+    reason:
+      'New slides (Linnea, 23 Oct): flat brand colour, real micrographs and photos, simple drawn diagrams, no AI images. Deck: /wormhole/decks/16-11-2026-myth-wood-wide-web-v1.pptx.',
+  },
+  {
+    key: '2026-10-23 pl20261123 slides v1',
+    post: 'pl20261123',
+    set: {
+      slides: [
+        {
+          text: 'Soil aggregates, explained twice. Level 1 for new gardeners, level 2 for consultants.',
+          image: '/wormhole/tiles/pl20261123-v1-1.jpg',
+        },
+        {
+          text: 'Level 1: Healthy soil clumps into crumbs. Those crumbs are aggregates.',
+          image: '/wormhole/tiles/pl20261123-v1-2.jpg',
+        },
+        {
+          text: 'Level 1: Roots, fungi and bacteria glue them together.',
+          image: '/wormhole/tiles/pl20261123-v1-3.jpg',
+        },
+        {
+          text: 'Level 1: Crumbs leave spaces for air, water and roots.',
+          image: '/wormhole/tiles/pl20261123-v1-4.jpg',
+        },
+        {
+          text: 'Level 2: Microaggregates are bound by persistent organic compounds and bacterial glues.',
+          image: '/wormhole/tiles/pl20261123-v1-5.jpg',
+        },
+        {
+          text: 'Level 2: Macroaggregates are held by roots and fungal hyphae, so they break down when tillage cuts those networks.',
+          image: '/wormhole/tiles/pl20261123-v1-6.jpg',
+        },
+        { text: 'Source: Tisdall and Oades, 1982.', image: '/wormhole/tiles/pl20261123-v1-7.jpg' },
+      ],
+    },
+    reason:
+      'New slides (Linnea, 23 Oct): flat brand colour, real micrographs and photos, simple drawn diagrams, no AI images. Deck: /wormhole/decks/23-11-2026-two-levels-soil-aggregates-v1.pptx.',
+  },
+  {
+    key: '2026-10-23 pl20261130 slides v1',
+    post: 'pl20261130',
+    set: {
+      slides: [
+        { text: 'This is a ciliate.', image: '/wormhole/tiles/pl20261130-v1-1.jpg' },
+        { text: 'Hair-like cilia cover its body.', image: '/wormhole/tiles/pl20261130-v1-2.jpg' },
+        { text: 'Lots of them in compost or tea?', image: '/wormhole/tiles/pl20261130-v1-3.jpg' },
+        {
+          text: 'Oxygen has run low. Fix it before you apply.',
+          image: '/wormhole/tiles/pl20261130-v1-4.jpg',
+        },
+      ],
+    },
+    reason:
+      'New slides (Linnea, 23 Oct): flat brand colour, real micrographs and photos, simple drawn diagrams, no AI images. Deck: /wormhole/decks/30-11-2026-read-the-drop-ciliates-v1.pptx. Micrograph: Patricia J Coppola. Tea brewer photo: SFW library.',
+  },
+  {
+    key: '2026-10-23 pl20261205 slides v1',
+    post: 'pl20261205',
+    set: {
+      slides: [
+        {
+          text: "Happy World Soil Day. Here's a year of living soil.",
+          image: '/wormhole/tiles/pl20261205-v1-1.jpg',
+        },
+        {
+          text: 'Boubacar, Guinea. Coffee grown in a syntropic agroforest.',
+          image: '/wormhole/tiles/pl20261205-v1-2.jpg',
+        },
+        {
+          text: 'Christina, Tennessee. From advertising to a soil business.',
+          image: '/wormhole/tiles/pl20261205-v1-3.jpg',
+        },
+        {
+          text: 'Ibrahim, Turkey. More than 80 growers going regenerative.',
+          image: '/wormhole/tiles/pl20261205-v1-4.jpg',
+        },
+        {
+          text: 'Arthur, Brazil. A prize-winning farm school.',
+          image: '/wormhole/tiles/pl20261205-v1-5.jpg',
+        },
+        {
+          text: 'Joseph, Kenya. Teaching his whole community.',
+          image: '/wormhole/tiles/pl20261205-v1-6.jpg',
+        },
+        {
+          text: 'Thank you for protecting the ground we all stand on.',
+          image: '/wormhole/tiles/pl20261205-v1-7.jpg',
+        },
+      ],
+    },
+    reason:
+      'New slides (Linnea, 23 Oct): flat brand colour, real micrographs and photos, simple drawn diagrams, no AI images. Deck: /wormhole/decks/05-12-2026-world-soil-day-v1.pptx. Boubacar photo from his own post (d02). Globe: Natural Earth (public domain). Theme line "Our future is rooted in soil" from the FAO World Soil Day site: verify it is the 2026 theme. Other graduates: PHOTO placeholders.',
+  },
+  {
+    key: '2026-10-23 pl20261206 slides v1',
+    post: 'pl20261206',
+    set: {
+      slides: [
+        { text: 'Trial name, place and season.', image: '/wormhole/tiles/pl20261206-v1-1.jpg' },
+        { text: 'The question they tested.', image: '/wormhole/tiles/pl20261206-v1-2.jpg' },
+        { text: 'The method in 3 lines.', image: '/wormhole/tiles/pl20261206-v1-3.jpg' },
+        { text: 'The result, one big number.', image: '/wormhole/tiles/pl20261206-v1-4.jpg' },
+        {
+          text: "What surprised them, including what didn't work.",
+          image: '/wormhole/tiles/pl20261206-v1-5.jpg',
+        },
+        { text: 'Who ran it.', image: '/wormhole/tiles/pl20261206-v1-6.jpg' },
+      ],
+    },
+    reason:
+      'Template visuals (Linnea, 23 Oct): placeholder text kept as written, labelled PHOTO spaces to fill. Deck: /wormhole/decks/06-12-2026-field-notes-02-v1.pptx.',
+  },
+  {
+    key: '2026-10-23 pl20261207 slides v1',
+    post: 'pl20261207',
+    set: {
+      slides: [
+        {
+          text: 'Myth: "Add 1% organic matter and your soil holds 20,000 more gallons of water per acre."',
+          image: '/wormhole/tiles/pl20261207-v1-1.jpg',
+        },
+        {
+          text: 'A 2018 review of about 60 studies tested that claim.',
+          image: '/wormhole/tiles/pl20261207-v1-2.jpg',
+        },
+        {
+          text: 'A 1% rise in soil organic carbon raised available water only slightly, on average about 1 mm per 10 cm of soil.',
+          image: '/wormhole/tiles/pl20261207-v1-3.jpg',
+        },
+        {
+          text: 'The effect was larger in sandy soils and smaller in clays.',
+          image: '/wormhole/tiles/pl20261207-v1-4.jpg',
+        },
+        {
+          text: 'Where biology really helps water: aggregates and pores that let rain soak in instead of running off.',
+          image: '/wormhole/tiles/pl20261207-v1-5.jpg',
+        },
+        {
+          text: 'Honest numbers build trust. Source on the slide.',
+          image: '/wormhole/tiles/pl20261207-v1-6.jpg',
+        },
+      ],
+    },
+    reason:
+      'New slides (Linnea, 23 Oct): flat brand colour, real micrographs and photos, simple drawn diagrams, no AI images. Deck: /wormhole/decks/07-12-2026-myth-organic-matter-and-water-v1.pptx.',
+  },
+  {
+    key: '2026-10-23 pl20261209 slides v1',
+    post: 'pl20261209',
+    set: {
+      slides: [
+        { text: 'FREE WEBINAR', image: '/wormhole/tiles/pl20261209-v1-1.jpg' },
+        { text: '[Webinar title]', image: '/wormhole/tiles/pl20261209-v1-2.jpg' },
+        { text: '[Date and time, three time zones]', image: '/wormhole/tiles/pl20261209-v1-3.jpg' },
+        { text: '[Host name]', image: '/wormhole/tiles/pl20261209-v1-4.jpg' },
+        { text: 'Free. Link in bio.', image: '/wormhole/tiles/pl20261209-v1-5.jpg' },
+      ],
+    },
+    reason:
+      'Template visuals (Linnea, 23 Oct): placeholder text kept as written, labelled PHOTO spaces to fill. Deck: /wormhole/decks/09-12-2026-free-webinar-december-v1.pptx. Micrograph: Casey Williams.',
+  },
+  {
+    key: '2026-10-23 pl20261212 slides v1',
+    post: 'pl20261212',
+    set: {
+      slides: [
+        { text: 'Your worms get cold too.', image: '/wormhole/tiles/pl20261212-v1-1.jpg' },
+        {
+          text: 'Red wigglers slow down below about 10°C and die if the bin freezes.',
+          image: '/wormhole/tiles/pl20261212-v1-2.jpg',
+        },
+        {
+          text: 'Move the bin to a shed, garage or basement.',
+          image: '/wormhole/tiles/pl20261212-v1-3.jpg',
+        },
+        {
+          text: 'Add extra shredded cardboard as insulation, and feed less.',
+          image: '/wormhole/tiles/pl20261212-v1-4.jpg',
+        },
+        {
+          text: 'Keep the bedding damp, like a wrung-out sponge.',
+          image: '/wormhole/tiles/pl20261212-v1-5.jpg',
+        },
+      ],
+    },
+    reason:
+      'New slides (Linnea, 23 Oct): flat brand colour, real micrographs and photos, simple drawn diagrams, no AI images. Deck: /wormhole/decks/12-12-2026-do-this-weekend-worm-bin-winter-v1.pptx.',
+  },
+  {
+    key: '2026-10-23 pl20261214 slides v1',
+    post: 'pl20261214',
+    set: {
+      slides: [
+        {
+          text: "33% of the world's soils are moderately to highly degraded.",
+          image: '/wormhole/tiles/pl20261214-v1-1.jpg',
+        },
+        {
+          text: 'The causes: erosion, loss of organic carbon, salinization, compaction, acidification and pollution.',
+          image: '/wormhole/tiles/pl20261214-v1-2.jpg',
+        },
+        {
+          text: 'Forming a few centimeters of new soil can take centuries.',
+          image: '/wormhole/tiles/pl20261214-v1-3.jpg',
+        },
+        {
+          text: 'Restoring soil biology is one of the fastest ways to rebuild it.',
+          image: '/wormhole/tiles/pl20261214-v1-4.jpg',
+        },
+      ],
+    },
+    reason:
+      'New slides (Linnea, 23 Oct): flat brand colour, real micrographs and photos, simple drawn diagrams, no AI images. Deck: /wormhole/decks/14-12-2026-soil-in-numbers-degraded-v1.pptx. Micrograph: Marco Trevisan.',
+  },
+  {
+    key: '2026-10-23 pl20261218 slides v1',
+    post: 'pl20261218',
+    set: {
+      slides: [
+        { text: 'Fun Soil News: December 2026.', image: '/wormhole/tiles/pl20261218-v1-1.jpg' },
+        {
+          text: 'Story 1. Country in big type, one sentence, source.',
+          image: '/wormhole/tiles/pl20261218-v1-2.jpg',
+        },
+        {
+          text: 'Story 2. Country in big type, one sentence, source.',
+          image: '/wormhole/tiles/pl20261218-v1-3.jpg',
+        },
+        {
+          text: 'Story 3. Country in big type, one sentence, source.',
+          image: '/wormhole/tiles/pl20261218-v1-4.jpg',
+        },
+        {
+          text: 'Story 4. Country in big type, one sentence, source.',
+          image: '/wormhole/tiles/pl20261218-v1-5.jpg',
+        },
+        {
+          text: 'Story 5. Country in big type, one sentence, source.',
+          image: '/wormhole/tiles/pl20261218-v1-6.jpg',
+        },
+      ],
+    },
+    reason:
+      'Template visuals (Linnea, 23 Oct): placeholder text kept as written, labelled PHOTO spaces to fill. Deck: /wormhole/decks/18-12-2026-fun-soil-news-december-v1.pptx.',
+  },
+  {
+    key: '2026-10-23 pl20261219 slides v1',
+    post: 'pl20261219',
+    set: {
+      slides: [
+        {
+          text: 'What is your soil made of? Find out with a jar.',
+          image: '/wormhole/tiles/pl20261219-v1-1.jpg',
+        },
+        {
+          text: 'Fill a jar one third with soil, top up with water and a pinch of dish soap. Shake hard.',
+          image: '/wormhole/tiles/pl20261219-v1-2.jpg',
+        },
+        {
+          text: 'Sand settles in about a minute. Mark the line.',
+          image: '/wormhole/tiles/pl20261219-v1-3.jpg',
+        },
+        {
+          text: 'Silt settles over a few hours. Mark it. Clay can take a day or more.',
+          image: '/wormhole/tiles/pl20261219-v1-4.jpg',
+        },
+        {
+          text: 'Compare the layers to find your texture.',
+          image: '/wormhole/tiles/pl20261219-v1-5.jpg',
+        },
+      ],
+    },
+    reason:
+      'New slides (Linnea, 23 Oct): flat brand colour, real micrographs and photos, simple drawn diagrams, no AI images. Deck: /wormhole/decks/19-12-2026-do-this-weekend-jar-test-v1.pptx.',
+  },
+  {
+    key: '2026-10-23 pl20261223 slides v1',
+    post: 'pl20261223',
+    set: {
+      slides: [
+        { text: 'FROM OUR PARTNERS', image: '/wormhole/tiles/pl20261223-v1-1.jpg' },
+        { text: '[Partner name]', image: '/wormhole/tiles/pl20261223-v1-2.jpg' },
+        { text: '[One line on their work]', image: '/wormhole/tiles/pl20261223-v1-3.jpg' },
+      ],
+    },
+    reason:
+      'Template visuals (Linnea, 23 Oct): placeholder text kept as written, labelled PHOTO spaces to fill. Deck: /wormhole/decks/23-12-2026-partner-share-december-v1.pptx.',
+  },
+  {
+    key: '2026-10-23 pl20261228 slides v1',
+    post: 'pl20261228',
+    set: {
+      slides: [
+        {
+          text: 'Myth: "Humus is a special, stable substance in soil."',
+          image: '/wormhole/tiles/pl20261228-v1-1.jpg',
+        },
+        {
+          text: 'For a century, textbooks described humic substances as large, unique molecules.',
+          image: '/wormhole/tiles/pl20261228-v1-2.jpg',
+        },
+        {
+          text: 'Modern imaging found little of that in intact soil. Much of it came from the harsh extraction method.',
+          image: '/wormhole/tiles/pl20261228-v1-3.jpg',
+        },
+        {
+          text: 'The current view: organic matter is a continuum of compounds being broken down by microbes.',
+          image: '/wormhole/tiles/pl20261228-v1-4.jpg',
+        },
+        {
+          text: "Carbon stays in soil mainly when it's protected in aggregates or bound to minerals.",
+          image: '/wormhole/tiles/pl20261228-v1-5.jpg',
+        },
+        {
+          text: 'Microbes are part of the answer. Source on the slide.',
+          image: '/wormhole/tiles/pl20261228-v1-6.jpg',
+        },
+      ],
+    },
+    reason:
+      'New slides (Linnea, 23 Oct): flat brand colour, real micrographs and photos, simple drawn diagrams, no AI images. Deck: /wormhole/decks/28-12-2026-myth-humus-v1.pptx. Micrograph: Marco Trevisan.',
+  },
+  {
+    key: '2026-10-23 pl20261230 slides v1',
+    post: 'pl20261230',
+    set: {
+      slides: [
+        {
+          text: 'Soil Regenerators in the wild. [Name], Simalungun Regency, Sumatra, Indonesia',
+          image: '/wormhole/tiles/pl20261230-v1-1.jpg',
+        },
+        {
+          text: 'Farming the way their parents did. Then they looked under a microscope.',
+          image: '/wormhole/tiles/pl20261230-v1-2.jpg',
+        },
+        {
+          text: 'Regenerative compost, checked under the microscope.',
+          image: '/wormhole/tiles/pl20261230-v1-3.jpg',
+        },
+        {
+          text: 'Fields mapped, companion plants and ground cover planted.',
+          image: '/wormhole/tiles/pl20261230-v1-4.jpg',
+        },
+        {
+          text: '"It has enriched the people, plants and animals in the Simalungun regency where I call home."',
+          image: '/wormhole/tiles/pl20261230-v1-5.jpg',
+        },
+      ],
+    },
+    reason:
+      'Template visuals (Linnea, 23 Oct): placeholder text kept as written, labelled PHOTO spaces to fill. Deck: /wormhole/decks/30-12-2026-soil-regenerators-sumatra-v1.pptx.',
+  },
 ];
 
 const editorOf = (c: Change) => `Change: ${c.key}`;
