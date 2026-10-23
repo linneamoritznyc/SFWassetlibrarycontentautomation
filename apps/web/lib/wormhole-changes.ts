@@ -1205,6 +1205,545 @@ export const CHANGES: Change[] = [
       'Added from the November/December plan doc (Linnea, 23 Oct). Caption and slide text drafted; visual still to make.',
   },
   {
+    key: '2026-10-23 costa rica cr20261102',
+    post: 'cr20261102',
+    create: {
+      iso_date: '2026-11-02',
+      date_tbd: false,
+      topic: 'Collaboration post with Armonía: we are going back',
+      platform: 'Instagram collab, Facebook',
+      caption:
+        'We are going back to Armonía! 🌿\nFor the fourth time, Armonía Agricultura Orgánica near San José will host our Accelerator Workshop. Armonía is a campus built around health and learning, with primary and secondary schools and an organic farm that feeds visitors at its own restaurant. Our students build their compost piles where children grow up knowing where food comes from.\nThank you, Armonía, for having us again. 💚\nAccelerator Workshop, 18 to 29 January 2027. Register now, link in bio.\n#SoilFoodWeb #CostaRica #Compost #Workshop #LivingSoil',
+      slides: [
+        {
+          text: 'We are going back to Armonía.',
+          image: '/wormhole/tiles/cr20261102-v1-1.jpg',
+        },
+        {
+          text: 'Our fifth Costa Rica workshop, and our fourth at Armonía Agricultura Orgánica.',
+          image: '/wormhole/tiles/cr20261102-v1-2.jpg',
+        },
+        {
+          text: 'An organic farm on a school campus, with primary and secondary schools and its own restaurant.',
+          image: '/wormhole/tiles/cr20261102-v1-3.jpg',
+        },
+        {
+          text: 'You learn compost where children grow up knowing where food comes from.',
+          image: '/wormhole/tiles/cr20261102-v1-4.jpg',
+        },
+        {
+          text: 'Accelerator Workshop, 18 to 29 January 2027.',
+          image: '/wormhole/tiles/cr20261102-v1-5.jpg',
+        },
+      ],
+      cta: 'Register, link in bio',
+      link: 'https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+      sources: [
+        'October 2025 newsletter: https://soilfoodweb.com/october-2025-newsletter/',
+        'Workshop Handbook, March 2025: https://soilfoodweb.com/wp-content/uploads/2024/11/WORKSHOP-HANDBOOK-MARCH-2025.pdf',
+        'SFW workshops page: https://new.soilfoodweb.com/workshops/',
+        'Idea: Allison',
+      ],
+      visual_note:
+        'Carousel, real photos from past Costa Rica workshops. Deck: /wormhole/decks/02-11-2026-armonia-collab.pptx. No prices.',
+      note: 'Costa Rica 2027 promo, from the November planning doc (Linnea, 23 Oct). Visual made in Claude, editable deck in /wormhole/decks.',
+      status: 'draft',
+    },
+    reason: 'Added the Costa Rica 2027 feed post or story with its visuals (Linnea, 23 Oct).',
+  },
+  {
+    key: '2026-10-23 costa rica cr20261103',
+    post: 'cr20261103',
+    create: {
+      iso_date: '2026-11-03',
+      date_tbd: false,
+      topic: 'Costa Rica Accelerator Workshop: early bird ends tomorrow',
+      platform: 'Instagram, Facebook',
+      caption:
+        'The early bird for our Costa Rica workshop ends tomorrow. 🌿\nFor ten days at Armonía Agricultura Orgánica near San José, you build compost piles with your team, make extracts and teas, and check everything under the microscope with mentors beside you. What takes 18 to 24 months alone, you do here in two weeks.\n18 to 29 January 2027. The early bird discount ends 4 November.\nRegister now, link in bio.\n#SoilFoodWeb #CostaRica #Compost #Workshop #LivingSoil',
+      slides: [
+        {
+          text: 'The early bird ends tomorrow.',
+          image: '/wormhole/tiles/cr20261103-v1-1.jpg',
+        },
+        {
+          text: 'Accelerator Workshop, Costa Rica, 18 to 29 January 2027.',
+          image: '/wormhole/tiles/cr20261103-v1-2.jpg',
+        },
+        {
+          text: 'A year of hands-on experience in 10 days.',
+          image: '/wormhole/tiles/cr20261103-v1-3.jpg',
+        },
+        {
+          text: 'Week one compost, week two liquid amendments, the microscope every day.',
+          image: '/wormhole/tiles/cr20261103-v1-4.jpg',
+        },
+      ],
+      cta: 'Register, link in bio',
+      link: 'https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+      sources: [
+        'Costa Rica 2027 sales page: https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+      ],
+      visual_note:
+        'Carousel, real photos from past Costa Rica workshops. Deck: /wormhole/decks/03-11-2026-costa-rica-early-bird.pptx. No prices.',
+      note: 'Costa Rica 2027 promo, from the November planning doc (Linnea, 23 Oct). Visual made in Claude, editable deck in /wormhole/decks.',
+      status: 'draft',
+    },
+    reason: 'Added the Costa Rica 2027 feed post or story with its visuals (Linnea, 23 Oct).',
+  },
+  {
+    key: '2026-10-23 costa rica cr20261112',
+    post: 'cr20261112',
+    create: {
+      iso_date: '2026-11-12',
+      date_tbd: false,
+      topic: 'Costa Rica: a day at the workshop',
+      platform: 'Instagram, Facebook',
+      caption:
+        "Morning: build the pile. Midday: lunch together. Afternoon: the microscope. ☀️\nThat's a day at our Costa Rica workshop. Next one: 18 to 29 January 2027. Register now, link in bio.\n#SoilFoodWeb #CostaRica #Workshop",
+      slides: [
+        {
+          text: 'A day at the Costa Rica workshop.',
+          image: '/wormhole/tiles/cr20261112-v1-1.jpg',
+        },
+        {
+          text: 'Morning: build the pile.',
+          image: '/wormhole/tiles/cr20261112-v1-2.jpg',
+        },
+        {
+          text: 'Midday: lunch together.',
+          image: '/wormhole/tiles/cr20261112-v1-3.jpg',
+        },
+        {
+          text: 'Afternoon: the microscope.',
+          image: '/wormhole/tiles/cr20261112-v1-4.jpg',
+        },
+        {
+          text: '18 to 29 January 2027.',
+          image: '/wormhole/tiles/cr20261112-v1-5.jpg',
+        },
+      ],
+      cta: 'Register, link in bio',
+      link: 'https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+      sources: [
+        'Costa Rica 2027 sales page: https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+      ],
+      visual_note:
+        'Carousel, real photos from past Costa Rica workshops. Deck: /wormhole/decks/12-11-2026-costa-rica-a-day.pptx. No prices.',
+      note: 'Costa Rica 2027 promo, from the November planning doc (Linnea, 23 Oct). Visual made in Claude, editable deck in /wormhole/decks.',
+      status: 'draft',
+    },
+    reason: 'Added the Costa Rica 2027 feed post or story with its visuals (Linnea, 23 Oct).',
+  },
+  {
+    key: '2026-10-23 costa rica cr20261116',
+    post: 'cr20261116',
+    create: {
+      iso_date: '2026-11-16',
+      date_tbd: false,
+      topic: 'Costa Rica: some piles are built to fail',
+      platform: 'Instagram, Facebook',
+      caption:
+        'At our Costa Rica workshop, some compost piles are built to fail. On purpose. 🔥\nStudents build several piles at the same time. Some are designed to succeed and some are designed to go wrong, so you learn to read a failing pile and rescue it, with a mentor beside you. As Loida Vasquez says, the most is learned from failed piles.\nAccelerator Workshop, 18 to 29 January 2027. Register now, link in bio.\n#SoilFoodWeb #CostaRica #Compost #Workshop',
+      slides: [
+        {
+          text: 'Some piles are built to fail.',
+          image: '/wormhole/tiles/cr20261116-v1-1.jpg',
+        },
+        {
+          text: 'On purpose.',
+          image: '/wormhole/tiles/cr20261116-v1-2.jpg',
+        },
+        {
+          text: 'Students build several piles at once, some designed to go wrong.',
+          image: '/wormhole/tiles/cr20261116-v1-3.jpg',
+        },
+        {
+          text: 'Then they diagnose them and turn them around.',
+          image: '/wormhole/tiles/cr20261116-v1-4.jpg',
+        },
+        {
+          text: '"The most is learned from failed piles." Loida Vasquez',
+          image: '/wormhole/tiles/cr20261116-v1-5.jpg',
+        },
+        {
+          text: 'Costa Rica, 18 to 29 January 2027.',
+          image: '/wormhole/tiles/cr20261116-v1-6.jpg',
+        },
+      ],
+      cta: 'Register, link in bio',
+      link: 'https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+      sources: [
+        'Workshop Handbook, March 2025: https://soilfoodweb.com/wp-content/uploads/2024/11/WORKSHOP-HANDBOOK-MARCH-2025.pdf',
+        'Workshop Handbook, June 2025: https://www.soilfoodweb.com/wp-content/uploads/2025/02/WORKSHOP-HANDBOOK-JUNE-2025.pdf',
+        "Loida's line: SFW context pack (CLAUDE.md) [CONFIRM wording with Loida]",
+      ],
+      visual_note:
+        'Carousel, real photos from past Costa Rica workshops. Deck: /wormhole/decks/16-11-2026-costa-rica-built-to-fail.pptx. No prices.',
+      note: 'Costa Rica 2027 promo, from the November planning doc (Linnea, 23 Oct). Visual made in Claude, editable deck in /wormhole/decks.',
+      status: 'draft',
+    },
+    reason: 'Added the Costa Rica 2027 feed post or story with its visuals (Linnea, 23 Oct).',
+  },
+  {
+    key: '2026-10-23 costa rica cr20261123',
+    post: 'cr20261123',
+    create: {
+      iso_date: '2026-11-23',
+      date_tbd: false,
+      topic: 'Costa Rica: why we teach here',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        'The country that regrew its forests is a good place to learn to regrow soil. 🌳\nCosta Rica\'s forest cover fell to 21 to 25% in the 1980s and climbed back to 53% by 2016. Its farms are under heavy chemical pressure, with some of the highest fertilizer and pesticide use per hectare in the world. Our Costa Rica students learn to make living compost and liquid amendments from local materials, and to check them under a microscope.\nAccelerator Workshop, 18 to 29 January 2027. Register now, link in bio.\n#SoilFoodWeb #CostaRica #LivingSoil #Workshop\nLinkedIn version: end with "What would it take for farms in your region to rely less on bought-in inputs?"',
+      slides: [
+        {
+          text: 'Costa Rica brought its forests back.',
+          image: '/wormhole/tiles/cr20261123-v1-1.jpg',
+        },
+        {
+          text: 'Forest cover went from 21 to 25% in the 1980s to 53% by 2016.',
+          image: '/wormhole/tiles/cr20261123-v1-2.jpg',
+        },
+        {
+          text: 'Its farms carry some of the heaviest chemical loads in the world.',
+          image: '/wormhole/tiles/cr20261123-v1-3.jpg',
+        },
+        {
+          text: 'Our students learn to build living soil from local materials, and take it home.',
+          image: '/wormhole/tiles/cr20261123-v1-4.jpg',
+        },
+        {
+          text: 'Costa Rica, 18 to 29 January 2027.',
+          image: '/wormhole/tiles/cr20261123-v1-5.jpg',
+        },
+      ],
+      cta: 'Register, link in bio',
+      link: 'https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+      sources: [
+        'Inter Press Service, 2016: https://www.ipsnews.net/?p=146239',
+        'Semanario Universidad, 2023 (FAO pesticide data): https://semanariouniversidad.com/pais/costa-rica-es-el-pais-que-utiliza-mas-plaguicidas-en-todo-el-mundo-segun-estadisticas-de-la-fao/',
+        'World Bank, fertilizer use: https://data.worldbank.org/indicator/AG.CON.FERT.ZS?locations=CR',
+      ],
+      visual_note:
+        'Carousel, real photos from past Costa Rica workshops. Deck: /wormhole/decks/23-11-2026-costa-rica-why-here.pptx. No prices.',
+      note: 'Costa Rica 2027 promo, from the November planning doc (Linnea, 23 Oct). Visual made in Claude, editable deck in /wormhole/decks.',
+      status: 'draft',
+    },
+    reason: 'Added the Costa Rica 2027 feed post or story with its visuals (Linnea, 23 Oct).',
+  },
+  {
+    key: '2026-10-23 costa rica st20261026',
+    post: 'st20261026',
+    create: {
+      iso_date: '2026-10-26',
+      date_tbd: false,
+      topic: 'Costa Rica stories · Announcement',
+      platform: 'Instagram Stories',
+      caption:
+        'No caption (Stories). Link sticker on frame 1. Link sticker: https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+      slides: [
+        {
+          text: 'Story frame 1 of the Costa Rica set (9:16, shown smaller here).',
+          image: '/wormhole/tiles/st20261026-v1-1.jpg',
+        },
+        {
+          text: 'Story frame 2 of the Costa Rica set (9:16, shown smaller here).',
+          image: '/wormhole/tiles/st20261026-v1-2.jpg',
+        },
+        {
+          text: 'Story frame 3 of the Costa Rica set (9:16, shown smaller here).',
+          image: '/wormhole/tiles/st20261026-v1-3.jpg',
+        },
+      ],
+      cta: 'Register, link sticker',
+      link: 'https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+      sources: [
+        'Costa Rica 2027 sales page: https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+      ],
+      visual_note:
+        'Frames 1, 2, 3 from /wormhole/decks/26-10-2026-ig-stories-costa-rica-2027.pptx. Post around 8:00am Pacific. No prices.',
+      note: 'Costa Rica 2027 promo, from the November planning doc (Linnea, 23 Oct). Visual made in Claude, editable deck in /wormhole/decks.',
+      status: 'draft',
+    },
+    reason: 'Added the Costa Rica 2027 feed post or story with its visuals (Linnea, 23 Oct).',
+  },
+  {
+    key: '2026-10-23 costa rica st20261029',
+    post: 'st20261029',
+    create: {
+      iso_date: '2026-10-29',
+      date_tbd: false,
+      topic: 'Costa Rica stories · The two weeks',
+      platform: 'Instagram Stories',
+      caption:
+        'No caption (Stories). Poll sticker on frame 5: "Would you rescue a failing pile?" Link sticker: https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+      slides: [
+        {
+          text: 'Story frame 4 of the Costa Rica set (9:16, shown smaller here).',
+          image: '/wormhole/tiles/st20261029-v1-1.jpg',
+        },
+        {
+          text: 'Story frame 5 of the Costa Rica set (9:16, shown smaller here).',
+          image: '/wormhole/tiles/st20261029-v1-2.jpg',
+        },
+        {
+          text: 'Story frame 7 of the Costa Rica set (9:16, shown smaller here).',
+          image: '/wormhole/tiles/st20261029-v1-3.jpg',
+        },
+        {
+          text: 'Story frame 8 of the Costa Rica set (9:16, shown smaller here).',
+          image: '/wormhole/tiles/st20261029-v1-4.jpg',
+        },
+      ],
+      cta: 'Register, link sticker',
+      link: 'https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+      sources: [
+        'Costa Rica 2027 sales page: https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+      ],
+      visual_note:
+        'Frames 4, 5, 7, 8 from /wormhole/decks/26-10-2026-ig-stories-costa-rica-2027.pptx. Post around 8:00am Pacific. No prices.',
+      note: 'Costa Rica 2027 promo, from the November planning doc (Linnea, 23 Oct). Visual made in Claude, editable deck in /wormhole/decks.',
+      status: 'draft',
+    },
+    reason: 'Added the Costa Rica 2027 feed post or story with its visuals (Linnea, 23 Oct).',
+  },
+  {
+    key: '2026-10-23 costa rica st20261102',
+    post: 'st20261102',
+    create: {
+      iso_date: '2026-11-02',
+      date_tbd: false,
+      topic: "Costa Rica stories · What's included and who can join",
+      platform: 'Instagram Stories',
+      caption:
+        'No caption (Stories). Also reshare the Armonía collab post. Link sticker: https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+      slides: [
+        {
+          text: 'Story frame 10 of the Costa Rica set (9:16, shown smaller here).',
+          image: '/wormhole/tiles/st20261102-v1-1.jpg',
+        },
+        {
+          text: 'Story frame 11 of the Costa Rica set (9:16, shown smaller here).',
+          image: '/wormhole/tiles/st20261102-v1-2.jpg',
+        },
+      ],
+      cta: 'Register, link sticker',
+      link: 'https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+      sources: [
+        'Costa Rica 2027 sales page: https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+      ],
+      visual_note:
+        'Frames 10, 11 from /wormhole/decks/26-10-2026-ig-stories-costa-rica-2027.pptx. Post around 8:00am Pacific. No prices.',
+      note: 'Costa Rica 2027 promo, from the November planning doc (Linnea, 23 Oct). Visual made in Claude, editable deck in /wormhole/decks.',
+      status: 'draft',
+    },
+    reason: 'Added the Costa Rica 2027 feed post or story with its visuals (Linnea, 23 Oct).',
+  },
+  {
+    key: '2026-10-23 costa rica st20261103',
+    post: 'st20261103',
+    create: {
+      iso_date: '2026-11-03',
+      date_tbd: false,
+      topic: 'Costa Rica stories · Early bird ends tomorrow',
+      platform: 'Instagram Stories',
+      caption:
+        'No caption (Stories). Countdown sticker to 4 November. Also reshare the feed post. Link sticker: https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+      slides: [
+        {
+          text: 'Story frame 12 of the Costa Rica set (9:16, shown smaller here).',
+          image: '/wormhole/tiles/st20261103-v1-1.jpg',
+        },
+      ],
+      cta: 'Register, link sticker',
+      link: 'https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+      sources: [
+        'Costa Rica 2027 sales page: https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+      ],
+      visual_note:
+        'Frames 12 from /wormhole/decks/26-10-2026-ig-stories-costa-rica-2027.pptx. Post around 8:00am Pacific. No prices.',
+      note: 'Costa Rica 2027 promo, from the November planning doc (Linnea, 23 Oct). Visual made in Claude, editable deck in /wormhole/decks.',
+      status: 'draft',
+    },
+    reason: 'Added the Costa Rica 2027 feed post or story with its visuals (Linnea, 23 Oct).',
+  },
+  {
+    key: '2026-10-23 costa rica st20261104',
+    post: 'st20261104',
+    create: {
+      iso_date: '2026-11-04',
+      date_tbd: false,
+      topic: 'Costa Rica stories · Early bird ends today',
+      platform: 'Instagram Stories',
+      caption:
+        'No caption (Stories). Same frame, text sticker "Ends today". Link sticker: https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+      slides: [
+        {
+          text: 'Story frame 12 of the Costa Rica set (9:16, shown smaller here).',
+          image: '/wormhole/tiles/st20261104-v1-1.jpg',
+        },
+      ],
+      cta: 'Register, link sticker',
+      link: 'https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+      sources: [
+        'Costa Rica 2027 sales page: https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+      ],
+      visual_note:
+        'Frames 12 from /wormhole/decks/26-10-2026-ig-stories-costa-rica-2027.pptx. Post around 8:00am Pacific. No prices.',
+      note: 'Costa Rica 2027 promo, from the November planning doc (Linnea, 23 Oct). Visual made in Claude, editable deck in /wormhole/decks.',
+      status: 'draft',
+    },
+    reason: 'Added the Costa Rica 2027 feed post or story with its visuals (Linnea, 23 Oct).',
+  },
+  {
+    key: '2026-10-23 costa rica st20261112',
+    post: 'st20261112',
+    create: {
+      iso_date: '2026-11-12',
+      date_tbd: false,
+      topic: 'Costa Rica stories · The weekend and a student voice',
+      platform: 'Instagram Stories',
+      caption:
+        'No caption (Stories). Also reshare the "day at the workshop" post. Link sticker: https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+      slides: [
+        {
+          text: 'Story frame 6 of the Costa Rica set (9:16, shown smaller here).',
+          image: '/wormhole/tiles/st20261112-v1-1.jpg',
+        },
+        {
+          text: 'Story frame 9 of the Costa Rica set (9:16, shown smaller here).',
+          image: '/wormhole/tiles/st20261112-v1-2.jpg',
+        },
+      ],
+      cta: 'Register, link sticker',
+      link: 'https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+      sources: [
+        'Costa Rica 2027 sales page: https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+      ],
+      visual_note:
+        'Frames 6, 9 from /wormhole/decks/26-10-2026-ig-stories-costa-rica-2027.pptx. Post around 8:00am Pacific. No prices.',
+      note: 'Costa Rica 2027 promo, from the November planning doc (Linnea, 23 Oct). Visual made in Claude, editable deck in /wormhole/decks.',
+      status: 'draft',
+    },
+    reason: 'Added the Costa Rica 2027 feed post or story with its visuals (Linnea, 23 Oct).',
+  },
+  {
+    key: '2026-10-23 costa rica st20261116',
+    post: 'st20261116',
+    create: {
+      iso_date: '2026-11-16',
+      date_tbd: false,
+      topic: 'Costa Rica stories · Built to fail',
+      platform: 'Instagram Stories',
+      caption:
+        'No caption (Stories). Also reshare the feed post. Link sticker: https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+      slides: [
+        {
+          text: 'Story frame 5 of the Costa Rica set (9:16, shown smaller here).',
+          image: '/wormhole/tiles/st20261116-v1-1.jpg',
+        },
+      ],
+      cta: 'Register, link sticker',
+      link: 'https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+      sources: [
+        'Costa Rica 2027 sales page: https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+      ],
+      visual_note:
+        'Frames 5 from /wormhole/decks/26-10-2026-ig-stories-costa-rica-2027.pptx. Post around 8:00am Pacific. No prices.',
+      note: 'Costa Rica 2027 promo, from the November planning doc (Linnea, 23 Oct). Visual made in Claude, editable deck in /wormhole/decks.',
+      status: 'draft',
+    },
+    reason: 'Added the Costa Rica 2027 feed post or story with its visuals (Linnea, 23 Oct).',
+  },
+  {
+    key: '2026-10-23 costa rica st20261123',
+    post: 'st20261123',
+    create: {
+      iso_date: '2026-11-23',
+      date_tbd: false,
+      topic: 'Costa Rica stories · Where we learn',
+      platform: 'Instagram Stories',
+      caption:
+        'No caption (Stories). Also reshare the "why we teach here" post. Link sticker: https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+      slides: [
+        {
+          text: 'Story frame 3 of the Costa Rica set (9:16, shown smaller here).',
+          image: '/wormhole/tiles/st20261123-v1-1.jpg',
+        },
+      ],
+      cta: 'Register, link sticker',
+      link: 'https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+      sources: [
+        'Costa Rica 2027 sales page: https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+      ],
+      visual_note:
+        'Frames 3 from /wormhole/decks/26-10-2026-ig-stories-costa-rica-2027.pptx. Post around 8:00am Pacific. No prices.',
+      note: 'Costa Rica 2027 promo, from the November planning doc (Linnea, 23 Oct). Visual made in Claude, editable deck in /wormhole/decks.',
+      status: 'draft',
+    },
+    reason: 'Added the Costa Rica 2027 feed post or story with its visuals (Linnea, 23 Oct).',
+  },
+  {
+    key: '2026-10-23 costa rica st20261201',
+    post: 'st20261201',
+    create: {
+      iso_date: '2026-12-01',
+      date_tbd: false,
+      topic: 'Costa Rica stories · Registration still open',
+      platform: 'Instagram Stories',
+      caption:
+        'No caption (Stories). Before refunds stop on 7 December. Link sticker: https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+      slides: [
+        {
+          text: 'Story frame 10 of the Costa Rica set (9:16, shown smaller here).',
+          image: '/wormhole/tiles/st20261201-v1-1.jpg',
+        },
+        {
+          text: 'Story frame 11 of the Costa Rica set (9:16, shown smaller here).',
+          image: '/wormhole/tiles/st20261201-v1-2.jpg',
+        },
+      ],
+      cta: 'Register, link sticker',
+      link: 'https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+      sources: [
+        'Costa Rica 2027 sales page: https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+      ],
+      visual_note:
+        'Frames 10, 11 from /wormhole/decks/26-10-2026-ig-stories-costa-rica-2027.pptx. Post around 8:00am Pacific. No prices.',
+      note: 'Costa Rica 2027 promo, from the November planning doc (Linnea, 23 Oct). Visual made in Claude, editable deck in /wormhole/decks.',
+      status: 'draft',
+    },
+    reason: 'Added the Costa Rica 2027 feed post or story with its visuals (Linnea, 23 Oct).',
+  },
+  {
+    key: '2026-10-23 costa rica st20270111',
+    post: 'st20270111',
+    create: {
+      iso_date: '2027-01-11',
+      date_tbd: false,
+      topic: 'Costa Rica stories · Countdown week',
+      platform: 'Instagram Stories',
+      caption:
+        'No caption (Stories). Countdown sticker to 18 January. Link sticker: https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+      slides: [
+        {
+          text: 'Story frame 13 of the Costa Rica set (9:16, shown smaller here).',
+          image: '/wormhole/tiles/st20270111-v1-1.jpg',
+        },
+      ],
+      cta: 'Register, link sticker',
+      link: 'https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+      sources: [
+        'Costa Rica 2027 sales page: https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+      ],
+      visual_note:
+        'Frames 13 from /wormhole/decks/26-10-2026-ig-stories-costa-rica-2027.pptx. Post around 8:00am Pacific. No prices.',
+      note: 'Costa Rica 2027 promo, from the November planning doc (Linnea, 23 Oct). Visual made in Claude, editable deck in /wormhole/decks.',
+      status: 'draft',
+    },
+    reason: 'Added the Costa Rica 2027 feed post or story with its visuals (Linnea, 23 Oct).',
+  },
+  {
     key: '2026-10-23 p18 slides v2',
     post: 'p18',
     set: {
@@ -1221,6 +1760,109 @@ export const CHANGES: Change[] = [
     },
     reason:
       'New cover (23 Oct): real vampire amoeba photos. The moon is Vampyrella lateritia with its radiating threads; the lens shows one draining an algal cell. Source: Hess, Sausen & Melkonian (2012), Shedding light on vampires, PLoS ONE 7: e31165, Fig. 2 A and H, CC BY 4.0, credited on the slide.',
+  },
+  {
+    key: '2026-10-23 p15 hold',
+    post: 'p15',
+    set: { date_tbd: true },
+    reason: "Hold (Linnea, 23 Oct): we haven't emailed Jason Gearheart yet. Was Wed 28 Oct.",
+  },
+  {
+    key: '2026-10-23 p14 slides v1',
+    post: 'p14',
+    set: {
+      slides: [
+        { text: "We're going back to Costa Rica.", image: '/wormhole/tiles/p14-v1-1.jpg' },
+        {
+          text: 'Ten days of compost piles, extracts and the microscope.',
+          image: '/wormhole/tiles/p14-v1-2.jpg',
+        },
+        {
+          text: 'Where we learn: Armonía Agricultura Orgánica, 11 km north of San José.',
+          image: '/wormhole/tiles/p14-v1-3.jpg',
+        },
+        {
+          text: 'The early bird ends 4 November. 18 to 29 January 2027. Register, link in bio.',
+          image: '/wormhole/tiles/p14-v1-4.jpg',
+        },
+      ],
+    },
+    caption: [
+      [
+        'Ready to take what you learned online into your hands? 🌿',
+        "We're going back to Costa Rica! 🌺",
+      ],
+      [
+        'runs January 18 to 25, 2027. Join the interest list at the link in bio.',
+        'runs January 18 to 29, 2027. The early bird ends November 4. Register now, link in bio.',
+      ],
+    ],
+    reason:
+      'New slides (Linnea, 23 Oct) in the Costa Rica look: real workshop photos, flat colour, flower cutouts. Deck: /wormhole/decks/26-10-2026-costa-rica-going-back.pptx. Dates fixed to 18 to 29 January, CTA is Register.',
+  },
+  {
+    key: '2026-10-23 p16 slides v1',
+    post: 'p16',
+    set: {
+      slides: [
+        { text: 'Every event in one place.', image: '/wormhole/tiles/p16-v1-1.jpg' },
+        {
+          text: "What you'll find: free webinars, in-person workshops, course start dates.",
+          image: '/wormhole/tiles/p16-v1-2.jpg',
+        },
+        {
+          text: 'soilfoodweb.com/events [VERIFY URL]. Link in bio.',
+          image: '/wormhole/tiles/p16-v1-3.jpg',
+        },
+      ],
+    },
+    reason:
+      'New slides (Linnea, 23 Oct) in the Costa Rica look: real workshop photos, flat colour, flower cutouts. Deck: /wormhole/decks/29-10-2026-every-event.pptx.',
+  },
+  {
+    key: '2026-10-23 p17 slides v1',
+    post: 'p17',
+    set: {
+      slides: [
+        { text: 'Fun Soil News, October 2026.', image: '/wormhole/tiles/p17-v1-1.jpg' },
+        {
+          text: 'Australia: six years after replanting, the fungi in restored farmland were still recovering. Flinders University News, 20 Oct 2026 [VERIFY]',
+          image: '/wormhole/tiles/p17-v1-2.jpg',
+        },
+        {
+          text: 'Forests: climate warming can slow how tree roots feed soil microbes. Phys.org, Oct 2026 [VERIFY]',
+          image: '/wormhole/tiles/p17-v1-3.jpg',
+        },
+        {
+          text: 'Biochar: "bomb carbon" in wood shavings measures how long biochar stays in soil. Phys.org, Oct 2026 [VERIFY]',
+          image: '/wormhole/tiles/p17-v1-4.jpg',
+        },
+      ],
+    },
+    reason:
+      'New slides (Linnea, 23 Oct) in the Costa Rica look: real workshop photos, flat colour, flower cutouts. Deck: /wormhole/decks/30-10-2026-fun-soil-news-october.pptx.',
+  },
+  {
+    key: '2026-10-23 p19 slides v1',
+    post: 'p19',
+    set: {
+      slides: [
+        {
+          text: 'Last call for the early bird: Foundation Courses and the Compost Intensive.',
+          image: '/wormhole/tiles/p19-v1-1.jpg',
+        },
+        {
+          text: 'Foundation Courses: online, at your own pace.',
+          image: '/wormhole/tiles/p19-v1-2.jpg',
+        },
+        {
+          text: 'Compost Intensive: open to anyone, starts 18 January. Early bird for both ends 1 November.',
+          image: '/wormhole/tiles/p19-v1-3.jpg',
+        },
+      ],
+    },
+    reason:
+      'New slides (Linnea, 23 Oct) in the Costa Rica look: real workshop photos, flat colour, flower cutouts. Deck: /wormhole/decks/01-11-2026-early-bird-last-call.pptx.',
   },
 ];
 
