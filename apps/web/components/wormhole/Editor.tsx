@@ -40,9 +40,14 @@ function AutoText({
   );
 }
 
+/** The first web link in the visual note: the post's Canva design. */
+function designLink(note: string): string {
+  return note.match(/https?:\/\/\S+/)?.[0] ?? '';
+}
+
 /** Everything about one post, edited in place under its preview. */
 export function Editor({ post, onChange }: { post: WormholePost; onChange: (p: Patch) => void }) {
-  const [uploading, setUploading] = useState<number | 'many' | null>(null);
+  const [uploading, setUploading] = useState<number | null>(null);
   const [error, setError] = useState('');
   const [drag, setDrag] = useState<number | null>(null);
   const [history, setHistory] = useState<
@@ -70,26 +75,6 @@ export function Editor({ post, onChange }: { post: WormholePost; onChange: (p: P
     }
   }
 
-  /** Several Canva pages at once: fill slides without images, then add more. */
-  async function putMany(files: File[]) {
-    setError('');
-    setUploading('many');
-    try {
-      const next = [...slides];
-      for (const file of files) {
-        const id = await uploadImage(file);
-        const free = next.findIndex((s) => !s.image);
-        if (free >= 0) next[free] = { ...next[free]!, image: id };
-        else next.push({ text: '', image: id });
-      }
-      setSlides(next);
-    } catch (e) {
-      setError((e as Error).message);
-    } finally {
-      setUploading(null);
-    }
-  }
-
   function move(from: number, to: number) {
     if (to < 0 || to >= slides.length || from === to) return;
     const next = [...slides];
@@ -101,6 +86,23 @@ export function Editor({ post, onChange }: { post: WormholePost; onChange: (p: P
   async function loadHistory() {
     const res = await fetch(`/api/wormhole/posts/${post.id}/versions`);
     if (res.ok) setHistory((await res.json()).versions);
+  }
+
+  const [design, setDesignText] = useState(() => designLink(post.visual_note));
+  useEffect(() => setDesignText(designLink(post.visual_note)), [post.id]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  /** Keeps the Canva link as the first line of the visual note, replacing the old one. */
+  function setDesign(text: string) {
+    setDesignText(text);
+    const v = text.trim();
+    if (v && !/^https?:\/\/\S+$/.test(v)) return; // half-typed: wait for a whole link
+    const old = designLink(post.visual_note);
+    const rest = post.visual_note
+      .split('\n')
+      .filter((l) => !l.startsWith('Canva: ') && !(old && l.includes(old)))
+      .join('\n')
+      .trim();
+    onChange({ visual_note: v ? `Canva: ${v}${rest ? `\n${rest}` : ''}` : rest });
   }
 
   function images(e: React.DragEvent): File[] {
@@ -155,35 +157,24 @@ export function Editor({ post, onChange }: { post: WormholePost; onChange: (p: P
 
       <div>
         <span className={label}>Slides</span>
-        <div
-          onDragOver={(e) => e.preventDefault()}
-          onDrop={(e) => {
-            e.preventDefault();
-            const files = images(e);
-            if (files.length) putMany(files);
-          }}
-          className="mt-1 rounded-lg border-2 border-dashed border-neutral-300 bg-white px-4 py-4 text-center text-base text-neutral-600"
-        >
-          {uploading === 'many' ? (
-            'Uploading…'
-          ) : (
-            <>
-              Drop all the Canva pages here at once, or{' '}
-              <label className="cursor-pointer font-semibold text-[#2f6b46] underline">
-                choose files
-                <input
-                  type="file"
-                  accept="image/*"
-                  multiple
-                  className="hidden"
-                  onChange={(e) => {
-                    const files = Array.from(e.target.files ?? []);
-                    e.target.value = '';
-                    if (files.length) putMany(files);
-                  }}
-                />
-              </label>
-            </>
+        <div className="mt-1 flex gap-2">
+          <input
+            className={field.replace('mt-1 ', '')}
+            type="url"
+            inputMode="url"
+            placeholder="Paste the Canva link for these slides"
+            value={design}
+            onChange={(e) => setDesign(e.target.value)}
+          />
+          {/^https?:\/\/\S+$/.test(design.trim()) && (
+            <a
+              href={design.trim()}
+              target="_blank"
+              rel="noreferrer"
+              className="shrink-0 self-center rounded-lg border border-[#2f6b46] px-4 py-2 font-semibold text-[#2f6b46]"
+            >
+              Open
+            </a>
           )}
         </div>
 
@@ -208,7 +199,10 @@ export function Editor({ post, onChange }: { post: WormholePost; onChange: (p: P
               className={`flex gap-3 rounded-lg border bg-white p-3 ${drag === i ? 'border-[#2f6b46] opacity-60' : 'border-neutral-200'}`}
             >
               <div className="flex flex-col items-center gap-1">
-                <span className="cursor-grab select-none text-lg text-neutral-400" title="Drag to reorder">
+                <span
+                  className="cursor-grab select-none text-lg text-neutral-400"
+                  title="Drag to reorder"
+                >
                   ⋮⋮
                 </span>
                 <span className="text-sm font-semibold text-neutral-600">{i + 1}</span>
@@ -295,7 +289,11 @@ export function Editor({ post, onChange }: { post: WormholePost; onChange: (p: P
       <div className="grid gap-4 sm:grid-cols-2">
         <label className="block">
           <span className={label}>CTA</span>
-          <input className={field} value={post.cta} onChange={(e) => onChange({ cta: e.target.value })} />
+          <input
+            className={field}
+            value={post.cta}
+            onChange={(e) => onChange({ cta: e.target.value })}
+          />
         </label>
         <label className="block">
           <span className={label}>Link</span>
@@ -325,7 +323,10 @@ export function Editor({ post, onChange }: { post: WormholePost; onChange: (p: P
 
       <div>
         {history === null ? (
-          <button onClick={loadHistory} className="text-base font-semibold text-[#2f6b46] underline">
+          <button
+            onClick={loadHistory}
+            className="text-base font-semibold text-[#2f6b46] underline"
+          >
             Show every saved version
           </button>
         ) : history.length === 0 ? (
