@@ -5,7 +5,8 @@ import { imageUrl } from './util';
 
 /**
  * One 4:5 slide. An uploaded image wins. Without one, the slide text is set
- * as a clean white tile so every post is readable from day one.
+ * on cream in the brand fonts and marked "No visual yet", so a missing visual
+ * is easy to spot and never mistaken for a finished tile.
  */
 export function SlideView({ slide, fallback }: { slide: Slide; fallback: string }) {
   if (slide.image) {
@@ -27,33 +28,39 @@ export function SlideView({ slide, fallback }: { slide: Slide; fallback: string 
   const size = len < 50 ? 8.5 : len < 110 ? 6.6 : len < 220 ? 5.2 : 4.2;
 
   return (
-    <div className="absolute inset-0 bg-white" style={{ containerType: 'inline-size' }}>
-    <div className="flex h-full flex-col p-[8cqw]">
-      <p
-        className="font-semibold uppercase text-black"
-        style={{ fontSize: '2.6cqw', letterSpacing: '0.32em' }}
-      >
-        Soil Food Web
-      </p>
-      <div className="flex flex-1 flex-col justify-center">
+    <div
+      className="absolute inset-0 bg-[#F4F1EA]"
+      style={{ containerType: 'inline-size', fontFamily: 'var(--font-body), sans-serif' }}
+    >
+      <div className="flex h-full flex-col p-[8cqw]">
         <p
-          className={`whitespace-pre-line font-semibold leading-[1.15] [overflow-wrap:anywhere] ${empty ? 'text-neutral-400' : 'text-black'}`}
-          style={{ fontSize: `${size}cqw` }}
+          className="self-start rounded-full bg-[#B23A2E] px-[3cqw] py-[1cqw] font-semibold uppercase text-white"
+          style={{ fontSize: '2.6cqw', letterSpacing: '0.18em' }}
         >
-          {headline}
+          No visual yet
         </p>
-        {small && (
-          <p className="mt-[4cqw] whitespace-pre-line text-neutral-700" style={{ fontSize: '4cqw' }}>
-            {small}
+        <div className="flex flex-1 flex-col justify-center">
+          <p
+            className={`whitespace-pre-line font-semibold leading-[1.15] [overflow-wrap:anywhere] ${empty ? 'text-neutral-400' : 'text-[#4F3433]'}`}
+            style={{ fontSize: `${size}cqw`, fontFamily: 'var(--font-heading), sans-serif' }}
+          >
+            {headline}
           </p>
-        )}
-        {empty && (
-          <p className="mt-[4cqw] text-neutral-400" style={{ fontSize: '3.6cqw' }}>
-            Visual coming. Drop the Canva export here in Edit.
-          </p>
-        )}
+          {small && (
+            <p
+              className="mt-[4cqw] whitespace-pre-line text-[#22371F]"
+              style={{ fontSize: '4cqw' }}
+            >
+              {small}
+            </p>
+          )}
+          {empty && (
+            <p className="mt-[4cqw] text-neutral-400" style={{ fontSize: '3.6cqw' }}>
+              Visual coming. Drop the Canva export here in Edit.
+            </p>
+          )}
+        </div>
       </div>
-    </div>
     </div>
   );
 }

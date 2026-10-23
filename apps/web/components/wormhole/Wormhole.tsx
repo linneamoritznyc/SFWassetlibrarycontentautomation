@@ -12,6 +12,9 @@ type SaveState = 'saving' | 'saved' | 'error';
 type Patch = Partial<WormholePost>;
 
 const POLL_MS = 3000;
+
+/** A post none of whose slides has an image yet. */
+const noVisual = (p: WormholePost) => !p.slides.some((s) => s.image);
 const SAVE_DELAY = 800;
 
 export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | null }) {
@@ -21,6 +24,7 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
   const [view, setView] = useState<View>('instagram');
   const [week, setWeek] = useState<string>('all');
   const [status, setStatus] = useState<'all' | WormholeStatus>('all');
+  const [missingOnly, setMissingOnly] = useState(false);
   const [editing, setEditing] = useState<string | null>(null);
   const [saveState, setSaveState] = useState<Record<string, SaveState>>({});
   const [big, setBig] = useState(false);
@@ -141,10 +145,14 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
   const visible = useMemo(
     () =>
       posts.filter(
-        (p) => (week === 'all' || weekOf(p) === week) && (status === 'all' || p.status === status),
+        (p) =>
+          (week === 'all' || weekOf(p) === week) &&
+          (status === 'all' || p.status === status) &&
+          (!missingOnly || noVisual(p)),
       ),
-    [posts, week, status],
+    [posts, week, status, missingOnly],
   );
+  const missingCount = useMemo(() => posts.filter(noVisual).length, [posts]);
 
   async function newPost() {
     const iso = week !== 'all' && week !== 'tbd' ? week : new Date().toISOString().slice(0, 10);
@@ -361,6 +369,19 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
             <span className="text-base text-neutral-500">
               {visible.length} post{visible.length === 1 ? '' : 's'}
             </span>
+            {(missingCount > 0 || missingOnly) && (
+              <button
+                onClick={() => setMissingOnly(!missingOnly)}
+                aria-pressed={missingOnly}
+                className={`rounded-lg px-3 py-2 text-base font-semibold ${
+                  missingOnly ? 'bg-[#B23A2E] text-white' : 'border border-[#B23A2E] text-[#B23A2E]'
+                }`}
+              >
+                {missingOnly
+                  ? 'Showing posts with no visual · show all'
+                  : `${missingCount} post${missingCount === 1 ? '' : 's'} with no visual`}
+              </button>
+            )}
             <span className="ml-auto text-sm text-neutral-500">
               Editing as <strong className="text-black">{editor}</strong> ·{' '}
               <button onClick={signOut} className="underline">
