@@ -2428,6 +2428,53 @@ export const CHANGES: Change[] = [
     reason:
       'Removed two empty slides (no text, no image, 23 Oct): this LinkedIn post is a single image.',
   },
+  {
+    key: '2026-10-23 pl20261102 slides v1',
+    post: 'pl20261102',
+    set: {
+      slides: [
+        {
+          text: 'Bacterial feeder: open, tube-shaped mouth',
+          image: '/wormhole/tiles/pl20261102-v1-1.jpg',
+        },
+        {
+          text: 'Fungal feeder: a thin stylet to pierce hyphae',
+          image: '/wormhole/tiles/pl20261102-v1-2.jpg',
+        },
+        {
+          text: 'Root feeder: a heavy stylet to pierce roots',
+          image: '/wormhole/tiles/pl20261102-v1-3.jpg',
+        },
+        { text: 'Predator: teeth or a wide mouth', image: '/wormhole/tiles/pl20261102-v1-4.jpg' },
+        { text: 'Read the mouth, know the job.', image: '/wormhole/tiles/pl20261102-v1-5.jpg' },
+      ],
+    },
+    reason:
+      'New Reel cards (Linnea, 23 Oct): real micrographs in lenses with labelled arrows; 1080 x 1920 versions in the deck: /wormhole/decks/02-11-2026-read-the-drop-nematode-mouths-v1.pptx. Micrographs (CC BY 4.0, cropped, credited on each slide): Tandingan De Ley et al. 2023 PLOS ONE; Munawar et al. 2024 Microorganisms; Handoo et al. 2021 Plants; Altash et al. 2024 ZooKeys.',
+  },
+  {
+    key: '2026-10-23 pl20261221 slides v1',
+    post: 'pl20261221',
+    set: {
+      slides: [
+        {
+          text: 'Fungal hypha: same width along its whole length.',
+          image: '/wormhole/tiles/pl20261221-v1-1.jpg',
+        },
+        { text: 'Parallel walls, often branching.', image: '/wormhole/tiles/pl20261221-v1-2.jpg' },
+        {
+          text: 'Debris: irregular edges, changing width.',
+          image: '/wormhole/tiles/pl20261221-v1-3.jpg',
+        },
+        {
+          text: 'Actinomycetes: much thinner threads.',
+          image: '/wormhole/tiles/pl20261221-v1-4.jpg',
+        },
+      ],
+    },
+    reason:
+      'New Reel cards (Linnea, 23 Oct): real micrographs in lenses with labelled arrows; 1080 x 1920 versions in the deck: /wormhole/decks/21-12-2026-read-the-drop-hyphae-or-debris-v1.pptx. Micrographs (CC BY 4.0, cropped, credited on each slide): Gondal, Rauf and Naz 2019 Scientific Reports; Matthew Rozanoff / iNaturalist (the debris photo is a squash of an earth-fan fungus, not a soil extract); Du et al. 2025 PLOS ONE.',
+  },
 ];
 
 const editorOf = (c: Change) => `Change: ${c.key}`;

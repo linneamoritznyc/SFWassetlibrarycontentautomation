@@ -203,16 +203,6 @@ function Viewer({
           </span>
         )}
       </div>
-      <div
-        className="mt-3 w-full max-w-[420px] text-center text-sm text-white/80"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <p className="font-semibold text-white">{story.topic}</p>
-        <p>
-          Frame {pos.frame + 1} of {frames.length} · story {pos.story + 1} of {stories.length}
-        </p>
-        {frame.text && <p className="mt-1 whitespace-pre-line text-white/70">{frame.text}</p>}
-      </div>
     </div>
   );
 }

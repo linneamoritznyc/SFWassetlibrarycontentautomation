@@ -1223,3 +1223,102 @@ def regenerative(p):
     p.cut(0, f"{SOILC}/dark-soil-clump.png", 140, 760, w=420)
     p.cut(0, f"{SOILC}/fern-fiddlehead.png", 560, 640, h=520)
     p.logo(0)
+
+
+# ================================================================== Read the drop: nematode mouthparts (Reel)
+NEMS = [  # (slide text, file, lens center, zoom, short label, credit)
+    ("Bacterial feeder: open, tube-shaped mouth", f"{CC}/bacterial-feeding-nematode-2-crop.jpg", (0.48, 0.42), 1.35,
+     "bacterial feeder", "Tandingan De Ley et al. 2023, PLOS ONE"),
+    ("Fungal feeder: a thin stylet to pierce hyphae", f"{CC}/fungal-feeding-nematode-1-crop.jpg", (0.47, 0.45), 1.0,
+     "fungal feeder", "Munawar et al. 2024, Microorganisms"),
+    ("Root feeder: a heavy stylet to pierce roots", f"{CC}/plant-parasitic-nematode-1-crop.jpg", (0.5, 0.29), 1.0,
+     "root feeder", "Handoo et al. 2021, Plants"),
+    ("Predator: teeth or a wide mouth", f"{CC}/predatory-nematode-2-crop.jpg", (0.44, 0.5), 1.15,
+     "predator", "Altash et al. 2024, ZooKeys"),
+]
+NEM_POINT = [("the open mouth tube", (0.5, 0.3)), ("the thin stylet", (0.5, 0.45)), ("the heavy stylet with knobs", (0.47, 0.42)),
+             ("a wide mouth with a tooth", (0.55, 0.42))]
+
+
+@post("pl20261102", "2026-11-02", "read-the-drop-nematode-mouths-v1", 5, DEEP, reel=True)
+def nematode_mouths(p):
+    h = p.h
+    mid = h * 0.5
+    for k, (text, src, c, z, short, cred) in enumerate(NEMS):
+        p.heading(k, text, y=120, size=86)
+        dia = 580
+        x, y, w, hh = p.lens(k, src, 540, mid, dia, center=c, zoom=z)
+        lab, (fx, fy) = NEM_POINT[k]
+        p.label(k, lab, 760, y - 40, w=280)
+        p.arrow(k, (800, y + 40), (x + w * fx + 30, y + hh * fy), bend=0.3, seed=k + 1)
+        row_y = y + hh + 30
+        for j, (_, s2, c2, z2, _, _) in enumerate(NEMS):
+            cx = 150 + j * 170
+            p.lens(k, s2, cx, row_y + 75, 140 if j != k else 160, center=c2, zoom=z2, name=f"small-{j + 1}")
+            if j == k:
+                p.drawn(k, 190, 190, lambda dr, s: dr.ellipse((4 * s, 4 * s, 186 * s, 186 * s),
+                                                               outline=hexrgb(CREAMT) + (255,), width=round(5 * s)),
+                        cx - 95, row_y - 20, name="ring")
+        p.small(k, f"Micrograph: {cred}, CC BY 4.0 (cropped)", y=h - 70, w=640)
+    p.heading(4, "Read the mouth, know the job.", y=120, size=96)
+    top = mid - 330
+    for j, (_, s2, c2, z2, short, _) in enumerate(NEMS):
+        cx, cy = 270 + (j % 2) * 420, top + 150 + (j // 2) * 390
+        p.lens(4, s2, cx, cy, 290, center=c2, zoom=z2)
+        p.label(4, short, cx - 160, cy + 158, w=320, align="center")
+    p.small(4, "Micrographs: Tandingan De Ley 2023, Munawar 2024, Handoo 2021, Altash 2024; CC BY 4.0", y=h - 70, w=680)
+    for k in range(5):
+        p.logo(k)
+
+
+# ================================================================== Read the drop: hyphae or debris? (Reel)
+HYPHA = f"{CC}/fungal-hypha-1.jpg"
+DEBRIS = f"{CC}/organic-matter-debris-1.jpg"
+ACTINO = f"{CC}/actinomycetes-1-crop.jpg"
+
+
+@post("pl20261221", "2026-12-21", "read-the-drop-hyphae-or-debris-v1", 4, DEEP, reel=True)
+def hyphae_or_debris(p):
+    h = p.h
+    mid = h * 0.53
+    dia = 600
+
+    def pt(box, fx, fy):
+        x, y, w, hh = box
+        return (x + w * fx, y + hh * fy)
+
+    hb = p.heading(0, "Fungal hypha: same width along its whole length.", y=120, size=86)
+    cy = max(mid, hb + 120 + dia / 2)
+    b = p.lens(0, HYPHA, 540, cy, dia, center=(0.45, 0.35), zoom=1.2)
+    p.label(0, "same width here", 80, b[1] - 60, w=300)
+    p.arrow(0, (200, b[1] + 10), pt(b, 0.22, 0.37), bend=-0.25, seed=1)
+    p.label(0, "and here", 800, b[1] - 60, w=220)
+    p.arrow(0, (840, b[1] + 10), pt(b, 0.8, 0.37), bend=0.25, seed=2)
+    p.small(0, "Micrograph: Gondal, Rauf and Naz 2019, Scientific Reports, CC BY 4.0 (cropped)", y=h - 70, w=680)
+
+    hb = p.heading(1, "Parallel walls, often branching.", y=120, size=92)
+    cy = max(mid, hb + 120 + dia / 2)
+    b = p.lens(1, HYPHA, 540, cy, dia, center=(0.45, 0.35), zoom=1.2)
+    p.label(1, "a branch", 790, b[1] + b[3] - 140, w=220)
+    p.arrow(1, (820, b[1] + b[3] - 150), pt(b, 0.47, 0.3), bend=0.3, seed=3)
+    p.label(1, "parallel walls", 70, b[1] + b[3] - 110, w=260)
+    p.arrow(1, (150, b[1] + b[3] - 120), pt(b, 0.44, 0.62), bend=-0.3, seed=4)
+    p.small(1, "Micrograph: Gondal, Rauf and Naz 2019, Scientific Reports, CC BY 4.0 (cropped)", y=h - 70, w=680)
+
+    hb = p.heading(2, "Debris: irregular edges, changing width.", y=120, size=92)
+    cy = max(mid, hb + 120 + dia / 2)
+    b = p.lens(2, DEBRIS, 540, cy, dia, center=(0.45, 0.55), zoom=1.3)
+    p.label(2, "debris", 850, b[1] + b[3] - 120, w=180)
+    p.arrow(2, (880, b[1] + b[3] - 125), pt(b, 0.66, 0.7), bend=0.3, seed=5)
+    p.label(2, "a hypha, for comparison", 60, b[1] - 70, w=300)
+    p.arrow(2, (160, b[1] + 20), pt(b, 0.4, 0.5), bend=-0.25, seed=6)
+    p.small(2, "Photo: Matthew Rozanoff / iNaturalist, CC BY 4.0 (cropped)", y=h - 70, w=680)
+
+    hb = p.heading(3, "Actinomycetes: much thinner threads.", y=120, size=92)
+    cy = max(mid, hb + 120 + dia / 2)
+    b = p.lens(3, ACTINO, 540, cy, dia, center=(0.6, 0.5), zoom=1.0)
+    p.label(3, "thin, branching threads", 760, b[1] - 60, w=280)
+    p.arrow(3, (820, b[1] + 20), pt(b, 0.62, 0.35), bend=0.25, seed=7)
+    p.small(3, "Micrograph: Du et al. 2025, PLOS ONE, CC BY 4.0 (cropped)", y=h - 70, w=680)
+    for k in range(4):
+        p.logo(k)
