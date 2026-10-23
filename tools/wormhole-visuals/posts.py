@@ -84,18 +84,25 @@ def spooky_cloud(cw, ch, seed, dark=(30, 40, 34), lit=(150, 160, 150), opacity=0
     return Image.fromarray(out, "RGBA").filter(ImageFilter.GaussianBlur(2.5))
 
 
-@post("p18", "2026-10-31", "vampire-amoeba-reel-cover-v2", 1)
+VAMP = "/home/user/photos/vampyrella-download"
+VAMP_CREDIT = ("Vampyrella lateritia. Photos: Hess, Sausen & Melkonian, PLoS ONE 2012, CC BY 4.0")
+
+
+@post("p18", "2026-10-31", "vampire-amoeba-reel-cover-v3", 1)
 def p18(d):
     d.bg(0, gradient(W, H, [(0, "#101A12"), (0.6, "#1D3020"), (1, "#2C4128")], 181))
-    moon = round_photo(f"{MICRO}/testate-amoeba-encysting-40x-1600.jpg", 330, ring=0)
-    d.put(0, "moon-testate-amoeba", moon, 800, 300, off=(0, 0), blur=24, alpha=0.25)
+    # the moon is a real vampire amoeba (Vampyrella lateritia) with its fine radiating threads
+    moon = round_photo(f"{VAMP}/vampyrella-lateritia-hess-2012-A.jpg", 360, ring=0)
+    d.put(0, "moon-vampyrella", moon, 790, 310, off=(0, 0), blur=24, alpha=0.25)
     # clouds drifting across the moon
-    d.put(0, "cloud-1", spooky_cloud(620, 230, 4), 790, 420, shadowed=False)
-    d.put(0, "cloud-2", spooky_cloud(460, 130, 12, opacity=0.8), 860, 230, shadowed=False)
-    d.put(0, "cloud-3", spooky_cloud(380, 140, 21, lit=(95, 108, 98), opacity=0.7), 560, 560, shadowed=False)
+    d.put(0, "cloud-1", spooky_cloud(620, 230, 4), 790, 450, shadowed=False)
+    d.put(0, "cloud-2", spooky_cloud(460, 130, 12, opacity=0.8), 880, 220, shadowed=False)
+    d.put(0, "cloud-3", spooky_cloud(380, 140, 21, lit=(95, 108, 98), opacity=0.7), 520, 560, shadowed=False)
     d.put(0, "fungal-threads", hyphae(1080, 520, 18, color="#D9D2BE", n=5, width=2.0), 540, 1080, shadowed=False)
-    d.put(0, "naked-amoeba", cutout(f"{MICRO}/cutout-2.png", w=520), 560, 900, rot=6)
+    # the bite: a vampire amoeba draining an algal cell
+    d.put(0, "vampyrella-feeding", lens(f"{VAMP}/vampyrella-lateritia-feeding-hess-2012-H.jpg", 560), 560, 930)
     head(d, 0, "Vampire amoeba.", CREAM, y=150, size=120, w=520, h=300, shade=True)
+    small(d, 0, VAMP_CREDIT, CREAM, 1268, size=22, w=820, h=60, x=180, shade=True)
     d.logo(0, "bl")
 
 

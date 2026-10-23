@@ -1213,6 +1213,15 @@ export const CHANGES: Change[] = [
     reason:
       'New cover (23 Oct): clouds drifting across the moon, headline moved up so it no longer covers the amoeba. The amoeba is a naked amoeba from our microscopy, not a vampyrellid: swap in a real vampyrellid image before posting.',
   },
+  {
+    key: '2026-10-23 p18 slides v3',
+    post: 'p18',
+    set: {
+      slides: [{ text: 'Vampire amoeba.', image: '/wormhole/tiles/p18-v3-1.jpg' }],
+    },
+    reason:
+      'New cover (23 Oct): real vampire amoeba photos. The moon is Vampyrella lateritia with its radiating threads; the lens shows one draining an algal cell. Source: Hess, Sausen & Melkonian (2012), Shedding light on vampires, PLoS ONE 7: e31165, Fig. 2 A and H, CC BY 4.0, credited on the slide.',
+  },
 ];
 
 const editorOf = (c: Change) => `Change: ${c.key}`;
