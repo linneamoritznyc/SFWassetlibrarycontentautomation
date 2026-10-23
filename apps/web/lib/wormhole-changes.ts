@@ -1752,6 +1752,12 @@ export const CHANGES: Change[] = [
     reason:
       'New cover (23 Oct): clouds drifting across the moon, headline moved up so it no longer covers the amoeba. The amoeba is a naked amoeba from our microscopy, not a vampyrellid: swap in a real vampyrellid image before posting.',
   },
+  {
+    key: '2026-10-23 p15 hold',
+    post: 'p15',
+    set: { date_tbd: true },
+    reason: "Hold (Linnea, 23 Oct): we haven't emailed Jason Gearheart yet. Was Wed 28 Oct.",
+  },
 ];
 
 const editorOf = (c: Change) => `Change: ${c.key}`;
