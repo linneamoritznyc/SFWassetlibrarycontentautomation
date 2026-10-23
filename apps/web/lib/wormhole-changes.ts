@@ -1743,6 +1743,15 @@ export const CHANGES: Change[] = [
     },
     reason: 'Added the Costa Rica 2027 feed post or story with its visuals (Linnea, 23 Oct).',
   },
+  {
+    key: '2026-10-23 p18 slides v2',
+    post: 'p18',
+    set: {
+      slides: [{ text: 'Vampire amoeba.', image: '/wormhole/tiles/p18-v2-1.jpg' }],
+    },
+    reason:
+      'New cover (23 Oct): clouds drifting across the moon, headline moved up so it no longer covers the amoeba. The amoeba is a naked amoeba from our microscopy, not a vampyrellid: swap in a real vampyrellid image before posting.',
+  },
 ];
 
 const editorOf = (c: Change) => `Change: ${c.key}`;
