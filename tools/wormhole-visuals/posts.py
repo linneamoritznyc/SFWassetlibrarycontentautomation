@@ -61,14 +61,41 @@ def d24(d):
     d.logo(0, "tr")
 
 
-@post("p18", "2026-10-31", "vampire-amoeba-reel-cover", 1)
+def spooky_cloud(cw, ch, seed, dark=(30, 40, 34), lit=(150, 160, 150), opacity=0.92):
+    """A drifting night cloud from layered noise inside a soft oval: dark body, moonlit top edge."""
+    import numpy as np
+    from PIL import Image
+    rng = np.random.default_rng(seed)
+    n = np.zeros((ch, cw), np.float32)
+    for octave, amp in [(6, 1.0), (12, 0.5), (24, 0.25), (48, 0.12)]:
+        g = rng.random((max(2, ch * octave // cw + 2), octave + 2)).astype(np.float32)
+        n += amp * np.asarray(Image.fromarray((g * 255).astype(np.uint8)).resize((cw, ch), Image.BICUBIC),
+                              np.float32) / 255
+    n /= 1.87
+    yy, xx = np.mgrid[0:ch, 0:cw].astype(np.float32)
+    env = np.clip(1 - ((xx - cw / 2) / (cw / 2)) ** 2 - ((yy - ch * 0.55) / (ch * 0.45)) ** 2, 0, 1)
+    a = np.clip((n * 0.9 + env * 0.9 - 0.95) * 4.0, 0, 1) * opacity
+    # light on the upper edge: where alpha rises going down
+    edge = np.clip(a - np.roll(a, 10, axis=0), 0, 1)
+    t = np.clip(edge * 2.2, 0, 1)[..., None]
+    rgb = np.array(dark, np.float32) * (1 - t) + np.array(lit, np.float32) * t
+    out = np.dstack([rgb, a[..., None] * 255]).astype(np.uint8)
+    from PIL import ImageFilter
+    return Image.fromarray(out, "RGBA").filter(ImageFilter.GaussianBlur(2.5))
+
+
+@post("p18", "2026-10-31", "vampire-amoeba-reel-cover-v2", 1)
 def p18(d):
     d.bg(0, gradient(W, H, [(0, "#101A12"), (0.6, "#1D3020"), (1, "#2C4128")], 181))
     moon = round_photo(f"{MICRO}/testate-amoeba-encysting-40x-1600.jpg", 330, ring=0)
     d.put(0, "moon-testate-amoeba", moon, 800, 300, off=(0, 0), blur=24, alpha=0.25)
+    # clouds drifting across the moon
+    d.put(0, "cloud-1", spooky_cloud(620, 230, 4), 790, 420, shadowed=False)
+    d.put(0, "cloud-2", spooky_cloud(460, 130, 12, opacity=0.8), 860, 230, shadowed=False)
+    d.put(0, "cloud-3", spooky_cloud(380, 140, 21, lit=(95, 108, 98), opacity=0.7), 560, 560, shadowed=False)
     d.put(0, "fungal-threads", hyphae(1080, 520, 18, color="#D9D2BE", n=5, width=2.0), 540, 1080, shadowed=False)
-    d.put(0, "naked-amoeba", cutout(f"{MICRO}/cutout-2.png", w=520), 520, 860, rot=6)
-    head(d, 0, "Vampire amoeba.", CREAM, y=560, size=120, w=600, h=300, shade=True)
+    d.put(0, "naked-amoeba", cutout(f"{MICRO}/cutout-2.png", w=520), 560, 900, rot=6)
+    head(d, 0, "Vampire amoeba.", CREAM, y=150, size=120, w=520, h=300, shade=True)
     d.logo(0, "bl")
 
 
