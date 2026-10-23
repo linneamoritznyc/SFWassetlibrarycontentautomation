@@ -2,12 +2,14 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { STATUSES, type WormholePost, type WormholeStatus } from '@/lib/wormhole-types';
+import type { ScoutStory } from '@/lib/scout';
 import { Editor } from './Editor';
+import { News } from './News';
 import { DateChip, GridTile, InstagramPost, LinkedInPost, PostBar } from './Posts';
 import { Stories, isStory } from './Stories';
 import { byDate, toDocHtml, weekLabel, weekOf } from './util';
 
-type View = 'instagram' | 'grid' | 'stories' | 'linkedin';
+type View = 'instagram' | 'grid' | 'stories' | 'linkedin' | 'news';
 type SaveState = 'saving' | 'saved' | 'error';
 type Patch = Partial<WormholePost>;
 
@@ -177,6 +179,53 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
     );
   }
 
+  /** A Scout story becomes a draft post with no date, its link as the source. */
+  async function planStory(s: ScoutStory) {
+    const today = new Date().toISOString().slice(0, 10);
+    const found = s.published ? s.published.slice(0, 10) : 'date unknown';
+    const res = await fetch('/api/wormhole/posts', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        iso_date: today,
+        date_tbd: true,
+        topic: `Soil news: ${s.title}`.slice(0, 200),
+        platform: 'Instagram, Facebook, LinkedIn',
+        sources: [s.url],
+        caption: [
+          '[Hook: the finding in one plain line.]',
+          '[One concrete detail from the study itself: the organism, the place, the number.]',
+          '[Why it matters for living soil.]',
+          `Source: ${s.source}, ${found}.`,
+          '#SoilFoodWeb #SoilBiology #SoilHealth',
+        ].join('\n\n'),
+        visual_note: [
+          `Found by Scout on ${today} in ${s.feed} (${s.region}).`,
+          'Read the study itself before writing; press releases overstate. Every number needs its source in the notes.',
+          s.summary ? `From the feed: ${s.summary}` : '',
+        ]
+          .filter(Boolean)
+          .join(' '),
+      }),
+    });
+    if (!res.ok) throw new Error(`The server said ${res.status}`);
+    const { post } = await res.json();
+    setPosts((prev) => [...prev, post].sort(byDate));
+    openPost(post.id, true);
+  }
+
+  function openPost(id: string, edit = false) {
+    setWeek('all');
+    setStatus('all');
+    setMissingOnly(false);
+    setView('instagram');
+    if (edit) setEditing(id);
+    setTimeout(
+      () => document.getElementById(`post-${id}`)?.scrollIntoView({ behavior: 'smooth' }),
+      150,
+    );
+  }
+
   function exportTitle() {
     if (week === 'all') return 'Wormhole, all planned posts';
     return week === 'tbd'
@@ -319,13 +368,14 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
               )}
             </div>
           </div>
-          <nav className="mt-3 grid grid-cols-2 gap-1 sm:grid-cols-4 rounded-xl bg-neutral-100 p-1">
+          <nav className="mt-3 grid grid-cols-2 gap-1 sm:grid-cols-5 rounded-xl bg-neutral-100 p-1">
             {(
               [
                 ['instagram', 'Instagram feed'],
                 ['grid', 'Instagram grid'],
                 ['stories', 'Instagram stories'],
                 ['linkedin', 'LinkedIn'],
+                ['news', 'Soil news'],
               ] as const
             ).map(([v, label]) => (
               <button
@@ -340,47 +390,53 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
             ))}
           </nav>
           <div className="mt-3 flex flex-wrap items-center gap-2">
-            <select
-              className={select}
-              value={week}
-              onChange={(e) => setWeek(e.target.value)}
-              aria-label="Week"
-            >
-              <option value="all">All weeks</option>
-              {weeks.map((w) => (
-                <option key={w} value={w}>
-                  {w === 'tbd' ? 'Date TBD' : `Week of ${weekLabel(w)}`}
-                </option>
-              ))}
-            </select>
-            <select
-              className={select}
-              value={status}
-              onChange={(e) => setStatus(e.target.value as typeof status)}
-              aria-label="Status"
-            >
-              <option value="all">Every status</option>
-              {STATUSES.map((s) => (
-                <option key={s.value} value={s.value}>
-                  {s.label}
-                </option>
-              ))}
-            </select>
-            <span className="text-base text-neutral-500">
-              {visible.length} post{visible.length === 1 ? '' : 's'}
-            </span>
-            {(missingCount > 0 || missingOnly) && (
-              <button
-                onClick={() => setMissingOnly(!missingOnly)}
-                aria-pressed={missingOnly}
-                className={`rounded-lg px-3 py-2 text-base font-semibold ${
-                  missingOnly ? 'bg-[#B23A2E] text-white' : 'border border-[#B23A2E] text-[#B23A2E]'
-                }`}
-              >
-                {missingOnly
-                  ? 'Showing posts with no visual · show all'
-                  : `${missingCount} post${missingCount === 1 ? '' : 's'} with no visual`}
-              </button>
+            {view !== 'news' && (
+              <>
+                <select
+                  className={select}
+                  value={week}
+                  onChange={(e) => setWeek(e.target.value)}
+                  aria-label="Week"
+                >
+                  <option value="all">All weeks</option>
+                  {weeks.map((w) => (
+                    <option key={w} value={w}>
+                      {w === 'tbd' ? 'Date TBD' : `Week of ${weekLabel(w)}`}
+                    </option>
+                  ))}
+                </select>
+                <select
+                  className={select}
+                  value={status}
+                  onChange={(e) => setStatus(e.target.value as typeof status)}
+                  aria-label="Status"
+                >
+                  <option value="all">Every status</option>
+                  {STATUSES.map((s) => (
+                    <option key={s.value} value={s.value}>
+                      {s.label}
+                    </option>
+                  ))}
+                </select>
+                <span className="text-base text-neutral-500">
+                  {visible.length} post{visible.length === 1 ? '' : 's'}
+                </span>
+                {(missingCount > 0 || missingOnly) && (
+                  <button
+                    onClick={() => setMissingOnly(!missingOnly)}
+                    aria-pressed={missingOnly}
+                    className={`rounded-lg px-3 py-2 text-base font-semibold ${
+                      missingOnly
+                        ? 'bg-[#B23A2E] text-white'
+                        : 'border border-[#B23A2E] text-[#B23A2E]'
+                    }`}
+                  >
+                    {missingOnly
+                      ? 'Showing posts with no visual · show all'
+                      : `${missingCount} post${missingCount === 1 ? '' : 's'} with no visual`}
+                  </button>
+                )}
+              </>
             )}
             <span className="ml-auto text-sm text-neutral-500">
               Editing as <strong className="text-black">{editor}</strong> ·{' '}
@@ -400,7 +456,9 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
           </p>
         )}
         {!loaded && !loadError && <p className="text-lg text-neutral-500">Opening the wormhole…</p>}
-        {loaded && visible.length === 0 && (
+        {view === 'news' && <News posts={posts} onPlan={planStory} onOpen={(id) => openPost(id)} />}
+
+        {loaded && visible.length === 0 && view !== 'news' && (
           <p className="text-lg text-neutral-500">No posts match. Try “All weeks”.</p>
         )}
 

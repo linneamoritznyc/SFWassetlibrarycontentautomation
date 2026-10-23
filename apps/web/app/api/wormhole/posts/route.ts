@@ -32,9 +32,7 @@ export async function POST(request: Request) {
 
   const body = (await request.json().catch(() => ({}))) as Record<string, unknown>;
   const patch = sanitizePatch(body);
-  const post = await createPost(
-    { iso_date: patch.iso_date, topic: patch.topic ?? 'New post' },
-    g.editor,
-  );
+  // Everything editable can come with it: Scout's drafts arrive with a source and a note.
+  const post = await createPost({ ...patch, topic: patch.topic ?? 'New post' }, g.editor);
   return NextResponse.json({ post });
 }
