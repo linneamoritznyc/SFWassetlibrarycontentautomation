@@ -1322,3 +1322,48 @@ def hyphae_or_debris(p):
     p.small(3, "Micrograph: Du et al. 2025, PLOS ONE, CC BY 4.0 (cropped)", y=h - 70, w=680)
     for k in range(4):
         p.logo(k)
+
+
+# ================================================================== Holiday card: tardigrades in Santa hats
+TARD1 = "/home/user/sfwlib/cuts/tardigrade-1.png"   # Jan Ebr & Ivana Ebrova / iNaturalist, CC BY 4.0
+TARD3 = "/home/user/sfwlib/cuts/tardigrade-3.png"   # Stec, Arakawa & Michalczyk 2018, PLOS ONE, CC BY 4.0
+
+
+def santa_hat(size, ang=0.0):
+    """A drawn Santa hat: red cone with a bent tip, white band and pompom, one even outline."""
+    def fn(dr, s):
+        poly(dr, s, [(30, 170), (95, 40), (150, 25), (205, 70), (170, 75), (130, 70), (190, 170)], "#B23A2E")
+        outline(dr, s, "rounded_rectangle", (14, 158, 206, 200), "#FBF8F1", radius=round(20 * s))
+        outline(dr, s, "ellipse", (190, 52, 236, 98), "#FBF8F1")
+    im = draw_layer(250, 220, fn)
+    im = im.resize((size, round(size * 220 / 250)), Image.LANCZOS)
+    return im.rotate(ang, expand=True, resample=Image.BICUBIC) if ang else im
+
+
+def leaves(n, seed):
+    def fn(dr, s):
+        rnd = random.Random(seed)
+        for i in range(n):
+            leaf_shape(dr, s, 60 + i * 70 + rnd.uniform(-10, 10), 90 + rnd.uniform(-30, 30), 120, rnd.uniform(-1, 1),
+                       rnd.choice(("#59A66C", "#2E6B3A", "#7FA36B")))
+    return draw_layer(60 + n * 70 + 60, 200, fn)
+
+
+@post("pl20261225", "2026-12-25", "holiday-card-tardigrades-v1", 2, CREAM)
+def tardigrades(p):
+    p.heading(0, "Happy holidays", y=130, size=120)
+    x, y, w, h = p.cut(0, TARD3, 90, 560, w=560, name="tardigrade-1")
+    p.put(0, "santa-hat-1", santa_hat(190, ang=20), x - 40, y - 120)
+    x2, y2, w2, h2 = p.cut(0, TARD1, 640, 520, w=330, name="tardigrade-2")
+    p.put(0, "santa-hat-2", santa_hat(170, ang=35), x2 - 50, y2 - 110)
+    p.put(0, "leaves", leaves(8, 3), 60, 1000)
+    p.small(0, "Tardigrades: Stec et al. 2018, PLOS ONE; Jan Ebr and Ivana Ebrová / iNaturalist. CC BY 4.0", y=1240,
+            w=700)
+
+    p.heading(1, "from all of us at the Soil Food Web School.", y=130, size=96)
+    x, y, w, h = p.cut(1, TARD3, 260, 640, w=620, name="tardigrade")
+    p.put(1, "santa-hat", santa_hat(200, ang=20), x - 45, y - 125)
+    p.put(1, "leaves", leaves(7, 9), 100, 960)
+    p.small(1, "Tardigrade: Stec et al. 2018, PLOS ONE, CC BY 4.0", y=1240, w=700)
+    for k in range(2):
+        p.logo(k)
