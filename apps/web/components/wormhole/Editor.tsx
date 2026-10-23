@@ -1,8 +1,8 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { STATUSES, type Slide, type WormholePost } from '@/lib/wormhole-types';
-import { ago, imageUrl, uploadImage } from './util';
+import { STATUSES, type WormholePost } from '@/lib/wormhole-types';
+import { ago } from './util';
 
 type Patch = Partial<WormholePost>;
 
@@ -47,41 +47,9 @@ function designLink(note: string): string {
 
 /** Everything about one post, edited in place under its preview. */
 export function Editor({ post, onChange }: { post: WormholePost; onChange: (p: Patch) => void }) {
-  const [uploading, setUploading] = useState<number | null>(null);
-  const [error, setError] = useState('');
-  const [drag, setDrag] = useState<number | null>(null);
   const [history, setHistory] = useState<
     { id: number; data: Patch; editor: string; created_at: string }[] | null
   >(null);
-  const slides = post.slides;
-
-  function setSlides(next: Slide[]) {
-    onChange({ slides: next });
-  }
-
-  async function putImage(i: number, file: File) {
-    setError('');
-    setUploading(i);
-    try {
-      const id = await uploadImage(file);
-      const next = [...slides];
-      while (next.length <= i) next.push({ text: '', image: null });
-      next[i] = { ...next[i]!, image: id };
-      setSlides(next);
-    } catch (e) {
-      setError((e as Error).message);
-    } finally {
-      setUploading(null);
-    }
-  }
-
-  function move(from: number, to: number) {
-    if (to < 0 || to >= slides.length || from === to) return;
-    const next = [...slides];
-    const [s] = next.splice(from, 1) as [Slide];
-    next.splice(to, 0, s);
-    setSlides(next);
-  }
 
   async function loadHistory() {
     const res = await fetch(`/api/wormhole/posts/${post.id}/versions`);
@@ -103,10 +71,6 @@ export function Editor({ post, onChange }: { post: WormholePost; onChange: (p: P
       .join('\n')
       .trim();
     onChange({ visual_note: v ? `Canva: ${v}${rest ? `\n${rest}` : ''}` : rest });
-  }
-
-  function images(e: React.DragEvent): File[] {
-    return Array.from(e.dataTransfer.files).filter((f) => f.type.startsWith('image/'));
   }
 
   return (
@@ -177,113 +141,6 @@ export function Editor({ post, onChange }: { post: WormholePost; onChange: (p: P
             </a>
           )}
         </div>
-
-        <ol className="mt-3 space-y-3">
-          {slides.map((s, i) => (
-            <li
-              key={i}
-              draggable
-              onDragStart={(e) => {
-                setDrag(i);
-                e.dataTransfer.effectAllowed = 'move';
-              }}
-              onDragOver={(e) => e.preventDefault()}
-              onDrop={(e) => {
-                e.preventDefault();
-                const files = images(e);
-                if (files[0]) putImage(i, files[0]);
-                else if (drag !== null) move(drag, i);
-                setDrag(null);
-              }}
-              onDragEnd={() => setDrag(null)}
-              className={`flex gap-3 rounded-lg border bg-white p-3 ${drag === i ? 'border-[#2f6b46] opacity-60' : 'border-neutral-200'}`}
-            >
-              <div className="flex flex-col items-center gap-1">
-                <span
-                  className="cursor-grab select-none text-lg text-neutral-400"
-                  title="Drag to reorder"
-                >
-                  ⋮⋮
-                </span>
-                <span className="text-sm font-semibold text-neutral-600">{i + 1}</span>
-                <button
-                  aria-label="Move up"
-                  onClick={() => move(i, i - 1)}
-                  className="text-neutral-500 disabled:opacity-30"
-                  disabled={i === 0}
-                >
-                  ▲
-                </button>
-                <button
-                  aria-label="Move down"
-                  onClick={() => move(i, i + 1)}
-                  className="text-neutral-500 disabled:opacity-30"
-                  disabled={i === slides.length - 1}
-                >
-                  ▼
-                </button>
-              </div>
-              <label className="relative block aspect-[4/5] w-20 shrink-0 cursor-pointer overflow-hidden rounded border border-neutral-200 bg-neutral-50 sm:w-24">
-                {s.image ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img src={imageUrl(s.image)} alt="" className="h-full w-full object-cover" />
-                ) : (
-                  <span className="flex h-full items-center justify-center p-1 text-center text-xs text-neutral-500">
-                    {uploading === i ? 'Uploading…' : 'Drop or tap for image'}
-                  </span>
-                )}
-                <input
-                  type="file"
-                  accept="image/*"
-                  className="hidden"
-                  onChange={(e) => {
-                    const f = e.target.files?.[0];
-                    e.target.value = '';
-                    if (f) putImage(i, f);
-                  }}
-                />
-              </label>
-              <div className="min-w-0 flex-1">
-                <AutoText
-                  value={s.text}
-                  placeholder="Text on this slide"
-                  onChange={(v) => {
-                    const next = [...slides];
-                    next[i] = { ...next[i]!, text: v };
-                    setSlides(next);
-                  }}
-                />
-                <div className="mt-1 flex gap-4 text-sm">
-                  {s.image && (
-                    <button
-                      className="text-neutral-600 underline"
-                      onClick={() => {
-                        const next = [...slides];
-                        next[i] = { ...next[i]!, image: null };
-                        setSlides(next);
-                      }}
-                    >
-                      Remove image
-                    </button>
-                  )}
-                  <button
-                    className="text-neutral-600 underline"
-                    onClick={() => setSlides(slides.filter((_, j) => j !== i))}
-                  >
-                    Delete slide
-                  </button>
-                </div>
-              </div>
-            </li>
-          ))}
-        </ol>
-        <button
-          onClick={() => setSlides([...slides, { text: '', image: null }])}
-          className="mt-3 rounded-lg border border-[#2f6b46] px-4 py-2 font-semibold text-[#2f6b46]"
-        >
-          + Add slide
-        </button>
-        {error && <p className="mt-2 font-medium text-red-700">{error}</p>}
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2">
