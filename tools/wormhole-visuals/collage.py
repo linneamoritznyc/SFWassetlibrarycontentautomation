@@ -35,9 +35,13 @@ FONT_FILES = {
     ("montserrat", False): "Montserrat-SemiBold.ttf",
     ("montserrat-bold", False): "Montserrat-Bold.ttf",
     ("source", False): "SourceSans3-SemiBold.ttf",
+    ("fredoka", False): "Fredoka-SemiBold.ttf",
+    ("mont", False): "Montserrat-Regular.ttf",
+    ("mont-medium", False): "Montserrat-SemiBold.ttf",
 }
 PPT_FONT = {"garamond": "EB Garamond", "garamond-bold": "EB Garamond", "montserrat": "Montserrat",
-            "montserrat-bold": "Montserrat", "source": "Source Sans 3"}
+            "montserrat-bold": "Montserrat", "source": "Source Sans 3", "fredoka": "Fredoka",
+            "mont": "Montserrat", "mont-medium": "Montserrat"}
 _EMOJI = re.compile("[\U0001F000-\U0001FAFF☀-➿️‍]")
 
 
@@ -341,7 +345,9 @@ class Deck:
         slides = self.render()
         names = []
         for k, im in enumerate(slides):
-            fn = f"{self.id}-{k + 1}.jpg"
+            # a "-v2" slug marks a redesign: new file names, so live files are never overwritten
+            ver = "-" + self.slug.rsplit("-", 1)[1] if re.search(r"-v\d+$", self.slug) else ""
+            fn = f"{self.id}{ver}-{k + 1}.jpg"
             im.save(os.path.join(out_dir, fn), quality=84, optimize=True, progressive=True)
             names.append(fn)
         if pptx_dir:
@@ -401,7 +407,7 @@ class Deck:
                 f.name = PPT_FONT[it["kind"]]
                 f.size = Pt(round(it["size"] * 72 / 108, 1))
                 f.italic = it["italic"]
-                f.bold = it["kind"] in ("garamond-bold", "montserrat", "montserrat-bold", "source")
+                f.bold = it["kind"] in ("garamond-bold", "montserrat", "montserrat-bold", "source", "fredoka", "mont-medium")
                 f.color.rgb = RGBColor(*hexrgb(it["color"]))
         prs.save(path)
 
