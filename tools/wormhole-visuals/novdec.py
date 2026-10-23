@@ -1592,3 +1592,30 @@ def mountains(p):
     credits_line(p, 3, ["terraces-3"], y=1250)
     for k in range(4):
         p.logo(k)
+
+
+# ================================================================== Halloween: the vampire amoeba (Reel)
+VB = "/home/user/photos/vampyrella-blog"
+P18_COVER = os.path.join(TILES, "p18-v4-1.jpg")
+P18_CREDIT = "Photos: Hess, Sausen and Melkonian 2012, PLoS ONE, CC BY 4.0 (cropped)"
+
+
+@post("p18", "2026-10-31", "vampire-amoeba-reel-v5", 4, DEEP, reel=True)
+def vampire_reel(p):
+    h = p.h
+    cov = Image.open(P18_COVER).convert("RGBA")
+    p.put(0, "cover", cov, 0, (h - cov.height) // 2)
+    texts = ["It latches onto an algal cell and drills through the wall.", "Then it drains what is inside.",
+             "Our mentor Wes Sander wrote all about them on our blog. Link in bio."]
+    pics = [(f"{VB}/vampyrella-G-feeding-on-alga-brightfield.jpg", (0.5, 0.45), 1.0, "a vampire amoeba on a strand of algae"),
+            (f"{VB}/vampyrella-H-emptying-algal-cell.jpg", (0.55, 0.5), 1.0, "draining an algal cell"),
+            (f"{VB}/vampyrella-A-advancing-cell.jpg", (0.5, 0.5), 1.0, "Vampyrella lateritia")]
+    for k, (t, (src, c, z, lab)) in enumerate(zip(texts, pics), start=1):
+        hb = p.heading(k, t, y=120, size=86)
+        dia = 600 if k < 3 else 520
+        cy = min(max(h * 0.55, hb + 80 + dia / 2), h - 190 - dia / 2)
+        x, y, w, hh = p.lens(k, src, 540, cy, dia, center=c, zoom=z)
+        p.label(k, lab, 90, y + hh + 20, w=640)
+        p.small(k, P18_CREDIT, y=h - 70, w=700)
+    for k in range(1, 4):
+        p.logo(k)

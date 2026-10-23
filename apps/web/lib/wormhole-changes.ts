@@ -2927,6 +2927,32 @@ export const CHANGES: Change[] = [
     reason:
       "Save Soil shoutout (Linnea, 23 Oct): from Evan's share of the Save Soil analysis library. Undated draft with its repost card.",
   },
+  {
+    key: '2026-10-23 p18 slides v5',
+    post: 'p18',
+    set: {
+      slides: [
+        { text: 'Vampire amoeba.', image: '/wormhole/tiles/p18-v5-1.jpg' },
+        {
+          text: 'It latches onto an algal cell and drills through the wall.',
+          image: '/wormhole/tiles/p18-v5-2.jpg',
+        },
+        { text: 'Then it drains what is inside.', image: '/wormhole/tiles/p18-v5-3.jpg' },
+        {
+          text: 'Our mentor Wes Sander wrote all about them on our blog. Link in bio.',
+          image: '/wormhole/tiles/p18-v5-4.jpg',
+        },
+      ],
+    },
+    caption: [
+      [
+        '\n#Halloween #SoilFoodWeb',
+        '\nPhotos: Hess, Sausen & Melkonian 2012, PLoS ONE, cropped, CC BY 4.0 (creativecommons.org/licenses/by/4.0)\n#Halloween #SoilFoodWeb',
+      ],
+    ],
+    reason:
+      'Reel finished (Linnea, 23 Oct): the cover plus three cards with real Vampyrella lateritia photos (Hess, Sausen and Melkonian 2012, PLoS ONE, CC BY 4.0), credit added to the caption. 1080 x 1920 cards in the deck: /wormhole/decks/31-10-2026-vampire-amoeba-reel-v5.pptx. Blog headers for Wes: "Meet the Vampire Amoeba" is a working title.',
+  },
 ];
 
 const editorOf = (c: Change) => `Change: ${c.key}`;
