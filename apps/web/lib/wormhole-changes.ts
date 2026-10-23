@@ -2342,6 +2342,92 @@ export const CHANGES: Change[] = [
     reason:
       'Template visuals (Linnea, 23 Oct): placeholder text kept as written, labelled PHOTO spaces to fill. Deck: /wormhole/decks/30-12-2026-soil-regenerators-sumatra-v1.pptx.',
   },
+  {
+    key: '2026-10-23 pl20261107 slides v1',
+    post: 'pl20261107',
+    set: {
+      slides: [
+        { text: 'Trial name, place and season.', image: '/wormhole/tiles/pl20261107-v1-1.jpg' },
+        { text: 'The question they tested.', image: '/wormhole/tiles/pl20261107-v1-2.jpg' },
+        { text: 'The method in 3 lines.', image: '/wormhole/tiles/pl20261107-v1-3.jpg' },
+        { text: 'The result, one big number.', image: '/wormhole/tiles/pl20261107-v1-4.jpg' },
+        {
+          text: "What surprised them, including what didn't work.",
+          image: '/wormhole/tiles/pl20261107-v1-5.jpg',
+        },
+        { text: 'Who ran it.', image: '/wormhole/tiles/pl20261107-v1-6.jpg' },
+      ],
+    },
+    reason:
+      'Template visuals (Linnea, 23 Oct): placeholder text kept as written, labelled PHOTO spaces to fill. Deck: /wormhole/decks/07-11-2026-field-notes-01-v1.pptx.',
+  },
+  {
+    key: '2026-10-23 pl20261125 slides v1',
+    post: 'pl20261125',
+    set: {
+      slides: [
+        { text: 'Meet our mentors. [Name], [role].', image: '/wormhole/tiles/pl20261125-v1-1.jpg' },
+        {
+          text: '[Their one line of advice, in their words.]',
+          image: '/wormhole/tiles/pl20261125-v1-2.jpg',
+        },
+      ],
+    },
+    reason:
+      'Template visuals (Linnea, 23 Oct): placeholder text kept as written, labelled PHOTO spaces to fill. Deck: /wormhole/decks/25-11-2026-mentor-spotlight-november-v1.pptx.',
+  },
+  {
+    key: '2026-10-23 pl20261127 slides v1',
+    post: 'pl20261127',
+    set: {
+      slides: [
+        { text: 'Fun Soil News: November 2026.', image: '/wormhole/tiles/pl20261127-v1-1.jpg' },
+        {
+          text: 'Story 1. Country in big type, one sentence, source.',
+          image: '/wormhole/tiles/pl20261127-v1-2.jpg',
+        },
+        {
+          text: 'Story 2. Country in big type, one sentence, source.',
+          image: '/wormhole/tiles/pl20261127-v1-3.jpg',
+        },
+        {
+          text: 'Story 3. Country in big type, one sentence, source.',
+          image: '/wormhole/tiles/pl20261127-v1-4.jpg',
+        },
+        {
+          text: 'Story 4. Country in big type, one sentence, source.',
+          image: '/wormhole/tiles/pl20261127-v1-5.jpg',
+        },
+        {
+          text: 'Story 5. Country in big type, one sentence, source.',
+          image: '/wormhole/tiles/pl20261127-v1-6.jpg',
+        },
+      ],
+    },
+    reason:
+      'Template visuals (Linnea, 23 Oct): placeholder text kept as written, labelled PHOTO spaces to fill. Deck: /wormhole/decks/27-11-2026-fun-soil-news-november-v1.pptx.',
+  },
+  {
+    key: '2026-10-23 d10 slides v1',
+    post: 'd10',
+    set: {
+      slides: [
+        {
+          text: 'What does "regenerative" actually mean, and who gets to decide?',
+          image: '/wormhole/tiles/d10-v1-1.jpg',
+        },
+      ],
+    },
+    reason:
+      'New image (Linnea, 23 Oct): flat brand colour, real soil cutouts. Deck: /wormhole/decks/15-10-2026-what-does-regenerative-mean-v1.pptx.',
+  },
+  {
+    key: '2026-10-23 d16 single image',
+    post: 'd16',
+    set: { slides: [{ text: '', image: '/wormhole/tiles/d16-w1.jpg' }] },
+    reason:
+      'Removed two empty slides (no text, no image, 23 Oct): this LinkedIn post is a single image.',
+  },
 ];
 
 const editorOf = (c: Change) => `Change: ${c.key}`;

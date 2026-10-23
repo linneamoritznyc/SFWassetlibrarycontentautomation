@@ -1164,3 +1164,62 @@ def worm_winter(p):
     p.arrow(4, (640, 1095), (560, 1060), bend=0.2, seed=4)
     for k in range(5):
         p.logo(k)
+
+
+# ================================================================== more templates
+def field_notes(p, number):
+    texts = ["Trial name, place and season.", "The question they tested.", "The method in 3 lines.",
+             "The result, one big number.", "What surprised them, including what didn't work.", "Who ran it."]
+    for k, t in enumerate(texts):
+        eyebrow(p, k, f"FIELD NOTES No. {number}")
+        p.heading(k, t, y=150, size=84)
+        p.logo(k)
+    photo_space(p, 0, 90, 480, 900, 600, "the trial plot, from the graduate")
+    p.drawn(3, 900, 420, lambda dr, s: outline(dr, s, "rounded_rectangle", (0, 0, 900, 420),
+                                               "#2E4A2A" if p.t.bg == DEEP else "#FBF8F1", radius=round(30 * s)),
+            90, 520, name="number-box")
+    p.label(3, "[the number]", 90, 680, w=900, size=64, align="center")
+    photo_space(p, 5, 90, 440, 600, 600, "the graduate who ran the trial")
+
+
+@post("pl20261107", "2026-11-07", "field-notes-01-v1", 6, CREAM)
+def field_notes_1(p):
+    field_notes(p, "01")
+
+
+@post("pl20261125", "2026-11-25", "mentor-spotlight-november-v1", 2, SAGE)
+def mentor_nov(p):
+    p.heading(0, "Meet our mentors. [Name], [role].", y=110, size=96)
+    photo_space(p, 0, 190, 460, 700, 700, "the mentor's website headshot")
+    p.heading(1, "[Their one line of advice, in their words.]", y=110, size=96)
+    p.cut(1, f"{FLOWERS}/norfolk-common-poppy.png", 200, 640, h=520)
+    p.cut(1, f"{SOILC}/fern-fiddlehead.png", 560, 820, h=340)
+    for k in range(2):
+        p.logo(k)
+
+
+@post("pl20261127", "2026-11-27", "fun-soil-news-november-v1", 6, LGREEN)
+def fun_news_nov(p):
+    p.heading(0, "Fun Soil News: November 2026.", y=150, size=100)
+    p.cut(0, f"{FLOWERS}/tamil-nadu-marigold.png", 120, 700, h=420)
+    p.cut(0, f"{FLOWERS}/norfolk-common-poppy.png", 420, 620, h=540)
+    p.cut(0, f"{FLOWERS}/santa-fe-globemallow.png", 700, 720, h=420)
+    flowers = ["costa-rica-hibiscus", "tamil-nadu-jasmine", "costa-rica-poro-flower", "tamil-nadu-marigold",
+               "santa-fe-chamisa"]
+    for k in range(1, 6):
+        p.drawn(k, W, 110, lambda dr, s: dr.rectangle((0, 0, W * s, 110 * s), fill=hexrgb("#156826") + (255,)),
+                0, 0, name="top-bar")
+        p.d.text(k, "eyebrow", "FUN SOIL NEWS · NOVEMBER 2026", 92, 40, 880, 50, 26, kind="mont-medium",
+                 italic=False, color=CREAMT, lh=1.2, track=2)
+        p.heading(k, f"Story {k}. Country in big type, one sentence, source.", y=200, size=80)
+        p.cut(k, f"{FLOWERS}/{flowers[k - 1]}.png", 700, 820, h=300)
+    for k in range(6):
+        p.logo(k)
+
+
+@post("d10", "2026-10-15", "what-does-regenerative-mean-v1", 1, TAN)
+def regenerative(p):
+    p.heading(0, "What does “regenerative” actually mean, and who gets to decide?", y=120, size=92)
+    p.cut(0, f"{SOILC}/dark-soil-clump.png", 140, 760, w=420)
+    p.cut(0, f"{SOILC}/fern-fiddlehead.png", 560, 640, h=520)
+    p.logo(0)
