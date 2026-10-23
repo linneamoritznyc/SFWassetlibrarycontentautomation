@@ -2475,6 +2475,21 @@ export const CHANGES: Change[] = [
     reason:
       'New Reel cards (Linnea, 23 Oct): real micrographs in lenses with labelled arrows; 1080 x 1920 versions in the deck: /wormhole/decks/21-12-2026-read-the-drop-hyphae-or-debris-v1.pptx. Micrographs (CC BY 4.0, cropped, credited on each slide): Gondal, Rauf and Naz 2019 Scientific Reports; Matthew Rozanoff / iNaturalist (the debris photo is a squash of an earth-fan fungus, not a soil extract); Du et al. 2025 PLOS ONE.',
   },
+  {
+    key: '2026-10-23 pl20261225 slides v1',
+    post: 'pl20261225',
+    set: {
+      slides: [
+        { text: 'Happy holidays', image: '/wormhole/tiles/pl20261225-v1-1.jpg' },
+        {
+          text: 'from all of us at the Soil Food Web School.',
+          image: '/wormhole/tiles/pl20261225-v1-2.jpg',
+        },
+      ],
+    },
+    reason:
+      'New card (Linnea, 23 Oct): real tardigrades cut out of micrographs, drawn Santa hats and leaves, on cream. Credits on the slides: Stec et al. 2018 PLOS ONE; Jan Ebr and Ivana Ebrová / iNaturalist; CC BY 4.0. Deck: /wormhole/decks/25-12-2026-holiday-card-tardigrades-v1.pptx.',
+  },
 ];
 
 const editorOf = (c: Change) => `Change: ${c.key}`;
