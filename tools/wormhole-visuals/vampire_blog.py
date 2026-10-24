@@ -294,7 +294,7 @@ def petri_dish(d):
 
 
 def spooky_header2(w=1920, h=720, seed=7):
-    """Agreed changes: title without a full stop, no jack-o'-lantern, a smaller, more distant moon, a Petri dish."""
+    """The agreed design: night, a small distant orange moon, bats, the bare tree, mist, the title, real amoeba lenses."""
     from collage import font
     rnd = random.Random(seed + 1)
     mx, my, md = .50, .22, .26
@@ -308,14 +308,6 @@ def spooky_header2(w=1920, h=720, seed=7):
     for i in range(6):
         b = bat(round(h * rnd.uniform(.04, .08)), flap=rnd.uniform(0, 1)).rotate(rnd.uniform(-25, 25), expand=True)
         bg.alpha_composite(b, (round(w * rnd.uniform(.3, .62)), round(h * rnd.uniform(.03, .4))))
-    pd = petri_dish(round(h * .62))
-    px, py = round(w * .50 - pd.width / 2), round(h * .93 - pd.height * .9)
-    g = Image.new("L", (w, h), 0)
-    ImageDraw.Draw(g).ellipse((px - pd.width * .1, py - pd.height * .4, px + pd.width * 1.1, py + pd.height * 1.1), fill=70)
-    g = g.filter(ImageFilter.GaussianBlur(pd.width * .12))
-    gl = Image.new("RGBA", (w, h), (236, 226, 190, 0)); gl.putalpha(g)
-    bg.alpha_composite(gl)
-    bg.alpha_composite(pd, (px, py))
     bg.alpha_composite(lens(A, round(h * .74)), (round(w * .655), round(h * .08)))
     bg.alpha_composite(lens(H_, round(h * .42)), (round(w * .825), round(h * .50)))
     title = Image.new("RGBA", (w, h), (0, 0, 0, 0))
