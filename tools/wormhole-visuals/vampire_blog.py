@@ -128,15 +128,17 @@ def tree(w, h, side, seed):
     for i in range(31):
         t = i / 30
         y = h - t * (h - top_y)
-        cx = x0 + sgn * (w * .06 + w * .05 * t + w * .012 * math.sin(t * 7))
-        half = w * (.05 * (1 - t) + .012)
+        m = min(w, h)
+        cx = x0 + sgn * (m * .10 + m * .08 * t + m * .02 * math.sin(t * 7))
+        half = m * (.08 * (1 - t) + .02)
         left.append((cx - half, y)); right.append((cx + half, y))
     dr.polygon(left + right[::-1], fill=SIL + (255,))
-    trunk_top = (x0 + sgn * w * .11, top_y)
+    trunk_top = (x0 + sgn * min(w, h) * .18, top_y)
     for i in range(7):
         a = (-math.pi / 2) + (rnd.uniform(-1.3, 0.3) if side == "left" else rnd.uniform(-0.3, 1.3))
-        _branch(dr, trunk_top[0], trunk_top[1] + rnd.uniform(-h * .05, h * .15), a, h * rnd.uniform(.22, .34),
-                w * .012, 6, rnd)
+        m = min(w, h)
+        _branch(dr, trunk_top[0], trunk_top[1] + rnd.uniform(-h * .05, h * .15), a, m * rnd.uniform(.22, .34),
+                m * .016, 6, rnd)
     return im
 
 
@@ -321,3 +323,55 @@ def spooky_header2(w=1920, h=720, seed=7):
     bg.alpha_composite(shade, (4, 6))
     bg.alpha_composite(title)
     return bg
+
+
+# ---------------------------------------------------------------- the agreed design at any size
+# fractions: moon (x, y, diameter of h), lenses (centre x, centre y, diameter of h), title (x, y, size of h)
+LAYOUTS = {
+    (1920, 720): dict(moon=(.50, .22, .26), a=(.762, .45, .74), hh=(.906, .71, .42), title=(.15, .48, .17)),
+    (1080, 1350): dict(moon=(.78, .10, .14), a=(.58, .45, .40), hh=(.80, .60, .23), title=(.19, .70, .095)),
+    (750, 1000): dict(moon=(.78, .10, .14), a=(.58, .45, .40), hh=(.80, .60, .23), title=(.19, .70, .095)),
+    (1400, 1400): dict(moon=(.80, .13, .16), a=(.62, .48, .44), hh=(.83, .66, .25), title=(.17, .70, .10)),
+    (1024, 768): dict(moon=(.42, .17, .21), a=(.72, .50, .56), hh=(.88, .72, .30), title=(.18, .60, .13)),
+    (1200, 800): dict(moon=(.42, .17, .21), a=(.72, .50, .56), hh=(.88, .72, .30), title=(.18, .60, .13)),
+}
+
+
+def spooky(w, h, seed=7, title=True):
+    from collage import font
+    L = LAYOUTS[(w, h)]
+    rnd = random.Random(seed + 1)
+    mx, my, md = L["moon"]
+    bg = halloween_bg(w, h, seed, moon_at=(mx, my), moon_d=md)
+    wash = Image.new("L", (w, h), 0)
+    cx, cy, r = mx * w, my * h, md * h * .52
+    ImageDraw.Draw(wash).ellipse((cx - r, cy - r, cx + r, cy + r), fill=90)
+    wash = wash.filter(ImageFilter.GaussianBlur(md * h * .08))
+    ow = Image.new("RGBA", (w, h), (232, 120, 40, 0)); ow.putalpha(wash)
+    bg.alpha_composite(ow)
+    for i in range(6):
+        b = bat(round(min(w, h) * rnd.uniform(.035, .065)), flap=rnd.uniform(0, 1)).rotate(rnd.uniform(-25, 25), expand=True)
+        bg.alpha_composite(b, (round(cx + rnd.uniform(-1.6, 1.4) * md * h), round(cy + rnd.uniform(-.9, .7) * md * h)))
+    for (src, (x, y, d)) in ((A, L["a"]), (H_, L["hh"])):
+        l = lens(src, round(d * h))
+        bg.alpha_composite(l, (round(x * w - l.width / 2), round(y * h - l.height / 2)))
+    if title:
+        tx, ty, ts = L["title"]
+        layer = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+        td = ImageDraw.Draw(layer)
+        f = font("garamond", True, round(h * ts))
+        td.text((w * tx, h * ty), "Vampire", font=f, fill=(244, 238, 222, 255))
+        td.text((w * tx + h * ts * .4, h * ty + h * ts), "amoeba", font=f, fill=(244, 238, 222, 255))
+        sh = layer.getchannel("A").filter(ImageFilter.GaussianBlur(h * ts * .07))
+        shade = Image.new("RGBA", (w, h), (0, 0, 0, 0)); shade.putalpha(sh.point(lambda v: int(v * .8)))
+        bg.alpha_composite(shade, (4, 6))
+        bg.alpha_composite(layer)
+    return bg.convert("RGB")
+
+
+def intext_night(name, w=1600, h=1067, seed=11):
+    """A picture for the blog text: one real micrograph in a big lens in the agreed night scene."""
+    bg = halloween_bg(w, h, seed, moon_at=(.86, .16), moon_d=.17)
+    l = lens(f"{VB}/{name}.jpg", round(h * .84))
+    bg.alpha_composite(l, (round(w * .52 - l.width / 2), round(h * .5 - l.height / 2)))
+    return bg.convert("RGB")
