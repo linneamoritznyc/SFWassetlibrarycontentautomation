@@ -145,6 +145,23 @@ export const FEEDS: FeedSeed[] = [
     note: 'Environmental journalism with strong coverage of the Global South.',
   },
 
+  {
+    name: 'Soil Health Institute',
+    url: 'https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US:en&q=%22Soil%20Health%20Institute%22%20OR%20site%3Asoilhealthinstitute.org%20when%3A30d',
+    kind: 'rss',
+    region: 'North America',
+    note: 'Led by Ashley McKeon since June 2026. No public RSS, so a news search.',
+  },
+  {
+    name: 'Rodale Institute',
+    url: 'https://rodaleinstitute.org/feed/',
+    kind: 'rss',
+    region: 'North America',
+    note: 'Regenerative organic research, home of the 40-year Farming Systems Trial.',
+    fallback:
+      'https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US:en&q=%22Rodale%20Institute%22%20when%3A30d',
+  },
+
   // ---------------------------------------------------------------- Africa
   {
     name: 'African Union: news and events',
