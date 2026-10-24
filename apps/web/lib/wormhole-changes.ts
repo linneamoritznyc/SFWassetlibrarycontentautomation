@@ -14,7 +14,9 @@ import type { WormholePost } from './wormhole-types';
 type Change = {
   key: string;
   post: string;
-  set?: Partial<Pick<WormholePost, 'iso_date' | 'date_tbd' | 'slides'>>;
+  set?: Partial<
+    Pick<WormholePost, 'iso_date' | 'date_tbd' | 'slides' | 'link' | 'sources' | 'visual_note'>
+  >;
   /** A new post, inserted when no post has this id yet. */
   create?: Omit<WormholePost, 'id' | 'updated_by' | 'updated_at' | 'pinned'>;
   /** Plain text replacements in the caption: [from, to]. */
@@ -3011,6 +3013,29 @@ export const CHANGES: Change[] = [
       status: 'draft',
     },
     reason: "Evan's share (Linnea, 24 Oct): shoutout draft.",
+  },
+  {
+    key: '2026-10-24 n20261023a sheffield',
+    post: 'n20261023a',
+    set: {
+      link: 'https://sheffield.ac.uk/biosciences/news/ancient-fungus-unlocks-secret-support-system-major-food-crops-could-transform-farming-practices',
+      sources: [
+        'https://sheffield.ac.uk/biosciences/news/ancient-fungus-unlocks-secret-support-system-major-food-crops-could-transform-farming-practices',
+        'https://doi.org/10.1016/j.cub.2026.09.061',
+        'https://phys.org/news/2026-10-ancient-fungus-secret-major-food.html',
+      ],
+      visual_note:
+        'Collage carousel, 3 slides, one soil profile under all three. Deck: news-mustard-plant-fungus.pptx. LinkedIn version: same caption, tag Professor Katie Field and the University of Sheffield School of Biosciences.',
+    },
+    caption: [
+      [
+        'For us it is one more reminder that the soil food web reaches further than the textbooks said.\nRead the study through the link in bio.',
+        'Professor Jurriaan Ton calls it an "ideal model system" for finding out how plants build this other kind of partnership. Taking it from the lab to the field could cut reliance on "expensive chemical fertilisers".\nFor us it is one more reminder that the soil food web reaches further than the textbooks said.\nRead the University of Sheffield story through the link in bio.',
+      ],
+      [' #Mycorrhiza', ''],
+    ],
+    reason:
+      "Evan shared the University of Sheffield story (24 Oct, \"Breakthrough science alert!\"). Link now goes to Sheffield's own page, Jurriaan Ton's quote added, #Mycorrhiza dropped because the fungus is a fine root endophyte, and the LinkedIn note now tags the lab instead of ending on a question. Evan also asked Stephanie to invite the researchers to a Q1 webinar.",
   },
 ];
 
