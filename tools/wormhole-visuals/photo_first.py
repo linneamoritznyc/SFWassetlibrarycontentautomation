@@ -234,7 +234,10 @@ POSTS = {
     ],
     "x20261226": lambda: [
         (pic("feedstock_garden.jpg", "Plain paper: yes.", G, focus=(0.5, 0.45), logo=True), "Can wrapping paper go in the compost? Plain paper: yes."),
-        (pic("pile_turn.jpg", "Glitter and foil: no.", P), "Glossy, foil, glitter, tape: no."),
+        (pic("hay_buckets.jpg", "Tape and ribbons off.", T, BR, focus=(0.5, 0.5)), "Tape and ribbons off first."),
+        (pic("misting_pile.jpg", "Tear it small.", BL, focus=(0.4, 0.4)), "Tear it small and keep the pile damp."),
+        (pic("hypha_lee.jpg", None, focus=(0.6, 0.5)), "Photo only: fungi break the paper down."),
+        (pic("pile_turn.jpg", "Glitter and foil: no.", P), "Glossy, foil, glitter or plastic-coated: no."),
     ],
     "x20261227": lambda: [
         (pic("pl20261114-5.jpg", "Chop and drop.", G, logo=True, size=90), "Chop and drop."),
