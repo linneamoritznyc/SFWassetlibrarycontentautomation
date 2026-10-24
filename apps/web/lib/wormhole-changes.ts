@@ -5294,6 +5294,19 @@ export const CHANGES: Change[] = [
     },
     reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
   },
+  {
+    key: '2026-10-24 x20261210 visual v1',
+    post: 'x20261210',
+    set: {
+      slides: [
+        { text: "131\u00b0F (55\u00b0C) for three full days kills weed seeds and pathogens.", image: '/wormhole/tiles/x20261210-v1-1.jpg' },
+        { text: "155 to 160\u00b0F (68 to 71\u00b0C) is the ceiling. Hotter, and the beneficial organisms die too.", image: '/wormhole/tiles/x20261210-v1-2.jpg' },
+        { text: "Turn the pile when it climbs too high, too fast.", image: '/wormhole/tiles/x20261210-v1-3.jpg' },
+        { text: "Most piles need three to five turns.", image: '/wormhole/tiles/x20261210-v1-4.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): big numbers in EB Garamond with the pile thermometer photo; slides 2 and 3 of the draft merged into one.',
+  },
 ];
 
 const editorOf = (c: Change) => `Change: ${c.key}`;
