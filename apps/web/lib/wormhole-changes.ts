@@ -3086,6 +3086,13 @@ export const CHANGES: Change[] = [
     reason:
       'Dated (24 Oct): Thu 10 Dec on LinkedIn, an empty day. Partner shares go on days outside the Mon/Wed/Fri feed posts where possible.',
   },
+  {
+    key: '2026-10-24 pl20261223 back on 23 Dec',
+    post: 'pl20261223',
+    set: { iso_date: '2026-12-23', date_tbd: false },
+    reason:
+      "Back on Wed 23 Dec (24 Oct): Valluvan's farm (ss-01) went to 3 Dec as the World Soil Day lead-in, so the partner share slot is free again.",
+  },
 ];
 
 const editorOf = (c: Change) => `Change: ${c.key}`;
