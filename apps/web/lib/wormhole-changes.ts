@@ -3073,13 +3073,6 @@ export const CHANGES: Change[] = [
       'Dated (24 Oct): Tue 1 Dec on LinkedIn, an empty feed day. Partner shares go on days outside the Mon/Wed/Fri feed posts where possible.',
   },
   {
-    key: '2026-10-24 save soil ss-01 date',
-    post: 'ss-01',
-    set: { iso_date: '2026-12-03', date_tbd: false },
-    reason:
-      'Dated (24 Oct): Thu 3 Dec, the lead-in to World Soil Day (5 Dec): the strongest farm story in the set. Partner shares go on days outside the Mon/Wed/Fri feed posts where possible.',
-  },
-  {
     key: '2026-10-24 save soil ss-02 date',
     post: 'ss-02',
     set: { iso_date: '2026-12-08', date_tbd: false },
