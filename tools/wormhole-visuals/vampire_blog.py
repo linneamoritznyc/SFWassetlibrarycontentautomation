@@ -313,8 +313,9 @@ def spooky_header2(w=1920, h=720, seed=7):
     title = Image.new("RGBA", (w, h), (0, 0, 0, 0))
     td = ImageDraw.Draw(title)
     f = font("garamond", True, round(h * .17))
-    td.text((w * .16, h * .08), "Vampire", font=f, fill=(244, 238, 222, 255))
-    td.text((w * .20, h * .08 + h * .17), "amoeba", font=f, fill=(244, 238, 222, 255))
+    # the title sits in the open sky right of the trunk, low on the left
+    td.text((w * .15, h * .48), "Vampire", font=f, fill=(244, 238, 222, 255))
+    td.text((w * .19, h * .48 + h * .17), "amoeba", font=f, fill=(244, 238, 222, 255))
     sh = title.getchannel("A").filter(ImageFilter.GaussianBlur(h * .012))
     shade = Image.new("RGBA", (w, h), (0, 0, 0, 0)); shade.putalpha(sh.point(lambda v: int(v * .8)))
     bg.alpha_composite(shade, (4, 6))
