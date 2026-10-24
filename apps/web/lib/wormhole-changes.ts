@@ -5682,6 +5682,20 @@ export const CHANGES: Change[] = [
     },
     reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
   },
+  {
+    key: '2026-10-24 x20261226 visual v3 more slides',
+    post: 'x20261226',
+    set: {
+      slides: [
+        { text: "Can wrapping paper go in the compost? Plain paper: yes.", image: '/wormhole/tiles/x20261226-v3-1.jpg' },
+        { text: "Tape and ribbons off first.", image: '/wormhole/tiles/x20261226-v3-2.jpg' },
+        { text: "Tear it small and keep the pile damp.", image: '/wormhole/tiles/x20261226-v3-3.jpg' },
+        { text: "Photo only: fungi break the paper down.", image: '/wormhole/tiles/x20261226-v3-4.jpg' },
+        { text: "Glossy, foil, glitter or plastic-coated: no.", image: '/wormhole/tiles/x20261226-v3-5.jpg' },
+      ],
+    },
+    reason: 'Visual v3 (Linnea, 24 Oct: "add more slides to the wrapping paper one"): 5 photo slides instead of 2.',
+  },
 ];
 
 const editorOf = (c: Change) => `Change: ${c.key}`;
