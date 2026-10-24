@@ -3315,48 +3315,49 @@ export const CHANGES: Change[] = [
     post: 'ev-02',
     set: { iso_date: '2026-11-18', date_tbd: false },
     reason:
-      "Moved into November (Linnea, 24 Oct): everything Evan has already shared goes out in November at the latest, because December is kept for new material. Wed 18 Nov, an empty day.",
+      'Moved into November (Linnea, 24 Oct): everything Evan has already shared goes out in November at the latest, because December is kept for new material. Wed 18 Nov, an empty day.',
   },
   {
     key: '2026-10-24 november ss-01',
     post: 'ss-01',
     set: { iso_date: '2026-11-20', date_tbd: false },
     reason:
-      "Moved into November (Linnea, 24 Oct): everything Evan has already shared goes out in November at the latest, because December is kept for new material. Fri 20 Nov, an empty day.",
+      'Moved into November (Linnea, 24 Oct): everything Evan has already shared goes out in November at the latest, because December is kept for new material. Fri 20 Nov, an empty day.',
   },
   {
     key: '2026-10-24 november ss-02',
     post: 'ss-02',
     set: { iso_date: '2026-11-22', date_tbd: false },
     reason:
-      "Moved into November (Linnea, 24 Oct): everything Evan has already shared goes out in November at the latest, because December is kept for new material. Sun 22 Nov, an empty day.",
+      'Moved into November (Linnea, 24 Oct): everything Evan has already shared goes out in November at the latest, because December is kept for new material. Sun 22 Nov, an empty day.',
   },
   {
     key: '2026-10-24 november ss-07',
     post: 'ss-07',
     set: { iso_date: '2026-11-19', date_tbd: false },
     reason:
-      "Moved into November (Linnea, 24 Oct): everything Evan has already shared goes out in November at the latest, because December is kept for new material. Thu 19 Nov on LinkedIn, beside the Instagram-only carbon sponge post.",
+      'Moved into November (Linnea, 24 Oct): everything Evan has already shared goes out in November at the latest, because December is kept for new material. Thu 19 Nov on LinkedIn, beside the Instagram-only carbon sponge post.',
   },
   {
     key: '2026-10-24 november ss-03',
     post: 'ss-03',
     set: { iso_date: '2026-11-24', date_tbd: false },
     reason:
-      "Moved into November (Linnea, 24 Oct): everything Evan has already shared goes out in November at the latest, because December is kept for new material. Tue 24 Nov on LinkedIn, beside the Instagram-only gut microbes post.",
+      'Moved into November (Linnea, 24 Oct): everything Evan has already shared goes out in November at the latest, because December is kept for new material. Tue 24 Nov on LinkedIn, beside the Instagram-only gut microbes post.',
   },
   {
     key: '2026-10-24 november ev-01',
     post: 'ev-01',
     set: { iso_date: '2026-11-30', date_tbd: false },
     reason:
-      "Moved into November (Linnea, 24 Oct): everything Evan has already shared goes out in November at the latest, because December is kept for new material. Mon 30 Nov on LinkedIn, beside the ciliates Reel (Instagram only).",
+      'Moved into November (Linnea, 24 Oct): everything Evan has already shared goes out in November at the latest, because December is kept for new material. Mon 30 Nov on LinkedIn, beside the ciliates Reel (Instagram only).',
   },
   {
     key: '2026-10-24 november pl20261223 back',
     post: 'pl20261223',
     set: { iso_date: '2026-12-23', date_tbd: false },
-    reason: 'Back on Wed 23 Dec (24 Oct): the Save Soil post moved to November, so the December partner share slot is free for new material.',
+    reason:
+      'Back on Wed 23 Dec (24 Oct): the Save Soil post moved to November, so the December partner share slot is free for new material.',
   },
   {
     key: '2026-10-24 d26 slides v2',
@@ -3380,6 +3381,148 @@ export const CHANGES: Change[] = [
     ],
     reason:
       'New visual (Linnea, 24 Oct): the old one had italic type and small flower cutouts on cream. Now flat brand-colour boxes over real photos from the SFW microscope library, with one green band running across all four slides. Built with tools/wormhole-visuals/d26_rain.py.',
+  },
+  {
+    key: '2026-10-24 save soil ss-01-li',
+    post: 'ss-01-li',
+    create: {
+      iso_date: '2026-12-23',
+      date_tbd: false,
+      topic:
+        "Save Soil shoutout (LinkedIn): Valluvan's coconut farm, 0.86% to 2.33% organic matter",
+      platform: 'LinkedIn',
+      caption:
+        "Valluvan's yields did nothing for three years. Then they climbed.\n\nHis Tamil Nadu coconut farm started at 0.86% soil organic matter. He dug trenches between the coconut rows and filled them with leaf litter, stopped burning fronds, mulched around every crop, and planted nutmeg, banana, black pepper, turmeric and timber trees in layers under the palms.\n\nFrom year four the coconuts rose: 140 nuts per tree, up from 90-100. By year seven the soil read 1.5% organic matter, and the latest test reads 2.33%. Fertiliser costs are under a tenth of what they were.\n\nIn 2018, after two years of drought, more than 1,200 mm of rain fell in a few days. His neighbours' open wells stood 6-7 feet lower than his.\n\nThat buried leaf litter is food for fungi and bacteria, and their glues and threads are what turn soil into a sponge.\n\nFull case study from Save Soil (Isha Foundation).\n\nIf you farm or advise farmers: how long did your soil take before the yields answered?\n\nhttps://consciousplanet.org/en/save-soil/news/save-soil-movement-model-farm-proof-of-concept",
+      slides: [
+        {
+          text: 'A coconut farm went from 0.86% to 2.33% soil organic matter',
+          image: '/wormhole/tiles/ss-01-li-v1-1.jpg',
+        },
+      ],
+      cta: '',
+      link: 'https://consciousplanet.org/en/save-soil/news/save-soil-movement-model-farm-proof-of-concept',
+      sources: [
+        'https://consciousplanet.org/en/save-soil/news/save-soil-movement-model-farm-proof-of-concept',
+      ],
+      visual_note:
+        'LinkedIn single image, 1200 x 627, the same repost card as the Instagram post ss-01. Built with tools/wormhole-visuals/savesoil.py --linkedin-twins.',
+      note: "LinkedIn twin of ss-01, same day. Caption is the Instagram caption without hashtags, emoji or 'link in bio', ending with a question (CLAUDE.md: every LinkedIn post ends with a real question).",
+      status: 'draft',
+    },
+    reason:
+      'LinkedIn version of the Save Soil shoutout (Linnea, 24 Oct: the landscape repost card works well for LinkedIn).',
+  },
+  {
+    key: '2026-10-24 save soil ss-02-li',
+    post: 'ss-02-li',
+    create: {
+      iso_date: '2026-12-08',
+      date_tbd: false,
+      topic: 'Save Soil shoutout (LinkedIn): 5 numbers that show what soil life does',
+      platform: 'LinkedIn',
+      caption:
+        'Same almond yields, twice the profit, and water that soaks in six times faster.\n\nThat is one of the numbers Save Soil (Isha Foundation) gathered to argue that soil biology belongs in how countries track climate adaptation. Our favourites:\n\n1. Infiltration 6x faster in regenerative almond orchards (LaCanne et al. 2021).\n2. Microbial biomass carbon 133% higher in regenerative organic systems (Mäder et al. 2025).\n3. Diversified rotations had 2.4 to 13.5 times more earthworm biomass than rye monoculture in a long-term Lithuanian trial (Bogušas et al. 2022).\n4. Glomalin-related soil protein, made by mycorrhizal fungi, up 24% under perennial pasture restoration (Abán et al. 2025).\n5. In drought years, maize in legume and manure systems outyielded conventional by 38 to 137% (Lotter et al. 2003).\n\nEvery one of these is the soil food web at work. Save this for the next time someone asks whether biology shows up in the numbers.\n\nWhich soil biology measure would you want national adaptation plans to track first?\n\nhttps://consciousplanet.org/en/save-soil/news/soil-as-a-lead-indicator-of-the-global-goal-on-adaptation-gga',
+      slides: [
+        {
+          text: '5 numbers that show what soil life does',
+          image: '/wormhole/tiles/ss-02-li-v1-1.jpg',
+        },
+      ],
+      cta: '',
+      link: 'https://consciousplanet.org/en/save-soil/news/soil-as-a-lead-indicator-of-the-global-goal-on-adaptation-gga',
+      sources: [
+        'https://consciousplanet.org/en/save-soil/news/soil-as-a-lead-indicator-of-the-global-goal-on-adaptation-gga',
+      ],
+      visual_note:
+        'LinkedIn single image, 1200 x 627, the same repost card as the Instagram post ss-02. Built with tools/wormhole-visuals/savesoil.py --linkedin-twins.',
+      note: "LinkedIn twin of ss-02, same day. Caption is the Instagram caption without hashtags, emoji or 'link in bio', ending with a question (CLAUDE.md: every LinkedIn post ends with a real question).",
+      status: 'draft',
+    },
+    reason:
+      'LinkedIn version of the Save Soil shoutout (Linnea, 24 Oct: the landscape repost card works well for LinkedIn).',
+  },
+  {
+    key: '2026-10-24 save soil ss-05-li',
+    post: 'ss-05-li',
+    create: {
+      iso_date: '2026-11-08',
+      date_tbd: false,
+      topic: 'Save Soil shoutout (LinkedIn): soil may hold 59% of all life on Earth',
+      platform: 'LinkedIn',
+      caption:
+        "Soil may be home to 59% of all life on Earth (Anthony et al., PNAS 2023).\n\nBacteria, archaea, fungi, protozoa, nematodes, mites, springtails, earthworms, beetles. Save Soil's (Isha Foundation) paper on soil degradation and biodiversity walks through how they build the ground: microbes feed on sugars from roots and make sticky substances, fungal hyphae bind particles into crumbs, and earthworms and mites open channels for air and water.\n\nAbout 33% of the world's soils are already moderately to highly degraded. Every one of those organisms is what regeneration brings back.\n\nWhich soil organism do you think deserves more attention than it gets?\n\nhttps://consciousplanet.org/en/save-soil/news/soil-degradation-and-biodiversity-loss",
+      slides: [
+        {
+          text: 'Soil may be home to 59% of all life on Earth',
+          image: '/wormhole/tiles/ss-05-li-v1-1.jpg',
+        },
+      ],
+      cta: '',
+      link: 'https://consciousplanet.org/en/save-soil/news/soil-degradation-and-biodiversity-loss',
+      sources: [
+        'https://consciousplanet.org/en/save-soil/news/soil-degradation-and-biodiversity-loss',
+      ],
+      visual_note:
+        'LinkedIn single image, 1200 x 627, the same repost card as the Instagram post ss-05. Built with tools/wormhole-visuals/savesoil.py --linkedin-twins.',
+      note: "LinkedIn twin of ss-05, same day. Caption is the Instagram caption without hashtags, emoji or 'link in bio', ending with a question (CLAUDE.md: every LinkedIn post ends with a real question).",
+      status: 'draft',
+    },
+    reason:
+      'LinkedIn version of the Save Soil shoutout (Linnea, 24 Oct: the landscape repost card works well for LinkedIn).',
+  },
+  {
+    key: '2026-10-24 save soil ss-06-li',
+    post: 'ss-06-li',
+    create: {
+      iso_date: '2026-11-24',
+      date_tbd: false,
+      topic: 'Save Soil shoutout (LinkedIn): healthy soil and healthy humans',
+      platform: 'LinkedIn',
+      caption:
+        "In baboons, the soil they lived on shaped their gut bacteria 15 times more strongly than their genes.\n\nIn people, a study of over 1,000 adults found that less than 8% of the gut microbiome is inherited (Rothschild et al. 2018). The rest comes from what we eat and where we live, and soil is part of that.\n\nThe same soil life decides what is in our food. Mycorrhizal fungi move copper, iron, nitrogen, phosphorus and zinc into roots. Rhizobia in legume roots fix nitrogen from the air.\n\nFrom Save Soil's (Isha Foundation) paper Healthy Soil and Healthy Humans.\n\nShould soil health have a place in public health conversations?\n\nhttps://consciousplanet.org/en/save-soil/news/healthy-soil-and-healthy-humans",
+      slides: [
+        {
+          text: 'Where you live shapes your gut more than your genes do',
+          image: '/wormhole/tiles/ss-06-li-v1-1.jpg',
+        },
+      ],
+      cta: '',
+      link: 'https://consciousplanet.org/en/save-soil/news/healthy-soil-and-healthy-humans',
+      sources: ['https://consciousplanet.org/en/save-soil/news/healthy-soil-and-healthy-humans'],
+      visual_note:
+        'LinkedIn single image, 1200 x 627, the same repost card as the Instagram post ss-06. Built with tools/wormhole-visuals/savesoil.py --linkedin-twins.',
+      note: "LinkedIn twin of ss-06, same day. Caption is the Instagram caption without hashtags, emoji or 'link in bio', ending with a question (CLAUDE.md: every LinkedIn post ends with a real question).",
+      status: 'draft',
+    },
+    reason:
+      'LinkedIn version of the Save Soil shoutout (Linnea, 24 Oct: the landscape repost card works well for LinkedIn).',
+  },
+  {
+    key: '2026-10-24 save soil ss-08-li',
+    post: 'ss-08-li',
+    create: {
+      iso_date: '2026-11-19',
+      date_tbd: false,
+      topic: 'Save Soil shoutout (LinkedIn): the soil carbon sponge cools the land',
+      platform: 'LinkedIn',
+      caption:
+        "Land with living soil runs cooler than bare ground, and water is the reason.\n\nSave Soil's (Isha Foundation) report The Soil Carbon Sponge, built on Walter Jehne's work, explains it. Soil rich in organic matter soaks up rain and holds it. Plants pull that water up and release it through their leaves, and evaporation carries heat away. When soil degrades, the water runs off, and the same sunlight heats the air instead.\n\nFrom the soil food web side: the sponge is built by biology. Fungal hyphae and bacterial glues hold the pores open, and cover crops and mulch keep it from drying out.\n\nWhere have you seen covered ground stay cooler or wetter than bare ground nearby?\n\nhttps://consciousplanet.org/en/save-soil/news/the-soil-carbon-sponge",
+      slides: [
+        {
+          text: 'Healthy soil cools the land',
+          image: '/wormhole/tiles/ss-08-li-v1-1.jpg',
+        },
+      ],
+      cta: '',
+      link: 'https://consciousplanet.org/en/save-soil/news/the-soil-carbon-sponge',
+      sources: ['https://consciousplanet.org/en/save-soil/news/the-soil-carbon-sponge'],
+      visual_note:
+        'LinkedIn single image, 1200 x 627, the same repost card as the Instagram post ss-08. Built with tools/wormhole-visuals/savesoil.py --linkedin-twins.',
+      note: "LinkedIn twin of ss-08, same day. Caption is the Instagram caption without hashtags, emoji or 'link in bio', ending with a question (CLAUDE.md: every LinkedIn post ends with a real question).",
+      status: 'draft',
+    },
+    reason:
+      'LinkedIn version of the Save Soil shoutout (Linnea, 24 Oct: the landscape repost card works well for LinkedIn).',
   },
 ];
 

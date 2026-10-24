@@ -318,9 +318,23 @@ POSTS = {
 }
 
 
+def linkedin_twins():
+    """A LinkedIn card for each Instagram shoutout: <id>-li-v1-1.jpg, 1200 x 627."""
+    for pid, post in POSTS.items():
+        if post["kind"] != "ig":
+            continue
+        path = os.path.join(TILES, f"{pid}-li-v1-1.jpg")
+        assert not os.path.exists(path), f"{path} exists; bump the version"
+        linkedin(pid, post)[0].save(path, quality=88, optimize=True, progressive=True)
+        print(pid + "-li", "1 slide")
+
+
 if __name__ == "__main__":
     import sys
     random.seed(1)
+    if sys.argv[1:] == ["--linkedin-twins"]:
+        linkedin_twins()
+        sys.exit()
     for pid in sys.argv[1:] or POSTS:
         post = POSTS[pid]
         imgs = instagram(pid, post) if post["kind"] == "ig" else linkedin(pid, post)
