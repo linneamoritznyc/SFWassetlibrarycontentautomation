@@ -3358,6 +3358,29 @@ export const CHANGES: Change[] = [
     set: { iso_date: '2026-12-23', date_tbd: false },
     reason: 'Back on Wed 23 Dec (24 Oct): the Save Soil post moved to November, so the December partner share slot is free for new material.',
   },
+  {
+    key: '2026-10-24 d26 slides v2',
+    post: 'd26',
+    set: {
+      slides: [
+        { text: 'The smell of rain is a chemical signal.', image: '/wormhole/tiles/d26-v2-1.jpg' },
+        { text: 'Geosmin, made by Streptomyces bacteria.', image: '/wormhole/tiles/d26-v2-2.jpg' },
+        { text: 'It attracts springtails.', image: '/wormhole/tiles/d26-v2-3.jpg' },
+        {
+          text: 'They eat the colony and carry its spores away.',
+          image: '/wormhole/tiles/d26-v2-4.jpg',
+        },
+      ],
+    },
+    caption: [
+      [
+        '#Petrichor #SoilBiology',
+        'Photos: no-till soil after rain; actinobacteria by Rodrigue Ullens; Collembola by Cameron Radman (SFW microscope library)\n#Petrichor #SoilBiology',
+      ],
+    ],
+    reason:
+      'New visual (Linnea, 24 Oct): the old one had italic type and small flower cutouts on cream. Now flat brand-colour boxes over real photos from the SFW microscope library, with one green band running across all four slides. Built with tools/wormhole-visuals/d26_rain.py.',
+  },
 ];
 
 const editorOf = (c: Change) => `Change: ${c.key}`;
