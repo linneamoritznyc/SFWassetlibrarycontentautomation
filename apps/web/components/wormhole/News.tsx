@@ -5,16 +5,32 @@ import type { FeedHealth, ScoutStory } from '@/lib/scout';
 import type { WormholePost } from '@/lib/wormhole-types';
 import { GREEN } from './util';
 
-type Result = { stories: ScoutStory[]; health: FeedHealth[]; days: number; checked_at: string };
+type Result = {
+  stories: ScoutStory[];
+  health: FeedHealth[];
+  hidden: string[];
+  days: number;
+  checked_at: string;
+};
 
-const HIDDEN_KEY = 'wormhole-news-hidden';
+/** Where "Not for us" used to live, on one device only. Moved to the server once, then cleared. */
+const OLD_HIDDEN_KEY = 'wormhole-news-hidden';
 
-function readHidden(): string[] {
+function takeOldHidden(): string[] {
   try {
-    return JSON.parse(localStorage.getItem(HIDDEN_KEY) ?? '[]');
+    const old = JSON.parse(localStorage.getItem(OLD_HIDDEN_KEY) ?? '[]');
+    return Array.isArray(old) ? old : [];
   } catch {
     return [];
   }
+}
+
+function saveHidden(urls: string[], hidden: boolean) {
+  return fetch('/api/wormhole/scout', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ urls, hidden }),
+  });
 }
 
 function shortDate(iso: string | null): string {
@@ -44,7 +60,22 @@ export function News({
   const [showFeeds, setShowFeeds] = useState(false);
   const [planning, setPlanning] = useState<string | null>(null);
 
-  useEffect(() => setHidden(readHidden()), []);
+  // Move anything this device hid before "Not for us" was shared.
+  useEffect(() => {
+    const old = takeOldHidden();
+    if (old.length === 0) return;
+    setHidden((h) => Array.from(new Set([...h, ...old])));
+    saveHidden(old, true)
+      .then((res) => {
+        if (!res.ok) return;
+        try {
+          localStorage.removeItem(OLD_HIDDEN_KEY);
+        } catch {
+          // Storage blocked; the server copy is what counts.
+        }
+      })
+      .catch(() => {});
+  }, []);
 
   useEffect(() => {
     let stop = false;
@@ -54,7 +85,9 @@ export function News({
       .then(async (res) => {
         if (!res.ok) throw new Error(`The server said ${res.status}`);
         const body = (await res.json()) as Result;
-        if (!stop) setData(body);
+        if (stop) return;
+        setData(body);
+        setHidden((h) => Array.from(new Set([...body.hidden, ...h])));
       })
       .catch((e) => !stop && setError((e as Error).message));
     return () => {
@@ -72,9 +105,7 @@ export function News({
   function hide(url: string, on: boolean) {
     const next = on ? [...hidden, url] : hidden.filter((u) => u !== url);
     setHidden(next);
-    try {
-      localStorage.setItem(HIDDEN_KEY, JSON.stringify(next.slice(-500)));
-    } catch {}
+    saveHidden([url], on).catch(() => {});
   }
 
   const regions = useMemo(
