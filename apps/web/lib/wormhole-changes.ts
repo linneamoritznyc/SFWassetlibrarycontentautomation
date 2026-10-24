@@ -3264,6 +3264,52 @@ export const CHANGES: Change[] = [
     reason:
       'New cards (24 Oct), on brand: Food Web Green background, cream card, Soil Brown Montserrat headline, Regenerative Green bar, Source Sans 3 body, per the 2026 brand guide and color guidelines. v1 had a near-black background and Poppins.',
   },
+  {
+    key: '2026-10-24 ev-01 caption',
+    post: 'ev-01',
+    caption: [
+      [
+        "The Soil Health Institute's new President and CEO, Ashley McKeon, makes the case for soil health in her first long piece since taking the role in June.\n\n[One line from the article that matches what we teach: name the organism or the practice.]\n\n[One line on why it matters for growers.]",
+        'Cotton farmers with established soil health systems earned $118 more net income per acre than they did under their old conventional systems.\n\nThat is Soil Health Institute research, shared by SHI President and CEO Ashley McKeon after a plenary panel at the Textile Exchange Conference in Vancouver. For context, USDA estimated the 2025 US cotton crop fell about $201 per planted acre short of its full economic cost. She is careful to say the two numbers are not directly comparable.\n\nHer message to the apparel companies in the room: stop asking when you can stop paying for regenerative agriculture. Savings on inputs and equipment come first. Yield, yield stability and revenue follow later, as soil health indicators improve. So support should change with each stage, from cost-share, equipment financing and technical help early on to multi-year purchasing commitments and payments for ecosystem outcomes later.\n\nUnder every one of those indicators is soil biology: the fungi and bacteria that build structure, hold water and cycle nutrients. That is the part we teach.',
+      ],
+    ],
+    reason:
+      "Caption written from the article text Linnea pasted (24 Oct): McKeon, 19 Oct 2026, after the Textile Exchange Conference panel. Figures as she gives them: SHI's $118/acre net income gain, USDA's $201/acre 2025 shortfall, with her caveat that they are not directly comparable.",
+  },
+  {
+    key: '2026-10-24 ev-02 caption',
+    post: 'ev-02',
+    set: {
+      link: 'https://beopen.earth/atlas',
+      sources: [
+        'https://beopen.earth/',
+        'https://beopen.earth/atlas',
+        'https://fields4ever.biomemakers.com/',
+      ],
+      slides: [
+        { text: 'An open map of soil life', image: null },
+        { text: '100,000 soil samples. 90+ countries. One protocol.', image: null },
+        {
+          text: 'Bacteria and fungi, open to everyone. Explore the Atlas at beopen.earth',
+          image: null,
+        },
+      ],
+      visual_note:
+        'Partner shoutout carousel, 3 slides. Slide 1: a screenshot of the BeOpen Atlas map inside a flat colour box. Slides 2 and 3: brand colour boxes over a soil or microscope photo from our library. Tag BeOpen and Biome Makers.',
+    },
+    caption: [
+      [
+        '[Hook: the one thing beopen.earth does that our community should know.]\n\n[Two lines on what they do and who it is for.]\n\nGo have a look: https://beopen.earth/',
+        'There is now an open map of the bacteria and fungi in more than 100,000 soil samples from over 90 countries.\n\nBeOpen, an open project by Biome Makers, collects, sequences and analyses every sample with the same protocol, so a sample from one continent can be compared directly with one from another. Researchers get free access to raw reads and processed data. Regulators can see which soil microorganisms have been found in each region, with every data point linked to where it came from. Labs can join as contributors with the Becrop Standard protocol.\n\nOver 200 research partners and 3,000 datasets so far. Supported by the European Union and powered by Fields4Ever.\n\nGo explore the Atlas: https://beopen.earth/atlas',
+      ],
+      [
+        '#SoilFoodWeb #SoilHealth',
+        '#SoilFoodWeb #SoilMicrobiome #SoilBiology #OpenScience #SoilHealth',
+      ],
+    ],
+    reason:
+      "Caption and slide text written from beopen.earth's own page text, pasted by Linnea (24 Oct). Figures from the site: 100k samples, 90+ countries, 200+ partners, 3k datasets.",
+  },
 ];
 
 const editorOf = (c: Change) => `Change: ${c.key}`;
