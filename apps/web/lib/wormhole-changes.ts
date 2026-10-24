@@ -3035,7 +3035,63 @@ export const CHANGES: Change[] = [
       [' #Mycorrhiza', ''],
     ],
     reason:
-      "Evan shared the University of Sheffield story (24 Oct, \"Breakthrough science alert!\"). Link now goes to Sheffield's own page, Jurriaan Ton's quote added, #Mycorrhiza dropped because the fungus is a fine root endophyte, and the LinkedIn note now tags the lab instead of ending on a question. Evan also asked Stephanie to invite the researchers to a Q1 webinar.",
+      'Evan shared the University of Sheffield story (24 Oct, "Breakthrough science alert!"). Link now goes to Sheffield\'s own page, Jurriaan Ton\'s quote added, #Mycorrhiza dropped because the fungus is a fine root endophyte, and the LinkedIn note now tags the lab instead of ending on a question. Evan also asked Stephanie to invite the researchers to a Q1 webinar.',
+  },
+  {
+    key: '2026-10-24 save soil ss-05 date',
+    post: 'ss-05',
+    set: { iso_date: '2026-11-08', date_tbd: false },
+    reason:
+      'Dated (24 Oct): Sun 8 Nov, an empty day: a single card that works any time. Partner shares go on days outside the Mon/Wed/Fri feed posts where possible.',
+  },
+  {
+    key: '2026-10-24 save soil ss-04 date',
+    post: 'ss-04',
+    set: { iso_date: '2026-11-17', date_tbd: false },
+    reason:
+      'Dated (24 Oct): Tue 17 Nov on LinkedIn, an empty day. Partner shares go on days outside the Mon/Wed/Fri feed posts where possible.',
+  },
+  {
+    key: '2026-10-24 save soil ss-08 date',
+    post: 'ss-08',
+    set: { iso_date: '2026-11-19', date_tbd: false },
+    reason:
+      "Dated (24 Oct): Thu 19 Nov, two days before 'Do this weekend: cover bare beds' (21 Nov): same message, cover the ground. Partner shares go on days outside the Mon/Wed/Fri feed posts where possible.",
+  },
+  {
+    key: '2026-10-24 save soil ss-06 date',
+    post: 'ss-06',
+    set: { iso_date: '2026-11-24', date_tbd: false },
+    reason:
+      'Dated (24 Oct): Tue 24 Nov, Thanksgiving week: soil, food and health before the Thanksgiving post (26 Nov). Partner shares go on days outside the Mon/Wed/Fri feed posts where possible.',
+  },
+  {
+    key: '2026-10-24 save soil ss-03 date',
+    post: 'ss-03',
+    set: { iso_date: '2026-12-01', date_tbd: false },
+    reason:
+      'Dated (24 Oct): Tue 1 Dec on LinkedIn, an empty feed day. Partner shares go on days outside the Mon/Wed/Fri feed posts where possible.',
+  },
+  {
+    key: '2026-10-24 save soil ss-01 date',
+    post: 'ss-01',
+    set: { iso_date: '2026-12-03', date_tbd: false },
+    reason:
+      'Dated (24 Oct): Thu 3 Dec, the lead-in to World Soil Day (5 Dec): the strongest farm story in the set. Partner shares go on days outside the Mon/Wed/Fri feed posts where possible.',
+  },
+  {
+    key: '2026-10-24 save soil ss-02 date',
+    post: 'ss-02',
+    set: { iso_date: '2026-12-08', date_tbd: false },
+    reason:
+      'Dated (24 Oct): Tue 8 Dec, an empty day after World Soil Day. Partner shares go on days outside the Mon/Wed/Fri feed posts where possible.',
+  },
+  {
+    key: '2026-10-24 save soil ss-07 date',
+    post: 'ss-07',
+    set: { iso_date: '2026-12-10', date_tbd: false },
+    reason:
+      'Dated (24 Oct): Thu 10 Dec on LinkedIn, an empty day. Partner shares go on days outside the Mon/Wed/Fri feed posts where possible.',
   },
 ];
 
