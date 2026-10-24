@@ -265,3 +265,66 @@ def spooky_header(w=1920, h=720, seed=7):
     bg.alpha_composite(shade, (4, 6))
     bg.alpha_composite(title)
     return bg
+
+
+def petri_dish(d):
+    """A glass Petri dish seen at a low angle: lid, agar, a few colonies, one even outline, flat colours."""
+    S = 2
+    n = d * S
+    hgt = int(n * .5)
+    im = Image.new("RGBA", (n, hgt), (0, 0, 0, 0))
+    dr = ImageDraw.Draw(im)
+    o = (30, 36, 30, 255)
+    # base wall
+    dr.rectangle((n * .04, hgt * .42, n * .96, hgt * .72), fill=(205, 222, 214, 140))
+    dr.ellipse((n * .04, hgt * .56, n * .96, hgt * .92), fill=(205, 222, 214, 160), outline=o, width=3 * S)
+    # agar
+    dr.ellipse((n * .08, hgt * .30, n * .92, hgt * .66), fill=(222, 196, 120, 235), outline=o, width=2 * S)
+    rnd = random.Random(5)
+    for _ in range(9):
+        x, y, r = rnd.uniform(.2, .8) * n, rnd.uniform(.38, .58) * hgt, rnd.uniform(.015, .035) * n
+        dr.ellipse((x - r, y - r * .45, x + r, y + r * .45), fill=rnd.choice(((240, 236, 220, 255), (196, 112, 58, 255))),
+                   outline=o, width=S)
+    # rim and lid shine
+    dr.ellipse((n * .04, hgt * .24, n * .96, hgt * .66), outline=o, width=3 * S)
+    dr.line((n * .04, hgt * .45, n * .04, hgt * .74), fill=o, width=3 * S)
+    dr.line((n * .96, hgt * .45, n * .96, hgt * .74), fill=o, width=3 * S)
+    dr.arc((n * .14, hgt * .28, n * .7, hgt * .5), 190, 250, fill=(255, 255, 255, 200), width=4 * S)
+    return im.resize((d, hgt // S), Image.LANCZOS)
+
+
+def spooky_header2(w=1920, h=720, seed=7):
+    """Agreed changes: title without a full stop, no jack-o'-lantern, a smaller, more distant moon, a Petri dish."""
+    from collage import font
+    rnd = random.Random(seed + 1)
+    mx, my, md = .50, .22, .26
+    bg = halloween_bg(w, h, seed, moon_at=(mx, my), moon_d=md)
+    wash = Image.new("L", (w, h), 0)
+    cx, cy, r = mx * w, my * h, md * h * .52
+    ImageDraw.Draw(wash).ellipse((cx - r, cy - r, cx + r, cy + r), fill=90)
+    wash = wash.filter(ImageFilter.GaussianBlur(md * h * .08))
+    ow = Image.new("RGBA", (w, h), (232, 120, 40, 0)); ow.putalpha(wash)
+    bg.alpha_composite(ow)
+    for i in range(6):
+        b = bat(round(h * rnd.uniform(.04, .08)), flap=rnd.uniform(0, 1)).rotate(rnd.uniform(-25, 25), expand=True)
+        bg.alpha_composite(b, (round(w * rnd.uniform(.3, .62)), round(h * rnd.uniform(.03, .4))))
+    pd = petri_dish(round(h * .62))
+    px, py = round(w * .50 - pd.width / 2), round(h * .93 - pd.height * .9)
+    g = Image.new("L", (w, h), 0)
+    ImageDraw.Draw(g).ellipse((px - pd.width * .1, py - pd.height * .4, px + pd.width * 1.1, py + pd.height * 1.1), fill=70)
+    g = g.filter(ImageFilter.GaussianBlur(pd.width * .12))
+    gl = Image.new("RGBA", (w, h), (236, 226, 190, 0)); gl.putalpha(g)
+    bg.alpha_composite(gl)
+    bg.alpha_composite(pd, (px, py))
+    bg.alpha_composite(lens(A, round(h * .74)), (round(w * .655), round(h * .08)))
+    bg.alpha_composite(lens(H_, round(h * .42)), (round(w * .825), round(h * .50)))
+    title = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+    td = ImageDraw.Draw(title)
+    f = font("garamond", True, round(h * .17))
+    td.text((w * .16, h * .08), "Vampire", font=f, fill=(244, 238, 222, 255))
+    td.text((w * .20, h * .08 + h * .17), "amoeba", font=f, fill=(244, 238, 222, 255))
+    sh = title.getchannel("A").filter(ImageFilter.GaussianBlur(h * .012))
+    shade = Image.new("RGBA", (w, h), (0, 0, 0, 0)); shade.putalpha(sh.point(lambda v: int(v * .8)))
+    bg.alpha_composite(shade, (4, 6))
+    bg.alpha_composite(title)
+    return bg
