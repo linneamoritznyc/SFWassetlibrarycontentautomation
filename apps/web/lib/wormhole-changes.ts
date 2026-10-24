@@ -3086,6 +3086,184 @@ export const CHANGES: Change[] = [
     reason:
       'Dated (24 Oct): Thu 10 Dec on LinkedIn, an empty day. Partner shares go on days outside the Mon/Wed/Fri feed posts where possible.',
   },
+  {
+    key: '2026-10-24 save soil ss-01 slides v2',
+    post: 'ss-01',
+    set: {
+      slides: [
+        {
+          text: 'A coconut farm went from 0.86% to 2.33% soil organic matter',
+          image: '/wormhole/tiles/ss-01-v2-1.jpg',
+        },
+        {
+          text: 'Coconuts per tree: 90-100 before, 140 now. Nothing changed in the first three years.',
+          image: '/wormhole/tiles/ss-01-v2-2.jpg',
+        },
+        {
+          text: 'Fertiliser spending: under 10% of what it was. Workers: 1, down from 10-20.',
+          image: '/wormhole/tiles/ss-01-v2-3.jpg',
+        },
+        {
+          text: '2018: over 1,200 mm of rain in a few days, after two years of drought.',
+          image: '/wormhole/tiles/ss-01-v2-4.jpg',
+        },
+        {
+          text: "His neighbours' open wells stood 6-7 feet lower than his.",
+          image: '/wormhole/tiles/ss-01-v2-5.jpg',
+        },
+        {
+          text: 'What he did: leaf litter trenches between rows, mulch, layered crops, no burning, no summer ploughing.',
+          image: '/wormhole/tiles/ss-01-v2-6.jpg',
+        },
+      ],
+    },
+    reason:
+      'New cards (24 Oct), on brand: Food Web Green background, cream card, Soil Brown Montserrat headline, Regenerative Green bar, Source Sans 3 body, per the 2026 brand guide and color guidelines. v1 had a near-black background and Poppins.',
+  },
+  {
+    key: '2026-10-24 save soil ss-02 slides v2',
+    post: 'ss-02',
+    set: {
+      slides: [
+        {
+          text: '5 numbers that show what soil life does',
+          image: '/wormhole/tiles/ss-02-v2-1.jpg',
+        },
+        {
+          text: '6x faster: water soaking into regenerative almond orchards (LaCanne et al. 2021)',
+          image: '/wormhole/tiles/ss-02-v2-2.jpg',
+        },
+        {
+          text: '133% more microbial biomass carbon in regenerative organic soils (Mäder et al. 2025)',
+          image: '/wormhole/tiles/ss-02-v2-3.jpg',
+        },
+        {
+          text: '2.4 to 13.5x more earthworm biomass in diversified rotations than in rye monoculture (Bogušas et al. 2022)',
+          image: '/wormhole/tiles/ss-02-v2-4.jpg',
+        },
+        {
+          text: '+24% glomalin, the fungal protein that glues soil crumbs together, under perennial pasture (Abán et al. 2025)',
+          image: '/wormhole/tiles/ss-02-v2-5.jpg',
+        },
+        {
+          text: '+38-137% maize yield in drought years in legume and manure systems (Lotter et al. 2003)',
+          image: '/wormhole/tiles/ss-02-v2-6.jpg',
+        },
+      ],
+    },
+    reason:
+      'New cards (24 Oct), on brand: Food Web Green background, cream card, Soil Brown Montserrat headline, Regenerative Green bar, Source Sans 3 body, per the 2026 brand guide and color guidelines. v1 had a near-black background and Poppins.',
+  },
+  {
+    key: '2026-10-24 save soil ss-03 slides v2',
+    post: 'ss-03',
+    set: {
+      slides: [
+        {
+          text: 'USD 1 trillion for energy. USD 9 billion for agriculture.',
+          image: '/wormhole/tiles/ss-03-v2-1.jpg',
+        },
+      ],
+    },
+    reason:
+      'New cards (24 Oct), on brand: Food Web Green background, cream card, Soil Brown Montserrat headline, Regenerative Green bar, Source Sans 3 body, per the 2026 brand guide and color guidelines. v1 had a near-black background and Poppins.',
+  },
+  {
+    key: '2026-10-24 save soil ss-04 slides v2',
+    post: 'ss-04',
+    set: {
+      slides: [
+        {
+          text: 'Tilled soil released 21% more CO2. In low-carbon soil, 29%.',
+          image: '/wormhole/tiles/ss-04-v2-1.jpg',
+        },
+      ],
+    },
+    reason:
+      'New cards (24 Oct), on brand: Food Web Green background, cream card, Soil Brown Montserrat headline, Regenerative Green bar, Source Sans 3 body, per the 2026 brand guide and color guidelines. v1 had a near-black background and Poppins.',
+  },
+  {
+    key: '2026-10-24 save soil ss-05 slides v2',
+    post: 'ss-05',
+    set: {
+      slides: [
+        {
+          text: 'Soil may be home to 59% of all life on Earth',
+          image: '/wormhole/tiles/ss-05-v2-1.jpg',
+        },
+      ],
+    },
+    reason:
+      'New cards (24 Oct), on brand: Food Web Green background, cream card, Soil Brown Montserrat headline, Regenerative Green bar, Source Sans 3 body, per the 2026 brand guide and color guidelines. v1 had a near-black background and Poppins.',
+  },
+  {
+    key: '2026-10-24 save soil ss-06 slides v2',
+    post: 'ss-06',
+    set: {
+      slides: [
+        {
+          text: 'Where you live shapes your gut more than your genes do',
+          image: '/wormhole/tiles/ss-06-v2-1.jpg',
+        },
+        {
+          text: 'Baboons: the soil around them shaped their gut microbes 15x more strongly than their genetics',
+          image: '/wormhole/tiles/ss-06-v2-2.jpg',
+        },
+        {
+          text: 'People: under 8% of the gut microbiome is inherited (Rothschild et al. 2018)',
+          image: '/wormhole/tiles/ss-06-v2-3.jpg',
+        },
+        {
+          text: 'Mycorrhizal fungi carry copper, iron, nitrogen, phosphorus and zinc into crops',
+          image: '/wormhole/tiles/ss-06-v2-4.jpg',
+        },
+        {
+          text: 'Rhizobia in legume roots turn nitrogen from the air into plant food',
+          image: '/wormhole/tiles/ss-06-v2-5.jpg',
+        },
+      ],
+    },
+    reason:
+      'New cards (24 Oct), on brand: Food Web Green background, cream card, Soil Brown Montserrat headline, Regenerative Green bar, Source Sans 3 body, per the 2026 brand guide and color guidelines. v1 had a near-black background and Poppins.',
+  },
+  {
+    key: '2026-10-24 save soil ss-07 slides v2',
+    post: 'ss-07',
+    set: {
+      slides: [
+        { text: 'Soil is becoming security policy.', image: '/wormhole/tiles/ss-07-v2-1.jpg' },
+      ],
+    },
+    reason:
+      'New cards (24 Oct), on brand: Food Web Green background, cream card, Soil Brown Montserrat headline, Regenerative Green bar, Source Sans 3 body, per the 2026 brand guide and color guidelines. v1 had a near-black background and Poppins.',
+  },
+  {
+    key: '2026-10-24 save soil ss-08 slides v2',
+    post: 'ss-08',
+    set: {
+      slides: [
+        { text: 'Healthy soil cools the land', image: '/wormhole/tiles/ss-08-v2-1.jpg' },
+        {
+          text: 'Water in soil evaporates through plants and carries heat away',
+          image: '/wormhole/tiles/ss-08-v2-2.jpg',
+        },
+        {
+          text: "Bare, degraded soil can't hold that water, so the sun heats the air instead",
+          image: '/wormhole/tiles/ss-08-v2-3.jpg',
+        },
+        {
+          text: 'Cover crops and mulch keep the ground from baking',
+          image: '/wormhole/tiles/ss-08-v2-4.jpg',
+        },
+        {
+          text: "Fungal threads and bacterial glues hold the sponge's pores open",
+          image: '/wormhole/tiles/ss-08-v2-5.jpg',
+        },
+      ],
+    },
+    reason:
+      'New cards (24 Oct), on brand: Food Web Green background, cream card, Soil Brown Montserrat headline, Regenerative Green bar, Source Sans 3 body, per the 2026 brand guide and color guidelines. v1 had a near-black background and Poppins.',
+  },
 ];
 
 const editorOf = (c: Change) => `Change: ${c.key}`;
