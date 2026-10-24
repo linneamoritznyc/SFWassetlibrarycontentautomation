@@ -4887,6 +4887,413 @@ export const CHANGES: Change[] = [
     },
     reason: "New post (Linnea, 24 Oct): more posts about the new website and the coming annual report.",
   },
+  {
+    key: '2026-10-24 x20261108 visual v1',
+    post: 'x20261108',
+    set: {
+      slides: [
+        { text: "Happy Diwali.", image: '/wormhole/tiles/x20261108-v1-1.jpg' },
+        { text: "Light, sweets and marigolds. Every one of them starts in living soil.", image: '/wormhole/tiles/x20261108-v1-2.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261109 visual v1',
+    post: 'x20261109',
+    set: {
+      slides: [
+        { text: "COP31 opens today. Agriculture's own negotiating track runs out in 2026.", image: '/wormhole/tiles/x20261109-v1-1.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261128 visual v1',
+    post: 'x20261128',
+    set: {
+      slides: [
+        { text: "Small Business Saturday.", image: '/wormhole/tiles/x20261128-v1-1.jpg' },
+        { text: "Shop local for your soil too.", image: '/wormhole/tiles/x20261128-v1-2.jpg' },
+        { text: "Certified Soil Food Web Consultants run their own businesses: labs, compost operations and on-farm advice.", image: '/wormhole/tiles/x20261128-v1-3.jpg' },
+        { text: "Find one near you.", image: '/wormhole/tiles/x20261128-v1-4.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261217 visual v1',
+    post: 'x20261217',
+    set: {
+      slides: [
+        { text: "Nitrogen from thin air.", image: '/wormhole/tiles/x20261217-v1-1.jpg' },
+        { text: "Air is 78% nitrogen gas. Plants can't use it.", image: '/wormhole/tiles/x20261217-v1-2.jpg' },
+        { text: "Rhizobia bacteria in legume roots turn it into a form plants can.", image: '/wormhole/tiles/x20261217-v1-3.jpg' },
+        { text: "Biological fixation supplies 25 to 40% of the world's yearly reactive nitrogen.", image: '/wormhole/tiles/x20261217-v1-4.jpg' },
+        { text: "No bag required.", image: '/wormhole/tiles/x20261217-v1-5.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261201 visual v1',
+    post: 'x20261201',
+    set: {
+      slides: [
+        { text: "Today is GivingTuesday.", image: '/wormhole/tiles/x20261201-v1-1.jpg' },
+        { text: "A scholarship puts a farmer, gardener or student in a course they couldn't otherwise take.", image: '/wormhole/tiles/x20261201-v1-2.jpg' },
+        { text: "They take it home to their own soil, and teach their neighbours.", image: '/wormhole/tiles/x20261201-v1-3.jpg' },
+        { text: "Give today, link in bio.", image: '/wormhole/tiles/x20261201-v1-4.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261202 visual v1',
+    post: 'x20261202',
+    set: {
+      slides: [
+        { text: "From shovel to slide.", image: '/wormhole/tiles/x20261202-v1-1.jpg' },
+        { text: "1. Take a small sample from the root zone.", image: '/wormhole/tiles/x20261202-v1-2.jpg' },
+        { text: "2. Mix it with water.", image: '/wormhole/tiles/x20261202-v1-3.jpg' },
+        { text: "3. Put one drop on a slide.", image: '/wormhole/tiles/x20261202-v1-4.jpg' },
+        { text: "4. Count what you see: bacteria, fungi, protozoa, nematodes.", image: '/wormhole/tiles/x20261202-v1-5.jpg' },
+        { text: "That count tells you what your soil needs.", image: '/wormhole/tiles/x20261202-v1-6.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261203 visual v1',
+    post: 'x20261203',
+    set: {
+      slides: [
+        { text: "Six weeks to Costa Rica.", image: '/wormhole/tiles/x20261203-v1-1.jpg' },
+        { text: "18 to 29 January 2027.", image: '/wormhole/tiles/x20261203-v1-2.jpg' },
+        { text: "Compost piles in the morning, the microscope in the afternoon.", image: '/wormhole/tiles/x20261203-v1-3.jpg' },
+        { text: "Places are still open.", image: '/wormhole/tiles/x20261203-v1-4.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261204 visual v1',
+    post: 'x20261204',
+    set: {
+      slides: [
+        { text: "Wildlife Conservation Day.", image: '/wormhole/tiles/x20261204-v1-1.jpg' },
+        { text: "Meet the wildlife under your feet.", image: '/wormhole/tiles/x20261204-v1-2.jpg' },
+        { text: "Bacteria.", image: '/wormhole/tiles/x20261204-v1-3.jpg' },
+        { text: "Fungi.", image: '/wormhole/tiles/x20261204-v1-4.jpg' },
+        { text: "Protozoa.", image: '/wormhole/tiles/x20261204-v1-5.jpg' },
+        { text: "Nematodes.", image: '/wormhole/tiles/x20261204-v1-6.jpg' },
+        { text: "Microarthropods.", image: '/wormhole/tiles/x20261204-v1-7.jpg' },
+        { text: "Protect their habitat: keep soil covered and roots growing.", image: '/wormhole/tiles/x20261204-v1-8.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261208 visual v1',
+    post: 'x20261208',
+    set: {
+      slides: [
+        { text: "Who eats whom in your soil?", image: '/wormhole/tiles/x20261208-v1-1.jpg' },
+        { text: "Plants feed bacteria and fungi through their roots.", image: '/wormhole/tiles/x20261208-v1-2.jpg' },
+        { text: "Protozoa and nematodes eat the bacteria and fungi.", image: '/wormhole/tiles/x20261208-v1-3.jpg' },
+        { text: "What they don't need comes out as nutrients plants can take up.", image: '/wormhole/tiles/x20261208-v1-4.jpg' },
+        { text: "Lose a link, and the plant goes hungry.", image: '/wormhole/tiles/x20261208-v1-5.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261213 visual v1',
+    post: 'x20261213',
+    set: {
+      slides: [
+        { text: "This amoeba lives in a house it built.", image: '/wormhole/tiles/x20261213-v1-1.jpg' },
+        { text: "Testate amoebae make a shell from their own secretions or from grains of mineral.", image: '/wormhole/tiles/x20261213-v1-2.jpg' },
+        { text: "They eat bacteria and release nutrients plants can use.", image: '/wormhole/tiles/x20261213-v1-3.jpg' },
+        { text: "Lots of them usually means a wetter, fungal-rich soil.", image: '/wormhole/tiles/x20261213-v1-4.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261215 visual v1',
+    post: 'x20261215',
+    set: {
+      slides: [
+        { text: "What does one scholarship become?", image: '/wormhole/tiles/x20261215-v1-1.jpg' },
+        { text: "One course.", image: '/wormhole/tiles/x20261215-v1-2.jpg' },
+        { text: "One farm that changes how it builds soil.", image: '/wormhole/tiles/x20261215-v1-3.jpg' },
+        { text: "A neighbour who sees the difference.", image: '/wormhole/tiles/x20261215-v1-4.jpg' },
+        { text: "Give before the year ends, link in bio.", image: '/wormhole/tiles/x20261215-v1-5.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261220 visual v1',
+    post: 'x20261220',
+    set: {
+      slides: [
+        { text: "Congratulations to our Permaculture Design Certificate cohort.", image: '/wormhole/tiles/x20261220-v1-1.jpg' },
+        { text: "Twelve weeks, one design each.", image: '/wormhole/tiles/x20261220-v1-2.jpg' },
+        { text: "We can't wait to see what you build.", image: '/wormhole/tiles/x20261220-v1-3.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261222 visual v1',
+    post: 'x20261222',
+    set: {
+      slides: [
+        { text: "Holiday reading.", image: '/wormhole/tiles/x20261222-v1-1.jpg' },
+        { text: "Four decades of Dr. Elaine Ingham's research, linked in one place.", image: '/wormhole/tiles/x20261222-v1-2.jpg' },
+        { text: "Start with one. Pour a coffee.", image: '/wormhole/tiles/x20261222-v1-3.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261224 visual v1',
+    post: 'x20261224',
+    set: {
+      slides: [
+        { text: "Your Christmas tree has one more job.", image: '/wormhole/tiles/x20261224-v1-1.jpg' },
+        { text: "Chip it, or ask if your town does.", image: '/wormhole/tiles/x20261224-v1-2.jpg' },
+        { text: "Woody mulch feeds fungi.", image: '/wormhole/tiles/x20261224-v1-3.jpg' },
+        { text: "Spread it around trees and shrubs.", image: '/wormhole/tiles/x20261224-v1-4.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261226 visual v1',
+    post: 'x20261226',
+    set: {
+      slides: [
+        { text: "Can wrapping paper go in the compost?", image: '/wormhole/tiles/x20261226-v1-1.jpg' },
+        { text: "Plain paper and cardboard: yes, shredded.", image: '/wormhole/tiles/x20261226-v1-2.jpg' },
+        { text: "Glossy, foil, glitter or plastic-coated: no.", image: '/wormhole/tiles/x20261226-v1-3.jpg' },
+        { text: "Tape and ribbons off first.", image: '/wormhole/tiles/x20261226-v1-4.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261229 visual v1',
+    post: 'x20261229',
+    set: {
+      slides: [
+        { text: "2026 in soil science.", image: '/wormhole/tiles/x20261229-v1-1.jpg' },
+        { text: "A mustard plant that 'couldn't' partner with fungi traded food with one.", image: '/wormhole/tiles/x20261229-v1-2.jpg' },
+        { text: "An open map of the bacteria and fungi in 100,000 soil samples.", image: '/wormhole/tiles/x20261229-v1-3.jpg' },
+        { text: "Regenerative almond orchards: water soaked in 6x faster, same yield.", image: '/wormhole/tiles/x20261229-v1-4.jpg' },
+        { text: "Here's to more in 2027.", image: '/wormhole/tiles/x20261229-v1-5.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261231 visual v1',
+    post: 'x20261231',
+    set: {
+      slides: [
+        { text: "Happy New Year from the soil.", image: '/wormhole/tiles/x20261231-v1-1.jpg' },
+        { text: "Costa Rica, 18 to 29 January.", image: '/wormhole/tiles/x20261231-v1-2.jpg' },
+        { text: "New Mexico, 3 to 14 May.", image: '/wormhole/tiles/x20261231-v1-3.jpg' },
+        { text: "United Kingdom, September.", image: '/wormhole/tiles/x20261231-v1-4.jpg' },
+        { text: "Which one is yours?", image: '/wormhole/tiles/x20261231-v1-5.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261117 visual v1',
+    post: 'x20261117',
+    set: {
+      slides: [
+        { text: "Every permaculture design starts with three ethics.", image: '/wormhole/tiles/x20261117-v1-1.jpg' },
+        { text: "Earth care.", image: '/wormhole/tiles/x20261117-v1-2.jpg' },
+        { text: "People care.", image: '/wormhole/tiles/x20261117-v1-3.jpg' },
+        { text: "Fair share.", image: '/wormhole/tiles/x20261117-v1-4.jpg' },
+        { text: "Living soil serves all three.", image: '/wormhole/tiles/x20261117-v1-5.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261118 visual v1',
+    post: 'x20261118',
+    set: {
+      slides: [
+        { text: "Ten weeks to make compost you can prove.", image: '/wormhole/tiles/x20261118-v1-1.jpg' },
+        { text: "Compost Intensive Course, starting January 2027.", image: '/wormhole/tiles/x20261118-v1-2.jpg' },
+        { text: "Build, monitor and read your own piles under the microscope.", image: '/wormhole/tiles/x20261118-v1-3.jpg' },
+        { text: "With mentors every week.", image: '/wormhole/tiles/x20261118-v1-4.jpg' },
+        { text: "Enroll now, link in bio.", image: '/wormhole/tiles/x20261118-v1-5.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261125 visual v1',
+    post: 'x20261125',
+    set: {
+      slides: [
+        { text: "Start learning the soil food web this winter.", image: '/wormhole/tiles/x20261125-v1-1.jpg' },
+        { text: "The Foundation Courses: at your own pace, from anywhere.", image: '/wormhole/tiles/x20261125-v1-2.jpg' },
+        { text: "The science, the compost, the extracts and teas, the microscope.", image: '/wormhole/tiles/x20261125-v1-3.jpg' },
+        { text: "10,000+ people in 100+ countries have started here.", image: '/wormhole/tiles/x20261125-v1-4.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261129 visual v1',
+    post: 'x20261129',
+    set: {
+      slides: [
+        { text: "A fruit tree grows better with friends.", image: '/wormhole/tiles/x20261129-v1-1.jpg' },
+        { text: "Clover underneath fixes nitrogen.", image: '/wormhole/tiles/x20261129-v1-2.jpg' },
+        { text: "Comfrey gets cut and dropped as mulch.", image: '/wormhole/tiles/x20261129-v1-3.jpg' },
+        { text: "Chives and other alliums fill the gaps.", image: '/wormhole/tiles/x20261129-v1-4.jpg' },
+        { text: "Together they keep the soil covered and alive.", image: '/wormhole/tiles/x20261129-v1-5.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261130 visual v1',
+    post: 'x20261130',
+    set: {
+      slides: [
+        { text: "Your compost, checked under the microscope.", image: '/wormhole/tiles/x20261130-v1-1.jpg' },
+        { text: "The Compost Intensive Course starts in January.", image: '/wormhole/tiles/x20261130-v1-2.jpg' },
+        { text: "Enroll now, link in bio.", image: '/wormhole/tiles/x20261130-v1-3.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261216 visual v1',
+    post: 'x20261216',
+    set: {
+      slides: [
+        { text: "Permaculture zones.", image: '/wormhole/tiles/x20261216-v1-1.jpg' },
+        { text: "Zone 0: the house.", image: '/wormhole/tiles/x20261216-v1-2.jpg' },
+        { text: "Zone 1: what you visit every day. Herbs, salad, the compost bin.", image: '/wormhole/tiles/x20261216-v1-3.jpg' },
+        { text: "Zones 2 to 4: orchard, field, pasture, woodlot.", image: '/wormhole/tiles/x20261216-v1-4.jpg' },
+        { text: "Zone 5: left wild.", image: '/wormhole/tiles/x20261216-v1-5.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261227 visual v1',
+    post: 'x20261227',
+    set: {
+      slides: [
+        { text: "Chop and drop.", image: '/wormhole/tiles/x20261227-v1-1.jpg' },
+        { text: "Cut the plant. Leave it where it falls.", image: '/wormhole/tiles/x20261227-v1-2.jpg' },
+        { text: "It shades the soil and feeds the fungi and bacteria underneath.", image: '/wormhole/tiles/x20261227-v1-3.jpg' },
+        { text: "No hauling, no bare ground.", image: '/wormhole/tiles/x20261227-v1-4.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 w20261103 visual v1',
+    post: 'w20261103',
+    set: {
+      slides: [
+        { text: "Our new website is here.", image: '/wormhole/tiles/w20261103-v1-1.jpg' },
+        { text: "Learn: every course, and where to start.", image: '/wormhole/tiles/w20261103-v1-2.jpg' },
+        { text: "Workshops and events, past and coming.", image: '/wormhole/tiles/w20261103-v1-3.jpg' },
+        { text: "Find a consultant near you.", image: '/wormhole/tiles/w20261103-v1-4.jpg' },
+        { text: "Dr. Elaine's research, all in one place.", image: '/wormhole/tiles/w20261103-v1-5.jpg' },
+        { text: "Take the tour, link in bio.", image: '/wormhole/tiles/w20261103-v1-6.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 w20261106 visual v1',
+    post: 'w20261106',
+    set: {
+      slides: [
+        { text: "What does living soil look like on a real farm?", image: '/wormhole/tiles/w20261106-v1-1.jpg' },
+        { text: "Our new Projects pages show you.", image: '/wormhole/tiles/w20261106-v1-2.jpg' },
+        { text: "Farms, vineyards and restoration sites.", image: '/wormhole/tiles/w20261106-v1-3.jpg' },
+        { text: "What they changed, and what happened.", image: '/wormhole/tiles/w20261106-v1-4.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 w20261206 visual v1',
+    post: 'w20261206',
+    set: {
+      slides: [
+        { text: "Not sure where to start?", image: '/wormhole/tiles/w20261206-v1-1.jpg' },
+        { text: "What brings you to the soil food web?", image: '/wormhole/tiles/w20261206-v1-2.jpg' },
+        { text: "Gardener, farmer or future consultant: there's a path for you.", image: '/wormhole/tiles/w20261206-v1-3.jpg' },
+        { text: "Find yours, link in bio.", image: '/wormhole/tiles/w20261206-v1-4.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 w20261209 visual v1',
+    post: 'w20261209',
+    set: {
+      slides: [
+        { text: "How does the soil food web work?", image: '/wormhole/tiles/w20261209-v1-1.jpg' },
+        { text: "Our new How it works page explains it in one scroll.", image: '/wormhole/tiles/w20261209-v1-2.jpg' },
+        { text: "From root to microbe to nutrient and back.", image: '/wormhole/tiles/w20261209-v1-3.jpg' },
+        { text: "Read it, link in bio.", image: '/wormhole/tiles/w20261209-v1-4.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 w20261211 visual v1',
+    post: 'w20261211',
+    set: {
+      slides: [
+        { text: "Four decades of soil biology research, searchable.", image: '/wormhole/tiles/w20261211-v1-1.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 ar20261123 visual v1',
+    post: 'ar20261123',
+    set: {
+      slides: [
+        { text: "Our first annual report is almost here.", image: '/wormhole/tiles/ar20261123-v1-1.jpg' },
+        { text: "A year of courses, workshops and scholarships.", image: '/wormhole/tiles/ar20261123-v1-2.jpg' },
+        { text: "Coming soon.", image: '/wormhole/tiles/ar20261123-v1-3.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 ev-02 visual v1',
+    post: 'ev-02',
+    set: {
+      slides: [
+        { text: "An open map of soil life", image: '/wormhole/tiles/ev-02-v1-1.jpg' },
+        { text: "100,000 soil samples. 90+ countries. One protocol.", image: '/wormhole/tiles/ev-02-v1-2.jpg' },
+        { text: "Bacteria and fungi, open to everyone. Explore the Atlas at beopen.earth", image: '/wormhole/tiles/ev-02-v1-3.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
 ];
 
 const editorOf = (c: Change) => `Change: ${c.key}`;
