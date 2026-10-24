@@ -2953,6 +2953,65 @@ export const CHANGES: Change[] = [
     reason:
       'Reel finished (Linnea, 23 Oct): the cover plus three cards with real Vampyrella lateritia photos (Hess, Sausen and Melkonian 2012, PLoS ONE, CC BY 4.0), credit added to the caption. 1080 x 1920 cards in the deck: /wormhole/decks/31-10-2026-vampire-amoeba-reel-v5.pptx. Blog headers for Wes: "Meet the Vampire Amoeba" is a working title.',
   },
+  {
+    key: '2026-10-24 ss-01 to 23 Dec',
+    post: 'ss-01',
+    set: { iso_date: '2026-12-23', date_tbd: false },
+    reason:
+      "Dated Wed 23 Dec (Linnea, 24 Oct): Valluvan's farm fills the December partner share slot.",
+  },
+  {
+    key: '2026-10-24 pl20261223 replaced',
+    post: 'pl20261223',
+    set: { date_tbd: true },
+    reason:
+      'Date TBD (Linnea, 24 Oct): the 23 Dec partner share slot now goes to the Save Soil shoutout ss-01. This template stays for the next partner.',
+  },
+  {
+    key: '2026-10-24 evan ev-01',
+    post: 'ev-01',
+    create: {
+      iso_date: '2026-10-24',
+      date_tbd: true,
+      topic: 'Reshare: Ashley McKeon, From surviving to thriving: the case for soil health',
+      platform: 'LinkedIn',
+      caption:
+        "The Soil Health Institute's new President and CEO, Ashley McKeon, makes the case for soil health in her first long piece since taking the role in June.\n\n[One line from the article that matches what we teach: name the organism or the practice.]\n\n[One line on why it matters for growers.]\n\nRead it here: https://www.linkedin.com/pulse/from-surviving-thriving-case-soil-health-ashley-r-mckeon-nsrsc\n\n#SoilHealth #SoilFoodWeb #RegenerativeAgriculture",
+      slides: [{ text: 'LinkedIn reshare: the article preview card is the visual.', image: null }],
+      cta: 'Read the article',
+      link: 'https://www.linkedin.com/pulse/from-surviving-thriving-case-soil-health-ashley-r-mckeon-nsrsc',
+      sources: [
+        'https://www.linkedin.com/pulse/from-surviving-thriving-case-soil-health-ashley-r-mckeon-nsrsc',
+        'https://hpj.com/2026/05/29/mckean-to-lead-soil-health-institute/',
+      ],
+      visual_note:
+        "Reshare on LinkedIn with the article's own preview card. Tag Ashley McKeon and the Soil Health Institute.",
+      note: 'From Evan (Tue): "From surviving to thriving, the case for soil health". LinkedIn blocks automated reading, so the two bracketed lines need one quote each from the article itself. McKeon became SHI President and CEO on 1 June 2026 (High Plains Journal).',
+      status: 'draft',
+    },
+    reason: "Evan's share (Linnea, 24 Oct): LinkedIn reshare draft.",
+  },
+  {
+    key: '2026-10-24 evan ev-02',
+    post: 'ev-02',
+    create: {
+      iso_date: '2026-10-24',
+      date_tbd: true,
+      topic: 'Shoutout: beopen.earth',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        '[Hook: the one thing beopen.earth does that our community should know.]\n\n[Two lines on what they do and who it is for.]\n\nGo have a look: https://beopen.earth/\n\n#SoilFoodWeb #SoilHealth',
+      slides: [{ text: 'beopen.earth', image: null }],
+      cta: 'Visit beopen.earth',
+      link: 'https://beopen.earth/',
+      sources: ['https://beopen.earth/'],
+      visual_note:
+        'Partner shoutout. Use a screenshot of their site or a photo they share with us, inside the flat colour-box layout.',
+      note: 'From Evan (Tue): "This is worth a share and shoutout!" The site blocks automated reading, so the description lines need their About text. Tag their account.',
+      status: 'draft',
+    },
+    reason: "Evan's share (Linnea, 24 Oct): shoutout draft.",
+  },
 ];
 
 const editorOf = (c: Change) => `Change: ${c.key}`;
