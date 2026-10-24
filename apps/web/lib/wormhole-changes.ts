@@ -3310,6 +3310,54 @@ export const CHANGES: Change[] = [
     reason:
       "Caption and slide text written from beopen.earth's own page text, pasted by Linnea (24 Oct). Figures from the site: 100k samples, 90+ countries, 200+ partners, 3k datasets.",
   },
+  {
+    key: '2026-10-24 november ev-02',
+    post: 'ev-02',
+    set: { iso_date: '2026-11-18', date_tbd: false },
+    reason:
+      "Moved into November (Linnea, 24 Oct): everything Evan has already shared goes out in November at the latest, because December is kept for new material. Wed 18 Nov, an empty day.",
+  },
+  {
+    key: '2026-10-24 november ss-01',
+    post: 'ss-01',
+    set: { iso_date: '2026-11-20', date_tbd: false },
+    reason:
+      "Moved into November (Linnea, 24 Oct): everything Evan has already shared goes out in November at the latest, because December is kept for new material. Fri 20 Nov, an empty day.",
+  },
+  {
+    key: '2026-10-24 november ss-02',
+    post: 'ss-02',
+    set: { iso_date: '2026-11-22', date_tbd: false },
+    reason:
+      "Moved into November (Linnea, 24 Oct): everything Evan has already shared goes out in November at the latest, because December is kept for new material. Sun 22 Nov, an empty day.",
+  },
+  {
+    key: '2026-10-24 november ss-07',
+    post: 'ss-07',
+    set: { iso_date: '2026-11-19', date_tbd: false },
+    reason:
+      "Moved into November (Linnea, 24 Oct): everything Evan has already shared goes out in November at the latest, because December is kept for new material. Thu 19 Nov on LinkedIn, beside the Instagram-only carbon sponge post.",
+  },
+  {
+    key: '2026-10-24 november ss-03',
+    post: 'ss-03',
+    set: { iso_date: '2026-11-24', date_tbd: false },
+    reason:
+      "Moved into November (Linnea, 24 Oct): everything Evan has already shared goes out in November at the latest, because December is kept for new material. Tue 24 Nov on LinkedIn, beside the Instagram-only gut microbes post.",
+  },
+  {
+    key: '2026-10-24 november ev-01',
+    post: 'ev-01',
+    set: { iso_date: '2026-11-30', date_tbd: false },
+    reason:
+      "Moved into November (Linnea, 24 Oct): everything Evan has already shared goes out in November at the latest, because December is kept for new material. Mon 30 Nov on LinkedIn, beside the ciliates Reel (Instagram only).",
+  },
+  {
+    key: '2026-10-24 november pl20261223 back',
+    post: 'pl20261223',
+    set: { iso_date: '2026-12-23', date_tbd: false },
+    reason: 'Back on Wed 23 Dec (24 Oct): the Save Soil post moved to November, so the December partner share slot is free for new material.',
+  },
 ];
 
 const editorOf = (c: Change) => `Change: ${c.key}`;
