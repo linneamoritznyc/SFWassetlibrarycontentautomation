@@ -216,5 +216,5 @@ Before writing about any program, fetch its page and read it all, including FAQs
 3. Draft caption in the planning-doc template.
 4. Check against section 3 (claims) and section 4 (copy rules).
 5. Name the real visual: a Drive file, a Canva template, or a footage clip. Leave a note when a visual still needs to be found.
-   Before building any visual, read `tools/wormhole-visuals/FEED-GUIDE.md`: neighbouring posts never share a style family, and no family appears more than twice in any 6 posts in a row.
+   Before building any visual, read `tools/wormhole-visuals/FEED-GUIDE.md` and look at the grid around the date: the feed should read as one varied, balanced composition.
 6. Produce a phone-feed mockup only when asked.
