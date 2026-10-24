@@ -3753,103 +3753,120 @@ export const CHANGES: Change[] = [
     key: '2026-10-24 dated d05',
     post: 'd05',
     set: { iso_date: '2026-10-26', date_tbd: false },
-    reason: "Dated Mon 26 Oct (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December. Mentors go out in October and November, one a day, as early as possible.",
+    reason:
+      'Dated Mon 26 Oct (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December. Mentors go out in October and November, one a day, as early as possible.',
   },
   {
     key: '2026-10-24 dated d11',
     post: 'd11',
     set: { iso_date: '2026-10-27', date_tbd: false },
-    reason: "Dated Tue 27 Oct (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December. Mentors go out in October and November, one a day, as early as possible.",
+    reason:
+      'Dated Tue 27 Oct (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December. Mentors go out in October and November, one a day, as early as possible.',
   },
   {
     key: '2026-10-24 dated d12',
     post: 'd12',
     set: { iso_date: '2026-10-28', date_tbd: false },
-    reason: "Dated Wed 28 Oct (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December. Mentors go out in October and November, one a day, as early as possible.",
+    reason:
+      'Dated Wed 28 Oct (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December. Mentors go out in October and November, one a day, as early as possible.',
   },
   {
     key: '2026-10-24 dated d13',
     post: 'd13',
     set: { iso_date: '2026-10-29', date_tbd: false },
-    reason: "Dated Thu 29 Oct (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December. Mentors go out in October and November, one a day, as early as possible.",
+    reason:
+      'Dated Thu 29 Oct (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December. Mentors go out in October and November, one a day, as early as possible.',
   },
   {
     key: '2026-10-24 dated d10',
     post: 'd10',
     set: { iso_date: '2026-10-29', date_tbd: false },
-    reason: "Dated Thu 29 Oct (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December.",
+    reason:
+      'Dated Thu 29 Oct (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December.',
   },
   {
     key: '2026-10-24 dated d06',
     post: 'd06',
     set: { iso_date: '2026-10-30', date_tbd: false },
-    reason: "Dated Fri 30 Oct (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December.",
+    reason:
+      'Dated Fri 30 Oct (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December.',
   },
   {
     key: '2026-10-24 dated d24',
     post: 'd24',
     set: { iso_date: '2026-11-01', date_tbd: false },
-    reason: "Dated Sun 1 Nov (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December.",
+    reason:
+      'Dated Sun 1 Nov (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December.',
   },
   {
     key: '2026-10-24 dated sh-w1-01',
     post: 'sh-w1-01',
     set: { iso_date: '2026-11-01', date_tbd: false },
-    reason: "Dated Sun 1 Nov (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December. Caption still to write before it goes out.",
+    reason:
+      'Dated Sun 1 Nov (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December. Caption still to write before it goes out.',
   },
   {
     key: '2026-10-24 dated d21',
     post: 'd21',
     set: { iso_date: '2026-11-03', date_tbd: false },
-    reason: "Dated Tue 3 Nov (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December.",
+    reason:
+      'Dated Tue 3 Nov (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December.',
   },
   {
     key: '2026-10-24 dated d22',
     post: 'd22',
     set: { iso_date: '2026-11-05', date_tbd: false },
-    reason: "Dated Thu 5 Nov (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December.",
+    reason:
+      'Dated Thu 5 Nov (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December.',
   },
   {
     key: '2026-10-24 dated sh-w1-02',
     post: 'sh-w1-02',
     set: { iso_date: '2026-11-05', date_tbd: false },
-    reason: "Dated Thu 5 Nov (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December. Caption still to write before it goes out.",
+    reason:
+      'Dated Thu 5 Nov (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December. Caption still to write before it goes out.',
   },
   {
     key: '2026-10-24 dated d26',
     post: 'd26',
     set: { iso_date: '2026-11-06', date_tbd: false },
-    reason: "Dated Fri 6 Nov (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December.",
+    reason:
+      'Dated Fri 6 Nov (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December.',
   },
   {
     key: '2026-10-24 dated sh-w1-03',
     post: 'sh-w1-03',
     set: { iso_date: '2026-11-10', date_tbd: false },
-    reason: "Dated Tue 10 Nov (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December. Caption still to write before it goes out.",
+    reason:
+      'Dated Tue 10 Nov (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December. Caption still to write before it goes out.',
   },
   {
     key: '2026-10-24 dated d23',
     post: 'd23',
     set: { iso_date: '2026-11-13', date_tbd: false },
-    reason: "Dated Fri 13 Nov (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December.",
+    reason:
+      'Dated Fri 13 Nov (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December.',
   },
   {
     key: '2026-10-24 dated sh-w1-04',
     post: 'sh-w1-04',
     set: { iso_date: '2026-11-13', date_tbd: false },
-    reason: "Dated Fri 13 Nov (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December. Caption still to write before it goes out.",
+    reason:
+      'Dated Fri 13 Nov (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December. Caption still to write before it goes out.',
   },
   {
     key: '2026-10-24 dated ss-01-li',
     post: 'ss-01-li',
     set: { iso_date: '2026-11-20', date_tbd: false },
-    reason: "Dated Fri 20 Nov (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December. Evan's shares go out in November at the latest; this is the LinkedIn version beside the Instagram post.",
+    reason:
+      "Dated Fri 20 Nov (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December. Evan's shares go out in November at the latest; this is the LinkedIn version beside the Instagram post.",
   },
   {
     key: '2026-10-24 dated ss-02-li',
     post: 'ss-02-li',
     set: { iso_date: '2026-11-22', date_tbd: false },
-    reason: "Dated Sun 22 Nov (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December. Evan's shares go out in November at the latest; this is the LinkedIn version beside the Instagram post.",
+    reason:
+      "Dated Sun 22 Nov (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December. Evan's shares go out in November at the latest; this is the LinkedIn version beside the Instagram post.",
   },
 ];
 
