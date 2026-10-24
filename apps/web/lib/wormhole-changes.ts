@@ -3587,6 +3587,64 @@ export const CHANGES: Change[] = [
     reason:
       'Date TBD (24 Oct): a duplicate of cr20261112, "A day at the Costa Rica workshop" on 12 Nov, and it gave 18 to 25 January where the workshop runs 18 to 29 January. Kept here in case the copy is wanted.',
   },
+  {
+    key: '2026-10-24 p26 slides f1',
+    post: 'p26',
+    set: {
+      slides: [
+        { text: "Welcome to our newest consultants.", image: '/wormhole/tiles/p26-f1-1.jpg' },
+        { text: "Kyle Babcock, United States. Certified Soil Food Web Consultant.", image: '/wormhole/tiles/p26-f1-2.jpg' },
+        { text: "Joshua Stone, United States. Certified Soil Food Web Consultant.", image: '/wormhole/tiles/p26-f1-3.jpg' },
+      ],
+      visual_note: "Family: I, portrait. Brown cover with both faces, then one large round portrait per slide. Joshua Stone shows his initials until his photo arrives. Built with tools/wormhole-visuals/families.py.",
+    },
+    reason:
+      "Restyled (Linnea, 24 Oct): the feed must vary, so neighbouring posts never share a style family (tools/wormhole-visuals/FEED-GUIDE.md). Nov 10 to 15 now run brand boxes, portrait, full-bleed photo, numbered steps, type only.",
+  },
+  {
+    key: '2026-10-24 pl20261114 slides f1',
+    post: 'pl20261114',
+    set: {
+      slides: [
+        { text: "Your fallen leaves can become fungal compost.", image: '/wormhole/tiles/pl20261114-f1-1.jpg' },
+        { text: "1. Pack wet leaves into a wire cage or a bag with holes.", image: '/wormhole/tiles/pl20261114-f1-2.jpg' },
+        { text: "2. Keep them damp. Fungi do the work, slowly.", image: '/wormhole/tiles/pl20261114-f1-3.jpg' },
+        { text: "3. In 1 to 2 years you get dark, crumbly leaf mold.", image: '/wormhole/tiles/pl20261114-f1-4.jpg' },
+        { text: "4. Use it as mulch or mix it into potting soil.", image: '/wormhole/tiles/pl20261114-f1-5.jpg' },
+      ],
+      visual_note: "Family: J, numbered steps. Big EB Garamond step numbers, a square photo with its credit on each slide. Built with tools/wormhole-visuals/families.py.",
+    },
+    reason:
+      "Restyled (Linnea, 24 Oct): the feed must vary, so neighbouring posts never share a style family (tools/wormhole-visuals/FEED-GUIDE.md). Nov 10 to 15 now run brand boxes, portrait, full-bleed photo, numbered steps, type only.",
+  },
+  {
+    key: '2026-10-24 pl20261115 slides f1',
+    post: 'pl20261115',
+    set: {
+      slides: [
+        { text: "Imagine a world without earthworms.", image: '/wormhole/tiles/pl20261115-f1-1.jpg' },
+        { text: "It already exists.", image: '/wormhole/tiles/pl20261115-f1-2.jpg' },
+        { text: "Many northern North American forests evolved without them after the last Ice Age.", image: '/wormhole/tiles/pl20261115-f1-3.jpg' },
+        { text: "Introduced worms now eat through the leaf litter those forests depend on.", image: '/wormhole/tiles/pl20261115-f1-4.jpg' },
+        { text: "Even a good organism can be the wrong one in the wrong place.", image: '/wormhole/tiles/pl20261115-f1-5.jpg' },
+      ],
+      visual_note: "Family: G, type only. Reel, five cards, one statement each on a different flat brand colour. Built with tools/wormhole-visuals/families.py.",
+    },
+    reason:
+      "Restyled (Linnea, 24 Oct): the feed must vary, so neighbouring posts never share a style family (tools/wormhole-visuals/FEED-GUIDE.md). Nov 10 to 15 now run brand boxes, portrait, full-bleed photo, numbered steps, type only.",
+  },
+  {
+    key: '2026-10-24 p25 family note',
+    post: 'p25',
+    set: { visual_note: "Family: A, brand boxes. Built with tools/wormhole-visuals/boxes.py." },
+    reason: 'Style family recorded (24 Oct), per tools/wormhole-visuals/FEED-GUIDE.md.',
+  },
+  {
+    key: '2026-10-24 d26 family note',
+    post: 'd26',
+    set: { visual_note: "Family: A, brand boxes. Built with tools/wormhole-visuals/d26_rain.py." },
+    reason: 'Style family recorded (24 Oct), per tools/wormhole-visuals/FEED-GUIDE.md.',
+  },
 ];
 
 const editorOf = (c: Change) => `Change: ${c.key}`;
