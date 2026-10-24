@@ -2,7 +2,8 @@
 
 How a separate Claude session hands its designs to Wormhole so they show up on
 https://wormholelinnea.vercel.app. This covers the logistics only. The design
-brief is whatever Linnea gives you.
+brief is whatever Linnea gives you. Before designing, read docs/feed-guide.md (pick a style
+family the neighbouring posts don't use) and docs/brand.md (colours, fonts, logo).
 
 ## Where things live
 

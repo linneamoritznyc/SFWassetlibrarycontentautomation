@@ -1,8 +1,9 @@
 """Save Soil shoutouts: article repost cards, the format of the pinned New York Times post.
 
-A white card on a dark grain background: the article's photo with an outlet tab, a
-headline beside a green bar, a short line, then "Read More" and the source link below
-the card. Carousel slides after the cover carry one fact each on the same card. The
+A cream card on a Food Web Green background (the brand guide: cream as a shape, no
+dark backgrounds): the article's photo with an outlet tab, a Soil Brown headline
+beside a Regenerative Green bar, a short line, then "Read More" and the source link
+below the card. Carousel slides after the cover carry one fact each on the same card. The
 grain runs as one strip across a carousel, so the slides join up when swiped.
 
   SAVESOIL_SRC=<photos> SFW_FONTS=<fonts> python3 tools/wormhole-visuals/savesoil.py
@@ -10,7 +11,8 @@ grain runs as one strip across a carousel, so the slides join up when swiped.
        (Instagram 1080 x 1350, LinkedIn 1200 x 627)
 
 Photos: Save Soil's own farm photo for post 1; Wikimedia Commons (CC BY, CC BY-SA,
-CC0, public domain) for the rest, credited on the card. Fonts: Poppins (OFL).
+CC0, public domain) for the rest, credited on the card. Fonts, from the 2026 brand
+guide: Montserrat (headlines), Source Sans 3 (body), Pathway Gothic One (the tab).
 """
 import os
 import random
@@ -25,12 +27,20 @@ LOGO = os.path.join(REPO, "apps", "web", "public", "wormhole", "sfw-foundation-w
 SRC = os.environ["SAVESOIL_SRC"]
 FONTS = os.environ["SFW_FONTS"]
 
-GREEN, DEEP, INK, CREAM = (47, 107, 70), (34, 55, 31), (30, 32, 29), (244, 241, 234)
+# 2026 Foundation Brand Color Guidelines.
+GREEN = (89, 166, 108)  # Regenerative Green #59A66C: the bar
+FOREST = (21, 104, 38)  # Food Web Green #156826: the background
+INK = (79, 52, 51)  # Soil Brown #4F3433: text
+CREAM = (244, 241, 234)  # Cream #F4F1EA: the card
+BODY = (110, 84, 82)  # Soil Brown, lighter, for secondary lines
 
 
-def font(weight, size, italic=False, subset="latin"):
-    f = ImageFont.truetype(os.path.join(FONTS, f"poppins-{subset}-{weight}-{'italic' if italic else 'normal'}.woff2"), size)
-    f.spec = (weight, size, italic)
+def font(weight, size, italic=False, subset="latin", family=None):
+    """Montserrat for 500 and up, Source Sans 3 for body weights, unless a family is named."""
+    family = family or ("montserrat" if weight >= 500 else "source-sans-3")
+    f = ImageFont.truetype(
+        os.path.join(FONTS, f"{family}-{subset}-{weight}-{'italic' if italic else 'normal'}.woff2"), size)
+    f.spec = (weight, size, italic, family)
     return f
 
 
@@ -47,7 +57,7 @@ def draw(d, xy, text, f, fill):
     if not any(ext(c) for c in text):
         d.text(xy, text, font=f, fill=fill)
         return
-    fx = font(*f.spec[:2], italic=f.spec[2], subset="latin-ext")
+    fx = font(f.spec[0], f.spec[1], italic=f.spec[2], subset="latin-ext", family=f.spec[3])
     x, y = xy
     for c in text:
         g = fx if ext(c) else f
@@ -56,7 +66,7 @@ def draw(d, xy, text, f, fill):
 
 
 def grain(w, h, seed):
-    """Dark, uneven grain in the brand's near-black green; no picture, only texture."""
+    """Food Web Green with a quiet, uneven grain; no picture, only texture."""
     rng = np.random.default_rng(seed)
     n = np.zeros((h, w), np.float32)
     for cells, amp in [(5, 1.0), (14, 0.55), (40, 0.3), (130, 0.18)]:
@@ -64,7 +74,7 @@ def grain(w, h, seed):
         n += amp * np.asarray(Image.fromarray((g * 255).astype(np.uint8)).resize((w, h), Image.BICUBIC), np.float32) / 255
     n = n / 2.03 + rng.normal(0, 0.06, (h, w)).astype(np.float32)
     n = np.clip((n - 0.25) * 1.6, 0, 1) ** 1.6
-    lo, hi = np.array([22, 26, 22], np.float32), np.array([96, 102, 94], np.float32)
+    lo, hi = np.array([14, 86, 30], np.float32), np.array([36, 122, 52], np.float32)
     rgb = lo + n[..., None] * (hi - lo)
     return Image.fromarray(np.clip(rgb, 0, 255).astype(np.uint8))
 
@@ -135,15 +145,15 @@ def bar_text(d, x, y, lines, f, bar_h=None):
 
 def read_more(d, x, y, url, right, size=26):
     f = font(500, size)
-    d.text((x, y), "Read More", font=f, fill=(235, 235, 230))
+    d.text((x, y), "Read More", font=f, fill=CREAM)
     cx = x + d.textlength("Read More", font=f) + 26
     cy = y + size * 0.62
-    d.ellipse((cx - 15, cy - 15, cx + 15, cy + 15), fill=(235, 235, 230))
-    d.polygon([(cx - 4, cy - 8), (cx + 7, cy), (cx - 4, cy + 8)], fill=INK)
+    d.ellipse((cx - 15, cy - 15, cx + 15, cy + 15), fill=CREAM)
+    d.polygon([(cx - 4, cy - 8), (cx + 7, cy), (cx - 4, cy + 8)], fill=FOREST)
     fs = font(400, size - 4)
     lines = ["Source:"] + wrap(d, url, fs, 520, url=True)
     for i, ln in enumerate(lines):
-        d.text((right - d.textlength(ln, font=fs), y + i * (size + 4)), ln, font=fs, fill=(235, 235, 230))
+        d.text((right - d.textlength(ln, font=fs), y + i * (size + 4)), ln, font=fs, fill=CREAM)
 
 
 def instagram(pid, post):
@@ -162,17 +172,17 @@ def instagram(pid, post):
             total = 28 + 500 + body + 34 + 120
             cy0 = round((H - total) / 2) + 20
             cy1 = round(cy0 + 28 + 500 + body)
-            d.rectangle((cx0, cy0, cx1, cy1), fill=(255, 255, 255))
+            d.rectangle((cx0, cy0, cx1, cy1), fill=CREAM)
             px0, py0, px1, py1 = cx0 + 28, cy0 + 28, cx1 - 28, cy0 + 28 + 500
             img.paste(cover_crop(post["photo"], px1 - px0, py1 - py0, post.get("focus", (0.5, 0.5))), (px0, py0))
-            tf = font(500, 30, italic=True)
-            tw = d.textlength("Save Soil", font=tf)
-            d.rectangle((px0, py1 - 58, px0 + tw + 44, py1), fill=GREEN)
-            d.text((px0 + 22, py1 - 50), "Save Soil", font=tf, fill=(255, 255, 255))
+            tf = font(400, 38, family="pathway-gothic-one")
+            tw = d.textlength("SAVE SOIL", font=tf)
+            d.rectangle((px0, py1 - 58, px0 + tw + 44, py1), fill=INK)
+            d.text((px0 + 22, py1 - 52), "SAVE SOIL", font=tf, fill=CREAM)
             cf = font(400, 17)
-            d.text((px1 - d.textlength(post["credit"], font=cf), py1 + 8), post["credit"], font=cf, fill=(120, 120, 120))
+            d.text((px1 - d.textlength(post["credit"], font=cf), py1 + 8), post["credit"], font=cf, fill=BODY)
             y = bar_text(d, px0, py1 + 48, hl, hf)
-            block(d, px0 + 34, y + 18, bl, bf, (60, 60, 60), lh=1.35)
+            block(d, px0 + 34, y + 18, bl, bf, BODY, lh=1.35)
             read_more(d, cx0 + 6, cy1 + 34, post["url"], cx1)
         else:
             text = post["facts"][k - 1]
@@ -180,17 +190,17 @@ def instagram(pid, post):
             if text.endswith(")") and " (" in text:
                 text, cite = text[: text.rindex(" (")], text[text.rindex(" (") + 2: -1]
             cy0, cy1 = 290, 1060
-            d.rectangle((cx0, cy0, cx1, cy1), fill=(255, 255, 255))
+            d.rectangle((cx0, cy0, cx1, cy1), fill=CREAM)
             hf, hl = fit(d, text, 600, 64, cx1 - cx0 - 140, cy1 - cy0 - 200)
             th = len(hl) * hf.size * 1.18
             y = cy0 + (cy1 - cy0 - th - (60 if cite else 0)) / 2
             y = bar_text(d, cx0 + 56, y, hl, hf)
             if cite:
-                draw(d, (cx0 + 90, y + 22), cite, font(400, 28), (90, 90, 90))
+                draw(d, (cx0 + 90, y + 22), cite, font(400, 30), BODY)
             if k == n - 1:
                 f = font(400, 24)
                 line = "From Save Soil (Isha Foundation). Full article: link in bio."
-                d.text(((W - d.textlength(line, font=f)) / 2, cy1 + 40), line, font=f, fill=(225, 225, 220))
+                d.text(((W - d.textlength(line, font=f)) / 2, cy1 + 40), line, font=f, fill=CREAM)
         logo(img, 46, 42 if k == 0 else 46, 74)
         out.append(img)
     return out
@@ -201,30 +211,31 @@ def linkedin(pid, post):
     img = grain(W, H, post["seed"])
     d = ImageDraw.Draw(img)
     cx0, cy0, cx1, cy1 = 40, 40, 1160, 530
-    d.rectangle((cx0, cy0, cx1, cy1), fill=(255, 255, 255))
+    d.rectangle((cx0, cy0, cx1, cy1), fill=CREAM)
     px0, py0, px1, py1 = cx0 + 22, cy0 + 22, cx0 + 22 + 470, cy1 - 22
     img.paste(cover_crop(post["photo"], px1 - px0, py1 - py0, post.get("focus", (0.5, 0.5))), (px0, py0))
-    tf = font(500, 24, italic=True)
-    tw = d.textlength("Save Soil", font=tf)
-    d.rectangle((px0, py1 - 46, px0 + tw + 36, py1), fill=GREEN)
-    d.text((px0 + 18, py1 - 40), "Save Soil", font=tf, fill=(255, 255, 255))
+    tf = font(400, 30, family="pathway-gothic-one")
+    tw = d.textlength("SAVE SOIL", font=tf)
+    d.rectangle((px0, py1 - 46, px0 + tw + 36, py1), fill=INK)
+    d.text((px0 + 18, py1 - 42), "SAVE SOIL", font=tf, fill=CREAM)
     tx = px1 + 40
     hf, hl = fit(d, post["headline"], 600, 52, cx1 - tx - 70, 260)
     y = bar_text(d, tx, cy0 + 48, hl, hf)
     bf, bl = fit(d, post["blurb"], 400, 22, cx1 - tx - 70, cy1 - y - 70, lh=1.35, min_size=17)
-    block(d, tx + 34, y + 18, bl, bf, (60, 60, 60), lh=1.35)
+    block(d, tx + 34, y + 18, bl, bf, BODY, lh=1.35)
     cf = font(400, 15)
-    d.text((cx1 - 26 - d.textlength(post["credit"], font=cf), cy1 - 34), post["credit"], font=cf, fill=(120, 120, 120))
+    d.text((cx1 - 26 - d.textlength(post["credit"], font=cf), cy1 - 34), post["credit"], font=cf, fill=BODY)
     f = font(500, 20)
-    d.text((cx0 + 4, cy1 + 30), "Read More", font=f, fill=(235, 235, 230))
+    d.text((cx0 + 4, cy1 + 30), "Read More", font=f, fill=CREAM)
     fs = font(400, 16)
     lines = wrap(d, post["url"].replace("https://", ""), fs, 760, url=True)
     lines[0] = "Source: " + lines[0]
     for i, ln in enumerate(lines[:2]):
-        d.text((cx1 - d.textlength(ln, font=fs), cy1 + 22 + i * 22), ln, font=fs, fill=(235, 235, 230))
+        d.text((cx1 - d.textlength(ln, font=fs), cy1 + 22 + i * 22), ln, font=fs, fill=CREAM)
     return [img]
 
 
+VERSION = "v2"  # v1: dark background and Poppins, before the brand guide
 BASE = "https://consciousplanet.org/en/save-soil/news/"
 POSTS = {
     "ss-01": dict(
@@ -307,14 +318,28 @@ POSTS = {
 }
 
 
+def linkedin_twins():
+    """A LinkedIn card for each Instagram shoutout: <id>-li-v1-1.jpg, 1200 x 627."""
+    for pid, post in POSTS.items():
+        if post["kind"] != "ig":
+            continue
+        path = os.path.join(TILES, f"{pid}-li-v1-1.jpg")
+        assert not os.path.exists(path), f"{path} exists; bump the version"
+        linkedin(pid, post)[0].save(path, quality=88, optimize=True, progressive=True)
+        print(pid + "-li", "1 slide")
+
+
 if __name__ == "__main__":
     import sys
     random.seed(1)
+    if sys.argv[1:] == ["--linkedin-twins"]:
+        linkedin_twins()
+        sys.exit()
     for pid in sys.argv[1:] or POSTS:
         post = POSTS[pid]
         imgs = instagram(pid, post) if post["kind"] == "ig" else linkedin(pid, post)
         for i, im in enumerate(imgs, 1):
-            path = os.path.join(TILES, f"{pid}-v1-{i}.jpg")
+            path = os.path.join(TILES, f"{pid}-{VERSION}-{i}.jpg")
             assert not os.path.exists(path), f"{path} exists; bump the version"
             im.save(path, quality=88, optimize=True, progressive=True)
         print(pid, len(imgs), "slides")

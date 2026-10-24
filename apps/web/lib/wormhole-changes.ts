@@ -3086,6 +3086,2602 @@ export const CHANGES: Change[] = [
     reason:
       'Dated (24 Oct): Thu 10 Dec on LinkedIn, an empty day. Partner shares go on days outside the Mon/Wed/Fri feed posts where possible.',
   },
+  {
+    key: '2026-10-24 save soil ss-01 slides v2',
+    post: 'ss-01',
+    set: {
+      slides: [
+        {
+          text: 'A coconut farm went from 0.86% to 2.33% soil organic matter',
+          image: '/wormhole/tiles/ss-01-v2-1.jpg',
+        },
+        {
+          text: 'Coconuts per tree: 90-100 before, 140 now. Nothing changed in the first three years.',
+          image: '/wormhole/tiles/ss-01-v2-2.jpg',
+        },
+        {
+          text: 'Fertiliser spending: under 10% of what it was. Workers: 1, down from 10-20.',
+          image: '/wormhole/tiles/ss-01-v2-3.jpg',
+        },
+        {
+          text: '2018: over 1,200 mm of rain in a few days, after two years of drought.',
+          image: '/wormhole/tiles/ss-01-v2-4.jpg',
+        },
+        {
+          text: "His neighbours' open wells stood 6-7 feet lower than his.",
+          image: '/wormhole/tiles/ss-01-v2-5.jpg',
+        },
+        {
+          text: 'What he did: leaf litter trenches between rows, mulch, layered crops, no burning, no summer ploughing.',
+          image: '/wormhole/tiles/ss-01-v2-6.jpg',
+        },
+      ],
+    },
+    reason:
+      'New cards (24 Oct), on brand: Food Web Green background, cream card, Soil Brown Montserrat headline, Regenerative Green bar, Source Sans 3 body, per the 2026 brand guide and color guidelines. v1 had a near-black background and Poppins.',
+  },
+  {
+    key: '2026-10-24 save soil ss-02 slides v2',
+    post: 'ss-02',
+    set: {
+      slides: [
+        {
+          text: '5 numbers that show what soil life does',
+          image: '/wormhole/tiles/ss-02-v2-1.jpg',
+        },
+        {
+          text: '6x faster: water soaking into regenerative almond orchards (LaCanne et al. 2021)',
+          image: '/wormhole/tiles/ss-02-v2-2.jpg',
+        },
+        {
+          text: '133% more microbial biomass carbon in regenerative organic soils (Mäder et al. 2025)',
+          image: '/wormhole/tiles/ss-02-v2-3.jpg',
+        },
+        {
+          text: '2.4 to 13.5x more earthworm biomass in diversified rotations than in rye monoculture (Bogušas et al. 2022)',
+          image: '/wormhole/tiles/ss-02-v2-4.jpg',
+        },
+        {
+          text: '+24% glomalin, the fungal protein that glues soil crumbs together, under perennial pasture (Abán et al. 2025)',
+          image: '/wormhole/tiles/ss-02-v2-5.jpg',
+        },
+        {
+          text: '+38-137% maize yield in drought years in legume and manure systems (Lotter et al. 2003)',
+          image: '/wormhole/tiles/ss-02-v2-6.jpg',
+        },
+      ],
+    },
+    reason:
+      'New cards (24 Oct), on brand: Food Web Green background, cream card, Soil Brown Montserrat headline, Regenerative Green bar, Source Sans 3 body, per the 2026 brand guide and color guidelines. v1 had a near-black background and Poppins.',
+  },
+  {
+    key: '2026-10-24 save soil ss-03 slides v2',
+    post: 'ss-03',
+    set: {
+      slides: [
+        {
+          text: 'USD 1 trillion for energy. USD 9 billion for agriculture.',
+          image: '/wormhole/tiles/ss-03-v2-1.jpg',
+        },
+      ],
+    },
+    reason:
+      'New cards (24 Oct), on brand: Food Web Green background, cream card, Soil Brown Montserrat headline, Regenerative Green bar, Source Sans 3 body, per the 2026 brand guide and color guidelines. v1 had a near-black background and Poppins.',
+  },
+  {
+    key: '2026-10-24 save soil ss-04 slides v2',
+    post: 'ss-04',
+    set: {
+      slides: [
+        {
+          text: 'Tilled soil released 21% more CO2. In low-carbon soil, 29%.',
+          image: '/wormhole/tiles/ss-04-v2-1.jpg',
+        },
+      ],
+    },
+    reason:
+      'New cards (24 Oct), on brand: Food Web Green background, cream card, Soil Brown Montserrat headline, Regenerative Green bar, Source Sans 3 body, per the 2026 brand guide and color guidelines. v1 had a near-black background and Poppins.',
+  },
+  {
+    key: '2026-10-24 save soil ss-05 slides v2',
+    post: 'ss-05',
+    set: {
+      slides: [
+        {
+          text: 'Soil may be home to 59% of all life on Earth',
+          image: '/wormhole/tiles/ss-05-v2-1.jpg',
+        },
+      ],
+    },
+    reason:
+      'New cards (24 Oct), on brand: Food Web Green background, cream card, Soil Brown Montserrat headline, Regenerative Green bar, Source Sans 3 body, per the 2026 brand guide and color guidelines. v1 had a near-black background and Poppins.',
+  },
+  {
+    key: '2026-10-24 save soil ss-06 slides v2',
+    post: 'ss-06',
+    set: {
+      slides: [
+        {
+          text: 'Where you live shapes your gut more than your genes do',
+          image: '/wormhole/tiles/ss-06-v2-1.jpg',
+        },
+        {
+          text: 'Baboons: the soil around them shaped their gut microbes 15x more strongly than their genetics',
+          image: '/wormhole/tiles/ss-06-v2-2.jpg',
+        },
+        {
+          text: 'People: under 8% of the gut microbiome is inherited (Rothschild et al. 2018)',
+          image: '/wormhole/tiles/ss-06-v2-3.jpg',
+        },
+        {
+          text: 'Mycorrhizal fungi carry copper, iron, nitrogen, phosphorus and zinc into crops',
+          image: '/wormhole/tiles/ss-06-v2-4.jpg',
+        },
+        {
+          text: 'Rhizobia in legume roots turn nitrogen from the air into plant food',
+          image: '/wormhole/tiles/ss-06-v2-5.jpg',
+        },
+      ],
+    },
+    reason:
+      'New cards (24 Oct), on brand: Food Web Green background, cream card, Soil Brown Montserrat headline, Regenerative Green bar, Source Sans 3 body, per the 2026 brand guide and color guidelines. v1 had a near-black background and Poppins.',
+  },
+  {
+    key: '2026-10-24 save soil ss-07 slides v2',
+    post: 'ss-07',
+    set: {
+      slides: [
+        { text: 'Soil is becoming security policy.', image: '/wormhole/tiles/ss-07-v2-1.jpg' },
+      ],
+    },
+    reason:
+      'New cards (24 Oct), on brand: Food Web Green background, cream card, Soil Brown Montserrat headline, Regenerative Green bar, Source Sans 3 body, per the 2026 brand guide and color guidelines. v1 had a near-black background and Poppins.',
+  },
+  {
+    key: '2026-10-24 save soil ss-08 slides v2',
+    post: 'ss-08',
+    set: {
+      slides: [
+        { text: 'Healthy soil cools the land', image: '/wormhole/tiles/ss-08-v2-1.jpg' },
+        {
+          text: 'Water in soil evaporates through plants and carries heat away',
+          image: '/wormhole/tiles/ss-08-v2-2.jpg',
+        },
+        {
+          text: "Bare, degraded soil can't hold that water, so the sun heats the air instead",
+          image: '/wormhole/tiles/ss-08-v2-3.jpg',
+        },
+        {
+          text: 'Cover crops and mulch keep the ground from baking',
+          image: '/wormhole/tiles/ss-08-v2-4.jpg',
+        },
+        {
+          text: "Fungal threads and bacterial glues hold the sponge's pores open",
+          image: '/wormhole/tiles/ss-08-v2-5.jpg',
+        },
+      ],
+    },
+    reason:
+      'New cards (24 Oct), on brand: Food Web Green background, cream card, Soil Brown Montserrat headline, Regenerative Green bar, Source Sans 3 body, per the 2026 brand guide and color guidelines. v1 had a near-black background and Poppins.',
+  },
+  {
+    key: '2026-10-24 ev-01 caption',
+    post: 'ev-01',
+    caption: [
+      [
+        "The Soil Health Institute's new President and CEO, Ashley McKeon, makes the case for soil health in her first long piece since taking the role in June.\n\n[One line from the article that matches what we teach: name the organism or the practice.]\n\n[One line on why it matters for growers.]",
+        'Cotton farmers with established soil health systems earned $118 more net income per acre than they did under their old conventional systems.\n\nThat is Soil Health Institute research, shared by SHI President and CEO Ashley McKeon after a plenary panel at the Textile Exchange Conference in Vancouver. For context, USDA estimated the 2025 US cotton crop fell about $201 per planted acre short of its full economic cost. She is careful to say the two numbers are not directly comparable.\n\nHer message to the apparel companies in the room: stop asking when you can stop paying for regenerative agriculture. Savings on inputs and equipment come first. Yield, yield stability and revenue follow later, as soil health indicators improve. So support should change with each stage, from cost-share, equipment financing and technical help early on to multi-year purchasing commitments and payments for ecosystem outcomes later.\n\nUnder every one of those indicators is soil biology: the fungi and bacteria that build structure, hold water and cycle nutrients. That is the part we teach.',
+      ],
+    ],
+    reason:
+      "Caption written from the article text Linnea pasted (24 Oct): McKeon, 19 Oct 2026, after the Textile Exchange Conference panel. Figures as she gives them: SHI's $118/acre net income gain, USDA's $201/acre 2025 shortfall, with her caveat that they are not directly comparable.",
+  },
+  {
+    key: '2026-10-24 ev-02 caption',
+    post: 'ev-02',
+    set: {
+      link: 'https://beopen.earth/atlas',
+      sources: [
+        'https://beopen.earth/',
+        'https://beopen.earth/atlas',
+        'https://fields4ever.biomemakers.com/',
+      ],
+      slides: [
+        { text: 'An open map of soil life', image: null },
+        { text: '100,000 soil samples. 90+ countries. One protocol.', image: null },
+        {
+          text: 'Bacteria and fungi, open to everyone. Explore the Atlas at beopen.earth',
+          image: null,
+        },
+      ],
+      visual_note:
+        'Partner shoutout carousel, 3 slides. Slide 1: a screenshot of the BeOpen Atlas map inside a flat colour box. Slides 2 and 3: brand colour boxes over a soil or microscope photo from our library. Tag BeOpen and Biome Makers.',
+    },
+    caption: [
+      [
+        '[Hook: the one thing beopen.earth does that our community should know.]\n\n[Two lines on what they do and who it is for.]\n\nGo have a look: https://beopen.earth/',
+        'There is now an open map of the bacteria and fungi in more than 100,000 soil samples from over 90 countries.\n\nBeOpen, an open project by Biome Makers, collects, sequences and analyses every sample with the same protocol, so a sample from one continent can be compared directly with one from another. Researchers get free access to raw reads and processed data. Regulators can see which soil microorganisms have been found in each region, with every data point linked to where it came from. Labs can join as contributors with the Becrop Standard protocol.\n\nOver 200 research partners and 3,000 datasets so far. Supported by the European Union and powered by Fields4Ever.\n\nGo explore the Atlas: https://beopen.earth/atlas',
+      ],
+      [
+        '#SoilFoodWeb #SoilHealth',
+        '#SoilFoodWeb #SoilMicrobiome #SoilBiology #OpenScience #SoilHealth',
+      ],
+    ],
+    reason:
+      "Caption and slide text written from beopen.earth's own page text, pasted by Linnea (24 Oct). Figures from the site: 100k samples, 90+ countries, 200+ partners, 3k datasets.",
+  },
+  {
+    key: '2026-10-24 november ev-02',
+    post: 'ev-02',
+    set: { iso_date: '2026-11-18', date_tbd: false },
+    reason:
+      'Moved into November (Linnea, 24 Oct): everything Evan has already shared goes out in November at the latest, because December is kept for new material. Wed 18 Nov, an empty day.',
+  },
+  {
+    key: '2026-10-24 november ss-01',
+    post: 'ss-01',
+    set: { iso_date: '2026-11-20', date_tbd: false },
+    reason:
+      'Moved into November (Linnea, 24 Oct): everything Evan has already shared goes out in November at the latest, because December is kept for new material. Fri 20 Nov, an empty day.',
+  },
+  {
+    key: '2026-10-24 november ss-02',
+    post: 'ss-02',
+    set: { iso_date: '2026-11-22', date_tbd: false },
+    reason:
+      'Moved into November (Linnea, 24 Oct): everything Evan has already shared goes out in November at the latest, because December is kept for new material. Sun 22 Nov, an empty day.',
+  },
+  {
+    key: '2026-10-24 november ss-07',
+    post: 'ss-07',
+    set: { iso_date: '2026-11-19', date_tbd: false },
+    reason:
+      'Moved into November (Linnea, 24 Oct): everything Evan has already shared goes out in November at the latest, because December is kept for new material. Thu 19 Nov on LinkedIn, beside the Instagram-only carbon sponge post.',
+  },
+  {
+    key: '2026-10-24 november ss-03',
+    post: 'ss-03',
+    set: { iso_date: '2026-11-24', date_tbd: false },
+    reason:
+      'Moved into November (Linnea, 24 Oct): everything Evan has already shared goes out in November at the latest, because December is kept for new material. Tue 24 Nov on LinkedIn, beside the Instagram-only gut microbes post.',
+  },
+  {
+    key: '2026-10-24 november ev-01',
+    post: 'ev-01',
+    set: { iso_date: '2026-11-30', date_tbd: false },
+    reason:
+      'Moved into November (Linnea, 24 Oct): everything Evan has already shared goes out in November at the latest, because December is kept for new material. Mon 30 Nov on LinkedIn, beside the ciliates Reel (Instagram only).',
+  },
+  {
+    key: '2026-10-24 november pl20261223 back',
+    post: 'pl20261223',
+    set: { iso_date: '2026-12-23', date_tbd: false },
+    reason:
+      'Back on Wed 23 Dec (24 Oct): the Save Soil post moved to November, so the December partner share slot is free for new material.',
+  },
+  {
+    key: '2026-10-24 d26 slides v2',
+    post: 'd26',
+    set: {
+      slides: [
+        { text: 'The smell of rain is a chemical signal.', image: '/wormhole/tiles/d26-v2-1.jpg' },
+        { text: 'Geosmin, made by Streptomyces bacteria.', image: '/wormhole/tiles/d26-v2-2.jpg' },
+        { text: 'It attracts springtails.', image: '/wormhole/tiles/d26-v2-3.jpg' },
+        {
+          text: 'They eat the colony and carry its spores away.',
+          image: '/wormhole/tiles/d26-v2-4.jpg',
+        },
+      ],
+    },
+    caption: [
+      [
+        '#Petrichor #SoilBiology',
+        'Photos: no-till soil after rain; actinobacteria by Rodrigue Ullens; Collembola by Cameron Radman (SFW microscope library)\n#Petrichor #SoilBiology',
+      ],
+    ],
+    reason:
+      'New visual (Linnea, 24 Oct): the old one had italic type and small flower cutouts on cream. Now flat brand-colour boxes over real photos from the SFW microscope library, with one green band running across all four slides. Built with tools/wormhole-visuals/d26_rain.py.',
+  },
+  {
+    key: '2026-10-24 save soil ss-01-li',
+    post: 'ss-01-li',
+    create: {
+      iso_date: '2026-12-23',
+      date_tbd: false,
+      topic:
+        "Save Soil shoutout (LinkedIn): Valluvan's coconut farm, 0.86% to 2.33% organic matter",
+      platform: 'LinkedIn',
+      caption:
+        "Valluvan's yields did nothing for three years. Then they climbed.\n\nHis Tamil Nadu coconut farm started at 0.86% soil organic matter. He dug trenches between the coconut rows and filled them with leaf litter, stopped burning fronds, mulched around every crop, and planted nutmeg, banana, black pepper, turmeric and timber trees in layers under the palms.\n\nFrom year four the coconuts rose: 140 nuts per tree, up from 90-100. By year seven the soil read 1.5% organic matter, and the latest test reads 2.33%. Fertiliser costs are under a tenth of what they were.\n\nIn 2018, after two years of drought, more than 1,200 mm of rain fell in a few days. His neighbours' open wells stood 6-7 feet lower than his.\n\nThat buried leaf litter is food for fungi and bacteria, and their glues and threads are what turn soil into a sponge.\n\nFull case study from Save Soil (Isha Foundation).\n\nIf you farm or advise farmers: how long did your soil take before the yields answered?\n\nhttps://consciousplanet.org/en/save-soil/news/save-soil-movement-model-farm-proof-of-concept",
+      slides: [
+        {
+          text: 'A coconut farm went from 0.86% to 2.33% soil organic matter',
+          image: '/wormhole/tiles/ss-01-li-v1-1.jpg',
+        },
+      ],
+      cta: '',
+      link: 'https://consciousplanet.org/en/save-soil/news/save-soil-movement-model-farm-proof-of-concept',
+      sources: [
+        'https://consciousplanet.org/en/save-soil/news/save-soil-movement-model-farm-proof-of-concept',
+      ],
+      visual_note:
+        'LinkedIn single image, 1200 x 627, the same repost card as the Instagram post ss-01. Built with tools/wormhole-visuals/savesoil.py --linkedin-twins.',
+      note: "LinkedIn twin of ss-01, same day. Caption is the Instagram caption without hashtags, emoji or 'link in bio', ending with a question (CLAUDE.md: every LinkedIn post ends with a real question).",
+      status: 'draft',
+    },
+    reason:
+      'LinkedIn version of the Save Soil shoutout (Linnea, 24 Oct: the landscape repost card works well for LinkedIn).',
+  },
+  {
+    key: '2026-10-24 save soil ss-02-li',
+    post: 'ss-02-li',
+    create: {
+      iso_date: '2026-12-08',
+      date_tbd: false,
+      topic: 'Save Soil shoutout (LinkedIn): 5 numbers that show what soil life does',
+      platform: 'LinkedIn',
+      caption:
+        'Same almond yields, twice the profit, and water that soaks in six times faster.\n\nThat is one of the numbers Save Soil (Isha Foundation) gathered to argue that soil biology belongs in how countries track climate adaptation. Our favourites:\n\n1. Infiltration 6x faster in regenerative almond orchards (LaCanne et al. 2021).\n2. Microbial biomass carbon 133% higher in regenerative organic systems (Mäder et al. 2025).\n3. Diversified rotations had 2.4 to 13.5 times more earthworm biomass than rye monoculture in a long-term Lithuanian trial (Bogušas et al. 2022).\n4. Glomalin-related soil protein, made by mycorrhizal fungi, up 24% under perennial pasture restoration (Abán et al. 2025).\n5. In drought years, maize in legume and manure systems outyielded conventional by 38 to 137% (Lotter et al. 2003).\n\nEvery one of these is the soil food web at work. Save this for the next time someone asks whether biology shows up in the numbers.\n\nWhich soil biology measure would you want national adaptation plans to track first?\n\nhttps://consciousplanet.org/en/save-soil/news/soil-as-a-lead-indicator-of-the-global-goal-on-adaptation-gga',
+      slides: [
+        {
+          text: '5 numbers that show what soil life does',
+          image: '/wormhole/tiles/ss-02-li-v1-1.jpg',
+        },
+      ],
+      cta: '',
+      link: 'https://consciousplanet.org/en/save-soil/news/soil-as-a-lead-indicator-of-the-global-goal-on-adaptation-gga',
+      sources: [
+        'https://consciousplanet.org/en/save-soil/news/soil-as-a-lead-indicator-of-the-global-goal-on-adaptation-gga',
+      ],
+      visual_note:
+        'LinkedIn single image, 1200 x 627, the same repost card as the Instagram post ss-02. Built with tools/wormhole-visuals/savesoil.py --linkedin-twins.',
+      note: "LinkedIn twin of ss-02, same day. Caption is the Instagram caption without hashtags, emoji or 'link in bio', ending with a question (CLAUDE.md: every LinkedIn post ends with a real question).",
+      status: 'draft',
+    },
+    reason:
+      'LinkedIn version of the Save Soil shoutout (Linnea, 24 Oct: the landscape repost card works well for LinkedIn).',
+  },
+  {
+    key: '2026-10-24 save soil ss-05-li',
+    post: 'ss-05-li',
+    create: {
+      iso_date: '2026-11-08',
+      date_tbd: false,
+      topic: 'Save Soil shoutout (LinkedIn): soil may hold 59% of all life on Earth',
+      platform: 'LinkedIn',
+      caption:
+        "Soil may be home to 59% of all life on Earth (Anthony et al., PNAS 2023).\n\nBacteria, archaea, fungi, protozoa, nematodes, mites, springtails, earthworms, beetles. Save Soil's (Isha Foundation) paper on soil degradation and biodiversity walks through how they build the ground: microbes feed on sugars from roots and make sticky substances, fungal hyphae bind particles into crumbs, and earthworms and mites open channels for air and water.\n\nAbout 33% of the world's soils are already moderately to highly degraded. Every one of those organisms is what regeneration brings back.\n\nWhich soil organism do you think deserves more attention than it gets?\n\nhttps://consciousplanet.org/en/save-soil/news/soil-degradation-and-biodiversity-loss",
+      slides: [
+        {
+          text: 'Soil may be home to 59% of all life on Earth',
+          image: '/wormhole/tiles/ss-05-li-v1-1.jpg',
+        },
+      ],
+      cta: '',
+      link: 'https://consciousplanet.org/en/save-soil/news/soil-degradation-and-biodiversity-loss',
+      sources: [
+        'https://consciousplanet.org/en/save-soil/news/soil-degradation-and-biodiversity-loss',
+      ],
+      visual_note:
+        'LinkedIn single image, 1200 x 627, the same repost card as the Instagram post ss-05. Built with tools/wormhole-visuals/savesoil.py --linkedin-twins.',
+      note: "LinkedIn twin of ss-05, same day. Caption is the Instagram caption without hashtags, emoji or 'link in bio', ending with a question (CLAUDE.md: every LinkedIn post ends with a real question).",
+      status: 'draft',
+    },
+    reason:
+      'LinkedIn version of the Save Soil shoutout (Linnea, 24 Oct: the landscape repost card works well for LinkedIn).',
+  },
+  {
+    key: '2026-10-24 save soil ss-06-li',
+    post: 'ss-06-li',
+    create: {
+      iso_date: '2026-11-24',
+      date_tbd: false,
+      topic: 'Save Soil shoutout (LinkedIn): healthy soil and healthy humans',
+      platform: 'LinkedIn',
+      caption:
+        "In baboons, the soil they lived on shaped their gut bacteria 15 times more strongly than their genes.\n\nIn people, a study of over 1,000 adults found that less than 8% of the gut microbiome is inherited (Rothschild et al. 2018). The rest comes from what we eat and where we live, and soil is part of that.\n\nThe same soil life decides what is in our food. Mycorrhizal fungi move copper, iron, nitrogen, phosphorus and zinc into roots. Rhizobia in legume roots fix nitrogen from the air.\n\nFrom Save Soil's (Isha Foundation) paper Healthy Soil and Healthy Humans.\n\nShould soil health have a place in public health conversations?\n\nhttps://consciousplanet.org/en/save-soil/news/healthy-soil-and-healthy-humans",
+      slides: [
+        {
+          text: 'Where you live shapes your gut more than your genes do',
+          image: '/wormhole/tiles/ss-06-li-v1-1.jpg',
+        },
+      ],
+      cta: '',
+      link: 'https://consciousplanet.org/en/save-soil/news/healthy-soil-and-healthy-humans',
+      sources: ['https://consciousplanet.org/en/save-soil/news/healthy-soil-and-healthy-humans'],
+      visual_note:
+        'LinkedIn single image, 1200 x 627, the same repost card as the Instagram post ss-06. Built with tools/wormhole-visuals/savesoil.py --linkedin-twins.',
+      note: "LinkedIn twin of ss-06, same day. Caption is the Instagram caption without hashtags, emoji or 'link in bio', ending with a question (CLAUDE.md: every LinkedIn post ends with a real question).",
+      status: 'draft',
+    },
+    reason:
+      'LinkedIn version of the Save Soil shoutout (Linnea, 24 Oct: the landscape repost card works well for LinkedIn).',
+  },
+  {
+    key: '2026-10-24 save soil ss-08-li',
+    post: 'ss-08-li',
+    create: {
+      iso_date: '2026-11-19',
+      date_tbd: false,
+      topic: 'Save Soil shoutout (LinkedIn): the soil carbon sponge cools the land',
+      platform: 'LinkedIn',
+      caption:
+        "Land with living soil runs cooler than bare ground, and water is the reason.\n\nSave Soil's (Isha Foundation) report The Soil Carbon Sponge, built on Walter Jehne's work, explains it. Soil rich in organic matter soaks up rain and holds it. Plants pull that water up and release it through their leaves, and evaporation carries heat away. When soil degrades, the water runs off, and the same sunlight heats the air instead.\n\nFrom the soil food web side: the sponge is built by biology. Fungal hyphae and bacterial glues hold the pores open, and cover crops and mulch keep it from drying out.\n\nWhere have you seen covered ground stay cooler or wetter than bare ground nearby?\n\nhttps://consciousplanet.org/en/save-soil/news/the-soil-carbon-sponge",
+      slides: [
+        {
+          text: 'Healthy soil cools the land',
+          image: '/wormhole/tiles/ss-08-li-v1-1.jpg',
+        },
+      ],
+      cta: '',
+      link: 'https://consciousplanet.org/en/save-soil/news/the-soil-carbon-sponge',
+      sources: ['https://consciousplanet.org/en/save-soil/news/the-soil-carbon-sponge'],
+      visual_note:
+        'LinkedIn single image, 1200 x 627, the same repost card as the Instagram post ss-08. Built with tools/wormhole-visuals/savesoil.py --linkedin-twins.',
+      note: "LinkedIn twin of ss-08, same day. Caption is the Instagram caption without hashtags, emoji or 'link in bio', ending with a question (CLAUDE.md: every LinkedIn post ends with a real question).",
+      status: 'draft',
+    },
+    reason:
+      'LinkedIn version of the Save Soil shoutout (Linnea, 24 Oct: the landscape repost card works well for LinkedIn).',
+  },
+  {
+    key: '2026-10-24 p25 slides b1',
+    post: 'p25',
+    set: {
+      slides: [
+        { text: "Dr. Elaine's papers, in one place.", image: '/wormhole/tiles/p25-b1-1.jpg' },
+        {
+          text: 'Four decades of research, open to read. 77 journal papers, 6 book chapters and 10 EPA and technical reports, each linked to where you can read it.',
+          image: '/wormhole/tiles/p25-b1-2.jpg',
+        },
+      ],
+    },
+    reason:
+      'New visual (Linnea, 24 Oct): the old one used Fredoka, italics or flower cutouts on a plain background, outside the brand. Now flat brand-colour boxes over real photos in Montserrat and Source Sans 3, the same style as the smell of rain post. Built with tools/wormhole-visuals/boxes.py.',
+  },
+  {
+    key: '2026-10-24 p26 slides b1',
+    post: 'p26',
+    set: {
+      slides: [
+        { text: 'Welcome to our newest consultants.', image: '/wormhole/tiles/p26-b1-1.jpg' },
+        {
+          text: 'Kyle Babcock, United States. Certified Soil Food Web Consultant.',
+          image: '/wormhole/tiles/p26-b1-2.jpg',
+        },
+        {
+          text: 'Joshua Stone, United States. Certified Soil Food Web Consultant.',
+          image: '/wormhole/tiles/p26-b1-3.jpg',
+        },
+      ],
+    },
+    caption: [
+      ['[Names and countries.]', 'Kyle Babcock, United States\nJoshua Stone, United States'],
+    ],
+    reason:
+      'New visual (Linnea, 24 Oct): the old one used Fredoka, italics or flower cutouts on a plain background, outside the brand. Now flat brand-colour boxes over real photos in Montserrat and Source Sans 3, the same style as the smell of rain post. Built with tools/wormhole-visuals/boxes.py. Joshua Stone has no photo yet, so his slide is a name card: send one and it gets his portrait.',
+  },
+  {
+    key: '2026-10-24 pl20261114 slides b1',
+    post: 'pl20261114',
+    set: {
+      slides: [
+        {
+          text: 'Your fallen leaves can become fungal compost.',
+          image: '/wormhole/tiles/pl20261114-b1-1.jpg',
+        },
+        {
+          text: 'Pack wet leaves into a wire cage or a bag with holes.',
+          image: '/wormhole/tiles/pl20261114-b1-2.jpg',
+        },
+        {
+          text: 'Keep them damp. Fungi do the work, slowly.',
+          image: '/wormhole/tiles/pl20261114-b1-3.jpg',
+        },
+        {
+          text: 'In 1 to 2 years you get dark, crumbly leaf mold.',
+          image: '/wormhole/tiles/pl20261114-b1-4.jpg',
+        },
+        {
+          text: 'Use it as mulch or mix it into potting soil.',
+          image: '/wormhole/tiles/pl20261114-b1-5.jpg',
+        },
+      ],
+    },
+    reason:
+      'New visual (Linnea, 24 Oct): the old one used Fredoka, italics or flower cutouts on a plain background, outside the brand. Now flat brand-colour boxes over real photos in Montserrat and Source Sans 3, the same style as the smell of rain post. Built with tools/wormhole-visuals/boxes.py.',
+  },
+  {
+    key: '2026-10-24 pl20261115 slides b1',
+    post: 'pl20261115',
+    set: {
+      slides: [
+        {
+          text: 'Imagine a world without earthworms.',
+          image: '/wormhole/tiles/pl20261115-b1-1.jpg',
+        },
+        { text: 'It already exists.', image: '/wormhole/tiles/pl20261115-b1-2.jpg' },
+        {
+          text: 'Many northern North American forests evolved without them after the last Ice Age.',
+          image: '/wormhole/tiles/pl20261115-b1-3.jpg',
+        },
+        {
+          text: 'Introduced worms now eat through the leaf litter those forests depend on.',
+          image: '/wormhole/tiles/pl20261115-b1-4.jpg',
+        },
+        {
+          text: 'Even a good organism can be the wrong one in the wrong place.',
+          image: '/wormhole/tiles/pl20261115-b1-5.jpg',
+        },
+      ],
+    },
+    reason:
+      'New visual (Linnea, 24 Oct): the old one used Fredoka, italics or flower cutouts on a plain background, outside the brand. Now flat brand-colour boxes over real photos in Montserrat and Source Sans 3, the same style as the smell of rain post. Built with tools/wormhole-visuals/boxes.py.',
+  },
+  {
+    key: '2026-10-24 p27 duplicate',
+    post: 'p27',
+    set: { date_tbd: true },
+    reason:
+      'Date TBD (24 Oct): a duplicate of cr20261112, "A day at the Costa Rica workshop" on 12 Nov, and it gave 18 to 25 January where the workshop runs 18 to 29 January. Kept here in case the copy is wanted.',
+  },
+  {
+    key: '2026-10-24 p26 slides f1',
+    post: 'p26',
+    set: {
+      slides: [
+        { text: 'Welcome to our newest consultants.', image: '/wormhole/tiles/p26-f1-1.jpg' },
+        {
+          text: 'Kyle Babcock, United States. Certified Soil Food Web Consultant.',
+          image: '/wormhole/tiles/p26-f1-2.jpg',
+        },
+        {
+          text: 'Joshua Stone, United States. Certified Soil Food Web Consultant.',
+          image: '/wormhole/tiles/p26-f1-3.jpg',
+        },
+      ],
+      visual_note:
+        'Family: I, portrait. Brown cover with both faces, then one large round portrait per slide. Joshua Stone shows his initials until his photo arrives. Built with tools/wormhole-visuals/families.py.',
+    },
+    reason:
+      'Restyled (Linnea, 24 Oct): the feed must vary, so neighbouring posts never share a style family (tools/wormhole-visuals/FEED-GUIDE.md). Nov 10 to 15 now run brand boxes, portrait, full-bleed photo, numbered steps, type only.',
+  },
+  {
+    key: '2026-10-24 pl20261114 slides f1',
+    post: 'pl20261114',
+    set: {
+      slides: [
+        {
+          text: 'Your fallen leaves can become fungal compost.',
+          image: '/wormhole/tiles/pl20261114-f1-1.jpg',
+        },
+        {
+          text: '1. Pack wet leaves into a wire cage or a bag with holes.',
+          image: '/wormhole/tiles/pl20261114-f1-2.jpg',
+        },
+        {
+          text: '2. Keep them damp. Fungi do the work, slowly.',
+          image: '/wormhole/tiles/pl20261114-f1-3.jpg',
+        },
+        {
+          text: '3. In 1 to 2 years you get dark, crumbly leaf mold.',
+          image: '/wormhole/tiles/pl20261114-f1-4.jpg',
+        },
+        {
+          text: '4. Use it as mulch or mix it into potting soil.',
+          image: '/wormhole/tiles/pl20261114-f1-5.jpg',
+        },
+      ],
+      visual_note:
+        'Family: J, numbered steps. Big EB Garamond step numbers, a square photo with its credit on each slide. Built with tools/wormhole-visuals/families.py.',
+    },
+    reason:
+      'Restyled (Linnea, 24 Oct): the feed must vary, so neighbouring posts never share a style family (tools/wormhole-visuals/FEED-GUIDE.md). Nov 10 to 15 now run brand boxes, portrait, full-bleed photo, numbered steps, type only.',
+  },
+  {
+    key: '2026-10-24 pl20261115 slides f1',
+    post: 'pl20261115',
+    set: {
+      slides: [
+        {
+          text: 'Imagine a world without earthworms.',
+          image: '/wormhole/tiles/pl20261115-f1-1.jpg',
+        },
+        { text: 'It already exists.', image: '/wormhole/tiles/pl20261115-f1-2.jpg' },
+        {
+          text: 'Many northern North American forests evolved without them after the last Ice Age.',
+          image: '/wormhole/tiles/pl20261115-f1-3.jpg',
+        },
+        {
+          text: 'Introduced worms now eat through the leaf litter those forests depend on.',
+          image: '/wormhole/tiles/pl20261115-f1-4.jpg',
+        },
+        {
+          text: 'Even a good organism can be the wrong one in the wrong place.',
+          image: '/wormhole/tiles/pl20261115-f1-5.jpg',
+        },
+      ],
+      visual_note:
+        'Family: G, type only. Reel, five cards, one statement each on a different flat brand colour. Built with tools/wormhole-visuals/families.py.',
+    },
+    reason:
+      'Restyled (Linnea, 24 Oct): the feed must vary, so neighbouring posts never share a style family (tools/wormhole-visuals/FEED-GUIDE.md). Nov 10 to 15 now run brand boxes, portrait, full-bleed photo, numbered steps, type only.',
+  },
+  {
+    key: '2026-10-24 p25 family note',
+    post: 'p25',
+    set: { visual_note: 'Family: A, brand boxes. Built with tools/wormhole-visuals/boxes.py.' },
+    reason: 'Style family recorded (24 Oct), per tools/wormhole-visuals/FEED-GUIDE.md.',
+  },
+  {
+    key: '2026-10-24 d26 family note',
+    post: 'd26',
+    set: { visual_note: 'Family: A, brand boxes. Built with tools/wormhole-visuals/d26_rain.py.' },
+    reason: 'Style family recorded (24 Oct), per tools/wormhole-visuals/FEED-GUIDE.md.',
+  },
+  {
+    key: '2026-10-24 pl20261114 slides f2',
+    post: 'pl20261114',
+    set: {
+      slides: [
+        {
+          text: 'Your fallen leaves can become fungal compost.',
+          image: '/wormhole/tiles/pl20261114-f2-1.jpg',
+        },
+        {
+          text: '1. Pack wet leaves into a wire cage or a bag with holes.',
+          image: '/wormhole/tiles/pl20261114-f2-2.jpg',
+        },
+        {
+          text: '2. Keep them damp. Fungi do the work, slowly.',
+          image: '/wormhole/tiles/pl20261114-f2-3.jpg',
+        },
+        {
+          text: '3. In 1 to 2 years you get dark, crumbly leaf mold.',
+          image: '/wormhole/tiles/pl20261114-f2-4.jpg',
+        },
+        {
+          text: '4. Use it as mulch or mix it into potting soil.',
+          image: '/wormhole/tiles/pl20261114-f2-5.jpg',
+        },
+      ],
+    },
+    reason:
+      "Re-spaced (Linnea, 24 Oct: 'fix the spacing'): the instruction text no longer runs into the photo. Layout measured from the glyphs, with a clear gap between number, text and photo. Same photos and credits. Family: J, numbered steps.",
+  },
+  {
+    key: '2026-10-24 dated d05',
+    post: 'd05',
+    set: { iso_date: '2026-10-26', date_tbd: false },
+    reason:
+      'Dated Mon 26 Oct (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December. Mentors go out in October and November, one a day, as early as possible.',
+  },
+  {
+    key: '2026-10-24 dated d11',
+    post: 'd11',
+    set: { iso_date: '2026-10-27', date_tbd: false },
+    reason:
+      'Dated Tue 27 Oct (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December. Mentors go out in October and November, one a day, as early as possible.',
+  },
+  {
+    key: '2026-10-24 dated d12',
+    post: 'd12',
+    set: { iso_date: '2026-10-28', date_tbd: false },
+    reason:
+      'Dated Wed 28 Oct (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December. Mentors go out in October and November, one a day, as early as possible.',
+  },
+  {
+    key: '2026-10-24 dated d13',
+    post: 'd13',
+    set: { iso_date: '2026-10-29', date_tbd: false },
+    reason:
+      'Dated Thu 29 Oct (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December. Mentors go out in October and November, one a day, as early as possible.',
+  },
+  {
+    key: '2026-10-24 dated d10',
+    post: 'd10',
+    set: { iso_date: '2026-10-29', date_tbd: false },
+    reason:
+      'Dated Thu 29 Oct (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December.',
+  },
+  {
+    key: '2026-10-24 dated d06',
+    post: 'd06',
+    set: { iso_date: '2026-10-30', date_tbd: false },
+    reason:
+      'Dated Fri 30 Oct (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December.',
+  },
+  {
+    key: '2026-10-24 dated d24',
+    post: 'd24',
+    set: { iso_date: '2026-11-01', date_tbd: false },
+    reason:
+      'Dated Sun 1 Nov (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December.',
+  },
+  {
+    key: '2026-10-24 dated sh-w1-01',
+    post: 'sh-w1-01',
+    set: { iso_date: '2026-11-01', date_tbd: false },
+    reason:
+      'Dated Sun 1 Nov (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December. Caption still to write before it goes out.',
+  },
+  {
+    key: '2026-10-24 dated d21',
+    post: 'd21',
+    set: { iso_date: '2026-11-03', date_tbd: false },
+    reason:
+      'Dated Tue 3 Nov (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December.',
+  },
+  {
+    key: '2026-10-24 dated d22',
+    post: 'd22',
+    set: { iso_date: '2026-11-05', date_tbd: false },
+    reason:
+      'Dated Thu 5 Nov (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December.',
+  },
+  {
+    key: '2026-10-24 dated sh-w1-02',
+    post: 'sh-w1-02',
+    set: { iso_date: '2026-11-05', date_tbd: false },
+    reason:
+      'Dated Thu 5 Nov (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December. Caption still to write before it goes out.',
+  },
+  {
+    key: '2026-10-24 dated d26',
+    post: 'd26',
+    set: { iso_date: '2026-11-06', date_tbd: false },
+    reason:
+      'Dated Fri 6 Nov (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December.',
+  },
+  {
+    key: '2026-10-24 dated sh-w1-03',
+    post: 'sh-w1-03',
+    set: { iso_date: '2026-11-10', date_tbd: false },
+    reason:
+      'Dated Tue 10 Nov (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December. Caption still to write before it goes out.',
+  },
+  {
+    key: '2026-10-24 dated d23',
+    post: 'd23',
+    set: { iso_date: '2026-11-13', date_tbd: false },
+    reason:
+      'Dated Fri 13 Nov (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December.',
+  },
+  {
+    key: '2026-10-24 dated sh-w1-04',
+    post: 'sh-w1-04',
+    set: { iso_date: '2026-11-13', date_tbd: false },
+    reason:
+      'Dated Fri 13 Nov (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December. Caption still to write before it goes out.',
+  },
+  {
+    key: '2026-10-24 dated ss-01-li',
+    post: 'ss-01-li',
+    set: { iso_date: '2026-11-20', date_tbd: false },
+    reason:
+      "Dated Fri 20 Nov (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December. Evan's shares go out in November at the latest; this is the LinkedIn version beside the Instagram post.",
+  },
+  {
+    key: '2026-10-24 dated ss-02-li',
+    post: 'ss-02-li',
+    set: { iso_date: '2026-11-22', date_tbd: false },
+    reason:
+      "Dated Sun 22 Nov (Linnea, 24 Oct): every undated post gets a date, sooner rather than later, and nothing waiting goes to December. Evan's shares go out in November at the latest; this is the LinkedIn version beside the Instagram post.",
+  },
+  {
+    key: '2026-10-24 new x20261108',
+    post: 'x20261108',
+    create: {
+      iso_date: '2026-11-08',
+      date_tbd: false,
+      topic: 'Diwali: a festival of light, from the soil up',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        'Happy Diwali to our students, mentors and partners in India, and to everyone celebrating around the world. \ud83e\ude94\n\nThe lamps are filled with oil from seeds, the sweets with grain, milk and sugarcane, and the doorways are hung with marigolds. Every one of them started in living soil.\n\nMay your fields, gardens and compost piles be full of light and life this year.\n\n#HappyDiwali #Diwali2026 #SoilFoodWeb #LivingSoil #SFWIndia',
+      slides: [
+        { text: 'Happy Diwali.', image: null },
+        {
+          text: 'Light, sweets and marigolds. Every one of them starts in living soil.',
+          image: null,
+        },
+      ],
+      cta: '',
+      link: '',
+      sources: ['https://www.awarenessdays.com/awareness-days-calendar/diwali'],
+      visual_note:
+        'No visual yet. Single image. Marigolds and a clay diya on dark soil, warm and simple. Our own India workshop photo if Kavi has one.',
+      note: 'Diwali is Sun 8 Nov 2026 (Lakshmi Puja). Greeting post for the India community.',
+      status: 'draft',
+    },
+    reason:
+      'New post (Linnea, 24 Oct): towards seven posts a week, from holidays, global events, the 2027 promotions calendar and organic permaculture and soil science content.',
+  },
+  {
+    key: '2026-10-24 new x20261109',
+    post: 'x20261109',
+    create: {
+      iso_date: '2026-11-09',
+      date_tbd: false,
+      topic: 'COP31 opens in Antalya: where is soil?',
+      platform: 'LinkedIn',
+      caption:
+        "COP31 opens today in Antalya, T\u00fcrkiye, and runs to 20 November.\n\nOne thing to watch: the Sharm el-Sheikh Joint Work on agriculture and food security, the UN climate talks' own track for farming, closed at COP30 without an outcome, and its mandate ends in 2026. What replaces it decides whether soil gets a real place in climate policy for the next decade.\n\nSoil is the largest carbon store on land. Its biology decides how much of that carbon stays put: fungi and bacteria build the aggregates that lock carbon away, and tillage breaks them open.\n\nWe'll be following the agriculture negotiations over the next two weeks.\n\n#COP31 #SoilHealth #ClimateAction #RegenerativeAgriculture #SoilFoodWeb",
+      slides: [
+        {
+          text: "COP31 opens today. Agriculture's own negotiating track runs out in 2026.",
+          image: null,
+        },
+      ],
+      cta: '',
+      link: 'https://en.wikipedia.org/wiki/2026_United_Nations_Climate_Change_Conference',
+      sources: [
+        'https://en.wikipedia.org/wiki/2026_United_Nations_Climate_Change_Conference',
+        'https://consciousplanet.org/en/save-soil/news/cop30-a-turning-point-for-climate-action-but-agriculture-and-soils-left-behind',
+      ],
+      visual_note:
+        'No visual yet. LinkedIn single image, 1200 x 627. One strong line of type on a flat brand colour.',
+      note: 'COP31: 9 to 20 Nov 2026, Antalya Expo Center. LinkedIn only; the Instagram feed has the nematode numbers post that day.',
+      status: 'draft',
+    },
+    reason:
+      'New post (Linnea, 24 Oct): towards seven posts a week, from holidays, global events, the 2027 promotions calendar and organic permaculture and soil science content.',
+  },
+  {
+    key: '2026-10-24 new x20261117',
+    post: 'x20261117',
+    create: {
+      iso_date: '2026-11-17',
+      date_tbd: false,
+      topic: 'Permaculture: the three ethics',
+      platform: 'Instagram, Facebook',
+      caption:
+        'Before a single bed is drawn, every permaculture design answers to three ethics. \ud83c\udf0d\n\nEarth care: leave the land more alive than you found it.\nPeople care: design for the people who live and work there.\nFair share: take what you need and return the surplus.\n\nBill Mollison and David Holmgren set them down in the 1970s, and they still decide every choice in a design. Living soil serves all three: it grows the food, it holds the water, and the compost you make from your surplus goes straight back into it.\n\nOur Permaculture Design Certificate cohort is working through them right now.\n\n#Permaculture #PermacultureEthics #EarthCare #SoilFoodWeb #PermacultureDesign',
+      slides: [
+        { text: 'Every permaculture design starts with three ethics.', image: null },
+        { text: 'Earth care.', image: null },
+        { text: 'People care.', image: null },
+        { text: 'Fair share.', image: null },
+        { text: 'Living soil serves all three.', image: null },
+      ],
+      cta: '',
+      link: '',
+      sources: [],
+      visual_note:
+        "No visual yet. Carousel, 5 slides. Type and drawn icons on flat brand colours, or real photos of a student's design site.",
+      note: 'Permaculture series. LinkedIn already has the Save Soil tillage post that day, so this one is Instagram and Facebook.',
+      status: 'draft',
+    },
+    reason:
+      'New post (Linnea, 24 Oct): towards seven posts a week, from holidays, global events, the 2027 promotions calendar and organic permaculture and soil science content.',
+  },
+  {
+    key: '2026-10-24 new x20261118',
+    post: 'x20261118',
+    create: {
+      iso_date: '2026-11-18',
+      date_tbd: false,
+      topic: 'Compost Intensive Course: the January cohort',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        'Most compost guides stop at the recipe. Ours ends at the microscope. \ud83d\udd2c\n\nThe Compost Intensive Course is ten weeks of building your own thermal compost, tracking its temperature, and checking under the microscope whether the biology you wanted is really there, with our mentors guiding you each week.\n\nThe next cohort starts in January 2027. Enroll through the link in bio.\n\n#CompostIntensive #Compost #ThermalCompost #SoilFoodWeb #SoilMicroscopy',
+      slides: [
+        { text: 'Ten weeks to make compost you can prove.', image: null },
+        { text: 'Compost Intensive Course, starting January 2027.', image: null },
+        { text: 'Build, monitor and read your own piles under the microscope.', image: null },
+        { text: 'With mentors every week.', image: null },
+        { text: 'Enroll now, link in bio.', image: null },
+      ],
+      cta: 'Enroll, link in bio',
+      link: '[CIC enrollment page]',
+      sources: [],
+      visual_note:
+        'No visual yet. Carousel, 5 slides. Students building and checking piles, a thermometer, a microscope view of compost, real workshop photos.',
+      note: 'Promo calendar: CIC promo period 19 Oct to 30 Nov, cohort runs from the week of 18 Jan 2027 (10 weeks). Confirm the start date and enrollment link with Stephanie.',
+      status: 'draft',
+    },
+    reason:
+      'New post (Linnea, 24 Oct): towards seven posts a week, from holidays, global events, the 2027 promotions calendar and organic permaculture and soil science content.',
+  },
+  {
+    key: '2026-10-24 new x20261125',
+    post: 'x20261125',
+    create: {
+      iso_date: '2026-11-25',
+      date_tbd: false,
+      topic: 'Foundation Courses: start any time',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        "Winter is the best time to learn what your soil needs before spring. \u2744\ufe0f\n\nOur Foundation Courses take you through Dr. Elaine Ingham's soil food web science, how to make biologically complete compost, extracts and teas, and how to read soil under the microscope. You study at your own pace, from anywhere, and start whenever you're ready.\n\nMore than 10,000 people in over 100 countries have started here.\n\nLink in bio.\n\n#FoundationCourses #SoilFoodWeb #DrElaineIngham #OnlineLearning #SoilHealth",
+      slides: [
+        { text: 'Start learning the soil food web this winter.', image: null },
+        { text: 'The Foundation Courses: at your own pace, from anywhere.', image: null },
+        { text: 'The science, the compost, the extracts and teas, the microscope.', image: null },
+        { text: '10,000+ people in 100+ countries have started here.', image: null },
+      ],
+      cta: 'Start learning, link in bio',
+      link: 'https://school.soilfoodweb.com/bundles/soilfoodweb-foundation-courses',
+      sources: ['https://school.soilfoodweb.com/bundles/soilfoodweb-foundation-courses'],
+      visual_note:
+        'No visual yet. Carousel, 4 slides. Course screenshots and real student microscope photos.',
+      note: 'Promo calendar: Foundation Courses promo period 19 Oct to 30 Nov. The 10,000+ and 100+ countries figures are the Foundation facts in the content guide. Allison: check the course list wording.',
+      status: 'draft',
+    },
+    reason:
+      'New post (Linnea, 24 Oct): towards seven posts a week, from holidays, global events, the 2027 promotions calendar and organic permaculture and soil science content.',
+  },
+  {
+    key: '2026-10-24 new x20261128',
+    post: 'x20261128',
+    create: {
+      iso_date: '2026-11-28',
+      date_tbd: false,
+      topic: 'Small Business Saturday: hire a local soil consultant',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        "It's Small Business Saturday, and the soil has small businesses too. \ud83e\uddd1\u200d\ud83c\udf3e\n\nOur certified Soil Food Web Consultants are independent business owners. They read your soil under the microscope, build biologically complete compost, and walk your fields with you to plan what comes next.\n\nHiring one near you keeps the money local and the advice fitted to your soil, climate and crops.\n\nFind a consultant in our directory, link in bio.\n\n#SmallBusinessSaturday #ShopLocal #SoilConsultant #SoilFoodWeb #SoilHealth",
+      slides: [
+        { text: 'Small Business Saturday.', image: null },
+        { text: 'Shop local for your soil too.', image: null },
+        {
+          text: 'Certified Soil Food Web Consultants run their own businesses: labs, compost operations and on-farm advice.',
+          image: null,
+        },
+        { text: 'Find one near you.', image: null },
+      ],
+      cta: 'Find a consultant, link in bio',
+      link: 'https://soilfoodweb.com [consultant directory URL]',
+      sources: [],
+      visual_note:
+        'No visual yet. Carousel, 4 slides. A consultant at the microscope or in a field, real photos from consultants who agree to be featured.',
+      note: 'Small Business Saturday is the Saturday after US Thanksgiving (26 Nov 2026). Same directory link as p23 on 6 Nov.',
+      status: 'draft',
+    },
+    reason:
+      'New post (Linnea, 24 Oct): towards seven posts a week, from holidays, global events, the 2027 promotions calendar and organic permaculture and soil science content.',
+  },
+  {
+    key: '2026-10-24 new x20261129',
+    post: 'x20261129',
+    create: {
+      iso_date: '2026-11-29',
+      date_tbd: false,
+      topic: 'Permaculture: plant a fruit tree guild',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        'In permaculture, a fruit tree is never planted alone. \ud83c\udf4e\n\nA guild is a small community of plants around one tree. White clover under the canopy fixes nitrogen with its rhizobia. Comfrey grows fast and gets cut and dropped as mulch several times a year. Chives and other alliums fill the gaps. The ground stays covered, roots stay living all year, and the soil food web around the tree has a steady supply of food.\n\nPlan yours this winter and plant it in spring.\n\n\ud83d\udcbe Save this for planting season.\n\n#Permaculture #FruitTreeGuild #FoodForest #SoilFoodWeb #CompanionPlanting',
+      slides: [
+        { text: 'A fruit tree grows better with friends.', image: null },
+        { text: 'Clover underneath fixes nitrogen.', image: null },
+        { text: 'Comfrey gets cut and dropped as mulch.', image: null },
+        { text: 'Chives and other alliums fill the gaps.', image: null },
+        { text: 'Together they keep the soil covered and alive.', image: null },
+      ],
+      cta: '',
+      link: '',
+      sources: [],
+      visual_note:
+        'No visual yet. Carousel, 5 slides. A drawn guild plan from above, then real photos of each plant.',
+      note: 'Permaculture series. Avoid claims that comfrey mines minerals from deep soil; keep it to mulch.',
+      status: 'draft',
+    },
+    reason:
+      'New post (Linnea, 24 Oct): towards seven posts a week, from holidays, global events, the 2027 promotions calendar and organic permaculture and soil science content.',
+  },
+  {
+    key: '2026-10-24 new x20261130',
+    post: 'x20261130',
+    create: {
+      iso_date: '2026-11-30',
+      date_tbd: false,
+      topic: 'Compost Intensive Course: last week of the promo',
+      platform: 'Instagram, Facebook',
+      caption:
+        'If one of your goals for 2027 is compost you can trust, this is the course. \ud83c\udf21\ufe0f\n\nIn the Compost Intensive Course you build your own thermal piles, hold them between 131 and 155\u00b0F, and check the result under the microscope with a mentor, week by week for ten weeks.\n\nThe January cohort is enrolling now. Link in bio.\n\n#CompostIntensive #Compost #SoilFoodWeb #NewYearGoals',
+      slides: [
+        { text: 'Your compost, checked under the microscope.', image: null },
+        { text: 'The Compost Intensive Course starts in January.', image: null },
+        { text: 'Enroll now, link in bio.', image: null },
+      ],
+      cta: 'Enroll, link in bio',
+      link: '[CIC enrollment page]',
+      sources: [],
+      visual_note:
+        'No visual yet. Single image. Full-bleed photo of a steaming pile with a thermometer in it.',
+      note: 'Promo calendar: last day of the CIC promo period. Instagram and Facebook; LinkedIn has the McKeon reshare that day.',
+      status: 'draft',
+    },
+    reason:
+      'New post (Linnea, 24 Oct): towards seven posts a week, from holidays, global events, the 2027 promotions calendar and organic permaculture and soil science content.',
+  },
+  {
+    key: '2026-10-24 new x20261201',
+    post: 'x20261201',
+    create: {
+      iso_date: '2026-12-01',
+      date_tbd: false,
+      topic: 'GivingTuesday: fund a scholarship',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        "Today is GivingTuesday, and one gift can reach a whole community. \ud83d\udc9a\n\nOur scholarships put farmers, gardeners and students into Soil Food Web courses they couldn't otherwise afford. They learn to read soil under the microscope and make biologically complete compost, then take it home to their own farms and teach the people around them.\n\n[One line from a scholarship recipient, with their permission and handle.]\n\nEvery gift today goes to scholarships. Give through the link in bio.\n\n#GivingTuesday #Scholarships #SoilFoodWeb #Nonprofit #SoilHealth",
+      slides: [
+        { text: 'Today is GivingTuesday.', image: null },
+        {
+          text: "A scholarship puts a farmer, gardener or student in a course they couldn't otherwise take.",
+          image: null,
+        },
+        { text: 'They take it home to their own soil, and teach their neighbours.', image: null },
+        { text: 'Give today, link in bio.', image: null },
+      ],
+      cta: 'Give today, link in bio',
+      link: '[Givebutter donate link]',
+      sources: ['https://www.givingtuesday.org/'],
+      visual_note:
+        "No visual yet. Carousel, 4 slides. A scholarship recipient's own photo (permission given, handles in the spreadsheet), with their words.",
+      note: 'GivingTuesday 2026 is Tue 1 Dec, the Tuesday after US Thanksgiving. Confirm with Stephanie that gifts go to scholarships and get the Givebutter link.',
+      status: 'draft',
+    },
+    reason:
+      'New post (Linnea, 24 Oct): towards seven posts a week, from holidays, global events, the 2027 promotions calendar and organic permaculture and soil science content.',
+  },
+  {
+    key: '2026-10-24 new x20261202',
+    post: 'x20261202',
+    create: {
+      iso_date: '2026-12-02',
+      date_tbd: false,
+      topic: 'From shovel to slide: how we read a soil sample',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        'One drop of soil and water can tell you what your soil needs next. \ud83d\udd2c\n\nThis is the method our students learn: take a small sample from the root zone, mix it with water, put a single drop on a slide and look. Under the microscope you count the organisms that run the soil food web, the bacteria, fungal hyphae, protozoa and nematodes, and compare the numbers with what your plants need.\n\nA garden bed and an orchard want very different biology, and the microscope shows you which one you have.\n\nLearn to do it yourself in our Foundation Courses, link in bio.\n\n#SoilMicroscopy #SoilFoodWeb #SoilTesting #SoilBiology #Microscope',
+      slides: [
+        { text: 'From shovel to slide.', image: null },
+        { text: '1. Take a small sample from the root zone.', image: null },
+        { text: '2. Mix it with water.', image: null },
+        { text: '3. Put one drop on a slide.', image: null },
+        { text: '4. Count what you see: bacteria, fungi, protozoa, nematodes.', image: null },
+        { text: 'That count tells you what your soil needs.', image: null },
+      ],
+      cta: 'Learn it, link in bio',
+      link: 'https://school.soilfoodweb.com/bundles/soilfoodweb-foundation-courses',
+      sources: ['https://school.soilfoodweb.com/bundles/soilfoodweb-foundation-courses'],
+      visual_note:
+        'No visual yet. Carousel, 6 slides. Real photos of each step from our own workshops, ending on a microscope library photo.',
+      note: 'Process post. Allison: check the dilution wording against the course before approval.',
+      status: 'draft',
+    },
+    reason:
+      'New post (Linnea, 24 Oct): towards seven posts a week, from holidays, global events, the 2027 promotions calendar and organic permaculture and soil science content.',
+  },
+  {
+    key: '2026-10-24 new x20261203',
+    post: 'x20261203',
+    create: {
+      iso_date: '2026-12-03',
+      date_tbd: false,
+      topic: 'Costa Rica: six weeks to go',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        'Six weeks from now, our next Accelerator Workshop starts in Costa Rica. \ud83c\udf3f\n\n18 to 29 January 2027: twelve days of building compost piles with your hands in the morning and reading them under the microscope in the afternoon, with mentors beside you the whole time.\n\nPlaces are still open. Register through the link in bio.\n\n#CostaRica #AcceleratorWorkshop #Compost #SoilFoodWeb #Workshop',
+      slides: [
+        { text: 'Six weeks to Costa Rica.', image: null },
+        { text: '18 to 29 January 2027.', image: null },
+        { text: 'Compost piles in the morning, the microscope in the afternoon.', image: null },
+        { text: 'Places are still open.', image: null },
+      ],
+      cta: 'Register, link in bio',
+      link: 'https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+      sources: [
+        'https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+      ],
+      visual_note:
+        'No visual yet. Single image or short carousel. Full-bleed photo from a past Costa Rica workshop.',
+      note: 'Promo. Check with Stephanie that places are open before it goes out; dates from the Costa Rica sales page.',
+      status: 'draft',
+    },
+    reason:
+      'New post (Linnea, 24 Oct): towards seven posts a week, from holidays, global events, the 2027 promotions calendar and organic permaculture and soil science content.',
+  },
+  {
+    key: '2026-10-24 new x20261204',
+    post: 'x20261204',
+    create: {
+      iso_date: '2026-12-04',
+      date_tbd: false,
+      topic: 'Wildlife Conservation Day: the wildlife under your feet',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        "Today is World Wildlife Conservation Day, so meet the wildlife living under your feet. \ud83d\udc3e\n\nBacteria and fungi feed on what roots release and on dead plant material. Protozoa and nematodes eat the bacteria and fungi, and release the nutrients plants take up. Springtails and mites shred, graze and carry spores around.\n\nTheir habitat is the pores and crumbs of living soil. Keep the ground covered, keep roots growing, and dig as little as you can, and every one of them has somewhere to live.\n\nAll photos from our students' microscopes.\n\n#WildlifeConservationDay #SoilBiology #SoilFoodWeb #Microscopy #Biodiversity",
+      slides: [
+        { text: 'Wildlife Conservation Day.', image: null },
+        { text: 'Meet the wildlife under your feet.', image: null },
+        { text: 'Bacteria.', image: null },
+        { text: 'Fungi.', image: null },
+        { text: 'Protozoa.', image: null },
+        { text: 'Nematodes.', image: null },
+        { text: 'Microarthropods.', image: null },
+        { text: 'Protect their habitat: keep soil covered and roots growing.', image: null },
+      ],
+      cta: '',
+      link: '',
+      sources: [],
+      visual_note:
+        'No visual yet. Carousel, 8 slides. One microscope library photo per group, credited by name (Microbe library in the Worms and soil Drive folder).',
+      note: 'World Wildlife Conservation Day is 4 December.',
+      status: 'draft',
+    },
+    reason:
+      'New post (Linnea, 24 Oct): towards seven posts a week, from holidays, global events, the 2027 promotions calendar and organic permaculture and soil science content.',
+  },
+  {
+    key: '2026-10-24 new x20261208',
+    post: 'x20261208',
+    create: {
+      iso_date: '2026-12-08',
+      date_tbd: false,
+      topic: 'Soil food web 101: who eats whom',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        'Your plants are farmers, and the soil food web is how they get paid. \ud83c\udf3e\n\nRoots leak sugars and proteins into the soil around them. Bacteria and fungi gather to eat them and lock up nitrogen and other nutrients in their bodies. Then protozoa and nematodes eat the bacteria and fungi, keep what they need, and release the rest right next to the root, in a form the plant can take up.\n\nTake out one link in that chain, with tillage, compaction or bare soil, and the plant goes hungry no matter how much is in the ground.\n\n\ud83d\udcbe Save this one.\n\n#SoilFoodWeb #NutrientCycling #SoilBiology #RegenerativeAgriculture #DrElaineIngham',
+      slides: [
+        { text: 'Who eats whom in your soil?', image: null },
+        { text: 'Plants feed bacteria and fungi through their roots.', image: null },
+        { text: 'Protozoa and nematodes eat the bacteria and fungi.', image: null },
+        { text: "What they don't need comes out as nutrients plants can take up.", image: null },
+        { text: 'Lose a link, and the plant goes hungry.', image: null },
+      ],
+      cta: '',
+      link: '',
+      sources: [],
+      visual_note:
+        'No visual yet. Carousel, 5 slides. A simple drawn diagram on flat brand colour, one link of the chain per slide.',
+      note: 'Core SFW teaching, no outside source needed.',
+      status: 'draft',
+    },
+    reason:
+      'New post (Linnea, 24 Oct): towards seven posts a week, from holidays, global events, the 2027 promotions calendar and organic permaculture and soil science content.',
+  },
+  {
+    key: '2026-10-24 new x20261210',
+    post: 'x20261210',
+    create: {
+      iso_date: '2026-12-10',
+      date_tbd: false,
+      topic: 'Soil in numbers: 131 to 155\u00b0F',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        "Thermal compost has a sweet spot, and a thermometer is the cheapest tool you'll own. \ud83c\udf21\ufe0f\n\nDr. Elaine Ingham's method holds the pile at 131\u00b0F (55\u00b0C) for at least three full days, long enough to kill weed seeds, pathogens and pests. But keep it below 155 to 160\u00b0F (68 to 71\u00b0C): go hotter and the beneficial bacteria and fungi you're trying to grow die with the weeds.\n\nWhen the temperature climbs too high too fast, turn the pile. Most piles need three to five turns.\n\n\ud83d\udcbe Save this for your next build.\n\n#ThermalCompost #Compost #SoilFoodWeb #DrElaineIngham #CompostTips",
+      slides: [
+        { text: '131\u00b0F (55\u00b0C).', image: null },
+        { text: 'Hold it for 3 days to kill weed seeds and pathogens.', image: null },
+        { text: 'Keep it under 155 to 160\u00b0F (68 to 71\u00b0C).', image: null },
+        { text: 'Hotter, and the beneficial organisms die too.', image: null },
+        { text: 'Turn the pile when it climbs too high, too fast.', image: null },
+      ],
+      cta: '',
+      link: 'https://practicalfarmers.org/wp-content/uploads/2019/05/Ingham-Compost.pdf',
+      sources: ['https://practicalfarmers.org/wp-content/uploads/2019/05/Ingham-Compost.pdf'],
+      visual_note:
+        'No visual yet. Single image or short carousel. A compost thermometer in a steaming pile, our own workshop photo.',
+      note: "Figures from Dr. Elaine Ingham's compost presentation (Practical Farmers of Iowa copy). Celsius conversions ours.",
+      status: 'draft',
+    },
+    reason:
+      'New post (Linnea, 24 Oct): towards seven posts a week, from holidays, global events, the 2027 promotions calendar and organic permaculture and soil science content.',
+  },
+  {
+    key: '2026-10-24 new x20261213',
+    post: 'x20261213',
+    create: {
+      iso_date: '2026-12-13',
+      date_tbd: false,
+      topic: 'Read the drop: testate amoebae, protozoa with a shell',
+      platform: 'Instagram Reel',
+      caption:
+        "This amoeba carries its house with it. \ud83d\udc1a\n\nTestate amoebae are protozoa that build a shell, called a test, either from their own secretions or from tiny mineral grains they glue together. They push their pseudopods out of a single opening to catch bacteria, and like other protozoa they release the nutrients they don't need right where roots can take them up.\n\nSpot one on your slide and you've found one of the oldest groups of soil life we know.\n\n#ReadTheDrop #TestateAmoeba #Protozoa #SoilMicroscopy #SoilFoodWeb",
+      slides: [
+        { text: 'This amoeba lives in a house it built.', image: null },
+        {
+          text: 'Testate amoebae make a shell from their own secretions or from grains of mineral.',
+          image: null,
+        },
+        { text: 'They eat bacteria and release nutrients plants can use.', image: null },
+        { text: 'Lots of them usually means a wetter, fungal-rich soil.', image: null },
+      ],
+      cta: '',
+      link: '',
+      sources: [],
+      visual_note:
+        'No visual yet. Reel, 15 to 20 seconds. Testate amoeba from the microbe library (Luke Hardy, 40x).',
+      note: 'Read the drop series. Allison or a mentor: check slide 4 before approval.',
+      status: 'draft',
+    },
+    reason:
+      'New post (Linnea, 24 Oct): towards seven posts a week, from holidays, global events, the 2027 promotions calendar and organic permaculture and soil science content.',
+  },
+  {
+    key: '2026-10-24 new x20261215',
+    post: 'x20261215',
+    create: {
+      iso_date: '2026-12-15',
+      date_tbd: false,
+      topic: 'Year-end giving: what a scholarship becomes',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        "A scholarship never stays with one person. \ud83d\udc9a\n\nOne course becomes one farm that builds compost and stops fighting its soil. Then a neighbour sees the difference over the fence, and asks how.\n\n[One real example from the impact story sheet, with the person's permission and handle.]\n\nIf you'd like to give before the year ends, every gift goes to scholarships. Link in bio.\n\n#YearEndGiving #Scholarships #SoilFoodWeb #Nonprofit #SoilRegenerators",
+      slides: [
+        { text: 'What does one scholarship become?', image: null },
+        { text: 'One course.', image: null },
+        { text: 'One farm that changes how it builds soil.', image: null },
+        { text: 'A neighbour who sees the difference.', image: null },
+        { text: 'Give before the year ends, link in bio.', image: null },
+      ],
+      cta: 'Give, link in bio',
+      link: '[Givebutter donate link]',
+      sources: [],
+      visual_note:
+        "No visual yet. Carousel, 5 slides. One scholarship recipient's own field photos, before and after where they exist.",
+      note: 'December year-end giving, per the social media SOP: short and honest. Use a recipient from the impact story sheet.',
+      status: 'draft',
+    },
+    reason:
+      'New post (Linnea, 24 Oct): towards seven posts a week, from holidays, global events, the 2027 promotions calendar and organic permaculture and soil science content.',
+  },
+  {
+    key: '2026-10-24 new x20261216',
+    post: 'x20261216',
+    create: {
+      iso_date: '2026-12-16',
+      date_tbd: false,
+      topic: 'Permaculture: zones, and where the compost goes',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        "Where should the compost bin go? Permaculture has an answer. \ud83d\uddfa\ufe0f\n\nA design is laid out in zones by how often you visit. Zone 0 is the house. Zone 1 is what you touch every day: herbs, salad greens and the compost bin, so the kitchen scraps make it there and you notice when the pile needs turning. Zones 2 to 4 move out through orchard, field, pasture and woodlot. Zone 5 is left wild, where you go to watch and learn.\n\nPut the compost where you'll walk past it.\n\n\ud83d\udcbe Save this before you plan next year's garden.\n\n#Permaculture #PermacultureZones #GardenDesign #Compost #SoilFoodWeb",
+      slides: [
+        { text: 'Permaculture zones.', image: null },
+        { text: 'Zone 0: the house.', image: null },
+        { text: 'Zone 1: what you visit every day. Herbs, salad, the compost bin.', image: null },
+        { text: 'Zones 2 to 4: orchard, field, pasture, woodlot.', image: null },
+        { text: 'Zone 5: left wild.', image: null },
+      ],
+      cta: '',
+      link: '',
+      sources: [],
+      visual_note:
+        'No visual yet. Carousel, 5 slides. A simple drawn zone map of rings around a house, one zone per slide.',
+      note: 'Permaculture series.',
+      status: 'draft',
+    },
+    reason:
+      'New post (Linnea, 24 Oct): towards seven posts a week, from holidays, global events, the 2027 promotions calendar and organic permaculture and soil science content.',
+  },
+  {
+    key: '2026-10-24 new x20261217',
+    post: 'x20261217',
+    create: {
+      iso_date: '2026-12-17',
+      date_tbd: false,
+      topic: 'Science explained: nitrogen from thin air',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        "The air around every plant is 78% nitrogen, and plants can't touch any of it. \ud83c\udf31\n\nNitrogen gas is locked by one of the strongest bonds in chemistry. Rhizobium and Bradyrhizobium bacteria break it inside the root nodules of beans, peas and clover, and hand the plant nitrogen it can use. In return the plant feeds them sugar.\n\nBiological nitrogen fixation supplies 25 to 40% of the world's annual reactive nitrogen and 10 to 20% of what cultivated crops need (Coyne & Mikkelsen 2015, via Save Soil).\n\nSplit open a pink nodule on a pea root this spring: the colour comes from leghemoglobin, which keeps oxygen away from the enzyme that does the work.\n\n\ud83d\udcbe Save this for planting season.\n\n#NitrogenFixation #Rhizobia #SoilBiology #SoilFoodWeb #CoverCrops",
+      slides: [
+        { text: 'Nitrogen from thin air.', image: null },
+        { text: "Air is 78% nitrogen gas. Plants can't use it.", image: null },
+        { text: 'Rhizobia bacteria in legume roots turn it into a form plants can.', image: null },
+        {
+          text: "Biological fixation supplies 25 to 40% of the world's yearly reactive nitrogen.",
+          image: null,
+        },
+        { text: 'No bag required.', image: null },
+      ],
+      cta: '',
+      link: 'https://consciousplanet.org/en/save-soil/news/healthy-soil-and-healthy-humans',
+      sources: ['https://consciousplanet.org/en/save-soil/news/healthy-soil-and-healthy-humans'],
+      visual_note:
+        'No visual yet. Carousel, 5 slides. Root nodules on a legume root (openly licensed photo with credit), then a simple drawn diagram of air to nodule to plant.',
+      note: 'Figures from the Save Soil paper Healthy Soil and Healthy Humans, citing Coyne & Mikkelsen 2015. Air is 78% nitrogen by volume.',
+      status: 'draft',
+    },
+    reason:
+      'New post (Linnea, 24 Oct): towards seven posts a week, from holidays, global events, the 2027 promotions calendar and organic permaculture and soil science content.',
+  },
+  {
+    key: '2026-10-24 new x20261220',
+    post: 'x20261220',
+    create: {
+      iso_date: '2026-12-20',
+      date_tbd: false,
+      topic: 'Congratulations to our PDC cohort',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        "Congratulations to everyone finishing our Permaculture Design Certificate this week! \ud83c\udf89\n\nTwelve weeks ago you started with a blank map. Now each of you has a full design for a real place, built on living soil from the ground up.\n\n[One or two designs, with the students' permission.]\n\nWe are so proud of you. Go plant it.\n\n#PermacultureDesign #PDC #Permaculture #SoilFoodWeb #Graduation",
+      slides: [
+        { text: 'Congratulations to our Permaculture Design Certificate cohort.', image: null },
+        { text: 'Twelve weeks, one design each.', image: null },
+        { text: "We can't wait to see what you build.", image: null },
+      ],
+      cta: '',
+      link: '',
+      sources: [],
+      visual_note:
+        "No visual yet. Carousel. Students' own design drawings or site photos, with permission.",
+      note: 'PDC cohort runs 16 Sep to 20 Dec 2026 (from the website audit). Confirm the end date with Kavi before it goes out.',
+      status: 'draft',
+    },
+    reason:
+      'New post (Linnea, 24 Oct): towards seven posts a week, from holidays, global events, the 2027 promotions calendar and organic permaculture and soil science content.',
+  },
+  {
+    key: '2026-10-24 new x20261222',
+    post: 'x20261222',
+    create: {
+      iso_date: '2026-12-22',
+      date_tbd: false,
+      topic: "Holiday reading: Dr. Elaine's papers",
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        "Looking for something to read between the holidays? \u2615\n\nDr. Elaine Ingham's published research is now gathered in one place on our website: 77 journal papers, 6 book chapters and 10 EPA and technical reports, each linked to where you can read it.\n\nPick one, pour a coffee, and spend an afternoon with the science behind everything we teach.\n\nLink in bio.\n\n#DrElaineIngham #SoilScience #HolidayReading #SoilFoodWeb #Research",
+      slides: [
+        { text: 'Holiday reading.', image: null },
+        { text: "Four decades of Dr. Elaine Ingham's research, linked in one place.", image: null },
+        { text: 'Start with one. Pour a coffee.', image: null },
+      ],
+      cta: 'Read them, link in bio',
+      link: 'https://soilfoodweb.com [publications URL]',
+      sources: [],
+      visual_note:
+        'No visual yet. Single image. Type on a flat brand colour, or a coffee cup beside a printed paper.',
+      note: 'Follows the 10 Nov publications page post.',
+      status: 'draft',
+    },
+    reason:
+      'New post (Linnea, 24 Oct): towards seven posts a week, from holidays, global events, the 2027 promotions calendar and organic permaculture and soil science content.',
+  },
+  {
+    key: '2026-10-24 new x20261224',
+    post: 'x20261224',
+    create: {
+      iso_date: '2026-12-24',
+      date_tbd: false,
+      topic: 'After the holidays: turn your tree into fungal mulch',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        'When the decorations come down, your tree still has one more gift to give. \ud83c\udf84\n\nChipped conifer branches make a woody mulch that fungi love. Spread it around trees, shrubs and perennial beds, where fungal-dominated soil suits the plants best, and it keeps the ground covered while it slowly breaks down.\n\nMany towns collect trees in January and chip them for free. Ask yours, and ask for some chips back.\n\n\ud83d\udcbe Save this for January.\n\n#ChristmasTree #Mulch #Compost #SoilFoodWeb #FungalSoil',
+      slides: [
+        { text: 'Your Christmas tree has one more job.', image: null },
+        { text: 'Chip it, or ask if your town does.', image: null },
+        { text: 'Woody mulch feeds fungi.', image: null },
+        { text: 'Spread it around trees and shrubs.', image: null },
+      ],
+      cta: '',
+      link: '',
+      sources: [],
+      visual_note:
+        'No visual yet. Carousel, 4 slides. A pile of chipped conifer, mulch around a young tree, real photos with credits.',
+      note: '',
+      status: 'draft',
+    },
+    reason:
+      'New post (Linnea, 24 Oct): towards seven posts a week, from holidays, global events, the 2027 promotions calendar and organic permaculture and soil science content.',
+  },
+  {
+    key: '2026-10-24 new x20261226',
+    post: 'x20261226',
+    create: {
+      iso_date: '2026-12-26',
+      date_tbd: false,
+      topic: 'What wrapping paper can go in the compost?',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        "The morning after the presents, the compost pile asks: what can I have? \ud83c\udf81\n\nPlain paper and cardboard boxes, shredded or torn small, are carbon your pile can use. Glossy, foil, glitter or plastic-coated paper isn't: it won't break down and it leaves bits in your finished compost. Pull the tape and ribbons off first.\n\nA quick test: scrunch it. If it stays scrunched, it's usually plain paper. If it springs back, leave it out.\n\n#BoxingDay #Compost #ZeroWaste #SoilFoodWeb #CompostTips",
+      slides: [
+        { text: 'Can wrapping paper go in the compost?', image: null },
+        { text: 'Plain paper and cardboard: yes, shredded.', image: null },
+        { text: 'Glossy, foil, glitter or plastic-coated: no.', image: null },
+        { text: 'Tape and ribbons off first.', image: null },
+      ],
+      cta: '',
+      link: '',
+      sources: [],
+      visual_note:
+        'No visual yet. Carousel, 4 slides. Shredded brown paper and boxes next to a compost bin, real photos.',
+      note: '',
+      status: 'draft',
+    },
+    reason:
+      'New post (Linnea, 24 Oct): towards seven posts a week, from holidays, global events, the 2027 promotions calendar and organic permaculture and soil science content.',
+  },
+  {
+    key: '2026-10-24 new x20261227',
+    post: 'x20261227',
+    create: {
+      iso_date: '2026-12-27',
+      date_tbd: false,
+      topic: 'Permaculture: chop and drop',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        'The laziest mulch in permaculture is also one of the best. \u2702\ufe0f\n\nChop and drop means cutting plants back and leaving the cuttings right where they fall: comfrey, cover crops, prunings, spent annuals. The layer shades the soil, keeps moisture in, and slowly feeds the fungi and bacteria underneath. The roots you left in the ground decompose too, leaving channels for air and water.\n\nNo wheelbarrow, no bare ground.\n\n#ChopAndDrop #Permaculture #Mulch #SoilFoodWeb #NoDig',
+      slides: [
+        { text: 'Chop and drop.', image: null },
+        { text: 'Cut the plant. Leave it where it falls.', image: null },
+        { text: 'It shades the soil and feeds the fungi and bacteria underneath.', image: null },
+        { text: 'No hauling, no bare ground.', image: null },
+      ],
+      cta: '',
+      link: '',
+      sources: [],
+      visual_note:
+        'No visual yet. Carousel, 4 slides. Real photos of cut comfrey or cover crop lying as mulch.',
+      note: 'Permaculture series.',
+      status: 'draft',
+    },
+    reason:
+      'New post (Linnea, 24 Oct): towards seven posts a week, from holidays, global events, the 2027 promotions calendar and organic permaculture and soil science content.',
+  },
+  {
+    key: '2026-10-24 new x20261229',
+    post: 'x20261229',
+    create: {
+      iso_date: '2026-12-29',
+      date_tbd: false,
+      topic: '2026 in soil science: discoveries we loved',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        "2026 was a good year for soil science, and these are the discoveries we kept talking about. \ud83d\udd2c\n\n1. University of Sheffield researchers showed that Arabidopsis, a mustard plant everyone believed could not partner with fungi, trades nutrients with an ancient soil fungus (Current Biology).\n2. BeOpen, by Biome Makers, opened an atlas of the bacteria and fungi in more than 100,000 soil samples from over 90 countries, all analysed the same way.\n3. Save Soil gathered the evidence for soil biology as a climate adaptation indicator, including regenerative almond orchards where water soaked in six times faster with the same yield (LaCanne et al.).\n\nHere's to more in 2027.\n\n#SoilScience #YearInReview #SoilBiology #SoilFoodWeb #Research",
+      slides: [
+        { text: '2026 in soil science.', image: null },
+        {
+          text: "A mustard plant that 'couldn't' partner with fungi traded food with one.",
+          image: null,
+        },
+        { text: 'An open map of the bacteria and fungi in 100,000 soil samples.', image: null },
+        {
+          text: 'Regenerative almond orchards: water soaked in 6x faster, same yield.',
+          image: null,
+        },
+        { text: "Here's to more in 2027.", image: null },
+      ],
+      cta: '',
+      link: '',
+      sources: [
+        'https://sheffield.ac.uk/biosciences/news/ancient-fungus-unlocks-secret-support-system-major-food-crops-could-transform-farming-practices',
+        'https://beopen.earth/',
+        'https://consciousplanet.org/en/save-soil/news/soil-as-a-lead-indicator-of-the-global-goal-on-adaptation-gga',
+      ],
+      visual_note:
+        'No visual yet. Carousel, 5 slides. One image per discovery: the Sheffield root image (credit), the BeOpen atlas map (screenshot), an almond orchard.',
+      note: "The LaCanne almond study is 2021; it appears here as part of Save Soil's 2025 synthesis.",
+      status: 'draft',
+    },
+    reason:
+      'New post (Linnea, 24 Oct): towards seven posts a week, from holidays, global events, the 2027 promotions calendar and organic permaculture and soil science content.',
+  },
+  {
+    key: '2026-10-24 new x20261231',
+    post: 'x20261231',
+    create: {
+      iso_date: '2026-12-31',
+      date_tbd: false,
+      topic: 'Happy New Year: our 2027 workshops',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        "Happy New Year from all of us at the Soil Food Web Foundation! \ud83c\udf86\n\nIn 2027 we're building compost and reading soil with you in three places:\n\nCosta Rica, 18 to 29 January\nNew Mexico, 3 to 14 May\nUnited Kingdom, September\n\nEvery workshop is twelve hands-on days with our mentors. See them all through the link in bio.\n\n#HappyNewYear #2027 #AcceleratorWorkshop #SoilFoodWeb #Workshops",
+      slides: [
+        { text: 'Happy New Year from the soil.', image: null },
+        { text: 'Costa Rica, 18 to 29 January.', image: null },
+        { text: 'New Mexico, 3 to 14 May.', image: null },
+        { text: 'United Kingdom, September.', image: null },
+        { text: 'Which one is yours?', image: null },
+      ],
+      cta: 'See the workshops, link in bio',
+      link: 'https://soilfoodweb.com/workshops [VERIFY URL]',
+      sources: [
+        'https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+      ],
+      visual_note:
+        'No visual yet. Carousel, 5 slides. One full photo per place, from past workshops there.',
+      note: 'Dates from the workshop calendar; the UK dates (13 Sep to 1 Oct 2027) are unconfirmed, so the slide says September only. Confirm with Stephanie.',
+      status: 'draft',
+    },
+    reason:
+      'New post (Linnea, 24 Oct): towards seven posts a week, from holidays, global events, the 2027 promotions calendar and organic permaculture and soil science content.',
+  },
+  {
+    key: '2026-10-24 unposted p02 to 2026-10-25',
+    post: 'p02',
+    set: { iso_date: '2026-10-25', date_tbd: false },
+    reason:
+      'Linnea, Sat 24 Oct: nothing dated before today went out, and no mentor has been posted yet. Mentor series restarts: Casey first, Sun 25 Oct.',
+  },
+  {
+    key: '2026-10-24 unposted p03 to 2026-10-26',
+    post: 'p03',
+    set: { iso_date: '2026-10-26', date_tbd: false },
+    reason:
+      'Linnea, Sat 24 Oct: nothing dated before today went out, and no mentor has been posted yet. Mentor series, day 2.',
+  },
+  {
+    key: '2026-10-24 unposted p04 to 2026-10-27',
+    post: 'p04',
+    set: { iso_date: '2026-10-27', date_tbd: false },
+    reason:
+      'Linnea, Sat 24 Oct: nothing dated before today went out, and no mentor has been posted yet. Mentor series, day 3.',
+  },
+  {
+    key: '2026-10-24 unposted p06 to 2026-10-28',
+    post: 'p06',
+    set: { iso_date: '2026-10-28', date_tbd: false },
+    reason:
+      'Linnea, Sat 24 Oct: nothing dated before today went out, and no mentor has been posted yet. Mentor series, day 4.',
+  },
+  {
+    key: '2026-10-24 unposted p09 to 2026-10-29',
+    post: 'p09',
+    set: { iso_date: '2026-10-29', date_tbd: false },
+    reason:
+      'Linnea, Sat 24 Oct: nothing dated before today went out, and no mentor has been posted yet. Mentor series, day 5.',
+  },
+  {
+    key: '2026-10-24 unposted d05 to 2026-10-30',
+    post: 'd05',
+    set: { iso_date: '2026-10-30', date_tbd: false },
+    reason:
+      'Linnea, Sat 24 Oct: nothing dated before today went out, and no mentor has been posted yet. Mentor series, day 6.',
+  },
+  {
+    key: '2026-10-24 unposted d11 to 2026-10-31',
+    post: 'd11',
+    set: { iso_date: '2026-10-31', date_tbd: false },
+    reason:
+      'Linnea, Sat 24 Oct: nothing dated before today went out, and no mentor has been posted yet. Mentor series, day 7.',
+  },
+  {
+    key: '2026-10-24 unposted d12 to 2026-11-01',
+    post: 'd12',
+    set: { iso_date: '2026-11-01', date_tbd: false },
+    reason:
+      'Linnea, Sat 24 Oct: nothing dated before today went out, and no mentor has been posted yet. Mentor series, day 8.',
+  },
+  {
+    key: '2026-10-24 unposted d13 to 2026-11-02',
+    post: 'd13',
+    set: { iso_date: '2026-11-02', date_tbd: false },
+    reason:
+      'Linnea, Sat 24 Oct: nothing dated before today went out, and no mentor has been posted yet. Mentor series, day 9.',
+  },
+  {
+    key: '2026-10-24 unposted d14 to 2026-11-04',
+    post: 'd14',
+    set: { iso_date: '2026-11-04', date_tbd: false },
+    reason:
+      'Linnea, Sat 24 Oct: nothing dated before today went out, and no mentor has been posted yet. Never posted on 19 Oct; moved to Wed 4 Nov, a light day.',
+  },
+  {
+    key: '2026-10-24 unposted p10 to 2026-11-09',
+    post: 'p10',
+    set: { iso_date: '2026-11-09', date_tbd: false },
+    reason:
+      'Linnea, Sat 24 Oct: nothing dated before today went out, and no mentor has been posted yet. Never posted on 22 Oct; moved to Mon 9 Nov, a light day, with its LinkedIn post d16.',
+  },
+  {
+    key: '2026-10-24 unposted d16 to 2026-11-09',
+    post: 'd16',
+    set: { iso_date: '2026-11-09', date_tbd: false },
+    reason:
+      'Linnea, Sat 24 Oct: nothing dated before today went out, and no mentor has been posted yet. Never posted on 23 Oct; same day as the Instagram post p10.',
+  },
+  {
+    key: '2026-10-24 unposted d27 to 2026-11-11',
+    post: 'd27',
+    set: { iso_date: '2026-11-11', date_tbd: false },
+    reason:
+      'Linnea, Sat 24 Oct: nothing dated before today went out, and no mentor has been posted yet. Never posted on 22 Oct; moved to Wed 11 Nov, a light day.',
+  },
+  {
+    key: '2026-10-24 unposted promo-fall-bundle to 2026-11-12',
+    post: 'promo-fall-bundle',
+    set: { iso_date: '2026-11-12', date_tbd: false },
+    reason:
+      'Linnea, Sat 24 Oct: nothing dated before today went out, and no mentor has been posted yet. Never posted on 20 Oct; moved to Thu 12 Nov, a light day. Caption still needed.',
+  },
+  {
+    key: '2026-10-24 unposted p08 to 2027-10-21',
+    post: 'p08',
+    set: { iso_date: '2027-10-21', date_tbd: false },
+    reason:
+      'Linnea, Sat 24 Oct: nothing dated before today went out, and no mentor has been posted yet. World Earthworm Day was 21 Oct and this was not posted; the caption is about the day itself, so it waits for World Earthworm Day 2027.',
+  },
+  {
+    key: '2026-10-24 unposted d15 to 2027-10-21',
+    post: 'd15',
+    set: { iso_date: '2027-10-21', date_tbd: false },
+    reason:
+      'Linnea, Sat 24 Oct: nothing dated before today went out, and no mentor has been posted yet. World Earthworm Day story, not posted on 21 Oct; waits for World Earthworm Day 2027.',
+  },
+  {
+    key: '2026-10-24 new w20261103',
+    post: 'w20261103',
+    create: {
+      iso_date: '2026-11-03',
+      date_tbd: false,
+      topic: "Website: a tour of our new website",
+      platform: "Instagram, Facebook, LinkedIn",
+      caption: "We rebuilt our website from the ground up, and it's finally here. \ud83c\udf31\n\nEverything now lives in one place: every course and where to start, every workshop and event, past and coming, the consultant directory, and four decades of Dr. Elaine Ingham's research, linked paper by paper.\n\nTake a look around and tell us what you find. Link in bio.\n\n#SoilFoodWeb #NewWebsite #SoilHealth #LearnSoil",
+      slides: [
+        { text: "Our new website is here.", image: null },
+        { text: "Learn: every course, and where to start.", image: null },
+        { text: "Workshops and events, past and coming.", image: null },
+        { text: "Find a consultant near you.", image: null },
+        { text: "Dr. Elaine's research, all in one place.", image: null },
+        { text: "Take the tour, link in bio.", image: null },
+      ],
+      cta: "Explore, link in bio",
+      link: "https://soilfoodweb.com [VERIFY URL]",
+      sources: [],
+      visual_note: "No visual yet. Carousel, 6 slides. Real screenshots of each section of the new site, framed on flat brand colours.",
+      note: "Website series. Post once the new site is live at the main address; confirm with Alex.",
+      status: 'draft',
+    },
+    reason: "New post (Linnea, 24 Oct): more posts about the new website and the coming annual report.",
+  },
+  {
+    key: '2026-10-24 new w20261106',
+    post: 'w20261106',
+    create: {
+      iso_date: '2026-11-06',
+      date_tbd: false,
+      topic: "Website: projects from the field",
+      platform: "Instagram, Facebook, LinkedIn",
+      caption: "Our new Projects pages are where the science meets the field. \ud83c\udf3e\n\nEach one follows a real farm, vineyard or restoration site: what the soil looked like at the start, what they changed, and what happened next, with the photos and numbers to show it.\n\nRead them through the link in bio.\n\n#SoilFoodWeb #CaseStudy #RegenerativeAgriculture #SoilHealth",
+      slides: [
+        { text: "What does living soil look like on a real farm?", image: null },
+        { text: "Our new Projects pages show you.", image: null },
+        { text: "Farms, vineyards and restoration sites.", image: null },
+        { text: "What they changed, and what happened.", image: null },
+      ],
+      cta: "Read them, link in bio",
+      link: "https://soilfoodweb.com [VERIFY URL]",
+      sources: [],
+      visual_note: "No visual yet. Carousel, 4 slides. Before and after photos from one project page.",
+      note: "Website series. Confirm the Projects section is live and which project to feature.",
+      status: 'draft',
+    },
+    reason: "New post (Linnea, 24 Oct): more posts about the new website and the coming annual report.",
+  },
+  {
+    key: '2026-10-24 new ar20261123',
+    post: 'ar20261123',
+    create: {
+      iso_date: '2026-11-23',
+      date_tbd: false,
+      topic: "Annual report: coming soon",
+      platform: "Instagram, Facebook, LinkedIn",
+      caption: "One year in, we're putting it all on paper. \ud83d\udcd6\n\nOur first annual report is almost ready: the students who learned with us, the workshops on four continents, the scholarships you funded, and where the money went.\n\nWatch this space.\n\n#AnnualReport #SoilFoodWeb #Nonprofit #Transparency",
+      slides: [
+        { text: "Our first annual report is almost here.", image: null },
+        { text: "A year of courses, workshops and scholarships.", image: null },
+        { text: "Coming soon.", image: null },
+      ],
+      cta: "",
+      link: "",
+      sources: [],
+      visual_note: "No visual yet. Single image. Type on a flat brand colour, or a first look at the report cover.",
+      note: "Annual report series. Confirm the release date with Stephanie or Evan and adjust both posts; the four continents line needs checking against the report.",
+      status: 'draft',
+    },
+    reason: "New post (Linnea, 24 Oct): more posts about the new website and the coming annual report.",
+  },
+  {
+    key: '2026-10-24 new w20261206',
+    post: 'w20261206',
+    create: {
+      iso_date: '2026-12-06',
+      date_tbd: false,
+      topic: "Website: find your course in three questions",
+      platform: "Instagram, Facebook, LinkedIn",
+      caption: "Gardener, farmer, or future consultant: there's a path through our courses built for you. \ud83e\udded\n\nOur new website starts with one question, what brings you to the soil food web, and shows you which courses to take and in what order.\n\nFind your path through the link in bio.\n\n#SoilFoodWeb #LearnSoil #OnlineCourses #SoilHealth",
+      slides: [
+        { text: "Not sure where to start?", image: null },
+        { text: "What brings you to the soil food web?", image: null },
+        { text: "Gardener, farmer or future consultant: there's a path for you.", image: null },
+        { text: "Find yours, link in bio.", image: null },
+      ],
+      cta: "Find your path, link in bio",
+      link: "https://soilfoodweb.com [VERIFY URL]",
+      sources: [],
+      visual_note: "No visual yet. Carousel, 4 slides. The learning path cards from the website (Drive: \"What brings you to the soil food web?\" card images).",
+      note: "Website series.",
+      status: 'draft',
+    },
+    reason: "New post (Linnea, 24 Oct): more posts about the new website and the coming annual report.",
+  },
+  {
+    key: '2026-10-24 new ar20261208',
+    post: 'ar20261208',
+    create: {
+      iso_date: '2026-12-08',
+      date_tbd: false,
+      topic: "Annual report: our year in numbers",
+      platform: "Instagram, Facebook, LinkedIn",
+      caption: "Our first annual report is out. \ud83d\udcd6\n\n[Three to five numbers from the report: students, countries, scholarships awarded, workshops, consultants certified.]\n\nThank you to every student, mentor, partner and donor who made this year happen. Read the full report through the link in bio.\n\n#AnnualReport #SoilFoodWeb #Nonprofit #YearInReview",
+      slides: [
+        { text: "Our year in numbers.", image: null },
+        { text: "[students]", image: null },
+        { text: "[countries]", image: null },
+        { text: "[scholarships]", image: null },
+        { text: "[workshops]", image: null },
+        { text: "Read the full report, link in bio.", image: null },
+      ],
+      cta: "Read the report, link in bio",
+      link: "[annual report link]",
+      sources: [],
+      visual_note: "No visual yet. Carousel, 6 slides. One big number per slide in EB Garamond, with a real photo behind or beside it.",
+      note: "Annual report series. Fill the numbers from the final report; date moves with the release.",
+      status: 'draft',
+    },
+    reason: "New post (Linnea, 24 Oct): more posts about the new website and the coming annual report.",
+  },
+  {
+    key: '2026-10-24 new ar20261208li',
+    post: 'ar20261208li',
+    create: {
+      iso_date: '2026-12-08',
+      date_tbd: false,
+      topic: "Annual report: LinkedIn release",
+      platform: "LinkedIn",
+      caption: "Today we're publishing the Soil Food Web Foundation's first annual report.\n\n[Two or three lines on the year: reach, programs, finances.]\n\nWe wrote it for our students, partners and donors, and for anyone who wants to see how a soil biology nonprofit spends its year. Read it here: [annual report link]\n\n#AnnualReport #Nonprofit #SoilHealth #SoilFoodWeb",
+      slides: [
+        { text: "Our first annual report.", image: null },
+      ],
+      cta: "",
+      link: "[annual report link]",
+      sources: [],
+      visual_note: "No visual yet. LinkedIn single image, 1200 x 627. The report cover.",
+      note: "Annual report series.",
+      status: 'draft',
+    },
+    reason: "New post (Linnea, 24 Oct): more posts about the new website and the coming annual report.",
+  },
+  {
+    key: '2026-10-24 new w20261209',
+    post: 'w20261209',
+    create: {
+      iso_date: '2026-12-09',
+      date_tbd: false,
+      topic: "Website: how the soil food web works",
+      platform: "Instagram, Facebook, LinkedIn",
+      caption: "If someone asks you what the soil food web is, send them this page. \ud83d\udd01\n\nThe new How it works page on our website explains it in a single scroll: plants feeding microbes through their roots, the predators that release nutrients, and the structure they build together that holds water and carbon.\n\nLink in bio.\n\n#SoilFoodWeb #SoilBiology #HowItWorks #SoilHealth",
+      slides: [
+        { text: "How does the soil food web work?", image: null },
+        { text: "Our new How it works page explains it in one scroll.", image: null },
+        { text: "From root to microbe to nutrient and back.", image: null },
+        { text: "Read it, link in bio.", image: null },
+      ],
+      cta: "Read it, link in bio",
+      link: "https://soilfoodweb.com [VERIFY URL]",
+      sources: [],
+      visual_note: "No visual yet. Carousel, 4 slides. Screenshots of the How it works page.",
+      note: "Website series.",
+      status: 'draft',
+    },
+    reason: "New post (Linnea, 24 Oct): more posts about the new website and the coming annual report.",
+  },
+  {
+    key: '2026-10-24 new w20261211',
+    post: 'w20261211',
+    create: {
+      iso_date: '2026-12-11',
+      date_tbd: false,
+      topic: "Website: a research library for professionals",
+      platform: "LinkedIn",
+      caption: "For agronomists, researchers and consultants: our new website brings Dr. Elaine Ingham's published work into one library, with 77 journal papers, 6 book chapters and 10 EPA and technical reports, each linked to where you can read it.\n\nIt's the evidence base behind everything we teach, and it's open to everyone.\n\n#SoilScience #Research #DrElaineIngham #Agronomy #SoilFoodWeb",
+      slides: [
+        { text: "Four decades of soil biology research, searchable.", image: null },
+      ],
+      cta: "",
+      link: "https://soilfoodweb.com [publications URL]",
+      sources: [],
+      visual_note: "No visual yet. LinkedIn single image, 1200 x 627. Screenshot of the publications page on a flat brand colour.",
+      note: "Website series. LinkedIn version for professionals; Instagram has Mountain Day that day.",
+      status: 'draft',
+    },
+    reason: "New post (Linnea, 24 Oct): more posts about the new website and the coming annual report.",
+  },
+  {
+    key: '2026-10-24 x20261108 visual v1',
+    post: 'x20261108',
+    set: {
+      slides: [
+        { text: "Happy Diwali.", image: '/wormhole/tiles/x20261108-v1-1.jpg' },
+        { text: "Light, sweets and marigolds. Every one of them starts in living soil.", image: '/wormhole/tiles/x20261108-v1-2.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261109 visual v1',
+    post: 'x20261109',
+    set: {
+      slides: [
+        { text: "COP31 opens today. Agriculture's own negotiating track runs out in 2026.", image: '/wormhole/tiles/x20261109-v1-1.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261128 visual v1',
+    post: 'x20261128',
+    set: {
+      slides: [
+        { text: "Small Business Saturday.", image: '/wormhole/tiles/x20261128-v1-1.jpg' },
+        { text: "Shop local for your soil too.", image: '/wormhole/tiles/x20261128-v1-2.jpg' },
+        { text: "Certified Soil Food Web Consultants run their own businesses: labs, compost operations and on-farm advice.", image: '/wormhole/tiles/x20261128-v1-3.jpg' },
+        { text: "Find one near you.", image: '/wormhole/tiles/x20261128-v1-4.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261217 visual v1',
+    post: 'x20261217',
+    set: {
+      slides: [
+        { text: "Nitrogen from thin air.", image: '/wormhole/tiles/x20261217-v1-1.jpg' },
+        { text: "Air is 78% nitrogen gas. Plants can't use it.", image: '/wormhole/tiles/x20261217-v1-2.jpg' },
+        { text: "Rhizobia bacteria in legume roots turn it into a form plants can.", image: '/wormhole/tiles/x20261217-v1-3.jpg' },
+        { text: "Biological fixation supplies 25 to 40% of the world's yearly reactive nitrogen.", image: '/wormhole/tiles/x20261217-v1-4.jpg' },
+        { text: "No bag required.", image: '/wormhole/tiles/x20261217-v1-5.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261201 visual v1',
+    post: 'x20261201',
+    set: {
+      slides: [
+        { text: "Today is GivingTuesday.", image: '/wormhole/tiles/x20261201-v1-1.jpg' },
+        { text: "A scholarship puts a farmer, gardener or student in a course they couldn't otherwise take.", image: '/wormhole/tiles/x20261201-v1-2.jpg' },
+        { text: "They take it home to their own soil, and teach their neighbours.", image: '/wormhole/tiles/x20261201-v1-3.jpg' },
+        { text: "Give today, link in bio.", image: '/wormhole/tiles/x20261201-v1-4.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261202 visual v1',
+    post: 'x20261202',
+    set: {
+      slides: [
+        { text: "From shovel to slide.", image: '/wormhole/tiles/x20261202-v1-1.jpg' },
+        { text: "1. Take a small sample from the root zone.", image: '/wormhole/tiles/x20261202-v1-2.jpg' },
+        { text: "2. Mix it with water.", image: '/wormhole/tiles/x20261202-v1-3.jpg' },
+        { text: "3. Put one drop on a slide.", image: '/wormhole/tiles/x20261202-v1-4.jpg' },
+        { text: "4. Count what you see: bacteria, fungi, protozoa, nematodes.", image: '/wormhole/tiles/x20261202-v1-5.jpg' },
+        { text: "That count tells you what your soil needs.", image: '/wormhole/tiles/x20261202-v1-6.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261203 visual v1',
+    post: 'x20261203',
+    set: {
+      slides: [
+        { text: "Six weeks to Costa Rica.", image: '/wormhole/tiles/x20261203-v1-1.jpg' },
+        { text: "18 to 29 January 2027.", image: '/wormhole/tiles/x20261203-v1-2.jpg' },
+        { text: "Compost piles in the morning, the microscope in the afternoon.", image: '/wormhole/tiles/x20261203-v1-3.jpg' },
+        { text: "Places are still open.", image: '/wormhole/tiles/x20261203-v1-4.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261204 visual v1',
+    post: 'x20261204',
+    set: {
+      slides: [
+        { text: "Wildlife Conservation Day.", image: '/wormhole/tiles/x20261204-v1-1.jpg' },
+        { text: "Meet the wildlife under your feet.", image: '/wormhole/tiles/x20261204-v1-2.jpg' },
+        { text: "Bacteria.", image: '/wormhole/tiles/x20261204-v1-3.jpg' },
+        { text: "Fungi.", image: '/wormhole/tiles/x20261204-v1-4.jpg' },
+        { text: "Protozoa.", image: '/wormhole/tiles/x20261204-v1-5.jpg' },
+        { text: "Nematodes.", image: '/wormhole/tiles/x20261204-v1-6.jpg' },
+        { text: "Microarthropods.", image: '/wormhole/tiles/x20261204-v1-7.jpg' },
+        { text: "Protect their habitat: keep soil covered and roots growing.", image: '/wormhole/tiles/x20261204-v1-8.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261208 visual v1',
+    post: 'x20261208',
+    set: {
+      slides: [
+        { text: "Who eats whom in your soil?", image: '/wormhole/tiles/x20261208-v1-1.jpg' },
+        { text: "Plants feed bacteria and fungi through their roots.", image: '/wormhole/tiles/x20261208-v1-2.jpg' },
+        { text: "Protozoa and nematodes eat the bacteria and fungi.", image: '/wormhole/tiles/x20261208-v1-3.jpg' },
+        { text: "What they don't need comes out as nutrients plants can take up.", image: '/wormhole/tiles/x20261208-v1-4.jpg' },
+        { text: "Lose a link, and the plant goes hungry.", image: '/wormhole/tiles/x20261208-v1-5.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261213 visual v1',
+    post: 'x20261213',
+    set: {
+      slides: [
+        { text: "This amoeba lives in a house it built.", image: '/wormhole/tiles/x20261213-v1-1.jpg' },
+        { text: "Testate amoebae make a shell from their own secretions or from grains of mineral.", image: '/wormhole/tiles/x20261213-v1-2.jpg' },
+        { text: "They eat bacteria and release nutrients plants can use.", image: '/wormhole/tiles/x20261213-v1-3.jpg' },
+        { text: "Lots of them usually means a wetter, fungal-rich soil.", image: '/wormhole/tiles/x20261213-v1-4.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261215 visual v1',
+    post: 'x20261215',
+    set: {
+      slides: [
+        { text: "What does one scholarship become?", image: '/wormhole/tiles/x20261215-v1-1.jpg' },
+        { text: "One course.", image: '/wormhole/tiles/x20261215-v1-2.jpg' },
+        { text: "One farm that changes how it builds soil.", image: '/wormhole/tiles/x20261215-v1-3.jpg' },
+        { text: "A neighbour who sees the difference.", image: '/wormhole/tiles/x20261215-v1-4.jpg' },
+        { text: "Give before the year ends, link in bio.", image: '/wormhole/tiles/x20261215-v1-5.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261220 visual v1',
+    post: 'x20261220',
+    set: {
+      slides: [
+        { text: "Congratulations to our Permaculture Design Certificate cohort.", image: '/wormhole/tiles/x20261220-v1-1.jpg' },
+        { text: "Twelve weeks, one design each.", image: '/wormhole/tiles/x20261220-v1-2.jpg' },
+        { text: "We can't wait to see what you build.", image: '/wormhole/tiles/x20261220-v1-3.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261222 visual v1',
+    post: 'x20261222',
+    set: {
+      slides: [
+        { text: "Holiday reading.", image: '/wormhole/tiles/x20261222-v1-1.jpg' },
+        { text: "Four decades of Dr. Elaine Ingham's research, linked in one place.", image: '/wormhole/tiles/x20261222-v1-2.jpg' },
+        { text: "Start with one. Pour a coffee.", image: '/wormhole/tiles/x20261222-v1-3.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261224 visual v1',
+    post: 'x20261224',
+    set: {
+      slides: [
+        { text: "Your Christmas tree has one more job.", image: '/wormhole/tiles/x20261224-v1-1.jpg' },
+        { text: "Chip it, or ask if your town does.", image: '/wormhole/tiles/x20261224-v1-2.jpg' },
+        { text: "Woody mulch feeds fungi.", image: '/wormhole/tiles/x20261224-v1-3.jpg' },
+        { text: "Spread it around trees and shrubs.", image: '/wormhole/tiles/x20261224-v1-4.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261226 visual v1',
+    post: 'x20261226',
+    set: {
+      slides: [
+        { text: "Can wrapping paper go in the compost?", image: '/wormhole/tiles/x20261226-v1-1.jpg' },
+        { text: "Plain paper and cardboard: yes, shredded.", image: '/wormhole/tiles/x20261226-v1-2.jpg' },
+        { text: "Glossy, foil, glitter or plastic-coated: no.", image: '/wormhole/tiles/x20261226-v1-3.jpg' },
+        { text: "Tape and ribbons off first.", image: '/wormhole/tiles/x20261226-v1-4.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261229 visual v1',
+    post: 'x20261229',
+    set: {
+      slides: [
+        { text: "2026 in soil science.", image: '/wormhole/tiles/x20261229-v1-1.jpg' },
+        { text: "A mustard plant that 'couldn't' partner with fungi traded food with one.", image: '/wormhole/tiles/x20261229-v1-2.jpg' },
+        { text: "An open map of the bacteria and fungi in 100,000 soil samples.", image: '/wormhole/tiles/x20261229-v1-3.jpg' },
+        { text: "Regenerative almond orchards: water soaked in 6x faster, same yield.", image: '/wormhole/tiles/x20261229-v1-4.jpg' },
+        { text: "Here's to more in 2027.", image: '/wormhole/tiles/x20261229-v1-5.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261231 visual v1',
+    post: 'x20261231',
+    set: {
+      slides: [
+        { text: "Happy New Year from the soil.", image: '/wormhole/tiles/x20261231-v1-1.jpg' },
+        { text: "Costa Rica, 18 to 29 January.", image: '/wormhole/tiles/x20261231-v1-2.jpg' },
+        { text: "New Mexico, 3 to 14 May.", image: '/wormhole/tiles/x20261231-v1-3.jpg' },
+        { text: "United Kingdom, September.", image: '/wormhole/tiles/x20261231-v1-4.jpg' },
+        { text: "Which one is yours?", image: '/wormhole/tiles/x20261231-v1-5.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261117 visual v1',
+    post: 'x20261117',
+    set: {
+      slides: [
+        { text: "Every permaculture design starts with three ethics.", image: '/wormhole/tiles/x20261117-v1-1.jpg' },
+        { text: "Earth care.", image: '/wormhole/tiles/x20261117-v1-2.jpg' },
+        { text: "People care.", image: '/wormhole/tiles/x20261117-v1-3.jpg' },
+        { text: "Fair share.", image: '/wormhole/tiles/x20261117-v1-4.jpg' },
+        { text: "Living soil serves all three.", image: '/wormhole/tiles/x20261117-v1-5.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261118 visual v1',
+    post: 'x20261118',
+    set: {
+      slides: [
+        { text: "Ten weeks to make compost you can prove.", image: '/wormhole/tiles/x20261118-v1-1.jpg' },
+        { text: "Compost Intensive Course, starting January 2027.", image: '/wormhole/tiles/x20261118-v1-2.jpg' },
+        { text: "Build, monitor and read your own piles under the microscope.", image: '/wormhole/tiles/x20261118-v1-3.jpg' },
+        { text: "With mentors every week.", image: '/wormhole/tiles/x20261118-v1-4.jpg' },
+        { text: "Enroll now, link in bio.", image: '/wormhole/tiles/x20261118-v1-5.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261125 visual v1',
+    post: 'x20261125',
+    set: {
+      slides: [
+        { text: "Start learning the soil food web this winter.", image: '/wormhole/tiles/x20261125-v1-1.jpg' },
+        { text: "The Foundation Courses: at your own pace, from anywhere.", image: '/wormhole/tiles/x20261125-v1-2.jpg' },
+        { text: "The science, the compost, the extracts and teas, the microscope.", image: '/wormhole/tiles/x20261125-v1-3.jpg' },
+        { text: "10,000+ people in 100+ countries have started here.", image: '/wormhole/tiles/x20261125-v1-4.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261129 visual v1',
+    post: 'x20261129',
+    set: {
+      slides: [
+        { text: "A fruit tree grows better with friends.", image: '/wormhole/tiles/x20261129-v1-1.jpg' },
+        { text: "Clover underneath fixes nitrogen.", image: '/wormhole/tiles/x20261129-v1-2.jpg' },
+        { text: "Comfrey gets cut and dropped as mulch.", image: '/wormhole/tiles/x20261129-v1-3.jpg' },
+        { text: "Chives and other alliums fill the gaps.", image: '/wormhole/tiles/x20261129-v1-4.jpg' },
+        { text: "Together they keep the soil covered and alive.", image: '/wormhole/tiles/x20261129-v1-5.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261130 visual v1',
+    post: 'x20261130',
+    set: {
+      slides: [
+        { text: "Your compost, checked under the microscope.", image: '/wormhole/tiles/x20261130-v1-1.jpg' },
+        { text: "The Compost Intensive Course starts in January.", image: '/wormhole/tiles/x20261130-v1-2.jpg' },
+        { text: "Enroll now, link in bio.", image: '/wormhole/tiles/x20261130-v1-3.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261216 visual v1',
+    post: 'x20261216',
+    set: {
+      slides: [
+        { text: "Permaculture zones.", image: '/wormhole/tiles/x20261216-v1-1.jpg' },
+        { text: "Zone 0: the house.", image: '/wormhole/tiles/x20261216-v1-2.jpg' },
+        { text: "Zone 1: what you visit every day. Herbs, salad, the compost bin.", image: '/wormhole/tiles/x20261216-v1-3.jpg' },
+        { text: "Zones 2 to 4: orchard, field, pasture, woodlot.", image: '/wormhole/tiles/x20261216-v1-4.jpg' },
+        { text: "Zone 5: left wild.", image: '/wormhole/tiles/x20261216-v1-5.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261227 visual v1',
+    post: 'x20261227',
+    set: {
+      slides: [
+        { text: "Chop and drop.", image: '/wormhole/tiles/x20261227-v1-1.jpg' },
+        { text: "Cut the plant. Leave it where it falls.", image: '/wormhole/tiles/x20261227-v1-2.jpg' },
+        { text: "It shades the soil and feeds the fungi and bacteria underneath.", image: '/wormhole/tiles/x20261227-v1-3.jpg' },
+        { text: "No hauling, no bare ground.", image: '/wormhole/tiles/x20261227-v1-4.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 w20261103 visual v1',
+    post: 'w20261103',
+    set: {
+      slides: [
+        { text: "Our new website is here.", image: '/wormhole/tiles/w20261103-v1-1.jpg' },
+        { text: "Learn: every course, and where to start.", image: '/wormhole/tiles/w20261103-v1-2.jpg' },
+        { text: "Workshops and events, past and coming.", image: '/wormhole/tiles/w20261103-v1-3.jpg' },
+        { text: "Find a consultant near you.", image: '/wormhole/tiles/w20261103-v1-4.jpg' },
+        { text: "Dr. Elaine's research, all in one place.", image: '/wormhole/tiles/w20261103-v1-5.jpg' },
+        { text: "Take the tour, link in bio.", image: '/wormhole/tiles/w20261103-v1-6.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 w20261106 visual v1',
+    post: 'w20261106',
+    set: {
+      slides: [
+        { text: "What does living soil look like on a real farm?", image: '/wormhole/tiles/w20261106-v1-1.jpg' },
+        { text: "Our new Projects pages show you.", image: '/wormhole/tiles/w20261106-v1-2.jpg' },
+        { text: "Farms, vineyards and restoration sites.", image: '/wormhole/tiles/w20261106-v1-3.jpg' },
+        { text: "What they changed, and what happened.", image: '/wormhole/tiles/w20261106-v1-4.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 w20261206 visual v1',
+    post: 'w20261206',
+    set: {
+      slides: [
+        { text: "Not sure where to start?", image: '/wormhole/tiles/w20261206-v1-1.jpg' },
+        { text: "What brings you to the soil food web?", image: '/wormhole/tiles/w20261206-v1-2.jpg' },
+        { text: "Gardener, farmer or future consultant: there's a path for you.", image: '/wormhole/tiles/w20261206-v1-3.jpg' },
+        { text: "Find yours, link in bio.", image: '/wormhole/tiles/w20261206-v1-4.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 w20261209 visual v1',
+    post: 'w20261209',
+    set: {
+      slides: [
+        { text: "How does the soil food web work?", image: '/wormhole/tiles/w20261209-v1-1.jpg' },
+        { text: "Our new How it works page explains it in one scroll.", image: '/wormhole/tiles/w20261209-v1-2.jpg' },
+        { text: "From root to microbe to nutrient and back.", image: '/wormhole/tiles/w20261209-v1-3.jpg' },
+        { text: "Read it, link in bio.", image: '/wormhole/tiles/w20261209-v1-4.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 w20261211 visual v1',
+    post: 'w20261211',
+    set: {
+      slides: [
+        { text: "Four decades of soil biology research, searchable.", image: '/wormhole/tiles/w20261211-v1-1.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 ar20261123 visual v1',
+    post: 'ar20261123',
+    set: {
+      slides: [
+        { text: "Our first annual report is almost here.", image: '/wormhole/tiles/ar20261123-v1-1.jpg' },
+        { text: "A year of courses, workshops and scholarships.", image: '/wormhole/tiles/ar20261123-v1-2.jpg' },
+        { text: "Coming soon.", image: '/wormhole/tiles/ar20261123-v1-3.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 ev-02 visual v1',
+    post: 'ev-02',
+    set: {
+      slides: [
+        { text: "An open map of soil life", image: '/wormhole/tiles/ev-02-v1-1.jpg' },
+        { text: "100,000 soil samples. 90+ countries. One protocol.", image: '/wormhole/tiles/ev-02-v1-2.jpg' },
+        { text: "Bacteria and fungi, open to everyone. Explore the Atlas at beopen.earth", image: '/wormhole/tiles/ev-02-v1-3.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+  },
+  {
+    key: '2026-10-24 x20261210 visual v1',
+    post: 'x20261210',
+    set: {
+      slides: [
+        { text: "131\u00b0F (55\u00b0C) for three full days kills weed seeds and pathogens.", image: '/wormhole/tiles/x20261210-v1-1.jpg' },
+        { text: "155 to 160\u00b0F (68 to 71\u00b0C) is the ceiling. Hotter, and the beneficial organisms die too.", image: '/wormhole/tiles/x20261210-v1-2.jpg' },
+        { text: "Turn the pile when it climbs too high, too fast.", image: '/wormhole/tiles/x20261210-v1-3.jpg' },
+        { text: "Most piles need three to five turns.", image: '/wormhole/tiles/x20261210-v1-4.jpg' },
+      ],
+    },
+    reason: 'Visual (24 Oct): big numbers in EB Garamond with the pile thermometer photo; slides 2 and 3 of the draft merged into one.',
+  },
+  {
+    key: '2026-10-24 x20261108 visual v2 photo-first',
+    post: 'x20261108',
+    set: {
+      slides: [
+        { text: "Happy Diwali.", image: '/wormhole/tiles/x20261108-v2-1.jpg' },
+      ],
+    },
+    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+  },
+  {
+    key: '2026-10-24 x20261109 visual v2 photo-first',
+    post: 'x20261109',
+    set: {
+      slides: [
+        { text: "COP31 opens today.", image: '/wormhole/tiles/x20261109-v2-1.jpg' },
+      ],
+    },
+    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+  },
+  {
+    key: '2026-10-24 w20261106 visual v2 photo-first',
+    post: 'w20261106',
+    set: {
+      slides: [
+        { text: "Real farms. Real soil.", image: '/wormhole/tiles/w20261106-v2-1.jpg' },
+        { text: "Photo only: misting a compost pile.", image: '/wormhole/tiles/w20261106-v2-2.jpg' },
+        { text: "Our new Projects pages.", image: '/wormhole/tiles/w20261106-v2-3.jpg' },
+      ],
+    },
+    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+  },
+  {
+    key: '2026-10-24 x20261117 visual v2 photo-first',
+    post: 'x20261117',
+    set: {
+      slides: [
+        { text: "Earth care.", image: '/wormhole/tiles/x20261117-v2-1.jpg' },
+        { text: "People care.", image: '/wormhole/tiles/x20261117-v2-2.jpg' },
+        { text: "Fair share.", image: '/wormhole/tiles/x20261117-v2-3.jpg' },
+      ],
+    },
+    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+  },
+  {
+    key: '2026-10-24 x20261118 visual v2 photo-first',
+    post: 'x20261118',
+    set: {
+      slides: [
+        { text: "Compost Intensive Course.", image: '/wormhole/tiles/x20261118-v2-1.jpg' },
+        { text: "Photo only: thermometer in the pile.", image: '/wormhole/tiles/x20261118-v2-2.jpg' },
+        { text: "Photo only: testate amoeba under the microscope.", image: '/wormhole/tiles/x20261118-v2-3.jpg' },
+        { text: "Starts January 2027. Link in bio.", image: '/wormhole/tiles/x20261118-v2-4.jpg' },
+      ],
+    },
+    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+  },
+  {
+    key: '2026-10-24 ev-02 visual v2 photo-first',
+    post: 'ev-02',
+    set: {
+      slides: [
+        { text: "100,000 soil samples, one open atlas.", image: '/wormhole/tiles/ev-02-v2-1.jpg' },
+        { text: "Photo only: fungal hypha.", image: '/wormhole/tiles/ev-02-v2-2.jpg' },
+        { text: "Explore it at beopen.earth", image: '/wormhole/tiles/ev-02-v2-3.jpg' },
+      ],
+    },
+    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+  },
+  {
+    key: '2026-10-24 ar20261123 visual v2 photo-first',
+    post: 'ar20261123',
+    set: {
+      slides: [
+        { text: "Our first annual report.", image: '/wormhole/tiles/ar20261123-v2-1.jpg' },
+        { text: "Photo only: turning a pile at a workshop.", image: '/wormhole/tiles/ar20261123-v2-2.jpg' },
+        { text: "Coming soon.", image: '/wormhole/tiles/ar20261123-v2-3.jpg' },
+      ],
+    },
+    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+  },
+  {
+    key: '2026-10-24 x20261128 visual v2 photo-first',
+    post: 'x20261128',
+    set: {
+      slides: [
+        { text: "Small Business Saturday.", image: '/wormhole/tiles/x20261128-v2-1.jpg' },
+        { text: "Photo only: making an extract.", image: '/wormhole/tiles/x20261128-v2-2.jpg' },
+        { text: "Shop local for your soil. Find a consultant, link in bio.", image: '/wormhole/tiles/x20261128-v2-3.jpg' },
+      ],
+    },
+    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+  },
+  {
+    key: '2026-10-24 x20261129 visual v2 photo-first',
+    post: 'x20261129',
+    set: {
+      slides: [
+        { text: "Trees grow better with friends.", image: '/wormhole/tiles/x20261129-v2-1.jpg' },
+        { text: "Photo only: mixed planting beds.", image: '/wormhole/tiles/x20261129-v2-2.jpg' },
+        { text: "Photo only: chard in straw mulch.", image: '/wormhole/tiles/x20261129-v2-3.jpg' },
+      ],
+    },
+    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+  },
+  {
+    key: '2026-10-24 x20261130 visual v2 photo-first',
+    post: 'x20261130',
+    set: {
+      slides: [
+        { text: "10 weeks of compost.", image: '/wormhole/tiles/x20261130-v2-1.jpg' },
+        { text: "Enroll now, link in bio.", image: '/wormhole/tiles/x20261130-v2-2.jpg' },
+      ],
+    },
+    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+  },
+  {
+    key: '2026-10-24 x20261201 visual v2 photo-first',
+    post: 'x20261201',
+    set: {
+      slides: [
+        { text: "Today is GivingTuesday.", image: '/wormhole/tiles/x20261201-v2-1.jpg' },
+        { text: "Photo only: garden beds.", image: '/wormhole/tiles/x20261201-v2-2.jpg' },
+        { text: "Give a scholarship, link in bio.", image: '/wormhole/tiles/x20261201-v2-3.jpg' },
+      ],
+    },
+    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+  },
+  {
+    key: '2026-10-24 x20261202 visual v2 photo-first',
+    post: 'x20261202',
+    set: {
+      slides: [
+        { text: "From shovel to slide.", image: '/wormhole/tiles/x20261202-v2-1.jpg' },
+        { text: "Photo only: mixing the sample with water.", image: '/wormhole/tiles/x20261202-v2-2.jpg' },
+        { text: "Photo only: preparing the slide.", image: '/wormhole/tiles/x20261202-v2-3.jpg' },
+        { text: "Photo only: a nematode under the microscope.", image: '/wormhole/tiles/x20261202-v2-4.jpg' },
+      ],
+    },
+    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+  },
+  {
+    key: '2026-10-24 x20261203 visual v2 photo-first',
+    post: 'x20261203',
+    set: {
+      slides: [
+        { text: "Costa Rica, 18 to 29 January 2027.", image: '/wormhole/tiles/x20261203-v2-1.jpg' },
+        { text: "Photo only: Costa Rican forest.", image: '/wormhole/tiles/x20261203-v2-2.jpg' },
+        { text: "Photo only: turning a pile.", image: '/wormhole/tiles/x20261203-v2-3.jpg' },
+        { text: "Places still open, link in bio.", image: '/wormhole/tiles/x20261203-v2-4.jpg' },
+      ],
+    },
+    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+  },
+  {
+    key: '2026-10-24 x20261204 visual v2 photo-first',
+    post: 'x20261204',
+    set: {
+      slides: [
+        { text: "Wildlife Conservation Day: meet the wildlife under your feet.", image: '/wormhole/tiles/x20261204-v2-1.jpg' },
+        { text: "Bacteria.", image: '/wormhole/tiles/x20261204-v2-2.jpg' },
+        { text: "Fungi.", image: '/wormhole/tiles/x20261204-v2-3.jpg' },
+        { text: "Protozoa.", image: '/wormhole/tiles/x20261204-v2-4.jpg' },
+        { text: "Nematodes.", image: '/wormhole/tiles/x20261204-v2-5.jpg' },
+      ],
+    },
+    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+  },
+  {
+    key: '2026-10-24 w20261206 visual v2 photo-first',
+    post: 'w20261206',
+    set: {
+      slides: [
+        { text: "Not sure where to start?", image: '/wormhole/tiles/w20261206-v2-1.jpg' },
+        { text: "Photo only: Dr. Elaine in the garden.", image: '/wormhole/tiles/w20261206-v2-2.jpg' },
+        { text: "Find your path, link in bio.", image: '/wormhole/tiles/w20261206-v2-3.jpg' },
+      ],
+    },
+    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+  },
+  {
+    key: '2026-10-24 x20261208 visual v2 photo-first',
+    post: 'x20261208',
+    set: {
+      slides: [
+        { text: "Who eats whom in your soil?", image: '/wormhole/tiles/x20261208-v2-1.jpg' },
+        { text: "Photo only: bacteria.", image: '/wormhole/tiles/x20261208-v2-2.jpg' },
+        { text: "Photo only: protozoa.", image: '/wormhole/tiles/x20261208-v2-3.jpg' },
+        { text: "Photo only: a nematode.", image: '/wormhole/tiles/x20261208-v2-4.jpg' },
+        { text: "And the plant gets fed.", image: '/wormhole/tiles/x20261208-v2-5.jpg' },
+      ],
+    },
+    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+  },
+  {
+    key: '2026-10-24 w20261209 visual v2 photo-first',
+    post: 'w20261209',
+    set: {
+      slides: [
+        { text: "How does the soil food web work?", image: '/wormhole/tiles/w20261209-v2-1.jpg' },
+        { text: "Photo only: a nematode.", image: '/wormhole/tiles/w20261209-v2-2.jpg' },
+        { text: "Our new How it works page, link in bio.", image: '/wormhole/tiles/w20261209-v2-3.jpg' },
+      ],
+    },
+    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+  },
+  {
+    key: '2026-10-24 x20261210 visual v2 photo-first',
+    post: 'x20261210',
+    set: {
+      slides: [
+        { text: "131°F (55°C) for three days.", image: '/wormhole/tiles/x20261210-v2-1.jpg' },
+        { text: "Photo only: misting the pile.", image: '/wormhole/tiles/x20261210-v2-2.jpg' },
+        { text: "Then turn it.", image: '/wormhole/tiles/x20261210-v2-3.jpg' },
+      ],
+    },
+    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+  },
+  {
+    key: '2026-10-24 w20261211 visual v2 photo-first',
+    post: 'w20261211',
+    set: {
+      slides: [
+        { text: "Four decades of Dr. Elaine Ingham's research, searchable.", image: '/wormhole/tiles/w20261211-v2-1.jpg' },
+      ],
+    },
+    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+  },
+  {
+    key: '2026-10-24 x20261213 visual v2 photo-first',
+    post: 'x20261213',
+    set: {
+      slides: [
+        { text: "This amoeba built its own house.", image: '/wormhole/tiles/x20261213-v2-1.jpg' },
+        { text: "Photo only: the shell up close.", image: '/wormhole/tiles/x20261213-v2-2.jpg' },
+        { text: "Photo only: bacteria, its food.", image: '/wormhole/tiles/x20261213-v2-3.jpg' },
+      ],
+    },
+    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+  },
+  {
+    key: '2026-10-24 x20261216 visual v2 photo-first',
+    post: 'x20261216',
+    set: {
+      slides: [
+        { text: "Permaculture zones.", image: '/wormhole/tiles/x20261216-v2-1.jpg' },
+        { text: "Zone 1: herbs, salad, the compost bin.", image: '/wormhole/tiles/x20261216-v2-2.jpg' },
+        { text: "Zone 5: left wild.", image: '/wormhole/tiles/x20261216-v2-3.jpg' },
+      ],
+    },
+    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+  },
+  {
+    key: '2026-10-24 x20261217 visual v2 photo-first',
+    post: 'x20261217',
+    set: {
+      slides: [
+        { text: "Nitrogen from thin air.", image: '/wormhole/tiles/x20261217-v2-1.jpg' },
+        { text: "Photo only: bacteria.", image: '/wormhole/tiles/x20261217-v2-2.jpg' },
+        { text: "No bag required.", image: '/wormhole/tiles/x20261217-v2-3.jpg' },
+      ],
+    },
+    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+  },
+  {
+    key: '2026-10-24 x20261220 visual v2 photo-first',
+    post: 'x20261220',
+    set: {
+      slides: [
+        { text: "Congratulations to our Permaculture Design Certificate class of 2026.", image: '/wormhole/tiles/x20261220-v2-1.jpg' },
+        { text: "Photo only: food forest.", image: '/wormhole/tiles/x20261220-v2-2.jpg' },
+        { text: "Go build it.", image: '/wormhole/tiles/x20261220-v2-3.jpg' },
+      ],
+    },
+    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+  },
+  {
+    key: '2026-10-24 x20261224 visual v2 photo-first',
+    post: 'x20261224',
+    set: {
+      slides: [
+        { text: "Your Christmas tree has one more job.", image: '/wormhole/tiles/x20261224-v2-1.jpg' },
+        { text: "Chip it. Mulch it.", image: '/wormhole/tiles/x20261224-v2-2.jpg' },
+        { text: "Photo only: the fungi it feeds.", image: '/wormhole/tiles/x20261224-v2-3.jpg' },
+      ],
+    },
+    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+  },
+  {
+    key: '2026-10-24 x20261226 visual v2 photo-first',
+    post: 'x20261226',
+    set: {
+      slides: [
+        { text: "Can wrapping paper go in the compost? Plain paper: yes.", image: '/wormhole/tiles/x20261226-v2-1.jpg' },
+        { text: "Glossy, foil, glitter, tape: no.", image: '/wormhole/tiles/x20261226-v2-2.jpg' },
+      ],
+    },
+    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+  },
+  {
+    key: '2026-10-24 x20261227 visual v2 photo-first',
+    post: 'x20261227',
+    set: {
+      slides: [
+        { text: "Chop and drop.", image: '/wormhole/tiles/x20261227-v2-1.jpg' },
+        { text: "Photo only: leaves left where they fall.", image: '/wormhole/tiles/x20261227-v2-2.jpg' },
+        { text: "Photo only: the fungi underneath.", image: '/wormhole/tiles/x20261227-v2-3.jpg' },
+      ],
+    },
+    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+  },
+  {
+    key: '2026-10-24 x20261229 visual v2 photo-first',
+    post: 'x20261229',
+    set: {
+      slides: [
+        { text: "2026 in soil science.", image: '/wormhole/tiles/x20261229-v2-1.jpg' },
+        { text: "Photo only: bacteria.", image: '/wormhole/tiles/x20261229-v2-2.jpg' },
+        { text: "Photo only: no-till soil after rain.", image: '/wormhole/tiles/x20261229-v2-3.jpg' },
+        { text: "Here's to more in 2027.", image: '/wormhole/tiles/x20261229-v2-4.jpg' },
+      ],
+    },
+    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+  },
+  {
+    key: '2026-10-24 x20261231 visual v2 photo-first',
+    post: 'x20261231',
+    set: {
+      slides: [
+        { text: "Happy New Year from the soil.", image: '/wormhole/tiles/x20261231-v2-1.jpg' },
+        { text: "Costa Rica, 18 to 29 January.", image: '/wormhole/tiles/x20261231-v2-2.jpg' },
+        { text: "New Mexico, 3 to 14 May.", image: '/wormhole/tiles/x20261231-v2-3.jpg' },
+        { text: "United Kingdom, September.", image: '/wormhole/tiles/x20261231-v2-4.jpg' },
+      ],
+    },
+    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+  },
+  {
+    key: '2026-10-24 pl20261114 visual v2 photo-first',
+    post: 'pl20261114',
+    set: {
+      slides: [
+        { text: "Your fallen leaves can become fungal compost.", image: '/wormhole/tiles/pl20261114-v2-1.jpg' },
+        { text: "Photo only: wet leaves packed in a wire cage.", image: '/wormhole/tiles/pl20261114-v2-2.jpg' },
+        { text: "Photo only: leaves breaking down.", image: '/wormhole/tiles/pl20261114-v2-3.jpg' },
+        { text: "Photo only: finished leaf mold.", image: '/wormhole/tiles/pl20261114-v2-4.jpg' },
+        { text: "Use it as mulch or in potting soil.", image: '/wormhole/tiles/pl20261114-v2-5.jpg' },
+      ],
+    },
+    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+  },
+  {
+    key: '2026-10-24 pl20261115 visual v2 photo-first',
+    post: 'pl20261115',
+    set: {
+      slides: [
+        { text: "Imagine a world without earthworms.", image: '/wormhole/tiles/pl20261115-v2-1.jpg' },
+        { text: "Photo only: a northern forest.", image: '/wormhole/tiles/pl20261115-v2-2.jpg' },
+        { text: "Photo only: an introduced earthworm.", image: '/wormhole/tiles/pl20261115-v2-3.jpg' },
+        { text: "Even a good organism can be the wrong one in the wrong place.", image: '/wormhole/tiles/pl20261115-v2-4.jpg' },
+      ],
+    },
+    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+  },
+  {
+    key: '2026-10-24 p26 visual v2 photo-first',
+    post: 'p26',
+    set: {
+      slides: [
+        { text: "Welcome to our newest Certified Soil Food Web Consultants.", image: '/wormhole/tiles/p26-v2-1.jpg' },
+        { text: "Kyle Babcock, United States.", image: '/wormhole/tiles/p26-v2-2.jpg' },
+      ],
+    },
+    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+  },
 ];
 
 const editorOf = (c: Change) => `Change: ${c.key}`;

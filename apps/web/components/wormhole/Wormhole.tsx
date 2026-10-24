@@ -312,7 +312,10 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
   }
 
   // Instagram shows pinned posts first, then newest first.
-  const feedPosts = visible.filter((p) => !isStory(p));
+  // The Instagram feed and grid show only what goes to Instagram: a LinkedIn-only
+  // post (a 1200 x 627 image) lives on the LinkedIn tab.
+  const onInstagram = (p: WormholePost) => !p.platform.trim() || /instagram/i.test(p.platform);
+  const feedPosts = visible.filter((p) => !isStory(p) && onInstagram(p));
   const storyPosts = visible.filter(isStory);
   const gridPosts = [
     ...feedPosts.filter((p) => p.pinned).sort((a, b) => (a.pinned ?? 0) - (b.pinned ?? 0)),
