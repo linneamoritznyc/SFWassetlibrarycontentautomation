@@ -199,3 +199,69 @@ def halloween_bg(w, h, seed=7, moon_at=(.8, .22), moon_d=.34, tree_side="left"):
     ms = Image.new("RGBA", (w, h), (205, 214, 200, 0)); ms.putalpha(mist)
     im.alpha_composite(ms)
     return im
+
+
+def jack_o_lantern(d, seed=3):
+    """A carved pumpkin with a glowing face, flat colours and one dark outline."""
+    S = 2
+    n = d * S
+    im = Image.new("RGBA", (n, int(n * 1.05)), (0, 0, 0, 0))
+    dr = ImageDraw.Draw(im)
+    o = (40, 24, 12, 255)
+    top = int(n * .16)
+    body = (n * .04, top, n * .96, n * .98)
+    for i, (x0, x1) in enumerate(((.04, .42), (.58, .96), (.18, .62), (.38, .82), (.28, .72))):
+        dr.ellipse((n * x0, top, n * x1, n * .98), fill=(214, 110, 32, 255) if i < 2 else (230, 126, 38, 255),
+                   outline=o, width=3 * S)
+    dr.rectangle((n * .45, n * .04, n * .55, top + n * .04), fill=(70, 86, 40, 255), outline=o, width=3 * S)
+    glow = (255, 214, 92, 255)
+    dr.polygon([(n * .22, n * .48), (n * .42, n * .48), (n * .32, n * .30)], fill=glow, outline=o)
+    dr.polygon([(n * .58, n * .48), (n * .78, n * .48), (n * .68, n * .30)], fill=glow, outline=o)
+    dr.polygon([(n * .45, n * .58), (n * .55, n * .58), (n * .50, n * .50)], fill=glow, outline=o)
+    mouth = [(n * .20, n * .66), (n * .30, n * .72), (n * .36, n * .66), (n * .44, n * .74), (n * .50, n * .67),
+             (n * .56, n * .74), (n * .64, n * .66), (n * .70, n * .72), (n * .80, n * .66), (n * .70, n * .84),
+             (n * .30, n * .84)]
+    dr.polygon(mouth, fill=glow, outline=o)
+    im = im.resize((d, int(d * 1.05)), Image.LANCZOS)
+    # a warm glow around it
+    pad = d // 2
+    out = Image.new("RGBA", (d + 2 * pad, im.height + 2 * pad), (0, 0, 0, 0))
+    g = Image.new("L", out.size, 0)
+    ImageDraw.Draw(g).ellipse((pad * 1.0, pad * 1.0, out.width - pad * 1.0, out.height - pad * 1.0), fill=150)
+    g = g.filter(ImageFilter.GaussianBlur(pad * .28))
+    gl = Image.new("RGBA", out.size, (255, 150, 40, 0)); gl.putalpha(g)
+    out.alpha_composite(gl)
+    out.alpha_composite(im, (pad, pad))
+    return out
+
+
+def spooky_header(w=1920, h=720, seed=7):
+    """The agreed-design candidate: night, orange moon, bats, tree, jack-o'-lantern, title, real amoeba lenses."""
+    from collage import font
+    rnd = random.Random(seed + 1)
+    bg = halloween_bg(w, h, seed, moon_at=(.50, .30), moon_d=.46)
+    # warm the moon: an orange wash over the moon area for a harvest-moon feel
+    wash = Image.new("L", (w, h), 0)
+    mx, my, md = .50 * w, .30 * h, .46 * h
+    ImageDraw.Draw(wash).ellipse((mx - md * .52, my - md * .52, mx + md * .52, my + md * .52), fill=90)
+    wash = wash.filter(ImageFilter.GaussianBlur(md * .08))
+    ow = Image.new("RGBA", (w, h), (232, 120, 40, 0)); ow.putalpha(wash)
+    bg.alpha_composite(ow)
+    for i in range(6):   # more bats
+        b = bat(round(h * rnd.uniform(.05, .11)), flap=rnd.uniform(0, 1)).rotate(rnd.uniform(-25, 25), expand=True)
+        bg.alpha_composite(b, (round(w * rnd.uniform(.2, .78)), round(h * rnd.uniform(.03, .45))))
+    jl = jack_o_lantern(round(h * .22))
+    bg.alpha_composite(jl, (round(w * .60 - jl.width / 2), round(h * .93 - jl.height + jl.height * .22)))
+    bg.alpha_composite(lens(A, round(h * .74)), (round(w * .655), round(h * .08)))
+    bg.alpha_composite(lens(H_, round(h * .42)), (round(w * .825), round(h * .50)))
+    # the title, moonlit
+    title = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+    td = ImageDraw.Draw(title)
+    f = font("garamond", True, round(h * .17))
+    td.text((w * .16, h * .08), "Vampire", font=f, fill=(244, 238, 222, 255))
+    td.text((w * .20, h * .08 + h * .17), "amoeba.", font=f, fill=(244, 238, 222, 255))
+    sh = title.getchannel("A").filter(ImageFilter.GaussianBlur(h * .012))
+    shade = Image.new("RGBA", (w, h), (0, 0, 0, 0)); shade.putalpha(sh.point(lambda v: int(v * .8)))
+    bg.alpha_composite(shade, (4, 6))
+    bg.alpha_composite(title)
+    return bg
