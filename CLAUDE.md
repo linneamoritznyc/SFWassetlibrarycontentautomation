@@ -116,6 +116,7 @@ These come from Linnea's edits. Break none of them.
 
 ## 5. Visual rules
 
+- Variety across the grid: docs/feed-guide.md. Neighbouring posts never share a style family; write the family in each visual note and check with tools/wormhole-visuals/grid_check.py.
 - Exact colours, fonts and logo rules: docs/brand.md (from the 2026 brand guide and colour guidelines). Palette from the brand guide: greens and cream. Cream works as a shape, the background stays green or photographic. Gold only on donate CTAs. Purple only for Dr. Elaine memorial content. One shadow value.
 - Real images only: SFW workshop footage and photos (New Mexico compost workshop, Wild Ken Hill, Cyprus, India), microscopy, field photos, partner-supplied portraits. No stock photos. No AI-generated pictures of people, farms or soil.
 - Build graphics on the existing SFW Canva templates (the Geoff Lawton, Mary Reynolds and "Soil should be treated as critical infrastructure" graphics set the current look). Swap in real photos.
