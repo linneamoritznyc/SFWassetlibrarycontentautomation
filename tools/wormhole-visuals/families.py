@@ -97,22 +97,35 @@ def portrait_slide(p, ground, ink, accent):
 
 
 def step_slide(n, text, photo, credit, ground, ink, num_ink, focus=(0.5, 0.5), kicker=None):
-    """A big EB Garamond step number, a short instruction, a square photo set flush right."""
+    """A big EB Garamond step number, a short instruction, a square photo set flush right.
+
+    Laid out from measured glyph boxes, top to bottom, so the number, the text and the
+    photo never touch: at least GAP between each, and the photo shrinks (never below
+    MIN_PHOTO) rather than run into the text.
+    """
+    GAP, MARGIN, BOTTOM, MIN_PHOTO, MAX_PHOTO = 56, 90, 110, 440, 540
     c = Image.new("RGB", (W, H), ground)
-    if photo:
-        c.paste(B.photo(photo, (540, 540), focus), (W - 540, H - 540 - 110))
     d = ImageDraw.Draw(c)
-    y = 90
+    y = MARGIN
     if kicker:
-        d.text((90, y), kicker.upper(), font=B.label_font(32), fill=num_ink)
-        y += 60
+        kf = B.label_font(32)
+        d.text((MARGIN, y), kicker.upper(), font=kf, fill=num_ink)
+        y = d.textbbox((MARGIN, y), kicker.upper(), font=kf)[3] + 28
     if n is not None:
-        d.text((80, y - 40), str(n), font=garamond(300), fill=num_ink)
-        y += 300
-    f = B.fit_heading(d, text, 880, H - 540 - 110 - y - 40, start=80)
-    B.block(d, (90, y), text, f, ink, 880)
-    if credit:
-        d.text((W - 540, H - 90), credit, font=B.body(26), fill=ink)
+        nf = garamond(260)
+        top = d.textbbox((0, 0), str(n), font=nf)[1]
+        d.text((MARGIN - 8, y - top), str(n), font=nf, fill=num_ink)
+        y = d.textbbox((MARGIN - 8, y - top), str(n), font=nf)[3] + 36
+    room = H - BOTTOM - MIN_PHOTO - GAP - y
+    f = B.fit_heading(d, text, 900, room, start=80, least=52)
+    last = B.block(d, (MARGIN, y), text, f, ink, 900)
+    lines = B.wrap(d, text, f, 900)
+    text_bottom = d.textbbox((MARGIN, last - int(f.size * 1.12)), lines[-1], font=f)[3]
+    if photo:
+        size = max(MIN_PHOTO, min(MAX_PHOTO, H - BOTTOM - (text_bottom + GAP)))
+        c.paste(B.photo(photo, (size, size), focus), (W - size, H - BOTTOM - size))
+        if credit:
+            d.text((W - size, H - BOTTOM + 22), credit, font=B.body(26), fill=ink)
     return c
 
 
@@ -179,12 +192,14 @@ def pl20261115():
     ]
 
 
+# f2: pl20261114 re-spaced (24 Oct); bump this for any re-render, never overwrite.
+VERSION = os.environ.get("FAMILIES_VERSION", "f1")
 POSTS = {"p26": p26, "pl20261114": pl20261114, "pl20261115": pl20261115}
 
 
 if __name__ == "__main__":
     for pid in sys.argv[1:] or POSTS:
         for i, img in enumerate(POSTS[pid](), 1):
-            path = os.path.join(OUT, f"{pid}-f1-{i}.jpg")
+            path = os.path.join(OUT, f"{pid}-{VERSION}-{i}.jpg")
             img.save(path, quality=90, optimize=True)
             print(path)
