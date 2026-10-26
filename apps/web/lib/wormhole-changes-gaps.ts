@@ -347,5 +347,260 @@ export const GAP_CHANGES: Change[] = [
       "Caption trimmed (26 Oct) from 3,144 to under 2,200 characters, the Instagram limit: shortened the student story and cut repeated thank-you lines. Carla's quote about Dr. Elaine is unchanged.",
   },
   // --- Nov-Dec C (promo calendar and dates, 26 Oct) ---
+  {
+    key: '2026-10-26 k20261115 create',
+    post: 'k20261115',
+    create: {
+      iso_date: '2026-11-15',
+      date_tbd: false,
+      topic: 'Practicum promo: what the Soil Food Web Complete Practicum is, and who it is for',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        'Ready to take the soil food web from the screen to your own land? 🔬\n\nThe Soil Food Web Complete Practicum is our hands-on path for farmers, growers, consultants and anyone moving away from synthetic inputs. It brings four Advanced Programs together: Soil Microscopy, BioComplete™ Compost Production, Biological Liquid Amendments and a Field Trial, where you apply the methods over a full growing season on your own land.\n\nYou have support the whole way: your own one-on-one mentor, matched by time zone and language, and regular office hours with our whole mentorship team. Mentor access lasts 42 months, so life can happen along the way.\n\nPass all four courses and you earn the title Soil Food Web Consultant.\n\nYou start after the Foundation Courses, with a microscope and a camera setup. Link in bio.\n\n#SoilFoodWeb #LivingSoil #SoilHealth #SoilMicroscopy #Compost #RegenerativeAgriculture #SoilFoodWebSchool',
+      slides: [
+        {
+          text: 'The Soil Food Web Complete Practicum.',
+          image: '/wormhole/tiles/k20261115-v2-1.jpg',
+        },
+        {
+          text: 'Photo only: building a BioComplete™ compost pile.',
+          image: '/wormhole/tiles/k20261115-v2-2.jpg',
+        },
+        {
+          text: 'Photo only: samples ready for the microscope.',
+          image: '/wormhole/tiles/k20261115-v2-3.jpg',
+        },
+        {
+          text: 'The Field Trial runs a full growing season on your own land. Link in bio.',
+          image: '/wormhole/tiles/k20261115-v2-4.jpg',
+        },
+      ],
+      cta: 'Enroll, link in bio',
+      link: 'https://school.soilfoodweb.com/bundles/complete-practicum',
+      sources: [
+        'Complete Practicum page (four courses, who it is for, prerequisites, 1-1 mentor, office hours, 42 months mentor access, Consultant title): https://school.soilfoodweb.com/bundles/complete-practicum',
+        'Site export, learn.json (Complete Practicum, Consultant title): final-sfwsite-linnea/content/learn.json',
+      ],
+      visual_note:
+        'Carousel, 4 slides, v2 photo and tag. Real SFW photos: a student with a microscopy binder in the Cyprus classroom (cy-classes-3), watering a compost pile at a workshop (ctpfw-student-moving-compost-1), sample tubes (test-tubes-with-sample), a planting day in the field (hvdb-inplanten-002). Built with tools/wormhole-visuals/round2_novdec.py. No prices.',
+      note: '',
+      status: 'draft',
+    },
+    reason:
+      'New post (26 Oct, round 2): first of three Complete Practicum promo posts (promo period Nov 8 to Dec 27). Facts from the practicum page only. Sunday 15 Nov has only the earthworm Reel. [CONFIRM: the hvdb-inplanten photo is a field planting day; swap for a real practicum field trial photo if one exists.]',
+  },
+  {
+    key: '2026-10-26 k20261201 create',
+    post: 'k20261201',
+    create: {
+      iso_date: '2026-12-01',
+      date_tbd: false,
+      topic: 'Acres U.S.A. Eco-Ag Conference, Coralville, Iowa: we are following it',
+      platform: 'LinkedIn',
+      caption:
+        'The 51st Acres U.S.A. Eco-Ag Conference and Trade Show opens today in Coralville, Iowa, and runs to 4 December.\n\nThe program has tracks on livestock, fruits and vegetables, row crops, agronomy, farm business and marketing, and human health, with speakers including Gabe Brown, Ray Archuleta, Gary Zimmer, Neal Kinsey, John Kempf and Dan Kittredge. Eco-Ag University workshops run on 1 and 2 December.\n\nWe will be following the agronomy and row crop sessions closely. Biology is where many growers say the next gains are, and it is also where on-farm measurement is hardest.\n\nIf you are in Coralville this week: which session are you most looking forward to, and what are you hoping to bring home to your own fields?\n\nhttps://www.conference.acresusa.com/\n\n#EcoAg #AcresUSA #SoilHealth #RegenerativeAgriculture #SoilBiology #SoilFoodWeb',
+      slides: [
+        {
+          text: 'Eco-Ag Conference, Coralville, Iowa, 1 to 4 December.',
+          image: '/wormhole/tiles/k20261201-v2-1.jpg',
+        },
+      ],
+      cta: 'Answer in the comments',
+      link: 'https://www.conference.acresusa.com/',
+      sources: [
+        'Acres U.S.A. Eco-Ag Conference page (51st conference, 1 to 4 Dec 2026, Hyatt Regency Coralville, tracks, speakers, Eco-Ag University 1 to 2 Dec): https://www.conference.acresusa.com/',
+      ],
+      visual_note:
+        'LinkedIn single image, 1200 x 627, v2 photo and tag: a hand holding finished compost (hand-of-compost). No conference logo or photos used. Built with tools/wormhole-visuals/round2_novdec.py.',
+      note: '',
+      status: 'draft',
+    },
+    reason:
+      'New post (26 Oct, round 2): LinkedIn post for the Acres U.S.A. Eco-Ag Conference opening day. Says we are following it, makes no claim that SFW attends. Shares the LinkedIn day with the GivingTuesday post x20261201; move one to the evening slot. [CONFIRM: if anyone from SFW is attending, Stephanie may want to add it.]',
+  },
+  {
+    key: '2026-10-26 k20261205 create',
+    post: 'k20261205',
+    create: {
+      iso_date: '2026-12-05',
+      date_tbd: false,
+      topic: 'Stories · International Volunteer Day: thank you to our volunteers',
+      platform: 'Instagram Stories',
+      caption:
+        'No caption (Stories). Frame 1 text sticker: "Today is International Volunteer Day, in the UN International Year of Volunteers for Sustainable Development. Thank you to everyone who gives their time to living soil: the mentors who stay after office hours, the graduates who host school groups on their farms, and everyone who shares what they learn with a neighbour." Frame 2: link sticker https://soilfoodweb.com/volunteer. Post after the World Soil Day feed post (pl20261205), around 6:00pm Pacific.',
+      slides: [
+        {
+          text: 'Story frame 1: International Volunteer Day. Thank you.',
+          image: '/wormhole/tiles/k20261205-v2-1.jpg',
+        },
+        {
+          text: 'Story frame 2: volunteer with us. Link sticker.',
+          image: '/wormhole/tiles/k20261205-v2-2.jpg',
+        },
+      ],
+      cta: 'Volunteer, link sticker',
+      link: 'https://soilfoodweb.com/volunteer',
+      sources: [
+        'UNRIC, UN international years 2026 (International Year of Volunteers for Sustainable Development): https://unric.org/en/un-international-years-2026-rangelands-and-pastoralists-volunteers-and-the-woman-farmer/',
+        'International Volunteer Day, 5 December, UN General Assembly resolution 40/212 (1985): https://timeanddate.com/holidays/un/international-volunteer-day',
+        'Volunteer page in the site export: final-sfwsite-linnea/volunteer.html',
+        'Graduate who hosts school groups as a volunteer: Angela Viner post d19 (impact story sheet)',
+      ],
+      visual_note:
+        'Stories, 2 frames as 1080 x 1350 tiles like the other st posts: a workshop group around their compost pile (workshop-group-around-compost-pile), two soil-covered hands held out (2-dirty-hands). Built with tools/wormhole-visuals/round2_novdec.py. [CONFIRM: the volunteer page URL once the new site is live.]',
+      note: '',
+      status: 'draft',
+    },
+    reason:
+      'New post (26 Oct, round 2): International Volunteer Day as a short Stories post beside World Soil Day. The thank-you stays general because the site does not say which mentors volunteer. [CONFIRM: soilfoodweb.com/volunteer URL with Alex; whether to name specific volunteer mentors.]',
+  },
+  {
+    key: '2026-10-26 k20261207 create',
+    post: 'k20261207',
+    create: {
+      iso_date: '2026-12-07',
+      date_tbd: false,
+      topic: 'Practicum promo: field trials, with graduate Daniel Tyrkiel',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        'What happens when a graduate takes the microscope out into the field? 🌾\n\nMeet Daniel Tyrkiel, a Soil Food Web School graduate who runs his consultancy, the Soil Ecology Laboratory, in Hampshire, UK. Daniel runs microbiology field trials with University of Manchester researcher Dr. Janice Lake, comparing biology-treated crops with control crops. In August 2025, The Guardian featured that work, alongside our mentor Nick Padwick.\n\nThis is the skill the Field Trial course teaches: plan a trial on real land, sample it, read it under the microscope and let the results speak, including the disappointing ones.\n\nThe Field Trial is the last of the four courses in the Soil Food Web Complete Practicum, after Soil Microscopy, BioComplete™ Compost Production and Biological Liquid Amendments. Link in bio.\n\n#SoilFoodWeb #FieldTrials #SoilBiology #SoilHealth #RegenerativeAgriculture #SoilMicroscopy #SoilFoodWebSchool',
+      slides: [
+        {
+          text: 'Field trials: where the practicum meets your land.',
+          image: '/wormhole/tiles/k20261207-v2-1.jpg',
+        },
+        {
+          text: 'Photo only: a soil sample going into a tube.',
+          image: '/wormhole/tiles/k20261207-v2-2.jpg',
+        },
+        {
+          text: 'Treated plots against control plots.',
+          image: '/wormhole/tiles/k20261207-v2-3.jpg',
+        },
+      ],
+      cta: 'Enroll, link in bio',
+      link: 'https://school.soilfoodweb.com/bundles/complete-practicum',
+      sources: [
+        'Site export, community.json "Nick Padwick and Daniel Tyrkiel in The Guardian" (graduate, microbiology field trials with Dr. Janice Lake, University of Manchester): final-sfwsite-linnea/content/community.json',
+        'SFW October 2025 newsletter (Soil Ecology Laboratory in Hampshire; biology-treated crops outperforming control crops): final-sfwsite-linnea/docs/staging-export/content/posts/october-2025-newsletter.md',
+        'The Guardian, 29 Aug 2025: https://www.theguardian.com/environment/2025/aug/29/down-and-dirty-how-regenerative-farming-is-digging-into-microscopic-soil-life',
+        'Complete Practicum page (four courses, Field Trial over a full growing season): https://school.soilfoodweb.com/bundles/complete-practicum',
+      ],
+      visual_note:
+        "Carousel, 3 slides, v2 photo and tag: gloved hands sampling soil into a bag (soil-sample-shovel-and-bag), a sample going into a tube (soil-sample-close-up-test-tube), sample tubes by a microscope (Sampling_equipment). Stand-ins: swap in Daniel's own trial photos and tag him as a collab once he agrees. Built with tools/wormhole-visuals/round2_novdec.py.",
+      note: '',
+      status: 'draft',
+    },
+    reason:
+      'New post (26 Oct, round 2): second Complete Practicum promo, built on the only named graduate field trial in the site export (Daniel Tyrkiel). No trial numbers are used because none are published. [CONFIRM: with Daniel that he is happy to be featured, his handle, and whether his trials ran as his practicum Field Trial; the caption only says he is a graduate who runs field trials.]',
+  },
+  {
+    key: '2026-10-26 k20261218 create',
+    post: 'k20261218',
+    create: {
+      iso_date: '2026-12-18',
+      date_tbd: false,
+      topic: 'International Year of the Woman Farmer: women who teach living soil',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        '2026 is the UN International Year of the Woman Farmer, and before it ends we want to thank some of the women who teach living soil in our community. 💚\n\nDora Tkalec, a Soil Food Web Consultant and mentor in Tampere, Finland, developed a composting process for the dairy farm of the agricultural school where she teaches, and runs composting trials with farms.\n\nLoida Vasquez, our Director of Advanced Education, worked with Dr. Elaine Ingham for decades and has designed and led dozens of workshops on compost and soil biology.\n\nIsadora Shmidt found her way from market gardening to permaculture to the soil food web, and now helps others discover the wonders of soil as a Soil Food Web Consultant and mentor.\n\nThank you, Dora, Loida and Isadora. Tag a woman farmer who taught you something about soil.\n\n#YearOfTheWomanFarmer #WomenInAgriculture #SoilFoodWeb #LivingSoil #SoilHealth #Compost',
+      slides: [
+        {
+          text: '2026 is the International Year of the Woman Farmer. Dora Tkalec, Finland.',
+          image: '/wormhole/tiles/k20261218-v2-1.jpg',
+        },
+        {
+          text: 'Loida Vasquez, Director of Advanced Education.',
+          image: '/wormhole/tiles/k20261218-v2-2.jpg',
+        },
+        {
+          text: 'Isadora Shmidt, Soil Food Web Consultant and mentor.',
+          image: '/wormhole/tiles/k20261218-v2-3.jpg',
+        },
+      ],
+      cta: 'Tag a woman farmer',
+      link: 'Collab with Dora, Loida and Isadora [VERIFY handles]',
+      sources: [
+        'UNRIC, UN international years 2026 (International Year of the Woman Farmer): https://unric.org/en/un-international-years-2026-rangelands-and-pastoralists-volunteers-and-the-woman-farmer/',
+        'SFW team page bios, Dora Tkalec, Loida Vasquez, Isadora Shmidt: final-sfwsite-linnea/about-team.html',
+      ],
+      visual_note:
+        'Carousel, 3 slides, v2 photo and tag, one woman per slide: Dora with a compost pile (w_dora), Loida teaching at a compost bay (uploads_Loida_Teaching_3), Isadora in a vineyard (w_isadora). Tags sit away from faces. Built with tools/wormhole-visuals/round2_novdec.py. Purple not used.',
+      note: '',
+      status: 'draft',
+    },
+    reason:
+      "New post (26 Oct, round 2): UN International Year of the Woman Farmer spotlight, Friday 18 Dec, using only published team bios. Dr. Carla Portugal left out because d05 already featured her in October. [CONFIRM: each woman's handle and that she is happy to be in it; Loida's photo was also used on j20270112, more than 7 days away.]",
+  },
+  {
+    key: '2026-10-26 k20261221 create',
+    post: 'k20261221',
+    create: {
+      iso_date: '2026-12-21',
+      date_tbd: false,
+      topic: 'Practicum promo: last call before the year ends',
+      platform: 'Instagram, Facebook',
+      caption:
+        'If 2027 is the year you become a Soil Food Web Consultant, start now. 🌱\n\nThe Soil Food Web Complete Practicum takes you through Soil Microscopy, BioComplete™ Compost Production, Biological Liquid Amendments and a Field Trial on your own land. Enroll before the year ends and you can spend the quiet weeks of winter at the microscope, ready to build your first piles and plan your trial when spring comes.\n\nYour own mentor works with you one-on-one the whole way, with office hours from our full mentorship team.\n\nFinished the Foundation Courses? This is your next step. Link in bio.\n\n#SoilFoodWeb #SoilFoodWebSchool #LivingSoil #SoilHealth #SoilMicroscopy #NewYearGoals',
+      slides: [
+        {
+          text: 'Start the Complete Practicum before 2027.',
+          image: '/wormhole/tiles/k20261221-v2-1.jpg',
+        },
+        {
+          text: 'Your own mentor, from the first slide to the last trial. Link in bio.',
+          image: '/wormhole/tiles/k20261221-v2-2.jpg',
+        },
+      ],
+      cta: 'Enroll, link in bio',
+      link: 'https://school.soilfoodweb.com/bundles/complete-practicum',
+      sources: [
+        'Complete Practicum page (four courses, 1-1 mentor, office hours, prerequisites): https://school.soilfoodweb.com/bundles/complete-practicum',
+        'SFW 2027 Promotions sheet: Practicum promo Nov 8 to Dec 27',
+      ],
+      visual_note:
+        'Two slides, v2 photo and tag: a workshop group with their pile (uploads_MAR25_Group_Photo), tag at the top so it clears every face; fungal spores in suspension under the microscope. Built with tools/wormhole-visuals/round2_novdec.py. No prices, no deadline on the slide.',
+      note: '',
+      status: 'draft',
+    },
+    reason:
+      'New post (26 Oct, round 2): third Complete Practicum promo, last call before the promo period ends on 27 Dec. Monday 21 Dec has only the hyphae Reel. Instagram and Facebook for enrollment. [CONFIRM: whether any year-end offer applies; the caption names none.]',
+  },
+  {
+    key: '2026-10-26 k20261223 create',
+    post: 'k20261223',
+    create: {
+      iso_date: '2026-12-23',
+      date_tbd: false,
+      topic: "Kisan Diwas: thank you to India's farmers",
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        "Happy Kisan Diwas! 🌾\n\nToday India celebrates National Farmers' Day, on the birth anniversary of Chaudhary Charan Singh, the farmer leader and former Prime Minister who fought for peasants' rights to their land and their harvest.\n\nThis year we held our first workshop in India: the Accelerator Workshop in Coimbatore, Tamil Nadu, from 19 to 30 October, in collaboration with Isha Outreach. It ran with the Isha Foundation and the Conscious Planet Save Soil movement, at the Save Soil Regenerative Revolution Farm, which serves farmers across Tamil Nadu and Puducherry. For two weeks, students built thermophilic compost piles and brewed compost extracts and teas, with the microscope every day.\n\nTo every farmer in India who feeds the soil so the soil can feed us: thank you. Link in bio.\n\n#KisanDiwas #NationalFarmersDay #SaveSoil #SoilFoodWeb #LivingSoil #SoilHealth #India",
+      slides: [
+        {
+          text: 'Happy Kisan Diwas.',
+          image: '/wormhole/tiles/k20261223-v2-1.jpg',
+        },
+        {
+          text: 'Thank you to every farmer in India.',
+          image: '/wormhole/tiles/k20261223-v2-2.jpg',
+        },
+      ],
+      cta: 'See the India workshop, link in bio',
+      link: 'https://school.soilfoodweb.com/courses/india-workshop-2026',
+      sources: [
+        'Vikaspedia, National Farmers Day (Kisan Diwas, 23 December): https://vikaspedia.in/agriculture/agri-directory/important-days/national-farmers-day',
+        "Drishti IAS, Birth anniversary of Chaudhary Charan Singh and National Farmers' Day (born 1902, 5th Prime Minister, farmer reforms): https://www.drishtiias.com/daily-updates/daily-news-analysis/birth-anniversary-of-chaudhary-charan-singh-and-national-farmers-day-2024/print_manually",
+        'India Accelerator Workshop 2026 page and CLAUDE.md section 9 (dates, place, farm, curriculum): https://school.soilfoodweb.com/courses/india-workshop-2026',
+        'Partner naming: CLAUDE.md section 4',
+      ],
+      visual_note:
+        'Two slides, v2 photo and tag: a hand in red soil (red-soil-hand), hands holding a plant and its roots (2-hands-clasped-holding-plant-roots). No India workshop photos are in the photo folder or existing tiles yet; swap slide 1 for a real Coimbatore workshop photo from Kavi Reddy when it arrives. Built with tools/wormhole-visuals/round2_novdec.py.',
+      note: '',
+      status: 'draft',
+    },
+    reason:
+      "New post (26 Oct, round 2): Kisan Diwas, India's National Farmers' Day, thanking India's farmers and pointing to the October Accelerator Workshop with the CLAUDE.md partner naming. Shares 23 Dec with the partner-share placeholder pl20261223. [CONFIRM: the workshop ran as planned; a recap page or news post to link instead of the course page; real Coimbatore photos from Kavi.]",
+  },
   // --- end Nov-Dec C ---
 ];
