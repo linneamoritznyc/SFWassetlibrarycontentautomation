@@ -537,3 +537,54 @@ def spooky_wes_pptx(w, h, path, seed=7):
         r.font.size = Pt(size * 72 / 96)
         r.font.color.rgb = RGBColor(244, 238, 222)
     prs.save(path)
+
+
+# ---------------------------------------------------------------- one educational figure for the blog text
+FIGURE = [
+    ("vampyrella-A-advancing-cell", "Hunting", "An orange cell glides along, fine threads (pseudopodia) reaching out on every side."),
+    ("vampyrella-G-feeding-on-alga-brightfield", "Latching on", "It attaches to one cell in a strand of green algae."),
+    ("vampyrella-H-emptying-algal-cell", "Draining", "A feeding pseudopodium pushes through the cell wall and empties the cell."),
+    ("vampyrella-I-becoming-digestive-cyst", "Resting", "Full, it pulls its threads in and becomes a digestive cyst."),
+    ("vampyrella-N-digestive-cysts-dark-field", "Digesting", "Cysts of different ages sit among the algae, each one a meal being digested."),
+    ("vampyrella-F-plasmodium", "Growing", "Cells can fuse into a large plasmodium edged with hundreds of threads."),
+]
+FIG_CREDIT = ("Vampyrella lateritia. Photos: Hess, Sausen and Melkonian (2012), PLoS ONE 7: e31165, cropped and "
+              "arranged. CC BY 4.0")
+
+
+def figure(w=1800, seed=3):
+    from collage import font, cover, paper
+    cols, gap, m = 3, 36, 70
+    pw = (w - 2 * m - (cols - 1) * gap) // cols
+    ph = round(pw * .78)
+    cap_h = 210
+    top = 190
+    h = top + 2 * (ph + cap_h) + gap + 120
+    im = paper("#F4F1EA", seed, w=w, h=h, grain=4).convert("RGBA")
+    d = ImageDraw.Draw(im)
+    d.text((m, 62), "The life of a vampire amoeba", font=font("fredoka", False, 64), fill=(79, 52, 51, 255))
+    for i, (name, head, cap) in enumerate(FIGURE):
+        x = m + (i % cols) * (pw + gap)
+        y = top + (i // cols) * (ph + cap_h + gap)
+        photo = cover(f"{VB}/{name}.jpg", pw, ph).convert("RGBA")
+        mask = Image.new("L", (pw, ph), 0)
+        ImageDraw.Draw(mask).rounded_rectangle((0, 0, pw - 1, ph - 1), radius=14, fill=255)
+        im.paste(photo, (x, y), mask)
+        d.rounded_rectangle((x, y, x + pw - 1, y + ph - 1), radius=14, outline=(52, 40, 38, 255), width=2)
+        # number badge
+        d.ellipse((x + 16, y + 16, x + 72, y + 72), fill=(34, 55, 31, 255))
+        n = str(i + 1)
+        fn = font("fredoka", False, 36)
+        d.text((x + 44 - fn.getlength(n) / 2, y + 22), n, font=fn, fill=(244, 241, 234, 255))
+        d.text((x, y + ph + 18), head, font=font("fredoka", False, 40), fill=(79, 52, 51, 255))
+        fb = font("mont", False, 27)
+        words, line, yy = cap.split(), "", y + ph + 72
+        for wd in words:
+            t = (line + " " + wd).strip()
+            if fb.getlength(t) > pw:
+                d.text((x, yy), line, font=fb, fill=(92, 70, 54, 255)); yy += 38; line = wd
+            else:
+                line = t
+        d.text((x, yy), line, font=fb, fill=(92, 70, 54, 255))
+    d.text((m, h - 80), FIG_CREDIT, font=font("mont", False, 24), fill=(92, 70, 54, 255))
+    return im.convert("RGB")
