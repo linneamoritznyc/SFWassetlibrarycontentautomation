@@ -553,16 +553,23 @@ FIG_CREDIT = ("Vampyrella lateritia. Photos: Hess, Sausen and Melkonian (2012), 
 
 
 def figure(w=1800, seed=3):
-    from collage import font, cover, paper
+    """Brand type only: Montserrat headline, Pathway Gothic One labels, Source Sans 3 body (docs/brand.md)."""
+    from PIL import ImageFont
+    from collage import cover, paper
+    F = "/home/user/fonts/"
+    mont = lambda sz: ImageFont.truetype(F + "Montserrat-Bold.ttf", sz)
+    path = lambda sz: ImageFont.truetype(F + "PathwayGothicOne-Regular.ttf", sz)
+    sans = lambda sz: ImageFont.truetype(F + "SourceSans3-Regular.ttf", sz)
+    BROWN, GREEN = (79, 52, 51, 255), (21, 104, 38, 255)
     cols, gap, m = 3, 36, 70
     pw = (w - 2 * m - (cols - 1) * gap) // cols
     ph = round(pw * .78)
-    cap_h = 210
+    cap_h = 200
     top = 190
     h = top + 2 * (ph + cap_h) + gap + 120
     im = paper("#F4F1EA", seed, w=w, h=h, grain=4).convert("RGBA")
     d = ImageDraw.Draw(im)
-    d.text((m, 62), "The life of a vampire amoeba", font=font("fredoka", False, 64), fill=(79, 52, 51, 255))
+    d.text((m, 66), "The life of a vampire amoeba", font=mont(60), fill=BROWN)
     for i, (name, head, cap) in enumerate(FIGURE):
         x = m + (i % cols) * (pw + gap)
         y = top + (i // cols) * (ph + cap_h + gap)
@@ -571,20 +578,19 @@ def figure(w=1800, seed=3):
         ImageDraw.Draw(mask).rounded_rectangle((0, 0, pw - 1, ph - 1), radius=14, fill=255)
         im.paste(photo, (x, y), mask)
         d.rounded_rectangle((x, y, x + pw - 1, y + ph - 1), radius=14, outline=(52, 40, 38, 255), width=2)
-        # number badge
-        d.ellipse((x + 16, y + 16, x + 72, y + 72), fill=(34, 55, 31, 255))
+        d.ellipse((x + 16, y + 16, x + 72, y + 72), fill=GREEN)
         n = str(i + 1)
-        fn = font("fredoka", False, 36)
-        d.text((x + 44 - fn.getlength(n) / 2, y + 22), n, font=fn, fill=(244, 241, 234, 255))
-        d.text((x, y + ph + 18), head, font=font("fredoka", False, 40), fill=(79, 52, 51, 255))
-        fb = font("mont", False, 27)
-        words, line, yy = cap.split(), "", y + ph + 72
+        fn = mont(32)
+        d.text((x + 44 - fn.getlength(n) / 2, y + 24), n, font=fn, fill=(244, 241, 234, 255))
+        d.text((x, y + ph + 16), head.upper(), font=path(50), fill=GREEN)
+        fb = sans(31)
+        words, line, yy = cap.split(), "", y + ph + 78
         for wd in words:
             t = (line + " " + wd).strip()
             if fb.getlength(t) > pw:
-                d.text((x, yy), line, font=fb, fill=(92, 70, 54, 255)); yy += 38; line = wd
+                d.text((x, yy), line, font=fb, fill=BROWN); yy += 40; line = wd
             else:
                 line = t
-        d.text((x, yy), line, font=fb, fill=(92, 70, 54, 255))
-    d.text((m, h - 80), FIG_CREDIT, font=font("mont", False, 24), fill=(92, 70, 54, 255))
+        d.text((x, yy), line, font=fb, fill=BROWN)
+    d.text((m, h - 80), FIG_CREDIT, font=sans(26), fill=BROWN)
     return im.convert("RGB")
