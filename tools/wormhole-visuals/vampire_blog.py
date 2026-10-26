@@ -179,7 +179,7 @@ def halloween_bg(w, h, seed=7, moon_at=(.8, .22), moon_d=.34, tree_side="left"):
         im.alpha_composite(c, (round(mx + dx * md - c.width / 2), round(my + dy * md - c.height / 2)))
     # bats crossing the moon
     for i in range(4):
-        b = bat(round(h * rnd.uniform(.08, .13)), flap=rnd.uniform(0, 1))
+        b = bat(round(min(w, h) * rnd.uniform(.06, .1)), flap=rnd.uniform(0, 1))
         b = b.rotate(rnd.uniform(-20, 20), expand=True, resample=Image.BICUBIC)
         bx = mx + rnd.uniform(-1.4, 0.6) * md
         by = my + rnd.uniform(-0.8, 0.5) * md
@@ -334,6 +334,17 @@ LAYOUTS = {
     (1400, 1400): dict(moon=(.80, .13, .16), a=(.62, .48, .44), hh=(.83, .66, .25), title=(.17, .70, .10)),
     (1024, 768): dict(moon=(.42, .17, .21), a=(.72, .50, .56), hh=(.88, .72, .30), title=(.18, .60, .13)),
     (1200, 800): dict(moon=(.42, .17, .21), a=(.72, .50, .56), hh=(.88, .72, .30), title=(.18, .60, .13)),
+    # photo boxes of the website's blog-card builder (twice the shown size); the card covers no part of these
+    (3840, 1440): dict(moon=(.50, .22, .26), a=(.762, .45, .74), hh=(.906, .71, .42), title=None),
+    (2800, 1726): dict(moon=(.82, .16, .17), a=(.55, .53, .70), hh=(.78, .68, .40), title=None),
+    (1500, 1322): dict(moon=(.82, .13, .15), a=(.52, .56, .60), hh=(.79, .70, .34), title=None),
+    (2048, 888): dict(moon=(.42, .21, .25), a=(.68, .53, .80), hh=(.86, .68, .46), title=None),
+    (2400, 912): dict(moon=(.42, .21, .25), a=(.68, .53, .80), hh=(.86, .68, .46), title=None),
+    # the same boxes once the card carries a second line (Wes's wording)
+    (2800, 1454): dict(moon=(.84, .17, .20), a=(.56, .52, .76), hh=(.78, .69, .44), title=None),
+    (1500, 1024): dict(moon=(.83, .15, .18), a=(.52, .54, .72), hh=(.79, .70, .42), title=None),
+    (2048, 784): dict(moon=(.42, .22, .27), a=(.68, .52, .84), hh=(.86, .68, .48), title=None),
+    (2400, 804): dict(moon=(.42, .22, .27), a=(.68, .52, .84), hh=(.86, .68, .48), title=None),
 }
 
 
@@ -375,3 +386,154 @@ def intext_night(name, w=1600, h=1067, seed=11):
     l = lens(f"{VB}/{name}.jpg", round(h * .84))
     bg.alpha_composite(l, (round(w * .52 - l.width / 2), round(h * .5 - l.height / 2)))
     return bg.convert("RGB")
+
+
+def spooky_pptx(w, h, path, seed=7):
+    """The agreed design as an editable PowerPoint: night scene, bats, each lens and the title on their own layers."""
+    import io
+    from pptx import Presentation
+    from pptx.dml.color import RGBColor
+    from pptx.util import Emu, Pt
+    from collage import font
+    L = LAYOUTS[(w, h)]
+    rnd = random.Random(seed + 1)
+    mx, my, md = L["moon"]
+    bg = halloween_bg(w, h, seed, moon_at=(mx, my), moon_d=md)
+    wash = Image.new("L", (w, h), 0)
+    cx, cy, r = mx * w, my * h, md * h * .52
+    ImageDraw.Draw(wash).ellipse((cx - r, cy - r, cx + r, cy + r), fill=90)
+    wash = wash.filter(ImageFilter.GaussianBlur(md * h * .08))
+    ow = Image.new("RGBA", (w, h), (232, 120, 40, 0)); ow.putalpha(wash)
+    bg.alpha_composite(ow)
+    bats = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+    for i in range(6):
+        b = bat(round(min(w, h) * rnd.uniform(.035, .065)), flap=rnd.uniform(0, 1)).rotate(rnd.uniform(-25, 25), expand=True)
+        bats.alpha_composite(b, (round(cx + rnd.uniform(-1.6, 1.4) * md * h), round(cy + rnd.uniform(-.9, .7) * md * h)))
+    layers = [("Night sky, moon, tree and mist", bg.convert("RGB"), 0, 0), ("Bats", bats, 0, 0)]
+    for name, (src, (x, y, d)) in (("Lens: vampire amoeba", (A, L["a"])), ("Lens: draining an algal cell", (H_, L["hh"]))):
+        l = lens(src, round(d * h))
+        layers.append((name, l, round(x * w - l.width / 2), round(y * h - l.height / 2)))
+    EMU = 914400 / 96
+    prs = Presentation()
+    prs.slide_width, prs.slide_height = Emu(round(w * EMU)), Emu(round(h * EMU))
+    sl = prs.slides.add_slide(prs.slide_layouts[6])
+    for name, im, x, y in layers:
+        buf = io.BytesIO()
+        (im.save(buf, "JPEG", quality=92) if im.mode == "RGB" else im.save(buf, "PNG"))
+        buf.seek(0)
+        pic = sl.shapes.add_picture(buf, Emu(round(x * EMU)), Emu(round(y * EMU)), Emu(round(im.width * EMU)),
+                                    Emu(round(im.height * EMU)))
+        pic.name = name
+    tx, ty, ts = L["title"]
+    size = h * ts
+    for i, word in enumerate(("Vampire", "amoeba")):
+        f = font("garamond", True, round(size))
+        tw = f.getlength(word) + size * .3
+        tb = sl.shapes.add_textbox(Emu(round((w * tx + i * size * .4) * EMU)), Emu(round((h * ty + i * size - size * .12) * EMU)),
+                                   Emu(round(tw * EMU)), Emu(round(size * 1.25 * EMU)))
+        tb.name = f"Title: {word}"
+        tf = tb.text_frame
+        tf.margin_left = tf.margin_right = tf.margin_top = tf.margin_bottom = 0
+        tf.word_wrap = False
+        run = tf.paragraphs[0].add_run()
+        run.text = word
+        run.font.name = "EB Garamond"
+        run.font.italic = True
+        run.font.size = Pt(size * 72 / 96)
+        run.font.color.rgb = RGBColor(244, 238, 222)
+    prs.save(path)
+
+
+# ---------------------------------------------------------------- Wes's wording for the blog headers
+WES_HEAD = "Frightening and Fascinating"
+WES_DECK = "Behold a true horror of the microcosmos: the vampire amoeba"
+# text box per size: left x, top y, max width (fractions of w / h), headline size (fraction of h)
+TEXTBOX = {
+    (1920, 720): (.13, .40, .48, .12),
+    (1080, 1350): (.08, .70, .84, .072),
+    (750, 1000): (.08, .70, .84, .072),
+    (1400, 1400): (.08, .70, .84, .078),
+    (1024, 768): (.08, .58, .52, .10),
+    (1200, 800): (.08, .58, .52, .10),
+}
+
+
+def _wrap(text, f, width):
+    words, lines, cur = text.split(), [], ""
+    for wd in words:
+        t = (cur + " " + wd).strip()
+        if f.getlength(t) <= width or not cur:
+            cur = t
+        else:
+            lines.append(cur); cur = wd
+    return lines + [cur]
+
+
+def text_plan(w, h, head=WES_HEAD, deck=WES_DECK):
+    """Fit the headline and the line under it into the size's text box: [(text, font kind, italic, size, x, y)]."""
+    from collage import font
+    bx, by, bw, hs = TEXTBOX[(w, h)]
+    x, y, width = bx * w, by * h, bw * w
+    size = round(hs * h)
+    while True:
+        fh = font("garamond", True, size)
+        hl = _wrap(head, fh, width)
+        ds = round(size * .42)
+        fd = font("garamond", False, ds)
+        dl = _wrap(deck, fd, width)
+        total = len(hl) * size * 1.05 + ds * .5 + len(dl) * ds * 1.3
+        if (len(hl) <= 2 and y + total <= h * .97) or size < 20:
+            break
+        size -= 2
+    plan, yy = [], y
+    for ln in hl:
+        plan.append((ln, "garamond", True, size, x, yy)); yy += size * 1.05
+    yy += ds * .5
+    for ln in dl:
+        plan.append((ln, "garamond", False, ds, x, yy)); yy += ds * 1.3
+    return plan
+
+
+def spooky_wes(w, h, seed=7):
+    from collage import font
+    im = spooky(w, h, seed, title=False).convert("RGBA")
+    layer = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+    td = ImageDraw.Draw(layer)
+    for text, kind, italic, size, x, y in text_plan(w, h):
+        td.text((x, y), text, font=font(kind, italic, size), fill=(244, 238, 222, 255))
+    sh = layer.getchannel("A").filter(ImageFilter.GaussianBlur(max(2, h * .006)))
+    shade = Image.new("RGBA", (w, h), (0, 0, 0, 0)); shade.putalpha(sh.point(lambda v: int(v * .85)))
+    im.alpha_composite(shade, (3, 4))
+    im.alpha_composite(layer)
+    return im.convert("RGB")
+
+
+def spooky_wes_pptx(w, h, path, seed=7):
+    """Same picture as spooky_wes, with every line of text as a live EB Garamond text box."""
+    import io
+    from pptx import Presentation
+    from pptx.dml.color import RGBColor
+    from pptx.util import Emu, Pt
+    from collage import font
+    EMU = 914400 / 96
+    prs = Presentation()
+    prs.slide_width, prs.slide_height = Emu(round(w * EMU)), Emu(round(h * EMU))
+    sl = prs.slides.add_slide(prs.slide_layouts[6])
+    pic = spooky(w, h, seed, title=False)
+    buf = io.BytesIO(); pic.save(buf, "JPEG", quality=92); buf.seek(0)
+    sl.shapes.add_picture(buf, 0, 0, prs.slide_width, prs.slide_height).name = "Night scene with the amoeba lenses"
+    for i, (text, kind, italic, size, x, y) in enumerate(text_plan(w, h)):
+        tw = font(kind, italic, size).getlength(text) + size * .4
+        tb = sl.shapes.add_textbox(Emu(round(x * EMU)), Emu(round((y - size * .12) * EMU)), Emu(round(tw * EMU)),
+                                   Emu(round(size * 1.3 * EMU)))
+        tb.name = ("Headline " if italic else "Line under it ") + str(i + 1)
+        tf = tb.text_frame
+        tf.margin_left = tf.margin_right = tf.margin_top = tf.margin_bottom = 0
+        tf.word_wrap = False
+        r = tf.paragraphs[0].add_run()
+        r.text = text
+        r.font.name = "EB Garamond"
+        r.font.italic = italic
+        r.font.size = Pt(size * 72 / 96)
+        r.font.color.rgb = RGBColor(244, 238, 222)
+    prs.save(path)
