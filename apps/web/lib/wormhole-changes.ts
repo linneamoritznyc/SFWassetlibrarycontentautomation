@@ -10,8 +10,10 @@
 import { db } from './db';
 import { savePost } from './wormhole';
 import type { WormholePost } from './wormhole-types';
+import { GAP_CHANGES } from './wormhole-changes-gaps';
+import { JAN_CHANGES } from './wormhole-changes-jan';
 
-type Change = {
+export type Change = {
   key: string;
   post: string;
   set?: Partial<
@@ -21,6 +23,10 @@ type Change = {
   create?: Omit<WormholePost, 'id' | 'updated_by' | 'updated_at' | 'pinned'>;
   /** Plain text replacements in the caption: [from, to]. */
   caption?: [string, string][];
+  /** Replace the whole caption. */
+  captionText?: string;
+  /** Delete the post (its versions go with it). */
+  remove?: true;
   reason: string;
 };
 
@@ -4704,25 +4710,28 @@ export const CHANGES: Change[] = [
     create: {
       iso_date: '2026-11-03',
       date_tbd: false,
-      topic: "Website: a tour of our new website",
-      platform: "Instagram, Facebook, LinkedIn",
-      caption: "We rebuilt our website from the ground up, and it's finally here. \ud83c\udf31\n\nEverything now lives in one place: every course and where to start, every workshop and event, past and coming, the consultant directory, and four decades of Dr. Elaine Ingham's research, linked paper by paper.\n\nTake a look around and tell us what you find. Link in bio.\n\n#SoilFoodWeb #NewWebsite #SoilHealth #LearnSoil",
+      topic: 'Website: a tour of our new website',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        "We rebuilt our website from the ground up, and it's finally here. \ud83c\udf31\n\nEverything now lives in one place: every course and where to start, every workshop and event, past and coming, the consultant directory, and four decades of Dr. Elaine Ingham's research, linked paper by paper.\n\nTake a look around and tell us what you find. Link in bio.\n\n#SoilFoodWeb #NewWebsite #SoilHealth #LearnSoil",
       slides: [
-        { text: "Our new website is here.", image: null },
-        { text: "Learn: every course, and where to start.", image: null },
-        { text: "Workshops and events, past and coming.", image: null },
-        { text: "Find a consultant near you.", image: null },
+        { text: 'Our new website is here.', image: null },
+        { text: 'Learn: every course, and where to start.', image: null },
+        { text: 'Workshops and events, past and coming.', image: null },
+        { text: 'Find a consultant near you.', image: null },
         { text: "Dr. Elaine's research, all in one place.", image: null },
-        { text: "Take the tour, link in bio.", image: null },
+        { text: 'Take the tour, link in bio.', image: null },
       ],
-      cta: "Explore, link in bio",
-      link: "https://soilfoodweb.com [VERIFY URL]",
+      cta: 'Explore, link in bio',
+      link: 'https://soilfoodweb.com [VERIFY URL]',
       sources: [],
-      visual_note: "No visual yet. Carousel, 6 slides. Real screenshots of each section of the new site, framed on flat brand colours.",
-      note: "Website series. Post once the new site is live at the main address; confirm with Alex.",
+      visual_note:
+        'No visual yet. Carousel, 6 slides. Real screenshots of each section of the new site, framed on flat brand colours.',
+      note: 'Website series. Post once the new site is live at the main address; confirm with Alex.',
       status: 'draft',
     },
-    reason: "New post (Linnea, 24 Oct): more posts about the new website and the coming annual report.",
+    reason:
+      'New post (Linnea, 24 Oct): more posts about the new website and the coming annual report.',
   },
   {
     key: '2026-10-24 new w20261106',
@@ -4730,23 +4739,26 @@ export const CHANGES: Change[] = [
     create: {
       iso_date: '2026-11-06',
       date_tbd: false,
-      topic: "Website: projects from the field",
-      platform: "Instagram, Facebook, LinkedIn",
-      caption: "Our new Projects pages are where the science meets the field. \ud83c\udf3e\n\nEach one follows a real farm, vineyard or restoration site: what the soil looked like at the start, what they changed, and what happened next, with the photos and numbers to show it.\n\nRead them through the link in bio.\n\n#SoilFoodWeb #CaseStudy #RegenerativeAgriculture #SoilHealth",
+      topic: 'Website: projects from the field',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        'Our new Projects pages are where the science meets the field. \ud83c\udf3e\n\nEach one follows a real farm, vineyard or restoration site: what the soil looked like at the start, what they changed, and what happened next, with the photos and numbers to show it.\n\nRead them through the link in bio.\n\n#SoilFoodWeb #CaseStudy #RegenerativeAgriculture #SoilHealth',
       slides: [
-        { text: "What does living soil look like on a real farm?", image: null },
-        { text: "Our new Projects pages show you.", image: null },
-        { text: "Farms, vineyards and restoration sites.", image: null },
-        { text: "What they changed, and what happened.", image: null },
+        { text: 'What does living soil look like on a real farm?', image: null },
+        { text: 'Our new Projects pages show you.', image: null },
+        { text: 'Farms, vineyards and restoration sites.', image: null },
+        { text: 'What they changed, and what happened.', image: null },
       ],
-      cta: "Read them, link in bio",
-      link: "https://soilfoodweb.com [VERIFY URL]",
+      cta: 'Read them, link in bio',
+      link: 'https://soilfoodweb.com [VERIFY URL]',
       sources: [],
-      visual_note: "No visual yet. Carousel, 4 slides. Before and after photos from one project page.",
-      note: "Website series. Confirm the Projects section is live and which project to feature.",
+      visual_note:
+        'No visual yet. Carousel, 4 slides. Before and after photos from one project page.',
+      note: 'Website series. Confirm the Projects section is live and which project to feature.',
       status: 'draft',
     },
-    reason: "New post (Linnea, 24 Oct): more posts about the new website and the coming annual report.",
+    reason:
+      'New post (Linnea, 24 Oct): more posts about the new website and the coming annual report.',
   },
   {
     key: '2026-10-24 new ar20261123',
@@ -4754,22 +4766,25 @@ export const CHANGES: Change[] = [
     create: {
       iso_date: '2026-11-23',
       date_tbd: false,
-      topic: "Annual report: coming soon",
-      platform: "Instagram, Facebook, LinkedIn",
-      caption: "One year in, we're putting it all on paper. \ud83d\udcd6\n\nOur first annual report is almost ready: the students who learned with us, the workshops on four continents, the scholarships you funded, and where the money went.\n\nWatch this space.\n\n#AnnualReport #SoilFoodWeb #Nonprofit #Transparency",
+      topic: 'Annual report: coming soon',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        "One year in, we're putting it all on paper. \ud83d\udcd6\n\nOur first annual report is almost ready: the students who learned with us, the workshops on four continents, the scholarships you funded, and where the money went.\n\nWatch this space.\n\n#AnnualReport #SoilFoodWeb #Nonprofit #Transparency",
       slides: [
-        { text: "Our first annual report is almost here.", image: null },
-        { text: "A year of courses, workshops and scholarships.", image: null },
-        { text: "Coming soon.", image: null },
+        { text: 'Our first annual report is almost here.', image: null },
+        { text: 'A year of courses, workshops and scholarships.', image: null },
+        { text: 'Coming soon.', image: null },
       ],
-      cta: "",
-      link: "",
+      cta: '',
+      link: '',
       sources: [],
-      visual_note: "No visual yet. Single image. Type on a flat brand colour, or a first look at the report cover.",
-      note: "Annual report series. Confirm the release date with Stephanie or Evan and adjust both posts; the four continents line needs checking against the report.",
+      visual_note:
+        'No visual yet. Single image. Type on a flat brand colour, or a first look at the report cover.',
+      note: 'Annual report series. Confirm the release date with Stephanie or Evan and adjust both posts; the four continents line needs checking against the report.',
       status: 'draft',
     },
-    reason: "New post (Linnea, 24 Oct): more posts about the new website and the coming annual report.",
+    reason:
+      'New post (Linnea, 24 Oct): more posts about the new website and the coming annual report.',
   },
   {
     key: '2026-10-24 new w20261206',
@@ -4777,23 +4792,26 @@ export const CHANGES: Change[] = [
     create: {
       iso_date: '2026-12-06',
       date_tbd: false,
-      topic: "Website: find your course in three questions",
-      platform: "Instagram, Facebook, LinkedIn",
-      caption: "Gardener, farmer, or future consultant: there's a path through our courses built for you. \ud83e\udded\n\nOur new website starts with one question, what brings you to the soil food web, and shows you which courses to take and in what order.\n\nFind your path through the link in bio.\n\n#SoilFoodWeb #LearnSoil #OnlineCourses #SoilHealth",
+      topic: 'Website: find your course in three questions',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        "Gardener, farmer, or future consultant: there's a path through our courses built for you. \ud83e\udded\n\nOur new website starts with one question, what brings you to the soil food web, and shows you which courses to take and in what order.\n\nFind your path through the link in bio.\n\n#SoilFoodWeb #LearnSoil #OnlineCourses #SoilHealth",
       slides: [
-        { text: "Not sure where to start?", image: null },
-        { text: "What brings you to the soil food web?", image: null },
+        { text: 'Not sure where to start?', image: null },
+        { text: 'What brings you to the soil food web?', image: null },
         { text: "Gardener, farmer or future consultant: there's a path for you.", image: null },
-        { text: "Find yours, link in bio.", image: null },
+        { text: 'Find yours, link in bio.', image: null },
       ],
-      cta: "Find your path, link in bio",
-      link: "https://soilfoodweb.com [VERIFY URL]",
+      cta: 'Find your path, link in bio',
+      link: 'https://soilfoodweb.com [VERIFY URL]',
       sources: [],
-      visual_note: "No visual yet. Carousel, 4 slides. The learning path cards from the website (Drive: \"What brings you to the soil food web?\" card images).",
-      note: "Website series.",
+      visual_note:
+        'No visual yet. Carousel, 4 slides. The learning path cards from the website (Drive: "What brings you to the soil food web?" card images).',
+      note: 'Website series.',
       status: 'draft',
     },
-    reason: "New post (Linnea, 24 Oct): more posts about the new website and the coming annual report.",
+    reason:
+      'New post (Linnea, 24 Oct): more posts about the new website and the coming annual report.',
   },
   {
     key: '2026-10-24 new ar20261208',
@@ -4801,25 +4819,28 @@ export const CHANGES: Change[] = [
     create: {
       iso_date: '2026-12-08',
       date_tbd: false,
-      topic: "Annual report: our year in numbers",
-      platform: "Instagram, Facebook, LinkedIn",
-      caption: "Our first annual report is out. \ud83d\udcd6\n\n[Three to five numbers from the report: students, countries, scholarships awarded, workshops, consultants certified.]\n\nThank you to every student, mentor, partner and donor who made this year happen. Read the full report through the link in bio.\n\n#AnnualReport #SoilFoodWeb #Nonprofit #YearInReview",
+      topic: 'Annual report: our year in numbers',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        'Our first annual report is out. \ud83d\udcd6\n\n[Three to five numbers from the report: students, countries, scholarships awarded, workshops, consultants certified.]\n\nThank you to every student, mentor, partner and donor who made this year happen. Read the full report through the link in bio.\n\n#AnnualReport #SoilFoodWeb #Nonprofit #YearInReview',
       slides: [
-        { text: "Our year in numbers.", image: null },
-        { text: "[students]", image: null },
-        { text: "[countries]", image: null },
-        { text: "[scholarships]", image: null },
-        { text: "[workshops]", image: null },
-        { text: "Read the full report, link in bio.", image: null },
+        { text: 'Our year in numbers.', image: null },
+        { text: '[students]', image: null },
+        { text: '[countries]', image: null },
+        { text: '[scholarships]', image: null },
+        { text: '[workshops]', image: null },
+        { text: 'Read the full report, link in bio.', image: null },
       ],
-      cta: "Read the report, link in bio",
-      link: "[annual report link]",
+      cta: 'Read the report, link in bio',
+      link: '[annual report link]',
       sources: [],
-      visual_note: "No visual yet. Carousel, 6 slides. One big number per slide in EB Garamond, with a real photo behind or beside it.",
-      note: "Annual report series. Fill the numbers from the final report; date moves with the release.",
+      visual_note:
+        'No visual yet. Carousel, 6 slides. One big number per slide in EB Garamond, with a real photo behind or beside it.',
+      note: 'Annual report series. Fill the numbers from the final report; date moves with the release.',
       status: 'draft',
     },
-    reason: "New post (Linnea, 24 Oct): more posts about the new website and the coming annual report.",
+    reason:
+      'New post (Linnea, 24 Oct): more posts about the new website and the coming annual report.',
   },
   {
     key: '2026-10-24 new ar20261208li',
@@ -4827,20 +4848,20 @@ export const CHANGES: Change[] = [
     create: {
       iso_date: '2026-12-08',
       date_tbd: false,
-      topic: "Annual report: LinkedIn release",
-      platform: "LinkedIn",
-      caption: "Today we're publishing the Soil Food Web Foundation's first annual report.\n\n[Two or three lines on the year: reach, programs, finances.]\n\nWe wrote it for our students, partners and donors, and for anyone who wants to see how a soil biology nonprofit spends its year. Read it here: [annual report link]\n\n#AnnualReport #Nonprofit #SoilHealth #SoilFoodWeb",
-      slides: [
-        { text: "Our first annual report.", image: null },
-      ],
-      cta: "",
-      link: "[annual report link]",
+      topic: 'Annual report: LinkedIn release',
+      platform: 'LinkedIn',
+      caption:
+        "Today we're publishing the Soil Food Web Foundation's first annual report.\n\n[Two or three lines on the year: reach, programs, finances.]\n\nWe wrote it for our students, partners and donors, and for anyone who wants to see how a soil biology nonprofit spends its year. Read it here: [annual report link]\n\n#AnnualReport #Nonprofit #SoilHealth #SoilFoodWeb",
+      slides: [{ text: 'Our first annual report.', image: null }],
+      cta: '',
+      link: '[annual report link]',
       sources: [],
-      visual_note: "No visual yet. LinkedIn single image, 1200 x 627. The report cover.",
-      note: "Annual report series.",
+      visual_note: 'No visual yet. LinkedIn single image, 1200 x 627. The report cover.',
+      note: 'Annual report series.',
       status: 'draft',
     },
-    reason: "New post (Linnea, 24 Oct): more posts about the new website and the coming annual report.",
+    reason:
+      'New post (Linnea, 24 Oct): more posts about the new website and the coming annual report.',
   },
   {
     key: '2026-10-24 new w20261209',
@@ -4848,23 +4869,25 @@ export const CHANGES: Change[] = [
     create: {
       iso_date: '2026-12-09',
       date_tbd: false,
-      topic: "Website: how the soil food web works",
-      platform: "Instagram, Facebook, LinkedIn",
-      caption: "If someone asks you what the soil food web is, send them this page. \ud83d\udd01\n\nThe new How it works page on our website explains it in a single scroll: plants feeding microbes through their roots, the predators that release nutrients, and the structure they build together that holds water and carbon.\n\nLink in bio.\n\n#SoilFoodWeb #SoilBiology #HowItWorks #SoilHealth",
+      topic: 'Website: how the soil food web works',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        'If someone asks you what the soil food web is, send them this page. \ud83d\udd01\n\nThe new How it works page on our website explains it in a single scroll: plants feeding microbes through their roots, the predators that release nutrients, and the structure they build together that holds water and carbon.\n\nLink in bio.\n\n#SoilFoodWeb #SoilBiology #HowItWorks #SoilHealth',
       slides: [
-        { text: "How does the soil food web work?", image: null },
-        { text: "Our new How it works page explains it in one scroll.", image: null },
-        { text: "From root to microbe to nutrient and back.", image: null },
-        { text: "Read it, link in bio.", image: null },
+        { text: 'How does the soil food web work?', image: null },
+        { text: 'Our new How it works page explains it in one scroll.', image: null },
+        { text: 'From root to microbe to nutrient and back.', image: null },
+        { text: 'Read it, link in bio.', image: null },
       ],
-      cta: "Read it, link in bio",
-      link: "https://soilfoodweb.com [VERIFY URL]",
+      cta: 'Read it, link in bio',
+      link: 'https://soilfoodweb.com [VERIFY URL]',
       sources: [],
-      visual_note: "No visual yet. Carousel, 4 slides. Screenshots of the How it works page.",
-      note: "Website series.",
+      visual_note: 'No visual yet. Carousel, 4 slides. Screenshots of the How it works page.',
+      note: 'Website series.',
       status: 'draft',
     },
-    reason: "New post (Linnea, 24 Oct): more posts about the new website and the coming annual report.",
+    reason:
+      'New post (Linnea, 24 Oct): more posts about the new website and the coming annual report.',
   },
   {
     key: '2026-10-24 new w20261211',
@@ -4872,1127 +4895,1576 @@ export const CHANGES: Change[] = [
     create: {
       iso_date: '2026-12-11',
       date_tbd: false,
-      topic: "Website: a research library for professionals",
-      platform: "LinkedIn",
-      caption: "For agronomists, researchers and consultants: our new website brings Dr. Elaine Ingham's published work into one library, with 77 journal papers, 6 book chapters and 10 EPA and technical reports, each linked to where you can read it.\n\nIt's the evidence base behind everything we teach, and it's open to everyone.\n\n#SoilScience #Research #DrElaineIngham #Agronomy #SoilFoodWeb",
-      slides: [
-        { text: "Four decades of soil biology research, searchable.", image: null },
-      ],
-      cta: "",
-      link: "https://soilfoodweb.com [publications URL]",
+      topic: 'Website: a research library for professionals',
+      platform: 'LinkedIn',
+      caption:
+        "For agronomists, researchers and consultants: our new website brings Dr. Elaine Ingham's published work into one library, with 77 journal papers, 6 book chapters and 10 EPA and technical reports, each linked to where you can read it.\n\nIt's the evidence base behind everything we teach, and it's open to everyone.\n\n#SoilScience #Research #DrElaineIngham #Agronomy #SoilFoodWeb",
+      slides: [{ text: 'Four decades of soil biology research, searchable.', image: null }],
+      cta: '',
+      link: 'https://soilfoodweb.com [publications URL]',
       sources: [],
-      visual_note: "No visual yet. LinkedIn single image, 1200 x 627. Screenshot of the publications page on a flat brand colour.",
-      note: "Website series. LinkedIn version for professionals; Instagram has Mountain Day that day.",
+      visual_note:
+        'No visual yet. LinkedIn single image, 1200 x 627. Screenshot of the publications page on a flat brand colour.',
+      note: 'Website series. LinkedIn version for professionals; Instagram has Mountain Day that day.',
       status: 'draft',
     },
-    reason: "New post (Linnea, 24 Oct): more posts about the new website and the coming annual report.",
+    reason:
+      'New post (Linnea, 24 Oct): more posts about the new website and the coming annual report.',
   },
   {
     key: '2026-10-24 x20261108 visual v1',
     post: 'x20261108',
     set: {
       slides: [
-        { text: "Happy Diwali.", image: '/wormhole/tiles/x20261108-v1-1.jpg' },
-        { text: "Light, sweets and marigolds. Every one of them starts in living soil.", image: '/wormhole/tiles/x20261108-v1-2.jpg' },
+        { text: 'Happy Diwali.', image: '/wormhole/tiles/x20261108-v1-1.jpg' },
+        {
+          text: 'Light, sweets and marigolds. Every one of them starts in living soil.',
+          image: '/wormhole/tiles/x20261108-v1-2.jpg',
+        },
       ],
     },
-    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+    reason:
+      'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
   },
   {
     key: '2026-10-24 x20261109 visual v1',
     post: 'x20261109',
     set: {
       slides: [
-        { text: "COP31 opens today. Agriculture's own negotiating track runs out in 2026.", image: '/wormhole/tiles/x20261109-v1-1.jpg' },
+        {
+          text: "COP31 opens today. Agriculture's own negotiating track runs out in 2026.",
+          image: '/wormhole/tiles/x20261109-v1-1.jpg',
+        },
       ],
     },
-    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+    reason:
+      'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
   },
   {
     key: '2026-10-24 x20261128 visual v1',
     post: 'x20261128',
     set: {
       slides: [
-        { text: "Small Business Saturday.", image: '/wormhole/tiles/x20261128-v1-1.jpg' },
-        { text: "Shop local for your soil too.", image: '/wormhole/tiles/x20261128-v1-2.jpg' },
-        { text: "Certified Soil Food Web Consultants run their own businesses: labs, compost operations and on-farm advice.", image: '/wormhole/tiles/x20261128-v1-3.jpg' },
-        { text: "Find one near you.", image: '/wormhole/tiles/x20261128-v1-4.jpg' },
+        { text: 'Small Business Saturday.', image: '/wormhole/tiles/x20261128-v1-1.jpg' },
+        { text: 'Shop local for your soil too.', image: '/wormhole/tiles/x20261128-v1-2.jpg' },
+        {
+          text: 'Certified Soil Food Web Consultants run their own businesses: labs, compost operations and on-farm advice.',
+          image: '/wormhole/tiles/x20261128-v1-3.jpg',
+        },
+        { text: 'Find one near you.', image: '/wormhole/tiles/x20261128-v1-4.jpg' },
       ],
     },
-    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+    reason:
+      'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
   },
   {
     key: '2026-10-24 x20261217 visual v1',
     post: 'x20261217',
     set: {
       slides: [
-        { text: "Nitrogen from thin air.", image: '/wormhole/tiles/x20261217-v1-1.jpg' },
-        { text: "Air is 78% nitrogen gas. Plants can't use it.", image: '/wormhole/tiles/x20261217-v1-2.jpg' },
-        { text: "Rhizobia bacteria in legume roots turn it into a form plants can.", image: '/wormhole/tiles/x20261217-v1-3.jpg' },
-        { text: "Biological fixation supplies 25 to 40% of the world's yearly reactive nitrogen.", image: '/wormhole/tiles/x20261217-v1-4.jpg' },
-        { text: "No bag required.", image: '/wormhole/tiles/x20261217-v1-5.jpg' },
+        { text: 'Nitrogen from thin air.', image: '/wormhole/tiles/x20261217-v1-1.jpg' },
+        {
+          text: "Air is 78% nitrogen gas. Plants can't use it.",
+          image: '/wormhole/tiles/x20261217-v1-2.jpg',
+        },
+        {
+          text: 'Rhizobia bacteria in legume roots turn it into a form plants can.',
+          image: '/wormhole/tiles/x20261217-v1-3.jpg',
+        },
+        {
+          text: "Biological fixation supplies 25 to 40% of the world's yearly reactive nitrogen.",
+          image: '/wormhole/tiles/x20261217-v1-4.jpg',
+        },
+        { text: 'No bag required.', image: '/wormhole/tiles/x20261217-v1-5.jpg' },
       ],
     },
-    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+    reason:
+      'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
   },
   {
     key: '2026-10-24 x20261201 visual v1',
     post: 'x20261201',
     set: {
       slides: [
-        { text: "Today is GivingTuesday.", image: '/wormhole/tiles/x20261201-v1-1.jpg' },
-        { text: "A scholarship puts a farmer, gardener or student in a course they couldn't otherwise take.", image: '/wormhole/tiles/x20261201-v1-2.jpg' },
-        { text: "They take it home to their own soil, and teach their neighbours.", image: '/wormhole/tiles/x20261201-v1-3.jpg' },
-        { text: "Give today, link in bio.", image: '/wormhole/tiles/x20261201-v1-4.jpg' },
+        { text: 'Today is GivingTuesday.', image: '/wormhole/tiles/x20261201-v1-1.jpg' },
+        {
+          text: "A scholarship puts a farmer, gardener or student in a course they couldn't otherwise take.",
+          image: '/wormhole/tiles/x20261201-v1-2.jpg',
+        },
+        {
+          text: 'They take it home to their own soil, and teach their neighbours.',
+          image: '/wormhole/tiles/x20261201-v1-3.jpg',
+        },
+        { text: 'Give today, link in bio.', image: '/wormhole/tiles/x20261201-v1-4.jpg' },
       ],
     },
-    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+    reason:
+      'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
   },
   {
     key: '2026-10-24 x20261202 visual v1',
     post: 'x20261202',
     set: {
       slides: [
-        { text: "From shovel to slide.", image: '/wormhole/tiles/x20261202-v1-1.jpg' },
-        { text: "1. Take a small sample from the root zone.", image: '/wormhole/tiles/x20261202-v1-2.jpg' },
-        { text: "2. Mix it with water.", image: '/wormhole/tiles/x20261202-v1-3.jpg' },
-        { text: "3. Put one drop on a slide.", image: '/wormhole/tiles/x20261202-v1-4.jpg' },
-        { text: "4. Count what you see: bacteria, fungi, protozoa, nematodes.", image: '/wormhole/tiles/x20261202-v1-5.jpg' },
-        { text: "That count tells you what your soil needs.", image: '/wormhole/tiles/x20261202-v1-6.jpg' },
+        { text: 'From shovel to slide.', image: '/wormhole/tiles/x20261202-v1-1.jpg' },
+        {
+          text: '1. Take a small sample from the root zone.',
+          image: '/wormhole/tiles/x20261202-v1-2.jpg',
+        },
+        { text: '2. Mix it with water.', image: '/wormhole/tiles/x20261202-v1-3.jpg' },
+        { text: '3. Put one drop on a slide.', image: '/wormhole/tiles/x20261202-v1-4.jpg' },
+        {
+          text: '4. Count what you see: bacteria, fungi, protozoa, nematodes.',
+          image: '/wormhole/tiles/x20261202-v1-5.jpg',
+        },
+        {
+          text: 'That count tells you what your soil needs.',
+          image: '/wormhole/tiles/x20261202-v1-6.jpg',
+        },
       ],
     },
-    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+    reason:
+      'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
   },
   {
     key: '2026-10-24 x20261203 visual v1',
     post: 'x20261203',
     set: {
       slides: [
-        { text: "Six weeks to Costa Rica.", image: '/wormhole/tiles/x20261203-v1-1.jpg' },
-        { text: "18 to 29 January 2027.", image: '/wormhole/tiles/x20261203-v1-2.jpg' },
-        { text: "Compost piles in the morning, the microscope in the afternoon.", image: '/wormhole/tiles/x20261203-v1-3.jpg' },
-        { text: "Places are still open.", image: '/wormhole/tiles/x20261203-v1-4.jpg' },
+        { text: 'Six weeks to Costa Rica.', image: '/wormhole/tiles/x20261203-v1-1.jpg' },
+        { text: '18 to 29 January 2027.', image: '/wormhole/tiles/x20261203-v1-2.jpg' },
+        {
+          text: 'Compost piles in the morning, the microscope in the afternoon.',
+          image: '/wormhole/tiles/x20261203-v1-3.jpg',
+        },
+        { text: 'Places are still open.', image: '/wormhole/tiles/x20261203-v1-4.jpg' },
       ],
     },
-    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+    reason:
+      'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
   },
   {
     key: '2026-10-24 x20261204 visual v1',
     post: 'x20261204',
     set: {
       slides: [
-        { text: "Wildlife Conservation Day.", image: '/wormhole/tiles/x20261204-v1-1.jpg' },
-        { text: "Meet the wildlife under your feet.", image: '/wormhole/tiles/x20261204-v1-2.jpg' },
-        { text: "Bacteria.", image: '/wormhole/tiles/x20261204-v1-3.jpg' },
-        { text: "Fungi.", image: '/wormhole/tiles/x20261204-v1-4.jpg' },
-        { text: "Protozoa.", image: '/wormhole/tiles/x20261204-v1-5.jpg' },
-        { text: "Nematodes.", image: '/wormhole/tiles/x20261204-v1-6.jpg' },
-        { text: "Microarthropods.", image: '/wormhole/tiles/x20261204-v1-7.jpg' },
-        { text: "Protect their habitat: keep soil covered and roots growing.", image: '/wormhole/tiles/x20261204-v1-8.jpg' },
+        { text: 'Wildlife Conservation Day.', image: '/wormhole/tiles/x20261204-v1-1.jpg' },
+        { text: 'Meet the wildlife under your feet.', image: '/wormhole/tiles/x20261204-v1-2.jpg' },
+        { text: 'Bacteria.', image: '/wormhole/tiles/x20261204-v1-3.jpg' },
+        { text: 'Fungi.', image: '/wormhole/tiles/x20261204-v1-4.jpg' },
+        { text: 'Protozoa.', image: '/wormhole/tiles/x20261204-v1-5.jpg' },
+        { text: 'Nematodes.', image: '/wormhole/tiles/x20261204-v1-6.jpg' },
+        { text: 'Microarthropods.', image: '/wormhole/tiles/x20261204-v1-7.jpg' },
+        {
+          text: 'Protect their habitat: keep soil covered and roots growing.',
+          image: '/wormhole/tiles/x20261204-v1-8.jpg',
+        },
       ],
     },
-    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+    reason:
+      'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
   },
   {
     key: '2026-10-24 x20261208 visual v1',
     post: 'x20261208',
     set: {
       slides: [
-        { text: "Who eats whom in your soil?", image: '/wormhole/tiles/x20261208-v1-1.jpg' },
-        { text: "Plants feed bacteria and fungi through their roots.", image: '/wormhole/tiles/x20261208-v1-2.jpg' },
-        { text: "Protozoa and nematodes eat the bacteria and fungi.", image: '/wormhole/tiles/x20261208-v1-3.jpg' },
-        { text: "What they don't need comes out as nutrients plants can take up.", image: '/wormhole/tiles/x20261208-v1-4.jpg' },
-        { text: "Lose a link, and the plant goes hungry.", image: '/wormhole/tiles/x20261208-v1-5.jpg' },
+        { text: 'Who eats whom in your soil?', image: '/wormhole/tiles/x20261208-v1-1.jpg' },
+        {
+          text: 'Plants feed bacteria and fungi through their roots.',
+          image: '/wormhole/tiles/x20261208-v1-2.jpg',
+        },
+        {
+          text: 'Protozoa and nematodes eat the bacteria and fungi.',
+          image: '/wormhole/tiles/x20261208-v1-3.jpg',
+        },
+        {
+          text: "What they don't need comes out as nutrients plants can take up.",
+          image: '/wormhole/tiles/x20261208-v1-4.jpg',
+        },
+        {
+          text: 'Lose a link, and the plant goes hungry.',
+          image: '/wormhole/tiles/x20261208-v1-5.jpg',
+        },
       ],
     },
-    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+    reason:
+      'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
   },
   {
     key: '2026-10-24 x20261213 visual v1',
     post: 'x20261213',
     set: {
       slides: [
-        { text: "This amoeba lives in a house it built.", image: '/wormhole/tiles/x20261213-v1-1.jpg' },
-        { text: "Testate amoebae make a shell from their own secretions or from grains of mineral.", image: '/wormhole/tiles/x20261213-v1-2.jpg' },
-        { text: "They eat bacteria and release nutrients plants can use.", image: '/wormhole/tiles/x20261213-v1-3.jpg' },
-        { text: "Lots of them usually means a wetter, fungal-rich soil.", image: '/wormhole/tiles/x20261213-v1-4.jpg' },
+        {
+          text: 'This amoeba lives in a house it built.',
+          image: '/wormhole/tiles/x20261213-v1-1.jpg',
+        },
+        {
+          text: 'Testate amoebae make a shell from their own secretions or from grains of mineral.',
+          image: '/wormhole/tiles/x20261213-v1-2.jpg',
+        },
+        {
+          text: 'They eat bacteria and release nutrients plants can use.',
+          image: '/wormhole/tiles/x20261213-v1-3.jpg',
+        },
+        {
+          text: 'Lots of them usually means a wetter, fungal-rich soil.',
+          image: '/wormhole/tiles/x20261213-v1-4.jpg',
+        },
       ],
     },
-    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+    reason:
+      'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
   },
   {
     key: '2026-10-24 x20261215 visual v1',
     post: 'x20261215',
     set: {
       slides: [
-        { text: "What does one scholarship become?", image: '/wormhole/tiles/x20261215-v1-1.jpg' },
-        { text: "One course.", image: '/wormhole/tiles/x20261215-v1-2.jpg' },
-        { text: "One farm that changes how it builds soil.", image: '/wormhole/tiles/x20261215-v1-3.jpg' },
-        { text: "A neighbour who sees the difference.", image: '/wormhole/tiles/x20261215-v1-4.jpg' },
-        { text: "Give before the year ends, link in bio.", image: '/wormhole/tiles/x20261215-v1-5.jpg' },
+        { text: 'What does one scholarship become?', image: '/wormhole/tiles/x20261215-v1-1.jpg' },
+        { text: 'One course.', image: '/wormhole/tiles/x20261215-v1-2.jpg' },
+        {
+          text: 'One farm that changes how it builds soil.',
+          image: '/wormhole/tiles/x20261215-v1-3.jpg',
+        },
+        {
+          text: 'A neighbour who sees the difference.',
+          image: '/wormhole/tiles/x20261215-v1-4.jpg',
+        },
+        {
+          text: 'Give before the year ends, link in bio.',
+          image: '/wormhole/tiles/x20261215-v1-5.jpg',
+        },
       ],
     },
-    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+    reason:
+      'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
   },
   {
     key: '2026-10-24 x20261220 visual v1',
     post: 'x20261220',
     set: {
       slides: [
-        { text: "Congratulations to our Permaculture Design Certificate cohort.", image: '/wormhole/tiles/x20261220-v1-1.jpg' },
-        { text: "Twelve weeks, one design each.", image: '/wormhole/tiles/x20261220-v1-2.jpg' },
-        { text: "We can't wait to see what you build.", image: '/wormhole/tiles/x20261220-v1-3.jpg' },
+        {
+          text: 'Congratulations to our Permaculture Design Certificate cohort.',
+          image: '/wormhole/tiles/x20261220-v1-1.jpg',
+        },
+        { text: 'Twelve weeks, one design each.', image: '/wormhole/tiles/x20261220-v1-2.jpg' },
+        {
+          text: "We can't wait to see what you build.",
+          image: '/wormhole/tiles/x20261220-v1-3.jpg',
+        },
       ],
     },
-    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+    reason:
+      'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
   },
   {
     key: '2026-10-24 x20261222 visual v1',
     post: 'x20261222',
     set: {
       slides: [
-        { text: "Holiday reading.", image: '/wormhole/tiles/x20261222-v1-1.jpg' },
-        { text: "Four decades of Dr. Elaine Ingham's research, linked in one place.", image: '/wormhole/tiles/x20261222-v1-2.jpg' },
-        { text: "Start with one. Pour a coffee.", image: '/wormhole/tiles/x20261222-v1-3.jpg' },
+        { text: 'Holiday reading.', image: '/wormhole/tiles/x20261222-v1-1.jpg' },
+        {
+          text: "Four decades of Dr. Elaine Ingham's research, linked in one place.",
+          image: '/wormhole/tiles/x20261222-v1-2.jpg',
+        },
+        { text: 'Start with one. Pour a coffee.', image: '/wormhole/tiles/x20261222-v1-3.jpg' },
       ],
     },
-    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+    reason:
+      'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
   },
   {
     key: '2026-10-24 x20261224 visual v1',
     post: 'x20261224',
     set: {
       slides: [
-        { text: "Your Christmas tree has one more job.", image: '/wormhole/tiles/x20261224-v1-1.jpg' },
-        { text: "Chip it, or ask if your town does.", image: '/wormhole/tiles/x20261224-v1-2.jpg' },
-        { text: "Woody mulch feeds fungi.", image: '/wormhole/tiles/x20261224-v1-3.jpg' },
-        { text: "Spread it around trees and shrubs.", image: '/wormhole/tiles/x20261224-v1-4.jpg' },
+        {
+          text: 'Your Christmas tree has one more job.',
+          image: '/wormhole/tiles/x20261224-v1-1.jpg',
+        },
+        { text: 'Chip it, or ask if your town does.', image: '/wormhole/tiles/x20261224-v1-2.jpg' },
+        { text: 'Woody mulch feeds fungi.', image: '/wormhole/tiles/x20261224-v1-3.jpg' },
+        { text: 'Spread it around trees and shrubs.', image: '/wormhole/tiles/x20261224-v1-4.jpg' },
       ],
     },
-    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+    reason:
+      'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
   },
   {
     key: '2026-10-24 x20261226 visual v1',
     post: 'x20261226',
     set: {
       slides: [
-        { text: "Can wrapping paper go in the compost?", image: '/wormhole/tiles/x20261226-v1-1.jpg' },
-        { text: "Plain paper and cardboard: yes, shredded.", image: '/wormhole/tiles/x20261226-v1-2.jpg' },
-        { text: "Glossy, foil, glitter or plastic-coated: no.", image: '/wormhole/tiles/x20261226-v1-3.jpg' },
-        { text: "Tape and ribbons off first.", image: '/wormhole/tiles/x20261226-v1-4.jpg' },
+        {
+          text: 'Can wrapping paper go in the compost?',
+          image: '/wormhole/tiles/x20261226-v1-1.jpg',
+        },
+        {
+          text: 'Plain paper and cardboard: yes, shredded.',
+          image: '/wormhole/tiles/x20261226-v1-2.jpg',
+        },
+        {
+          text: 'Glossy, foil, glitter or plastic-coated: no.',
+          image: '/wormhole/tiles/x20261226-v1-3.jpg',
+        },
+        { text: 'Tape and ribbons off first.', image: '/wormhole/tiles/x20261226-v1-4.jpg' },
       ],
     },
-    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+    reason:
+      'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
   },
   {
     key: '2026-10-24 x20261229 visual v1',
     post: 'x20261229',
     set: {
       slides: [
-        { text: "2026 in soil science.", image: '/wormhole/tiles/x20261229-v1-1.jpg' },
-        { text: "A mustard plant that 'couldn't' partner with fungi traded food with one.", image: '/wormhole/tiles/x20261229-v1-2.jpg' },
-        { text: "An open map of the bacteria and fungi in 100,000 soil samples.", image: '/wormhole/tiles/x20261229-v1-3.jpg' },
-        { text: "Regenerative almond orchards: water soaked in 6x faster, same yield.", image: '/wormhole/tiles/x20261229-v1-4.jpg' },
+        { text: '2026 in soil science.', image: '/wormhole/tiles/x20261229-v1-1.jpg' },
+        {
+          text: "A mustard plant that 'couldn't' partner with fungi traded food with one.",
+          image: '/wormhole/tiles/x20261229-v1-2.jpg',
+        },
+        {
+          text: 'An open map of the bacteria and fungi in 100,000 soil samples.',
+          image: '/wormhole/tiles/x20261229-v1-3.jpg',
+        },
+        {
+          text: 'Regenerative almond orchards: water soaked in 6x faster, same yield.',
+          image: '/wormhole/tiles/x20261229-v1-4.jpg',
+        },
         { text: "Here's to more in 2027.", image: '/wormhole/tiles/x20261229-v1-5.jpg' },
       ],
     },
-    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+    reason:
+      'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
   },
   {
     key: '2026-10-24 x20261231 visual v1',
     post: 'x20261231',
     set: {
       slides: [
-        { text: "Happy New Year from the soil.", image: '/wormhole/tiles/x20261231-v1-1.jpg' },
-        { text: "Costa Rica, 18 to 29 January.", image: '/wormhole/tiles/x20261231-v1-2.jpg' },
-        { text: "New Mexico, 3 to 14 May.", image: '/wormhole/tiles/x20261231-v1-3.jpg' },
-        { text: "United Kingdom, September.", image: '/wormhole/tiles/x20261231-v1-4.jpg' },
-        { text: "Which one is yours?", image: '/wormhole/tiles/x20261231-v1-5.jpg' },
+        { text: 'Happy New Year from the soil.', image: '/wormhole/tiles/x20261231-v1-1.jpg' },
+        { text: 'Costa Rica, 18 to 29 January.', image: '/wormhole/tiles/x20261231-v1-2.jpg' },
+        { text: 'New Mexico, 3 to 14 May.', image: '/wormhole/tiles/x20261231-v1-3.jpg' },
+        { text: 'United Kingdom, September.', image: '/wormhole/tiles/x20261231-v1-4.jpg' },
+        { text: 'Which one is yours?', image: '/wormhole/tiles/x20261231-v1-5.jpg' },
       ],
     },
-    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+    reason:
+      'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
   },
   {
     key: '2026-10-24 x20261117 visual v1',
     post: 'x20261117',
     set: {
       slides: [
-        { text: "Every permaculture design starts with three ethics.", image: '/wormhole/tiles/x20261117-v1-1.jpg' },
-        { text: "Earth care.", image: '/wormhole/tiles/x20261117-v1-2.jpg' },
-        { text: "People care.", image: '/wormhole/tiles/x20261117-v1-3.jpg' },
-        { text: "Fair share.", image: '/wormhole/tiles/x20261117-v1-4.jpg' },
-        { text: "Living soil serves all three.", image: '/wormhole/tiles/x20261117-v1-5.jpg' },
+        {
+          text: 'Every permaculture design starts with three ethics.',
+          image: '/wormhole/tiles/x20261117-v1-1.jpg',
+        },
+        { text: 'Earth care.', image: '/wormhole/tiles/x20261117-v1-2.jpg' },
+        { text: 'People care.', image: '/wormhole/tiles/x20261117-v1-3.jpg' },
+        { text: 'Fair share.', image: '/wormhole/tiles/x20261117-v1-4.jpg' },
+        { text: 'Living soil serves all three.', image: '/wormhole/tiles/x20261117-v1-5.jpg' },
       ],
     },
-    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+    reason:
+      'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
   },
   {
     key: '2026-10-24 x20261118 visual v1',
     post: 'x20261118',
     set: {
       slides: [
-        { text: "Ten weeks to make compost you can prove.", image: '/wormhole/tiles/x20261118-v1-1.jpg' },
-        { text: "Compost Intensive Course, starting January 2027.", image: '/wormhole/tiles/x20261118-v1-2.jpg' },
-        { text: "Build, monitor and read your own piles under the microscope.", image: '/wormhole/tiles/x20261118-v1-3.jpg' },
-        { text: "With mentors every week.", image: '/wormhole/tiles/x20261118-v1-4.jpg' },
-        { text: "Enroll now, link in bio.", image: '/wormhole/tiles/x20261118-v1-5.jpg' },
+        {
+          text: 'Ten weeks to make compost you can prove.',
+          image: '/wormhole/tiles/x20261118-v1-1.jpg',
+        },
+        {
+          text: 'Compost Intensive Course, starting January 2027.',
+          image: '/wormhole/tiles/x20261118-v1-2.jpg',
+        },
+        {
+          text: 'Build, monitor and read your own piles under the microscope.',
+          image: '/wormhole/tiles/x20261118-v1-3.jpg',
+        },
+        { text: 'With mentors every week.', image: '/wormhole/tiles/x20261118-v1-4.jpg' },
+        { text: 'Enroll now, link in bio.', image: '/wormhole/tiles/x20261118-v1-5.jpg' },
       ],
     },
-    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+    reason:
+      'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
   },
   {
     key: '2026-10-24 x20261125 visual v1',
     post: 'x20261125',
     set: {
       slides: [
-        { text: "Start learning the soil food web this winter.", image: '/wormhole/tiles/x20261125-v1-1.jpg' },
-        { text: "The Foundation Courses: at your own pace, from anywhere.", image: '/wormhole/tiles/x20261125-v1-2.jpg' },
-        { text: "The science, the compost, the extracts and teas, the microscope.", image: '/wormhole/tiles/x20261125-v1-3.jpg' },
-        { text: "10,000+ people in 100+ countries have started here.", image: '/wormhole/tiles/x20261125-v1-4.jpg' },
+        {
+          text: 'Start learning the soil food web this winter.',
+          image: '/wormhole/tiles/x20261125-v1-1.jpg',
+        },
+        {
+          text: 'The Foundation Courses: at your own pace, from anywhere.',
+          image: '/wormhole/tiles/x20261125-v1-2.jpg',
+        },
+        {
+          text: 'The science, the compost, the extracts and teas, the microscope.',
+          image: '/wormhole/tiles/x20261125-v1-3.jpg',
+        },
+        {
+          text: '10,000+ people in 100+ countries have started here.',
+          image: '/wormhole/tiles/x20261125-v1-4.jpg',
+        },
       ],
     },
-    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+    reason:
+      'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
   },
   {
     key: '2026-10-24 x20261129 visual v1',
     post: 'x20261129',
     set: {
       slides: [
-        { text: "A fruit tree grows better with friends.", image: '/wormhole/tiles/x20261129-v1-1.jpg' },
-        { text: "Clover underneath fixes nitrogen.", image: '/wormhole/tiles/x20261129-v1-2.jpg' },
-        { text: "Comfrey gets cut and dropped as mulch.", image: '/wormhole/tiles/x20261129-v1-3.jpg' },
-        { text: "Chives and other alliums fill the gaps.", image: '/wormhole/tiles/x20261129-v1-4.jpg' },
-        { text: "Together they keep the soil covered and alive.", image: '/wormhole/tiles/x20261129-v1-5.jpg' },
+        {
+          text: 'A fruit tree grows better with friends.',
+          image: '/wormhole/tiles/x20261129-v1-1.jpg',
+        },
+        { text: 'Clover underneath fixes nitrogen.', image: '/wormhole/tiles/x20261129-v1-2.jpg' },
+        {
+          text: 'Comfrey gets cut and dropped as mulch.',
+          image: '/wormhole/tiles/x20261129-v1-3.jpg',
+        },
+        {
+          text: 'Chives and other alliums fill the gaps.',
+          image: '/wormhole/tiles/x20261129-v1-4.jpg',
+        },
+        {
+          text: 'Together they keep the soil covered and alive.',
+          image: '/wormhole/tiles/x20261129-v1-5.jpg',
+        },
       ],
     },
-    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+    reason:
+      'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
   },
   {
     key: '2026-10-24 x20261130 visual v1',
     post: 'x20261130',
     set: {
       slides: [
-        { text: "Your compost, checked under the microscope.", image: '/wormhole/tiles/x20261130-v1-1.jpg' },
-        { text: "The Compost Intensive Course starts in January.", image: '/wormhole/tiles/x20261130-v1-2.jpg' },
-        { text: "Enroll now, link in bio.", image: '/wormhole/tiles/x20261130-v1-3.jpg' },
+        {
+          text: 'Your compost, checked under the microscope.',
+          image: '/wormhole/tiles/x20261130-v1-1.jpg',
+        },
+        {
+          text: 'The Compost Intensive Course starts in January.',
+          image: '/wormhole/tiles/x20261130-v1-2.jpg',
+        },
+        { text: 'Enroll now, link in bio.', image: '/wormhole/tiles/x20261130-v1-3.jpg' },
       ],
     },
-    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+    reason:
+      'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
   },
   {
     key: '2026-10-24 x20261216 visual v1',
     post: 'x20261216',
     set: {
       slides: [
-        { text: "Permaculture zones.", image: '/wormhole/tiles/x20261216-v1-1.jpg' },
-        { text: "Zone 0: the house.", image: '/wormhole/tiles/x20261216-v1-2.jpg' },
-        { text: "Zone 1: what you visit every day. Herbs, salad, the compost bin.", image: '/wormhole/tiles/x20261216-v1-3.jpg' },
-        { text: "Zones 2 to 4: orchard, field, pasture, woodlot.", image: '/wormhole/tiles/x20261216-v1-4.jpg' },
-        { text: "Zone 5: left wild.", image: '/wormhole/tiles/x20261216-v1-5.jpg' },
+        { text: 'Permaculture zones.', image: '/wormhole/tiles/x20261216-v1-1.jpg' },
+        { text: 'Zone 0: the house.', image: '/wormhole/tiles/x20261216-v1-2.jpg' },
+        {
+          text: 'Zone 1: what you visit every day. Herbs, salad, the compost bin.',
+          image: '/wormhole/tiles/x20261216-v1-3.jpg',
+        },
+        {
+          text: 'Zones 2 to 4: orchard, field, pasture, woodlot.',
+          image: '/wormhole/tiles/x20261216-v1-4.jpg',
+        },
+        { text: 'Zone 5: left wild.', image: '/wormhole/tiles/x20261216-v1-5.jpg' },
       ],
     },
-    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+    reason:
+      'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
   },
   {
     key: '2026-10-24 x20261227 visual v1',
     post: 'x20261227',
     set: {
       slides: [
-        { text: "Chop and drop.", image: '/wormhole/tiles/x20261227-v1-1.jpg' },
-        { text: "Cut the plant. Leave it where it falls.", image: '/wormhole/tiles/x20261227-v1-2.jpg' },
-        { text: "It shades the soil and feeds the fungi and bacteria underneath.", image: '/wormhole/tiles/x20261227-v1-3.jpg' },
-        { text: "No hauling, no bare ground.", image: '/wormhole/tiles/x20261227-v1-4.jpg' },
+        { text: 'Chop and drop.', image: '/wormhole/tiles/x20261227-v1-1.jpg' },
+        {
+          text: 'Cut the plant. Leave it where it falls.',
+          image: '/wormhole/tiles/x20261227-v1-2.jpg',
+        },
+        {
+          text: 'It shades the soil and feeds the fungi and bacteria underneath.',
+          image: '/wormhole/tiles/x20261227-v1-3.jpg',
+        },
+        { text: 'No hauling, no bare ground.', image: '/wormhole/tiles/x20261227-v1-4.jpg' },
       ],
     },
-    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+    reason:
+      'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
   },
   {
     key: '2026-10-24 w20261103 visual v1',
     post: 'w20261103',
     set: {
       slides: [
-        { text: "Our new website is here.", image: '/wormhole/tiles/w20261103-v1-1.jpg' },
-        { text: "Learn: every course, and where to start.", image: '/wormhole/tiles/w20261103-v1-2.jpg' },
-        { text: "Workshops and events, past and coming.", image: '/wormhole/tiles/w20261103-v1-3.jpg' },
-        { text: "Find a consultant near you.", image: '/wormhole/tiles/w20261103-v1-4.jpg' },
-        { text: "Dr. Elaine's research, all in one place.", image: '/wormhole/tiles/w20261103-v1-5.jpg' },
-        { text: "Take the tour, link in bio.", image: '/wormhole/tiles/w20261103-v1-6.jpg' },
+        { text: 'Our new website is here.', image: '/wormhole/tiles/w20261103-v1-1.jpg' },
+        {
+          text: 'Learn: every course, and where to start.',
+          image: '/wormhole/tiles/w20261103-v1-2.jpg',
+        },
+        {
+          text: 'Workshops and events, past and coming.',
+          image: '/wormhole/tiles/w20261103-v1-3.jpg',
+        },
+        { text: 'Find a consultant near you.', image: '/wormhole/tiles/w20261103-v1-4.jpg' },
+        {
+          text: "Dr. Elaine's research, all in one place.",
+          image: '/wormhole/tiles/w20261103-v1-5.jpg',
+        },
+        { text: 'Take the tour, link in bio.', image: '/wormhole/tiles/w20261103-v1-6.jpg' },
       ],
     },
-    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+    reason:
+      'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
   },
   {
     key: '2026-10-24 w20261106 visual v1',
     post: 'w20261106',
     set: {
       slides: [
-        { text: "What does living soil look like on a real farm?", image: '/wormhole/tiles/w20261106-v1-1.jpg' },
-        { text: "Our new Projects pages show you.", image: '/wormhole/tiles/w20261106-v1-2.jpg' },
-        { text: "Farms, vineyards and restoration sites.", image: '/wormhole/tiles/w20261106-v1-3.jpg' },
-        { text: "What they changed, and what happened.", image: '/wormhole/tiles/w20261106-v1-4.jpg' },
+        {
+          text: 'What does living soil look like on a real farm?',
+          image: '/wormhole/tiles/w20261106-v1-1.jpg',
+        },
+        { text: 'Our new Projects pages show you.', image: '/wormhole/tiles/w20261106-v1-2.jpg' },
+        {
+          text: 'Farms, vineyards and restoration sites.',
+          image: '/wormhole/tiles/w20261106-v1-3.jpg',
+        },
+        {
+          text: 'What they changed, and what happened.',
+          image: '/wormhole/tiles/w20261106-v1-4.jpg',
+        },
       ],
     },
-    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+    reason:
+      'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
   },
   {
     key: '2026-10-24 w20261206 visual v1',
     post: 'w20261206',
     set: {
       slides: [
-        { text: "Not sure where to start?", image: '/wormhole/tiles/w20261206-v1-1.jpg' },
-        { text: "What brings you to the soil food web?", image: '/wormhole/tiles/w20261206-v1-2.jpg' },
-        { text: "Gardener, farmer or future consultant: there's a path for you.", image: '/wormhole/tiles/w20261206-v1-3.jpg' },
-        { text: "Find yours, link in bio.", image: '/wormhole/tiles/w20261206-v1-4.jpg' },
+        { text: 'Not sure where to start?', image: '/wormhole/tiles/w20261206-v1-1.jpg' },
+        {
+          text: 'What brings you to the soil food web?',
+          image: '/wormhole/tiles/w20261206-v1-2.jpg',
+        },
+        {
+          text: "Gardener, farmer or future consultant: there's a path for you.",
+          image: '/wormhole/tiles/w20261206-v1-3.jpg',
+        },
+        { text: 'Find yours, link in bio.', image: '/wormhole/tiles/w20261206-v1-4.jpg' },
       ],
     },
-    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+    reason:
+      'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
   },
   {
     key: '2026-10-24 w20261209 visual v1',
     post: 'w20261209',
     set: {
       slides: [
-        { text: "How does the soil food web work?", image: '/wormhole/tiles/w20261209-v1-1.jpg' },
-        { text: "Our new How it works page explains it in one scroll.", image: '/wormhole/tiles/w20261209-v1-2.jpg' },
-        { text: "From root to microbe to nutrient and back.", image: '/wormhole/tiles/w20261209-v1-3.jpg' },
-        { text: "Read it, link in bio.", image: '/wormhole/tiles/w20261209-v1-4.jpg' },
+        { text: 'How does the soil food web work?', image: '/wormhole/tiles/w20261209-v1-1.jpg' },
+        {
+          text: 'Our new How it works page explains it in one scroll.',
+          image: '/wormhole/tiles/w20261209-v1-2.jpg',
+        },
+        {
+          text: 'From root to microbe to nutrient and back.',
+          image: '/wormhole/tiles/w20261209-v1-3.jpg',
+        },
+        { text: 'Read it, link in bio.', image: '/wormhole/tiles/w20261209-v1-4.jpg' },
       ],
     },
-    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+    reason:
+      'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
   },
   {
     key: '2026-10-24 w20261211 visual v1',
     post: 'w20261211',
     set: {
       slides: [
-        { text: "Four decades of soil biology research, searchable.", image: '/wormhole/tiles/w20261211-v1-1.jpg' },
+        {
+          text: 'Four decades of soil biology research, searchable.',
+          image: '/wormhole/tiles/w20261211-v1-1.jpg',
+        },
       ],
     },
-    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+    reason:
+      'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
   },
   {
     key: '2026-10-24 ar20261123 visual v1',
     post: 'ar20261123',
     set: {
       slides: [
-        { text: "Our first annual report is almost here.", image: '/wormhole/tiles/ar20261123-v1-1.jpg' },
-        { text: "A year of courses, workshops and scholarships.", image: '/wormhole/tiles/ar20261123-v1-2.jpg' },
-        { text: "Coming soon.", image: '/wormhole/tiles/ar20261123-v1-3.jpg' },
+        {
+          text: 'Our first annual report is almost here.',
+          image: '/wormhole/tiles/ar20261123-v1-1.jpg',
+        },
+        {
+          text: 'A year of courses, workshops and scholarships.',
+          image: '/wormhole/tiles/ar20261123-v1-2.jpg',
+        },
+        { text: 'Coming soon.', image: '/wormhole/tiles/ar20261123-v1-3.jpg' },
       ],
     },
-    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+    reason:
+      'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
   },
   {
     key: '2026-10-24 ev-02 visual v1',
     post: 'ev-02',
     set: {
       slides: [
-        { text: "An open map of soil life", image: '/wormhole/tiles/ev-02-v1-1.jpg' },
-        { text: "100,000 soil samples. 90+ countries. One protocol.", image: '/wormhole/tiles/ev-02-v1-2.jpg' },
-        { text: "Bacteria and fungi, open to everyone. Explore the Atlas at beopen.earth", image: '/wormhole/tiles/ev-02-v1-3.jpg' },
+        { text: 'An open map of soil life', image: '/wormhole/tiles/ev-02-v1-1.jpg' },
+        {
+          text: '100,000 soil samples. 90+ countries. One protocol.',
+          image: '/wormhole/tiles/ev-02-v1-2.jpg',
+        },
+        {
+          text: 'Bacteria and fungi, open to everyone. Explore the Atlas at beopen.earth',
+          image: '/wormhole/tiles/ev-02-v1-3.jpg',
+        },
       ],
     },
-    reason: 'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
+    reason:
+      'Visual (24 Oct): built with tools/wormhole-visuals/feed_novdec.py, a different look from the posts on either side of it in the grid. Real photos from the SFW microscope library and workshops, credited on the slides.',
   },
   {
     key: '2026-10-24 x20261210 visual v1',
     post: 'x20261210',
     set: {
       slides: [
-        { text: "131\u00b0F (55\u00b0C) for three full days kills weed seeds and pathogens.", image: '/wormhole/tiles/x20261210-v1-1.jpg' },
-        { text: "155 to 160\u00b0F (68 to 71\u00b0C) is the ceiling. Hotter, and the beneficial organisms die too.", image: '/wormhole/tiles/x20261210-v1-2.jpg' },
-        { text: "Turn the pile when it climbs too high, too fast.", image: '/wormhole/tiles/x20261210-v1-3.jpg' },
-        { text: "Most piles need three to five turns.", image: '/wormhole/tiles/x20261210-v1-4.jpg' },
+        {
+          text: '131\u00b0F (55\u00b0C) for three full days kills weed seeds and pathogens.',
+          image: '/wormhole/tiles/x20261210-v1-1.jpg',
+        },
+        {
+          text: '155 to 160\u00b0F (68 to 71\u00b0C) is the ceiling. Hotter, and the beneficial organisms die too.',
+          image: '/wormhole/tiles/x20261210-v1-2.jpg',
+        },
+        {
+          text: 'Turn the pile when it climbs too high, too fast.',
+          image: '/wormhole/tiles/x20261210-v1-3.jpg',
+        },
+        {
+          text: 'Most piles need three to five turns.',
+          image: '/wormhole/tiles/x20261210-v1-4.jpg',
+        },
       ],
     },
-    reason: 'Visual (24 Oct): big numbers in EB Garamond with the pile thermometer photo; slides 2 and 3 of the draft merged into one.',
+    reason:
+      'Visual (24 Oct): big numbers in EB Garamond with the pile thermometer photo; slides 2 and 3 of the draft merged into one.',
   },
   {
     key: '2026-10-24 x20261108 visual v2 photo-first',
     post: 'x20261108',
     set: {
-      slides: [
-        { text: "Happy Diwali.", image: '/wormhole/tiles/x20261108-v2-1.jpg' },
-      ],
+      slides: [{ text: 'Happy Diwali.', image: '/wormhole/tiles/x20261108-v2-1.jpg' }],
     },
-    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+    reason:
+      'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
   },
   {
     key: '2026-10-24 x20261109 visual v2 photo-first',
     post: 'x20261109',
     set: {
-      slides: [
-        { text: "COP31 opens today.", image: '/wormhole/tiles/x20261109-v2-1.jpg' },
-      ],
+      slides: [{ text: 'COP31 opens today.', image: '/wormhole/tiles/x20261109-v2-1.jpg' }],
     },
-    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+    reason:
+      'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
   },
   {
     key: '2026-10-24 w20261106 visual v2 photo-first',
     post: 'w20261106',
     set: {
       slides: [
-        { text: "Real farms. Real soil.", image: '/wormhole/tiles/w20261106-v2-1.jpg' },
-        { text: "Photo only: misting a compost pile.", image: '/wormhole/tiles/w20261106-v2-2.jpg' },
-        { text: "Our new Projects pages.", image: '/wormhole/tiles/w20261106-v2-3.jpg' },
+        { text: 'Real farms. Real soil.', image: '/wormhole/tiles/w20261106-v2-1.jpg' },
+        {
+          text: 'Photo only: misting a compost pile.',
+          image: '/wormhole/tiles/w20261106-v2-2.jpg',
+        },
+        { text: 'Our new Projects pages.', image: '/wormhole/tiles/w20261106-v2-3.jpg' },
       ],
     },
-    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+    reason:
+      'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
   },
   {
     key: '2026-10-24 x20261117 visual v2 photo-first',
     post: 'x20261117',
     set: {
       slides: [
-        { text: "Earth care.", image: '/wormhole/tiles/x20261117-v2-1.jpg' },
-        { text: "People care.", image: '/wormhole/tiles/x20261117-v2-2.jpg' },
-        { text: "Fair share.", image: '/wormhole/tiles/x20261117-v2-3.jpg' },
+        { text: 'Earth care.', image: '/wormhole/tiles/x20261117-v2-1.jpg' },
+        { text: 'People care.', image: '/wormhole/tiles/x20261117-v2-2.jpg' },
+        { text: 'Fair share.', image: '/wormhole/tiles/x20261117-v2-3.jpg' },
       ],
     },
-    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+    reason:
+      'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
   },
   {
     key: '2026-10-24 x20261118 visual v2 photo-first',
     post: 'x20261118',
     set: {
       slides: [
-        { text: "Compost Intensive Course.", image: '/wormhole/tiles/x20261118-v2-1.jpg' },
-        { text: "Photo only: thermometer in the pile.", image: '/wormhole/tiles/x20261118-v2-2.jpg' },
-        { text: "Photo only: testate amoeba under the microscope.", image: '/wormhole/tiles/x20261118-v2-3.jpg' },
-        { text: "Starts January 2027. Link in bio.", image: '/wormhole/tiles/x20261118-v2-4.jpg' },
+        { text: 'Compost Intensive Course.', image: '/wormhole/tiles/x20261118-v2-1.jpg' },
+        {
+          text: 'Photo only: thermometer in the pile.',
+          image: '/wormhole/tiles/x20261118-v2-2.jpg',
+        },
+        {
+          text: 'Photo only: testate amoeba under the microscope.',
+          image: '/wormhole/tiles/x20261118-v2-3.jpg',
+        },
+        { text: 'Starts January 2027. Link in bio.', image: '/wormhole/tiles/x20261118-v2-4.jpg' },
       ],
     },
-    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+    reason:
+      'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
   },
   {
     key: '2026-10-24 ev-02 visual v2 photo-first',
     post: 'ev-02',
     set: {
       slides: [
-        { text: "100,000 soil samples, one open atlas.", image: '/wormhole/tiles/ev-02-v2-1.jpg' },
-        { text: "Photo only: fungal hypha.", image: '/wormhole/tiles/ev-02-v2-2.jpg' },
-        { text: "Explore it at beopen.earth", image: '/wormhole/tiles/ev-02-v2-3.jpg' },
+        { text: '100,000 soil samples, one open atlas.', image: '/wormhole/tiles/ev-02-v2-1.jpg' },
+        { text: 'Photo only: fungal hypha.', image: '/wormhole/tiles/ev-02-v2-2.jpg' },
+        { text: 'Explore it at beopen.earth', image: '/wormhole/tiles/ev-02-v2-3.jpg' },
       ],
     },
-    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+    reason:
+      'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
   },
   {
     key: '2026-10-24 ar20261123 visual v2 photo-first',
     post: 'ar20261123',
     set: {
       slides: [
-        { text: "Our first annual report.", image: '/wormhole/tiles/ar20261123-v2-1.jpg' },
-        { text: "Photo only: turning a pile at a workshop.", image: '/wormhole/tiles/ar20261123-v2-2.jpg' },
-        { text: "Coming soon.", image: '/wormhole/tiles/ar20261123-v2-3.jpg' },
+        { text: 'Our first annual report.', image: '/wormhole/tiles/ar20261123-v2-1.jpg' },
+        {
+          text: 'Photo only: turning a pile at a workshop.',
+          image: '/wormhole/tiles/ar20261123-v2-2.jpg',
+        },
+        { text: 'Coming soon.', image: '/wormhole/tiles/ar20261123-v2-3.jpg' },
       ],
     },
-    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+    reason:
+      'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
   },
   {
     key: '2026-10-24 x20261128 visual v2 photo-first',
     post: 'x20261128',
     set: {
       slides: [
-        { text: "Small Business Saturday.", image: '/wormhole/tiles/x20261128-v2-1.jpg' },
-        { text: "Photo only: making an extract.", image: '/wormhole/tiles/x20261128-v2-2.jpg' },
-        { text: "Shop local for your soil. Find a consultant, link in bio.", image: '/wormhole/tiles/x20261128-v2-3.jpg' },
+        { text: 'Small Business Saturday.', image: '/wormhole/tiles/x20261128-v2-1.jpg' },
+        { text: 'Photo only: making an extract.', image: '/wormhole/tiles/x20261128-v2-2.jpg' },
+        {
+          text: 'Shop local for your soil. Find a consultant, link in bio.',
+          image: '/wormhole/tiles/x20261128-v2-3.jpg',
+        },
       ],
     },
-    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+    reason:
+      'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
   },
   {
     key: '2026-10-24 x20261129 visual v2 photo-first',
     post: 'x20261129',
     set: {
       slides: [
-        { text: "Trees grow better with friends.", image: '/wormhole/tiles/x20261129-v2-1.jpg' },
-        { text: "Photo only: mixed planting beds.", image: '/wormhole/tiles/x20261129-v2-2.jpg' },
-        { text: "Photo only: chard in straw mulch.", image: '/wormhole/tiles/x20261129-v2-3.jpg' },
+        { text: 'Trees grow better with friends.', image: '/wormhole/tiles/x20261129-v2-1.jpg' },
+        { text: 'Photo only: mixed planting beds.', image: '/wormhole/tiles/x20261129-v2-2.jpg' },
+        { text: 'Photo only: chard in straw mulch.', image: '/wormhole/tiles/x20261129-v2-3.jpg' },
       ],
     },
-    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+    reason:
+      'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
   },
   {
     key: '2026-10-24 x20261130 visual v2 photo-first',
     post: 'x20261130',
     set: {
       slides: [
-        { text: "10 weeks of compost.", image: '/wormhole/tiles/x20261130-v2-1.jpg' },
-        { text: "Enroll now, link in bio.", image: '/wormhole/tiles/x20261130-v2-2.jpg' },
+        { text: '10 weeks of compost.', image: '/wormhole/tiles/x20261130-v2-1.jpg' },
+        { text: 'Enroll now, link in bio.', image: '/wormhole/tiles/x20261130-v2-2.jpg' },
       ],
     },
-    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+    reason:
+      'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
   },
   {
     key: '2026-10-24 x20261201 visual v2 photo-first',
     post: 'x20261201',
     set: {
       slides: [
-        { text: "Today is GivingTuesday.", image: '/wormhole/tiles/x20261201-v2-1.jpg' },
-        { text: "Photo only: garden beds.", image: '/wormhole/tiles/x20261201-v2-2.jpg' },
-        { text: "Give a scholarship, link in bio.", image: '/wormhole/tiles/x20261201-v2-3.jpg' },
+        { text: 'Today is GivingTuesday.', image: '/wormhole/tiles/x20261201-v2-1.jpg' },
+        { text: 'Photo only: garden beds.', image: '/wormhole/tiles/x20261201-v2-2.jpg' },
+        { text: 'Give a scholarship, link in bio.', image: '/wormhole/tiles/x20261201-v2-3.jpg' },
       ],
     },
-    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+    reason:
+      'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
   },
   {
     key: '2026-10-24 x20261202 visual v2 photo-first',
     post: 'x20261202',
     set: {
       slides: [
-        { text: "From shovel to slide.", image: '/wormhole/tiles/x20261202-v2-1.jpg' },
-        { text: "Photo only: mixing the sample with water.", image: '/wormhole/tiles/x20261202-v2-2.jpg' },
-        { text: "Photo only: preparing the slide.", image: '/wormhole/tiles/x20261202-v2-3.jpg' },
-        { text: "Photo only: a nematode under the microscope.", image: '/wormhole/tiles/x20261202-v2-4.jpg' },
+        { text: 'From shovel to slide.', image: '/wormhole/tiles/x20261202-v2-1.jpg' },
+        {
+          text: 'Photo only: mixing the sample with water.',
+          image: '/wormhole/tiles/x20261202-v2-2.jpg',
+        },
+        { text: 'Photo only: preparing the slide.', image: '/wormhole/tiles/x20261202-v2-3.jpg' },
+        {
+          text: 'Photo only: a nematode under the microscope.',
+          image: '/wormhole/tiles/x20261202-v2-4.jpg',
+        },
       ],
     },
-    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+    reason:
+      'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
   },
   {
     key: '2026-10-24 x20261203 visual v2 photo-first',
     post: 'x20261203',
     set: {
       slides: [
-        { text: "Costa Rica, 18 to 29 January 2027.", image: '/wormhole/tiles/x20261203-v2-1.jpg' },
-        { text: "Photo only: Costa Rican forest.", image: '/wormhole/tiles/x20261203-v2-2.jpg' },
-        { text: "Photo only: turning a pile.", image: '/wormhole/tiles/x20261203-v2-3.jpg' },
-        { text: "Places still open, link in bio.", image: '/wormhole/tiles/x20261203-v2-4.jpg' },
+        { text: 'Costa Rica, 18 to 29 January 2027.', image: '/wormhole/tiles/x20261203-v2-1.jpg' },
+        { text: 'Photo only: Costa Rican forest.', image: '/wormhole/tiles/x20261203-v2-2.jpg' },
+        { text: 'Photo only: turning a pile.', image: '/wormhole/tiles/x20261203-v2-3.jpg' },
+        { text: 'Places still open, link in bio.', image: '/wormhole/tiles/x20261203-v2-4.jpg' },
       ],
     },
-    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+    reason:
+      'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
   },
   {
     key: '2026-10-24 x20261204 visual v2 photo-first',
     post: 'x20261204',
     set: {
       slides: [
-        { text: "Wildlife Conservation Day: meet the wildlife under your feet.", image: '/wormhole/tiles/x20261204-v2-1.jpg' },
-        { text: "Bacteria.", image: '/wormhole/tiles/x20261204-v2-2.jpg' },
-        { text: "Fungi.", image: '/wormhole/tiles/x20261204-v2-3.jpg' },
-        { text: "Protozoa.", image: '/wormhole/tiles/x20261204-v2-4.jpg' },
-        { text: "Nematodes.", image: '/wormhole/tiles/x20261204-v2-5.jpg' },
+        {
+          text: 'Wildlife Conservation Day: meet the wildlife under your feet.',
+          image: '/wormhole/tiles/x20261204-v2-1.jpg',
+        },
+        { text: 'Bacteria.', image: '/wormhole/tiles/x20261204-v2-2.jpg' },
+        { text: 'Fungi.', image: '/wormhole/tiles/x20261204-v2-3.jpg' },
+        { text: 'Protozoa.', image: '/wormhole/tiles/x20261204-v2-4.jpg' },
+        { text: 'Nematodes.', image: '/wormhole/tiles/x20261204-v2-5.jpg' },
       ],
     },
-    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+    reason:
+      'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
   },
   {
     key: '2026-10-24 w20261206 visual v2 photo-first',
     post: 'w20261206',
     set: {
       slides: [
-        { text: "Not sure where to start?", image: '/wormhole/tiles/w20261206-v2-1.jpg' },
-        { text: "Photo only: Dr. Elaine in the garden.", image: '/wormhole/tiles/w20261206-v2-2.jpg' },
-        { text: "Find your path, link in bio.", image: '/wormhole/tiles/w20261206-v2-3.jpg' },
+        { text: 'Not sure where to start?', image: '/wormhole/tiles/w20261206-v2-1.jpg' },
+        {
+          text: 'Photo only: Dr. Elaine in the garden.',
+          image: '/wormhole/tiles/w20261206-v2-2.jpg',
+        },
+        { text: 'Find your path, link in bio.', image: '/wormhole/tiles/w20261206-v2-3.jpg' },
       ],
     },
-    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+    reason:
+      'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
   },
   {
     key: '2026-10-24 x20261208 visual v2 photo-first',
     post: 'x20261208',
     set: {
       slides: [
-        { text: "Who eats whom in your soil?", image: '/wormhole/tiles/x20261208-v2-1.jpg' },
-        { text: "Photo only: bacteria.", image: '/wormhole/tiles/x20261208-v2-2.jpg' },
-        { text: "Photo only: protozoa.", image: '/wormhole/tiles/x20261208-v2-3.jpg' },
-        { text: "Photo only: a nematode.", image: '/wormhole/tiles/x20261208-v2-4.jpg' },
-        { text: "And the plant gets fed.", image: '/wormhole/tiles/x20261208-v2-5.jpg' },
+        { text: 'Who eats whom in your soil?', image: '/wormhole/tiles/x20261208-v2-1.jpg' },
+        { text: 'Photo only: bacteria.', image: '/wormhole/tiles/x20261208-v2-2.jpg' },
+        { text: 'Photo only: protozoa.', image: '/wormhole/tiles/x20261208-v2-3.jpg' },
+        { text: 'Photo only: a nematode.', image: '/wormhole/tiles/x20261208-v2-4.jpg' },
+        { text: 'And the plant gets fed.', image: '/wormhole/tiles/x20261208-v2-5.jpg' },
       ],
     },
-    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+    reason:
+      'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
   },
   {
     key: '2026-10-24 w20261209 visual v2 photo-first',
     post: 'w20261209',
     set: {
       slides: [
-        { text: "How does the soil food web work?", image: '/wormhole/tiles/w20261209-v2-1.jpg' },
-        { text: "Photo only: a nematode.", image: '/wormhole/tiles/w20261209-v2-2.jpg' },
-        { text: "Our new How it works page, link in bio.", image: '/wormhole/tiles/w20261209-v2-3.jpg' },
+        { text: 'How does the soil food web work?', image: '/wormhole/tiles/w20261209-v2-1.jpg' },
+        { text: 'Photo only: a nematode.', image: '/wormhole/tiles/w20261209-v2-2.jpg' },
+        {
+          text: 'Our new How it works page, link in bio.',
+          image: '/wormhole/tiles/w20261209-v2-3.jpg',
+        },
       ],
     },
-    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+    reason:
+      'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
   },
   {
     key: '2026-10-24 x20261210 visual v2 photo-first',
     post: 'x20261210',
     set: {
       slides: [
-        { text: "131°F (55°C) for three days.", image: '/wormhole/tiles/x20261210-v2-1.jpg' },
-        { text: "Photo only: misting the pile.", image: '/wormhole/tiles/x20261210-v2-2.jpg' },
-        { text: "Then turn it.", image: '/wormhole/tiles/x20261210-v2-3.jpg' },
+        { text: '131°F (55°C) for three days.', image: '/wormhole/tiles/x20261210-v2-1.jpg' },
+        { text: 'Photo only: misting the pile.', image: '/wormhole/tiles/x20261210-v2-2.jpg' },
+        { text: 'Then turn it.', image: '/wormhole/tiles/x20261210-v2-3.jpg' },
       ],
     },
-    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+    reason:
+      'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
   },
   {
     key: '2026-10-24 w20261211 visual v2 photo-first',
     post: 'w20261211',
     set: {
       slides: [
-        { text: "Four decades of Dr. Elaine Ingham's research, searchable.", image: '/wormhole/tiles/w20261211-v2-1.jpg' },
+        {
+          text: "Four decades of Dr. Elaine Ingham's research, searchable.",
+          image: '/wormhole/tiles/w20261211-v2-1.jpg',
+        },
       ],
     },
-    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+    reason:
+      'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
   },
   {
     key: '2026-10-24 x20261213 visual v2 photo-first',
     post: 'x20261213',
     set: {
       slides: [
-        { text: "This amoeba built its own house.", image: '/wormhole/tiles/x20261213-v2-1.jpg' },
-        { text: "Photo only: the shell up close.", image: '/wormhole/tiles/x20261213-v2-2.jpg' },
-        { text: "Photo only: bacteria, its food.", image: '/wormhole/tiles/x20261213-v2-3.jpg' },
+        { text: 'This amoeba built its own house.', image: '/wormhole/tiles/x20261213-v2-1.jpg' },
+        { text: 'Photo only: the shell up close.', image: '/wormhole/tiles/x20261213-v2-2.jpg' },
+        { text: 'Photo only: bacteria, its food.', image: '/wormhole/tiles/x20261213-v2-3.jpg' },
       ],
     },
-    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+    reason:
+      'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
   },
   {
     key: '2026-10-24 x20261216 visual v2 photo-first',
     post: 'x20261216',
     set: {
       slides: [
-        { text: "Permaculture zones.", image: '/wormhole/tiles/x20261216-v2-1.jpg' },
-        { text: "Zone 1: herbs, salad, the compost bin.", image: '/wormhole/tiles/x20261216-v2-2.jpg' },
-        { text: "Zone 5: left wild.", image: '/wormhole/tiles/x20261216-v2-3.jpg' },
+        { text: 'Permaculture zones.', image: '/wormhole/tiles/x20261216-v2-1.jpg' },
+        {
+          text: 'Zone 1: herbs, salad, the compost bin.',
+          image: '/wormhole/tiles/x20261216-v2-2.jpg',
+        },
+        { text: 'Zone 5: left wild.', image: '/wormhole/tiles/x20261216-v2-3.jpg' },
       ],
     },
-    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+    reason:
+      'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
   },
   {
     key: '2026-10-24 x20261217 visual v2 photo-first',
     post: 'x20261217',
     set: {
       slides: [
-        { text: "Nitrogen from thin air.", image: '/wormhole/tiles/x20261217-v2-1.jpg' },
-        { text: "Photo only: bacteria.", image: '/wormhole/tiles/x20261217-v2-2.jpg' },
-        { text: "No bag required.", image: '/wormhole/tiles/x20261217-v2-3.jpg' },
+        { text: 'Nitrogen from thin air.', image: '/wormhole/tiles/x20261217-v2-1.jpg' },
+        { text: 'Photo only: bacteria.', image: '/wormhole/tiles/x20261217-v2-2.jpg' },
+        { text: 'No bag required.', image: '/wormhole/tiles/x20261217-v2-3.jpg' },
       ],
     },
-    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+    reason:
+      'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
   },
   {
     key: '2026-10-24 x20261220 visual v2 photo-first',
     post: 'x20261220',
     set: {
       slides: [
-        { text: "Congratulations to our Permaculture Design Certificate class of 2026.", image: '/wormhole/tiles/x20261220-v2-1.jpg' },
-        { text: "Photo only: food forest.", image: '/wormhole/tiles/x20261220-v2-2.jpg' },
-        { text: "Go build it.", image: '/wormhole/tiles/x20261220-v2-3.jpg' },
+        {
+          text: 'Congratulations to our Permaculture Design Certificate class of 2026.',
+          image: '/wormhole/tiles/x20261220-v2-1.jpg',
+        },
+        { text: 'Photo only: food forest.', image: '/wormhole/tiles/x20261220-v2-2.jpg' },
+        { text: 'Go build it.', image: '/wormhole/tiles/x20261220-v2-3.jpg' },
       ],
     },
-    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+    reason:
+      'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
   },
   {
     key: '2026-10-24 x20261224 visual v2 photo-first',
     post: 'x20261224',
     set: {
       slides: [
-        { text: "Your Christmas tree has one more job.", image: '/wormhole/tiles/x20261224-v2-1.jpg' },
-        { text: "Chip it. Mulch it.", image: '/wormhole/tiles/x20261224-v2-2.jpg' },
-        { text: "Photo only: the fungi it feeds.", image: '/wormhole/tiles/x20261224-v2-3.jpg' },
+        {
+          text: 'Your Christmas tree has one more job.',
+          image: '/wormhole/tiles/x20261224-v2-1.jpg',
+        },
+        { text: 'Chip it. Mulch it.', image: '/wormhole/tiles/x20261224-v2-2.jpg' },
+        { text: 'Photo only: the fungi it feeds.', image: '/wormhole/tiles/x20261224-v2-3.jpg' },
       ],
     },
-    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+    reason:
+      'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
   },
   {
     key: '2026-10-24 x20261226 visual v2 photo-first',
     post: 'x20261226',
     set: {
       slides: [
-        { text: "Can wrapping paper go in the compost? Plain paper: yes.", image: '/wormhole/tiles/x20261226-v2-1.jpg' },
-        { text: "Glossy, foil, glitter, tape: no.", image: '/wormhole/tiles/x20261226-v2-2.jpg' },
+        {
+          text: 'Can wrapping paper go in the compost? Plain paper: yes.',
+          image: '/wormhole/tiles/x20261226-v2-1.jpg',
+        },
+        { text: 'Glossy, foil, glitter, tape: no.', image: '/wormhole/tiles/x20261226-v2-2.jpg' },
       ],
     },
-    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+    reason:
+      'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
   },
   {
     key: '2026-10-24 x20261227 visual v2 photo-first',
     post: 'x20261227',
     set: {
       slides: [
-        { text: "Chop and drop.", image: '/wormhole/tiles/x20261227-v2-1.jpg' },
-        { text: "Photo only: leaves left where they fall.", image: '/wormhole/tiles/x20261227-v2-2.jpg' },
-        { text: "Photo only: the fungi underneath.", image: '/wormhole/tiles/x20261227-v2-3.jpg' },
+        { text: 'Chop and drop.', image: '/wormhole/tiles/x20261227-v2-1.jpg' },
+        {
+          text: 'Photo only: leaves left where they fall.',
+          image: '/wormhole/tiles/x20261227-v2-2.jpg',
+        },
+        { text: 'Photo only: the fungi underneath.', image: '/wormhole/tiles/x20261227-v2-3.jpg' },
       ],
     },
-    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+    reason:
+      'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
   },
   {
     key: '2026-10-24 x20261229 visual v2 photo-first',
     post: 'x20261229',
     set: {
       slides: [
-        { text: "2026 in soil science.", image: '/wormhole/tiles/x20261229-v2-1.jpg' },
-        { text: "Photo only: bacteria.", image: '/wormhole/tiles/x20261229-v2-2.jpg' },
-        { text: "Photo only: no-till soil after rain.", image: '/wormhole/tiles/x20261229-v2-3.jpg' },
+        { text: '2026 in soil science.', image: '/wormhole/tiles/x20261229-v2-1.jpg' },
+        { text: 'Photo only: bacteria.', image: '/wormhole/tiles/x20261229-v2-2.jpg' },
+        {
+          text: 'Photo only: no-till soil after rain.',
+          image: '/wormhole/tiles/x20261229-v2-3.jpg',
+        },
         { text: "Here's to more in 2027.", image: '/wormhole/tiles/x20261229-v2-4.jpg' },
       ],
     },
-    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+    reason:
+      'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
   },
   {
     key: '2026-10-24 x20261231 visual v2 photo-first',
     post: 'x20261231',
     set: {
       slides: [
-        { text: "Happy New Year from the soil.", image: '/wormhole/tiles/x20261231-v2-1.jpg' },
-        { text: "Costa Rica, 18 to 29 January.", image: '/wormhole/tiles/x20261231-v2-2.jpg' },
-        { text: "New Mexico, 3 to 14 May.", image: '/wormhole/tiles/x20261231-v2-3.jpg' },
-        { text: "United Kingdom, September.", image: '/wormhole/tiles/x20261231-v2-4.jpg' },
+        { text: 'Happy New Year from the soil.', image: '/wormhole/tiles/x20261231-v2-1.jpg' },
+        { text: 'Costa Rica, 18 to 29 January.', image: '/wormhole/tiles/x20261231-v2-2.jpg' },
+        { text: 'New Mexico, 3 to 14 May.', image: '/wormhole/tiles/x20261231-v2-3.jpg' },
+        { text: 'United Kingdom, September.', image: '/wormhole/tiles/x20261231-v2-4.jpg' },
       ],
     },
-    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+    reason:
+      'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
   },
   {
     key: '2026-10-24 pl20261114 visual v2 photo-first',
     post: 'pl20261114',
     set: {
       slides: [
-        { text: "Your fallen leaves can become fungal compost.", image: '/wormhole/tiles/pl20261114-v2-1.jpg' },
-        { text: "Photo only: wet leaves packed in a wire cage.", image: '/wormhole/tiles/pl20261114-v2-2.jpg' },
-        { text: "Photo only: leaves breaking down.", image: '/wormhole/tiles/pl20261114-v2-3.jpg' },
-        { text: "Photo only: finished leaf mold.", image: '/wormhole/tiles/pl20261114-v2-4.jpg' },
-        { text: "Use it as mulch or in potting soil.", image: '/wormhole/tiles/pl20261114-v2-5.jpg' },
+        {
+          text: 'Your fallen leaves can become fungal compost.',
+          image: '/wormhole/tiles/pl20261114-v2-1.jpg',
+        },
+        {
+          text: 'Photo only: wet leaves packed in a wire cage.',
+          image: '/wormhole/tiles/pl20261114-v2-2.jpg',
+        },
+        { text: 'Photo only: leaves breaking down.', image: '/wormhole/tiles/pl20261114-v2-3.jpg' },
+        { text: 'Photo only: finished leaf mold.', image: '/wormhole/tiles/pl20261114-v2-4.jpg' },
+        {
+          text: 'Use it as mulch or in potting soil.',
+          image: '/wormhole/tiles/pl20261114-v2-5.jpg',
+        },
       ],
     },
-    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+    reason:
+      'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
   },
   {
     key: '2026-10-24 pl20261115 visual v2 photo-first',
     post: 'pl20261115',
     set: {
       slides: [
-        { text: "Imagine a world without earthworms.", image: '/wormhole/tiles/pl20261115-v2-1.jpg' },
-        { text: "Photo only: a northern forest.", image: '/wormhole/tiles/pl20261115-v2-2.jpg' },
-        { text: "Photo only: an introduced earthworm.", image: '/wormhole/tiles/pl20261115-v2-3.jpg' },
-        { text: "Even a good organism can be the wrong one in the wrong place.", image: '/wormhole/tiles/pl20261115-v2-4.jpg' },
+        {
+          text: 'Imagine a world without earthworms.',
+          image: '/wormhole/tiles/pl20261115-v2-1.jpg',
+        },
+        { text: 'Photo only: a northern forest.', image: '/wormhole/tiles/pl20261115-v2-2.jpg' },
+        {
+          text: 'Photo only: an introduced earthworm.',
+          image: '/wormhole/tiles/pl20261115-v2-3.jpg',
+        },
+        {
+          text: 'Even a good organism can be the wrong one in the wrong place.',
+          image: '/wormhole/tiles/pl20261115-v2-4.jpg',
+        },
       ],
     },
-    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+    reason:
+      'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
   },
   {
     key: '2026-10-24 p26 visual v2 photo-first',
     post: 'p26',
     set: {
       slides: [
-        { text: "Welcome to our newest Certified Soil Food Web Consultants.", image: '/wormhole/tiles/p26-v2-1.jpg' },
-        { text: "Kyle Babcock, United States.", image: '/wormhole/tiles/p26-v2-2.jpg' },
+        {
+          text: 'Welcome to our newest Certified Soil Food Web Consultants.',
+          image: '/wormhole/tiles/p26-v2-1.jpg',
+        },
+        { text: 'Kyle Babcock, United States.', image: '/wormhole/tiles/p26-v2-2.jpg' },
       ],
     },
-    reason: 'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
+    reason:
+      'Visual v2 (24 Oct, Linnea: "Visual should be visual, as little text as possible and only picture"): every slide is a real photo edge to edge, a few words at most, no type on plain colour. Built with tools/wormhole-visuals/photo_first.py.',
   },
   {
     key: '2026-10-24 x20261226 visual v3 more slides',
     post: 'x20261226',
     set: {
       slides: [
-        { text: "Can wrapping paper go in the compost? Plain paper: yes.", image: '/wormhole/tiles/x20261226-v3-1.jpg' },
-        { text: "Tape and ribbons off first.", image: '/wormhole/tiles/x20261226-v3-2.jpg' },
-        { text: "Tear it small and keep the pile damp.", image: '/wormhole/tiles/x20261226-v3-3.jpg' },
-        { text: "Photo only: fungi break the paper down.", image: '/wormhole/tiles/x20261226-v3-4.jpg' },
-        { text: "Glossy, foil, glitter or plastic-coated: no.", image: '/wormhole/tiles/x20261226-v3-5.jpg' },
+        {
+          text: 'Can wrapping paper go in the compost? Plain paper: yes.',
+          image: '/wormhole/tiles/x20261226-v3-1.jpg',
+        },
+        { text: 'Tape and ribbons off first.', image: '/wormhole/tiles/x20261226-v3-2.jpg' },
+        {
+          text: 'Tear it small and keep the pile damp.',
+          image: '/wormhole/tiles/x20261226-v3-3.jpg',
+        },
+        {
+          text: 'Photo only: fungi break the paper down.',
+          image: '/wormhole/tiles/x20261226-v3-4.jpg',
+        },
+        {
+          text: 'Glossy, foil, glitter or plastic-coated: no.',
+          image: '/wormhole/tiles/x20261226-v3-5.jpg',
+        },
       ],
     },
-    reason: 'Visual v3 (Linnea, 24 Oct: "add more slides to the wrapping paper one"): 5 photo slides instead of 2.',
+    reason:
+      'Visual v3 (Linnea, 24 Oct: "add more slides to the wrapping paper one"): 5 photo slides instead of 2.',
   },
   {
     key: '2026-10-24 w20261106 visual v4 mixed looks',
     post: 'w20261106',
     set: {
       slides: [
-        { text: "New: Projects pages.", image: '/wormhole/tiles/w20261106-v4-1.jpg' },
-        { text: "Photo only: no-till soil after rain.", image: '/wormhole/tiles/w20261106-v4-2.jpg' },
-        { text: "Real farms. Real soil.", image: '/wormhole/tiles/w20261106-v4-3.jpg' },
+        { text: 'New: Projects pages.', image: '/wormhole/tiles/w20261106-v4-1.jpg' },
+        {
+          text: 'Photo only: no-till soil after rain.',
+          image: '/wormhole/tiles/w20261106-v4-2.jpg',
+        },
+        { text: 'Real farms. Real soil.', image: '/wormhole/tiles/w20261106-v4-3.jpg' },
       ],
     },
-    reason: 'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
+    reason:
+      'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
   },
   {
     key: '2026-10-24 x20261108 visual v4 mixed looks',
     post: 'x20261108',
     set: {
-      slides: [
-        { text: "Happy Diwali.", image: '/wormhole/tiles/x20261108-v4-1.jpg' },
-      ],
+      slides: [{ text: 'Happy Diwali.', image: '/wormhole/tiles/x20261108-v4-1.jpg' }],
     },
-    reason: 'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
+    reason:
+      'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
   },
   {
     key: '2026-10-24 p26 visual v4 mixed looks',
     post: 'p26',
     set: {
       slides: [
-        { text: "Welcome to our newest Certified Soil Food Web Consultant, Kyle Babcock.", image: '/wormhole/tiles/p26-v4-1.jpg' },
-        { text: "Photo only: a workshop turning a compost pile.", image: '/wormhole/tiles/p26-v4-2.jpg' },
+        {
+          text: 'Welcome to our newest Certified Soil Food Web Consultant, Kyle Babcock.',
+          image: '/wormhole/tiles/p26-v4-1.jpg',
+        },
+        {
+          text: 'Photo only: a workshop turning a compost pile.',
+          image: '/wormhole/tiles/p26-v4-2.jpg',
+        },
       ],
     },
-    reason: 'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
+    reason:
+      'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
   },
   {
     key: '2026-10-24 pl20261114 visual v4 mixed looks',
     post: 'pl20261114',
     set: {
       slides: [
-        { text: "Photo only: fallen leaves. Your leaves can become fungal compost.", image: '/wormhole/tiles/pl20261114-v4-1.jpg' },
-        { text: "Pack wet leaves into a wire cage or a bag with holes.", image: '/wormhole/tiles/pl20261114-v4-2.jpg' },
-        { text: "Photo only: leaves breaking down.", image: '/wormhole/tiles/pl20261114-v4-3.jpg' },
-        { text: "Photo only: finished leaf mold.", image: '/wormhole/tiles/pl20261114-v4-4.jpg' },
-        { text: "Use it as mulch or in potting soil.", image: '/wormhole/tiles/pl20261114-v4-5.jpg' },
+        {
+          text: 'Photo only: fallen leaves. Your leaves can become fungal compost.',
+          image: '/wormhole/tiles/pl20261114-v4-1.jpg',
+        },
+        {
+          text: 'Pack wet leaves into a wire cage or a bag with holes.',
+          image: '/wormhole/tiles/pl20261114-v4-2.jpg',
+        },
+        { text: 'Photo only: leaves breaking down.', image: '/wormhole/tiles/pl20261114-v4-3.jpg' },
+        { text: 'Photo only: finished leaf mold.', image: '/wormhole/tiles/pl20261114-v4-4.jpg' },
+        {
+          text: 'Use it as mulch or in potting soil.',
+          image: '/wormhole/tiles/pl20261114-v4-5.jpg',
+        },
       ],
     },
-    reason: 'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
+    reason:
+      'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
   },
   {
     key: '2026-10-24 pl20261115 visual v4 mixed looks',
     post: 'pl20261115',
     set: {
       slides: [
-        { text: "Imagine a world without earthworms.", image: '/wormhole/tiles/pl20261115-v4-1.jpg' },
-        { text: "Photo only: a northern forest.", image: '/wormhole/tiles/pl20261115-v4-2.jpg' },
-        { text: "Photo only: an introduced earthworm.", image: '/wormhole/tiles/pl20261115-v4-3.jpg' },
-        { text: "Even a good organism can be the wrong one in the wrong place.", image: '/wormhole/tiles/pl20261115-v4-4.jpg' },
+        {
+          text: 'Imagine a world without earthworms.',
+          image: '/wormhole/tiles/pl20261115-v4-1.jpg',
+        },
+        { text: 'Photo only: a northern forest.', image: '/wormhole/tiles/pl20261115-v4-2.jpg' },
+        {
+          text: 'Photo only: an introduced earthworm.',
+          image: '/wormhole/tiles/pl20261115-v4-3.jpg',
+        },
+        {
+          text: 'Even a good organism can be the wrong one in the wrong place.',
+          image: '/wormhole/tiles/pl20261115-v4-4.jpg',
+        },
       ],
     },
-    reason: 'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
+    reason:
+      'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
   },
   {
     key: '2026-10-24 x20261117 visual v4 mixed looks',
     post: 'x20261117',
     set: {
       slides: [
-        { text: "Earth care.", image: '/wormhole/tiles/x20261117-v4-1.jpg' },
-        { text: "People care.", image: '/wormhole/tiles/x20261117-v4-2.jpg' },
-        { text: "Fair share.", image: '/wormhole/tiles/x20261117-v4-3.jpg' },
+        { text: 'Earth care.', image: '/wormhole/tiles/x20261117-v4-1.jpg' },
+        { text: 'People care.', image: '/wormhole/tiles/x20261117-v4-2.jpg' },
+        { text: 'Fair share.', image: '/wormhole/tiles/x20261117-v4-3.jpg' },
       ],
     },
-    reason: 'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
+    reason:
+      'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
   },
   {
     key: '2026-10-24 x20261118 visual v4 mixed looks',
     post: 'x20261118',
     set: {
       slides: [
-        { text: "Compost Intensive Course.", image: '/wormhole/tiles/x20261118-v4-1.jpg' },
-        { text: "Photo only: thermometer in the pile.", image: '/wormhole/tiles/x20261118-v4-2.jpg' },
-        { text: "Starts January 2027. Link in bio.", image: '/wormhole/tiles/x20261118-v4-3.jpg' },
+        { text: 'Compost Intensive Course.', image: '/wormhole/tiles/x20261118-v4-1.jpg' },
+        {
+          text: 'Photo only: thermometer in the pile.',
+          image: '/wormhole/tiles/x20261118-v4-2.jpg',
+        },
+        { text: 'Starts January 2027. Link in bio.', image: '/wormhole/tiles/x20261118-v4-3.jpg' },
       ],
     },
-    reason: 'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
+    reason:
+      'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
   },
   {
     key: '2026-10-24 ev-02 visual v4 mixed looks',
     post: 'ev-02',
     set: {
       slides: [
-        { text: "100,000 soil samples, one open atlas.", image: '/wormhole/tiles/ev-02-v4-1.jpg' },
-        { text: "Photo only: fungal hypha.", image: '/wormhole/tiles/ev-02-v4-2.jpg' },
-        { text: "Explore it at beopen.earth", image: '/wormhole/tiles/ev-02-v4-3.jpg' },
+        { text: '100,000 soil samples, one open atlas.', image: '/wormhole/tiles/ev-02-v4-1.jpg' },
+        { text: 'Photo only: fungal hypha.', image: '/wormhole/tiles/ev-02-v4-2.jpg' },
+        { text: 'Explore it at beopen.earth', image: '/wormhole/tiles/ev-02-v4-3.jpg' },
       ],
     },
-    reason: 'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
+    reason:
+      'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
   },
   {
     key: '2026-10-24 ar20261123 visual v4 mixed looks',
     post: 'ar20261123',
     set: {
       slides: [
-        { text: "Our first annual report.", image: '/wormhole/tiles/ar20261123-v4-1.jpg' },
-        { text: "Photo only: turning a pile at a workshop.", image: '/wormhole/tiles/ar20261123-v4-2.jpg' },
-        { text: "Coming soon.", image: '/wormhole/tiles/ar20261123-v4-3.jpg' },
+        { text: 'Our first annual report.', image: '/wormhole/tiles/ar20261123-v4-1.jpg' },
+        {
+          text: 'Photo only: turning a pile at a workshop.',
+          image: '/wormhole/tiles/ar20261123-v4-2.jpg',
+        },
+        { text: 'Coming soon.', image: '/wormhole/tiles/ar20261123-v4-3.jpg' },
       ],
     },
-    reason: 'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
+    reason:
+      'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
   },
   {
     key: '2026-10-24 x20261129 visual v4 mixed looks',
     post: 'x20261129',
     set: {
       slides: [
-        { text: "Photo only: a food forest. Trees grow better with friends.", image: '/wormhole/tiles/x20261129-v4-1.jpg' },
-        { text: "Trees grow better with friends.", image: '/wormhole/tiles/x20261129-v4-2.jpg' },
+        {
+          text: 'Photo only: a food forest. Trees grow better with friends.',
+          image: '/wormhole/tiles/x20261129-v4-1.jpg',
+        },
+        { text: 'Trees grow better with friends.', image: '/wormhole/tiles/x20261129-v4-2.jpg' },
       ],
     },
-    reason: 'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
+    reason:
+      'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
   },
   {
     key: '2026-10-24 x20261130 visual v4 mixed looks',
     post: 'x20261130',
     set: {
       slides: [
-        { text: "10 weeks of compost and microscope work.", image: '/wormhole/tiles/x20261130-v4-1.jpg' },
-        { text: "Enroll now, link in bio.", image: '/wormhole/tiles/x20261130-v4-2.jpg' },
+        {
+          text: '10 weeks of compost and microscope work.',
+          image: '/wormhole/tiles/x20261130-v4-1.jpg',
+        },
+        { text: 'Enroll now, link in bio.', image: '/wormhole/tiles/x20261130-v4-2.jpg' },
       ],
     },
-    reason: 'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
+    reason:
+      'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
   },
   {
     key: '2026-10-24 x20261201 visual v4 mixed looks',
     post: 'x20261201',
     set: {
       slides: [
-        { text: "Today is GivingTuesday.", image: '/wormhole/tiles/x20261201-v4-1.jpg' },
-        { text: "Photo only: garden beds.", image: '/wormhole/tiles/x20261201-v4-2.jpg' },
-        { text: "Give a scholarship, link in bio.", image: '/wormhole/tiles/x20261201-v4-3.jpg' },
+        { text: 'Today is GivingTuesday.', image: '/wormhole/tiles/x20261201-v4-1.jpg' },
+        { text: 'Photo only: garden beds.', image: '/wormhole/tiles/x20261201-v4-2.jpg' },
+        { text: 'Give a scholarship, link in bio.', image: '/wormhole/tiles/x20261201-v4-3.jpg' },
       ],
     },
-    reason: 'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
+    reason:
+      'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
   },
   {
     key: '2026-10-24 x20261202 visual v4 mixed looks',
     post: 'x20261202',
     set: {
       slides: [
-        { text: "From shovel to slide.", image: '/wormhole/tiles/x20261202-v4-1.jpg' },
-        { text: "Photo only: mixing the sample with water.", image: '/wormhole/tiles/x20261202-v4-2.jpg' },
-        { text: "Photo only: a nematode under the microscope.", image: '/wormhole/tiles/x20261202-v4-3.jpg' },
+        { text: 'From shovel to slide.', image: '/wormhole/tiles/x20261202-v4-1.jpg' },
+        {
+          text: 'Photo only: mixing the sample with water.',
+          image: '/wormhole/tiles/x20261202-v4-2.jpg',
+        },
+        {
+          text: 'Photo only: a nematode under the microscope.',
+          image: '/wormhole/tiles/x20261202-v4-3.jpg',
+        },
       ],
     },
-    reason: 'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
+    reason:
+      'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
   },
   {
     key: '2026-10-24 x20261204 visual v4 mixed looks',
     post: 'x20261204',
     set: {
       slides: [
-        { text: "Wildlife Conservation Day: meet the wildlife under your feet.", image: '/wormhole/tiles/x20261204-v4-1.jpg' },
-        { text: "Bacteria.", image: '/wormhole/tiles/x20261204-v4-2.jpg' },
-        { text: "Fungi.", image: '/wormhole/tiles/x20261204-v4-3.jpg' },
-        { text: "Protozoa.", image: '/wormhole/tiles/x20261204-v4-4.jpg' },
-        { text: "Nematodes.", image: '/wormhole/tiles/x20261204-v4-5.jpg' },
+        {
+          text: 'Wildlife Conservation Day: meet the wildlife under your feet.',
+          image: '/wormhole/tiles/x20261204-v4-1.jpg',
+        },
+        { text: 'Bacteria.', image: '/wormhole/tiles/x20261204-v4-2.jpg' },
+        { text: 'Fungi.', image: '/wormhole/tiles/x20261204-v4-3.jpg' },
+        { text: 'Protozoa.', image: '/wormhole/tiles/x20261204-v4-4.jpg' },
+        { text: 'Nematodes.', image: '/wormhole/tiles/x20261204-v4-5.jpg' },
       ],
     },
-    reason: 'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
+    reason:
+      'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
   },
   {
     key: '2026-10-24 w20261206 visual v4 mixed looks',
     post: 'w20261206',
     set: {
       slides: [
-        { text: "Not sure where to start?", image: '/wormhole/tiles/w20261206-v4-1.jpg' },
-        { text: "Find your path, link in bio.", image: '/wormhole/tiles/w20261206-v4-2.jpg' },
+        { text: 'Not sure where to start?', image: '/wormhole/tiles/w20261206-v4-1.jpg' },
+        { text: 'Find your path, link in bio.', image: '/wormhole/tiles/w20261206-v4-2.jpg' },
       ],
     },
-    reason: 'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
+    reason:
+      'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
   },
   {
     key: '2026-10-24 x20261208 visual v4 mixed looks',
     post: 'x20261208',
     set: {
       slides: [
-        { text: "Who eats whom in your soil?", image: '/wormhole/tiles/x20261208-v4-1.jpg' },
-        { text: "Photo only: bacteria.", image: '/wormhole/tiles/x20261208-v4-2.jpg' },
-        { text: "Photo only: protozoa.", image: '/wormhole/tiles/x20261208-v4-3.jpg' },
-        { text: "Photo only: a nematode.", image: '/wormhole/tiles/x20261208-v4-4.jpg' },
-        { text: "And the plant gets fed.", image: '/wormhole/tiles/x20261208-v4-5.jpg' },
+        { text: 'Who eats whom in your soil?', image: '/wormhole/tiles/x20261208-v4-1.jpg' },
+        { text: 'Photo only: bacteria.', image: '/wormhole/tiles/x20261208-v4-2.jpg' },
+        { text: 'Photo only: protozoa.', image: '/wormhole/tiles/x20261208-v4-3.jpg' },
+        { text: 'Photo only: a nematode.', image: '/wormhole/tiles/x20261208-v4-4.jpg' },
+        { text: 'And the plant gets fed.', image: '/wormhole/tiles/x20261208-v4-5.jpg' },
       ],
     },
-    reason: 'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
+    reason:
+      'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
   },
   {
     key: '2026-10-24 x20261210 visual v4 mixed looks',
     post: 'x20261210',
     set: {
       slides: [
-        { text: "131°F (55°C) for three days.", image: '/wormhole/tiles/x20261210-v4-1.jpg' },
-        { text: "Then turn it.", image: '/wormhole/tiles/x20261210-v4-2.jpg' },
+        { text: '131°F (55°C) for three days.', image: '/wormhole/tiles/x20261210-v4-1.jpg' },
+        { text: 'Then turn it.', image: '/wormhole/tiles/x20261210-v4-2.jpg' },
       ],
     },
-    reason: 'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
+    reason:
+      'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
   },
   {
     key: '2026-10-24 x20261213 visual v4 mixed looks',
     post: 'x20261213',
     set: {
       slides: [
-        { text: "Photo only: a testate amoeba, which built its own house.", image: '/wormhole/tiles/x20261213-v4-1.jpg' },
-        { text: "This amoeba built its own house.", image: '/wormhole/tiles/x20261213-v4-2.jpg' },
-        { text: "Photo only: bacteria, its food.", image: '/wormhole/tiles/x20261213-v4-3.jpg' },
+        {
+          text: 'Photo only: a testate amoeba, which built its own house.',
+          image: '/wormhole/tiles/x20261213-v4-1.jpg',
+        },
+        { text: 'This amoeba built its own house.', image: '/wormhole/tiles/x20261213-v4-2.jpg' },
+        { text: 'Photo only: bacteria, its food.', image: '/wormhole/tiles/x20261213-v4-3.jpg' },
       ],
     },
-    reason: 'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
+    reason:
+      'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
   },
   {
     key: '2026-10-24 x20261216 visual v4 mixed looks',
     post: 'x20261216',
     set: {
       slides: [
-        { text: "Permaculture zones.", image: '/wormhole/tiles/x20261216-v4-1.jpg' },
-        { text: "Zone 1: herbs, salad, the compost bin.", image: '/wormhole/tiles/x20261216-v4-2.jpg' },
-        { text: "Zone 5: left wild.", image: '/wormhole/tiles/x20261216-v4-3.jpg' },
+        { text: 'Permaculture zones.', image: '/wormhole/tiles/x20261216-v4-1.jpg' },
+        {
+          text: 'Zone 1: herbs, salad, the compost bin.',
+          image: '/wormhole/tiles/x20261216-v4-2.jpg',
+        },
+        { text: 'Zone 5: left wild.', image: '/wormhole/tiles/x20261216-v4-3.jpg' },
       ],
     },
-    reason: 'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
+    reason:
+      'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
   },
   {
     key: '2026-10-24 x20261220 visual v4 mixed looks',
     post: 'x20261220',
     set: {
       slides: [
-        { text: "Congratulations to our Permaculture Design Certificate class of 2026.", image: '/wormhole/tiles/x20261220-v4-1.jpg' },
-        { text: "Photo only: food forest.", image: '/wormhole/tiles/x20261220-v4-2.jpg' },
-        { text: "Go build it.", image: '/wormhole/tiles/x20261220-v4-3.jpg' },
+        {
+          text: 'Congratulations to our Permaculture Design Certificate class of 2026.',
+          image: '/wormhole/tiles/x20261220-v4-1.jpg',
+        },
+        { text: 'Photo only: food forest.', image: '/wormhole/tiles/x20261220-v4-2.jpg' },
+        { text: 'Go build it.', image: '/wormhole/tiles/x20261220-v4-3.jpg' },
       ],
     },
-    reason: 'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
+    reason:
+      'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
   },
   {
     key: '2026-10-24 x20261224 visual v4 mixed looks',
     post: 'x20261224',
     set: {
       slides: [
-        { text: "Your Christmas tree has one more job.", image: '/wormhole/tiles/x20261224-v4-1.jpg' },
-        { text: "Chip it. Mulch it.", image: '/wormhole/tiles/x20261224-v4-2.jpg' },
-        { text: "Photo only: the fungi it feeds.", image: '/wormhole/tiles/x20261224-v4-3.jpg' },
+        {
+          text: 'Your Christmas tree has one more job.',
+          image: '/wormhole/tiles/x20261224-v4-1.jpg',
+        },
+        { text: 'Chip it. Mulch it.', image: '/wormhole/tiles/x20261224-v4-2.jpg' },
+        { text: 'Photo only: the fungi it feeds.', image: '/wormhole/tiles/x20261224-v4-3.jpg' },
       ],
     },
-    reason: 'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
+    reason:
+      'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
   },
   {
     key: '2026-10-24 x20261227 visual v4 mixed looks',
     post: 'x20261227',
     set: {
       slides: [
-        { text: "Photo only: chard in straw mulch. Chop and drop.", image: '/wormhole/tiles/x20261227-v4-1.jpg' },
-        { text: "Chop and drop.", image: '/wormhole/tiles/x20261227-v4-2.jpg' },
-        { text: "Photo only: the fungi underneath.", image: '/wormhole/tiles/x20261227-v4-3.jpg' },
+        {
+          text: 'Photo only: chard in straw mulch. Chop and drop.',
+          image: '/wormhole/tiles/x20261227-v4-1.jpg',
+        },
+        { text: 'Chop and drop.', image: '/wormhole/tiles/x20261227-v4-2.jpg' },
+        { text: 'Photo only: the fungi underneath.', image: '/wormhole/tiles/x20261227-v4-3.jpg' },
       ],
     },
-    reason: 'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
+    reason:
+      'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
   },
   {
     key: '2026-10-24 x20261229 visual v4 mixed looks',
     post: 'x20261229',
     set: {
       slides: [
-        { text: "2026 in soil science.", image: '/wormhole/tiles/x20261229-v4-1.jpg' },
-        { text: "Photo only: no-till soil after rain.", image: '/wormhole/tiles/x20261229-v4-2.jpg' },
+        { text: '2026 in soil science.', image: '/wormhole/tiles/x20261229-v4-1.jpg' },
+        {
+          text: 'Photo only: no-till soil after rain.',
+          image: '/wormhole/tiles/x20261229-v4-2.jpg',
+        },
         { text: "Here's to more in 2027.", image: '/wormhole/tiles/x20261229-v4-3.jpg' },
       ],
     },
-    reason: 'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
+    reason:
+      'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
   },
   {
     key: '2026-10-24 x20261231 visual v4 mixed looks',
     post: 'x20261231',
     set: {
       slides: [
-        { text: "Happy New Year from the soil.", image: '/wormhole/tiles/x20261231-v4-1.jpg' },
-        { text: "Costa Rica, 18 to 29 January.", image: '/wormhole/tiles/x20261231-v4-2.jpg' },
-        { text: "New Mexico, 3 to 14 May.", image: '/wormhole/tiles/x20261231-v4-3.jpg' },
-        { text: "United Kingdom, September.", image: '/wormhole/tiles/x20261231-v4-4.jpg' },
+        { text: 'Happy New Year from the soil.', image: '/wormhole/tiles/x20261231-v4-1.jpg' },
+        { text: 'Costa Rica, 18 to 29 January.', image: '/wormhole/tiles/x20261231-v4-2.jpg' },
+        { text: 'New Mexico, 3 to 14 May.', image: '/wormhole/tiles/x20261231-v4-3.jpg' },
+        { text: 'United Kingdom, September.', image: '/wormhole/tiles/x20261231-v4-4.jpg' },
       ],
     },
-    reason: 'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
+    reason:
+      'Visual v4 (Linnea, 24 Oct: "why are all of these also in the same visual format?"): still picture-only, now mixed across neighbouring days: clean photo, 2x2 mosaic, two stacked photos, brand-colour frame, circle inset, word tag. Built with tools/wormhole-visuals/photo_mix.py.',
   },
   {
     key: '2026-10-24 w20261106 back to visual v2',
     post: 'w20261106',
     set: {
       slides: [
-        { text: "Real farms. Real soil.", image: '/wormhole/tiles/w20261106-v2-1.jpg' },
-        { text: "Photo only: misting a compost pile.", image: '/wormhole/tiles/w20261106-v2-2.jpg' },
-        { text: "Our new Projects pages.", image: '/wormhole/tiles/w20261106-v2-3.jpg' },
+        { text: 'Real farms. Real soil.', image: '/wormhole/tiles/w20261106-v2-1.jpg' },
+        {
+          text: 'Photo only: misting a compost pile.',
+          image: '/wormhole/tiles/w20261106-v2-2.jpg',
+        },
+        { text: 'Our new Projects pages.', image: '/wormhole/tiles/w20261106-v2-3.jpg' },
       ],
     },
     reason: 'Back to the v2 photo-and-tag visual (Linnea, 24 Oct: "i liked what you had").',
@@ -6001,9 +6473,7 @@ export const CHANGES: Change[] = [
     key: '2026-10-24 x20261108 back to visual v2',
     post: 'x20261108',
     set: {
-      slides: [
-        { text: "Happy Diwali.", image: '/wormhole/tiles/x20261108-v2-1.jpg' },
-      ],
+      slides: [{ text: 'Happy Diwali.', image: '/wormhole/tiles/x20261108-v2-1.jpg' }],
     },
     reason: 'Back to the v2 photo-and-tag visual (Linnea, 24 Oct: "i liked what you had").',
   },
@@ -6012,8 +6482,11 @@ export const CHANGES: Change[] = [
     post: 'p26',
     set: {
       slides: [
-        { text: "Welcome to our newest Certified Soil Food Web Consultants.", image: '/wormhole/tiles/p26-v2-1.jpg' },
-        { text: "Kyle Babcock, United States.", image: '/wormhole/tiles/p26-v2-2.jpg' },
+        {
+          text: 'Welcome to our newest Certified Soil Food Web Consultants.',
+          image: '/wormhole/tiles/p26-v2-1.jpg',
+        },
+        { text: 'Kyle Babcock, United States.', image: '/wormhole/tiles/p26-v2-2.jpg' },
       ],
     },
     reason: 'Back to the v2 photo-and-tag visual (Linnea, 24 Oct: "i liked what you had").',
@@ -6023,11 +6496,20 @@ export const CHANGES: Change[] = [
     post: 'pl20261114',
     set: {
       slides: [
-        { text: "Your fallen leaves can become fungal compost.", image: '/wormhole/tiles/pl20261114-v2-1.jpg' },
-        { text: "Photo only: wet leaves packed in a wire cage.", image: '/wormhole/tiles/pl20261114-v2-2.jpg' },
-        { text: "Photo only: leaves breaking down.", image: '/wormhole/tiles/pl20261114-v2-3.jpg' },
-        { text: "Photo only: finished leaf mold.", image: '/wormhole/tiles/pl20261114-v2-4.jpg' },
-        { text: "Use it as mulch or in potting soil.", image: '/wormhole/tiles/pl20261114-v2-5.jpg' },
+        {
+          text: 'Your fallen leaves can become fungal compost.',
+          image: '/wormhole/tiles/pl20261114-v2-1.jpg',
+        },
+        {
+          text: 'Photo only: wet leaves packed in a wire cage.',
+          image: '/wormhole/tiles/pl20261114-v2-2.jpg',
+        },
+        { text: 'Photo only: leaves breaking down.', image: '/wormhole/tiles/pl20261114-v2-3.jpg' },
+        { text: 'Photo only: finished leaf mold.', image: '/wormhole/tiles/pl20261114-v2-4.jpg' },
+        {
+          text: 'Use it as mulch or in potting soil.',
+          image: '/wormhole/tiles/pl20261114-v2-5.jpg',
+        },
       ],
     },
     reason: 'Back to the v2 photo-and-tag visual (Linnea, 24 Oct: "i liked what you had").',
@@ -6037,10 +6519,19 @@ export const CHANGES: Change[] = [
     post: 'pl20261115',
     set: {
       slides: [
-        { text: "Imagine a world without earthworms.", image: '/wormhole/tiles/pl20261115-v2-1.jpg' },
-        { text: "Photo only: a northern forest.", image: '/wormhole/tiles/pl20261115-v2-2.jpg' },
-        { text: "Photo only: an introduced earthworm.", image: '/wormhole/tiles/pl20261115-v2-3.jpg' },
-        { text: "Even a good organism can be the wrong one in the wrong place.", image: '/wormhole/tiles/pl20261115-v2-4.jpg' },
+        {
+          text: 'Imagine a world without earthworms.',
+          image: '/wormhole/tiles/pl20261115-v2-1.jpg',
+        },
+        { text: 'Photo only: a northern forest.', image: '/wormhole/tiles/pl20261115-v2-2.jpg' },
+        {
+          text: 'Photo only: an introduced earthworm.',
+          image: '/wormhole/tiles/pl20261115-v2-3.jpg',
+        },
+        {
+          text: 'Even a good organism can be the wrong one in the wrong place.',
+          image: '/wormhole/tiles/pl20261115-v2-4.jpg',
+        },
       ],
     },
     reason: 'Back to the v2 photo-and-tag visual (Linnea, 24 Oct: "i liked what you had").',
@@ -6050,9 +6541,9 @@ export const CHANGES: Change[] = [
     post: 'x20261117',
     set: {
       slides: [
-        { text: "Earth care.", image: '/wormhole/tiles/x20261117-v2-1.jpg' },
-        { text: "People care.", image: '/wormhole/tiles/x20261117-v2-2.jpg' },
-        { text: "Fair share.", image: '/wormhole/tiles/x20261117-v2-3.jpg' },
+        { text: 'Earth care.', image: '/wormhole/tiles/x20261117-v2-1.jpg' },
+        { text: 'People care.', image: '/wormhole/tiles/x20261117-v2-2.jpg' },
+        { text: 'Fair share.', image: '/wormhole/tiles/x20261117-v2-3.jpg' },
       ],
     },
     reason: 'Back to the v2 photo-and-tag visual (Linnea, 24 Oct: "i liked what you had").',
@@ -6062,10 +6553,16 @@ export const CHANGES: Change[] = [
     post: 'x20261118',
     set: {
       slides: [
-        { text: "Compost Intensive Course.", image: '/wormhole/tiles/x20261118-v2-1.jpg' },
-        { text: "Photo only: thermometer in the pile.", image: '/wormhole/tiles/x20261118-v2-2.jpg' },
-        { text: "Photo only: testate amoeba under the microscope.", image: '/wormhole/tiles/x20261118-v2-3.jpg' },
-        { text: "Starts January 2027. Link in bio.", image: '/wormhole/tiles/x20261118-v2-4.jpg' },
+        { text: 'Compost Intensive Course.', image: '/wormhole/tiles/x20261118-v2-1.jpg' },
+        {
+          text: 'Photo only: thermometer in the pile.',
+          image: '/wormhole/tiles/x20261118-v2-2.jpg',
+        },
+        {
+          text: 'Photo only: testate amoeba under the microscope.',
+          image: '/wormhole/tiles/x20261118-v2-3.jpg',
+        },
+        { text: 'Starts January 2027. Link in bio.', image: '/wormhole/tiles/x20261118-v2-4.jpg' },
       ],
     },
     reason: 'Back to the v2 photo-and-tag visual (Linnea, 24 Oct: "i liked what you had").',
@@ -6075,9 +6572,9 @@ export const CHANGES: Change[] = [
     post: 'ev-02',
     set: {
       slides: [
-        { text: "100,000 soil samples, one open atlas.", image: '/wormhole/tiles/ev-02-v2-1.jpg' },
-        { text: "Photo only: fungal hypha.", image: '/wormhole/tiles/ev-02-v2-2.jpg' },
-        { text: "Explore it at beopen.earth", image: '/wormhole/tiles/ev-02-v2-3.jpg' },
+        { text: '100,000 soil samples, one open atlas.', image: '/wormhole/tiles/ev-02-v2-1.jpg' },
+        { text: 'Photo only: fungal hypha.', image: '/wormhole/tiles/ev-02-v2-2.jpg' },
+        { text: 'Explore it at beopen.earth', image: '/wormhole/tiles/ev-02-v2-3.jpg' },
       ],
     },
     reason: 'Back to the v2 photo-and-tag visual (Linnea, 24 Oct: "i liked what you had").',
@@ -6087,9 +6584,12 @@ export const CHANGES: Change[] = [
     post: 'ar20261123',
     set: {
       slides: [
-        { text: "Our first annual report.", image: '/wormhole/tiles/ar20261123-v2-1.jpg' },
-        { text: "Photo only: turning a pile at a workshop.", image: '/wormhole/tiles/ar20261123-v2-2.jpg' },
-        { text: "Coming soon.", image: '/wormhole/tiles/ar20261123-v2-3.jpg' },
+        { text: 'Our first annual report.', image: '/wormhole/tiles/ar20261123-v2-1.jpg' },
+        {
+          text: 'Photo only: turning a pile at a workshop.',
+          image: '/wormhole/tiles/ar20261123-v2-2.jpg',
+        },
+        { text: 'Coming soon.', image: '/wormhole/tiles/ar20261123-v2-3.jpg' },
       ],
     },
     reason: 'Back to the v2 photo-and-tag visual (Linnea, 24 Oct: "i liked what you had").',
@@ -6099,9 +6599,9 @@ export const CHANGES: Change[] = [
     post: 'x20261129',
     set: {
       slides: [
-        { text: "Trees grow better with friends.", image: '/wormhole/tiles/x20261129-v2-1.jpg' },
-        { text: "Photo only: mixed planting beds.", image: '/wormhole/tiles/x20261129-v2-2.jpg' },
-        { text: "Photo only: chard in straw mulch.", image: '/wormhole/tiles/x20261129-v2-3.jpg' },
+        { text: 'Trees grow better with friends.', image: '/wormhole/tiles/x20261129-v2-1.jpg' },
+        { text: 'Photo only: mixed planting beds.', image: '/wormhole/tiles/x20261129-v2-2.jpg' },
+        { text: 'Photo only: chard in straw mulch.', image: '/wormhole/tiles/x20261129-v2-3.jpg' },
       ],
     },
     reason: 'Back to the v2 photo-and-tag visual (Linnea, 24 Oct: "i liked what you had").',
@@ -6111,8 +6611,8 @@ export const CHANGES: Change[] = [
     post: 'x20261130',
     set: {
       slides: [
-        { text: "10 weeks of compost.", image: '/wormhole/tiles/x20261130-v2-1.jpg' },
-        { text: "Enroll now, link in bio.", image: '/wormhole/tiles/x20261130-v2-2.jpg' },
+        { text: '10 weeks of compost.', image: '/wormhole/tiles/x20261130-v2-1.jpg' },
+        { text: 'Enroll now, link in bio.', image: '/wormhole/tiles/x20261130-v2-2.jpg' },
       ],
     },
     reason: 'Back to the v2 photo-and-tag visual (Linnea, 24 Oct: "i liked what you had").',
@@ -6122,9 +6622,9 @@ export const CHANGES: Change[] = [
     post: 'x20261201',
     set: {
       slides: [
-        { text: "Today is GivingTuesday.", image: '/wormhole/tiles/x20261201-v2-1.jpg' },
-        { text: "Photo only: garden beds.", image: '/wormhole/tiles/x20261201-v2-2.jpg' },
-        { text: "Give a scholarship, link in bio.", image: '/wormhole/tiles/x20261201-v2-3.jpg' },
+        { text: 'Today is GivingTuesday.', image: '/wormhole/tiles/x20261201-v2-1.jpg' },
+        { text: 'Photo only: garden beds.', image: '/wormhole/tiles/x20261201-v2-2.jpg' },
+        { text: 'Give a scholarship, link in bio.', image: '/wormhole/tiles/x20261201-v2-3.jpg' },
       ],
     },
     reason: 'Back to the v2 photo-and-tag visual (Linnea, 24 Oct: "i liked what you had").',
@@ -6134,10 +6634,16 @@ export const CHANGES: Change[] = [
     post: 'x20261202',
     set: {
       slides: [
-        { text: "From shovel to slide.", image: '/wormhole/tiles/x20261202-v2-1.jpg' },
-        { text: "Photo only: mixing the sample with water.", image: '/wormhole/tiles/x20261202-v2-2.jpg' },
-        { text: "Photo only: preparing the slide.", image: '/wormhole/tiles/x20261202-v2-3.jpg' },
-        { text: "Photo only: a nematode under the microscope.", image: '/wormhole/tiles/x20261202-v2-4.jpg' },
+        { text: 'From shovel to slide.', image: '/wormhole/tiles/x20261202-v2-1.jpg' },
+        {
+          text: 'Photo only: mixing the sample with water.',
+          image: '/wormhole/tiles/x20261202-v2-2.jpg',
+        },
+        { text: 'Photo only: preparing the slide.', image: '/wormhole/tiles/x20261202-v2-3.jpg' },
+        {
+          text: 'Photo only: a nematode under the microscope.',
+          image: '/wormhole/tiles/x20261202-v2-4.jpg',
+        },
       ],
     },
     reason: 'Back to the v2 photo-and-tag visual (Linnea, 24 Oct: "i liked what you had").',
@@ -6147,11 +6653,14 @@ export const CHANGES: Change[] = [
     post: 'x20261204',
     set: {
       slides: [
-        { text: "Wildlife Conservation Day: meet the wildlife under your feet.", image: '/wormhole/tiles/x20261204-v2-1.jpg' },
-        { text: "Bacteria.", image: '/wormhole/tiles/x20261204-v2-2.jpg' },
-        { text: "Fungi.", image: '/wormhole/tiles/x20261204-v2-3.jpg' },
-        { text: "Protozoa.", image: '/wormhole/tiles/x20261204-v2-4.jpg' },
-        { text: "Nematodes.", image: '/wormhole/tiles/x20261204-v2-5.jpg' },
+        {
+          text: 'Wildlife Conservation Day: meet the wildlife under your feet.',
+          image: '/wormhole/tiles/x20261204-v2-1.jpg',
+        },
+        { text: 'Bacteria.', image: '/wormhole/tiles/x20261204-v2-2.jpg' },
+        { text: 'Fungi.', image: '/wormhole/tiles/x20261204-v2-3.jpg' },
+        { text: 'Protozoa.', image: '/wormhole/tiles/x20261204-v2-4.jpg' },
+        { text: 'Nematodes.', image: '/wormhole/tiles/x20261204-v2-5.jpg' },
       ],
     },
     reason: 'Back to the v2 photo-and-tag visual (Linnea, 24 Oct: "i liked what you had").',
@@ -6161,9 +6670,12 @@ export const CHANGES: Change[] = [
     post: 'w20261206',
     set: {
       slides: [
-        { text: "Not sure where to start?", image: '/wormhole/tiles/w20261206-v2-1.jpg' },
-        { text: "Photo only: Dr. Elaine in the garden.", image: '/wormhole/tiles/w20261206-v2-2.jpg' },
-        { text: "Find your path, link in bio.", image: '/wormhole/tiles/w20261206-v2-3.jpg' },
+        { text: 'Not sure where to start?', image: '/wormhole/tiles/w20261206-v2-1.jpg' },
+        {
+          text: 'Photo only: Dr. Elaine in the garden.',
+          image: '/wormhole/tiles/w20261206-v2-2.jpg',
+        },
+        { text: 'Find your path, link in bio.', image: '/wormhole/tiles/w20261206-v2-3.jpg' },
       ],
     },
     reason: 'Back to the v2 photo-and-tag visual (Linnea, 24 Oct: "i liked what you had").',
@@ -6173,11 +6685,11 @@ export const CHANGES: Change[] = [
     post: 'x20261208',
     set: {
       slides: [
-        { text: "Who eats whom in your soil?", image: '/wormhole/tiles/x20261208-v2-1.jpg' },
-        { text: "Photo only: bacteria.", image: '/wormhole/tiles/x20261208-v2-2.jpg' },
-        { text: "Photo only: protozoa.", image: '/wormhole/tiles/x20261208-v2-3.jpg' },
-        { text: "Photo only: a nematode.", image: '/wormhole/tiles/x20261208-v2-4.jpg' },
-        { text: "And the plant gets fed.", image: '/wormhole/tiles/x20261208-v2-5.jpg' },
+        { text: 'Who eats whom in your soil?', image: '/wormhole/tiles/x20261208-v2-1.jpg' },
+        { text: 'Photo only: bacteria.', image: '/wormhole/tiles/x20261208-v2-2.jpg' },
+        { text: 'Photo only: protozoa.', image: '/wormhole/tiles/x20261208-v2-3.jpg' },
+        { text: 'Photo only: a nematode.', image: '/wormhole/tiles/x20261208-v2-4.jpg' },
+        { text: 'And the plant gets fed.', image: '/wormhole/tiles/x20261208-v2-5.jpg' },
       ],
     },
     reason: 'Back to the v2 photo-and-tag visual (Linnea, 24 Oct: "i liked what you had").',
@@ -6187,9 +6699,9 @@ export const CHANGES: Change[] = [
     post: 'x20261210',
     set: {
       slides: [
-        { text: "131°F (55°C) for three days.", image: '/wormhole/tiles/x20261210-v2-1.jpg' },
-        { text: "Photo only: misting the pile.", image: '/wormhole/tiles/x20261210-v2-2.jpg' },
-        { text: "Then turn it.", image: '/wormhole/tiles/x20261210-v2-3.jpg' },
+        { text: '131°F (55°C) for three days.', image: '/wormhole/tiles/x20261210-v2-1.jpg' },
+        { text: 'Photo only: misting the pile.', image: '/wormhole/tiles/x20261210-v2-2.jpg' },
+        { text: 'Then turn it.', image: '/wormhole/tiles/x20261210-v2-3.jpg' },
       ],
     },
     reason: 'Back to the v2 photo-and-tag visual (Linnea, 24 Oct: "i liked what you had").',
@@ -6199,9 +6711,9 @@ export const CHANGES: Change[] = [
     post: 'x20261213',
     set: {
       slides: [
-        { text: "This amoeba built its own house.", image: '/wormhole/tiles/x20261213-v2-1.jpg' },
-        { text: "Photo only: the shell up close.", image: '/wormhole/tiles/x20261213-v2-2.jpg' },
-        { text: "Photo only: bacteria, its food.", image: '/wormhole/tiles/x20261213-v2-3.jpg' },
+        { text: 'This amoeba built its own house.', image: '/wormhole/tiles/x20261213-v2-1.jpg' },
+        { text: 'Photo only: the shell up close.', image: '/wormhole/tiles/x20261213-v2-2.jpg' },
+        { text: 'Photo only: bacteria, its food.', image: '/wormhole/tiles/x20261213-v2-3.jpg' },
       ],
     },
     reason: 'Back to the v2 photo-and-tag visual (Linnea, 24 Oct: "i liked what you had").',
@@ -6211,9 +6723,12 @@ export const CHANGES: Change[] = [
     post: 'x20261216',
     set: {
       slides: [
-        { text: "Permaculture zones.", image: '/wormhole/tiles/x20261216-v2-1.jpg' },
-        { text: "Zone 1: herbs, salad, the compost bin.", image: '/wormhole/tiles/x20261216-v2-2.jpg' },
-        { text: "Zone 5: left wild.", image: '/wormhole/tiles/x20261216-v2-3.jpg' },
+        { text: 'Permaculture zones.', image: '/wormhole/tiles/x20261216-v2-1.jpg' },
+        {
+          text: 'Zone 1: herbs, salad, the compost bin.',
+          image: '/wormhole/tiles/x20261216-v2-2.jpg',
+        },
+        { text: 'Zone 5: left wild.', image: '/wormhole/tiles/x20261216-v2-3.jpg' },
       ],
     },
     reason: 'Back to the v2 photo-and-tag visual (Linnea, 24 Oct: "i liked what you had").',
@@ -6223,9 +6738,12 @@ export const CHANGES: Change[] = [
     post: 'x20261220',
     set: {
       slides: [
-        { text: "Congratulations to our Permaculture Design Certificate class of 2026.", image: '/wormhole/tiles/x20261220-v2-1.jpg' },
-        { text: "Photo only: food forest.", image: '/wormhole/tiles/x20261220-v2-2.jpg' },
-        { text: "Go build it.", image: '/wormhole/tiles/x20261220-v2-3.jpg' },
+        {
+          text: 'Congratulations to our Permaculture Design Certificate class of 2026.',
+          image: '/wormhole/tiles/x20261220-v2-1.jpg',
+        },
+        { text: 'Photo only: food forest.', image: '/wormhole/tiles/x20261220-v2-2.jpg' },
+        { text: 'Go build it.', image: '/wormhole/tiles/x20261220-v2-3.jpg' },
       ],
     },
     reason: 'Back to the v2 photo-and-tag visual (Linnea, 24 Oct: "i liked what you had").',
@@ -6235,9 +6753,12 @@ export const CHANGES: Change[] = [
     post: 'x20261224',
     set: {
       slides: [
-        { text: "Your Christmas tree has one more job.", image: '/wormhole/tiles/x20261224-v2-1.jpg' },
-        { text: "Chip it. Mulch it.", image: '/wormhole/tiles/x20261224-v2-2.jpg' },
-        { text: "Photo only: the fungi it feeds.", image: '/wormhole/tiles/x20261224-v2-3.jpg' },
+        {
+          text: 'Your Christmas tree has one more job.',
+          image: '/wormhole/tiles/x20261224-v2-1.jpg',
+        },
+        { text: 'Chip it. Mulch it.', image: '/wormhole/tiles/x20261224-v2-2.jpg' },
+        { text: 'Photo only: the fungi it feeds.', image: '/wormhole/tiles/x20261224-v2-3.jpg' },
       ],
     },
     reason: 'Back to the v2 photo-and-tag visual (Linnea, 24 Oct: "i liked what you had").',
@@ -6247,9 +6768,12 @@ export const CHANGES: Change[] = [
     post: 'x20261227',
     set: {
       slides: [
-        { text: "Chop and drop.", image: '/wormhole/tiles/x20261227-v2-1.jpg' },
-        { text: "Photo only: leaves left where they fall.", image: '/wormhole/tiles/x20261227-v2-2.jpg' },
-        { text: "Photo only: the fungi underneath.", image: '/wormhole/tiles/x20261227-v2-3.jpg' },
+        { text: 'Chop and drop.', image: '/wormhole/tiles/x20261227-v2-1.jpg' },
+        {
+          text: 'Photo only: leaves left where they fall.',
+          image: '/wormhole/tiles/x20261227-v2-2.jpg',
+        },
+        { text: 'Photo only: the fungi underneath.', image: '/wormhole/tiles/x20261227-v2-3.jpg' },
       ],
     },
     reason: 'Back to the v2 photo-and-tag visual (Linnea, 24 Oct: "i liked what you had").',
@@ -6259,9 +6783,12 @@ export const CHANGES: Change[] = [
     post: 'x20261229',
     set: {
       slides: [
-        { text: "2026 in soil science.", image: '/wormhole/tiles/x20261229-v2-1.jpg' },
-        { text: "Photo only: bacteria.", image: '/wormhole/tiles/x20261229-v2-2.jpg' },
-        { text: "Photo only: no-till soil after rain.", image: '/wormhole/tiles/x20261229-v2-3.jpg' },
+        { text: '2026 in soil science.', image: '/wormhole/tiles/x20261229-v2-1.jpg' },
+        { text: 'Photo only: bacteria.', image: '/wormhole/tiles/x20261229-v2-2.jpg' },
+        {
+          text: 'Photo only: no-till soil after rain.',
+          image: '/wormhole/tiles/x20261229-v2-3.jpg',
+        },
         { text: "Here's to more in 2027.", image: '/wormhole/tiles/x20261229-v2-4.jpg' },
       ],
     },
@@ -6272,15 +6799,17 @@ export const CHANGES: Change[] = [
     post: 'x20261231',
     set: {
       slides: [
-        { text: "Happy New Year from the soil.", image: '/wormhole/tiles/x20261231-v2-1.jpg' },
-        { text: "Costa Rica, 18 to 29 January.", image: '/wormhole/tiles/x20261231-v2-2.jpg' },
-        { text: "New Mexico, 3 to 14 May.", image: '/wormhole/tiles/x20261231-v2-3.jpg' },
-        { text: "United Kingdom, September.", image: '/wormhole/tiles/x20261231-v2-4.jpg' },
+        { text: 'Happy New Year from the soil.', image: '/wormhole/tiles/x20261231-v2-1.jpg' },
+        { text: 'Costa Rica, 18 to 29 January.', image: '/wormhole/tiles/x20261231-v2-2.jpg' },
+        { text: 'New Mexico, 3 to 14 May.', image: '/wormhole/tiles/x20261231-v2-3.jpg' },
+        { text: 'United Kingdom, September.', image: '/wormhole/tiles/x20261231-v2-4.jpg' },
       ],
     },
     reason: 'Back to the v2 photo-and-tag visual (Linnea, 24 Oct: "i liked what you had").',
   },
 ];
+
+CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES);
 
 const editorOf = (c: Change) => `Change: ${c.key}`;
 let done = false;
@@ -6293,6 +6822,11 @@ export async function applyChanges(): Promise<void> {
   );
   const ran = new Set(rows.map((r) => r.editor));
   for (const c of CHANGES) {
+    if (c.remove) {
+      // Deleting is safe to repeat, so it runs on every start; versions cascade.
+      await db().query(`delete from wormhole_posts where id = $1`, [c.post]);
+      continue;
+    }
     if (ran.has(editorOf(c))) continue;
     const { rows: found } = await db().query<{ caption: string; note: string }>(
       `select caption, note from wormhole_posts where id = $1`,
@@ -6331,10 +6865,14 @@ export async function applyChanges(): Promise<void> {
       }
       continue;
     }
-    let caption = current.caption;
+    let caption = c.captionText ?? current.caption;
     for (const [from, to] of c.caption ?? []) caption = caption.split(from).join(to);
     const note = current.note ? `${c.reason}\n${current.note}` : c.reason;
-    await savePost(c.post, { ...c.set, ...(c.caption ? { caption } : {}), note }, editorOf(c));
+    await savePost(
+      c.post,
+      { ...c.set, ...(c.caption || c.captionText ? { caption } : {}), note },
+      editorOf(c),
+    );
   }
   done = true;
 }
