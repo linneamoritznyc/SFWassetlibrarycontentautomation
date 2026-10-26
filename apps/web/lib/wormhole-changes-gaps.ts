@@ -602,5 +602,36 @@ export const GAP_CHANGES: Change[] = [
     reason:
       "New post (26 Oct, round 2): Kisan Diwas, India's National Farmers' Day, thanking India's farmers and pointing to the October Accelerator Workshop with the CLAUDE.md partner naming. Shares 23 Dec with the partner-share placeholder pl20261223. [CONFIRM: the workshop ran as planned; a recap page or news post to link instead of the course page; real Coimbatore photos from Kavi.]",
   },
+  {
+    key: '2026-10-26 k20261120 natus letter',
+    post: 'k20261120',
+    create: {
+      iso_date: '2026-11-20',
+      date_tbd: false,
+      topic: 'A letter from Southern Thailand: Natus Rattanaphokil',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        '"Every ecological piece instantly fell into place."\n\nThis month, a letter arrived for Dr. Elaine Ingham from Natus Rattanaphokil in Na Thawi, Songkhla, in Southern Thailand.\n\nNatus has spent the past year designing a permaculture project for his 12-acre farm. When he found the soil food web approach, he wrote, it felt like an absolute breakthrough. Now he is putting Dr. Elaine\'s methods to work on his land, and he plans to share what he learns with his local community.\n\nDr. Elaine passed away in February. We read his letter together as a team, and it made our hearts full. Her science lives on in people like Natus, on land like his.\n\nThank you, Natus. We can\'t wait to see what grows in Na Thawi. If you are starting your own journey, our free webinars and Foundation Courses are a good place to begin. Link in bio.\n\n#SoilFoodWeb #LivingSoil #ElaineIngham #Permaculture #SoilHealth #RegenerativeAgriculture #Thailand',
+      slides: [
+        { text: 'A letter for Dr. Elaine.', image: '/wormhole/tiles/k20261120-v2-1.jpg' },
+        {
+          text: '"Every ecological piece instantly fell into place." Natus Rattanaphokil, Songkhla, Thailand',
+          image: '/wormhole/tiles/k20261120-v2-2.jpg',
+        },
+        { text: '', image: '/wormhole/tiles/k20261120-v2-3.jpg' },
+      ],
+      cta: 'Start with the Foundation Courses or a free webinar.',
+      link: 'https://school.soilfoodweb.com/bundles/soilfoodweb-foundation-courses',
+      sources: [
+        "Natus Rattanaphokil's letter to Dr. Elaine, shared by Zulfiia Dasaeva via the Student Support Service Desk (monday.com pulse 13378261096)",
+      ],
+      visual_note:
+        'v2 photo-and-tag. Slide 1 Dr. Elaine at the microscope (purple tag, Elaine content). Slides 2 and 3 are stand-ins: swap in photos of Natus and his farm in Na Thawi when he sends them, then add a "Na Thawi, Thailand." tag. Collab with Natus if he has an account. LinkedIn: replace the last paragraph with "Thank you, Natus. To everyone working with living soil in Southeast Asia: what is the hardest part of getting started on your land?"',
+      note: '',
+      status: 'draft',
+    },
+    reason:
+      'New (Linnea, 26 Oct): Natus Rattanaphokil letter. CONFIRM before posting: his written permission to share the letter, his name and farm location; his photos and handle.',
+  },
   // --- end Nov-Dec C ---
 ];
