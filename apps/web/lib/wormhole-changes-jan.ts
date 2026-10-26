@@ -573,5 +573,594 @@ export const JAN_CHANGES: Change[] = [
   },
   // --- end January A ---
   // --- January B (16 to 31) ---
+  {
+    key: '2026-10-26 j20270116 create',
+    post: 'j20270116',
+    create: {
+      iso_date: '2027-01-16',
+      date_tbd: false,
+      topic: 'Do this weekend: the seed germination test',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        'Is your compost ready for your seedlings? Let a tray of seeds tell you! 🌱\n\nThis weekend, run a germination test on your kitchen windowsill. Screen some compost or seed-starting mix, keep it moist and spread it at least an inch deep in a seedling tray. Press in 100 radish or cress seeds about half an inch deep, cover them gently and set the tray in the light.\n\nCount the sprouts after 5 to 10 days. If 80 or more of your 100 seeds grew, the compost is likely mature enough to use. Below 80, give it more time to cure. Salty or very acidic or alkaline material can hold seeds back too.\n\nYour seedlings will thank you in spring. 💚\n\n#DoThisWeekend #Compost #SeedStarting #SoilFoodWeb #LivingSoil #SoilHealth',
+      slides: [
+        {
+          text: 'Is your compost or potting mix ready? Let seeds tell you.',
+          image: '/wormhole/tiles/j20270116-v2-1.jpg',
+        },
+        {
+          text: 'Sow 100 radish or cress seeds in moist compost.',
+          image: '/wormhole/tiles/j20270116-v2-2.jpg',
+        },
+        {
+          text: 'After 5 to 10 days, 80 or more sprouts means it is likely mature.',
+          image: '/wormhole/tiles/j20270116-v2-3.jpg',
+        },
+      ],
+      cta: 'Save this for seed-starting season',
+      link: '',
+      sources: [
+        'Institute for Local Self-Reliance, Composting Learning Activity: Germination Test: https://cdn.ilsr.org/wp-content/uploads/2023/12/Shared-ILSR-Composting-Learning-Activity-Germination-Test.pdf',
+      ],
+      visual_note:
+        'Carousel, 3 slides, v2 photo and tag. Hands holding compost and soil (photos from the new SFW site). Built with tools/wormhole-visuals/jan_b.py.',
+      note: '',
+      status: 'draft',
+    },
+    reason:
+      'New January post (26 Oct planning pass): Do this weekend, an indoor task. December covered the jar test, so this is the seed germination test.',
+  },
+  {
+    key: '2026-10-26 j20270117 create',
+    post: 'j20270117',
+    create: {
+      iso_date: '2027-01-17',
+      date_tbd: false,
+      topic: 'Costa Rica: tomorrow we start',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        'Tomorrow we start building compost in Costa Rica! 🌺\n\nOur Accelerator Workshop students arrive at Armonía Agricultura Orgánica near San José on 18 January. Here is what the next twelve days hold.\n\nWeek one is compost. You choose feedstocks, write recipes and build several thermophilic BioComplete™ compost piles from scratch with your team, then hydrate, monitor, turn and troubleshoot them.\n\nWeek two is biological liquid amendments: compost extracts, compost teas, protozoan infusions, nematode extractions and field application.\n\nEvery day, you check your work under the microscope with our mentors beside you. The weekend in the middle is yours to rest and explore.\n\nFollow along here for the next two weeks. 💚\n\n#CostaRica #AcceleratorWorkshop #BioCompleteCompost #SoilFoodWeb #LivingSoil #Workshop',
+      slides: [
+        {
+          text: 'Tomorrow we start in Costa Rica.',
+          image: '/wormhole/tiles/j20270117-v2-1.jpg',
+        },
+        {
+          text: 'Week one: compost. Week two: biological liquid amendments.',
+          image: '/wormhole/tiles/j20270117-v2-2.jpg',
+        },
+      ],
+      cta: 'Follow along',
+      link: 'https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+      sources: [
+        'Costa Rica 2027 sales page: https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+        'Program wording, Costa Rica stories set (week one compost, week two liquid amendments, microscopes on site, weekend break): /wormhole/decks/26-10-2026-ig-stories-costa-rica-2027.pptx, same as st20261029 and st20261112',
+        'Accelerator Workshop | Costa Rica, workshop page (Armonía, outdoor workspaces and indoor microscopy classrooms): https://new.soilfoodweb.com/calendar-event/aw-costa-rica-2027/',
+      ],
+      visual_note:
+        'Carousel, 2 slides, v2 photo and tag. Real 2025 Costa Rica photos from the Costa Rica decks: students cheering over a finished pile, students with buckets outdoors. Built with tools/wormhole-visuals/jan_b.py. No prices.',
+      note: '',
+      status: 'draft',
+    },
+    reason:
+      'New January post (26 Oct planning pass): Costa Rica feed, the day before the workshop. Program wording from the existing Costa Rica stories set.',
+  },
+  {
+    key: '2026-10-26 j20270118 create',
+    post: 'j20270118',
+    create: {
+      iso_date: '2027-01-18',
+      date_tbd: false,
+      topic: 'Costa Rica stories · Day 1, welcome',
+      platform: 'Instagram Stories',
+      caption:
+        'No caption (Stories). Frame 1: "Welcome to Costa Rica!" Frame 2: link sticker to the workshop interest form for future workshops, https://school.soilfoodweb.com/pages/workshop-interest. Post around 8:00am Pacific. Reshare any posts from Armonía (@armoniaagriculturaorganica) and the mentors.',
+      slides: [
+        {
+          text: 'Story frame 1: welcome to Costa Rica.',
+          image: '/wormhole/tiles/j20270118-v2-1.jpg',
+        },
+        {
+          text: 'Story frame 2: bienvenidos. Link sticker.',
+          image: '/wormhole/tiles/j20270118-v2-2.jpg',
+        },
+      ],
+      cta: 'Join the interest list, link sticker',
+      link: 'https://school.soilfoodweb.com/pages/workshop-interest',
+      sources: [
+        'Costa Rica 2027 sales page: https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+        'Workshop interest form: https://school.soilfoodweb.com/pages/workshop-interest',
+      ],
+      visual_note:
+        'Stories, 2 frames as 1080 x 1350 tiles like the other st posts. Real 2025 Costa Rica photos (group gathered under the shed roof, sorting feedstock from big bags). Swap in live photos from Kavi or the mentors on the day. Built with tools/wormhole-visuals/jan_b.py.',
+      note: '',
+      status: 'draft',
+    },
+    reason:
+      'New January post (26 Oct planning pass): Costa Rica Stories, day 1 welcome. Placeholder photos from 2025 until live photos arrive.',
+  },
+  {
+    key: '2026-10-26 j20270119 create',
+    post: 'j20270119',
+    create: {
+      iso_date: '2027-01-19',
+      date_tbd: false,
+      topic: 'Meet the team: Leslie W. Lewis, Ph.D., Executive Committee',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        "Please join us in meeting Leslie Lewis, Ph.D., of our Executive Committee! 🌿\n\nLeslie worked in higher education for almost four decades. She served as Dean of the School of Humanities and Sciences at Ithaca College and as Provost at Goucher College in Baltimore.\n\nShe came to soil health as a researcher, a writer and a long-time organic grower. While teaching a course on regenerative farming, sustainability and the food system, she met Dr. Elaine Ingham at a conference in 2020. That meeting began her journey with the Soil Food Web School, and she went on to complete our microscopy and consulting programs.\n\nLeslie loves hands-on learning and research in equal measure, and her early years on her family's farm keep her practical.\n\nThank you, Leslie, for guiding this Foundation with us. 💚\n\n#MeetTheTeam #SoilFoodWebFoundation #SoilFoodWeb #SoilHealth #RegenerativeAgriculture #LivingSoil",
+      slides: [
+        {
+          text: 'Meet the team: Leslie W. Lewis, Ph.D., Executive Committee.',
+          image: '/wormhole/tiles/j20270119-v2-1.jpg',
+        },
+      ],
+      cta: 'Thank Leslie',
+      link: 'Collab with Leslie [VERIFY handle]',
+      sources: [
+        'Our team page, new SFW site (about-team.html in final-sfwsite-linnea, bio carried over from soilfoodweb.com): https://new.soilfoodweb.com/about-us/#team',
+        'Leslie W. Lewis, Ph.D., team member page: https://new.soilfoodweb.com/team-member/leslie-w-lewis-ph-d/',
+      ],
+      visual_note:
+        "Single image, v2 photo and tag. Leslie's site portrait (w_leslie.jpg). Built with tools/wormhole-visuals/jan_b.py.",
+      note: '',
+      status: 'draft',
+    },
+    reason:
+      'New January post (26 Oct planning pass): Meet the team, Leslie. Facts only from her site bio; Leslie to approve before it goes out.',
+  },
+  {
+    key: '2026-10-26 j20270120 create',
+    post: 'j20270120',
+    create: {
+      iso_date: '2027-01-20',
+      date_tbd: false,
+      topic: 'Soil Regenerators in the wild: TrashIt, Pakistan',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        "From food waste to a soil microbiology lab in Pakistan! 🔬\n\nTrashIt is a social enterprise led by women and youth that turns organic waste into regenerative soil solutions. Its founders studied with the Soil Food Web School on scholarships. TrashIt has since kept more than 950,000 kg of organic waste out of landfills and launched a soil microbial testing laboratory.\n\nIn September 2025, the TrashIt team and Soil Food Web Consultant Nick Padwick of Wild Soils UK ran Soil Health Week across Karachi and Sindh. They taught at Karachi University, Habib University and Sindh Agriculture University, and hosted the first Farmers' Baithak at Rahuki Farms in Hyderabad, with growers from seven districts.\n\nWe are so proud of you, TrashIt. 💚\n\n#SoilRegeneratorsInTheWild #Pakistan #Compost #SoilMicrobiology #SoilFoodWeb #RegenerativeAgriculture",
+      slides: [
+        {
+          text: 'Soil Regenerators in the wild: TrashIt, Pakistan.',
+          image: '/wormhole/tiles/j20270120-v2-1.jpg',
+        },
+      ],
+      cta: 'Read the story, link in bio',
+      link: 'https://soilfoodweb.com/?p=90061',
+      sources: [
+        'Soil Food Web, "Bridging Global Expertise and Local Action", Soil Health Week Pakistan 2025: https://soilfoodweb.com/?p=90061',
+        'Community page, new SFW site (content/community.json, pakistan-2025): https://soilfoodweb.com/soil-health-week-2025-wild-soils-uk-and-trashit-bring-the-soil-food-web-approach-to-pakistan/',
+      ],
+      visual_note:
+        'Single image, v2 photo and tag. Top: the Soil Health Week 2025 group photo with Nick Padwick (site file Screenshot-2025-10-22-212600.jpg, Nick still to confirm who is in it and permission, per docs/image-decisions.md). Bottom: SFW sample tubes. Instagram Collab with TrashIt (trashit.pk) and Wild Soils UK [VERIFY handles]. Built with tools/wormhole-visuals/jan_b.py.',
+      note: '',
+      status: 'draft',
+    },
+    reason:
+      "New January post (26 Oct planning pass): Soil Regenerators in the wild. TrashIt was not used Oct to Dec; every fact is from the Foundation's Soil Health Week article.",
+  },
+  {
+    key: '2026-10-26 j20270121 create',
+    post: 'j20270121',
+    create: {
+      iso_date: '2027-01-21',
+      date_tbd: false,
+      topic: 'Myth vs mechanism: sand loosens clay soil',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        'Heavy clay soil? Put the bag of sand back! 🧱\n\nAdding sand to clay sounds logical, and it is one of the most common garden myths. University of Illinois Extension explains that you would need about one part sand to one part clay to change the structure of a clay soil. A thin layer of sand just disappears into the clay.\n\nTheir advice is organic matter, and the mechanism is life. Compost and mulch feed bacteria and fungi. Bacteria make sticky glues, fungal hyphae bind particles together, and roots and earthworms open channels. Together they turn tight clay into crumbs with pores for air and water.\n\nFeed the clay, and the clay changes. 💚\n\n#MythVsMechanism #ClaySoil #SoilStructure #Compost #SoilFoodWeb #SoilBiology',
+      slides: [
+        {
+          text: 'Myth: add sand to loosen clay soil.',
+          image: '/wormhole/tiles/j20270121-v2-1.jpg',
+        },
+        {
+          text: 'Add organic matter and let soil life build the crumb.',
+          image: '/wormhole/tiles/j20270121-v2-2.jpg',
+        },
+      ],
+      cta: 'Save this for spring',
+      link: '',
+      sources: [
+        'University of Illinois Extension, Good Growing, "Does sand improve clay soil drainage?" (Christopher Enroth, 2018): https://extension.illinois.edu/blogs/good-growing/2018-01-31-does-sand-improve-clay-soil-drainage',
+        'How the soil food web builds structure: Soil Food Web, The Formation of Structure (animation): https://soilfoodweb.com/resources/animations-videos/',
+      ],
+      visual_note:
+        "Carousel, 2 slides, v2 photo and tag. Field photos of residue and earthworms in crumb soil at York Farms (Harrington's Organic Land Care; written permission still open per docs/handoff-alex.md). Built with tools/wormhole-visuals/jan_b.py.",
+      note: '',
+      status: 'draft',
+    },
+    reason:
+      'New January post (26 Oct planning pass): Myth vs mechanism. Topic not covered Oct to Dec.',
+  },
+  {
+    key: '2026-10-26 j20270122 create',
+    post: 'j20270122',
+    create: {
+      iso_date: '2027-01-22',
+      date_tbd: false,
+      topic: 'Costa Rica live: building the piles',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        "It's pile week in Costa Rica! 🔥\n\nThis week our Accelerator Workshop students at Armonía are building their thermophilic BioComplete™ compost piles by hand. Each team chooses its feedstocks, works out a recipe, builds the pile layer by layer and hydrates it as it goes.\n\nThen the real learning starts. Every day you measure the temperature, watch how the pile changes, turn it when it needs turning and check the biology under the microscope. Some piles are built to go wrong, so you learn to read a struggling pile and rescue it with a mentor beside you.\n\nHands-on training you can see, feel, hear and smell. 💚\n\nWant to join us at a future workshop? Join the interest list through the link in bio.\n\n#CostaRica #AcceleratorWorkshop #BioCompleteCompost #ThermophilicCompost #SoilFoodWeb #Workshop",
+      slides: [
+        {
+          text: 'Live from Costa Rica: building the piles.',
+          image: '/wormhole/tiles/j20270122-v2-1.jpg',
+        },
+        {
+          text: 'Photo only: hydrating a pile.',
+          image: '/wormhole/tiles/j20270122-v2-2.jpg',
+        },
+      ],
+      cta: 'Join the interest list, link in bio',
+      link: 'https://school.soilfoodweb.com/pages/workshop-interest',
+      sources: [
+        'Costa Rica 2027 sales page: https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+        'Program wording, Costa Rica stories set (week one compost, week two liquid amendments, microscopes on site, weekend break): /wormhole/decks/26-10-2026-ig-stories-costa-rica-2027.pptx, same as st20261029 and st20261112',
+        'Built-to-fail piles: cr20261116 sources (Workshop Handbook, March 2025): https://soilfoodweb.com/wp-content/uploads/2024/11/WORKSHOP-HANDBOOK-MARCH-2025.pdf',
+      ],
+      visual_note:
+        'Carousel, 2 slides, v2 photo and tag. Real 2025 Costa Rica photos: building a pile in a wire cage, hydrating a pile with a hose. Swap in live photos from Kavi or the mentors on the day. Built with tools/wormhole-visuals/jan_b.py.',
+      note: '',
+      status: 'draft',
+    },
+    reason:
+      'New January post (26 Oct planning pass): Costa Rica live, week one. Written as what students do that week, so it reads true on the day.',
+  },
+  {
+    key: '2026-10-26 j20270123a create',
+    post: 'j20270123a',
+    create: {
+      iso_date: '2027-01-23',
+      date_tbd: false,
+      topic: 'Save Soil shoutout (LinkedIn): fertility trees, 33 million planted in West Africa',
+      platform: 'LinkedIn',
+      caption:
+        '33 million trees, planted by farmers to feed their soil.\n\nAPAF, the Association for the Promotion of Fertility Trees, Agroforestry and Forestry, started in Togo in 1991. By the end of 2024 it counted 88,051 hectares of agroforestry fields, 6,255 hectares of forest and 33,138,080 fertility, forest and fruit trees planted, with 68,051 farming families taking part across Togo, Côte d\'Ivoire, Burkina Faso, Senegal, Cameroon and Benin.\n\nFertility trees are mostly legumes. Their deep taproots partner with Rhizobium bacteria and mycorrhizal fungi, and farmers grow coffee, cocoa, cashew, banana, maize, millet and sorghum in their shade. Dr. Nathalie Benziwa Johnson of the University of Lomé calls it "a sustainable agricultural technique that requires no fossil fuels."\n\nSave Soil (Isha Foundation) published the full interview.\n\nWhich tree partners are farmers in your region using to rebuild soil?\n\nhttps://consciousplanet.org/save-soil/news/restoring-africas-soils-through-fertility-trees-an-interview-with-dr-nathalie-ben',
+      slides: [
+        {
+          text: 'Fertility trees: 33 million planted across West Africa.',
+          image: '/wormhole/tiles/j20270123a-v2-1.jpg',
+        },
+      ],
+      cta: '',
+      link: 'https://consciousplanet.org/save-soil/news/restoring-africas-soils-through-fertility-trees-an-interview-with-dr-nathalie-ben',
+      sources: [
+        'Save Soil (Isha Foundation), "Restoring Africa\'s Soils Through Fertility Trees: An Interview with Dr Nathalie Benziwa Johnson", 24 May 2026: https://consciousplanet.org/save-soil/news/restoring-africas-soils-through-fertility-trees-an-interview-with-dr-nathalie-ben',
+      ],
+      visual_note:
+        'LinkedIn single image, 1200 x 627, v2 photo and tag: hands holding a plant with its roots and soil (site photo). Built with tools/wormhole-visuals/jan_b.py. Swap for an APAF photo if Save Soil shares one.',
+      note: '',
+      status: 'draft',
+    },
+    reason:
+      'New January post (26 Oct planning pass): Save Soil shoutout, LinkedIn, in the ss-0x style. Article not used in earlier ss posts.',
+  },
+  {
+    key: '2026-10-26 j20270123b create',
+    post: 'j20270123b',
+    create: {
+      iso_date: '2027-01-23',
+      date_tbd: false,
+      topic: 'Do this weekend: the compost squeeze test',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        'Grab a handful of your compost and squeeze! ✊\n\nMoisture decides whether your pile works. LSU AgCenter puts the best range for composting at 45 to 60% moisture, and your hand can tell you where you are. Reach 18 to 24 inches into the pile, take a handful and squeeze it tight.\n\nA wet sheen on your palm and no drips: right where you want it.\nOne or two drops: too wet. Add dry, coarse material and turn.\nA stream of water or a pudding texture: far too wet.\nDry and dusty: below about 44%. Water it as you turn.\n\nWinter piles dry out under covers and soak up rain. Give yours a squeeze this weekend. 💚\n\n#DoThisWeekend #Compost #SqueezeTest #SoilFoodWeb #LivingSoil #CompostTips',
+      slides: [
+        {
+          text: 'The squeeze test: is your compost wet enough?',
+          image: '/wormhole/tiles/j20270123b-v2-1.jpg',
+        },
+      ],
+      cta: 'Save this for your next pile',
+      link: '',
+      sources: [
+        'LSU AgCenter, Composting Series: Compost Moisture Content (Publication 3838-C, April 2022): https://www.lsuagcenter.com/articles/page1651158185675',
+      ],
+      visual_note:
+        'Single image, v2 photo and tag. A student squeezing compost at an SFW workshop (site photo ctpfw-student-squeezing-compost-1.jpg). Built with tools/wormhole-visuals/jan_b.py.',
+      note: '',
+      status: 'draft',
+    },
+    reason:
+      'New January post (26 Oct planning pass): Do this weekend. The squeeze test was not covered Oct to Dec.',
+  },
+  {
+    key: '2026-10-26 j20270124 create',
+    post: 'j20270124',
+    create: {
+      iso_date: '2027-01-24',
+      date_tbd: false,
+      topic: 'Field Notes #3',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        "[PLACEHOLDER] Open with the result number, then the question, method and the honest surprise, in the graduate's words.\n#FieldNotes #SoilFoodWeb #SoilScience",
+      slides: [
+        {
+          text: 'Field Notes #3: trial name, place and season.',
+          image: '/wormhole/tiles/j20270124-v2-1.jpg',
+        },
+        {
+          text: 'The question they tested.',
+          image: '/wormhole/tiles/j20270124-v2-2.jpg',
+        },
+        {
+          text: 'The method in 3 lines.',
+          image: '/wormhole/tiles/j20270124-v2-3.jpg',
+        },
+        {
+          text: 'The result, one big number.',
+          image: '/wormhole/tiles/j20270124-v2-4.jpg',
+        },
+        {
+          text: "What surprised them, including what didn't work.",
+          image: '/wormhole/tiles/j20270124-v2-5.jpg',
+        },
+        {
+          text: 'Who ran it.',
+          image: '/wormhole/tiles/j20270124-v2-6.jpg',
+        },
+      ],
+      cta: 'Save this trial',
+      link: 'Collab with the graduate.',
+      sources: [
+        'https://docs.google.com/spreadsheets/d/10UHLwzJLBQAsmJqmg4hiCQRjBKXPAx7UnOudU-Vsg5U/edit',
+        'Series format and first candidates (Sandra Niggemeyer, Van, Texas; Josh Cheng, Anhui Province, China): CLAUDE.md section 7',
+      ],
+      visual_note:
+        "Carousel, 6 slides, same layout as Field Notes #1 and #2, with v2 stand-in photos (soil sampling, sample tube, Foundation sampling kit, field planting, York Farms residue, hands planting). Graduate trial still to pick: swap every slide for the graduate's own trial photos. Built with tools/wormhole-visuals/jan_b.py.",
+      note: '',
+      status: 'draft',
+    },
+    reason:
+      'New January post (26 Oct planning pass): Field Notes #3, same placeholder format as pl20261107 and pl20261206. No published graduate trial with verifiable numbers was found, so the caption stays a placeholder.',
+  },
+  {
+    key: '2026-10-26 j20270125 create',
+    post: 'j20270125',
+    create: {
+      iso_date: '2027-01-25',
+      date_tbd: false,
+      topic: 'Read the drop: fungal spores, life on pause',
+      platform: 'Instagram Reel',
+      caption:
+        "Those round dots on your slide may be fungi waiting for their moment! 🔬\n\nFungal spores are the resting stage of a fungus. Many spores stay dormant until conditions turn favourable: the right moisture, warmth and food. Then one or more germ tubes push out of the spore and grow into hyphae, the threads that do the work in soil.\n\nSo when you read a compost or soil slide, spores and hyphae tell you different things. Spores show that fungi are present and could grow. Long, even hyphae show fungi growing and working right now. A sample full of spores and short on hyphae needs food, moisture and time.\n\nLook closer, there's life. 💚\n\n#ReadTheDrop #FungalSpores #SoilMicroscopy #Fungi #SoilFoodWeb #SoilBiology",
+      slides: [
+        {
+          text: 'Spores or hyphae? What you see on the slide tells you something different.',
+          image: '/wormhole/tiles/j20270125-v2-1.jpg',
+        },
+        {
+          text: 'Hyphae: fungi growing and working now.',
+          image: '/wormhole/tiles/j20270125-v2-2.jpg',
+        },
+        {
+          text: 'Photo only: fungi fruiting under vines.',
+          image: '/wormhole/tiles/j20270125-v2-3.jpg',
+        },
+      ],
+      cta: 'Save this for your next slide',
+      link: '',
+      sources: [
+        'David Moore et al., 21st Century Guidebook to Fungi, 4.2 Spore germination and dormancy: https://davidmoore.org.uk/21st_Century_Guidebook_to_Fungi_PLATINUM/Ch04_02.htm',
+      ],
+      visual_note:
+        'Reel, 15 to 20 seconds, 3 v2 frames: fungal spores in suspension under the microscope (Foundation micrograph), a soil crumb held together by roots and fungal strands, fungi fruiting under vines. Built with tools/wormhole-visuals/jan_b.py.',
+      note: '',
+      status: 'draft',
+    },
+    reason:
+      'New January post (26 Oct planning pass): Read the drop. December covered hyphae vs debris (pl20261221); this one covers the spore stage.',
+  },
+  {
+    key: '2026-10-26 j20270126 create',
+    post: 'j20270126',
+    create: {
+      iso_date: '2027-01-26',
+      date_tbd: false,
+      topic: 'Costa Rica live: at the microscope',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        "What did you make? The microscope shows you! 🔬\n\nIt's week two of our Accelerator Workshop in Costa Rica, and our students are brewing biological liquid amendments: compost extracts, compost teas and protozoan infusions. Then they take every brew to the microscopes in Armonía's indoor classroom.\n\nAt the microscope you learn to tell bacteria from fungal hyphae, to spot flagellates, amoebae and ciliates, and to find the beneficial nematodes. Our mentors sit beside you and help you read what you see, so you can judge your own compost and brews when you get home.\n\nWant to learn this in person? Join the interest list for future workshops through the link in bio. 💚\n\n#CostaRica #AcceleratorWorkshop #SoilMicroscopy #CompostTea #SoilFoodWeb #Workshop",
+      slides: [
+        {
+          text: 'Live from Costa Rica: at the microscope.',
+          image: '/wormhole/tiles/j20270126-v2-1.jpg',
+        },
+        {
+          text: 'Photo only: checking a liquid amendment.',
+          image: '/wormhole/tiles/j20270126-v2-2.jpg',
+        },
+      ],
+      cta: 'Join the interest list, link in bio',
+      link: 'https://school.soilfoodweb.com/pages/workshop-interest',
+      sources: [
+        'Costa Rica 2027 sales page: https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+        'Program wording, Costa Rica stories set (week one compost, week two liquid amendments, microscopes on site, weekend break): /wormhole/decks/26-10-2026-ig-stories-costa-rica-2027.pptx, same as st20261029 and st20261112',
+        'Accelerator Workshop | Costa Rica, workshop page (Armonía, outdoor workspaces and indoor microscopy classrooms): https://new.soilfoodweb.com/calendar-event/aw-costa-rica-2027/',
+      ],
+      visual_note:
+        'Carousel, 2 slides, v2 photo and tag. Real 2025 Costa Rica photos: students and mentors at the microscopes, a liquid amendments demonstration. Swap in live photos from Kavi or the mentors on the day. Built with tools/wormhole-visuals/jan_b.py.',
+      note: '',
+      status: 'draft',
+    },
+    reason:
+      'New January post (26 Oct planning pass): Costa Rica live, week two microscopy. Written as what students do that week, so it reads true on the day.',
+  },
+  {
+    key: '2026-10-26 j20270127 create',
+    post: 'j20270127',
+    create: {
+      iso_date: '2027-01-27',
+      date_tbd: false,
+      topic: 'Permaculture: produce no waste',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        "In a forest, every fallen leaf becomes food. ♻️\n\nProduce no waste is one of David Holmgren's twelve permaculture principles. In a working ecosystem, what we call waste is a resource in the wrong place. The principle asks you to design closed loops, so every output of one part of your land becomes an input for another.\n\nKitchen scraps and garden trimmings become BioComplete™ compost. Prunings become woody mulch for fungi. Leaves become leaf mold. Spent plants get chopped and dropped where they grew. Each loop keeps food for soil life on your land.\n\nLook at your bins this week and ask what could feed your soil instead. 💚\n\n#Permaculture #ProduceNoWaste #ClosedLoop #Compost #SoilFoodWeb #LivingSoil",
+      slides: [
+        {
+          text: 'Permaculture principle 6: produce no waste.',
+          image: '/wormhole/tiles/j20270127-v2-1.jpg',
+        },
+        {
+          text: 'Prunings become mulch, scraps become compost.',
+          image: '/wormhole/tiles/j20270127-v2-2.jpg',
+        },
+      ],
+      cta: '',
+      link: '',
+      sources: [
+        'Deep Green Permaculture, "A comprehensive guide to David Holmgren\'s permaculture design principles", principle 6: https://deepgreenpermaculture.com/a-comprehensive-guide-to-david-holmgrens-permaculture-design-principles',
+      ],
+      visual_note:
+        'Carousel, 2 slides, v2 photo and tag. A finished compost pile topped with flowers at an SFW workshop, gloved hands in a bucket of woody mulch. Built with tools/wormhole-visuals/jan_b.py.',
+      note: '',
+      status: 'draft',
+    },
+    reason:
+      'New January post (26 Oct planning pass): Permaculture, one principle. December covered zones and chop and drop; this is principle 6.',
+  },
+  {
+    key: '2026-10-26 j20270128 create',
+    post: 'j20270128',
+    create: {
+      iso_date: '2027-01-28',
+      date_tbd: false,
+      topic: 'Soil in numbers: 95% of our food',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        "95% of the food on your plate starts in soil. 🍽️\n\nThat is the FAO's figure, and it covers the grains, vegetables and fruit you eat, plus the feed for the animals behind your milk, eggs and meat.\n\nEvery one of those crops depends on the life underground. Bacteria and fungi hold nutrients in their bodies, protozoa and nematodes eat them and release those nutrients beside the roots, and fungal hyphae bring water and phosphorus to the plant. Build that living web, and you build the ground your food grows in.\n\n#SoilInNumbers #FoodSecurity #SoilHealth #SoilFoodWeb #LivingSoil",
+      slides: [
+        {
+          text: '95% of our food is produced in soil.',
+          image: '/wormhole/tiles/j20270128-v2-1.jpg',
+        },
+        {
+          text: 'Grown in living soil.',
+          image: '/wormhole/tiles/j20270128-v2-2.jpg',
+        },
+      ],
+      cta: 'Send this to someone who loves food',
+      link: '',
+      sources: [
+        'FAO, "Cherishing the ground we walk on" (5 December 2017): https://www.fao.org/fao-stories/article/en/c/1069275/',
+      ],
+      visual_note:
+        "Carousel, 2 slides, v2 photo and tag. Corn residue and crumb soil at York Farms (Harrington's Organic Land Care), an aerial view of the Rancho Cacachilas agroforest restoration (Ecosystem Restoration Camps). Built with tools/wormhole-visuals/jan_b.py.",
+      note: '',
+      status: 'draft',
+    },
+    reason:
+      'New January post (26 Oct planning pass): Soil in numbers. The 95% figure was not used Oct to Dec.',
+  },
+  {
+    key: '2026-10-26 j20270129 create',
+    post: 'j20270129',
+    create: {
+      iso_date: '2027-01-29',
+      date_tbd: false,
+      topic: 'Costa Rica: graduation day, thank you',
+      platform: 'Instagram, Facebook',
+      caption:
+        "Twelve days, many piles and countless slides later, it's graduation day in Costa Rica! 🎓\n\nCongratulations to every student who finished our Accelerator Workshop today. You built thermophilic BioComplete™ compost piles with your team, brewed biological liquid amendments and checked all of it under the microscope. You take that home to your farms, gardens and clients now, and we are so proud of you.\n\nThank you to our mentors for two weeks of teaching. And thank you, Armonía Agricultura Orgánica, for hosting us for the fourth time and feeding us so well. 💚\n\nWant to join a future workshop? Join the interest list through the link in bio.\n\n#CostaRica #AcceleratorWorkshop #Graduation #SoilFoodWeb #LivingSoil #Workshop",
+      slides: [
+        {
+          text: 'Thank you, Costa Rica, and thank you, Armonía.',
+          image: '/wormhole/tiles/j20270129-v2-1.jpg',
+        },
+        {
+          text: 'Photo only: the whole group around their pile.',
+          image: '/wormhole/tiles/j20270129-v2-2.jpg',
+        },
+      ],
+      cta: 'Join the interest list, link in bio',
+      link: 'https://school.soilfoodweb.com/pages/workshop-interest',
+      sources: [
+        'Costa Rica 2027 sales page: https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+        'Armonía as host, fourth time: cr20261102 sources (October 2025 newsletter): https://soilfoodweb.com/october-2025-newsletter/',
+        'Program wording, Costa Rica stories set (week one compost, week two liquid amendments, microscopes on site, weekend break): /wormhole/decks/26-10-2026-ig-stories-costa-rica-2027.pptx, same as st20261029 and st20261112',
+      ],
+      visual_note:
+        'Carousel, 2 slides, v2 photo and tag. Real 2025 Costa Rica photos: graduates with a certificate, the whole group around their pile. Swap in live photos from Kavi or the mentors on the day. Instagram Collab with Armonía (@armoniaagriculturaorganica), like cr20261102. Built with tools/wormhole-visuals/jan_b.py.',
+      note: '',
+      status: 'draft',
+    },
+    reason:
+      'New January post (26 Oct planning pass): Costa Rica, last day thank you, as an Armonía collab.',
+  },
+  {
+    key: '2026-10-26 j20270130 create',
+    post: 'j20270130',
+    create: {
+      iso_date: '2027-01-30',
+      date_tbd: false,
+      topic: 'Fun Soil News: January 2027',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        "Some good news from the soil to end the month! 🌍\n\nBrazil: Brazil's development bank BNDES approved R$250 million from its Climate Fund for Belterra to turn about 4,000 hectares of degraded pasture and cropland in Pará and Mato Grosso into cocoa agroforests with native trees.\n\nUnited States: USDA raised its Regenerative Pilot Program from $700 million to $1 billion for fiscal year 2027, with local committees able to add conservation practices that fit their region.\n\nGermany: A 24-year study by the University of Göttingen and the Baden-Württemberg Forest Research Institute found forest soils at 13 sites took up about 3% more methane each year.\n\n#FunSoilNews #SoilHealth #Agroforestry #GoodNews #SoilFoodWeb #RegenerativeAgriculture",
+      slides: [
+        {
+          text: 'Fun Soil News: January 2027.',
+          image: '/wormhole/tiles/j20270130-v2-1.jpg',
+        },
+        {
+          text: 'Brazil: R$250 million to turn 4,000 hectares of degraded land into cocoa agroforests.',
+          image: '/wormhole/tiles/j20270130-v2-2.jpg',
+        },
+        {
+          text: "United States: USDA's Regenerative Pilot Program grows to $1 billion.",
+          image: '/wormhole/tiles/j20270130-v2-3.jpg',
+        },
+        {
+          text: 'Germany: forest soils took up about 3% more methane each year.',
+          image: '/wormhole/tiles/j20270130-v2-4.jpg',
+        },
+      ],
+      cta: 'Send this to a friend who needs good news',
+      link: '',
+      sources: [
+        'O Liberal, "BNDES aprova R$ 250 milhões para recuperar áreas degradadas na Amazônia", 19 Oct 2026: https://www.oliberal.com/economia/bndes-aprova-r-250-milhoes-para-recuperar-areas-degradadas-na-amazonia-1.1184407',
+        'Michigan Farm News, "USDA announces Regenerative Pilot Program funding increase, major program revisions", 5 Oct 2026: https://www.michiganfarmnews.com/about/news-media/usda-announces-regenerative-pilot-program-funding-increase-major-program-revisions',
+        'ScienceDaily (University of Göttingen), "A 24-year study uncovers a surprising climate benefit beneath forests", 17 Oct 2026: https://www.sciencedaily.com/releases/2026/10/261014015525.htm',
+      ],
+      visual_note:
+        'Carousel, 4 slides, v2 photo and tag, one place name per slide like p17. Hands in soil photos from the new SFW site. Three verified stories; add a fourth or fifth in December only if it can be verified. Built with tools/wormhole-visuals/jan_b.py.',
+      note: '',
+      status: 'draft',
+    },
+    reason:
+      'New January post (26 Oct planning pass): Fun Soil News, January. Every story dated October 2026 and checked against its source.',
+  },
+  {
+    key: '2026-10-26 j20270131 create',
+    post: 'j20270131',
+    create: {
+      iso_date: '2027-01-31',
+      date_tbd: false,
+      topic: 'Meet the team: Ib Borup Pedersen, farmer, Soil Food Web Consultant and mentor',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        "Please join us in meeting Ib Borup Pedersen, farmer, Soil Food Web Consultant and mentor! 🚜\n\nIb is a Danish farmer who has worked in farming all his life. He owned his own farm for 20 years, with arable land, organic strawberries and pigs.\n\nSince 2017 he has been a farmer and teacher at a Danish boarding school for 9th and 10th graders, where he runs the school's organic farm and teaches organic farming and Soil Food Web methods. For the last five years he has run Soil Food Web field trials at the school, some with his students, and on nearby farms: arable crops, grazing, forage, strawberries, orchards and greenhouses.\n\nIb also builds extractors and other equipment to make the work easier for farmers and growers.\n\nThank you, Ib! 💚\n\n#MeetTheTeam #SoilFoodWeb #Denmark #FieldTrials #RegenerativeAgriculture #SoilFoodWebFoundation",
+      slides: [
+        {
+          text: 'Meet the team: Ib Borup Pedersen, farmer, Soil Food Web Consultant and mentor.',
+          image: '/wormhole/tiles/j20270131-v2-1.jpg',
+        },
+      ],
+      cta: 'Thank Ib',
+      link: 'Collab with Ib [VERIFY handle]',
+      sources: [
+        'Our team page, new SFW site (about-team.html in final-sfwsite-linnea, bio carried over from soilfoodweb.com): https://new.soilfoodweb.com/about-us/#team',
+        'Ib Borup Pedersen, team member page: https://new.soilfoodweb.com/team-member/ib-borup-pedersen/',
+      ],
+      visual_note:
+        "Single image, v2 photo and tag. Ib's site portrait (w_ib.jpg). Built with tools/wormhole-visuals/jan_b.py.",
+      note: '',
+      status: 'draft',
+    },
+    reason:
+      'New January post (26 Oct planning pass): Meet the team, Ib. Facts only from his site bio; Ib to approve before it goes out.',
+  },
   // --- end January B ---
 ];
