@@ -23,7 +23,7 @@ G, D, BR, T, BL, L, CRM = B.GREEN, B.DEEP, B.BROWN, B.TAN, B.BLUE, B.LIGHT, B.CR
 PF.CR.update({
     "wild-ken-hill_IMG_1497.jpg": SFW,
     "Dr_Elaine_Ingham_with_Microscope.jpg": SFW,
-    "uploads_testate-amoeba-40x.jpg": SFW,
+    "uploads_testate-amoeba-40x.jpg": "Photo: Joy Kaluf",
     "erc-panchmana-treeplanting-fb-img-1666270907385.jpg": SFW,
     "Test_tubes_with_sample_.jpg": None,
     "uploads_mar-group-photo-2.jpg": SFW,
@@ -34,6 +34,7 @@ PF.CR.update({
     "hand-wet-dirt-worm.jpg": None,
     "w_2-hands-clasped-holding-plant-roots.jpg": None,
     "uploads_webinar-preview-images-800-x-800.jpg": SFW,
+    "erc-rancho-cacachilas-agro.jpg": SFW,
 })
 pic, li = PF.pic, PF.li
 
@@ -87,12 +88,12 @@ POSTS = {
     ],
     "j20270125b": lambda: [
         (pic("uploads_mar-group-photo-2.jpg", "10,000+ started here.", G, where="top", focus=(0.5, 0.5), logo=True, size=90), "More than 10,000 people in over 100 countries started here."),
-        (cutout("uploads_6.png", CRM, "Start any time.", BR), "Start any time, at your own pace. Link in bio."),
+        (pic("erc-rancho-cacachilas-agro.jpg", "Start any time.", BR, focus=(0.5, 0.5), size=90), "Start any time, at your own pace. Link in bio."),
     ],
     "j20270128b": lambda: [
-        (pic("w_hand-of-compost.jpg", "Build the pile.", BR, logo=True, size=90), "Build, monitor and maintain your piles with a mentor."),
-        (cutout("uploads_3.png", WHITE, "Brew it.", BL), "Brew a range of liquid amendments."),
-        (pic("sfw-amoeba-still-wide.jpg", "Check it.", G, size=96), "Check your work under the microscope."),
+        (pic("w_hand-of-compost.jpg", "Build your piles.", BR, logo=True, size=90), "Build, monitor and maintain your piles with a mentor."),
+        (cutout("uploads_3.png", WHITE, "Brew liquid amendments.", BL), "Brew a variety of liquid amendments."),
+        (pic("sfw-amoeba-still-wide.jpg", "Microscopy at your level.", G, size=84), "Microscopy sessions for beginner and advanced practitioners."),
     ],
     "j20270130b": lambda: [
         (pic("uploads_webinar-preview-images-800-x-800.jpg", "Happy Seed Swap Day!", G, logo=True, size=84), "Story frame 1: Happy National Seed Swap Day!"),

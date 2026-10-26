@@ -1164,5 +1164,402 @@ export const JAN_CHANGES: Change[] = [
   },
   // --- end January B ---
   // --- January C (promo calendar and dates, 26 Oct) ---
+  {
+    key: '2026-10-26 roundC j20270103 cohort start',
+    post: 'j20270103',
+    caption: [
+      [
+        'The Compost Intensive Course starts this January.',
+        'The Compost Intensive Course starts the week of January 18.',
+      ],
+    ],
+    reason:
+      'Promo calendar pass (26 Oct): added the cohort start, the week of January 18 (site calendar: Compost Intensive Course 2027 Cohort #1, 18 January to 26 March 2027).',
+  },
+  {
+    key: '2026-10-26 roundC j20270110c create',
+    post: 'j20270110c',
+    create: {
+      iso_date: '2027-01-10',
+      date_tbd: false,
+      topic: 'Compost Intensive Course: last call for the January cohort',
+      platform: 'Instagram, Facebook',
+      caption:
+        'Last call for the January cohort of the Compost Intensive Course! 🌡️\n\nThe course runs online from the week of January 18 to March 26. Over ten weeks you build your own thermophilic pile, follow it all the way to finished BioComplete™ Compost, and learn alongside a global cohort of peers, with our mentors guiding you each week.\n\nYou need no prerequisites to join, and the course counts toward your consultant pathway. Whatever your background or experience, the course is designed to get you to your own BioComplete™ Compost within ten weeks.\n\nEnroll or join the waitlist through the link in bio.\nhttps://school.soilfoodweb.com/courses/compost-intensive-program\n\n#CompostIntensive #BioCompleteCompost #Compost #ThermalCompost #SoilFoodWeb #SoilHealth',
+      slides: [
+        {
+          text: 'Last call: Compost Intensive Course.',
+          image: '/wormhole/tiles/j20270110c-v2-1.jpg',
+        },
+        {
+          text: 'Starts the week of 18 January. Link in bio.',
+          image: '/wormhole/tiles/j20270110c-v2-2.jpg',
+        },
+      ],
+      cta: 'Enroll, link in bio',
+      link: 'https://school.soilfoodweb.com/courses/compost-intensive-program',
+      sources: [
+        'Compost Intensive Course 2027 Cohort #1 event page (final-sfwsite-linnea staging export): https://new.soilfoodweb.com/calendar-event/compost-intensive-course-2027-cohort-1/',
+        'Site calendar, 18 January to 26 March 2027 (final-sfwsite-linnea docs/staging-export/content/pages/calendar.md)',
+        'Enrollment page: https://school.soilfoodweb.com/courses/compost-intensive-program',
+      ],
+      visual_note:
+        'Carousel, 2 slides, v2 photo and tag. A workshop group with their finished pile in the Wild Ken Hill barn (IMG_1497), then an organism cutout on cream with the start date. Built with tools/wormhole-visuals/round2_jan.py. [CONFIRM: enrollment close date for the January cohort]',
+      note: '',
+      status: 'draft',
+    },
+    reason:
+      'Promo calendar pass (26 Oct): Compost Intensive Course last call, Jan 10 (promo runs Jan 1 to 11; Jan 11 already holds two Costa Rica posts). Does not repeat the 80% pilot figure used on Jan 3. [CONFIRM: enrollment close date for the January cohort]',
+  },
+  {
+    key: '2026-10-26 roundC j20270118b create',
+    post: 'j20270118b',
+    create: {
+      iso_date: '2027-01-18',
+      date_tbd: false,
+      topic: 'Foundation Courses: what the four courses cover',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        'What does a soil food web education cover? Four Foundation Courses, and you can start any time. 🔬\n\nFoundation Course 1 introduces the soil food web: how the organisms in your soil cycle nutrients and keep plants healthy.\nFoundation Course 2 teaches you to make BioComplete™ Compost, from choosing materials to managing the pile and applying it.\nFoundation Course 3 covers compost extracts and teas: brewing, equipment and how to apply them.\nFoundation Course 4 puts you at the microscope to identify and count bacteria, fungi, protozoa and nematodes.\n\nThe courses are online and self-paced, built on four decades of research by Dr. Elaine Ingham. Each lecture ends with a short quiz, and you can rewatch any lesson as often as you like.\n\nLink in bio.\n\n#FoundationCourses #SoilFoodWeb #SoilBiology #SoilMicroscopy #OnlineLearning #SoilHealth #LivingSoil',
+      slides: [
+        {
+          text: 'Foundation Courses: start any time.',
+          image: '/wormhole/tiles/j20270118b-v2-1.jpg',
+        },
+        {
+          text: 'Learn to identify bacteria, fungi, protozoa and nematodes.',
+          image: '/wormhole/tiles/j20270118b-v2-2.jpg',
+        },
+      ],
+      cta: 'Start any time, link in bio',
+      link: 'https://school.soilfoodweb.com/bundles/soilfoodweb-foundation-courses',
+      sources: [
+        'Foundation Courses bundle page (four courses, online, self-paced, quiz after each lecture): https://school.soilfoodweb.com/bundles/soilfoodweb-foundation-courses',
+        'Four decades of research: Foundation facts, CLAUDE.md section 2',
+      ],
+      visual_note:
+        'Carousel, 2 slides, v2 photo and tag. Dr. Elaine Ingham at her microscope (green tag, no purple), then a testate amoeba at 40x (Photo: Joy Kaluf, a different frame from the one on j20270110b). Built with tools/wormhole-visuals/round2_jan.py.',
+      note: '',
+      status: 'draft',
+    },
+    reason:
+      'Promo calendar pass (26 Oct): Foundation Courses promo 1 of 2 (promo Jan 18 to Feb 8). Angle: what the four courses teach. Link as in x20261125.',
+  },
+  {
+    key: '2026-10-26 roundC j20270125b create',
+    post: 'j20270125b',
+    create: {
+      iso_date: '2027-01-25',
+      date_tbd: false,
+      topic: 'Foundation Courses: where every workshop student starts',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        'This week in Costa Rica, our Accelerator Workshop students are building piles and looking through microscopes with our mentors. They all started with the Foundation Courses. 🌱\n\nMore than 10,000 people in over 100 countries have started here, from backyard growers to farmers and consultants. The four courses give you the science behind everything we teach: the soil food web, BioComplete™ Compost, compost extracts and teas, and soil microscopy.\n\nYou study online at your own pace and start whenever you are ready. The courses come with our 30-day guarantee, and they prepare you to practice in person at an Accelerator Workshop, like the one in New Mexico this May.\n\nLink in bio.\n\n#FoundationCourses #SoilFoodWeb #SoilFoodWebSchool #LivingSoil #RegenerativeAgriculture #SoilHealth',
+      slides: [
+        {
+          text: 'More than 10,000 people in over 100 countries started here.',
+          image: '/wormhole/tiles/j20270125b-v2-1.jpg',
+        },
+        {
+          text: 'Start any time, at your own pace. Link in bio.',
+          image: '/wormhole/tiles/j20270125b-v2-2.jpg',
+        },
+      ],
+      cta: 'Start any time, link in bio',
+      link: 'https://school.soilfoodweb.com/bundles/soilfoodweb-foundation-courses',
+      sources: [
+        'x20261125 wording (10,000+ people in over 100 countries) and Foundation facts, CLAUDE.md section 2 (10,000+ enrolled across 100+ countries, 30-day guarantee)',
+        'Foundation Courses bundle page: https://school.soilfoodweb.com/bundles/soilfoodweb-foundation-courses',
+        'Costa Rica Accelerator Workshop, 18 to 29 January 2027: https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+      ],
+      visual_note:
+        'Carousel, 2 slides, v2 photo and tag. A big workshop group around their pile under a shed roof (uploads_mar-group-photo-2, tag at the top so no faces are covered), then crop rows and hoop houses at Rancho Cacachilas. Built with tools/wormhole-visuals/round2_jan.py.',
+      note: '',
+      status: 'draft',
+    },
+    reason:
+      'Promo calendar pass (26 Oct): Foundation Courses promo 2 of 2. Angle: every workshop student starts here, tied to Costa Rica running that week and New Mexico in May. Link as in x20261125.',
+  },
+  {
+    key: '2026-10-26 roundC j20270121b create',
+    post: 'j20270121b',
+    create: {
+      iso_date: '2027-01-21',
+      date_tbd: false,
+      topic: 'New Mexico Accelerator Workshop: register your interest',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        'New Mexico, here we come! Our next Accelerator Workshop runs May 3 to 14, 2027, at Synergia Ranch Retreat Center. 🌵\n\nThe workshop is ten days of in-person training in BioComplete™ Compost Production and Biological Liquid Amendments. Students who studied the Foundation Courses practice in person with our mentors, in small groups, on the skills that are hardest to learn alone. You build a thermophilic pile, keep it on track and check its biology under the microscope.\n\nIt is hands-on training you can see, feel, hear and smell, and it fast-tracks your path to consultant or skilled grower.\n\nRegister your interest through the link in bio and choose the New Mexico location on the form.\n\n#AcceleratorWorkshop #NewMexico #BioCompleteCompost #SoilFoodWeb #Compost #LivingSoil',
+      slides: [
+        {
+          text: 'Accelerator Workshop New Mexico, 3 to 14 May 2027.',
+          image: '/wormhole/tiles/j20270121b-v2-1.jpg',
+        },
+        {
+          text: 'Register your interest. Link in bio.',
+          image: '/wormhole/tiles/j20270121b-v2-2.jpg',
+        },
+      ],
+      cta: 'Register your interest, link in bio',
+      link: 'https://school.soilfoodweb.com/pages/workshop-interest',
+      sources: [
+        'New Mexico 2027 event page (Synergia Ranch, 10-day in-person, small groups with a mentor): https://new.soilfoodweb.com/calendar-event/aw-new-mexico-usa-2027/',
+        'Site calendar, 3 to 14 May 2027 (final-sfwsite-linnea docs/staging-export/content/pages/calendar.md)',
+        'Workshop interest form, New Mexico location: https://school.soilfoodweb.com/pages/workshop-interest',
+      ],
+      visual_note:
+        'Carousel, 2 slides, v2 photo and tag. No New Mexico photos exist in the photo set or the repo, so both slides are organism cutouts on cream and white (a nematode, a testate amoeba) that show no place. Swap in real Synergia Ranch photos (the event page hero IMG_3426) when Evan sends them. Built with tools/wormhole-visuals/round2_jan.py. [CONFIRM: New Mexico photos from Evan; whether a school enrollment page exists yet]',
+      note: '',
+      status: 'draft',
+    },
+    reason:
+      'Promo calendar pass (26 Oct): New Mexico Accelerator Workshop promo 1 of 2 (promo Jan 18 to Apr 19). The site only offers the interest form and waitlist, so the post says "register your interest". [CONFIRM: is there an enrollment page yet; New Mexico photos from Evan]',
+  },
+  {
+    key: '2026-10-26 roundC j20270128b create',
+    post: 'j20270128b',
+    create: {
+      iso_date: '2027-01-28',
+      date_tbd: false,
+      topic: 'New Mexico Accelerator Workshop: what you do there',
+      platform: 'Instagram, Facebook',
+      caption:
+        'What do you do for ten days at an Accelerator Workshop? Here is New Mexico, May 3 to 14. 🧪\n\nYou work in a small group, guided by a mentor, to build compost piles and then monitor and maintain them as they heat up. You brew a variety of biological liquid amendments. You practice microscope analysis with guidance, in sessions set for your level, whether you are a beginner or an advanced practitioner.\n\nAll of it happens at Synergia Ranch Retreat Center, with a group of people who care about soil as much as you do. It is the fastest way we know to turn what you studied into skills in your hands.\n\nRegister your interest through the link in bio and choose the New Mexico location.\n\n#AcceleratorWorkshop #NewMexico #Compost #SoilMicroscopy #SoilFoodWeb #SoilFoodWebSchool',
+      slides: [
+        {
+          text: 'Build, monitor and maintain your piles with a mentor.',
+          image: '/wormhole/tiles/j20270128b-v2-1.jpg',
+        },
+        {
+          text: 'Brew a variety of liquid amendments.',
+          image: '/wormhole/tiles/j20270128b-v2-2.jpg',
+        },
+        {
+          text: 'Microscopy sessions for beginner and advanced practitioners.',
+          image: '/wormhole/tiles/j20270128b-v2-3.jpg',
+        },
+      ],
+      cta: 'Register your interest, link in bio',
+      link: 'https://school.soilfoodweb.com/pages/workshop-interest',
+      sources: [
+        'New Mexico 2027 event page (small groups, build, monitor and maintain piles, liquid amendments, microscopy by level): https://new.soilfoodweb.com/calendar-event/aw-new-mexico-usa-2027/',
+        'Workshop interest form, New Mexico location: https://school.soilfoodweb.com/pages/workshop-interest',
+      ],
+      visual_note:
+        'Carousel, 3 slides, v2 photo and tag. A hand holding finished compost, a ciliate cutout on white, protozoa in soil water under the microscope. No New Mexico photos exist yet, so nothing shows a place. Swap in Synergia Ranch photos when Evan sends them. Built with tools/wormhole-visuals/round2_jan.py. [CONFIRM: New Mexico photos from Evan]',
+      note: '',
+      status: 'draft',
+    },
+    reason:
+      'Promo calendar pass (26 Oct): New Mexico Accelerator Workshop promo 2 of 2, what you do there. Facts only from the site event page. [CONFIRM: New Mexico photos from Evan]',
+  },
+  {
+    key: '2026-10-26 roundC j20270119b create',
+    post: 'j20270119b',
+    create: {
+      iso_date: '2027-01-19',
+      date_tbd: false,
+      topic: 'New: Intro to Permaculture Course opens February 1',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        'Something new at the Soil Food Web School: the Intro to Permaculture Course opens on February 1! 🌿\n\nPermaculture is a way of designing land so that soil, water, plants, animals and people support each other. At the Soil Food Web School we teach whole-system design on a foundation of living soil, and this new course is a way in for anyone curious about it.\n\nWe will share the details as the course opens. Keep an eye on our courses page through the link in bio.\n\n#IntroToPermaculture #Permaculture #PermacultureDesign #SoilFoodWeb #LivingSoil #SoilHealth',
+      slides: [
+        {
+          text: 'New: Intro to Permaculture Course, opens 1 February.',
+          image: '/wormhole/tiles/j20270119b-v2-1.jpg',
+        },
+      ],
+      cta: 'See our courses, link in bio',
+      link: 'https://school.soilfoodweb.com/collections',
+      sources: [
+        'SFW 2027 Promotions sheet: Intro to Permaculture Course, promo Jan 18 to 25, runs from Feb 1 ("launch?")',
+        'Permaculture at the School, "Whole-system design on a foundation of living soil" (learn.html in final-sfwsite-linnea)',
+        'School course list (no Intro to Permaculture page yet, checked 26 Oct 2026): https://school.soilfoodweb.com/collections',
+      ],
+      visual_note:
+        'Single image, v2 photo and tag. Volunteers planting trees between tall eucalyptus at Panchamana (ERC). Built with tools/wormhole-visuals/round2_jan.py. [CONFIRM: course page link and details before this goes out]',
+      note: '',
+      status: 'draft',
+    },
+    reason:
+      "TENTATIVE launch per promo calendar ('launch?'), confirm with Stephanie. No course page exists on the site export or the school site, so the post only names the course and the Feb 1 opening and links the courses page. [CONFIRM: course page URL, what it covers]",
+  },
+  {
+    key: '2026-10-26 roundC j20270114 new year series caption',
+    post: 'j20270114',
+    caption: [
+      [
+        'Our free webinar is back this month! 🎙️',
+        'Our free webinar New Year Series starts this month! 🎙️',
+      ],
+      [
+        "This month's topic, speaker and time are on the registration page.",
+        "The New Year Series runs from January to March. This month's topic, speaker and time are on the registration page.",
+      ],
+      ['#FreeWebinar #SoilFoodWeb', '#NewYearSeries #FreeWebinar #SoilFoodWeb'],
+    ],
+    set: {
+      slides: [
+        {
+          text: 'New Year Series: free webinars, January to March.',
+          image: '/wormhole/tiles/j20270114-v2-1.jpg',
+        },
+        {
+          text: 'One live hour online, free. Link in bio.',
+          image: '/wormhole/tiles/j20270114-v2-2.jpg',
+        },
+      ],
+    },
+    reason:
+      'Promo calendar pass (26 Oct): renamed as the webinar New Year Series (runs Jan to Mar per the 2027 Promotions sheet). Same images; the tile tag still reads "Free webinar". [CONFIRM: January topic, speaker and date]',
+  },
+  {
+    key: '2026-10-26 roundC j20270107b create',
+    post: 'j20270107b',
+    create: {
+      iso_date: '2027-01-07',
+      date_tbd: false,
+      topic: 'Following the Oxford Real Farming Conference (LinkedIn)',
+      platform: 'LinkedIn',
+      caption:
+        "The Oxford Real Farming Conference opens today in Oxford, and we are following along.\n\nNow in its 18th year, ORFC calls itself the UK's largest agroecology gathering. Over two days, January 7 and 8, it runs more than 145 talks and workshops, and more than 50 of them are livestreamed for people who cannot be in the room. Free online bursary tickets go to delegates from majority world countries.\n\nThis year's programme includes organic arable farming, seed sovereignty, AI in agriculture, funding for agroecology and access to land. We are watching for the sessions where growers share what they measured in their soil and what changed.\n\nIf you are in Oxford or watching online: which session would you send a soil-focused grower to first?\n\nhttps://orfc.org.uk/book-orfc-2026-tickets/\n\n#ORFC2027 #Agroecology #SoilHealth #SoilFoodWeb #RegenerativeAgriculture",
+      slides: [
+        {
+          text: 'Following the Oxford Real Farming Conference, 7 to 8 January.',
+          image: '/wormhole/tiles/j20270107b-v2-1.jpg',
+        },
+      ],
+      cta: '',
+      link: 'https://orfc.org.uk/book-orfc-2026-tickets/',
+      sources: [
+        'ORFC 2027 booking page (7 to 8 January 2027, Oxford plus online livestream, 18th year, 145+ talks, 50+ livestreamed, bursary tickets, topics): https://orfc.org.uk/book-orfc-2026-tickets/',
+      ],
+      visual_note:
+        'LinkedIn single image, 1200 x 627, v2 photo and tag: a hand holding red soil (no place shown). Built with tools/wormhole-visuals/round2_jan.py.',
+      note: '',
+      status: 'draft',
+    },
+    reason:
+      'Promo calendar pass (26 Oct): LinkedIn reaction to ORFC, which SFW follows. The post makes no claim that SFW attends. No ticket prices.',
+  },
+  {
+    key: '2026-10-26 roundC j20270115b create',
+    post: 'j20270115b',
+    create: {
+      iso_date: '2027-01-15',
+      date_tbd: false,
+      topic: 'Happy Pongal to the farmers of Tamil Nadu',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        'Happy Pongal to every farmer in Tamil Nadu! 🌾\n\nThai Pongal falls on January 15 this year, between Bhogi on January 14 and Mattu Pongal on January 16. The harvest festival gives thanks to the Sun God for a good harvest, and families boil rice with milk and jaggery as an offering.\n\nIn October, our students built compost in Coimbatore at the Accelerator Workshop India 2026, in collaboration with Isha Outreach. Today we are thinking of the growers who learned with us there and the harvest they are bringing in.\n\nIniya Pongal Nalvazhthukkal! 💚 Link in bio.\n\n#Pongal #ThaiPongal #TamilNadu #HarvestFestival #SoilFoodWeb #LivingSoil',
+      slides: [
+        {
+          text: 'Happy Pongal to every farmer in Tamil Nadu.',
+          image: '/wormhole/tiles/j20270115b-v2-1.jpg',
+        },
+      ],
+      cta: 'Link in bio',
+      link: 'https://school.soilfoodweb.com/courses/india-workshop-2026',
+      sources: [
+        'Drik Panchang, Thai Pongal 2027 (Bhogi Jan 14, Thai Pongal Jan 15, Mattu Pongal Jan 16): https://www.drikpanchang.com/festivals/pongal/thai-pongal-date-time.html?year=2027',
+        'Accelerator Workshop India 2026, Coimbatore, 19 to 30 October 2026, in collaboration with Isha Outreach: https://school.soilfoodweb.com/courses/india-workshop-2026',
+      ],
+      visual_note:
+        'Single image, v2 photo and tag: two hands holding a seedling with roots and soil (no place shown). Swap in a real Coimbatore workshop photo from Kavi Reddy when the October footage arrives. Built with tools/wormhole-visuals/round2_jan.py.',
+      note: '',
+      status: 'draft',
+    },
+    reason:
+      'Promo calendar pass (26 Oct): Thai Pongal greeting, kept short; Jan 15 also holds the Meet the team post. Partner wording as in CLAUDE.md. [CONFIRM: a real Coimbatore photo from Kavi]',
+  },
+  {
+    key: '2026-10-26 roundC j20270120b create',
+    post: 'j20270120b',
+    create: {
+      iso_date: '2027-01-20',
+      date_tbd: false,
+      topic: 'Following the EcoFarm Conference (LinkedIn)',
+      platform: 'LinkedIn',
+      caption:
+        'The 47th EcoFarm Conference opens today at Asilomar Conference Grounds in Pacific Grove, California, and we are following it from afar.\n\nThis year\'s theme is "Farming Like Life Depends on It." Over four days, January 20 to 23, growers meet for hands-on workshops, keynotes, farm tours and seed swaps, with pre-conference programs on medicinal herbs, farm-to-school work and food safety.\n\nGatherings like EcoFarm are where farmers compare notes on what works on their own land. We are watching for the conversations about soil biology, compost and cover crops.\n\nIf you farm in California: what soil question would you bring to EcoFarm this year?\n\nhttps://www.eco-farm.org/\n\n#EcoFarm2027 #OrganicFarming #SoilHealth #SoilFoodWeb #RegenerativeAgriculture',
+      slides: [
+        {
+          text: 'Following the EcoFarm Conference, 20 to 23 January.',
+          image: '/wormhole/tiles/j20270120b-v2-1.jpg',
+        },
+      ],
+      cta: '',
+      link: 'https://www.eco-farm.org/',
+      sources: [
+        'EcoFarm Conference 2027 (47th, January 20 to 23, Asilomar, Pacific Grove, theme, program): https://www.eco-farm.org/',
+      ],
+      visual_note:
+        'LinkedIn single image, 1200 x 627, v2 photo and tag: a hand holding wet soil (no place shown). Built with tools/wormhole-visuals/round2_jan.py.',
+      note: '',
+      status: 'draft',
+    },
+    reason:
+      'Promo calendar pass (26 Oct): LinkedIn reaction to EcoFarm, which SFW follows. The post makes no claim that SFW attends.',
+  },
+  {
+    key: '2026-10-26 roundC j20270124b create',
+    post: 'j20270124b',
+    create: {
+      iso_date: '2027-01-24',
+      date_tbd: false,
+      topic: 'International Day of Education: scholarships and free webinars (LinkedIn)',
+      platform: 'LinkedIn',
+      caption:
+        "Today is the International Day of Education, proclaimed by the UN General Assembly for January 24.\n\nUNESCO counts 250 million children and adolescents out of school and 763 million adults who cannot read. We believe learning how living soil works should be open to every grower, wherever they farm.\n\nTwo parts of our work aim at that. Our scholarship program extends the Foundation's training to farmers, land stewards and community leaders who could not otherwise afford it, with priority for applicants in under-resourced regions. Our webinars are live, online and free once a month, and you need no account and no course purchase to join.\n\nWhat stands between farmers in your region and training in soil biology?\n\nFree webinars: https://webinar.soilfoodweb.com\n\n#InternationalDayOfEducation #EducationForAll #SoilEducation #SoilFoodWeb #SoilHealth",
+      slides: [
+        {
+          text: 'International Day of Education, 24 January.',
+          image: '/wormhole/tiles/j20270124b-v2-1.jpg',
+        },
+      ],
+      cta: '',
+      link: 'https://webinar.soilfoodweb.com',
+      sources: [
+        'UN, International Day of Education (24 January, resolution A/RES/73/25; UNESCO: 250 million out of school, 763 million adults illiterate): https://www.un.org/en/observances/education-day',
+        'Scholarships page, new SFW site (learn-scholarships.html in final-sfwsite-linnea)',
+        'Free webinars page, new SFW site (learn-webinars.html in final-sfwsite-linnea): https://webinar.soilfoodweb.com',
+      ],
+      visual_note:
+        'LinkedIn single image, 1200 x 627, v2 photo and tag: a student with his course binder in the Cyprus workshop classroom. Built with tools/wormhole-visuals/round2_jan.py. [CONFIRM: live scholarships page URL to add next to the webinar link]',
+      note: '',
+      status: 'draft',
+    },
+    reason:
+      'Promo calendar pass (26 Oct): International Day of Education on LinkedIn only (Field Notes #3 keeps the Instagram slot). [CONFIRM: live scholarships page URL]',
+  },
+  {
+    key: '2026-10-26 roundC j20270130b create',
+    post: 'j20270130b',
+    create: {
+      iso_date: '2027-01-30',
+      date_tbd: false,
+      topic: 'Stories: National Seed Swap Day',
+      platform: 'Instagram Stories',
+      caption:
+        'No caption (Stories). Frame text: "Happy National Seed Swap Day! Swapping seeds today? Before you sow them, let a tray of seeds tell you if your compost is ready." Post link or share sticker to our January 16 post, "Do this weekend: the seed germination test" (j20270116). Post around 8:00am Pacific.',
+      slides: [
+        {
+          text: 'Story frame 1: Happy National Seed Swap Day! Share sticker to the Jan 16 germination test post.',
+          image: '/wormhole/tiles/j20270130b-v2-1.jpg',
+        },
+      ],
+      cta: 'See our germination test post',
+      link: 'Share sticker: j20270116 (Do this weekend: the seed germination test)',
+      sources: [
+        'National Today, National Seed Swap Day (last Saturday of January, January 30, 2027; started by Kathy Jentz of Washington Gardener Magazine in 2006): https://nationaltoday.com/national-seed-swap-day/',
+      ],
+      visual_note:
+        'Stories, 1 frame as a 1080 x 1350 tile like the other st posts: community members planting together in a garden. Built with tools/wormhole-visuals/round2_jan.py.',
+      note: '',
+      status: 'draft',
+    },
+    reason:
+      'Promo calendar pass (26 Oct): National Seed Swap Day on Stories only (Fun Soil News holds the feed that day), pointing back to the Jan 16 germination test post.',
+  },
   // --- end January C ---
 ];
