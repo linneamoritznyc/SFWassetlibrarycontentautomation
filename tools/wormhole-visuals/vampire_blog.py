@@ -179,7 +179,7 @@ def halloween_bg(w, h, seed=7, moon_at=(.8, .22), moon_d=.34, tree_side="left"):
         im.alpha_composite(c, (round(mx + dx * md - c.width / 2), round(my + dy * md - c.height / 2)))
     # bats crossing the moon
     for i in range(4):
-        b = bat(round(h * rnd.uniform(.08, .13)), flap=rnd.uniform(0, 1))
+        b = bat(round(min(w, h) * rnd.uniform(.06, .1)), flap=rnd.uniform(0, 1))
         b = b.rotate(rnd.uniform(-20, 20), expand=True, resample=Image.BICUBIC)
         bx = mx + rnd.uniform(-1.4, 0.6) * md
         by = my + rnd.uniform(-0.8, 0.5) * md
@@ -375,3 +375,59 @@ def intext_night(name, w=1600, h=1067, seed=11):
     l = lens(f"{VB}/{name}.jpg", round(h * .84))
     bg.alpha_composite(l, (round(w * .52 - l.width / 2), round(h * .5 - l.height / 2)))
     return bg.convert("RGB")
+
+
+def spooky_pptx(w, h, path, seed=7):
+    """The agreed design as an editable PowerPoint: night scene, bats, each lens and the title on their own layers."""
+    import io
+    from pptx import Presentation
+    from pptx.dml.color import RGBColor
+    from pptx.util import Emu, Pt
+    from collage import font
+    L = LAYOUTS[(w, h)]
+    rnd = random.Random(seed + 1)
+    mx, my, md = L["moon"]
+    bg = halloween_bg(w, h, seed, moon_at=(mx, my), moon_d=md)
+    wash = Image.new("L", (w, h), 0)
+    cx, cy, r = mx * w, my * h, md * h * .52
+    ImageDraw.Draw(wash).ellipse((cx - r, cy - r, cx + r, cy + r), fill=90)
+    wash = wash.filter(ImageFilter.GaussianBlur(md * h * .08))
+    ow = Image.new("RGBA", (w, h), (232, 120, 40, 0)); ow.putalpha(wash)
+    bg.alpha_composite(ow)
+    bats = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+    for i in range(6):
+        b = bat(round(min(w, h) * rnd.uniform(.035, .065)), flap=rnd.uniform(0, 1)).rotate(rnd.uniform(-25, 25), expand=True)
+        bats.alpha_composite(b, (round(cx + rnd.uniform(-1.6, 1.4) * md * h), round(cy + rnd.uniform(-.9, .7) * md * h)))
+    layers = [("Night sky, moon, tree and mist", bg.convert("RGB"), 0, 0), ("Bats", bats, 0, 0)]
+    for name, (src, (x, y, d)) in (("Lens: vampire amoeba", (A, L["a"])), ("Lens: draining an algal cell", (H_, L["hh"]))):
+        l = lens(src, round(d * h))
+        layers.append((name, l, round(x * w - l.width / 2), round(y * h - l.height / 2)))
+    EMU = 914400 / 96
+    prs = Presentation()
+    prs.slide_width, prs.slide_height = Emu(round(w * EMU)), Emu(round(h * EMU))
+    sl = prs.slides.add_slide(prs.slide_layouts[6])
+    for name, im, x, y in layers:
+        buf = io.BytesIO()
+        (im.save(buf, "JPEG", quality=92) if im.mode == "RGB" else im.save(buf, "PNG"))
+        buf.seek(0)
+        pic = sl.shapes.add_picture(buf, Emu(round(x * EMU)), Emu(round(y * EMU)), Emu(round(im.width * EMU)),
+                                    Emu(round(im.height * EMU)))
+        pic.name = name
+    tx, ty, ts = L["title"]
+    size = h * ts
+    for i, word in enumerate(("Vampire", "amoeba")):
+        f = font("garamond", True, round(size))
+        tw = f.getlength(word) + size * .3
+        tb = sl.shapes.add_textbox(Emu(round((w * tx + i * size * .4) * EMU)), Emu(round((h * ty + i * size - size * .12) * EMU)),
+                                   Emu(round(tw * EMU)), Emu(round(size * 1.25 * EMU)))
+        tb.name = f"Title: {word}"
+        tf = tb.text_frame
+        tf.margin_left = tf.margin_right = tf.margin_top = tf.margin_bottom = 0
+        tf.word_wrap = False
+        run = tf.paragraphs[0].add_run()
+        run.text = word
+        run.font.name = "EB Garamond"
+        run.font.italic = True
+        run.font.size = Pt(size * 72 / 96)
+        run.font.color.rgb = RGBColor(244, 238, 222)
+    prs.save(path)
