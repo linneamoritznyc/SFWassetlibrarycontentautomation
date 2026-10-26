@@ -6807,6 +6807,45 @@ export const CHANGES: Change[] = [
     },
     reason: 'Back to the v2 photo-and-tag visual (Linnea, 24 Oct: "i liked what you had").',
   },
+  {
+    key: '2026-10-26 new wd20270308',
+    post: 'wd20270308',
+    create: {
+      iso_date: '2027-03-08',
+      date_tbd: false,
+      topic: "International Women's Day: watch Women Seeding Regenerative Futures",
+      platform: 'Instagram, Facebook',
+      caption:
+        'Today is International Women\'s Day. Spend an hour with four women who teach people to work with living soil.\n\n"Women Seeding Regenerative Futures" is an all-woman panel on permaculture, soil and community, recorded live on 2 September 2026 and free to watch.\n\nClea Chandmal brings permaculture science rooted in plant molecular physiology.\n\nKelda Lorax brings 30 years of permaculture education and a deep commitment to justice in land relationships.\n\nDr. Carla Portugal brings research across Brazil and the United States, and years at the Soil Food Web School as an instructor, mentor and translator.\n\nKavi Reddy brings systems thinking across soil fertility, food systems and global partnerships.\n\nAudience questions steered the conversation, so it stays practical: how to design land, food and community around a living soil.\n\nWatch the replay. Link in bio.\n[replay link: Ivan\'s YouTube upload of Video 6]\nhttps://webinar.soilfoodweb.com/webinar-women-seeding-regenerative-futures\n\n@coursesbyclea @keldalorax @carlamacport @kavilovesyou @visionary_permaculture\n\n#InternationalWomensDay #WomenInAg #Permaculture #PermacultureDesign #SoilFoodWeb #LivingSoil #RegenerativeAgriculture',
+      slides: [
+        {
+          text: "International Women's Day. Four women on permaculture, soil and community.",
+          image: '/wormhole/tiles/wd20270308-v1-1.jpg',
+        },
+        {
+          text: 'The panel: Clea Chandmal, Kelda Lorax, Dr. Carla Portugal, Kavi Reddy.',
+          image: '/wormhole/tiles/wd20270308-v1-2.jpg',
+        },
+        {
+          text: 'Watch the full panel. Link in bio.',
+          image: '/wormhole/tiles/wd20270308-v1-3.jpg',
+        },
+      ],
+      cta: 'Watch the replay',
+      link: 'https://webinar.soilfoodweb.com/webinar-women-seeding-regenerative-futures',
+      sources: [
+        'September 2026 Social Media Planning Doc, Sep 2 webinar caption (panelist descriptions)',
+        'August 2026 Social Media Planning Doc, Aug 27 promo (handles, panel description)',
+        'Drive: Video Editing | Ivan > Video 6: Women Seeding Regenerative Futures (recording)',
+      ],
+      visual_note:
+        'Family: I, portrait. Built with tools/wormhole-visuals/iwd.py (deck: 08-03-2027-iwd-women-seeding-regenerative-futures-v1.pptx). Deep green ground, Montserrat, Pathway Gothic One, Source Sans 3. Real portraits of Carla (website team photo) and Kavi (team photo). Clea and Kelda have labelled PHOTO circles: ask them for a portrait, or crop them from the Sept 2nd Webinar Panel.png graphic on Drive. Optional: a 30-second clip from the replay as a Reel cover.',
+      note: 'Pillar: TEACH IT + GROW IT. To do before posting: (1) replay link once Ivan uploads Video 6 to YouTube, with UTM; (2) portraits of Clea and Kelda; (3) send collab invites (Clea, Kelda, Carla, Kavi, Delvin as series co-host). The old graphics say 9am PST; it was 9am PDT. The March planning note asks for Dr. Elaine and women in soil science on IWD, so a second IWD post (Stories) could cover that.',
+      status: 'draft',
+    },
+    reason:
+      "New post (Linnea, 26 Oct): International Women's Day post to watch the Women Seeding Regenerative Futures webinar.",
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES);

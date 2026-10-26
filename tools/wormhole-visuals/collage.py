@@ -38,10 +38,13 @@ FONT_FILES = {
     ("fredoka", False): "Fredoka-SemiBold.ttf",
     ("mont", False): "Montserrat-Regular.ttf",
     ("mont-medium", False): "Montserrat-SemiBold.ttf",
+    ("pathway", False): "PathwayGothicOne-Regular.ttf",
+    ("source-reg", False): "SourceSans3-Regular.ttf",
 }
 PPT_FONT = {"garamond": "EB Garamond", "garamond-bold": "EB Garamond", "montserrat": "Montserrat",
             "montserrat-bold": "Montserrat", "source": "Source Sans 3", "fredoka": "Fredoka",
-            "mont": "Montserrat", "mont-medium": "Montserrat"}
+            "mont": "Montserrat", "mont-medium": "Montserrat",
+            "pathway": "Pathway Gothic One", "source-reg": "Source Sans 3"}
 _EMOJI = re.compile("[\U0001F000-\U0001FAFF☀-➿️‍]")
 
 
