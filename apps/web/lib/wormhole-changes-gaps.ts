@@ -346,4 +346,6 @@ export const GAP_CHANGES: Change[] = [
     reason:
       "Caption trimmed (26 Oct) from 3,144 to under 2,200 characters, the Instagram limit: shortened the student story and cut repeated thank-you lines. Carla's quote about Dr. Elaine is unchanged.",
   },
+  // --- Nov-Dec C (promo calendar and dates, 26 Oct) ---
+  // --- end Nov-Dec C ---
 ];

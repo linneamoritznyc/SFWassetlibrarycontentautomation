@@ -1163,4 +1163,6 @@ export const JAN_CHANGES: Change[] = [
       'New January post (26 Oct planning pass): Meet the team, Ib. Facts only from his site bio; Ib to approve before it goes out.',
   },
   // --- end January B ---
+  // --- January C (promo calendar and dates, 26 Oct) ---
+  // --- end January C ---
 ];
