@@ -37,6 +37,10 @@ All three are free Google Fonts (OFL).
 
 ## Logo
 
+Files (from Linnea, 27 Oct), transparent PNGs: `apps/web/public/wormhole/brand/sfw-foundation-logo-colour.png`,
+`sfw-foundation-logo-white.png` (for dark grounds and photos) and `sfw-foundation-logo-black.png`.
+Use these; never recolour the colour file to make a white one.
+
 - Always use the approved artwork; never recreate, recolour, tilt, stretch or add effects.
 - Clear space around the circle at least the height of the "S" in SOIL.
 - Minimum 140 px wide on screen, 1.5 in printed.

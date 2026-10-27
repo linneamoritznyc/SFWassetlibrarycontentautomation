@@ -7651,6 +7651,17 @@ export const CHANGES: Change[] = [
     reason:
       'Linnea, 27 Oct: no more one template across the feed. January rebuilt with a different family per post (Family: K, framed photo), no photo used twice.',
   },
+  {
+    key: '2026-10-27 p18 v7 real white logo',
+    post: 'p18',
+    set: {
+      slides: [{ text: 'Vampire amoeba.', image: '/wormhole/tiles/p18-v7-1.jpg' }],
+      visual_note:
+        'Family: F, specimen. Single image: the title, two real micrographs of Vampyrella lateritia in round lenses on deep green, a moon, and the official white SFW Foundation logo (wormhole/brand/sfw-foundation-logo-white.png) on plain green. No credit on the image; the CC BY 4.0 credit (Hess, Sausen & Melkonian 2012, PLoS ONE) is in the caption.',
+    },
+    reason:
+      'Linnea, 27 Oct: the official white logo file, with no root lines behind it, and no licence line on the image.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES);
