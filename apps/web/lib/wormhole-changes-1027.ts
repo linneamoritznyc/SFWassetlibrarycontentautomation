@@ -345,6 +345,40 @@ export const OCT27_CHANGES: Change[] = [
     reason:
       'Launch order (Linnea, 27 Oct): the website tour carousel follows the announcement Reel, 30 Oct.',
   },
+  {
+    key: '2026-10-27 k20261030 carla amf cotton paper',
+    post: 'k20261030',
+    create: {
+      iso_date: '2026-10-30',
+      date_tbd: false,
+      topic: "Research pick from Carla: mycorrhizal fungi extend cotton's phosphorus reach 15-fold",
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        "Mycorrhizal fungi reached about 30 mm from cotton roots and carried phosphorus back to the plant. That is 15 times the soil a cotton root reaches for phosphorus on its own.\n\nOur mentor Dr. Carla Portugal shared this field study with the team, and it is too good to keep to ourselves. Researchers grew cotton in the field at different phosphorus fertilizer rates and measured fungal hyphae at set distances from the roots.\n\nWhat they found:\n1. Arbuscular mycorrhizal hyphae took up and moved phosphorus up to 3 cm from the root surface.\n2. Hyphal growth followed soil-available phosphorus. Low soluble P promoted the hyphae. High soluble P held them back.\n3. The root's influence on the hyphae faded with distance.\n4. Cotton took up the most phosphorus at a moderate rate, 150 kg P2O5 per hectare, so the authors recommend balancing fertilizer with the fungal pathway.\n\nThis matches what Dr. Elaine Ingham taught for decades: plants trade the sugars they make for nutrients the fungi bring in, and heavy soluble fertilizer switches that trade down.\n\nCarla's caveat: the study looks at one crop, mycorrhizal fungi and soil chemistry only. It leaves out the grazers, predators and the rest of the soil food web, and it measures what happens in one field. It is a strong paper to follow.\n\nMai et al. 2019, European Journal of Soil Biology. Link in bio.\n\n#SoilFoodWeb #SoilBiology #Mycorrhizae #Phosphorus #SoilHealth #RegenerativeAgriculture #SoilScience",
+      slides: [
+        {
+          text: 'Fungi reach 15 times more soil than the root.',
+          image: '/wormhole/tiles/k20261030-v1-1.jpg',
+        },
+        {
+          text: 'More soluble P, fewer hyphae.',
+          image: '/wormhole/tiles/k20261030-v1-2.jpg',
+        },
+      ],
+      cta: 'Read the paper, link in bio.',
+      link: 'https://doi.org/10.1016/j.ejsobi.2018.12.002',
+      sources: [
+        'Mai W., Xue X., Feng G., Yang R. et al. (2019). Arbuscular mycorrhizal fungi: 15-fold enlargement of the soil volume of cotton roots for phosphorus uptake in intensive planting conditions. European Journal of Soil Biology 90: 31-35. https://doi.org/10.1016/j.ejsobi.2018.12.002',
+        "Dr. Carla Portugal's summary, shared by Stephanie McDaniel on 26 Oct 2026",
+      ],
+      visual_note:
+        'Family: drawn diagram. Slide 1: watercolor-style root cross-section with hyphae radiating about 30 mm, scale bar. Slide 2: low versus high soluble P, many versus few hyphae. No photos. LinkedIn: end with "Where have you seen fertilizer rates change what your mycorrhizal fungi do?"',
+      note: '',
+      status: 'draft',
+    },
+    reason:
+      "New (Stephanie, 26 Oct: fit Carla's paper into the rotation; Linnea: post Friday). CONFIRM: tag Carla if she has a handle.",
+  },
   // --- end picks ---
   // --- redos (worker) ---
   // --- end redos ---

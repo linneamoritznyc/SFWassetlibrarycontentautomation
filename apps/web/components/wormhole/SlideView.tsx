@@ -9,6 +9,21 @@ import { imageUrl } from './util';
  * is easy to spot and never mistaken for a finished tile.
  */
 export function SlideView({ slide, fallback }: { slide: Slide; fallback: string }) {
+  if (slide.image && /\.(mp4|webm|mov)$/i.test(slide.image)) {
+    // Reels: a video file in public/wormhole/reels plays muted on loop, with controls for sound.
+    return (
+      <video
+        src={slide.image}
+        muted
+        loop
+        playsInline
+        autoPlay
+        controls
+        preload="metadata"
+        className="absolute inset-0 h-full w-full bg-black object-cover"
+      />
+    );
+  }
   if (slide.image) {
     return (
       // eslint-disable-next-line @next/next/no-img-element
