@@ -379,6 +379,29 @@ export const OCT27_CHANGES: Change[] = [
     reason:
       "New (Stephanie, 26 Oct: fit Carla's paper into the rotation; Linnea: post Friday). CONFIRM: tag Carla if she has a handle.",
   },
+  {
+    key: '2026-10-27 p11 website reel video',
+    post: 'p11',
+    set: {
+      slides: [
+        { text: 'Our new home is live.', image: '/wormhole/reels/28-10-2026-website-reel.mp4' },
+      ],
+    },
+    reason: 'The website Reel video is in (27 Oct).',
+  },
+  {
+    key: '2026-10-27 r20261029 costa rica reel video',
+    post: 'r20261029',
+    set: {
+      slides: [
+        {
+          text: 'Ten days on a farm in Costa Rica.',
+          image: '/wormhole/reels/29-10-2026-costa-rica-reel.mp4',
+        },
+      ],
+    },
+    reason: 'The Costa Rica Reel video is in (27 Oct).',
+  },
   // --- end picks ---
   // --- redos (worker) ---
   {
