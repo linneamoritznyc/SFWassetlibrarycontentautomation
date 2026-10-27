@@ -645,5 +645,39 @@ export const GAP_CHANGES: Change[] = [
     set: { date_tbd: true },
     reason: 'Held (27 Oct): same website launch as w20261103, which now goes out 28 Oct.',
   },
+  {
+    key: '2026-10-27 p11 website reel to 2026-10-30',
+    post: 'p11',
+    set: {
+      iso_date: '2026-10-30',
+      date_tbd: false,
+      visual_note:
+        'Instagram Reel: the website screen recording made 23 Oct in the "Instagram soil health visual" chat (28-10-2026-new-website-screenrecording-voiceover.mp4, 48 s, or the no-voice version). Cover: the homepage with "Our new home is live." Upload the video and cover in Later.',
+    },
+    reason:
+      'Back on the calendar (Linnea, 27 Oct: "we can have multiple posts for the website"). It is the website Reel; the tour carousel w20261103 goes 28 Oct.',
+  },
+  {
+    key: '2026-10-27 r20261029 costa rica reel',
+    post: 'r20261029',
+    create: {
+      iso_date: '2026-10-29',
+      date_tbd: false,
+      topic: 'Costa Rica Reel: we are going back',
+      platform: 'Instagram Reel, YouTube Shorts',
+      caption:
+        "We're going back to Costa Rica! 🌺\n\nFrom 18 to 29 January 2027, our Accelerator Workshop returns to Armonía Agricultura Orgánica in Heredia, just north of San José. You build thermal compost piles with your team, some designed to succeed and some designed to fail, and you track temperature, moisture and turning every day. You make compost extracts and teas, and you check everything you make under the microscope with your mentors.\n\nThe early bird ends 4 November. Register now, link in bio.\n\n#SoilFoodWeb #LivingSoil #CostaRica #Compost #SoilBiology #AcceleratorWorkshop",
+      slides: [{ text: 'Ten days on a farm in Costa Rica.', image: null }],
+      cta: 'Register, link in bio.',
+      link: 'https://school.soilfoodweb.com/pages/workshop-interest',
+      sources: ['Costa Rica Accelerator Workshop page and the existing cr2026* posts'],
+      visual_note:
+        'Instagram Reel and YouTube Short: the final Costa Rica Reel from the "Costa Rica workshop promo reel" chat (Remotion, real Armonía footage, voiceover and marimba). Cover: first frame "Ten days on a farm in Costa Rica." Upload the video and cover in Later.',
+      note: '',
+      status: 'draft',
+    },
+    reason:
+      'New (Linnea, 27 Oct): the Costa Rica Reel, before the early bird ends 4 Nov. CONFIRM: which Reel version is final, and the registration link.',
+  },
   // --- end Nov-Dec C ---
 ];
