@@ -39,7 +39,7 @@ POSTS = {
         1: pic("Cardboard trick for stacking buckets -IMG_5829.jpg", "Plain paper: yes.", G, focus=(0.5, 0.5), logo=True),
         3: pic("20250304_130733.jpg", "Tear it small.", BL, focus=(0.5, 0.45)),
         4: pic("20250624_170325(1).jpg", None),
-        5: pic("IMG_4440.jpg", "Glitter and foil: no.", P, focus=(0.72, 0.5)),
+        5: pic("IMG_4440.jpg", "Glitter and foil: no.", G, focus=(0.72, 0.5)),
     },
     "x20261227": lambda: {
         1: pic("20250620_153349.jpg", "Chop and drop.", G, logo=True, size=90),

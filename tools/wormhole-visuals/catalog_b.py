@@ -47,7 +47,7 @@ POSTS = {
         2: lambda: pic("PXL_20240716_224324982 HandsInSoil.jpg", "Volunteer with us", BR, where="top", focus=(0.5, 0.6)),
     },
     "w20261206": {
-        1: lambda: pic("IMG_4305.jpg", "Not sure where to start?", P, focus=(0.5, 0.55), logo=True),
+        1: lambda: pic("IMG_4305.jpg", "Not sure where to start?", G, focus=(0.5, 0.55), logo=True),
         3: lambda: pic("20250305_135420.jpg", "Find your path.", G, focus=(0.68, 0.5)),
     },
     "x20261208": {
