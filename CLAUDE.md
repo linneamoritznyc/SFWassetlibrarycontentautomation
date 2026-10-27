@@ -124,6 +124,7 @@ These come from Linnea's edits. Break none of them.
 - A photo must show the post's actual subject and be a strong picture: sharp, well lit, the real people or place. A generic photo (raised beds for a PDC graduation, a random field) is a bad picture; leave a labelled photo space instead.
 - **One photo, one post.** A photo is used once in the whole feed, never on two posts (not even cropped differently). Before using a photo, run `python3 tools/wormhole-visuals/photo_check.py <photo>` (finds it even cropped); `--dupes` lists every shared photo.
 - Purple only on Dr. Elaine content, gold only on donate buttons. A purple box on a course promo is wrong.
+- Banned photo: the raised wooden garden beds with onions and cabbage (`pdc_beds.jpg`). Linnea hates it; never use it on socials.
 
 - Variety across the grid: docs/feed-guide.md. Neighbouring posts never share a style family; write the family in each visual note and check with tools/wormhole-visuals/grid_check.py.
 - Exact colours, fonts and logo rules: docs/brand.md (from the 2026 brand guide and colour guidelines). Palette from the brand guide: greens and cream. Cream works as a shape, the background stays green or photographic. Gold only on donate CTAs. Purple only for Dr. Elaine memorial content. One shadow value.
