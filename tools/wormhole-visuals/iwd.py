@@ -132,7 +132,7 @@ def logo_on_strip(p, k, size=130):
     p.d.put(k, "logo", im, W - 60 - im.width, 1350 - 50 - im.height, shadowed=False, anchor="tl")
 
 
-@post("wd20270308b", "2027-03-08", "iwd-dr-elaine-women-in-soil-science-v1", 5, CREAMT)
+@post("wd20270308b", "2027-03-08", "iwd-dr-elaine-ingham-v2", 4, CREAMT)
 def iwd_elaine(p):
     t = bleed(p, 0, f"{SITE}/Dr Elaine Ingham with Microscope.jpg", 400, fy=0.3)
     strip_text(p, 0, t, "INTERNATIONAL WOMEN'S DAY", "Dr. Elaine Ingham developed the concept of the soil food web.")
@@ -144,12 +144,9 @@ def iwd_elaine(p):
     strip_text(p, 2, t, "THEN SHE TAUGHT IT", "Dozens of papers, then a school.",
                "She wrote the Soil Biology Primer for the USDA Natural Resources Conservation Service and taught microscopy, compost and compost tea to "
                "growers around the world.", size=54)
-    t = bleed(p, 3, f"{NEW}/team-loida-vasquez.jpg", 470, fy=0.3)
-    strip_text(p, 3, t, "THE WOMEN TEACHING IT NOW", "Loida Vasquez, Director of Advanced Education",
-               "\u201cThe most is learned from failed piles.\u201d", size=50)
-    t = bleed(p, 4, f"{NEW}/elaine-ingham-nematode-extraction.jpg", 400, fx=0.55, fy=0.3)
-    strip_text(p, 4, t, "CARRY IT ON", "Start learning the soil food web. Link in bio.")
-    for k in range(5):
+    t = bleed(p, 3, f"{NEW}/elaine-ingham-nematode-extraction.jpg", 400, fx=0.55, fy=0.3)
+    strip_text(p, 3, t, "CARRY IT ON", "Start learning the soil food web. Link in bio.")
+    for k in range(4):
         logo_on_strip(p, k)
 
 

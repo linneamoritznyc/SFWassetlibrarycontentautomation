@@ -44,7 +44,7 @@ export const PEOPLE: PersonSeed[] = [
     role: 'Director of Advanced Education',
     org: 'Soil Food Web School',
     topics: ['workshops', 'compost', 'liquid amendments', 'curriculum'],
-    notes: 'Her line: "the most is learned from failed piles."',
+    notes: 'Never quote "the most is learned from failed piles" (Linnea, 27 Oct 2026).',
   },
   {
     name: 'Evan Buckman',

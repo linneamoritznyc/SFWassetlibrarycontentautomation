@@ -6893,6 +6893,70 @@ export const CHANGES: Change[] = [
     reason:
       "New post (Linnea, 27 Oct): second International Women's Day post on Dr. Elaine Ingham and women in soil science.",
   },
+  {
+    key: '2026-10-27 wd20270308b v2 no loida',
+    post: 'wd20270308b',
+    set: {
+      slides: [
+        {
+          text: "International Women's Day. Dr. Elaine Ingham developed the concept of the soil food web.",
+          image: '/wormhole/tiles/wd20270308b-v2-1.jpg',
+        },
+        {
+          text: 'A scientist first: St. Olaf College, Texas A&M, Colorado State, Oregon State University from 1986.',
+          image: '/wormhole/tiles/wd20270308b-v2-2.jpg',
+        },
+        {
+          text: 'Then she taught it: the Soil Biology Primer, microscopy, compost and compost tea.',
+          image: '/wormhole/tiles/wd20270308b-v2-3.jpg',
+        },
+        {
+          text: 'Start learning the soil food web. Link in bio.',
+          image: '/wormhole/tiles/wd20270308b-v2-4.jpg',
+        },
+      ],
+      sources: [
+        'Obituary for Dr. Elaine Ingham, soilfoodweb.com/obituary-for-dr-elaine-ingham (education, Oregon State 1986 to 2002, Soil Biology Primer, "developed the concept of the soil food web")',
+        'Website copy deck: the five organism groups of the soil food web',
+        'CLAUDE.md Foundation facts: 10,000+ people enrolled across 100+ countries',
+      ],
+      visual_note:
+        'Family: D, full-bleed photo. Built with tools/wormhole-visuals/iwd.py (deck: 08-03-2027-iwd-dr-elaine-ingham-v2.pptx). Four slides, all Dr. Elaine: our own photos (microscope portrait, garden, Costa Rica workshop, nematode extraction) edge to edge, with a cream strip and a thin Legacy Mulberry bar (Dr. Elaine content only). Montserrat, Pathway Gothic One, Source Sans 3. Same day as wd20270308 (Family I, deep green).',
+    },
+    caption: [
+      [
+        'Women carry her science on today. Loida Vasquez, our Director of Advanced Education, tells students: "The most is learned from failed piles."',
+        'Her students now carry the science on in more than 100 countries.',
+      ],
+    ],
+    reason:
+      'Linnea, 27 Oct: Loida out of the Elaine post and the "failed piles" quote removed. Now four slides, all Dr. Elaine (v2 tiles). Ignore the older note about checking the quote with Loida.',
+  },
+  {
+    key: '2026-10-27 cr20261116 drop failed piles quote',
+    post: 'cr20261116',
+    set: {
+      slides: [
+        { text: 'Some piles are built to fail.', image: '/wormhole/tiles/cr20261116-v1-1.jpg' },
+        { text: 'On purpose.', image: '/wormhole/tiles/cr20261116-v1-2.jpg' },
+        {
+          text: 'Students build several piles at once, some designed to go wrong.',
+          image: '/wormhole/tiles/cr20261116-v1-3.jpg',
+        },
+        {
+          text: 'Then they diagnose them and turn them around.',
+          image: '/wormhole/tiles/cr20261116-v1-4.jpg',
+        },
+        {
+          text: 'Costa Rica, 18 to 29 January 2027.',
+          image: '/wormhole/tiles/cr20261116-v1-6.jpg',
+        },
+      ],
+    },
+    caption: [[' As Loida Vasquez says, the most is learned from failed piles.', '']],
+    reason:
+      'Linnea, 27 Oct: never use the "failed piles" quote. Dropped the quote slide (was slide 5) and the line in the caption.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES);

@@ -203,7 +203,7 @@ Before writing about any program, fetch its page and read it all, including FAQs
 - **Evan Buckman**: Executive Director.
 - **Delvin Solkinson** (@visionary_permaculture): permaculture partner network, runs PDC collabs.
 - **Carla Portugal**: instructor, mentor, Portuguese/Spanish translator; posts graduate announcements internally, runs office hours.
-- **Loida Vasquez, Gerald Ramirez, Wes Sander, Brian Daubenspeck**: mentors and instructors. Loida's line: "the most is learned from failed piles."
+- **Loida Vasquez, Gerald Ramirez, Wes Sander, Brian Daubenspeck**: mentors and instructors. Never use the "the most is learned from failed piles" quote; Linnea hates it.
 - **Kavi Reddy**: growth, partnerships, permaculture.
 - **Sammie Bass**: Switchy link shortener. **Banjo Bray**: UTM Links 2026 sheet. Every link in a post gets a UTM.
 
