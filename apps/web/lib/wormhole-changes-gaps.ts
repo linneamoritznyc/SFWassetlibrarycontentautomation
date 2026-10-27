@@ -633,5 +633,17 @@ export const GAP_CHANGES: Change[] = [
     reason:
       'New (Linnea, 26 Oct): Natus Rattanaphokil letter. CONFIRM before posting: his written permission to share the letter, his name and farm location; his photos and handle.',
   },
+  {
+    key: '2026-10-27 w20261103 to 2026-10-28',
+    post: 'w20261103',
+    set: { iso_date: '2026-10-28', date_tbd: false },
+    reason: 'Moved from 3 Nov to Wed 28 Oct (Linnea, 27 Oct: "we should post very soon").',
+  },
+  {
+    key: '2026-10-27 p11 hold',
+    post: 'p11',
+    set: { date_tbd: true },
+    reason: 'Held (27 Oct): same website launch as w20261103, which now goes out 28 Oct.',
+  },
   // --- end Nov-Dec C ---
 ];
