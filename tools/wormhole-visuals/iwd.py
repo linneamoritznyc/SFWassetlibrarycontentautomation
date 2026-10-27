@@ -98,5 +98,62 @@ def iwd(p):
         p.logo(k)
 
 
+# ================================================================== second IWD post: Dr. Elaine and women in soil science
+# Family D, full-bleed photo: one real photo edge to edge, one solid cream strip at the bottom.
+# Purple (Legacy Mulberry) only as a thin bar on the strip, because this is Dr. Elaine content.
+NEW = "/home/user/photos/new-2026-10"
+SITE = "/home/user/linneamoritznyc/final-sfwsite-linnea/img"
+PURPLE, BROWN = "#6B4C7A", "#4F3433"
+
+
+def bleed(p, k, src, strip, fx=0.5, fy=0.4):
+    """The photo edge to edge, then a cream strip of the given height along the bottom with a purple bar on top."""
+    p.put(k, "photo", collage.cover(src, W, 1350, fx, fy).convert("RGBA"), 0, 0)
+    top = 1350 - strip
+    p.drawn(k, W, strip, lambda dr, s: (dr.rectangle((0, 0, W * s, strip * s), fill=hexrgb(CREAMT) + (255,)),
+                                        dr.rectangle((0, 0, W * s, 12 * s), fill=hexrgb(PURPLE) + (255,))),
+            0, top, name="strip")
+    return top
+
+
+def strip_text(p, k, top, eyebrow, head, text=None, size=60):
+    p.d.text(k, "label", eyebrow, 70, top + 44, 900, 60, 38, kind="pathway", italic=False, color=PURPLE, lh=1.1,
+             track=2)
+    y = p.d.text(k, "heading", head, 70, top + 100, 760, 260, size, kind="montserrat-bold", italic=False,
+                 color=BROWN, lh=1.12, min_size=44)
+    if text:
+        p.d.text(k, "body", text, 70, round(y) + 18, 760, 200, 34, kind="source-reg", italic=False, color="#333130",
+                 lh=1.28, min_size=26)
+
+
+def logo_on_strip(p, k, size=130):
+    im = Image.open("/home/user/sfwlib/img/sfwlogo-240.png").convert("RGBA")
+    im = im.resize((size, round(im.height * size / im.width)), Image.LANCZOS)
+    p.d.put(k, "logo", im, W - 60 - im.width, 1350 - 50 - im.height, shadowed=False, anchor="tl")
+
+
+@post("wd20270308b", "2027-03-08", "iwd-dr-elaine-women-in-soil-science-v1", 5, CREAMT)
+def iwd_elaine(p):
+    t = bleed(p, 0, f"{SITE}/Dr Elaine Ingham with Microscope.jpg", 400, fy=0.3)
+    strip_text(p, 0, t, "INTERNATIONAL WOMEN'S DAY", "Dr. Elaine Ingham developed the concept of the soil food web.")
+    t = bleed(p, 1, f"{NEW}/publications-elaine-garden.jpg", 470, fy=0.35)
+    strip_text(p, 1, t, "A SCIENTIST FIRST", "Microbiology, then decades of research.",
+               "St. Olaf College, 1974. A master's in microbiology at Texas A&M, a doctorate at Colorado State, "
+               "and Oregon State University faculty from 1986.", size=54)
+    t = bleed(p, 2, f"{SITE}/Elaine Smile talking.png", 470, fx=0.62, fy=0.4)
+    strip_text(p, 2, t, "THEN SHE TAUGHT IT", "Dozens of papers, then a school.",
+               "She wrote the Soil Biology Primer for the USDA Natural Resources Conservation Service and taught microscopy, compost and compost tea to "
+               "growers around the world.", size=54)
+    t = bleed(p, 3, f"{NEW}/team-loida-vasquez.jpg", 470, fy=0.3)
+    strip_text(p, 3, t, "THE WOMEN TEACHING IT NOW", "Loida Vasquez, Director of Advanced Education",
+               "\u201cThe most is learned from failed piles.\u201d", size=50)
+    t = bleed(p, 4, f"{NEW}/elaine-ingham-nematode-extraction.jpg", 400, fx=0.55, fy=0.3)
+    strip_text(p, 4, t, "CARRY IT ON", "Start learning the soil food web. Link in bio.")
+    for k in range(5):
+        logo_on_strip(p, k)
+
+
 if __name__ == "__main__":
-    print(build("wd20270308"))
+    import sys
+    for pid in sys.argv[1:] or ["wd20270308", "wd20270308b"]:
+        print(build(pid))

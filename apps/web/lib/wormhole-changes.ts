@@ -6846,6 +6846,53 @@ export const CHANGES: Change[] = [
     reason:
       "New post (Linnea, 26 Oct): International Women's Day post to watch the Women Seeding Regenerative Futures webinar.",
   },
+  {
+    key: '2026-10-27 new wd20270308b',
+    post: 'wd20270308b',
+    create: {
+      iso_date: '2027-03-08',
+      date_tbd: false,
+      topic: "International Women's Day: Dr. Elaine Ingham and women in soil science",
+      platform: 'Instagram, Facebook',
+      caption:
+        'Today is International Women\'s Day, and we\'re remembering the scientist who started all of this.\n\nDr. Elaine Ingham trained in microbiology at Texas A&M and earned her doctorate at Colorado State University. At Oregon State University from 1986, her research developed the concept of the soil food web: the bacteria, fungi, protozoa, nematodes and micro-arthropods that feed plants and build soil.\n\nShe wrote the Soil Biology Primer for the USDA Natural Resources Conservation Service, then spent decades teaching microscopy, compost and compost tea to growers around the world.\n\nWomen carry her science on today. Loida Vasquez, our Director of Advanced Education, tells students: "The most is learned from failed piles."\n\nWho is the woman who taught you about soil? Tag her below.\n\nStart learning the soil food web. Link in bio.\nhttps://school.soilfoodweb.com/collections\n\n#InternationalWomensDay #WomenInScience #ElaineIngham #SoilFoodWeb #SoilBiology #LivingSoil',
+      slides: [
+        {
+          text: "International Women's Day. Dr. Elaine Ingham developed the concept of the soil food web.",
+          image: '/wormhole/tiles/wd20270308b-v1-1.jpg',
+        },
+        {
+          text: 'A scientist first: St. Olaf College, Texas A&M, Colorado State, Oregon State University from 1986.',
+          image: '/wormhole/tiles/wd20270308b-v1-2.jpg',
+        },
+        {
+          text: 'Then she taught it: the Soil Biology Primer, microscopy, compost and compost tea.',
+          image: '/wormhole/tiles/wd20270308b-v1-3.jpg',
+        },
+        {
+          text: 'The women teaching it now: Loida Vasquez, Director of Advanced Education.',
+          image: '/wormhole/tiles/wd20270308b-v1-4.jpg',
+        },
+        {
+          text: 'Start learning the soil food web. Link in bio.',
+          image: '/wormhole/tiles/wd20270308b-v1-5.jpg',
+        },
+      ],
+      cta: 'Start learning',
+      link: 'https://school.soilfoodweb.com/collections',
+      sources: [
+        'Obituary for Dr. Elaine Ingham, soilfoodweb.com/obituary-for-dr-elaine-ingham (education, Oregon State 1986 to 2002, Soil Biology Primer, "developed the concept of the soil food web")',
+        "CLAUDE.md section 10: Loida Vasquez's line and title (India workshop course page)",
+        'Website copy deck: the five organism groups of the soil food web',
+      ],
+      visual_note:
+        "Family: D, full-bleed photo. Built with tools/wormhole-visuals/iwd.py (deck: 08-03-2027-iwd-dr-elaine-women-in-soil-science-v1.pptx). Our own photos of Dr. Elaine (microscope portrait, garden, Costa Rica workshop, nematode extraction) and Loida's team photo, edge to edge, with a cream strip and a thin Legacy Mulberry bar (Dr. Elaine content only). Montserrat, Pathway Gothic One, Source Sans 3. Same day as wd20270308 (Family I, deep green), so the two look different side by side in the grid.",
+      note: "Pillar: PROVE IT + TEACH IT. Second International Women's Day post (Linnea, 27 Oct: two posts that day is fine), answering the March planning note: highlight Dr. Elaine Ingham and women in soil science. Post it after the panel post, or in the evening window. Add a UTM to the link before posting. Optional: check with Loida that she's happy to be quoted.",
+      status: 'draft',
+    },
+    reason:
+      "New post (Linnea, 27 Oct): second International Women's Day post on Dr. Elaine Ingham and women in soil science.",
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES);
