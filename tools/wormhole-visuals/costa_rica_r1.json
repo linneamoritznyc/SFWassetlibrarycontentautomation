@@ -1,0 +1,512 @@
+{
+ "cr20261102": [
+  {
+   "photo": "PXL_20251022_170354103.jpg",
+   "focus": [
+    0.5,
+    0.6
+   ],
+   "pos": "tl",
+   "box": "cream",
+   "logo": true,
+   "label": "Accelerator Workshop · Costa Rica",
+   "head": "Back to Armonía"
+  },
+  {
+   "photo": "PXL_20251014_192526194.jpg",
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "pos": "bl",
+   "box": "green",
+   "head": "Compost yard and classroom on one campus"
+  },
+  {
+   "photo": "PXL_20240724_153925369.jpg",
+   "focus": [
+    0.5,
+    0.6
+   ],
+   "pos": "tr",
+   "box": "brown",
+   "head": "An organic farm on a school campus"
+  },
+  {
+   "photo": "IMG_0103.jpg",
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "pos": "tl",
+   "box": "cream",
+   "head": "Compost work under covered sheds"
+  },
+  {
+   "photo": "PXL_20240716_172138666.jpg",
+   "focus": [
+    0.5,
+    0.6
+   ],
+   "pos": "br",
+   "box": "green",
+   "label": "Accelerator Workshop",
+   "head": "18 to 29 January 2027"
+  }
+ ],
+ "cr20261103": [
+  {
+   "photo": "20250304_132056.jpg",
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "pos": "tr",
+   "box": "cream",
+   "logo": true,
+   "label": "Costa Rica Accelerator Workshop",
+   "head": "Early bird ends tomorrow"
+  },
+  {
+   "photo": "PXL_20240716_213556666.jpg",
+   "focus": [
+    0.5,
+    0.35
+   ],
+   "pos": "bl",
+   "box": "green",
+   "head": "18 to 29 January 2027",
+   "small": "Armonía Agricultura Orgánica, Heredia"
+  },
+  {
+   "photo": "Dev_Raj_PXL_20251024_221618172.MP.jpg",
+   "focus": [
+    0.5,
+    0.6
+   ],
+   "pos": "tl",
+   "box": "brown",
+   "label": "Two credentials",
+   "head": "The hands-on step",
+   "small": "BioComplete™ Compost Production and Biological Liquid Amendments"
+  },
+  {
+   "photo": "20250311_143027.jpg",
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "pos": "bl",
+   "box": "cream",
+   "head": "18 to 24 months of practice in two weeks",
+   "small": "Compost, liquid amendments and daily microscopy, with mentors"
+  }
+ ],
+ "cr20261112": [
+  {
+   "photo": "PXL_20240716_144712485.MP.jpg",
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "pos": "bl",
+   "box": "cream",
+   "logo": true,
+   "label": "Accelerator Workshop · Costa Rica",
+   "head": "What you learn in two weeks",
+   "hs": 58
+  },
+  {
+   "photo": "PXL_20240716_142837435.jpg",
+   "focus": [
+    0.5,
+    0.6
+   ],
+   "pos": "tr",
+   "box": "green",
+   "head": "Design a compost recipe from the feedstocks"
+  },
+  {
+   "photo": "PXL_20240716_212229627.jpg",
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "pos": "tl",
+   "box": "brown",
+   "head": "Talk soil with mentors over shared meals"
+  },
+  {
+   "photo": "20250311_112517.jpg",
+   "focus": [
+    0.5,
+    0.55
+   ],
+   "pos": "br",
+   "box": "cream",
+   "head": "Make and test compost extracts"
+  },
+  {
+   "photo": "20250310_163630.jpg",
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "pos": "bl",
+   "box": "green",
+   "head": "Read the organisms under the microscope"
+  }
+ ],
+ "cr20261116": [
+  {
+   "photo": "pile monitoring wes 1.jpg",
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "pos": "bl",
+   "box": "cream",
+   "logo": true,
+   "label": "Thermophilic compost",
+   "head": "Some piles are built to fail"
+  },
+  {
+   "photo": "PXL_20251022_151756940.jpg",
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "pos": "tl",
+   "box": "green",
+   "head": "Several piles, built at once"
+  },
+  {
+   "photo": "Moisture test-farmer john-PXL_20240716_223418079.jpg",
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "pos": "br",
+   "box": "brown",
+   "head": "Diagnose by temperature, moisture and smell"
+  },
+  {
+   "photo": "20250305_135245.jpg",
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "pos": "tr",
+   "box": "cream",
+   "head": "Check the biology under the microscope"
+  },
+  {
+   "photo": "IMG_0082.jpg",
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "pos": "bl",
+   "box": "green",
+   "head": "Then rebalance and turn the pile"
+  }
+ ],
+ "cr20261123": [
+  {
+   "photo": "PXL_20240724_213832050.jpg",
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "pos": "bl",
+   "box": "cream",
+   "logo": true,
+   "head": "Costa Rica brought its forests back"
+  },
+  {
+   "photo": "PXL_20251022_170527960.jpg",
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "pos": "tl",
+   "box": "green",
+   "head": "53% forest cover by 2016",
+   "small": "Down to 21 to 25% in the 1980s"
+  },
+  {
+   "photo": "IMG_0074.jpg",
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "pos": "tr",
+   "box": "brown",
+   "head": "Its farms carry heavy chemical loads"
+  },
+  {
+   "photo": "PXL_20240716_153614070.jpg",
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "pos": "bl",
+   "box": "cream",
+   "head": "Build living soil from local materials"
+  },
+  {
+   "photo": "IMG_4527.jpg",
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "pos": "br",
+   "box": "green",
+   "label": "Accelerator Workshop · Costa Rica",
+   "head": "18 to 29 January 2027"
+  }
+ ],
+ "st20261026": [
+  {
+   "photo": "IMG_4528.jpg",
+   "focus": [
+    0.0,
+    0.5
+   ],
+   "pos": "bl",
+   "box": "cream",
+   "logo": true,
+   "label": "Accelerator Workshop",
+   "head": "Back to Costa Rica",
+   "small": "18 to 29 January 2027"
+  },
+  {
+   "photo": "extracts wes 2.jpg",
+   "focus": [
+    0.4,
+    0.5
+   ],
+   "pos": "bl",
+   "box": "green",
+   "head": "18 to 24 months of practice in two weeks",
+   "small": "With mentors beside you"
+  },
+  {
+   "photo": "PXL_20240724_213125760.jpg",
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "pos": "tr",
+   "box": "brown",
+   "label": "Where we learn",
+   "head": "Armonía Agricultura Orgánica",
+   "small": "An organic farm on a school campus, Heredia",
+   "hs": 64,
+   "w": 780
+  }
+ ],
+ "st20261029": [
+  {
+   "photo": "PXL_20251016_223246334.MP.jpg",
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "pos": "br",
+   "box": "cream",
+   "logo": true,
+   "label": "Week one",
+   "head": "Thermophilic compost",
+   "small": "Feedstocks, carbon to nitrogen, recipes, building, monitoring, turning"
+  },
+  {
+   "photo": "20250305_081317.jpg",
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "pos": "br",
+   "box": "green",
+   "head": "Some piles are built to fail",
+   "small": "You learn to diagnose them and fix them"
+  },
+  {
+   "photo": "20250310_112605.jpg",
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "pos": "bl",
+   "box": "brown",
+   "label": "Week two",
+   "head": "Biological liquid amendments",
+   "small": "Extracts, teas, protozoan infusions, nematode extractions"
+  },
+  {
+   "photo": "DJI_20251023_154935_148.jpg",
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "pos": "tr",
+   "box": "cream",
+   "head": "Microscopy every day",
+   "small": "You check everything you make"
+  }
+ ],
+ "st20261102": [
+  {
+   "photo": "PXL_20240725_144252440.jpg",
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "pos": "bl",
+   "box": "cream",
+   "logo": true,
+   "label": "What's included",
+   "head": "10 days with mentors",
+   "small": "Training, course materials and weekday lunch on site",
+   "hs": 70
+  },
+  {
+   "photo": "20250312_110614.jpg",
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "pos": "bl",
+   "box": "green",
+   "label": "Who can join",
+   "head": "Foundation Courses students",
+   "small": "Finish Foundation Course 3 before 18 January"
+  }
+ ],
+ "st20261103": [
+  {
+   "photo": "IMG_4365.jpg",
+   "focus": [
+    0.5,
+    0.4
+   ],
+   "pos": "tl",
+   "box": "cream",
+   "logo": true,
+   "label": "Accelerator Workshop · Costa Rica",
+   "head": "Early bird ends tomorrow"
+  }
+ ],
+ "st20261104": [
+  {
+   "photo": "PXL_20240716_143253460.jpg",
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "pos": "bl",
+   "box": "cream",
+   "logo": true,
+   "label": "Accelerator Workshop · Costa Rica",
+   "head": "Early bird ends today"
+  }
+ ],
+ "st20261112": [
+  {
+   "photo": "ACB36424-8C42-4299-B521-5897B7B74E21.jpg",
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "pos": "bl",
+   "box": "cream",
+   "logo": true,
+   "label": "The weekend",
+   "head": "Check your piles, then explore Costa Rica"
+  },
+  {
+   "photo": "20250311_105626.jpg",
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "pos": "br",
+   "box": "green",
+   "hs": 52,
+   "head": "“Be prepared to work hard, listen, and watch everything very intently.”",
+   "small": "Donell Frank, Costa Rica workshop, March 2025"
+  }
+ ],
+ "st20261116": [
+  {
+   "photo": "20250305_085223.jpg",
+   "focus": [
+    0.2,
+    0.5
+   ],
+   "pos": "bl",
+   "box": "cream",
+   "logo": true,
+   "head": "Some piles are built to fail",
+   "small": "You learn to diagnose them and fix them"
+  }
+ ],
+ "st20261123": [
+  {
+   "photo": "IMG_4277.jpg",
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "pos": "tl",
+   "box": "cream",
+   "logo": true,
+   "head": "Armonía Agricultura Orgánica",
+   "small": "An organic farm on a school campus, Heredia",
+   "hs": 64,
+   "w": 780
+  }
+ ],
+ "st20261201": [
+  {
+   "photo": "PXL_20251023_212203077.jpg",
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "pos": "tl",
+   "box": "cream",
+   "logo": true,
+   "label": "What's included",
+   "head": "10 days with mentors",
+   "small": "Training, course materials and weekday lunch on site",
+   "hs": 70
+  },
+  {
+   "photo": "PXL_20251022_191224781.jpg",
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "pos": "bl",
+   "box": "brown",
+   "label": "Who can join",
+   "head": "Foundation Courses students",
+   "small": "Finish Foundation Course 3 before 18 January"
+  }
+ ],
+ "st20270111": [
+  {
+   "photo": "LAb-Kit (to put into manual).jpg",
+   "focus": [
+    0.5,
+    0.4
+   ],
+   "pos": "bl",
+   "box": "cream",
+   "logo": true,
+   "head": "Costa Rica, here we come",
+   "small": "18 to 29 January 2027"
+  }
+ ]
+}
