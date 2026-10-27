@@ -331,6 +331,20 @@ export const OCT27_CHANGES: Change[] = [
     },
     reason: 'Linnea picked the new catalog photos on the Photo Swap page (27 Oct).',
   },
+  {
+    key: '2026-10-27 launch order p11 to 2026-10-28',
+    post: 'p11',
+    set: { iso_date: '2026-10-28', date_tbd: false },
+    reason:
+      'Launch order (Linnea, 27 Oct): the website Reel is the announcement and goes first, 28 Oct. The detail posts follow.',
+  },
+  {
+    key: '2026-10-27 launch order w20261103 to 2026-10-30',
+    post: 'w20261103',
+    set: { iso_date: '2026-10-30', date_tbd: false },
+    reason:
+      'Launch order (Linnea, 27 Oct): the website tour carousel follows the announcement Reel, 30 Oct.',
+  },
   // --- end picks ---
   // --- redos (worker) ---
   // --- end redos ---
