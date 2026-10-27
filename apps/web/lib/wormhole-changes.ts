@@ -6957,6 +6957,17 @@ export const CHANGES: Change[] = [
     reason:
       'Linnea, 27 Oct: never use the "failed piles" quote. Dropped the quote slide (was slide 5) and the line in the caption.',
   },
+  {
+    key: '2026-10-27 p18 single image',
+    post: 'p18',
+    set: {
+      slides: [{ text: 'Vampire amoeba.', image: '/wormhole/tiles/p18-v5-1.jpg' }],
+      visual_note:
+        'Family: F, specimen. Single image: the title, two real micrographs of Vampyrella lateritia in round lenses on deep green, a moon, and the credit (Hess, Sausen & Melkonian 2012, PLoS ONE, CC BY 4.0).',
+    },
+    reason:
+      "One image, not a carousel (Linnea, 27 Oct): only the cover. The caption already points to Wes's blog post. The three other slides stay in the post's history.",
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES);
