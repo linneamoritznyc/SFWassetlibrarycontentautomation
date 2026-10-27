@@ -12,7 +12,8 @@ docs/brand.md; this guide is about variety across the grid.
 
 - **Never one template across a batch.** Plan every post's family before building any of them. The photo-and-tag
   look (photo with a coloured box heading) is at most 1 in any 9 grid posts; Linnea hates seeing it everywhere.
-- **One photo, one post.** No photo appears on two posts anywhere in the feed.
+- **One photo, one post.** No photo appears on two posts anywhere in the feed. Check every photo with
+  `python3 tools/wormhole-visuals/photo_check.py photo.jpg` before using it.
 - **Every grid post has a family written in its visual note.** grid_check.py counts a missing family as a break.
 - **Neighbours never share a style family.** The post before and the post after must
   use different families from the list below.
@@ -49,6 +50,10 @@ docs/brand.md; this guide is about variety across the grid.
 | H | Diagram | A simple drawn diagram on a flat brand colour: layers, a cycle, a cross-section | Soil aggregates explained twice |
 | I | Portrait | A person's photo large, with their name, country or role | New consultants, mentor spotlight, graduates |
 | J | Numbered steps | A big step number, one short instruction and a square photo, on a flat colour | Do this weekend posts |
+| K | Framed photo | One real photo in a clean straight frame on a flat brand colour, heading above or below | Thanksgiving pumpkins (Linnea: 10/10), jan_varied.py |
+| L | Photo grid | Three real photos, straight, even gutters, heading under them | Costa Rica one week to go (jan_varied.py) |
+| M | Event card | A cream card on a brand colour with a date block and Link in bio | New Year webinar series (jan_varied.py) |
+| N | Field notebook | Ruled cream page, margin line, FIELD NOTES label, photo space | Field Notes #3 |
 
 New families are welcome when they follow the brand rules below. Add them to this
 table, and to `FAMILIES` in grid_check.py.

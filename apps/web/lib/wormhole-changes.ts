@@ -6979,6 +6979,678 @@ export const CHANGES: Change[] = [
     reason:
       'Linnea, 27 Oct: one image, without the licence line, and with the white logo. v6 is the v5 cover with the credit line removed (background filled, root lines rejoined) and the white logo in place of the colour logo in its circle. The credit stays in the caption.',
   },
+  {
+    key: '2026-10-27 j20270101 variety v5',
+    post: 'j20270101',
+    set: {
+      slides: [
+        {
+          text: 'HAPPY NEW YEAR Welcome to 2027. Costa Rica JANUARY New Mexico MAY United Kingdom SEPTEMBER',
+          image: '/wormhole/tiles/j20270101-v5-1.jpg',
+        },
+        {
+          text: 'OUR 2027 WORKSHOPS See you in the field. All 2027 workshops, link in bio.',
+          image: '/wormhole/tiles/j20270101-v5-2.jpg',
+        },
+      ],
+      visual_note:
+        'Family: G, type only. Built with tools/wormhole-visuals/jan_varied.py (27 Oct variety rebuild; replaces the photo-and-tag v2 tiles). Every photo checked with photo_check.py: used on no other post. Earlier note: Real SFW workshop photos: group under the bunting (cy-workshop-8), a workshop group in a barn (IMG_1942), building piles at Wild Ken Hill, a workshop group around a fresh pile.',
+    },
+    reason:
+      'Linnea, 27 Oct: no more one template across the feed. January rebuilt with a different family per post (Family: G, type only), no photo used twice.',
+  },
+  {
+    key: '2026-10-27 j20270102 variety v5',
+    post: 'j20270102',
+    set: {
+      slides: [
+        {
+          text: 'DO THIS WEEKEND Stay off wet beds. Wet soil under a boot: pores pressed shut. A board spreads the weight: the crumb stays open. Walk on boards or a mulched path instead.',
+          image: '/wormhole/tiles/j20270102-v5-1.jpg',
+        },
+      ],
+      visual_note:
+        'Family: H, diagram. Built with tools/wormhole-visuals/jan_varied.py (27 Oct variety rebuild; replaces the photo-and-tag v2 tiles). Every photo checked with photo_check.py: used on no other post. Earlier note: Aerial view of mulched beds and a path (Rancho Cacachilas), then mushrooms in mulched soil under grape vines.',
+    },
+    reason:
+      'Linnea, 27 Oct: no more one template across the feed. January rebuilt with a different family per post (Family: H, diagram), no photo used twice.',
+  },
+  {
+    key: '2026-10-27 j20270103 variety v5',
+    post: 'j20270103',
+    set: {
+      slides: [
+        {
+          text: 'COMPOST INTENSIVE COURSE The January cohort starts this month. Link in bio.',
+          image: '/wormhole/tiles/j20270103-v5-1.jpg',
+        },
+      ],
+      visual_note:
+        'Family: K, framed photo. Built with tools/wormhole-visuals/jan_varied.py (27 Oct variety rebuild; replaces the photo-and-tag v2 tiles). Every photo checked with photo_check.py: used on no other post. Earlier note: A student squeezing compost to test it, a student lifting finished compost while a pile is hosed, sample tubes at the microscope.',
+    },
+    reason:
+      'Linnea, 27 Oct: no more one template across the feed. January rebuilt with a different family per post (Family: K, framed photo), no photo used twice.',
+  },
+  {
+    key: '2026-10-27 j20270104 variety v5',
+    post: 'j20270104',
+    set: {
+      slides: [
+        {
+          text: 'READ THE DROP Meet the naked amoeba. NAKED AMOEBA, 40X OBJECTIVE',
+          image: '/wormhole/tiles/j20270104-v5-1.jpg',
+        },
+        {
+          text: 'It eats bacteria and releases ammonium by the roots.',
+          image: '/wormhole/tiles/j20270104-v5-2.jpg',
+        },
+      ],
+      visual_note:
+        'Family: F, specimen. Built with tools/wormhole-visuals/jan_varied.py (27 Oct variety rebuild; replaces the photo-and-tag v2 tiles). Every photo checked with photo_check.py: used on no other post. Earlier note: Reel, 15 to 20 seconds. Cover and second frame: the naked amoeba microscopy cutout from the science page, on white and on cream. Swap in a live microscope clip of a moving amoeba if the library has one.',
+    },
+    reason:
+      'Linnea, 27 Oct: no more one template across the feed. January rebuilt with a different family per post (Family: F, specimen), no photo used twice.',
+  },
+  {
+    key: '2026-10-27 j20270105 variety v5',
+    post: 'j20270105',
+    set: {
+      slides: [
+        {
+          text: 'MEET THE TEAM Evan Buckman EXECUTIVE DIRECTOR',
+          image: '/wormhole/tiles/j20270105-v5-1.jpg',
+        },
+      ],
+      visual_note:
+        "Family: I, portrait. Built with tools/wormhole-visuals/jan_varied.py (27 Oct variety rebuild; replaces the photo-and-tag v2 tiles). Every photo checked with photo_check.py: used on no other post. Earlier note: Evan's site portrait (w_evan.jpg) above a Foundation tree-planting photo. The lower photo is a general Foundation field photo; swap in one of Evan's own if he has one.",
+    },
+    reason:
+      'Linnea, 27 Oct: no more one template across the feed. January rebuilt with a different family per post (Family: I, portrait), no photo used twice.',
+  },
+  {
+    key: '2026-10-27 j20270106 variety v5',
+    post: 'j20270106',
+    set: {
+      slides: [
+        {
+          text: 'SOIL REGENERATORS IN THE WILD Roberto Silva and consultant Miles Sorel Piura, Peru',
+          image: '/wormhole/tiles/j20270106-v5-1.jpg',
+        },
+      ],
+      visual_note:
+        "Family: D, full-bleed photo. Built with tools/wormhole-visuals/jan_varied.py (27 Oct variety rebuild; replaces the photo-and-tag v2 tiles). Every photo checked with photo_check.py: used on no other post. Earlier note: Still from Roberto's case study film (Vimeo 790985081 poster): two men walking the grape rows. Ask Miles or Roberto for a field photo to make it a carousel. Instagram Collab with Miles Sorel / Terraforma [VERIFY handles].",
+    },
+    reason:
+      'Linnea, 27 Oct: no more one template across the feed. January rebuilt with a different family per post (Family: D, full-bleed photo), no photo used twice.',
+  },
+  {
+    key: '2026-10-27 j20270107 variety v5',
+    post: 'j20270107',
+    set: {
+      slides: [
+        {
+          text: 'MYTH VS MECHANISM Myth: soil life sleeps all winter. SNOW',
+          image: '/wormhole/tiles/j20270107-v5-1.jpg',
+        },
+        {
+          text: 'THE MECHANISM Under the snow, microbes keep growing. bacteria still dividing around the roots',
+          image: '/wormhole/tiles/j20270107-v5-2.jpg',
+        },
+      ],
+      visual_note:
+        'Family: H, diagram. Built with tools/wormhole-visuals/jan_varied.py (27 Oct variety rebuild; replaces the photo-and-tag v2 tiles). Every photo checked with photo_check.py: used on no other post. Earlier note: Soil sampling kit, a drop of soil water under the microscope, protozoa in a sample.',
+    },
+    reason:
+      'Linnea, 27 Oct: no more one template across the feed. January rebuilt with a different family per post (Family: H, diagram), no photo used twice.',
+  },
+  {
+    key: '2026-10-27 j20270108 variety v5',
+    post: 'j20270108',
+    set: {
+      slides: [
+        {
+          text: 'MEET THE TEAM Stephanie McDaniel Director of Communications',
+          image: '/wormhole/tiles/j20270108-v5-1.jpg',
+        },
+      ],
+      visual_note:
+        "Family: K, framed photo. Built with tools/wormhole-visuals/jan_varied.py (27 Oct variety rebuild; replaces the photo-and-tag v2 tiles). Every photo checked with photo_check.py: used on no other post. Earlier note: Stephanie's site portrait (w_stephanie.jpg) above workshop graduates holding their certificates (August 2023).",
+    },
+    reason:
+      'Linnea, 27 Oct: no more one template across the feed. January rebuilt with a different family per post (Family: K, framed photo), no photo used twice.',
+  },
+  {
+    key: '2026-10-27 j20270109a variety v5',
+    post: 'j20270109a',
+    set: {
+      slides: [
+        {
+          text: 'DO THIS WEEKEND Plan your cover crops. Legumes add nitrogen. Grasses hold on to it. Mix both.',
+          image: '/wormhole/tiles/j20270109a-v5-1.jpg',
+        },
+      ],
+      visual_note:
+        'Family: D, full-bleed photo. Built with tools/wormhole-visuals/jan_varied.py (27 Oct variety rebuild; replaces the photo-and-tag v2 tiles). Every photo checked with photo_check.py: used on no other post. Earlier note: Field rows and hoop houses, a tree over a green understory, an aerial view of a regenerating site (Rancho Cacachilas photos from the site).',
+    },
+    reason:
+      'Linnea, 27 Oct: no more one template across the feed. January rebuilt with a different family per post (Family: D, full-bleed photo), no photo used twice.',
+  },
+  {
+    key: '2026-10-27 j20270110a variety v5',
+    post: 'j20270110a',
+    set: {
+      slides: [
+        {
+          text: 'PERMACULTURE PRINCIPLE 1 Observe and interact. Watch first, then design.',
+          image: '/wormhole/tiles/j20270110a-v5-1.jpg',
+        },
+      ],
+      visual_note:
+        'Family: K, framed photo. Built with tools/wormhole-visuals/jan_varied.py (27 Oct variety rebuild; replaces the photo-and-tag v2 tiles). Every photo checked with photo_check.py: used on no other post. Earlier note: A mandala garden from above (Panchamana), then people planting trees.',
+    },
+    reason:
+      'Linnea, 27 Oct: no more one template across the feed. January rebuilt with a different family per post (Family: K, framed photo), no photo used twice.',
+  },
+  {
+    key: '2026-10-27 j20270110c variety v5',
+    post: 'j20270110c',
+    set: {
+      slides: [
+        {
+          text: 'COMPOST INTENSIVE COURSE Last call. The January cohort starts the week of 18 January. Link in bio.',
+          image: '/wormhole/tiles/j20270110c-v5-1.jpg',
+        },
+      ],
+      visual_note:
+        'Family: G, type only. Built with tools/wormhole-visuals/jan_varied.py (27 Oct variety rebuild; replaces the photo-and-tag v2 tiles). Every photo checked with photo_check.py: used on no other post. Earlier note: A workshop group with their finished pile in the Wild Ken Hill barn (IMG_1497), then an organism cutout on cream with the start date. [CONFIRM: enrollment close date for the January cohort]',
+    },
+    reason:
+      'Linnea, 27 Oct: no more one template across the feed. January rebuilt with a different family per post (Family: G, type only), no photo used twice.',
+  },
+  {
+    key: '2026-10-27 j20270111 variety v5',
+    post: 'j20270111',
+    set: {
+      slides: [
+        {
+          text: 'One week to go. Accelerator Workshop, Costa Rica, 18 to 29 January at Armonía.',
+          image: '/wormhole/tiles/j20270111-v5-1.jpg',
+        },
+      ],
+      visual_note:
+        'Family: L, photo grid. Built with tools/wormhole-visuals/jan_varied.py (27 Oct variety rebuild; replaces the photo-and-tag v2 tiles). Every photo checked with photo_check.py: used on no other post. Earlier note: Real 2025 Costa Rica photos: students and mentors at the microscopes, mentor Gerald Ramirez demonstrating liquid amendments. Instagram Collab with Armonía (@armoniaagriculturaorganica).',
+    },
+    reason:
+      'Linnea, 27 Oct: no more one template across the feed. January rebuilt with a different family per post (Family: L, photo grid), no photo used twice.',
+  },
+  {
+    key: '2026-10-27 j20270112 variety v5',
+    post: 'j20270112',
+    set: {
+      slides: [
+        {
+          text: 'SOIL IN NUMBERS 1,000,000 protozoa can live in one teaspoon of highly fertile soil. Poor soil holds about 1,000.',
+          image: '/wormhole/tiles/j20270112-v5-1.jpg',
+        },
+      ],
+      visual_note:
+        'Family: B, big number. Built with tools/wormhole-visuals/jan_varied.py (27 Oct variety rebuild; replaces the photo-and-tag v2 tiles). Every photo checked with photo_check.py: used on no other post. Earlier note: Protozoa under the microscope (science page image), then an instructor teaching soil biology.',
+    },
+    reason:
+      'Linnea, 27 Oct: no more one template across the feed. January rebuilt with a different family per post (Family: B, big number), no photo used twice.',
+  },
+  {
+    key: '2026-10-27 j20270113 variety v5',
+    post: 'j20270113',
+    set: {
+      slides: [
+        {
+          text: 'MEET THE TEAM Sammie Bass MARKETING ASSOCIATE',
+          image: '/wormhole/tiles/j20270113-v5-1.jpg',
+        },
+      ],
+      visual_note:
+        "Family: I, portrait. Built with tools/wormhole-visuals/jan_varied.py (27 Oct variety rebuild; replaces the photo-and-tag v2 tiles). Every photo checked with photo_check.py: used on no other post. Earlier note: Sammie's site portrait with her chicken (w_sammie.jpg) above workshop participants at Wild Ken Hill.",
+    },
+    reason:
+      'Linnea, 27 Oct: no more one template across the feed. January rebuilt with a different family per post (Family: I, portrait), no photo used twice.',
+  },
+  {
+    key: '2026-10-27 j20270114 variety v5',
+    post: 'j20270114',
+    set: {
+      slides: [
+        {
+          text: 'FREE WEBINARS New Year Series JAN TO MAR 2027 One live hour online, free. Ask your questions live. LINK IN BIO',
+          image: '/wormhole/tiles/j20270114-v5-1.jpg',
+        },
+      ],
+      visual_note:
+        "Family: M, event card. Built with tools/wormhole-visuals/jan_varied.py (27 Oct variety rebuild; replaces the photo-and-tag v2 tiles). Every photo checked with photo_check.py: used on no other post. Earlier note: Community members planting together in a garden, a hand holding soil with roots (webinar preview photos). Add the speaker's headshot as slide 2 once the January webinar is confirmed.",
+    },
+    reason:
+      'Linnea, 27 Oct: no more one template across the feed. January rebuilt with a different family per post (Family: M, event card), no photo used twice.',
+  },
+  {
+    key: '2026-10-27 j20270115 variety v5',
+    post: 'j20270115',
+    set: {
+      slides: [
+        {
+          text: 'MEET THE TEAM Alex Andreou IT Manager',
+          image: '/wormhole/tiles/j20270115-v5-1.jpg',
+        },
+      ],
+      visual_note:
+        "Family: K, framed photo. Built with tools/wormhole-visuals/jan_varied.py (27 Oct variety rebuild; replaces the photo-and-tag v2 tiles). Every photo checked with photo_check.py: used on no other post. Earlier note: Alex's site portrait (w_alex.jpg, a 320 px selfie with two family members) above students in a workshop classroom. Ask Alex for a larger solo portrait before this goes out.",
+    },
+    reason:
+      'Linnea, 27 Oct: no more one template across the feed. January rebuilt with a different family per post (Family: K, framed photo), no photo used twice.',
+  },
+  {
+    key: '2026-10-27 j20270115b variety v5',
+    post: 'j20270115b',
+    set: {
+      slides: [
+        {
+          text: '15 JANUARY Happy Pongal to every farmer in Tamil Nadu, and to the soil that feeds the harvest.',
+          image: '/wormhole/tiles/j20270115b-v5-1.jpg',
+        },
+      ],
+      visual_note:
+        'Family: G, type only. Built with tools/wormhole-visuals/jan_varied.py (27 Oct variety rebuild; replaces the photo-and-tag v2 tiles). Every photo checked with photo_check.py: used on no other post. Earlier note: Swap in a real Coimbatore workshop photo from Kavi Reddy when the October footage arrives.',
+    },
+    reason:
+      'Linnea, 27 Oct: no more one template across the feed. January rebuilt with a different family per post (Family: G, type only), no photo used twice.',
+  },
+  {
+    key: '2026-10-27 j20270116 variety v5',
+    post: 'j20270116',
+    set: {
+      slides: [
+        {
+          text: '1 Sow 100 radish or cress seeds in moist compost.',
+          image: '/wormhole/tiles/j20270116-v5-1.jpg',
+        },
+        {
+          text: '2 Keep it moist and in the light for 5 to 10 days.',
+          image: '/wormhole/tiles/j20270116-v5-2.jpg',
+        },
+        {
+          text: '3 80 or more sprouts: the compost is likely mature.',
+          image: '/wormhole/tiles/j20270116-v5-3.jpg',
+        },
+      ],
+      visual_note:
+        'Family: J, numbered steps. Built with tools/wormhole-visuals/jan_varied.py (27 Oct variety rebuild; replaces the photo-and-tag v2 tiles). Every photo checked with photo_check.py: used on no other post. Earlier note: Hands holding compost and soil (photos from the new SFW site).',
+    },
+    reason:
+      'Linnea, 27 Oct: no more one template across the feed. January rebuilt with a different family per post (Family: J, numbered steps), no photo used twice.',
+  },
+  {
+    key: '2026-10-27 j20270117 variety v5',
+    post: 'j20270117',
+    set: {
+      slides: [
+        {
+          text: 'ACCELERATOR WORKSHOP, COSTA RICA Tomorrow we start. Week one: compost. Week two: biological liquid amendments.',
+          image: '/wormhole/tiles/j20270117-v5-1.jpg',
+        },
+      ],
+      visual_note:
+        'Family: D, full-bleed photo. Built with tools/wormhole-visuals/jan_varied.py (27 Oct variety rebuild; replaces the photo-and-tag v2 tiles). Every photo checked with photo_check.py: used on no other post. Earlier note: Real 2025 Costa Rica photos from the Costa Rica decks: students cheering over a finished pile, students with buckets outdoors. No prices.',
+    },
+    reason:
+      'Linnea, 27 Oct: no more one template across the feed. January rebuilt with a different family per post (Family: D, full-bleed photo), no photo used twice.',
+  },
+  {
+    key: '2026-10-27 j20270118b variety v5',
+    post: 'j20270118b',
+    set: {
+      slides: [
+        {
+          text: 'FOUNDATION COURSES Learn to identify the four groups. BACTERIA (DRAWN) FUNGI PROTOZOA NEMATODES Start any time. Link in bio.',
+          image: '/wormhole/tiles/j20270118b-v5-1.jpg',
+        },
+      ],
+      visual_note:
+        'Family: F, specimen. Built with tools/wormhole-visuals/jan_varied.py (27 Oct variety rebuild; replaces the photo-and-tag v2 tiles). Every photo checked with photo_check.py: used on no other post. Earlier note: Dr. Elaine Ingham at her microscope (green tag, no purple), then a testate amoeba at 40x (Photo: Joy Kaluf, a different frame from the one on j20270110b).',
+    },
+    reason:
+      'Linnea, 27 Oct: no more one template across the feed. January rebuilt with a different family per post (Family: F, specimen), no photo used twice.',
+  },
+  {
+    key: '2026-10-27 j20270119 variety v5',
+    post: 'j20270119',
+    set: {
+      slides: [
+        {
+          text: 'MEET THE TEAM Leslie W. Lewis, Ph.D. EXECUTIVE COMMITTEE',
+          image: '/wormhole/tiles/j20270119-v5-1.jpg',
+        },
+      ],
+      visual_note:
+        "Family: I, portrait. Built with tools/wormhole-visuals/jan_varied.py (27 Oct variety rebuild; replaces the photo-and-tag v2 tiles). Every photo checked with photo_check.py: used on no other post. Earlier note: Leslie's site portrait (w_leslie.jpg).",
+    },
+    reason:
+      'Linnea, 27 Oct: no more one template across the feed. January rebuilt with a different family per post (Family: I, portrait), no photo used twice.',
+  },
+  {
+    key: '2026-10-27 j20270119b variety v5',
+    post: 'j20270119b',
+    set: {
+      slides: [
+        {
+          text: 'NEW COURSE Intro to Permaculture opens 1 February.',
+          image: '/wormhole/tiles/j20270119b-v5-1.jpg',
+        },
+      ],
+      visual_note:
+        'Family: K, framed photo. Built with tools/wormhole-visuals/jan_varied.py (27 Oct variety rebuild; replaces the photo-and-tag v2 tiles). Every photo checked with photo_check.py: used on no other post. Earlier note: Volunteers planting trees between tall eucalyptus at Panchamana (ERC). [CONFIRM: course page link and details before this goes out]',
+    },
+    reason:
+      'Linnea, 27 Oct: no more one template across the feed. January rebuilt with a different family per post (Family: K, framed photo), no photo used twice.',
+  },
+  {
+    key: '2026-10-27 j20270120 variety v5',
+    post: 'j20270120',
+    set: {
+      slides: [
+        {
+          text: 'SOIL REGENERATORS IN THE WILD TrashIt, Pakistan Soil Health Week 2025',
+          image: '/wormhole/tiles/j20270120-v5-1.jpg',
+        },
+      ],
+      visual_note:
+        'Family: C, article card. Built with tools/wormhole-visuals/jan_varied.py (27 Oct variety rebuild; replaces the photo-and-tag v2 tiles). Every photo checked with photo_check.py: used on no other post. Earlier note: Top: the Soil Health Week 2025 group photo with Nick Padwick (site file Screenshot-2025-10-22-212600.jpg, Nick still to confirm who is in it and permission, per docs/image-decisions.md). Bottom: SFW sample tubes. Instagram Collab with TrashIt (trashit.pk) and Wild Soils UK [VERIFY handles].',
+    },
+    reason:
+      'Linnea, 27 Oct: no more one template across the feed. January rebuilt with a different family per post (Family: C, article card), no photo used twice.',
+  },
+  {
+    key: '2026-10-27 j20270121 variety v5',
+    post: 'j20270121',
+    set: {
+      slides: [
+        {
+          text: 'MYTH VS MECHANISM Myth: add sand to loosen clay soil. Sand in clay packs tight and can set hard.',
+          image: '/wormhole/tiles/j20270121-v5-1.jpg',
+        },
+        {
+          text: 'THE MECHANISM Add organic matter and let soil life build the crumb. Fungal threads and microbial glues hold crumbs together, with air and water between.',
+          image: '/wormhole/tiles/j20270121-v5-2.jpg',
+        },
+      ],
+      visual_note:
+        "Family: H, diagram. Built with tools/wormhole-visuals/jan_varied.py (27 Oct variety rebuild; replaces the photo-and-tag v2 tiles). Every photo checked with photo_check.py: used on no other post. Earlier note: Field photos of residue and earthworms in crumb soil at York Farms (Harrington's Organic Land Care; written permission still open per docs/handoff-alex.md).",
+    },
+    reason:
+      'Linnea, 27 Oct: no more one template across the feed. January rebuilt with a different family per post (Family: H, diagram), no photo used twice.',
+  },
+  {
+    key: '2026-10-27 j20270121b variety v5',
+    post: 'j20270121b',
+    set: {
+      slides: [
+        {
+          text: 'ACCELERATOR WORKSHOP, NEW MEXICO 3 to 14 May 2027 Register your interest. Link in bio.',
+          image: '/wormhole/tiles/j20270121b-v5-1.jpg',
+        },
+      ],
+      visual_note:
+        'Family: G, type only. Built with tools/wormhole-visuals/jan_varied.py (27 Oct variety rebuild; replaces the photo-and-tag v2 tiles). Every photo checked with photo_check.py: used on no other post. Earlier note: No New Mexico photos exist in the photo set or the repo, so both slides are organism cutouts on cream and white (a nematode, a testate amoeba) that show no place. Swap in real Synergia Ranch photos (the event page hero IMG_3426) when Evan sends them. [CONFIRM: New Mexico photos from Evan; whether a school enrollment page exists yet]',
+    },
+    reason:
+      'Linnea, 27 Oct: no more one template across the feed. January rebuilt with a different family per post (Family: G, type only), no photo used twice.',
+  },
+  {
+    key: '2026-10-27 j20270122 variety v5',
+    post: 'j20270122',
+    set: {
+      slides: [
+        {
+          text: 'LIVE FROM COSTA RICA Building the piles.',
+          image: '/wormhole/tiles/j20270122-v5-1.jpg',
+        },
+      ],
+      visual_note:
+        'Family: D, full-bleed photo. Built with tools/wormhole-visuals/jan_varied.py (27 Oct variety rebuild; replaces the photo-and-tag v2 tiles). Every photo checked with photo_check.py: used on no other post. Earlier note: Real 2025 Costa Rica photos: building a pile in a wire cage, hydrating a pile with a hose. Swap in live photos from Kavi or the mentors on the day.',
+    },
+    reason:
+      'Linnea, 27 Oct: no more one template across the feed. January rebuilt with a different family per post (Family: D, full-bleed photo), no photo used twice.',
+  },
+  {
+    key: '2026-10-27 j20270123b variety v5',
+    post: 'j20270123b',
+    set: {
+      slides: [
+        {
+          text: '1 Reach into the pile and squeeze a handful tight.',
+          image: '/wormhole/tiles/j20270123b-v5-1.jpg',
+        },
+        {
+          text: '2 A wet sheen and no drips: right where you want it.',
+          image: '/wormhole/tiles/j20270123b-v5-2.jpg',
+        },
+        {
+          text: '3 Drips mean too wet. Dry and dusty means too dry.',
+          image: '/wormhole/tiles/j20270123b-v5-3.jpg',
+        },
+      ],
+      visual_note:
+        'Family: J, numbered steps. Built with tools/wormhole-visuals/jan_varied.py (27 Oct variety rebuild; replaces the photo-and-tag v2 tiles). Every photo checked with photo_check.py: used on no other post. Earlier note: A student squeezing compost at an SFW workshop (site photo ctpfw-student-squeezing-compost-1.jpg).',
+    },
+    reason:
+      'Linnea, 27 Oct: no more one template across the feed. January rebuilt with a different family per post (Family: J, numbered steps), no photo used twice.',
+  },
+  {
+    key: '2026-10-27 j20270124 variety v5',
+    post: 'j20270124',
+    set: {
+      slides: [
+        {
+          text: "FIELD NOTES No. 03 Trial name, place and season. PHOTO: the graduate's own trial photo",
+          image: '/wormhole/tiles/j20270124-v5-1.jpg',
+        },
+        {
+          text: "FIELD NOTES No. 03 The question they tested. PHOTO: the graduate's own trial photo",
+          image: '/wormhole/tiles/j20270124-v5-2.jpg',
+        },
+        {
+          text: "FIELD NOTES No. 03 The method in 3 lines. PHOTO: the graduate's own trial photo",
+          image: '/wormhole/tiles/j20270124-v5-3.jpg',
+        },
+        {
+          text: "FIELD NOTES No. 03 The result, one big number. PHOTO: the graduate's own trial photo",
+          image: '/wormhole/tiles/j20270124-v5-4.jpg',
+        },
+        {
+          text: "FIELD NOTES No. 03 What surprised them, including what didn't work. PHOTO: the graduate's own trial photo",
+          image: '/wormhole/tiles/j20270124-v5-5.jpg',
+        },
+        {
+          text: "FIELD NOTES No. 03 Who ran it. PHOTO: the graduate's own trial photo",
+          image: '/wormhole/tiles/j20270124-v5-6.jpg',
+        },
+      ],
+      visual_note:
+        "Family: N, field notebook. Built with tools/wormhole-visuals/jan_varied.py (27 Oct variety rebuild; replaces the photo-and-tag v2 tiles). Every photo checked with photo_check.py: used on no other post. Earlier note: Carousel, 6 slides, same layout as Field Notes #1 and #2, with v2 stand-in photos (soil sampling, sample tube, Foundation sampling kit, field planting, York Farms residue, hands planting). Graduate trial still to pick: swap every slide for the graduate's own trial photos.",
+    },
+    reason:
+      'Linnea, 27 Oct: no more one template across the feed. January rebuilt with a different family per post (Family: N, field notebook), no photo used twice.',
+  },
+  {
+    key: '2026-10-27 j20270125 variety v5',
+    post: 'j20270125',
+    set: {
+      slides: [
+        {
+          text: 'READ THE DROP Spores or hyphae? SPORES: FUNGI ON PAUSE HYPHAE: FUNGI AT WORK',
+          image: '/wormhole/tiles/j20270125-v5-1.jpg',
+        },
+        {
+          text: 'Hyphae on your slide mean fungi growing and working now.',
+          image: '/wormhole/tiles/j20270125-v5-2.jpg',
+        },
+      ],
+      visual_note:
+        'Family: F, specimen. Built with tools/wormhole-visuals/jan_varied.py (27 Oct variety rebuild; replaces the photo-and-tag v2 tiles). Every photo checked with photo_check.py: used on no other post. Earlier note: Reel, 15 to 20 seconds, 3 v2 frames: fungal spores in suspension under the microscope (Foundation micrograph), a soil crumb held together by roots and fungal strands, fungi fruiting under vines.',
+    },
+    reason:
+      'Linnea, 27 Oct: no more one template across the feed. January rebuilt with a different family per post (Family: F, specimen), no photo used twice.',
+  },
+  {
+    key: '2026-10-27 j20270125b variety v5',
+    post: 'j20270125b',
+    set: {
+      slides: [
+        {
+          text: 'FOUNDATION COURSES 10,000+ people in more than 100 countries started here.',
+          image: '/wormhole/tiles/j20270125b-v5-1.jpg',
+        },
+        {
+          text: 'FOUNDATION COURSES Start any time, at your own pace. Link in bio.',
+          image: '/wormhole/tiles/j20270125b-v5-2.jpg',
+        },
+      ],
+      visual_note:
+        'Family: B, big number. Built with tools/wormhole-visuals/jan_varied.py (27 Oct variety rebuild; replaces the photo-and-tag v2 tiles). Every photo checked with photo_check.py: used on no other post. Earlier note: A big workshop group around their pile under a shed roof (uploads_mar-group-photo-2, tag at the top so no faces are covered), then crop rows and hoop houses at Rancho Cacachilas.',
+    },
+    reason:
+      'Linnea, 27 Oct: no more one template across the feed. January rebuilt with a different family per post (Family: B, big number), no photo used twice.',
+  },
+  {
+    key: '2026-10-27 j20270126 variety v5',
+    post: 'j20270126',
+    set: {
+      slides: [
+        {
+          text: 'LIVE FROM COSTA RICA At the microscope. PHOTO: live, from the microscopes on the day (Kavi or the mentors)',
+          image: '/wormhole/tiles/j20270126-v5-1.jpg',
+        },
+      ],
+      visual_note:
+        'Family: K, framed photo. Built with tools/wormhole-visuals/jan_varied.py (27 Oct variety rebuild; replaces the photo-and-tag v2 tiles). Every photo checked with photo_check.py: used on no other post. Earlier note: Real 2025 Costa Rica photos: students and mentors at the microscopes, a liquid amendments demonstration. Swap in live photos from Kavi or the mentors on the day.',
+    },
+    reason:
+      'Linnea, 27 Oct: no more one template across the feed. January rebuilt with a different family per post (Family: K, framed photo), no photo used twice.',
+  },
+  {
+    key: '2026-10-27 j20270127 variety v5',
+    post: 'j20270127',
+    set: {
+      slides: [
+        {
+          text: 'PERMACULTURE PRINCIPLE 6 Produce no waste. PRUNINGS MULCH LIVING SOIL PLANTS Prunings become mulch, scraps become compost.',
+          image: '/wormhole/tiles/j20270127-v5-1.jpg',
+        },
+      ],
+      visual_note:
+        'Family: H, diagram. Built with tools/wormhole-visuals/jan_varied.py (27 Oct variety rebuild; replaces the photo-and-tag v2 tiles). Every photo checked with photo_check.py: used on no other post. Earlier note: A finished compost pile topped with flowers at an SFW workshop, gloved hands in a bucket of woody mulch.',
+    },
+    reason:
+      'Linnea, 27 Oct: no more one template across the feed. January rebuilt with a different family per post (Family: H, diagram), no photo used twice.',
+  },
+  {
+    key: '2026-10-27 j20270128 variety v5',
+    post: 'j20270128',
+    set: {
+      slides: [
+        {
+          text: 'SOIL IN NUMBERS 95% of our food is produced in soil.',
+          image: '/wormhole/tiles/j20270128-v5-1.jpg',
+        },
+      ],
+      visual_note:
+        "Family: B, big number. Built with tools/wormhole-visuals/jan_varied.py (27 Oct variety rebuild; replaces the photo-and-tag v2 tiles). Every photo checked with photo_check.py: used on no other post. Earlier note: Corn residue and crumb soil at York Farms (Harrington's Organic Land Care), an aerial view of the Rancho Cacachilas agroforest restoration (Ecosystem Restoration Camps).",
+    },
+    reason:
+      'Linnea, 27 Oct: no more one template across the feed. January rebuilt with a different family per post (Family: B, big number), no photo used twice.',
+  },
+  {
+    key: '2026-10-27 j20270128b variety v5',
+    post: 'j20270128b',
+    set: {
+      slides: [
+        {
+          text: '1 Build, monitor and maintain your piles with a mentor. NEW MEXICO, 3 TO 14 MAY 2027',
+          image: '/wormhole/tiles/j20270128b-v5-1.jpg',
+        },
+        {
+          text: '2 Brew a variety of liquid amendments. NEW MEXICO, 3 TO 14 MAY 2027',
+          image: '/wormhole/tiles/j20270128b-v5-2.jpg',
+        },
+        {
+          text: '3 Microscopy sessions for beginner and advanced practitioners. NEW MEXICO, 3 TO 14 MAY 2027',
+          image: '/wormhole/tiles/j20270128b-v5-3.jpg',
+        },
+      ],
+      visual_note:
+        'Family: J, numbered steps. Built with tools/wormhole-visuals/jan_varied.py (27 Oct variety rebuild; replaces the photo-and-tag v2 tiles). Every photo checked with photo_check.py: used on no other post. Earlier note: A hand holding finished compost, a ciliate cutout on white, protozoa in soil water under the microscope. No New Mexico photos exist yet, so nothing shows a place. Swap in Synergia Ranch photos when Evan sends them. [CONFIRM: New Mexico photos from Evan]',
+    },
+    reason:
+      'Linnea, 27 Oct: no more one template across the feed. January rebuilt with a different family per post (Family: J, numbered steps), no photo used twice.',
+  },
+  {
+    key: '2026-10-27 j20270129 variety v5',
+    post: 'j20270129',
+    set: {
+      slides: [
+        {
+          text: 'COSTA RICA, JANUARY 2027 Thank you, Costa Rica, and thank you, Armonía.',
+          image: '/wormhole/tiles/j20270129-v5-1.jpg',
+        },
+      ],
+      visual_note:
+        'Family: D, full-bleed photo. Built with tools/wormhole-visuals/jan_varied.py (27 Oct variety rebuild; replaces the photo-and-tag v2 tiles). Every photo checked with photo_check.py: used on no other post. Earlier note: Real 2025 Costa Rica photos: graduates with a certificate, the whole group around their pile. Swap in live photos from Kavi or the mentors on the day. Instagram Collab with Armonía (@armoniaagriculturaorganica), like cr20261102.',
+    },
+    reason:
+      'Linnea, 27 Oct: no more one template across the feed. January rebuilt with a different family per post (Family: D, full-bleed photo), no photo used twice.',
+  },
+  {
+    key: '2026-10-27 j20270130 variety v5',
+    post: 'j20270130',
+    set: {
+      slides: [
+        {
+          text: 'FUN SOIL NEWS January 2027. Three good stories from the soil this month.',
+          image: '/wormhole/tiles/j20270130-v5-1.jpg',
+        },
+        {
+          text: 'BRAZIL R$250 million to turn 4,000 hectares of degraded land into cocoa agroforests.',
+          image: '/wormhole/tiles/j20270130-v5-2.jpg',
+        },
+        {
+          text: "UNITED STATES USDA's Regenerative Pilot Program grows to $1 billion.",
+          image: '/wormhole/tiles/j20270130-v5-3.jpg',
+        },
+        {
+          text: 'GERMANY Forest soils took up about 3% more methane each year.',
+          image: '/wormhole/tiles/j20270130-v5-4.jpg',
+        },
+      ],
+      visual_note:
+        'Family: G, type only. Built with tools/wormhole-visuals/jan_varied.py (27 Oct variety rebuild; replaces the photo-and-tag v2 tiles). Every photo checked with photo_check.py: used on no other post. Earlier note: Hands in soil photos from the new SFW site. Three verified stories; add a fourth or fifth in December only if it can be verified.',
+    },
+    reason:
+      'Linnea, 27 Oct: no more one template across the feed. January rebuilt with a different family per post (Family: G, type only), no photo used twice.',
+  },
+  {
+    key: '2026-10-27 j20270131 variety v5',
+    post: 'j20270131',
+    set: {
+      slides: [
+        {
+          text: 'MEET THE TEAM Ib Borup Pedersen Farmer, Soil Food Web Consultant and mentor',
+          image: '/wormhole/tiles/j20270131-v5-1.jpg',
+        },
+      ],
+      visual_note:
+        "Family: K, framed photo. Built with tools/wormhole-visuals/jan_varied.py (27 Oct variety rebuild; replaces the photo-and-tag v2 tiles). Every photo checked with photo_check.py: used on no other post. Earlier note: Ib's site portrait (w_ib.jpg).",
+    },
+    reason:
+      'Linnea, 27 Oct: no more one template across the feed. January rebuilt with a different family per post (Family: K, framed photo), no photo used twice.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES);

@@ -122,7 +122,7 @@ These come from Linnea's edits. Break none of them.
 - Before building two or more posts: plan the family of every post in the batch first (docs/feed-guide.md), mixing photo and flat colour, type-only, diagrams, specimens, big numbers, portraits, botanicals, collages and new looks. Write `Family: X` at the start of each visual note. Run tools/wormhole-visuals/grid_check.py and look at a rendered contact sheet of the grid before committing.
 - Every grid post carries a family. A post with no family counts as a break.
 - A photo must show the post's actual subject and be a strong picture: sharp, well lit, the real people or place. A generic photo (raised beds for a PDC graduation, a random field) is a bad picture; leave a labelled photo space instead.
-- **One photo, one post.** A photo is used once in the whole feed, never on two posts (not even cropped differently). Before using a photo, check it isn't already in Wormhole.
+- **One photo, one post.** A photo is used once in the whole feed, never on two posts (not even cropped differently). Before using a photo, run `python3 tools/wormhole-visuals/photo_check.py <photo>` (finds it even cropped); `--dupes` lists every shared photo.
 - Purple only on Dr. Elaine content, gold only on donate buttons. A purple box on a course promo is wrong.
 
 - Variety across the grid: docs/feed-guide.md. Neighbouring posts never share a style family; write the family in each visual note and check with tools/wormhole-visuals/grid_check.py.

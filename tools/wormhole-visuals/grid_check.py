@@ -23,7 +23,7 @@ BASE = "https://wormholelinnea.vercel.app"
 FAMILIES = {
     "A": "brand boxes", "B": "big number", "C": "article repost card", "D": "full-bleed photo",
     "E": "botanical", "F": "specimen", "G": "type only", "H": "diagram", "I": "portrait",
-    "J": "numbered steps",
+    "J": "numbered steps", "K": "framed photo", "L": "photo grid", "M": "event card", "N": "field notebook",
 }
 
 
