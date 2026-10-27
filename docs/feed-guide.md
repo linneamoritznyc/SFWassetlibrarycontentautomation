@@ -10,6 +10,10 @@ docs/brand.md; this guide is about variety across the grid.
 
 ## The rule
 
+- **Never one template across a batch.** Plan every post's family before building any of them. The photo-and-tag
+  look (photo with a coloured box heading) is at most 1 in any 9 grid posts; Linnea hates seeing it everywhere.
+- **One photo, one post.** No photo appears on two posts anywhere in the feed.
+- **Every grid post has a family written in its visual note.** grid_check.py counts a missing family as a break.
 - **Neighbours never share a style family.** The post before and the post after must
   use different families from the list below.
 - **No family more than twice in any 6 feed posts in a row** (two rows of the grid).

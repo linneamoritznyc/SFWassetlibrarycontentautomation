@@ -116,6 +116,15 @@ These come from Linnea's edits. Break none of them.
 
 ## 5. Visual rules
 
+**VARIETY FIRST. Linnea has said this a hundred times; break this and the work is thrown away.**
+- Never build a batch of posts on one template. Every post in the grid looks different from the posts around it.
+- The "photo with a coloured box heading" look (photo-and-tag: boxes.py, photo_first.py, round2_*.py, jan_*.py) is retired as a default. Use it for at most 1 in any 9 grid posts. On 24 Oct Linnea said "i liked what you had" about ONE post; that never meant a house style.
+- Before building two or more posts: plan the family of every post in the batch first (docs/feed-guide.md), mixing photo and flat colour, type-only, diagrams, specimens, big numbers, portraits, botanicals, collages and new looks. Write `Family: X` at the start of each visual note. Run tools/wormhole-visuals/grid_check.py and look at a rendered contact sheet of the grid before committing.
+- Every grid post carries a family. A post with no family counts as a break.
+- A photo must show the post's actual subject and be a strong picture: sharp, well lit, the real people or place. A generic photo (raised beds for a PDC graduation, a random field) is a bad picture; leave a labelled photo space instead.
+- **One photo, one post.** A photo is used once in the whole feed, never on two posts (not even cropped differently). Before using a photo, check it isn't already in Wormhole.
+- Purple only on Dr. Elaine content, gold only on donate buttons. A purple box on a course promo is wrong.
+
 - Variety across the grid: docs/feed-guide.md. Neighbouring posts never share a style family; write the family in each visual note and check with tools/wormhole-visuals/grid_check.py.
 - Exact colours, fonts and logo rules: docs/brand.md (from the 2026 brand guide and colour guidelines). Palette from the brand guide: greens and cream. Cream works as a shape, the background stays green or photographic. Gold only on donate CTAs. Purple only for Dr. Elaine memorial content. One shadow value.
 - Real images only: SFW workshop footage and photos (New Mexico compost workshop, Wild Ken Hill, Cyprus, India), microscopy, field photos, partner-supplied portraits. No stock photos. No AI-generated pictures of people, farms or soil.
