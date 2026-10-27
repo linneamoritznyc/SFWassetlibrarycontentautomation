@@ -6968,6 +6968,17 @@ export const CHANGES: Change[] = [
     reason:
       "One image, not a carousel (Linnea, 27 Oct): only the cover. The caption already points to Wes's blog post. The three other slides stay in the post's history.",
   },
+  {
+    key: '2026-10-27 p18 v6 white logo no credit',
+    post: 'p18',
+    set: {
+      slides: [{ text: 'Vampire amoeba.', image: '/wormhole/tiles/p18-v6-1.jpg' }],
+      visual_note:
+        'Family: F, specimen. Single image: the title, two real micrographs of Vampyrella lateritia in round lenses on deep green, a moon, and the white SFW logo. No credit on the image; the CC BY 4.0 credit (Hess, Sausen & Melkonian 2012, PLoS ONE) is in the caption, which satisfies the licence.',
+    },
+    reason:
+      'Linnea, 27 Oct: one image, without the licence line, and with the white logo. v6 is the v5 cover with the credit line removed (background filled, root lines rejoined) and the white logo in place of the colour logo in its circle. The credit stays in the caption.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES);
