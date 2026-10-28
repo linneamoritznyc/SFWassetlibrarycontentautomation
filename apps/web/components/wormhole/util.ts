@@ -119,25 +119,85 @@ function linkify(s: string): string {
   return /^https?:\/\//.test(s.trim()) ? `<a href="${t}">${t}</a>` : t;
 }
 
-/** The posts in Stephanie's planning-doc template, ready to paste into Google Docs. */
-export function toDocHtml(posts: WormholePost[], title: string): string {
+// Stephanie's template, as her doc shows it. Google Docs keeps the heading
+// level from <h2>/<h3> and the font from the inline style when pasted.
+const H2 = 'font-family:Arial;font-size:16pt;font-weight:normal;color:#000000';
+const H3 = 'font-family:Arial;font-size:14pt;font-weight:bold;color:#434343';
+const P = 'font-family:Arial;font-size:11pt;font-weight:normal;color:#000000;margin:0';
+
+const h2 = (t: string) => `<h2 style="${H2}">${t}</h2>`;
+const h3 = (t: string) => `<h3 style="${H3}">${t}</h3>`;
+const para = (t: string) => `<p style="${P}">${t}</p>`;
+const rows = (s: string) => s.split('\n').map((line) => para(esc(line) || '<br>')).join('');
+
+/** Stephanie's legend: "*" = idea, not yet in the scheduler; "✔️" = in the scheduler. */
+export function docDate(p: WormholePost): string {
+  if (p.date_tbd) return 'Date TBD';
+  return (p.status === 'scheduled' ? '✔️ ' : '*') + postDay(p);
+}
+
+/**
+ * The posts in Stephanie's planning-doc template, ready to paste into her doc:
+ *   Heading 2  day and date, with her * or ✔️
+ *   Normal     what the post is about
+ *   Heading 3  CTA (Optional):   then Words: / Link: / Source:
+ *   Heading 3  Visual Asset (...):   then the thumbnail, the note, one slide per row
+ *   Heading 3  Caption/Body Copy:   then the caption, one paragraph per line
+ * thumbs maps a post id to a small data: URL image (the tiles sit behind the
+ * Wormhole password, so Google Docs could not fetch their address).
+ */
+export function toDocHtml(
+  posts: WormholePost[],
+  title: string,
+  thumbs: Record<string, string> = {},
+): string {
   const parts = posts.map((p) => {
-    const words = p.slides
-      .map((s, i) => (s.text.trim() ? `<p>Slide ${i + 1}: ${esc(s.text).replace(/\n/g, '<br>')}</p>` : ''))
+    const sources = p.sources.filter((s) => s.trim());
+    const slides = p.slides
+      .map((s, i) =>
+        s.text.trim()
+          ? s.text.split('\n').map((line, j) => para((j === 0 ? `Slide ${i + 1}: ` : '') + esc(line))).join('')
+          : '',
+      )
       .join('');
-    const sources = p.sources.filter((s) => s.trim()).map((s) => `<p>${linkify(s)}</p>`).join('');
+    const links = p.link.split('\n').filter((l) => l.trim());
     return [
-      `<h2>${esc(postDay(p))}</h2>`,
-      `<h3>${esc(p.topic)}</h3>`,
-      `<h3>CTA (Optional): ${esc(p.cta)}</h3>`,
-      `<p>Words:</p>${words}`,
-      `<p>Link: ${p.link ? linkify(p.link) : ''}</p>`,
-      `<p>Source:</p>${sources}`,
-      `<h3>Visual Asset (Image Thumbnail for preview and Link to Canva Project):</h3>`,
-      `<p>${esc(p.visual_note).replace(/\n/g, '<br>')}</p>`,
-      `<h3>Caption/Body Copy:</h3>`,
-      `<p>${esc(p.caption).replace(/\n/g, '<br>')}</p>`,
+      h2(esc(docDate(p))),
+      para(esc(p.topic)),
+      h3('CTA (Optional):'),
+      para(`Words: ${esc(p.cta)}`),
+      para(`Link: ${links[0] ? linkify(links[0]) : ''}`),
+      ...links.slice(1).map((l) => para(linkify(l))),
+      ...(sources.length ? [para('Source:'), ...sources.map((s) => para(linkify(s)))] : []),
+      h3('Visual Asset (Image Thumbnail for preview and Link to Canva Project):'),
+      thumbs[p.id] ? para(`<img src="${thumbs[p.id]}" width="200">`) : '',
+      p.visual_note.trim() ? rows(p.visual_note.trim()) : '',
+      slides,
+      h3('Caption/Body Copy:'),
+      rows(p.caption),
     ].join('\n');
   });
-  return `<!doctype html><html><head><meta charset="utf-8"><title>${esc(title)}</title></head><body>\n${parts.join('\n<hr>\n')}\n</body></html>`;
+  return `<!doctype html><html><head><meta charset="utf-8"><title>${esc(title)}</title></head><body>\n${parts.join('\n')}\n</body></html>`;
+}
+
+/** A small JPEG of a post's first image, as a data: URL for pasting into Google Docs. */
+export async function thumbFor(post: WormholePost): Promise<string | null> {
+  const first = post.slides.find((s) => s.image)?.image;
+  if (!first) return null;
+  try {
+    const res = await fetch(imageUrl(first));
+    if (!res.ok) return null;
+    const bitmap = await createImageBitmap(await res.blob());
+    const scale = Math.min(1, 400 / bitmap.width);
+    const canvas = document.createElement('canvas');
+    canvas.width = Math.round(bitmap.width * scale);
+    canvas.height = Math.round(bitmap.height * scale);
+    const ctx = canvas.getContext('2d')!;
+    ctx.fillStyle = '#fff';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+    return canvas.toDataURL('image/jpeg', 0.8);
+  } catch {
+    return null;
+  }
 }

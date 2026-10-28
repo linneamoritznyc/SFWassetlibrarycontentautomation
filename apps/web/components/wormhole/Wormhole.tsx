@@ -7,7 +7,7 @@ import { Editor } from './Editor';
 import { News } from './News';
 import { DateChip, GridTile, InstagramPost, LinkedInPost, PostBar } from './Posts';
 import { Stories, isStory } from './Stories';
-import { byDate, toDocHtml, weekLabel, weekOf } from './util';
+import { byDate, thumbFor, toDocHtml, weekLabel, weekOf } from './util';
 
 type View = 'instagram' | 'grid' | 'stories' | 'linkedin' | 'news';
 type SaveState = 'saving' | 'saved' | 'error';
@@ -233,8 +233,13 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
       : `Wormhole, week of ${weekLabel(week)}`;
   }
 
-  function download() {
-    const html = toDocHtml(visible, exportTitle());
+  async function thumbsFor(list: WormholePost[]): Promise<Record<string, string>> {
+    const pairs = await Promise.all(list.map(async (p) => [p.id, await thumbFor(p)] as const));
+    return Object.fromEntries(pairs.filter((x): x is readonly [string, string] => !!x[1]));
+  }
+
+  async function download() {
+    const html = toDocHtml(visible, exportTitle(), await thumbsFor(visible));
     const url = URL.createObjectURL(new Blob([html], { type: 'text/html' }));
     const a = document.createElement('a');
     a.href = url;
@@ -246,7 +251,8 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
   }
 
   async function copyForDoc() {
-    const html = toDocHtml(visible, exportTitle());
+    setCopied(false);
+    const html = toDocHtml(visible, exportTitle(), await thumbsFor(visible));
     try {
       await navigator.clipboard.write([
         new ClipboardItem({
@@ -257,7 +263,7 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
       setCopied(true);
       setTimeout(() => setCopied(false), 2500);
     } catch {
-      download();
+      await download();
     }
   }
 
