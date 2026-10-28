@@ -18,7 +18,7 @@ export type Change = {
   key: string;
   post: string;
   set?: Partial<
-    Pick<WormholePost, 'iso_date' | 'date_tbd' | 'slides' | 'link' | 'sources' | 'visual_note'>
+    Pick<WormholePost, 'iso_date' | 'date_tbd' | 'topic' | 'slides' | 'link' | 'sources' | 'visual_note'>
   >;
   /** A new post, inserted when no post has this id yet. */
   create?: Omit<WormholePost, 'id' | 'updated_by' | 'updated_at' | 'pinned'>;
@@ -7662,6 +7662,55 @@ export const CHANGES: Change[] = [
     },
     reason:
       'Linnea, 27 Oct: the official white logo file, with no root lines behind it, and no licence line on the image.',
+  },
+  {
+    key: '2026-10-28 cr20261116 no built to fail',
+    post: 'cr20261116',
+    set: {
+      topic: 'Costa Rica: several piles, different recipes',
+      slides: [
+        { text: 'Several piles, different recipes.', image: '/wormhole/tiles/cr20261116-v2-1.jpg' },
+        { text: 'Every pile behaves differently.', image: '/wormhole/tiles/cr20261116-v2-2.jpg' },
+        { text: 'Students build several piles at once. Each team picks its feedstocks and works out its own recipe.', image: '/wormhole/tiles/cr20261116-v2-3.jpg' },
+        { text: 'Then you read each pile and adjust it. With a mentor beside you.', image: '/wormhole/tiles/cr20261116-v2-4.jpg' },
+        { text: 'Costa Rica, 18 to 29 January 2027.', image: '/wormhole/tiles/cr20261116-v1-6.jpg' },
+      ],
+      visual_note: 'Carousel, real photos from past Costa Rica workshops. Deck: /wormhole/decks/16-11-2026-costa-rica-pile-recipes.pptx. No prices.',
+    },
+    captionText:
+      'At our Costa Rica workshop, students build several thermal compost piles at the same time, each with a different recipe. 🔥\nEvery day you check the temperature and moisture of each pile, compare how they change, and learn what to adjust and when to turn, with a mentor beside you.\nAccelerator Workshop, 18 to 29 January 2027. Register now, link in bio.\n#SoilFoodWeb #CostaRica #Compost #Workshop',
+    reason: 'Linnea, 28 Oct: never use the term "built to fail". Pile posts now say several piles, different recipes.',
+  },
+  {
+    key: '2026-10-28 st20261116 no built to fail',
+    post: 'st20261116',
+    set: {
+      topic: 'Costa Rica stories · Several piles, different recipes',
+      slides: [{ text: 'Story frame 5 of the Costa Rica set (9:16, shown smaller here).', image: '/wormhole/tiles/st20261116-v2-1.jpg' }],
+      visual_note: 'Frame 5 from /wormhole/decks/26-10-2026-ig-stories-costa-rica-2027-v2.pptx. Post around 8:00am Pacific. No prices.',
+    },
+    reason: 'Linnea, 28 Oct: never use the term "built to fail". Pile posts now say several piles, different recipes.',
+  },
+  {
+    key: '2026-10-28 st20261029 no built to fail',
+    post: 'st20261029',
+    set: {
+      slides: [
+        { text: 'Story frame 4 of the Costa Rica set (9:16, shown smaller here).', image: '/wormhole/tiles/st20261029-v1-1.jpg' },
+        { text: 'Story frame 5 of the Costa Rica set (9:16, shown smaller here).', image: '/wormhole/tiles/st20261029-v2-2.jpg' },
+        { text: 'Story frame 7 of the Costa Rica set (9:16, shown smaller here).', image: '/wormhole/tiles/st20261029-v1-3.jpg' },
+        { text: 'Story frame 8 of the Costa Rica set (9:16, shown smaller here).', image: '/wormhole/tiles/st20261029-v1-4.jpg' },
+      ],
+      visual_note: 'Frames 4, 5, 7, 8 from /wormhole/decks/26-10-2026-ig-stories-costa-rica-2027-v2.pptx. Post around 8:00am Pacific. No prices.',
+    },
+    caption: [['Would you rescue a failing pile?', 'Which recipe would you try first?']],
+    reason: 'Linnea, 28 Oct: never use the term "built to fail". Pile posts now say several piles, different recipes.',
+  },
+  {
+    key: '2026-10-28 j20270122 no built to fail',
+    post: 'j20270122',
+    caption: [['Some piles are built to go wrong, so you learn to read a struggling pile and rescue it with a mentor beside you.', "Each team's recipe behaves differently, so you learn to read a pile and adjust it with a mentor beside you."]],
+    reason: 'Linnea, 28 Oct: never use the term "built to fail". Pile posts now say several piles, different recipes.',
   },
 ];
 
