@@ -130,10 +130,10 @@ const h3 = (t: string) => `<h3 style="${H3}">${t}</h3>`;
 const para = (t: string) => `<p style="${P}">${t}</p>`;
 const rows = (s: string) => s.split('\n').map((line) => para(esc(line) || '<br>')).join('');
 
-/** Stephanie's legend: "*" = idea, not yet in the scheduler; "✔️" = in the scheduler. */
+/** "✔️" = in the scheduler. No asterisk: in Stephanie's doc that is hers to set. */
 export function docDate(p: WormholePost): string {
   if (p.date_tbd) return 'Date TBD';
-  return (p.status === 'scheduled' ? '✔️ ' : '*') + postDay(p);
+  return (p.status === 'scheduled' ? '✔️ ' : '') + postDay(p);
 }
 
 /**
