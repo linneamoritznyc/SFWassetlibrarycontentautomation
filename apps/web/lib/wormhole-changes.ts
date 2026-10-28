@@ -7712,6 +7712,19 @@ export const CHANGES: Change[] = [
     caption: [['Some piles are built to go wrong, so you learn to read a struggling pile and rescue it with a mentor beside you.', "Each team's recipe behaves differently, so you learn to read a pile and adjust it with a mentor beside you."]],
     reason: 'Linnea, 28 Oct: never use the term "built to fail". Pile posts now say several piles, different recipes.',
   },
+  {
+    key: '2026-10-28 web20261030 Matt Drane visual',
+    post: 'web20261030',
+    set: {
+      slides: [
+        { text: 'Version 1: FREE WEBINAR, Fall 2026 series. 15 years of regenerative transformation in broad-acre corn and soy, with Matt Drane, AgriBio Systems. Wednesday, November 4, 9am Pacific, 11am Central, Noon Eastern. Register free, link in bio.', image: '/wormhole/tiles/web20261030-v1-1.jpg' },
+        { text: 'Version 2: FREE WEBINAR, Fall 2026 series. 15 years of regenerative transformation in broad-acre corn and soy farming, with Matt Drane, AgriBio Systems. Wednesday, November 4. Register free, link in bio.', image: '/wormhole/tiles/web20261030-v1-2.jpg' },
+        { text: 'Version 3: same text, photo top right and a dark green text block.', image: '/wormhole/tiles/web20261030-v1-3.jpg' },
+      ],
+      visual_note: 'Three versions to pick one from, single image post. Matt Drane photo with corn and soy leaf graphics. Deck: /wormhole/decks/30-10-2026-webinar-preview-matt-drane-3-versions.pptx (one version per slide, editable in Canva).',
+    },
+    reason: 'Linnea, 28 Oct: webinar visual with Matt Drane photo, three versions.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES);
