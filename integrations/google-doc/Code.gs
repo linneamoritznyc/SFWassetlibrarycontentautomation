@@ -10,16 +10,21 @@
  *                        Vercel > Settings > Deployment Protection >
  *                        Protection Bypass for Automation
  *
- * The doc follows Stephanie's template. Every post is one block under the
- * Heading 1 "Posts":
- *   Heading 2  day and date ("Thursday, October 22" or "Date TBD")
- *   Heading 3  what the post is about, ending in a small grey tag [wh:p05]
- *   Heading 3  CTA (Optional): ...
- *   Normal     Words: / Slide 1: ... / Link: ... / Source: / one source per line
+ * The doc follows Stephanie's template exactly. Every post is one block under
+ * the Heading 1 "Posts":
+ *   Heading 2  day and date, "*" in front while it is an idea, "✔️ " in front
+ *              once it is in the scheduler ("✔️ Thursday, October 22")
+ *   Normal     what the post is about, ending in a small grey tag [wh:p05]
+ *   Heading 3  CTA (Optional):
+ *   Normal     Words: ...
+ *   Normal     Link: ...
+ *   Normal     Source: (one source per line, only when there are sources)
  *   Heading 3  Visual Asset (Image Thumbnail for preview and Link to Canva Project):
- *   Normal     the visual note
+ *   Normal     the thumbnail, the visual note, then Slide 1: ... one slide per row
  *   Heading 3  Caption/Body Copy:
  *   Normal     the caption
+ * The doc's own Heading 2, Heading 3 and Normal text styles set the fonts
+ * (Arial 16, Arial 14 bold grey, Arial 11), so nothing here sets a font.
  * The tag maps the block to one Wormhole post. A block with no tag is a new
  * post: "Push" creates it in Wormhole and adds the tag.
  *
@@ -33,6 +38,11 @@ var POSTS_HEADING = 'Posts';
 var CTA_LABEL = 'CTA (Optional):';
 var VISUAL_LABEL = 'Visual Asset (Image Thumbnail for preview and Link to Canva Project):';
 var CAPTION_LABEL = 'Caption/Body Copy:';
+var TEMPLATE_LOOK = {
+  H2: { size: 16, bold: false, color: '#000000' },
+  H3: { size: 14, bold: true, color: '#434343' },
+  P: { size: 11, bold: false, color: '#000000' },
+};
 var TAG_RE = /\s*\[wh:([A-Za-z0-9_-]+)\]\s*$/;
 var FIELDS = ['date', 'topic', 'cta', 'slides', 'link', 'sources', 'visual_note', 'caption'];
 var MONTHS = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august',
@@ -234,44 +244,54 @@ function splitBlocks(paras) {
 
 /** Pure: reads one block's paragraphs into Wormhole fields. */
 function parseBlock(paras) {
-  var f = { date: clean_(paras[0].text), topic: '', cta: '', slides: [], link: '', sources: [], visual_note: '', caption: '' };
+  var f = { date: stripMarks_(clean_(paras[0].text)), topic: '', cta: '', slides: [], link: '', sources: [], visual_note: '', caption: '' };
   var id = null;
   var topicPara = null;
   var gotTopic = false;
   var sect = 'top';
+  var sub = '';
   var link = [];
   var visual = [];
   var caption = [];
+  var inSlide = false;
   for (var i = 1; i < paras.length; i++) {
     var p = paras[i];
     if (p.heading === 'OTHER') continue;
     var t = clean_(p.text);
     if (p.heading === 'H3') {
-      if (startsWith_(t, CTA_LABEL)) { f.cta = t.slice(CTA_LABEL.length).trim(); sect = 'cta'; continue; }
+      inSlide = false;
+      if (startsWith_(t, CTA_LABEL)) { var c = t.slice(CTA_LABEL.length).trim(); if (c) f.cta = c; sect = 'cta'; sub = ''; continue; }
       if (startsWith_(t, 'Visual Asset')) { sect = 'visual'; rest_(t, VISUAL_LABEL, visual); continue; }
       if (startsWith_(t, 'Caption/Body Copy')) { sect = 'caption'; rest_(t, CAPTION_LABEL, caption); continue; }
-      if (sect === 'top' && !gotTopic) {
+    }
+    if (sect === 'top') {
+      // The topic line: Normal in the template, Heading 3 in older blocks.
+      if (!gotTopic && t) {
         gotTopic = true;
         var m = t.match(TAG_RE);
         if (m) id = m[1];
         f.topic = t.replace(TAG_RE, '').trim();
         topicPara = p.el || null;
-        continue;
       }
+      continue;
     }
-    if (sect === 'visual') { visual.push(t); continue; }
     if (sect === 'caption') { caption.push(t); continue; }
-    if (/^Words:/i.test(t)) { sect = 'words'; var w = t.replace(/^Words:\s*/i, ''); if (w) f.slides.push(w); continue; }
-    if (/^Link:/i.test(t)) { sect = 'link'; var l = t.replace(/^Link:\s*/i, ''); if (l) link.push(l); continue; }
-    if (/^Sources?:/i.test(t)) { sect = 'source'; var s = t.replace(/^Sources?:\s*/i, ''); if (s) f.sources.push(s); continue; }
+    var sm = t.match(/^(?:Slide|Frame|Card)\s*\d+\s*:\s*([\s\S]*)$/i);
+    if (sm) { f.slides.push(sm[1]); inSlide = true; continue; }
+    if (sect === 'visual') {
+      if (inSlide && t) { f.slides[f.slides.length - 1] += '\n' + t; continue; }
+      visual.push(t);
+      continue;
+    }
+    // CTA section
+    if (/^Words:/i.test(t)) { inSlide = false; sub = 'words'; var w = t.replace(/^Words:\s*/i, ''); if (w) f.cta = w; continue; }
+    if (/^Link:/i.test(t)) { inSlide = false; sub = 'link'; var l = t.replace(/^Link:\s*/i, ''); if (l) link.push(l); continue; }
+    if (/^Sources?:/i.test(t)) { inSlide = false; sub = 'source'; var s = t.replace(/^Sources?:\s*/i, ''); if (s) f.sources.push(s); continue; }
     if (!t) continue;
-    if (sect === 'words') {
-      var sm = t.match(/^(?:Slide|Frame|Card)\s*\d+\s*:\s*([\s\S]*)$/i);
-      if (sm) f.slides.push(sm[1]);
-      else if (f.slides.length) f.slides[f.slides.length - 1] += '\n' + t;
-      else f.slides.push(t);
-    } else if (sect === 'link') link.push(t);
-    else if (sect === 'source') f.sources.push(t);
+    if (inSlide) f.slides[f.slides.length - 1] += '\n' + t;
+    else if (sub === 'link') link.push(t);
+    else if (sub === 'source') f.sources.push(t);
+    else if (sub === 'words') f.cta += (f.cta ? '\n' : '') + t;
   }
   f.link = link.join('\n');
   f.visual_note = trimLines_(visual).join('\n');
@@ -279,28 +299,42 @@ function parseBlock(paras) {
   return { id: id, fields: f, topicPara: topicPara };
 }
 
+/** "✔️ Thursday, October 22" or "*Thursday, October 22" -> "Thursday, October 22". */
+function stripMarks_(s) { return String(s || '').replace(/^[\s*✔✓✅️]+/, '').trim(); }
+
+/** Stephanie's legend: "*" = idea not yet in the scheduler, "✔️" = in the scheduler. */
+function dateMark_(post) {
+  if (post.date_tbd) return '';
+  return post.status === 'scheduled' ? '✔️ ' : '*';
+}
+
 // ---------------------------------------------------------------------------
 // Writing the doc
 
-/** Pure: the paragraphs that make up one post block. */
+/** Pure: the paragraphs that make up one post block, in Stephanie's template. */
 function renderBlock(post) {
   var out = [];
-  out.push({ heading: 'H2', text: post.date_tbd ? 'Date TBD' : dayLabel(post.iso_date) });
-  out.push({ heading: 'H3', text: post.topic || 'Untitled post', tag: post.id });
-  out.push({ heading: 'H3', text: CTA_LABEL + (post.cta ? ' ' + post.cta : '') });
-  out.push({ heading: 'P', text: 'Words:' });
+  out.push({ heading: 'H2', text: post.date_tbd ? 'Date TBD' : dateMark_(post) + dayLabel(post.iso_date) });
+  out.push({ heading: 'P', text: post.topic || 'Untitled post', tag: post.id });
+  out.push({ heading: 'H3', text: CTA_LABEL });
+  out.push({ heading: 'P', text: 'Words:' + (post.cta ? ' ' + String(post.cta).split('\n')[0] : '') });
+  String(post.cta || '').split('\n').slice(1).forEach(function (line) { out.push({ heading: 'P', text: line }); });
+  String(post.link || '').split('\n').forEach(function (line, j) {
+    out.push({ heading: 'P', text: j === 0 ? 'Link:' + (line ? ' ' + line : '') : line });
+  });
+  var sources = (post.sources || []).filter(function (s) { return String(s).trim(); });
+  if (sources.length) {
+    out.push({ heading: 'P', text: 'Source:' });
+    sources.forEach(function (s) { out.push({ heading: 'P', text: s }); });
+  }
+  out.push({ heading: 'H3', text: VISUAL_LABEL });
+  if (post.thumb) out.push({ heading: 'P', text: '', image: post.thumb });
+  splitLines_(post.visual_note).forEach(function (line) { if (line.trim()) out.push({ heading: 'P', text: line }); });
   (post.slides || []).forEach(function (s, i) {
     String(s).split('\n').forEach(function (line, j) {
       out.push({ heading: 'P', text: j === 0 ? 'Slide ' + (i + 1) + ': ' + line : line });
     });
   });
-  String(post.link || '').split('\n').forEach(function (line, j) {
-    out.push({ heading: 'P', text: j === 0 ? 'Link:' + (line ? ' ' + line : '') : line });
-  });
-  out.push({ heading: 'P', text: 'Source:' });
-  (post.sources || []).forEach(function (s) { if (String(s).trim()) out.push({ heading: 'P', text: s }); });
-  out.push({ heading: 'H3', text: VISUAL_LABEL });
-  splitLines_(post.visual_note).forEach(function (line) { out.push({ heading: 'P', text: line }); });
   out.push({ heading: 'H3', text: CAPTION_LABEL });
   splitLines_(post.caption).forEach(function (line) { out.push({ heading: 'P', text: line }); });
   return out;
@@ -350,10 +384,37 @@ function insertAt_(body, index, paras) {
     var p = body.insertParagraph(index + k, x.text);
     p.setHeading(x.heading === 'H2' ? H.HEADING2 : x.heading === 'H3' ? H.HEADING3 : H.NORMAL);
     var text = p.editAsText();
+    // Stephanie's template, as her doc shows it: Heading 2 Arial 16,
+    // Heading 3 Arial 14 bold grey, Normal text Arial 11.
+    if (x.text) {
+      var look = TEMPLATE_LOOK[x.heading] || TEMPLATE_LOOK.P;
+      var last = x.text.length - 1;
+      text.setFontFamily(0, last, 'Arial').setFontSize(0, last, look.size)
+        .setBold(0, last, look.bold).setForegroundColor(0, last, look.color);
+    }
     if (x.text) text.setLinkUrl(0, x.text.length - 1, null);
     linkify_(text, x.text);
     if (x.tag) addTag_(p, x.tag);
+    if (x.image) addThumb_(p, x.image);
   });
+}
+
+/** The post's first slide image, 200 px wide, so the doc shows a preview. */
+function addThumb_(para, path) {
+  try {
+    var c = config_();
+    var url = /^https?:/.test(path) ? path : c.url + path;
+    var res = UrlFetchApp.fetch(url, {
+      headers: c.bypass ? { 'x-vercel-protection-bypass': c.bypass } : {},
+      muteHttpExceptions: true,
+    });
+    if (res.getResponseCode() !== 200) return;
+    var img = para.appendInlineImage(res.getBlob());
+    var w = img.getWidth();
+    if (w > 200) { img.setHeight(Math.round(img.getHeight() * 200 / w)); img.setWidth(200); }
+  } catch (e) {
+    Logger.log('No thumbnail for ' + path + ': ' + e);
+  }
 }
 
 function addTag_(para, id) {

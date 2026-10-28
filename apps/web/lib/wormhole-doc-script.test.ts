@@ -81,6 +81,40 @@ describe('Google Doc script', () => {
     });
   });
 
+  it("writes Stephanie's template exactly", () => {
+    const post = {
+      id: 'p06',
+      iso_date: '2026-10-28',
+      date_tbd: false,
+      status: 'scheduled',
+      topic: 'Meet our mentors',
+      cta: 'Learn more',
+      slides: ['Slide one'],
+      link: 'https://soilfoodweb.com',
+      sources: [],
+      visual_note: '',
+      caption: 'Hello.',
+      thumb: '/wormhole/tiles/p06-1.jpg',
+    };
+    expect(gs.renderBlock(post).map((p: any) => [p.heading, p.text])).toEqual([
+      ['H2', '✔️ Wednesday, October 28'],
+      ['P', 'Meet our mentors'],
+      ['H3', 'CTA (Optional):'],
+      ['P', 'Words: Learn more'],
+      ['P', 'Link: https://soilfoodweb.com'],
+      ['H3', 'Visual Asset (Image Thumbnail for preview and Link to Canva Project):'],
+      ['P', ''],
+      ['P', 'Slide 1: Slide one'],
+      ['H3', 'Caption/Body Copy:'],
+      ['P', 'Hello.'],
+    ]);
+    expect(gs.renderBlock({ ...post, status: 'draft' })[0].text).toBe('*Wednesday, October 28');
+    const [block] = gs.splitBlocks(asDoc(post));
+    expect(block.fields.date).toBe('Wednesday, October 28');
+    expect(block.fields.cta).toBe('Learn more');
+    expect(block.fields.slides).toEqual(['Slide one']);
+  });
+
   it('treats a block with no tag as a new post', () => {
     const [block] = gs.splitBlocks([
       { index: 0, heading: 'H2', text: 'Friday, October 30' },

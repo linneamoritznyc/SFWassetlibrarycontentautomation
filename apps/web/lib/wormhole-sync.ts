@@ -62,6 +62,8 @@ export function forDoc(p: WormholePost) {
     sources: p.sources,
     visual_note: p.visual_note,
     caption: p.caption,
+    status: p.status,
+    thumb: p.slides.find((s) => s.image)?.image ?? null,
     updated_at: p.updated_at,
     updated_by: p.updated_by,
   };
