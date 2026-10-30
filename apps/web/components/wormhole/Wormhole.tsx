@@ -33,6 +33,7 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
   const [saveState, setSaveState] = useState<Record<string, SaveState>>({});
   const [big, setBig] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [copiedPost, setCopiedPost] = useState<string | null>(null);
 
   const since = useRef<string | null>(null);
   const pending = useRef<Record<string, Patch>>({});
@@ -279,9 +280,8 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
     URL.revokeObjectURL(url);
   }
 
-  async function copyForDoc() {
-    setCopied(false);
-    const html = toDocHtml(visible, exportTitle(), await thumbsFor(visible));
+  /** Puts the doc version on the clipboard as rich text, so it pastes formatted into Google Docs. */
+  async function toClipboard(html: string): Promise<boolean> {
     try {
       await navigator.clipboard.write([
         new ClipboardItem({
@@ -289,11 +289,38 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
           'text/plain': new Blob([html.replace(/<[^>]+>/g, '\n')], { type: 'text/plain' }),
         }),
       ]);
+      return true;
+    } catch {
+      return false;
+    }
+  }
+
+  async function copyForDoc() {
+    setCopied(false);
+    const html = toDocHtml(visible, exportTitle(), await thumbsFor(visible));
+    if (await toClipboard(html)) {
       setCopied(true);
       setTimeout(() => setCopied(false), 2500);
-    } catch {
+    } else {
       await download();
     }
+  }
+
+  /** One post at a time, the way it goes into the planning doc. */
+  async function copyPost(p: WormholePost) {
+    setCopiedPost(null);
+    const html = toDocHtml([p], p.topic, await thumbsFor([p]));
+    if (await toClipboard(html)) {
+      setCopiedPost(p.id);
+      setTimeout(() => setCopiedPost((id) => (id === p.id ? null : id)), 2500);
+      return;
+    }
+    const url = URL.createObjectURL(new Blob([html], { type: 'text/html' }));
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${p.id}-for-the-doc.html`;
+    a.click();
+    URL.revokeObjectURL(url);
   }
 
   const [expanded, setExpanded] = useState<string | null>(null);
@@ -339,6 +366,8 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
             saveState={saveState[p.id]}
             onEdit={() => setEditing(isEditing ? null : p.id)}
             onStatus={(s) => update(p.id, { status: s }, true)}
+            onCopy={() => copyPost(p)}
+            copied={copiedPost === p.id}
           />
           {isEditing && <Editor post={p} onChange={(patch) => update(p.id, patch)} />}
         </Kind>
@@ -444,10 +473,22 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
                         e.currentTarget.blur();
                       }
                     }}
-                    placeholder="Search posts   ( / )"
+                    placeholder="Search all posts…"
                     aria-label="Search posts"
-                    className={`${select} w-full pr-9`}
+                    className={`${select} w-full border-2 border-[#2f6b46] pl-10 pr-9 font-medium`}
                   />
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    className="pointer-events-none absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-[#2f6b46]"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={2.5}
+                    strokeLinecap="round"
+                  >
+                    <circle cx="11" cy="11" r="7" />
+                    <path d="m20 20-3.5-3.5" />
+                  </svg>
                   {query && (
                     <button
                       onClick={() => setQuery('')}

@@ -25,7 +25,11 @@ function Avatar({ size = 32 }: { size?: number }) {
       style={{ width: size, height: size }}
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/wormhole/sfw-foundation-wordmark-240.png" alt="" className="h-[80%] w-[80%] object-contain" />
+      <img
+        src="/wormhole/sfw-foundation-wordmark-240.png"
+        alt=""
+        className="h-[80%] w-[80%] object-contain"
+      />
     </span>
   );
 }
@@ -37,12 +41,17 @@ export function PostBar({
   saveState,
   onEdit,
   onStatus,
+  onCopy,
+  copied,
 }: {
   post: WormholePost;
   editing: boolean;
   saveState?: 'saving' | 'saved' | 'error';
   onEdit: () => void;
   onStatus: (s: WormholePost['status']) => void;
+  /** Copies just this post in the planning-doc format. */
+  onCopy?: () => void;
+  copied?: boolean;
 }) {
   return (
     <div className="space-y-3 border-t border-neutral-200 px-4 py-3">
@@ -52,7 +61,9 @@ export function PostBar({
             key={s.value}
             onClick={() => onStatus(s.value)}
             className={`rounded-full border px-3 py-1 text-sm font-medium ${
-              post.status === s.value ? STATUS_STYLE[s.value] : 'border-neutral-200 text-neutral-400'
+              post.status === s.value
+                ? STATUS_STYLE[s.value]
+                : 'border-neutral-200 text-neutral-400'
             }`}
           >
             {s.label}
@@ -71,14 +82,24 @@ export function PostBar({
                   ? `Edited by ${post.updated_by}, ${ago(post.updated_at)}`
                   : ''}
         </span>
-        <button
-          onClick={onEdit}
-          className={`rounded-lg px-5 py-2 text-base font-semibold ${
-            editing ? 'bg-neutral-200 text-black' : 'bg-[#2f6b46] text-white'
-          }`}
-        >
-          {editing ? 'Done' : 'Edit'}
-        </button>
+        <div className="flex shrink-0 gap-2">
+          {onCopy && (
+            <button
+              onClick={onCopy}
+              className="rounded-lg border border-[#2f6b46] px-4 py-2 text-base font-semibold text-[#2f6b46]"
+            >
+              {copied ? 'Copied. Paste in the doc' : 'Copy for the doc'}
+            </button>
+          )}
+          <button
+            onClick={onEdit}
+            className={`rounded-lg px-5 py-2 text-base font-semibold ${
+              editing ? 'bg-neutral-200 text-black' : 'bg-[#2f6b46] text-white'
+            }`}
+          >
+            {editing ? 'Done' : 'Edit'}
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -128,13 +149,25 @@ export type CaptionEdit = { editing: boolean; onChange: (v: string) => void; onS
 function EditableCaption({ edit, children }: { edit?: CaptionEdit; children: ReactNode }) {
   if (!edit) return <>{children}</>;
   return (
-    <div onClick={edit.editing ? undefined : edit.onStart} className={edit.editing ? '' : 'cursor-text'} title={edit.editing ? undefined : 'Click to edit the caption'}>
+    <div
+      onClick={edit.editing ? undefined : edit.onStart}
+      className={edit.editing ? '' : 'cursor-text'}
+      title={edit.editing ? undefined : 'Click to edit the caption'}
+    >
       {children}
     </div>
   );
 }
 
-export function InstagramPost({ post, children, caption }: { post: WormholePost; children?: ReactNode; caption?: CaptionEdit }) {
+export function InstagramPost({
+  post,
+  children,
+  caption,
+}: {
+  post: WormholePost;
+  children?: ReactNode;
+  caption?: CaptionEdit;
+}) {
   return (
     <article className="overflow-hidden rounded-xl border border-neutral-200 bg-white text-[15px] text-black">
       <header className="flex items-center gap-3 px-3 py-2.5">
@@ -174,7 +207,15 @@ export function InstagramPost({ post, children, caption }: { post: WormholePost;
   );
 }
 
-export function LinkedInPost({ post, children, caption }: { post: WormholePost; children?: ReactNode; caption?: CaptionEdit }) {
+export function LinkedInPost({
+  post,
+  children,
+  caption,
+}: {
+  post: WormholePost;
+  children?: ReactNode;
+  caption?: CaptionEdit;
+}) {
   const slides = slidesOf(post);
   return (
     <article className="overflow-hidden rounded-lg border border-neutral-300 bg-white text-[15px] text-[#191919]">
@@ -220,11 +261,23 @@ export function LinkedInPost({ post, children, caption }: { post: WormholePost; 
 export function GridTile({ post, onOpen }: { post: WormholePost; onOpen: () => void }) {
   const slides = slidesOf(post);
   return (
-    <button onClick={onOpen} className="relative block aspect-[4/5] w-full overflow-hidden bg-white text-left" title={post.topic}>
+    <button
+      onClick={onOpen}
+      className="relative block aspect-[4/5] w-full overflow-hidden bg-white text-left"
+      title={post.topic}
+    >
       <SlideView slide={slides[0]!} fallback={post.topic} />
       {slides.length > 1 && (
-        <svg viewBox="0 0 24 24" className="absolute right-1.5 top-1.5 h-5 w-5 drop-shadow" fill="white">
-          <path d="M8 3h11a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zM3 8v11a2 2 0 0 0 2 2h11" stroke="#555" strokeWidth="1" />
+        <svg
+          viewBox="0 0 24 24"
+          className="absolute right-1.5 top-1.5 h-5 w-5 drop-shadow"
+          fill="white"
+        >
+          <path
+            d="M8 3h11a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zM3 8v11a2 2 0 0 0 2 2h11"
+            stroke="#555"
+            strokeWidth="1"
+          />
         </svg>
       )}
       <span className="absolute bottom-1 left-1 rounded bg-black/60 px-1.5 py-0.5 text-[11px] text-white">
