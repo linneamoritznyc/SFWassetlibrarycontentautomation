@@ -8017,56 +8017,112 @@ export const CHANGES: Change[] = [
     post: 'p06',
     set: { iso_date: '2026-11-04', date_tbd: false },
     reason:
-      'Linnea, 30 Oct: all mentors go out in the first two weeks of November, one every day or two from Mon 2 Nov. Gerald Ramirez on 2026-11-04. Decks for Canva: /wormhole/decks/mentors-november.zip.',
+      'Linnea, 30 Oct: all mentors go out in the first two weeks of November, one every day or two from Mon 2 Nov. Gerald Ramirez on 2026-11-04. Superseded the same day by the slower rollout below.',
   },
   {
     key: '2026-10-30 p03 moved to 2026-11-06',
     post: 'p03',
     set: { iso_date: '2026-11-06', date_tbd: false },
     reason:
-      'Linnea, 30 Oct: all mentors go out in the first two weeks of November, one every day or two from Mon 2 Nov. Nick Padwick on 2026-11-06. Decks for Canva: /wormhole/decks/mentors-november.zip.',
+      'Linnea, 30 Oct: all mentors go out in the first two weeks of November, one every day or two from Mon 2 Nov. Nick Padwick on 2026-11-06. Superseded the same day by the slower rollout below.',
   },
   {
     key: '2026-10-30 p09 moved to 2026-11-08',
     post: 'p09',
     set: { iso_date: '2026-11-08', date_tbd: false },
     reason:
-      'Linnea, 30 Oct: all mentors go out in the first two weeks of November, one every day or two from Mon 2 Nov. Dora Tkalec on 2026-11-08. Decks for Canva: /wormhole/decks/mentors-november.zip.',
+      'Linnea, 30 Oct: all mentors go out in the first two weeks of November, one every day or two from Mon 2 Nov. Dora Tkalec on 2026-11-08. Superseded the same day by the slower rollout below.',
   },
   {
     key: '2026-10-30 d05 moved to 2026-11-09',
     post: 'd05',
     set: { iso_date: '2026-11-09', date_tbd: false },
     reason:
-      'Linnea, 30 Oct: all mentors go out in the first two weeks of November, one every day or two from Mon 2 Nov. Dr. Carla Portugal on 2026-11-09. Decks for Canva: /wormhole/decks/mentors-november.zip.',
+      'Linnea, 30 Oct: all mentors go out in the first two weeks of November, one every day or two from Mon 2 Nov. Dr. Carla Portugal on 2026-11-09. Superseded the same day by the slower rollout below.',
   },
   {
     key: '2026-10-30 p04 moved to 2026-11-10',
     post: 'p04',
     set: { iso_date: '2026-11-10', date_tbd: false },
     reason:
-      'Linnea, 30 Oct: all mentors go out in the first two weeks of November, one every day or two from Mon 2 Nov. Wes Sander on 2026-11-10. Decks for Canva: /wormhole/decks/mentors-november.zip.',
+      'Linnea, 30 Oct: all mentors go out in the first two weeks of November, one every day or two from Mon 2 Nov. Wes Sander on 2026-11-10. Superseded the same day by the slower rollout below.',
   },
   {
     key: '2026-10-30 d11 moved to 2026-11-12',
     post: 'd11',
     set: { iso_date: '2026-11-12', date_tbd: false },
     reason:
-      'Linnea, 30 Oct: all mentors go out in the first two weeks of November, one every day or two from Mon 2 Nov. Brian Daubenspeck on 2026-11-12. Decks for Canva: /wormhole/decks/mentors-november.zip.',
+      'Linnea, 30 Oct: all mentors go out in the first two weeks of November, one every day or two from Mon 2 Nov. Brian Daubenspeck on 2026-11-12. Superseded the same day by the slower rollout below.',
   },
   {
     key: '2026-10-30 p02 moved to 2026-11-14',
     post: 'p02',
     set: { iso_date: '2026-11-14', date_tbd: false },
     reason:
-      'Linnea, 30 Oct: all mentors go out in the first two weeks of November, one every day or two from Mon 2 Nov. Casey Williams on 2026-11-14. Decks for Canva: /wormhole/decks/mentors-november.zip.',
+      'Linnea, 30 Oct: all mentors go out in the first two weeks of November, one every day or two from Mon 2 Nov. Casey Williams on 2026-11-14. Superseded the same day by the slower rollout below.',
   },
   {
     key: '2026-10-30 d12 moved to 2026-11-15',
     post: 'd12',
     set: { iso_date: '2026-11-15', date_tbd: false },
     reason:
-      'Linnea, 30 Oct: all mentors go out in the first two weeks of November, one every day or two from Mon 2 Nov. Delvin Solkinson on 2026-11-15. Decks for Canva: /wormhole/decks/mentors-november.zip.',
+      'Linnea, 30 Oct: all mentors go out in the first two weeks of November, one every day or two from Mon 2 Nov. Delvin Solkinson on 2026-11-15. Superseded the same day by the slower rollout below.',
+  },
+  {
+    key: '2026-10-30 p06 rollout 2026-11-12',
+    post: 'p06',
+    set: { iso_date: '2026-11-12', date_tbd: false },
+    reason:
+      'Allison and Linnea, 30 Oct (final): one mentor about every two weeks from 2 Nov to the end of January, with other posts in between. Gerald Ramirez on 2026-11-12. Decks for Canva: /wormhole/decks/mentor-decks.zip.',
+  },
+  {
+    key: '2026-10-30 p03 rollout 2026-11-24',
+    post: 'p03',
+    set: { iso_date: '2026-11-24', date_tbd: false },
+    reason:
+      'Allison and Linnea, 30 Oct (final): one mentor about every two weeks from 2 Nov to the end of January, with other posts in between. Nick Padwick on 2026-11-24. Decks for Canva: /wormhole/decks/mentor-decks.zip.',
+  },
+  {
+    key: '2026-10-30 p09 rollout 2026-12-03',
+    post: 'p09',
+    set: { iso_date: '2026-12-03', date_tbd: false },
+    reason:
+      'Allison and Linnea, 30 Oct (final): one mentor about every two weeks from 2 Nov to the end of January, with other posts in between. Dora Tkalec on 2026-12-03. Decks for Canva: /wormhole/decks/mentor-decks.zip.',
+  },
+  {
+    key: '2026-10-30 d05 rollout 2026-12-14',
+    post: 'd05',
+    set: { iso_date: '2026-12-14', date_tbd: false },
+    reason:
+      'Allison and Linnea, 30 Oct (final): one mentor about every two weeks from 2 Nov to the end of January, with other posts in between. Dr. Carla Portugal on 2026-12-14. Decks for Canva: /wormhole/decks/mentor-decks.zip.',
+  },
+  {
+    key: '2026-10-30 p04 rollout 2026-12-28',
+    post: 'p04',
+    set: { iso_date: '2026-12-28', date_tbd: false },
+    reason:
+      'Allison and Linnea, 30 Oct (final): one mentor about every two weeks from 2 Nov to the end of January, with other posts in between. Wes Sander on 2026-12-28. Decks for Canva: /wormhole/decks/mentor-decks.zip.',
+  },
+  {
+    key: '2026-10-30 d11 rollout 2027-01-10',
+    post: 'd11',
+    set: { iso_date: '2027-01-10', date_tbd: false },
+    reason:
+      'Allison and Linnea, 30 Oct (final): one mentor about every two weeks from 2 Nov to the end of January, with other posts in between. Brian Daubenspeck on 2027-01-10. Decks for Canva: /wormhole/decks/mentor-decks.zip.',
+  },
+  {
+    key: '2026-10-30 p02 rollout 2027-01-22',
+    post: 'p02',
+    set: { iso_date: '2027-01-22', date_tbd: false },
+    reason:
+      'Allison and Linnea, 30 Oct (final): one mentor about every two weeks from 2 Nov to the end of January, with other posts in between. Casey Williams on 2027-01-22. Decks for Canva: /wormhole/decks/mentor-decks.zip.',
+  },
+  {
+    key: '2026-10-30 d12 rollout 2027-01-28',
+    post: 'd12',
+    set: { iso_date: '2027-01-28', date_tbd: false },
+    reason:
+      'Allison and Linnea, 30 Oct (final): one mentor about every two weeks from 2 Nov to the end of January, with other posts in between. Delvin Solkinson on 2027-01-28. Decks for Canva: /wormhole/decks/mentor-decks.zip.',
   },
 ];
 
