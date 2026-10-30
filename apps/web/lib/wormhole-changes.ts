@@ -8251,6 +8251,20 @@ export const CHANGES: Change[] = [
     set: { iso_date: '2026-10-31', date_tbd: false },
     reason: 'Linnea, 30 Oct: the website announcement goes out tomorrow (2026-10-31).',
   },
+  {
+    key: '2026-10-30 web20261103 final design',
+    post: 'web20261103',
+    set: {
+      slides: [
+        {
+          text: 'Join us tomorrow: 15 years of regenerative transformation in broad acre corn and soy farming. Matt Drane, AgriBio Systems. Wed 4 Nov, 11am to 12:30pm Central.',
+          image: '/wormhole/tiles/web20261103-final-1.jpg',
+        },
+      ],
+    },
+    reason:
+      "Linnea, 30 Oct: the final 'Join us tomorrow' design from Canva (webinar-reminder-matt-drane, Week 1 Nov 2-8).",
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES);
