@@ -8626,6 +8626,106 @@ export const CHANGES: Change[] = [
     reason:
       'Date from the November doc (12 posts added, 30 Oct): Nick Padwick on Friday 27 November.',
   },
+  {
+    key: '2026-10-31 p11 reel cover',
+    post: 'p11',
+    set: {
+      slides: [
+        { text: 'Our new home is live.', image: '/wormhole/reels/28-10-2026-website-reel.mp4' },
+        { text: 'Cover: Reel thumbnail', image: '/wormhole/tiles/p11-cover-1.jpg' },
+      ],
+    },
+    reason:
+      'Linnea, 30 Oct: the website reel thumbnail. The grid shows it instead of the first video frame.',
+  },
+  {
+    key: '2026-10-31 r20261029 reel cover',
+    post: 'r20261029',
+    set: {
+      slides: [
+        {
+          text: 'Ten days on a farm in Costa Rica.',
+          image: '/wormhole/reels/29-10-2026-costa-rica-reel.mp4',
+        },
+        { text: 'Cover: Reel thumbnail', image: '/wormhole/tiles/r20261029-cover-1.jpg' },
+      ],
+    },
+    reason:
+      'Linnea, 30 Oct: the Costa Rica reel thumbnail. The grid shows it instead of the first video frame.',
+  },
+  {
+    key: '2026-10-31 news-1000farms stand-in',
+    post: 'news-1000farms',
+    set: {
+      slides: [
+        {
+          text: 'Regenerative farms stored 39% more soil carbon. A new study of working farms. Link in bio.',
+          image: '/wormhole/tiles/news-1000farms-v4-1.jpg',
+        },
+        {
+          text: 'The 1000 Farms Initiative measured working farms across North America, from the most conventional to the most regenerative.',
+          image: '/wormhole/tiles/news-1000farms-v4-2.jpg',
+        },
+        {
+          text: '39% more total soil carbon on the most regenerative farms.',
+          image: '/wormhole/tiles/news-1000farms-v4-3.jpg',
+        },
+        {
+          text: '+181% total fungi in the most regenerative soils.',
+          image: '/wormhole/tiles/news-1000farms-v4-4.jpg',
+        },
+        {
+          text: 'More life everywhere: soil microbes, insects, plants and birds. The more biodiversity, the more carbon stored.',
+          image: '/wormhole/tiles/news-1000farms-v4-5.jpg',
+        },
+        {
+          text: 'Yields matched national averages, and net profit per acre was similar.',
+          image: '/wormhole/tiles/news-1000farms-v4-6.jpg',
+        },
+        {
+          text: 'One practice alone changed nothing. Farms using a single regenerative practice looked like conventional farms.',
+          image: '/wormhole/tiles/news-1000farms-v4-7.jpg',
+        },
+        {
+          text: 'Read the paper: Lundgren et al., Environmental Research: Food Systems, 2026.',
+          image: '/wormhole/tiles/news-1000farms-v4-8.jpg',
+        },
+      ],
+    },
+    reason:
+      "Stand-in news card (Linnea, 30 Oct: make something in the meantime), built to docs/slide-rules.md. Swap for Linnea's Canva export when ready. Slide 4 says +181% total fungi (the paper's figure 3); the Canva version says 77%. Deck: 20-11-2026-regenerative-farms-39-percent-carbon-v4.pptx.",
+  },
+  {
+    key: '2026-10-31 vet20261111 stand-in v2',
+    post: 'vet20261111',
+    set: {
+      slides: [
+        {
+          text: 'Happy Veterans Day. Thank you to every veteran who now farms.',
+          image: '/wormhole/tiles/vet20261111-v2-1.jpg',
+        },
+      ],
+      visual_note:
+        "Family: D, photo with box. Stand-in (Linnea, 30 Oct): a real windrow field day photo (incubating-practice-windrow-turner-field.jpg, used on no other post), no names on the image. Swap for Suzanne's and Warlinda's own photos with the photo-space version (11-11-2026-veterans-day-v1.pptx) once Allison has them. Deck: 11-11-2026-veterans-day-v2.pptx.",
+    },
+    reason: 'Stand-in Veterans Day visual until the conference photos arrive.',
+  },
+  {
+    key: '2026-10-31 crinfo20261105 stand-in v2',
+    post: 'crinfo20261105',
+    set: {
+      slides: [
+        {
+          text: 'Costa Rica info session. Fri 6 Nov, 12pm Pacific, live on Zoom. Free. Link in bio.',
+          image: '/wormhole/tiles/crinfo20261105-v2-1.jpg',
+        },
+      ],
+      link: 'https://www.addevent.com/event/r4wt0g3yjd4h',
+      visual_note:
+        'Family: M, info card. Stand-in (Linnea, 30 Oct) until her finished design is added: Education Blue banner, the class in the shed at Armonía (PXL_20251024_162714282, used on no other post), heliconia. Session facts from the calendar entry: Fri 6 Nov, 2 to 3pm CST (12pm Pacific), Zoom, recorded. Deck: 05-11-2026-costa-rica-info-session-v2.pptx.',
+    },
+    reason: 'Stand-in info session visual until Linnea adds hers.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES);

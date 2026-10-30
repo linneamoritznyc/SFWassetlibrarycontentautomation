@@ -5,7 +5,7 @@ import { STATUSES, type WormholePost } from '@/lib/wormhole-types';
 import { Caption } from './Caption';
 import { Carousel } from './Carousel';
 import { SlideView } from './SlideView';
-import { STATUS_STYLE, ago, dayLabel, postDay, slidesOf } from './util';
+import { STATUS_STYLE, ago, coverOf, dayLabel, postDay, slidesOf } from './util';
 
 const Icon = ({ d }: { d: string }) => (
   <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8">
@@ -266,7 +266,7 @@ export function GridTile({ post, onOpen }: { post: WormholePost; onOpen: () => v
       className="relative block aspect-[4/5] w-full overflow-hidden bg-white text-left"
       title={post.topic}
     >
-      <SlideView slide={slides[0]!} fallback={post.topic} />
+      <SlideView slide={coverOf(post) ?? slides[0]!} fallback={post.topic} />
       {slides.length > 1 && (
         <svg
           viewBox="0 0 24 24"

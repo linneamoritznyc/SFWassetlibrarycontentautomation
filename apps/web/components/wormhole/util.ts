@@ -97,8 +97,17 @@ export function ago(iso: string): string {
 }
 
 /** Every post shows at least one slide, so nothing is invisible on day one. */
+/** A Reel's cover image: a still slide whose text starts with "Cover". Shown in the grid, not in the post. */
+const isCover = (s: Slide) =>
+  /^cover\b/i.test(s.text) && !!s.image && !/\.(mp4|webm|mov)$/i.test(s.image);
+
+export function coverOf(post: WormholePost): Slide | null {
+  return post.slides.find(isCover) ?? null;
+}
+
 export function slidesOf(post: WormholePost): Slide[] {
-  return post.slides.length > 0 ? post.slides : [{ text: '', image: null }];
+  const slides = post.slides.filter((s) => !isCover(s));
+  return slides.length > 0 ? slides : [{ text: '', image: null }];
 }
 
 export function imageUrl(id: string): string {
