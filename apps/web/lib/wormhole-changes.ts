@@ -8783,6 +8783,13 @@ export const CHANGES: Change[] = [
     },
     reason: 'Linnea, 30 Oct: the v2 photo did not show the story.',
   },
+  {
+    key: '2026-10-30 p17 back to Sat 31 Oct',
+    post: 'p17',
+    set: { iso_date: '2026-10-31', date_tbd: false },
+    reason:
+      'Linnea, 30 Oct: the October roundup has to post in October. Sat 31 Oct, beside the website announcement and Leave the leaves (3 posts that day).',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES);
