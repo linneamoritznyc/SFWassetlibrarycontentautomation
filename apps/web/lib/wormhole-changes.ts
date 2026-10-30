@@ -8484,6 +8484,22 @@ export const CHANGES: Change[] = [
     },
     reason: 'Linnea, 30 Oct: post from the November doc with her finished Canva visual. Date TBD.',
   },
+  {
+    key: '2026-10-30 thx20261126 visual v2',
+    post: 'thx20261126',
+    set: {
+      slides: [
+        {
+          text: "What we're thankful for. Our staff share what made an impact on them this year.",
+          image: '/wormhole/tiles/thx20261126-v2-1.jpg',
+        },
+      ],
+      visual_note:
+        'Family: K, photo with banner (built to docs/slide-rules.md). Food Web Green banner, white logo, students laughing together at a Costa Rica workshop (students-laughing-together.jpg, used on no other post), marigold cutout bottom right. Deck: 26-11-2026-what-we-are-thankful-for-v2.pptx. Staff answers go in the caption (or extra slides) when they come in.',
+    },
+    reason:
+      "Visual (Linnea, 30 Oct): cover for the thankful post; it doesn't need the staff answers.",
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES);
