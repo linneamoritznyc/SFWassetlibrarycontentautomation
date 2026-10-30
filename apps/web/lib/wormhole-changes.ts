@@ -18,7 +18,10 @@ export type Change = {
   key: string;
   post: string;
   set?: Partial<
-    Pick<WormholePost, 'iso_date' | 'date_tbd' | 'topic' | 'slides' | 'link' | 'sources' | 'visual_note'>
+    Pick<
+      WormholePost,
+      'iso_date' | 'date_tbd' | 'topic' | 'slides' | 'link' | 'sources' | 'visual_note'
+    >
   >;
   /** A new post, inserted when no post has this id yet. */
   create?: Omit<WormholePost, 'id' | 'updated_by' | 'updated_at' | 'pinned'>;
@@ -7671,59 +7674,123 @@ export const CHANGES: Change[] = [
       slides: [
         { text: 'Several piles, different recipes.', image: '/wormhole/tiles/cr20261116-v2-1.jpg' },
         { text: 'Every pile behaves differently.', image: '/wormhole/tiles/cr20261116-v2-2.jpg' },
-        { text: 'Students build several piles at once. Each team picks its feedstocks and works out its own recipe.', image: '/wormhole/tiles/cr20261116-v2-3.jpg' },
-        { text: 'Then you read each pile and adjust it. With a mentor beside you.', image: '/wormhole/tiles/cr20261116-v2-4.jpg' },
-        { text: 'Costa Rica, 18 to 29 January 2027.', image: '/wormhole/tiles/cr20261116-v1-6.jpg' },
+        {
+          text: 'Students build several piles at once. Each team picks its feedstocks and works out its own recipe.',
+          image: '/wormhole/tiles/cr20261116-v2-3.jpg',
+        },
+        {
+          text: 'Then you read each pile and adjust it. With a mentor beside you.',
+          image: '/wormhole/tiles/cr20261116-v2-4.jpg',
+        },
+        {
+          text: 'Costa Rica, 18 to 29 January 2027.',
+          image: '/wormhole/tiles/cr20261116-v1-6.jpg',
+        },
       ],
-      visual_note: 'Carousel, real photos from past Costa Rica workshops. Deck: /wormhole/decks/16-11-2026-costa-rica-pile-recipes.pptx. No prices.',
+      visual_note:
+        'Carousel, real photos from past Costa Rica workshops. Deck: /wormhole/decks/16-11-2026-costa-rica-pile-recipes.pptx. No prices.',
     },
     captionText:
       'At our Costa Rica workshop, students build several thermal compost piles at the same time, each with a different recipe. 🔥\nEvery day you check the temperature and moisture of each pile, compare how they change, and learn what to adjust and when to turn, with a mentor beside you.\nAccelerator Workshop, 18 to 29 January 2027. Register now, link in bio.\n#SoilFoodWeb #CostaRica #Compost #Workshop',
-    reason: 'Linnea, 28 Oct: never use the term "built to fail". Pile posts now say several piles, different recipes.',
+    reason:
+      'Linnea, 28 Oct: never use the term "built to fail". Pile posts now say several piles, different recipes.',
   },
   {
     key: '2026-10-28 st20261116 no built to fail',
     post: 'st20261116',
     set: {
       topic: 'Costa Rica stories · Several piles, different recipes',
-      slides: [{ text: 'Story frame 5 of the Costa Rica set (9:16, shown smaller here).', image: '/wormhole/tiles/st20261116-v2-1.jpg' }],
-      visual_note: 'Frame 5 from /wormhole/decks/26-10-2026-ig-stories-costa-rica-2027-v2.pptx. Post around 8:00am Pacific. No prices.',
+      slides: [
+        {
+          text: 'Story frame 5 of the Costa Rica set (9:16, shown smaller here).',
+          image: '/wormhole/tiles/st20261116-v2-1.jpg',
+        },
+      ],
+      visual_note:
+        'Frame 5 from /wormhole/decks/26-10-2026-ig-stories-costa-rica-2027-v2.pptx. Post around 8:00am Pacific. No prices.',
     },
-    reason: 'Linnea, 28 Oct: never use the term "built to fail". Pile posts now say several piles, different recipes.',
+    reason:
+      'Linnea, 28 Oct: never use the term "built to fail". Pile posts now say several piles, different recipes.',
   },
   {
     key: '2026-10-28 st20261029 no built to fail',
     post: 'st20261029',
     set: {
       slides: [
-        { text: 'Story frame 4 of the Costa Rica set (9:16, shown smaller here).', image: '/wormhole/tiles/st20261029-v1-1.jpg' },
-        { text: 'Story frame 5 of the Costa Rica set (9:16, shown smaller here).', image: '/wormhole/tiles/st20261029-v2-2.jpg' },
-        { text: 'Story frame 7 of the Costa Rica set (9:16, shown smaller here).', image: '/wormhole/tiles/st20261029-v1-3.jpg' },
-        { text: 'Story frame 8 of the Costa Rica set (9:16, shown smaller here).', image: '/wormhole/tiles/st20261029-v1-4.jpg' },
+        {
+          text: 'Story frame 4 of the Costa Rica set (9:16, shown smaller here).',
+          image: '/wormhole/tiles/st20261029-v1-1.jpg',
+        },
+        {
+          text: 'Story frame 5 of the Costa Rica set (9:16, shown smaller here).',
+          image: '/wormhole/tiles/st20261029-v2-2.jpg',
+        },
+        {
+          text: 'Story frame 7 of the Costa Rica set (9:16, shown smaller here).',
+          image: '/wormhole/tiles/st20261029-v1-3.jpg',
+        },
+        {
+          text: 'Story frame 8 of the Costa Rica set (9:16, shown smaller here).',
+          image: '/wormhole/tiles/st20261029-v1-4.jpg',
+        },
       ],
-      visual_note: 'Frames 4, 5, 7, 8 from /wormhole/decks/26-10-2026-ig-stories-costa-rica-2027-v2.pptx. Post around 8:00am Pacific. No prices.',
+      visual_note:
+        'Frames 4, 5, 7, 8 from /wormhole/decks/26-10-2026-ig-stories-costa-rica-2027-v2.pptx. Post around 8:00am Pacific. No prices.',
     },
     caption: [['Would you rescue a failing pile?', 'Which recipe would you try first?']],
-    reason: 'Linnea, 28 Oct: never use the term "built to fail". Pile posts now say several piles, different recipes.',
+    reason:
+      'Linnea, 28 Oct: never use the term "built to fail". Pile posts now say several piles, different recipes.',
   },
   {
     key: '2026-10-28 j20270122 no built to fail',
     post: 'j20270122',
-    caption: [['Some piles are built to go wrong, so you learn to read a struggling pile and rescue it with a mentor beside you.', "Each team's recipe behaves differently, so you learn to read a pile and adjust it with a mentor beside you."]],
-    reason: 'Linnea, 28 Oct: never use the term "built to fail". Pile posts now say several piles, different recipes.',
+    caption: [
+      [
+        'Some piles are built to go wrong, so you learn to read a struggling pile and rescue it with a mentor beside you.',
+        "Each team's recipe behaves differently, so you learn to read a pile and adjust it with a mentor beside you.",
+      ],
+    ],
+    reason:
+      'Linnea, 28 Oct: never use the term "built to fail". Pile posts now say several piles, different recipes.',
   },
   {
     key: '2026-10-28 web20261030 Matt Drane visual',
     post: 'web20261030',
     set: {
       slides: [
-        { text: 'Version 1: FREE WEBINAR, Fall 2026 series. 15 years of regenerative transformation in broad-acre corn and soy, with Matt Drane, AgriBio Systems. Wednesday, November 4, 9am Pacific, 11am Central, Noon Eastern. Register free, link in bio.', image: '/wormhole/tiles/web20261030-v1-1.jpg' },
-        { text: 'Version 2: FREE WEBINAR, Fall 2026 series. 15 years of regenerative transformation in broad-acre corn and soy farming, with Matt Drane, AgriBio Systems. Wednesday, November 4. Register free, link in bio.', image: '/wormhole/tiles/web20261030-v1-2.jpg' },
-        { text: 'Version 3: same text, photo top right and a dark green text block.', image: '/wormhole/tiles/web20261030-v1-3.jpg' },
+        {
+          text: 'Version 1: FREE WEBINAR, Fall 2026 series. 15 years of regenerative transformation in broad-acre corn and soy, with Matt Drane, AgriBio Systems. Wednesday, November 4, 9am Pacific, 11am Central, Noon Eastern. Register free, link in bio.',
+          image: '/wormhole/tiles/web20261030-v1-1.jpg',
+        },
+        {
+          text: 'Version 2: FREE WEBINAR, Fall 2026 series. 15 years of regenerative transformation in broad-acre corn and soy farming, with Matt Drane, AgriBio Systems. Wednesday, November 4. Register free, link in bio.',
+          image: '/wormhole/tiles/web20261030-v1-2.jpg',
+        },
+        {
+          text: 'Version 3: same text, photo top right and a dark green text block.',
+          image: '/wormhole/tiles/web20261030-v1-3.jpg',
+        },
       ],
-      visual_note: 'Three versions to pick one from, single image post. Matt Drane photo with corn and soy leaf graphics. Deck: /wormhole/decks/30-10-2026-webinar-preview-matt-drane-3-versions.pptx (one version per slide, editable in Canva).',
+      visual_note:
+        'Three versions to pick one from, single image post. Matt Drane photo with corn and soy leaf graphics. Deck: /wormhole/decks/30-10-2026-webinar-preview-matt-drane-3-versions.pptx (one version per slide, editable in Canva).',
     },
     reason: 'Linnea, 28 Oct: webinar visual with Matt Drane photo, three versions.',
+  },
+  {
+    key: '2026-10-30 d13 single image with portrait',
+    post: 'd13',
+    set: {
+      slides: [
+        {
+          text: 'Meet our mentors: Tommy Tepper, Director of Education',
+          image: '/wormhole/tiles/d13-v2-1.jpg',
+        },
+      ],
+      visual_note:
+        "Family: I, portrait. Single image (Linnea, 30 Oct: not a carousel). Slide 1 of Linnea's deck Meet-our-mentors-Tommy-Tepper.pptx: Food Web Green, MEET OUR MENTORS label, Tommy's photo in a circle, name and role.",
+    },
+    reason:
+      "Linnea, 30 Oct: one image with Tommy's photo (the old tile had no picture of him). From slide 1 of her deck.",
   },
 ];
 
