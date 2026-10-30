@@ -1,8 +1,8 @@
 """Stand-in visuals for the November doc, built to docs/slide-rules.md (30 Oct).
 
-  vet20261111     Veterans Day: farm photo on top (63%), Soil Brown box below; no names on the image
+  vet20261111     Veterans Day: type card about the event (Suzanne and Warlinda at the FVC conference)
   crinfo20261105  Costa Rica info session: Education Blue info banner, class photo below
-  news-1000farms  39% soil carbon study: news card, 8 slides, big text
+  news-1000farms  39% soil carbon study (news: v4 split card; news-card: v5, the exact savesoil.py format)
   python3 tools/wormhole-visuals/nov_fill.py [ids]
 """
 import os
@@ -51,17 +51,17 @@ def photo(path, w, h, fy=0.4, lift=1.0):
 
 
 def veterans():
-    d = Deck("vet20261111", 1, "veterans-day-v2", "2026-11-11")
-    ph = 850
-    d.put(0, "Photo", photo(f"{NEW}/incubating-practice-windrow-turner-field.jpg", W, ph, 0.5), 0, 0, shadowed=False,
-          anchor="tl")
-    box(d, 0, "Brown box", BROWN, 0, ph, W, H - ph)
-    d.text(0, "Headline", "Happy Veterans Day", 72, ph + 72, 936, 110, 86, kind="montserrat-bold", italic=False,
+    """Type card about the event itself: who met, where, when. No stand-in photo (they are named)."""
+    d = Deck("vet20261111", 1, "veterans-day-v3", "2026-11-11")
+    d.bg(0, paper(CREAM, 11, w=W, h=H, grain=5), name="Background")
+    box(d, 0, "Brown box", BROWN, 72, 150, 936, 1050)
+    d.text(0, "Headline", "Happy Veterans Day", 136, 214, 808, 200, 86, kind="montserrat-bold", italic=False,
            color=CREAM, lh=1.05, min_size=84)
-    d.text(0, "Details", "Thank you to every veteran who now farms.", 72, ph + 200, 720, 140, 52, kind="source-reg",
-           italic=False, color=CREAM, lh=1.2, min_size=50)
-    logo(d, 0, WHITE, W - 72 - 150, ph + 270)
-    flower(d, 0, "norfolk-cornflower", 230, W - 200, ph - 330)
+    d.text(0, "Details", "Suzanne Shea and Warlinda Walker, two of our community, met at the Farmer Veteran "
+           "Coalition conference.\n\nWilliamsburg, Virginia, October 2026.", 136, 440, 760, 650, 52,
+           kind="source-reg", italic=False, color=CREAM, lh=1.22, min_size=50)
+    logo(d, 0, WHITE, W - 72 - 64 - 150, 1110)
+    flower(d, 0, "norfolk-cornflower", 240, 10, 1060)
     return d
 
 
@@ -127,8 +127,68 @@ def news():
         logo(d, k, COLOR, W - 72 - 40 - 150, top + card_h - 40 - 60, w=150)
     return d
 
+CARD_FACTS = [
+    ("1,000 Farms", "The 1000 Farms Initiative measured working farms across North America, from the most "
+     "conventional to the most regenerative. Led by Ecdysis Foundation."),
+    ("39% more soil carbon", "on the most regenerative farms."),
+    ("+181% total fungi", "in the most regenerative soils (figure 3 of the paper)."),
+    ("More life everywhere", "Soil microbes, insects, plants and birds. The more biodiversity, the more carbon "
+     "stored."),
+    ("Same yields", "Yields matched national averages, and net profit per acre was similar."),
+    ("The whole system counts", "Farms using one regenerative practice alone looked like conventional farms."),
+    ("Read the paper", "Lundgren et al., Environmental Research: Food Systems, 2026. Link in bio."),
+]
 
-BUILD = {"vet20261111": veterans, "crinfo20261105": info_session, "news-1000farms": news}
+
+def news_card():
+    """The news card format exactly as savesoil.py / the Save Soil posts: one cream card on the green grain
+    (article image with outlet tab, credit, green bar + headline, blurb), Read More and Source under the card,
+    the logo disc top left. Fact slides: one cream card, green bar, headline. Text at docs/slide-rules.md sizes."""
+    from regen_news import arrow_disc, logo_disc
+    n = 1 + len(CARD_FACTS)
+    d = Deck("news-1000farms", n, "regenerative-farms-39-percent-carbon-v5", "2026-11-20")
+    d.bg(None, grain(W * n, H, 339).convert("RGBA"), name="Background")
+    for k in range(n):
+        d.put(k, "Logo", logo_disc(110), 40, 36, shadowed=False, anchor="tl")
+    cx, cw = 72, 936
+    # cover
+    box(d, 0, "Card", CREAM, cx, 176, cw, 1000)
+    px, py, pw, ph = cx + 28, 204, cw - 56, 400
+    d.put(0, "Article image: Figure 2, Lundgren et al. 2026", photo(FIG, pw, ph, 0.0), px, py, shadowed=False,
+          anchor="tl")
+    box(d, 0, "Tab", BROWN, px, py + ph - 64, 640, 64)
+    d.text(0, "Tab text", "ENVIRONMENTAL RESEARCH: FOOD SYSTEMS", px + 20, py + ph - 58, 610, 56, 46, kind="pathway",
+           italic=False, color=CREAM, lh=1.0, min_size=42)
+    d.text(0, "Credit", "Figure 2, Lundgren et al. 2026, CC BY 4.0", px, py + ph + 10, pw, 50, 42, kind="source-reg",
+           italic=False, color="#6E5452", lh=1.0, align="right", min_size=42)
+    bottom = d.text(0, "Headline", "Regenerative farms stored 39% more soil carbon", px + 34, 676, pw - 50, 290, 84,
+                    kind="montserrat-bold", italic=False, color=BROWN, lh=1.05, min_size=84)
+    box(d, 0, "Bar", LGREEN, px, 684, 10, round(bottom) - 690)
+    d.text(0, "Details", "A study of working farms across North America.", px + 34, round(bottom) + 24, pw - 50, 140,
+           52, kind="source-reg", italic=False, color=INK, lh=1.2, min_size=50)
+    d.text(0, "Read More", "Read More", cx + 4, 1204, 300, 64, 52, kind="mont-medium", italic=False, color=CREAM,
+           lh=1.0, min_size=50)
+    d.put(0, "Arrow", arrow_disc().resize((48, 48), Image.LANCZOS), cx + 318, 1210, shadowed=False, anchor="tl")
+    d.text(0, "Source", "Source:\ndoi.org/10.1088/2976-601X/ae8f4e", cx + 380, 1200, cw - 380, 110, 42,
+           kind="source-reg", italic=False, color=CREAM, lh=1.15, align="right", min_size=42)
+    # facts: one card each, bar beside the headline, detail under it
+    for k, (headline, detail) in enumerate(CARD_FACTS, start=1):
+        y_h = d.text(k, "Headline", headline, 166, 0, 790, 460, 84, kind="montserrat-bold", italic=False,
+                     color=BROWN, lh=1.05, min_size=84)
+        h_item = d.items[-1]
+        y_d = d.text(k, "Details", detail, 166, round(y_h) + 32, 790, 420, 52, kind="source-reg", italic=False,
+                     color=INK, lh=1.22, min_size=50)
+        d_item = d.items[-1]
+        card_h = round(y_d) + 2 * 80
+        top = (H - card_h) // 2
+        h_item["y"] += top + 80
+        d_item["y"] += top + 80
+        box(d, k, "Card", CREAM, cx, top, cw, card_h)
+        box(d, k, "Bar", LGREEN, 124, top + 90, 10, round(y_h) - 14)
+    return d
+
+
+BUILD = {"vet20261111": veterans, "crinfo20261105": info_session, "news-1000farms": news, "news-card": news_card}
 
 if __name__ == "__main__":
     for pid in sys.argv[1:] or BUILD:

@@ -8726,6 +8726,63 @@ export const CHANGES: Change[] = [
     },
     reason: 'Stand-in info session visual until Linnea adds hers.',
   },
+  {
+    key: '2026-10-31 news-1000farms news card v5',
+    post: 'news-1000farms',
+    set: {
+      slides: [
+        {
+          text: 'Regenerative farms stored 39% more soil carbon. A study of working farms across North America.',
+          image: '/wormhole/tiles/news-1000farms-v5-1.jpg',
+        },
+        {
+          text: '1,000 Farms. The 1000 Farms Initiative measured working farms across North America, from the most conventional to the most regenerative. Led by Ecdysis Foundation.',
+          image: '/wormhole/tiles/news-1000farms-v5-2.jpg',
+        },
+        {
+          text: '39% more soil carbon on the most regenerative farms.',
+          image: '/wormhole/tiles/news-1000farms-v5-3.jpg',
+        },
+        {
+          text: '+181% total fungi in the most regenerative soils (figure 3 of the paper).',
+          image: '/wormhole/tiles/news-1000farms-v5-4.jpg',
+        },
+        {
+          text: 'More life everywhere. Soil microbes, insects, plants and birds. The more biodiversity, the more carbon stored.',
+          image: '/wormhole/tiles/news-1000farms-v5-5.jpg',
+        },
+        {
+          text: 'Same yields. Yields matched national averages, and net profit per acre was similar.',
+          image: '/wormhole/tiles/news-1000farms-v5-6.jpg',
+        },
+        {
+          text: 'The whole system counts. Farms using one regenerative practice alone looked like conventional farms.',
+          image: '/wormhole/tiles/news-1000farms-v5-7.jpg',
+        },
+        {
+          text: 'Read the paper. Lundgren et al., Environmental Research: Food Systems, 2026. Link in bio.',
+          image: '/wormhole/tiles/news-1000farms-v5-8.jpg',
+        },
+      ],
+    },
+    reason:
+      "Linnea, 30 Oct: v4 broke the news shoutout format. v5 is the exact savesoil.py card (one cream card with the article image, outlet tab, credit, green bar headline and blurb; Read More and Source under it; logo disc top left; one card per fact) at the slide-rules text sizes. Slide 4 says +181% total fungi (the paper's figure 3). Deck: 20-11-2026-regenerative-farms-39-percent-carbon-v5.pptx.",
+  },
+  {
+    key: '2026-10-31 vet20261111 type card v3',
+    post: 'vet20261111',
+    set: {
+      slides: [
+        {
+          text: 'Happy Veterans Day. Suzanne Shea and Warlinda Walker, two of our community, met at the Farmer Veteran Coalition conference. Williamsburg, Virginia, October 2026.',
+          image: '/wormhole/tiles/vet20261111-v3-1.jpg',
+        },
+      ],
+      visual_note:
+        "Family: B, type only. Type card about the event itself (Allison's doc: Suzanne and Warlinda met at the Farmer Veteran Coalition conference). Replaces the v2 field photo, which had nothing to do with the story. Swap for their own conference photos with the photo-space version (11-11-2026-veterans-day-v1.pptx) once Allison has them. Deck: 11-11-2026-veterans-day-v3.pptx.",
+    },
+    reason: 'Linnea, 30 Oct: the v2 photo did not show the story.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES);
