@@ -8251,30 +8251,6 @@ export const CHANGES: Change[] = [
     set: { iso_date: '2026-10-31', date_tbd: false },
     reason: 'Linnea, 30 Oct: the website announcement goes out tomorrow (2026-10-31).',
   },
-  {
-    key: '2026-10-30 crinfo20261105 visual v1',
-    post: 'crinfo20261105',
-    set: {
-      slides: [
-        {
-          text: 'Free live info session: Costa Rica Accelerator Workshop. Fri 6 Nov, 12pm Pacific, on Zoom. Link in bio.',
-          image: '/wormhole/tiles/crinfo20261105-v1-1.jpg',
-        },
-      ],
-      link: 'https://www.addevent.com/event/r4wt0g3yjd4h',
-      sources: [
-        'November 2026 Social Media Planning Doc: Thursday, Nov. 5 Costa Rica Info Session Reminder',
-        'Costa Rica 2027 sales page: https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
-        'Info session calendar entry (Fri 6 Nov, 2pm to 3pm CST, 12pm Pacific, Zoom, recorded): https://www.addevent.com/event/r4wt0g3yjd4h',
-      ],
-      visual_note:
-        'Family: M, event card. Built with tools/wormhole-visuals/nov_doc.py (deck 05-11-2026-costa-rica-info-session-v1.pptx). Photo: the class listening in the shed at Armonía, Costa Rica, October 2025 (PXL_20251024_162714282, catalog pick, brightened, used on no other post).',
-    },
-    captionText:
-      "Thinking about joining us in Costa Rica? Come and ask us anything tomorrow! 🌿\n\nOur free live info session for the Costa Rica Accelerator Workshop is on Friday, November 6, at 12pm Pacific (2pm Central) on Zoom. We will walk you through the workshop schedule, preparation tips, accommodations and meals, and you can meet members of the workshop team and ask your questions.\n\nThe workshop runs 18 to 29 January 2027 at Armonía Orgánica in Heredia, Costa Rica. Can't make it live? The session will be recorded.\n\nAdd it to your calendar, link in bio: https://www.addevent.com/event/r4wt0g3yjd4h\n\n#SoilFoodWeb #CostaRica #Compost #Workshop #LivingSoil #SoilHealth",
-    reason:
-      'Visual and caption (30 Oct) from the course page and the info session calendar entry: Fri 6 Nov, 12pm Pacific, Zoom, recorded.',
-  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES);
