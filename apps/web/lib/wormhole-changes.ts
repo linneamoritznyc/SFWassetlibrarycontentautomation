@@ -7869,6 +7869,21 @@ export const CHANGES: Change[] = [
     reason:
       "Linnea, 30 Oct: cover in her flower frame (Canva deck Mentor-Profile-Images) with Dora Tkalec's photo and name. Deck: mentor-profiles-flower-frame.pptx.",
   },
+  {
+    key: '2026-10-30 d13 linnea final',
+    post: 'd13',
+    set: {
+      slides: [
+        {
+          text: 'Tommy Tepper, Soil Food Web Mentor',
+          image: '/wormhole/tiles/d13-linnea-1.jpg',
+        },
+      ],
+      visual_note:
+        "Family: I, portrait. Linnea's finished design (30 Oct): Tommy's photo in her flower frame, his name and Soil Food Web Mentor below, logo bottom right. Single image.",
+    },
+    reason: 'Linnea, 30 Oct: her finished Tommy Tepper design.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES);
