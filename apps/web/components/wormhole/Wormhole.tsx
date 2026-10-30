@@ -433,7 +433,9 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
                 <div className="relative w-full sm:w-72">
                   <input
                     ref={searchBox}
-                    type="search"
+                    type="text"
+                    inputMode="search"
+                    enterKeyHint="search"
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
                     onKeyDown={(e) => {
