@@ -8265,6 +8265,173 @@ export const CHANGES: Change[] = [
     reason:
       "Linnea, 30 Oct: the final 'Join us tomorrow' design from Canva (webinar-reminder-matt-drane, Week 1 Nov 2-8).",
   },
+  {
+    key: '2026-10-30 cr20261103 allison final',
+    post: 'cr20261103',
+    set: {
+      slides: [
+        {
+          text: 'Early nematode pricing ends November 4. Accelerator Workshop, Costa Rica.',
+          image: '/wormhole/tiles/cr20261103-allison-1.jpg',
+        },
+        {
+          text: 'Ten days of intensive, hands-on training. 18 to 29 January 2027, Armonía, Heredia.',
+          image: '/wormhole/tiles/cr20261103-allison-2.jpg',
+        },
+        {
+          text: 'Build BioComplete™ compost with your team. Choose feedstocks, write your recipes, manage several batches side by side.',
+          image: '/wormhole/tiles/cr20261103-allison-3.jpg',
+        },
+        {
+          text: 'Brew compost extracts and teas. Protozoan infusions and nematode extractions.',
+          image: '/wormhole/tiles/cr20261103-allison-4.jpg',
+        },
+        {
+          text: 'Read the biology, with a mentor beside you.',
+          image: '/wormhole/tiles/cr20261103-allison-5.jpg',
+        },
+      ],
+    },
+    reason:
+      "Linnea, 30 Oct: Allison's final early nematode carousel from Canva (Allison-final-CR-early-nematode, Week 1 Nov 2-8).",
+  },
+  {
+    key: '2026-10-30 p06 linnea final',
+    post: 'p06',
+    set: {
+      slides: [
+        { text: 'Gerald Ramirez, Soil Food Web Mentor', image: '/wormhole/tiles/p06-linnea-1.jpg' },
+        {
+          text: 'Gerald teaches students to make compost extracts and teas. Costa Rica, March 2025',
+          image: '/wormhole/tiles/p06-2.jpg',
+        },
+        {
+          text: 'They carry living biology from the compost out onto the fields. Thank you, Gerald!',
+          image: '/wormhole/tiles/p06-3.jpg',
+        },
+      ],
+    },
+    reason:
+      'Linnea, 30 Oct: her final Canva image for Gerald Ramirez (better photo), replacing the rebuilt version.',
+  },
+  {
+    key: '2026-10-30 p03 linnea final',
+    post: 'p03',
+    set: {
+      slides: [
+        { text: 'Nick Padwick, Soil Food Web Mentor', image: '/wormhole/tiles/p03-linnea-1.jpg' },
+        {
+          text: 'More than 40 years farming at scale, in the UK, Italy, Spain and Argentina.',
+          image: '/wormhole/tiles/p03-2.jpg',
+        },
+        {
+          text: 'Today he makes around 750 tons of compost a year. Thank you, Nick, for showing our students what this looks like at scale.',
+          image: '/wormhole/tiles/p03-3.jpg',
+        },
+      ],
+    },
+    reason:
+      'Linnea, 30 Oct: her final Canva image for Nick Padwick (better photo), replacing the rebuilt version.',
+  },
+  {
+    key: '2026-10-30 p09 linnea final',
+    post: 'p09',
+    set: {
+      slides: [
+        { text: 'Dora Tkalec, Soil Food Web Mentor', image: '/wormhole/tiles/p09-linnea-1.jpg' },
+        {
+          text: 'Her favourite microbe: the naked amoeba. “A slimy splotch that changes shape, and every species keeps its own.”',
+          image: '/wormhole/tiles/p09-2.jpg',
+        },
+        {
+          text: '“I have seen plants treated with BioComplete™ compost extract being more resistant to bacterial disease.” Thank you, Dora!',
+          image: '/wormhole/tiles/p09-3.jpg',
+        },
+      ],
+    },
+    reason:
+      'Linnea, 30 Oct: her final Canva image for Dora Tkalec (better photo), replacing the rebuilt version.',
+  },
+  {
+    key: '2026-10-30 d05 linnea final',
+    post: 'd05',
+    set: {
+      slides: [
+        {
+          text: 'Dr. Carla Portugal, Soil Food Web Mentor',
+          image: '/wormhole/tiles/d05-linnea-1.jpg',
+        },
+      ],
+    },
+    reason:
+      'Linnea, 30 Oct: her final Canva image for Dr. Carla Portugal (better photo), replacing the rebuilt version.',
+  },
+  {
+    key: '2026-10-30 p04 linnea final',
+    post: 'p04',
+    set: {
+      slides: [
+        { text: 'Wes Sander, Soil Food Web Mentor', image: '/wormhole/tiles/p04-linnea-1.jpg' },
+        {
+          text: "His favourite organism: the Arcella amoeba. “There's just something about that large test that you can almost see inside of, with the amoeba squished up against the wall. So cool.” Arcella at 40x, photographed by student Mark Horton.",
+          image: '/wormhole/tiles/p04-2.jpg',
+        },
+        {
+          text: "“It depends,” as Dr. Elaine loved to say. Wes's advice: success hinges on reading the signs. Thank you, Wes!",
+          image: '/wormhole/tiles/p04-3.jpg',
+        },
+      ],
+    },
+    reason:
+      'Linnea, 30 Oct: her final Canva image for Wes Sander (better photo), replacing the rebuilt version.',
+  },
+  {
+    key: '2026-10-30 d11 linnea final',
+    post: 'd11',
+    set: {
+      slides: [
+        {
+          text: 'Brian Daubenspeck, Soil Food Web Mentor',
+          image: '/wormhole/tiles/d11-linnea-1.jpg',
+        },
+      ],
+    },
+    reason:
+      'Linnea, 30 Oct: her final Canva image for Brian Daubenspeck (better photo), replacing the rebuilt version.',
+  },
+  {
+    key: '2026-10-30 p02 linnea final',
+    post: 'p02',
+    set: {
+      slides: [
+        { text: 'Casey Williams, Soil Food Web Mentor', image: '/wormhole/tiles/p02-linnea-1.jpg' },
+        {
+          text: '“I am deeply grateful that I get to learn from my students as well as teach them.” A bacterial-feeding nematode at 40x, photographed by Casey.',
+          image: '/wormhole/tiles/p02-2.jpg',
+        },
+        {
+          text: 'His advice: put your hands in the soil. We learn best by doing. Thank you, Casey!',
+          image: '/wormhole/tiles/p02-3.jpg',
+        },
+      ],
+    },
+    reason:
+      'Linnea, 30 Oct: her final Canva image for Casey Williams (better photo), replacing the rebuilt version.',
+  },
+  {
+    key: '2026-10-30 d12 linnea final',
+    post: 'd12',
+    set: {
+      slides: [
+        {
+          text: 'Delvin Solkinson, Soil Food Web Mentor',
+          image: '/wormhole/tiles/d12-linnea-1.jpg',
+        },
+      ],
+    },
+    reason:
+      'Linnea, 30 Oct: her final Canva image for Delvin Solkinson (better photo), replacing the rebuilt version.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES);
