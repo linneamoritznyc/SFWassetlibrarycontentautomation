@@ -124,6 +124,9 @@ These come from Linnea's edits. Break none of them.
 - A photo must show the post's actual subject and be a strong picture: sharp, well lit, the real people or place. A generic photo (raised beds for a PDC graduation, a random field) is a bad picture; leave a labelled photo space instead.
 - **One photo, one post.** A photo is used once in the whole feed, never on two posts (not even cropped differently). Before using a photo, run `python3 tools/wormhole-visuals/photo_check.py <photo>` (finds it even cropped); `--dupes` lists every shared photo.
 - Purple only on Dr. Elaine content, gold only on donate buttons. A purple box on a course promo is wrong.
+- **Big, readable text, always.** Posts are read on a phone. Headlines at least 80 px on a 1080 x 1350 slide, body and fact text at least 48 px, nothing under 30 px (credits included). Fewer words, bigger type. If it doesn't fit, cut words or split the slide; never shrink the text.
+- **Check Wormhole and the repo first.** Before building any visual, search Wormhole and the repo for an existing post or design for that topic.
+- **News posts use the news card format** (savesoil.py: cream card on Food Web Green, article image with outlet tab, headline beside a green bar, Read More and source).
 - Banned photo: the raised wooden garden beds with onions and cabbage (`pdc_beds.jpg`). Linnea hates it; never use it on socials.
 
 - Variety across the grid: docs/feed-guide.md. Neighbouring posts never share a style family; write the family in each visual note and check with tools/wormhole-visuals/grid_check.py.

@@ -124,6 +124,9 @@ These come from Linnea's edits. Break none of them.
 - A photo must show the post's actual subject and be a strong picture: sharp, well lit, the real people or place. A generic photo (raised beds for a PDC graduation, a random field) is a bad picture; leave a labelled photo space instead.
 - **One photo, one post.** A photo is used once in the whole feed, never on two posts (not even cropped differently). Before using a photo, run `python3 tools/wormhole-visuals/photo_check.py <photo>` (finds it even cropped); `--dupes` lists every shared photo.
 - Purple only on Dr. Elaine content, gold only on donate buttons. A purple box on a course promo is wrong.
+- **Big, readable text, always.** Posts are read on a phone. Headlines at least 80 px on a 1080 x 1350 slide, body and fact text at least 48 px, nothing under 30 px (credits included). Fewer words, bigger type. If it doesn't fit, cut words or split the slide; never shrink the text.
+- **Check Wormhole and the repo first.** Before building any visual, search Wormhole and the repo for an existing post or design for that topic.
+- **News posts use the news card format** (savesoil.py: cream card on Food Web Green, article image with outlet tab, headline beside a green bar, Read More and source).
 
 - Palette from the brand guide: greens and cream. Cream works as a shape, the background stays green or photographic. Gold only on donate CTAs. Purple only for Dr. Elaine memorial content. One shadow value.
 - Real images only: SFW workshop footage and photos (New Mexico compost workshop, Wild Ken Hill, Cyprus, India), microscopy, field photos, partner-supplied portraits. No stock photos. No AI-generated pictures of people, farms or soil.
