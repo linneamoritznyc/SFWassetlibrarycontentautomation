@@ -8432,6 +8432,58 @@ export const CHANGES: Change[] = [
     reason:
       'Linnea, 30 Oct: her final Canva image for Delvin Solkinson (better photo), replacing the rebuilt version.',
   },
+  {
+    key: '2026-10-30 news-1000farms new',
+    post: 'news-1000farms',
+    create: {
+      iso_date: '2026-11-18',
+      date_tbd: true,
+      topic: 'New study: regenerative farms store 39% more soil carbon',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        "The most regenerative farms stored 39% more carbon in their soil. 🌱\nA new peer-reviewed paper from Ecdysis Foundation's 1000 Farms Initiative measured working farms across North America. Compared with the most conventional farms, the most regenerative farms had 39% more total soil carbon, 77% more total fungi, and more soil microbes, insects, plants and birds. Yields matched national averages, and net profit per acre was similar.\nOne finding stands out for everyone who works with soil biology: a single regenerative practice on its own changed nothing. The results came from managing the whole system.\n🔗 Read the full paper at the link in our bio.\n\n#RegenerativeAgriculture #SoilCarbon #SoilHealth #SoilFoodWeb",
+      slides: [
+        {
+          text: 'A new study of working farms: the most regenerative farms stored 39% more carbon in their soil.',
+          image: null,
+        },
+        {
+          text: 'The 1000 Farms Initiative, led by Ecdysis Foundation, measured farms across North America, from the most conventional to the most regenerative.',
+          image: null,
+        },
+        { text: '39% more total soil carbon on the most regenerative farms.', image: null },
+        { text: '77% more total fungi in regenerative soils.', image: null },
+        {
+          text: 'More life everywhere: soil microbes, insects, plants and birds. The more biodiversity, the more carbon stored.',
+          image: null,
+        },
+        {
+          text: 'Regenerative yields matched national averages, and net profit per acre was similar.',
+          image: null,
+        },
+        {
+          text: 'One practice alone changed nothing. Farms using a single regenerative practice looked like conventional farms. The whole system matters.',
+          image: null,
+        },
+        {
+          text: 'Read the paper: Lundgren et al., Environmental Research: Food Systems, 2026.',
+          image: null,
+        },
+      ],
+      cta: 'Read the full paper, link in bio',
+      link: 'https://iopscience.iop.org/article/10.1088/2976-601X/ae8f4e',
+      sources: [
+        'Lundgren et al., "Regenerative agriculture: connecting soil carbon storage, biodiversity, and profit", Environmental Research: Food Systems, 2026: https://doi.org/10.1088/2976-601X/ae8f4e',
+        'Ecdysis Foundation press release, 17 September 2026 (net profit per acre, 1000 Farms Initiative): https://www.globenewswire.com/news-release/2026/09/17/3363925/0/en/regenerative-farming-outpaces-tech-based-carbon-capture-solutions-in-first-large-scale-systemic-study.html',
+        'Shared by Evan Buckman in Slack.',
+      ],
+      visual_note:
+        "Visual done: https://canva.link/xvqi3t5axtkxil3 Made by Linnea. It's a bit ugly but I didn't really have any creative idea for it. Would love if Allison Duck could go over the text on the slides in the carousel.",
+      note: "LinkedIn version of the caption:\\n\\nA landmark paper from the 1000 Farms Initiative is out, and it measures regenerative agriculture the way farmers practice it: as a whole system.\nEcdysis Foundation researchers placed working farms across North America on a scale from most conventional to most regenerative. The most regenerative farms held 39% more total carbon in their soil and 77% more total fungi. Soil microbes, insects, plants and birds were all more abundant, and that biodiversity tracked closely with how much carbon each field stored.\nRegenerative yields matched national averages, and net profit per acre was similar to conventional farms.\nThe finding we'd point every consultant to: farms using just one regenerative practice looked the same as conventional farms. The outcomes came from the full system, living soil included.\nCongratulations to Dr. Jonathan Lundgren and the Ecdysis team.\nRead the paper: https://doi.org/10.1088/2976-601X/ae8f4e\n\n#RegenerativeAgriculture #SoilHealth #SoilCarbon #SoilFoodWeb\\n\\nTO CHECK (Claude, from the paper itself): the paper's measured result is +181% total fungi (figure 3); 77% appears in the paper only as a target in table 2, so slide 4 and both captions may need changing, unless the press release says 77%. The paper also says conventional farms had higher mean yields, while regenerative yields were equivalent to national averages.",
+      status: 'draft',
+    },
+    reason: 'Linnea, 30 Oct: post from the November doc with her finished Canva visual. Date TBD.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES);
