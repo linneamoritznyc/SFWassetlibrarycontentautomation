@@ -8012,6 +8012,62 @@ export const CHANGES: Change[] = [
     reason:
       'Linnea, 30 Oct: cover in her final mentor design (flower frame, name, Soil Food Web Mentor, logo bottom right), like her Tommy Tepper. Deck: mentor-profiles.pptx.',
   },
+  {
+    key: '2026-10-30 p06 moved to 2026-11-04',
+    post: 'p06',
+    set: { iso_date: '2026-11-04', date_tbd: false },
+    reason:
+      'Linnea, 30 Oct: all mentors go out in the first two weeks of November, one every day or two from Mon 2 Nov. Gerald Ramirez on 2026-11-04. Decks for Canva: /wormhole/decks/mentors-november.zip.',
+  },
+  {
+    key: '2026-10-30 p03 moved to 2026-11-06',
+    post: 'p03',
+    set: { iso_date: '2026-11-06', date_tbd: false },
+    reason:
+      'Linnea, 30 Oct: all mentors go out in the first two weeks of November, one every day or two from Mon 2 Nov. Nick Padwick on 2026-11-06. Decks for Canva: /wormhole/decks/mentors-november.zip.',
+  },
+  {
+    key: '2026-10-30 p09 moved to 2026-11-08',
+    post: 'p09',
+    set: { iso_date: '2026-11-08', date_tbd: false },
+    reason:
+      'Linnea, 30 Oct: all mentors go out in the first two weeks of November, one every day or two from Mon 2 Nov. Dora Tkalec on 2026-11-08. Decks for Canva: /wormhole/decks/mentors-november.zip.',
+  },
+  {
+    key: '2026-10-30 d05 moved to 2026-11-09',
+    post: 'd05',
+    set: { iso_date: '2026-11-09', date_tbd: false },
+    reason:
+      'Linnea, 30 Oct: all mentors go out in the first two weeks of November, one every day or two from Mon 2 Nov. Dr. Carla Portugal on 2026-11-09. Decks for Canva: /wormhole/decks/mentors-november.zip.',
+  },
+  {
+    key: '2026-10-30 p04 moved to 2026-11-10',
+    post: 'p04',
+    set: { iso_date: '2026-11-10', date_tbd: false },
+    reason:
+      'Linnea, 30 Oct: all mentors go out in the first two weeks of November, one every day or two from Mon 2 Nov. Wes Sander on 2026-11-10. Decks for Canva: /wormhole/decks/mentors-november.zip.',
+  },
+  {
+    key: '2026-10-30 d11 moved to 2026-11-12',
+    post: 'd11',
+    set: { iso_date: '2026-11-12', date_tbd: false },
+    reason:
+      'Linnea, 30 Oct: all mentors go out in the first two weeks of November, one every day or two from Mon 2 Nov. Brian Daubenspeck on 2026-11-12. Decks for Canva: /wormhole/decks/mentors-november.zip.',
+  },
+  {
+    key: '2026-10-30 p02 moved to 2026-11-14',
+    post: 'p02',
+    set: { iso_date: '2026-11-14', date_tbd: false },
+    reason:
+      'Linnea, 30 Oct: all mentors go out in the first two weeks of November, one every day or two from Mon 2 Nov. Casey Williams on 2026-11-14. Decks for Canva: /wormhole/decks/mentors-november.zip.',
+  },
+  {
+    key: '2026-10-30 d12 moved to 2026-11-15',
+    post: 'd12',
+    set: { iso_date: '2026-11-15', date_tbd: false },
+    reason:
+      'Linnea, 30 Oct: all mentors go out in the first two weeks of November, one every day or two from Mon 2 Nov. Delvin Solkinson on 2026-11-15. Decks for Canva: /wormhole/decks/mentors-november.zip.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES);
