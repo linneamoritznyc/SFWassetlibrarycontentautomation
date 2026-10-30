@@ -26,6 +26,42 @@ export function postDay(post: WormholePost, style: 'long' | 'short' = 'long'): s
 }
 
 /** Dated posts in date order, then the ones with no date yet. */
+/** Lower case, no accents, so "Armonía" matches "armonia". */
+function fold(s: string): string {
+  return s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+}
+
+/** Everything a person might search a post for: words, notes, sources, id and its date. */
+function searchText(p: WormholePost): string {
+  const date = p.date_tbd
+    ? 'date tbd'
+    : `${p.iso_date} ${dayLabel(p.iso_date)} ${dayLabel(p.iso_date, 'short')}`;
+  return fold(
+    [
+      p.id,
+      p.topic,
+      p.platform,
+      p.caption,
+      ...p.slides.map((s) => s.text),
+      p.cta,
+      p.link,
+      ...p.sources,
+      p.visual_note,
+      p.note,
+      p.status,
+      date,
+    ].join('\n'),
+  );
+}
+
+/** True when every word of the query appears somewhere in the post. An empty query matches all. */
+export function matchesSearch(p: WormholePost, query: string): boolean {
+  const words = fold(query).split(/\s+/).filter(Boolean);
+  if (words.length === 0) return true;
+  const text = searchText(p);
+  return words.every((w) => text.includes(w));
+}
+
 export function byDate(a: WormholePost, b: WormholePost): number {
   return (
     Number(a.date_tbd) - Number(b.date_tbd) ||
@@ -93,7 +129,11 @@ export async function prepareImage(
   ctx.fillRect(0, 0, width, height);
   ctx.drawImage(bitmap, 0, 0, width, height);
   const blob = await new Promise<Blob>((resolve, reject) =>
-    canvas.toBlob((b) => (b ? resolve(b) : reject(new Error('Could not read image'))), 'image/jpeg', 0.9),
+    canvas.toBlob(
+      (b) => (b ? resolve(b) : reject(new Error('Could not read image'))),
+      'image/jpeg',
+      0.9,
+    ),
   );
   return { blob, width, height };
 }
@@ -128,7 +168,11 @@ const P = 'font-family:Arial;font-size:11pt;font-weight:normal;color:#000000;mar
 const h2 = (t: string) => `<h2 style="${H2}">${t}</h2>`;
 const h3 = (t: string) => `<h3 style="${H3}">${t}</h3>`;
 const para = (t: string) => `<p style="${P}">${t}</p>`;
-const rows = (s: string) => s.split('\n').map((line) => para(esc(line) || '<br>')).join('');
+const rows = (s: string) =>
+  s
+    .split('\n')
+    .map((line) => para(esc(line) || '<br>'))
+    .join('');
 
 /** "✔️" = in the scheduler. No asterisk: in Stephanie's doc that is hers to set. */
 export function docDate(p: WormholePost): string {
@@ -156,7 +200,10 @@ export function toDocHtml(
     const slides = p.slides
       .map((s, i) =>
         s.text.trim()
-          ? s.text.split('\n').map((line, j) => para((j === 0 ? `Slide ${i + 1}: ` : '') + esc(line))).join('')
+          ? s.text
+              .split('\n')
+              .map((line, j) => para((j === 0 ? `Slide ${i + 1}: ` : '') + esc(line)))
+              .join('')
           : '',
       )
       .join('');

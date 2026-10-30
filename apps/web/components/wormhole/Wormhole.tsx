@@ -7,7 +7,7 @@ import { Editor } from './Editor';
 import { News } from './News';
 import { DateChip, GridTile, InstagramPost, LinkedInPost, PostBar } from './Posts';
 import { Stories, isStory } from './Stories';
-import { byDate, thumbFor, toDocHtml, weekLabel, weekOf } from './util';
+import { byDate, matchesSearch, thumbFor, toDocHtml, weekLabel, weekOf } from './util';
 
 type View = 'instagram' | 'grid' | 'stories' | 'linkedin' | 'news';
 type SaveState = 'saving' | 'saved' | 'error';
@@ -27,6 +27,8 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
   const [week, setWeek] = useState<string>('all');
   const [status, setStatus] = useState<'all' | WormholeStatus>('all');
   const [missingOnly, setMissingOnly] = useState(false);
+  const [query, setQuery] = useState('');
+  const searchBox = useRef<HTMLInputElement>(null);
   const [editing, setEditing] = useState<string | null>(null);
   const [saveState, setSaveState] = useState<Record<string, SaveState>>({});
   const [big, setBig] = useState(false);
@@ -142,6 +144,31 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
     return () => window.removeEventListener('beforeunload', warn);
   }, []);
 
+  // The search lives in the address (?q=...) so a search can be shared as a link.
+  useEffect(() => {
+    const q = new URLSearchParams(window.location.search).get('q');
+    if (q) setQuery(q);
+  }, []);
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    if (query.trim()) url.searchParams.set('q', query.trim());
+    else url.searchParams.delete('q');
+    window.history.replaceState(null, '', url);
+  }, [query]);
+  // "/" jumps to the search box from anywhere on the page except while typing.
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      const t = e.target as HTMLElement;
+      if (e.key !== '/' || t.isContentEditable || /^(input|textarea|select)$/i.test(t.tagName)) {
+        return;
+      }
+      e.preventDefault();
+      searchBox.current?.focus();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
+
   const weeks = useMemo(() => Array.from(new Set(posts.map((p) => weekOf(p)))).sort(), [posts]);
 
   const visible = useMemo(
@@ -150,9 +177,10 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
         (p) =>
           (week === 'all' || weekOf(p) === week) &&
           (status === 'all' || p.status === status) &&
-          (!missingOnly || noVisual(p)),
+          (!missingOnly || noVisual(p)) &&
+          matchesSearch(p, query),
       ),
-    [posts, week, status, missingOnly],
+    [posts, week, status, missingOnly, query],
   );
   const missingCount = useMemo(() => posts.filter(noVisual).length, [posts]);
 
@@ -218,6 +246,7 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
     setWeek('all');
     setStatus('all');
     setMissingOnly(false);
+    setQuery('');
     setView('instagram');
     if (edit) setEditing(id);
     setTimeout(
@@ -401,6 +430,32 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
           <div className="mt-3 flex flex-wrap items-center gap-2">
             {view !== 'news' && (
               <>
+                <div className="relative w-full sm:w-72">
+                  <input
+                    ref={searchBox}
+                    type="search"
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Escape') {
+                        setQuery('');
+                        e.currentTarget.blur();
+                      }
+                    }}
+                    placeholder="Search posts   ( / )"
+                    aria-label="Search posts"
+                    className={`${select} w-full pr-9`}
+                  />
+                  {query && (
+                    <button
+                      onClick={() => setQuery('')}
+                      aria-label="Clear search"
+                      className="absolute right-2 top-1/2 -translate-y-1/2 px-1 text-xl leading-none text-neutral-500"
+                    >
+                      ×
+                    </button>
+                  )}
+                </div>
                 <select
                   className={select}
                   value={week}
@@ -468,7 +523,11 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
         {view === 'news' && <News posts={posts} onPlan={planStory} onOpen={(id) => openPost(id)} />}
 
         {loaded && visible.length === 0 && view !== 'news' && (
-          <p className="text-lg text-neutral-500">No posts match. Try “All weeks”.</p>
+          <p className="text-lg text-neutral-500">
+            {query.trim()
+              ? `No posts match “${query.trim()}”${week !== 'all' || status !== 'all' ? ' in this week and status. Try “All weeks” and “Every status”.' : '.'}`
+              : 'No posts match. Try “All weeks”.'}
+          </p>
         )}
 
         {view === 'instagram' && (
