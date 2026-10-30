@@ -7792,6 +7792,83 @@ export const CHANGES: Change[] = [
     reason:
       "Linnea, 30 Oct: one image with Tommy's photo (the old tile had no picture of him). From slide 1 of her deck.",
   },
+  {
+    key: '2026-10-30 p02 flower frame',
+    post: 'p02',
+    set: {
+      slides: [
+        { text: 'Meet our mentors Casey Williams', image: '/wormhole/tiles/p02-ff-1.jpg' },
+        {
+          text: '\u201cI am deeply grateful that I get to learn from my students as well as teach them.\u201d A bacterial-feeding nematode at 40x, photographed by Casey.',
+          image: '/wormhole/tiles/p02-2.jpg',
+        },
+        {
+          text: 'His advice: put your hands in the soil. We learn best by doing. Thank you, Casey!',
+          image: '/wormhole/tiles/p02-3.jpg',
+        },
+      ],
+    },
+    reason:
+      "Linnea, 30 Oct: cover in her flower frame (Canva deck Mentor-Profile-Images) with Casey Williams's photo and name. Deck: mentor-profiles-flower-frame.pptx.",
+  },
+  {
+    key: '2026-10-30 d11 flower frame',
+    post: 'd11',
+    set: {
+      slides: [
+        { text: 'Meet our mentors: Brian Daubenspeck', image: '/wormhole/tiles/d11-ff-1.jpg' },
+      ],
+    },
+    reason:
+      "Linnea, 30 Oct: cover in her flower frame (Canva deck Mentor-Profile-Images) with Brian Daubenspeck's photo and name. Deck: mentor-profiles-flower-frame.pptx.",
+  },
+  {
+    key: '2026-10-30 d12 flower frame',
+    post: 'd12',
+    set: {
+      slides: [
+        {
+          text: 'Meet our mentors: Delvin Solkinson, Permaculture Lead',
+          image: '/wormhole/tiles/d12-ff-1.jpg',
+        },
+      ],
+    },
+    reason:
+      "Linnea, 30 Oct: cover in her flower frame (Canva deck Mentor-Profile-Images) with Delvin Solkinson's photo and name. Deck: mentor-profiles-flower-frame.pptx.",
+  },
+  {
+    key: '2026-10-30 d13 flower frame',
+    post: 'd13',
+    set: {
+      slides: [
+        {
+          text: 'Meet our mentors: Tommy Tepper, Director of Education',
+          image: '/wormhole/tiles/d13-ff-1.jpg',
+        },
+      ],
+    },
+    reason:
+      "Linnea, 30 Oct: cover in her flower frame (Canva deck Mentor-Profile-Images) with Tommy Tepper's photo and name. Deck: mentor-profiles-flower-frame.pptx.",
+  },
+  {
+    key: '2026-10-30 p09 flower frame',
+    post: 'p09',
+    set: {
+      slides: [
+        { text: 'Meet our mentors Dora Tkalec', image: '/wormhole/tiles/p09-ff-1.jpg' },
+        {
+          text: 'Her favourite microbe: the naked amoeba. \u201cA slimy splotch that changes shape, and every species keeps its own.\u201d',
+          image: '/wormhole/tiles/p09-2.jpg',
+        },
+        {
+          text: '\u201cI have seen plants treated with BioComplete\u2122 compost extract being more resistant to bacterial disease.\u201d Thank you, Dora!',
+          image: '/wormhole/tiles/p09-3.jpg',
+        },
+      ],
+    },
+    reason:
+      "Linnea, 30 Oct: cover in her flower frame (Canva deck Mentor-Profile-Images) with Dora Tkalec's photo and name. Deck: mentor-profiles-flower-frame.pptx.",
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES);
