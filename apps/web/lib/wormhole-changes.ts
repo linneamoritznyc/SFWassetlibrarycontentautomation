@@ -7884,6 +7884,134 @@ export const CHANGES: Change[] = [
     },
     reason: 'Linnea, 30 Oct: her finished Tommy Tepper design.',
   },
+  {
+    key: '2026-10-30 p06 mentor design',
+    post: 'p06',
+    set: {
+      slides: [
+        { text: 'Gerald Ramirez, Soil Food Web Mentor', image: '/wormhole/tiles/p06-mf-1.jpg' },
+        {
+          text: 'Gerald teaches students to make compost extracts and teas. Costa Rica, March 2025',
+          image: '/wormhole/tiles/p06-2.jpg',
+        },
+        {
+          text: 'They carry living biology from the compost out onto the fields. Thank you, Gerald!',
+          image: '/wormhole/tiles/p06-3.jpg',
+        },
+      ],
+    },
+    reason:
+      'Linnea, 30 Oct: cover in her final mentor design (flower frame, name, Soil Food Web Mentor, logo bottom right), like her Tommy Tepper. Deck: mentor-profiles.pptx.',
+  },
+  {
+    key: '2026-10-30 p03 mentor design',
+    post: 'p03',
+    set: {
+      slides: [
+        { text: 'Nick Padwick, Soil Food Web Mentor', image: '/wormhole/tiles/p03-mf-1.jpg' },
+        {
+          text: 'More than 40 years farming at scale, in the UK, Italy, Spain and Argentina.',
+          image: '/wormhole/tiles/p03-2.jpg',
+        },
+        {
+          text: 'Today he makes around 750 tons of compost a year. Thank you, Nick, for showing our students what this looks like at scale.',
+          image: '/wormhole/tiles/p03-3.jpg',
+        },
+      ],
+    },
+    reason:
+      'Linnea, 30 Oct: cover in her final mentor design (flower frame, name, Soil Food Web Mentor, logo bottom right), like her Tommy Tepper. Deck: mentor-profiles.pptx.',
+  },
+  {
+    key: '2026-10-30 p09 mentor design',
+    post: 'p09',
+    set: {
+      slides: [
+        { text: 'Dora Tkalec, Soil Food Web Mentor', image: '/wormhole/tiles/p09-mf-1.jpg' },
+        {
+          text: 'Her favourite microbe: the naked amoeba. “A slimy splotch that changes shape, and every species keeps its own.”',
+          image: '/wormhole/tiles/p09-2.jpg',
+        },
+        {
+          text: '“I have seen plants treated with BioComplete™ compost extract being more resistant to bacterial disease.” Thank you, Dora!',
+          image: '/wormhole/tiles/p09-3.jpg',
+        },
+      ],
+    },
+    reason:
+      'Linnea, 30 Oct: cover in her final mentor design (flower frame, name, Soil Food Web Mentor, logo bottom right), like her Tommy Tepper. Deck: mentor-profiles.pptx.',
+  },
+  {
+    key: '2026-10-30 d05 mentor design',
+    post: 'd05',
+    set: {
+      slides: [
+        { text: 'Dr. Carla Portugal, Soil Food Web Mentor', image: '/wormhole/tiles/d05-mf-1.jpg' },
+      ],
+    },
+    reason:
+      'Linnea, 30 Oct: cover in her final mentor design (flower frame, name, Soil Food Web Mentor, logo bottom right), like her Tommy Tepper. Deck: mentor-profiles.pptx.',
+  },
+  {
+    key: '2026-10-30 p04 mentor design',
+    post: 'p04',
+    set: {
+      slides: [
+        { text: 'Wes Sander, Soil Food Web Mentor', image: '/wormhole/tiles/p04-mf-1.jpg' },
+        {
+          text: "His favourite organism: the Arcella amoeba. “There's just something about that large test that you can almost see inside of, with the amoeba squished up against the wall. So cool.” Arcella at 40x, photographed by student Mark Horton.",
+          image: '/wormhole/tiles/p04-2.jpg',
+        },
+        {
+          text: "“It depends,” as Dr. Elaine loved to say. Wes's advice: success hinges on reading the signs. Thank you, Wes!",
+          image: '/wormhole/tiles/p04-3.jpg',
+        },
+      ],
+    },
+    reason:
+      'Linnea, 30 Oct: cover in her final mentor design (flower frame, name, Soil Food Web Mentor, logo bottom right), like her Tommy Tepper. Deck: mentor-profiles.pptx.',
+  },
+  {
+    key: '2026-10-30 d11 mentor design',
+    post: 'd11',
+    set: {
+      slides: [
+        { text: 'Brian Daubenspeck, Soil Food Web Mentor', image: '/wormhole/tiles/d11-mf-1.jpg' },
+      ],
+    },
+    reason:
+      'Linnea, 30 Oct: cover in her final mentor design (flower frame, name, Soil Food Web Mentor, logo bottom right), like her Tommy Tepper. Deck: mentor-profiles.pptx.',
+  },
+  {
+    key: '2026-10-30 p02 mentor design',
+    post: 'p02',
+    set: {
+      slides: [
+        { text: 'Casey Williams, Soil Food Web Mentor', image: '/wormhole/tiles/p02-mf-1.jpg' },
+        {
+          text: '“I am deeply grateful that I get to learn from my students as well as teach them.” A bacterial-feeding nematode at 40x, photographed by Casey.',
+          image: '/wormhole/tiles/p02-2.jpg',
+        },
+        {
+          text: 'His advice: put your hands in the soil. We learn best by doing. Thank you, Casey!',
+          image: '/wormhole/tiles/p02-3.jpg',
+        },
+      ],
+    },
+    reason:
+      'Linnea, 30 Oct: cover in her final mentor design (flower frame, name, Soil Food Web Mentor, logo bottom right), like her Tommy Tepper. Deck: mentor-profiles.pptx.',
+  },
+  {
+    key: '2026-10-30 d12 mentor design',
+    post: 'd12',
+    set: {
+      slides: [
+        { text: 'Delvin Solkinson, Soil Food Web Mentor', image: '/wormhole/tiles/d12-mf-1.jpg' },
+      ],
+    },
+    reason:
+      'Linnea, 30 Oct: cover in her final mentor design (flower frame, name, Soil Food Web Mentor, logo bottom right), like her Tommy Tepper. Deck: mentor-profiles.pptx.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES);
