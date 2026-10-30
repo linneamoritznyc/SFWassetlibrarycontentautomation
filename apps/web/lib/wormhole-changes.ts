@@ -8500,6 +8500,132 @@ export const CHANGES: Change[] = [
     reason:
       "Visual (Linnea, 30 Oct): cover for the thankful post; it doesn't need the staff answers.",
   },
+  {
+    key: '2026-10-31 promo-fall-bundle readable deck',
+    post: 'promo-fall-bundle',
+    set: {
+      slides: [
+        {
+          text: 'Four courses, one bundle. Plus a Compost Intensive seat.',
+          image: '/wormhole/tiles/promo-fall-bundle-readable-1.jpg',
+        },
+        {
+          text: "What's inside: the four Foundation Courses, a 2027 Compost Intensive seat, Dr. Elaine's webinar archive. Until November 30.",
+          image: '/wormhole/tiles/promo-fall-bundle-readable-2.jpg',
+        },
+      ],
+    },
+    reason:
+      "Linnea's deck 04-11-2026-foundation-courses-bundle with the text brought up to docs/slide-rules.md (30 Oct). Deck: 04-11-2026-foundation-courses-bundle-readable.pptx.",
+  },
+  {
+    key: '2026-10-31 x20261118 readable deck',
+    post: 'x20261118',
+    set: {
+      slides: [
+        {
+          text: '10 weeks online. Compost Intensive Course. Live Q&A every week.',
+          image: '/wormhole/tiles/x20261118-readable-1.jpg',
+        },
+        {
+          text: 'One skill a week: the 10 modules.',
+          image: '/wormhole/tiles/x20261118-readable-2.jpg',
+        },
+        {
+          text: 'Learn to read the heat in your compost. Starts January 2027. Included in the Foundation Courses bundle.',
+          image: '/wormhole/tiles/x20261118-readable-3.jpg',
+        },
+      ],
+    },
+    reason:
+      "Linnea's deck 09-11-2026-compost-intensive-january-cohort with the text brought up to docs/slide-rules.md (30 Oct). Deck: 09-11-2026-compost-intensive-january-cohort-readable.pptx.",
+  },
+  {
+    key: '2026-10-31 x20261125 readable deck',
+    post: 'x20261125',
+    set: {
+      slides: [
+        {
+          text: 'The Foundation Courses. Start any time. 1 Introduction to the Soil Food Web, 2 BioComplete™ Compost, 3 BioComplete™ Liquid Amendments, 4 Microscopy.',
+          image: '/wormhole/tiles/x20261125-readable-1.jpg',
+        },
+      ],
+    },
+    reason:
+      "Linnea's deck 18-11-2026-foundation-courses-start-any-time with the text brought up to docs/slide-rules.md (30 Oct). Deck: 18-11-2026-foundation-courses-start-any-time-readable.pptx.",
+  },
+  {
+    key: '2026-10-31 x20261130 readable deck',
+    post: 'x20261130',
+    set: {
+      slides: [
+        {
+          text: 'Last week. Fall Enrollment Special ends November 30.',
+          image: '/wormhole/tiles/x20261130-readable-1.jpg',
+        },
+      ],
+    },
+    reason:
+      "Linnea's deck 25-11-2026-fall-enrollment-special-last-week with the text brought up to docs/slide-rules.md (30 Oct). Deck: 25-11-2026-fall-enrollment-special-last-week-readable.pptx.",
+  },
+  {
+    key: '2026-10-31 fes20261130 readable deck',
+    post: 'fes20261130',
+    set: {
+      slides: [
+        {
+          text: 'Last day. Fall Enrollment Special ends today, November 30.',
+          image: '/wormhole/tiles/fes20261130-readable-1.jpg',
+        },
+      ],
+    },
+    reason:
+      "Linnea's deck 30-11-2026-fall-enrollment-special-last-day with the text brought up to docs/slide-rules.md (30 Oct). Deck: 30-11-2026-fall-enrollment-special-last-day-readable.pptx.",
+  },
+  {
+    key: '2026-10-31 x20261108 diwali v8',
+    post: 'x20261108',
+    set: {
+      slides: [
+        {
+          text: 'Happy Diwali. To our students, mentors and partners in India, and to everyone celebrating.',
+          image: '/wormhole/tiles/x20261108-v8-1.jpg',
+        },
+      ],
+      visual_note:
+        'Family: E, botanical. Built with tools/wormhole-visuals/diwali.py to docs/slide-rules.md: a marigold garland on Soil Brown, the greeting in a cream box, real lotus, jasmine, gloriosa and marigold cutouts along the bottom. No AI. Deck: 08-11-2026-happy-diwali-v8.pptx.',
+    },
+    reason:
+      'Diwali visual (Linnea, 30 Oct: do all the visuals we need). Real flower cutouts, big type.',
+  },
+  {
+    key: '2026-10-31 vet20261111 visual v1',
+    post: 'vet20261111',
+    set: {
+      slides: [
+        {
+          text: 'Happy Veterans Day. Suzanne Shea and Warlinda Walker met at the Farmer Veteran Coalition conference.',
+          image: '/wormhole/tiles/vet20261111-v1-1.jpg',
+        },
+      ],
+      visual_note:
+        "Family: I, portrait. Built with tools/wormhole-visuals/veterans.py: Soil Brown banner, two labelled photo spaces. Swap in Suzanne's and Warlinda's own conference photos from Allison before posting (deck: 11-11-2026-veterans-day-v1.pptx).",
+    },
+    reason: 'Veterans Day visual (30 Oct); waiting on their photos from Allison.',
+  },
+  {
+    key: '2026-10-31 news-1000farms doc date',
+    post: 'news-1000farms',
+    set: { iso_date: '2026-11-20', date_tbd: false },
+    reason: 'Date from the November doc (12 posts added, 30 Oct): Friday 20 November.',
+  },
+  {
+    key: '2026-10-31 p03 doc date',
+    post: 'p03',
+    set: { iso_date: '2026-11-27', date_tbd: false },
+    reason:
+      'Date from the November doc (12 posts added, 30 Oct): Nick Padwick on Friday 27 November.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES);
