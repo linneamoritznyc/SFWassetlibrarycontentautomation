@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { WormholePost } from '@/lib/wormhole-types';
-import { matchesSearch } from './util';
+import { isNewsPost, matchesSearch } from './util';
 
 const post = (over: Partial<WormholePost> = {}): WormholePost => ({
   id: 'cr20261112',
@@ -50,5 +50,24 @@ describe('matchesSearch', () => {
     expect(matchesSearch(post(), 'thursday')).toBe(true);
     expect(matchesSearch(post(), '2026-11')).toBe(true);
     expect(matchesSearch(post({ date_tbd: true }), 'tbd')).toBe(true);
+  });
+});
+
+describe('isNewsPost', () => {
+  it('finds news shoutouts by topic or by the news card visual note', () => {
+    expect(isNewsPost(post({ topic: 'Soil news: a mustard plant shares nutrients' }))).toBe(true);
+    expect(isNewsPost(post({ topic: 'Save Soil shoutout: tillage releases carbon' }))).toBe(true);
+    expect(
+      isNewsPost(post({ topic: 'New study: regenerative farms store 39% more soil carbon' })),
+    ).toBe(true);
+    expect(
+      isNewsPost(post({ visual_note: 'Article repost card (the pinned New York Times format).' })),
+    ).toBe(true);
+  });
+  it('leaves other posts out', () => {
+    expect(isNewsPost(post())).toBe(false);
+    expect(isNewsPost(post({ topic: 'Website: a research library for professionals' }))).toBe(
+      false,
+    );
   });
 });

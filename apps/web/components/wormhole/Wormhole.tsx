@@ -7,7 +7,7 @@ import { Editor } from './Editor';
 import { News } from './News';
 import { DateChip, GridTile, InstagramPost, LinkedInPost, PostBar } from './Posts';
 import { Stories, isStory } from './Stories';
-import { byDate, matchesSearch, thumbFor, toDocHtml, weekLabel, weekOf } from './util';
+import { byDate, isNewsPost, matchesSearch, thumbFor, toDocHtml, weekLabel, weekOf } from './util';
 
 type View = 'instagram' | 'grid' | 'stories' | 'linkedin' | 'news';
 type SaveState = 'saving' | 'saved' | 'error';
@@ -27,6 +27,7 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
   const [week, setWeek] = useState<string>('all');
   const [status, setStatus] = useState<'all' | WormholeStatus>('all');
   const [missingOnly, setMissingOnly] = useState(false);
+  const [newsOnly, setNewsOnly] = useState(false);
   const [query, setQuery] = useState('');
   const searchBox = useRef<HTMLInputElement>(null);
   const [editing, setEditing] = useState<string | null>(null);
@@ -147,15 +148,19 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
 
   // The search lives in the address (?q=...) so a search can be shared as a link.
   useEffect(() => {
-    const q = new URLSearchParams(window.location.search).get('q');
+    const params = new URLSearchParams(window.location.search);
+    const q = params.get('q');
     if (q) setQuery(q);
+    if (params.get('news') === '1') setNewsOnly(true);
   }, []);
   useEffect(() => {
     const url = new URL(window.location.href);
     if (query.trim()) url.searchParams.set('q', query.trim());
     else url.searchParams.delete('q');
+    if (newsOnly) url.searchParams.set('news', '1');
+    else url.searchParams.delete('news');
     window.history.replaceState(null, '', url);
-  }, [query]);
+  }, [query, newsOnly]);
   // "/" jumps to the search box from anywhere on the page except while typing.
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -179,10 +184,12 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
           (week === 'all' || weekOf(p) === week) &&
           (status === 'all' || p.status === status) &&
           (!missingOnly || noVisual(p)) &&
+          (!newsOnly || isNewsPost(p)) &&
           matchesSearch(p, query),
       ),
-    [posts, week, status, missingOnly, query],
+    [posts, week, status, missingOnly, newsOnly, query],
   );
+  const newsCount = useMemo(() => posts.filter(isNewsPost).length, [posts]);
   const missingCount = useMemo(() => posts.filter(noVisual).length, [posts]);
 
   async function newPost() {
@@ -247,6 +254,7 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
     setWeek('all');
     setStatus('all');
     setMissingOnly(false);
+    setNewsOnly(false);
     setQuery('');
     setView('instagram');
     if (edit) setEditing(id);
@@ -525,6 +533,15 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
                     </option>
                   ))}
                 </select>
+                <button
+                  onClick={() => setNewsOnly(!newsOnly)}
+                  aria-pressed={newsOnly}
+                  className={`rounded-lg px-3 py-2 text-base font-semibold ${
+                    newsOnly ? 'bg-[#2f6b46] text-white' : 'border border-[#2f6b46] text-[#2f6b46]'
+                  }`}
+                >
+                  {newsOnly ? 'Showing news posts · show all' : `News posts only (${newsCount})`}
+                </button>
                 <span className="text-base text-neutral-500">
                   {visible.length} post{visible.length === 1 ? '' : 's'}
                 </span>

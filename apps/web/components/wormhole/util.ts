@@ -62,6 +62,14 @@ export function matchesSearch(p: WormholePost, query: string): boolean {
   return words.every((w) => text.includes(w));
 }
 
+/** News shoutouts: article reposts, new studies, research picks and the monthly Fun Soil News. */
+export function isNewsPost(p: WormholePost): boolean {
+  return (
+    /\bnews\b|shoutout|new study|research pick/i.test(p.topic) ||
+    /news card|article repost card/i.test(p.visual_note)
+  );
+}
+
 export function byDate(a: WormholePost, b: WormholePost): number {
   return (
     Number(a.date_tbd) - Number(b.date_tbd) ||
