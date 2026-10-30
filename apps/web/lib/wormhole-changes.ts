@@ -8124,6 +8124,133 @@ export const CHANGES: Change[] = [
     reason:
       'Allison and Linnea, 30 Oct (final): one mentor about every two weeks from 2 Nov to the end of January, with other posts in between. Delvin Solkinson on 2027-01-28. Decks for Canva: /wormhole/decks/mentor-decks.zip.',
   },
+  {
+    key: '2026-10-30 crinfo20261105 new',
+    post: 'crinfo20261105',
+    create: {
+      iso_date: '2026-11-05',
+      date_tbd: false,
+      topic: 'Costa Rica Accelerator Workshop: info session reminder',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        '[Hook: the info session is tomorrow.]\n\nJoin us on November 6 for an info session about our Costa Rica Accelerator Workshop and learn more about this hands-on training: ten days at Armonía Agricultura Orgánica, 18 to 29 January 2027.\n\n[Time of the session and how to join. CONFIRM with Allison.]\n\nRegister, link in bio.\n\n#SoilFoodWeb #CostaRica #Compost #Workshop #LivingSoil',
+      slides: [{ text: 'Costa Rica info session: Friday 6 November.', image: null }],
+      cta: 'Register, link in bio',
+      link: 'https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+      sources: [
+        'November 2026 Social Media Planning Doc: Thursday, Nov. 5 Costa Rica Info Session Reminder',
+        'Costa Rica 2027 sales page: https://school.soilfoodweb.com/courses/accelerator-workshop-costa-rica-january-2027',
+      ],
+      visual_note: 'No visual yet. One of the 12 posts in the November doc.',
+      note: '',
+      status: 'draft',
+    },
+    reason:
+      'In the November doc (Thu 5 Nov), not in Wormhole yet. Added 30 Oct; the doc has the heading only, so the time of the session is still to confirm.',
+  },
+  {
+    key: '2026-10-30 cr20261103 november doc',
+    post: 'cr20261103',
+    set: { iso_date: '2026-11-02', date_tbd: false },
+    reason:
+      'IN THE NOVEMBER DOC, Mon 2 Nov: one of the 12 posts we are sure to post in November (Stephanie and Allison, 30 Oct). Moved to 2026-11-02 to match the doc. Visuals for these 12 come first.',
+  },
+  {
+    key: '2026-10-30 web20261103 november doc',
+    post: 'web20261103',
+    set: {},
+    reason:
+      'IN THE NOVEMBER DOC, Tue 3 Nov: one of the 12 posts we are sure to post in November (Stephanie and Allison, 30 Oct). Visuals for these 12 come first.',
+  },
+  {
+    key: '2026-10-30 crinfo20261105 november doc',
+    post: 'crinfo20261105',
+    set: {},
+    reason:
+      'IN THE NOVEMBER DOC, Thu 5 Nov: one of the 12 posts we are sure to post in November (Stephanie and Allison, 30 Oct). Visuals for these 12 come first.',
+  },
+  {
+    key: '2026-10-30 sh-w1-02 november doc',
+    post: 'sh-w1-02',
+    set: {},
+    reason:
+      'IN THE NOVEMBER DOC, Thu 5 Nov: one of the 12 posts we are sure to post in November (Stephanie and Allison, 30 Oct). Visuals for these 12 come first.',
+  },
+  {
+    key: '2026-10-30 d13 november doc',
+    post: 'd13',
+    set: { iso_date: '2026-11-06', date_tbd: false },
+    reason:
+      'IN THE NOVEMBER DOC, Fri 6 Nov: one of the 12 posts we are sure to post in November (Stephanie and Allison, 30 Oct). Moved to 2026-11-06 to match the doc. Visuals for these 12 come first.',
+  },
+  {
+    key: '2026-10-30 ss-05 november doc',
+    post: 'ss-05',
+    set: {},
+    reason:
+      'IN THE NOVEMBER DOC, Sun 8 Nov: one of the 12 posts we are sure to post in November (Stephanie and Allison, 30 Oct). Visuals for these 12 come first.',
+  },
+  {
+    key: '2026-10-30 ss-05-li november doc',
+    post: 'ss-05-li',
+    set: {},
+    reason:
+      'IN THE NOVEMBER DOC, Sun 8 Nov (LinkedIn twin): one of the 12 posts we are sure to post in November (Stephanie and Allison, 30 Oct). Visuals for these 12 come first.',
+  },
+  {
+    key: '2026-10-30 x20261108 november doc',
+    post: 'x20261108',
+    set: {},
+    reason:
+      'IN THE NOVEMBER DOC, Sun 8 Nov: one of the 12 posts we are sure to post in November (Stephanie and Allison, 30 Oct). Visuals for these 12 come first.',
+  },
+  {
+    key: '2026-10-30 vet20261111 november doc',
+    post: 'vet20261111',
+    set: {},
+    reason:
+      'IN THE NOVEMBER DOC, Wed 11 Nov: one of the 12 posts we are sure to post in November (Stephanie and Allison, 30 Oct). Visuals for these 12 come first.',
+  },
+  {
+    key: '2026-10-30 cr20261102 november doc',
+    post: 'cr20261102',
+    set: { iso_date: '2026-11-12', date_tbd: false },
+    reason:
+      'IN THE NOVEMBER DOC, Thu 12 Nov: one of the 12 posts we are sure to post in November (Stephanie and Allison, 30 Oct). Moved to 2026-11-12 to match the doc. Visuals for these 12 come first.',
+  },
+  {
+    key: '2026-10-30 cr20261112 november doc',
+    post: 'cr20261112',
+    set: { iso_date: '2026-11-16', date_tbd: false },
+    reason:
+      'IN THE NOVEMBER DOC, Mon 16 Nov: one of the 12 posts we are sure to post in November (Stephanie and Allison, 30 Oct). Moved to 2026-11-16 to match the doc. Visuals for these 12 come first.',
+  },
+  {
+    key: '2026-10-30 cr20261123 november doc',
+    post: 'cr20261123',
+    set: {},
+    reason:
+      'IN THE NOVEMBER DOC, Mon 23 Nov: one of the 12 posts we are sure to post in November (Stephanie and Allison, 30 Oct). Visuals for these 12 come first.',
+  },
+  {
+    key: '2026-10-30 thx20261126 november doc',
+    post: 'thx20261126',
+    set: {},
+    reason:
+      'IN THE NOVEMBER DOC, Thu 26 Nov: one of the 12 posts we are sure to post in November (Stephanie and Allison, 30 Oct). Visuals for these 12 come first.',
+  },
+  {
+    key: '2026-10-30 r20261029 posting 2026-10-30',
+    post: 'r20261029',
+    set: { iso_date: '2026-10-30', date_tbd: false },
+    reason: 'Linnea, 30 Oct: the Costa Rica Reel goes out today (2026-10-30).',
+  },
+  {
+    key: '2026-10-30 p11 posting 2026-10-31',
+    post: 'p11',
+    set: { iso_date: '2026-10-31', date_tbd: false },
+    reason: 'Linnea, 30 Oct: the website announcement goes out tomorrow (2026-10-31).',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES);
