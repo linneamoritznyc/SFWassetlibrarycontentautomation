@@ -26,16 +26,10 @@ URL = "doi.org/10.1088/2976-601X/ae8f4e"
 HEADLINE = "The most regenerative farms stored 39% more carbon in their soil"
 BLURB = "Lundgren et al. 2026, Environmental Research: Food Systems. The 1000 Farms Initiative, Ecdysis Foundation."
 FACTS = [
-    ("The 1000 Farms Initiative measured 210 working farms across North America, from the most conventional "
-     "to the most regenerative.", "Led by Ecdysis Foundation"),
-    ("39% more total soil carbon on the most regenerative farms.", ""),
-    ("+181% total fungi in the most regenerative soils.", "Lundgren et al. 2026, figure 3"),
-    ("More life everywhere: soil microbes, insects, plants and birds. The more biodiversity, the more carbon "
-     "stored.", ""),
-    ("Regenerative yields matched national averages, and net profit per acre was similar.", ""),
-    ("One practice alone changed nothing. Farms using a single regenerative practice looked like conventional "
-     "farms. The whole system matters.", ""),
-    ("Read the paper: Lundgren et al., Environmental Research: Food Systems, 2026.", ""),
+    ("More soil life too: +181% total fungi, and more microbes, insects, plants and birds.",
+     "Lundgren et al. 2026, figure 3"),
+    ("Yields matched national averages and profit was similar. One practice alone changed nothing: the whole "
+     "system matters.", ""),
 ]
 
 
@@ -79,7 +73,7 @@ def arrow_disc():
 
 def main():
     n = 1 + len(FACTS)
-    d = Deck("news-regen39", n, "regenerative-farms-39-percent-carbon-news", "2026-11-18")
+    d = Deck("news-regen39", n, "regenerative-farms-39-percent-carbon-news-v2", "2026-11-18")
     strip = grain(W * n, H, 339).convert("RGBA")
     d.bg(None, strip, name="background (one strip across the carousel)")
     put = lambda k, name, im, x, y: d.put(k, name, im, x, y, shadowed=False, anchor="tl")  # noqa: E731
