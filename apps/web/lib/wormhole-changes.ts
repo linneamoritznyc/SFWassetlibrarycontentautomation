@@ -9492,6 +9492,111 @@ export const CHANGES: Change[] = [
     reason:
       'Linnea, 31 Oct: use our own Compost Intensive design, not the repainted slide. Made from her deck 09-11-2026-compost-intensive-january-cohort-readable.pptx with only the words changed (tools/wormhole-visuals/ci_from_deck.py).',
   },
+  {
+    key: '2026-10-31 st20261031n9',
+    post: 'st20261031n9',
+    create: {
+      iso_date: '2026-11-01',
+      date_tbd: false,
+      topic: 'Stories · News9 Live on our India workshop',
+      platform: 'Instagram Stories',
+      caption:
+        'No caption (Stories). One frame. Add a link sticker under the card, where the arrow is: https://www.news9live.com/state/tamil-nadu/isha-save-soil-coimbatore-soil-biology-training-10-countries-3020478 . Tag the outlet.',
+      slides: [
+        {
+          text: 'Story frame 1: News9 Live. "A meaningful step." Evan Buckman on bringing our Accelerator Workshop to India for the first time. Link sticker: Read the article.',
+          image: '/wormhole/tiles/st20261031n9-v1-1.jpg',
+        },
+      ],
+      cta: 'Link sticker',
+      link: 'https://www.news9live.com/state/tamil-nadu/isha-save-soil-coimbatore-soil-biology-training-10-countries-3020478',
+      sources: [
+        'News9 Live, "Isha\'s Save Soil farm in Coimbatore hosts soil biology training for 10 countries", 30 Oct 2026: https://www.news9live.com/state/tamil-nadu/isha-save-soil-coimbatore-soil-biology-training-10-countries-3020478',
+      ],
+      visual_note:
+        'Family: news card, Story 1080 x 1920 (same look as the Times of India Story st20261031toi). Photo: the group around a compost pile under the shed (eeb9febb-6efa-40e2-8d53-da50dae1a240.jpg) (Drive, IN-Workshop Public Photos), used nowhere else. Deck: decks/31-10-2026-news9-live-story-v1.pptx. Built with tools/wormhole-visuals/press_stories.py.',
+      note: "Linnea, 31 Oct: Stories for every outlet covering the India workshop (Kavi's list: Times of India, News9 Live, TV9 Gujarati; more expected, and a Save Soil press release with quotes from Evan and Loida).",
+      status: 'draft',
+    },
+    reason: 'Press coverage Story.',
+  },
+  {
+    key: '2026-10-31 st20261031tv9',
+    post: 'st20261031tv9',
+    create: {
+      iso_date: '2026-11-02',
+      date_tbd: false,
+      topic: 'Stories · TV9 Gujarati on our India workshop',
+      platform: 'Instagram Stories',
+      caption:
+        'No caption (Stories). One frame. Add a link sticker under the card, where the arrow is: https://x.com/tv9gujarati/status/2116149013838000605 . Tag the outlet.',
+      slides: [
+        {
+          text: 'Story frame 1: TV9 Gujarati. On TV9 Gujarati too! Two programmes in Coimbatore: the Life in the Soil Seminar and the Accelerator Workshop. Link sticker: See the post.',
+          image: '/wormhole/tiles/st20261031tv9-v1-1.jpg',
+        },
+      ],
+      cta: 'Link sticker',
+      link: 'https://x.com/tv9gujarati/status/2116149013838000605',
+      sources: [
+        'TV9 Gujarati on X, 30 Oct 2026: https://x.com/tv9gujarati/status/2116149013838000605',
+      ],
+      visual_note:
+        'Family: news card, Story 1080 x 1920 (same look as the Times of India Story st20261031toi). Photo: the class waving at the compost site (99696ef1-0bb4-4626-b0c8-cf77fd2e04c7.JPG) (Drive, IN-Workshop Public Photos), used nowhere else. Deck: decks/31-10-2026-tv9-gujarati-story-v1.pptx. Built with tools/wormhole-visuals/press_stories.py.',
+      note: "Linnea, 31 Oct: Stories for every outlet covering the India workshop (Kavi's list: Times of India, News9 Live, TV9 Gujarati; more expected, and a Save Soil press release with quotes from Evan and Loida).",
+      status: 'draft',
+    },
+    reason: 'Press coverage Story.',
+  },
+  {
+    key: '2026-10-31 news-1000farms v6 tab',
+    post: 'news-1000farms',
+    set: {
+      slides: [
+        {
+          text: 'Regenerative farms stored 39% more soil carbon. A study of working farms across North America.',
+          image: '/wormhole/tiles/news-1000farms-v6-1.jpg',
+        },
+        {
+          text: '1,000 Farms. The 1000 Farms Initiative measured working farms across North America, from the most conventional to the most regenerative. Led by Ecdysis Foundation.',
+          image: '/wormhole/tiles/news-1000farms-v6-2.jpg',
+        },
+        {
+          text: '39% more soil carbon. on the most regenerative farms.',
+          image: '/wormhole/tiles/news-1000farms-v6-3.jpg',
+        },
+        {
+          text: '+181% total fungi. in the most regenerative soils (figure 3 of the paper).',
+          image: '/wormhole/tiles/news-1000farms-v6-4.jpg',
+        },
+        {
+          text: 'More life everywhere. Soil microbes, insects, plants and birds. The more biodiversity, the more carbon stored.',
+          image: '/wormhole/tiles/news-1000farms-v6-5.jpg',
+        },
+        {
+          text: 'Same yields. Yields matched national averages, and net profit per acre was similar.',
+          image: '/wormhole/tiles/news-1000farms-v6-6.jpg',
+        },
+        {
+          text: 'The whole system counts. Farms using one regenerative practice alone looked like conventional farms.',
+          image: '/wormhole/tiles/news-1000farms-v6-7.jpg',
+        },
+        {
+          text: 'Read the paper. Lundgren et al., Environmental Research: Food Systems, 2026. Link in bio.',
+          image: '/wormhole/tiles/news-1000farms-v6-8.jpg',
+        },
+      ],
+    },
+    reason:
+      'Same card as v5 with the italic green outlet tab every other news card uses (tools/wormhole-visuals/news_cards.py). Deck: 20-11-2026-regenerative-farms-39-percent-carbon-v6.pptx.',
+  },
+  {
+    key: '2026-10-31 p12 to Nov 10',
+    post: 'p12',
+    set: { iso_date: '2026-11-10', date_tbd: false },
+    reason:
+      'Sat 31 Oct had four feed posts once the Times of India story came in. Leave the leaves moves to Tue 10 Nov (two other posts that day); still leaf season.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);
