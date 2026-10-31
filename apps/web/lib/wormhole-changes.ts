@@ -9453,6 +9453,45 @@ export const CHANGES: Change[] = [
     reason:
       'Compost Intensive starts 11 January: the date on the slide image is fixed too (repainted copy, original kept).',
   },
+  {
+    key: '2026-10-31 p20 ci deck v7',
+    post: 'p20',
+    set: {
+      slides: [
+        { text: 'What happens inside a compost pile?', image: '/wormhole/tiles/p20-y1.jpg' },
+        {
+          text: 'Days 1 to 3: bacteria wake up and the pile heats up.',
+          image: '/wormhole/tiles/p20-y2.jpg',
+        },
+        {
+          text: 'The hot phase kills weed seeds and pathogens.',
+          image: '/wormhole/tiles/p20-y3.jpg',
+        },
+        { text: 'You turn it to bring air back in.', image: '/wormhole/tiles/p20-y4.jpg' },
+        { text: 'As it cools, fungi and protozoa move in.', image: '/wormhole/tiles/p20-y5.jpg' },
+        {
+          text: 'Learn to read the heat in your compost. Starts 11 January. Compost Intensive Course, 10 weeks online. Link in bio.',
+          image: '/wormhole/tiles/p20-v7-6.jpg',
+        },
+      ],
+    },
+    reason:
+      'Linnea, 31 Oct: use our own Compost Intensive design, not the repainted slide. Made from her deck 09-11-2026-compost-intensive-january-cohort-readable.pptx with only the words changed (tools/wormhole-visuals/ci_from_deck.py).',
+  },
+  {
+    key: '2026-10-31 j20270110c ci deck v7',
+    post: 'j20270110c',
+    set: {
+      slides: [
+        {
+          text: '10 WEEKS ONLINE, 55 to 68°C. Last call: starts tomorrow. Compost Intensive, 11 January.',
+          image: '/wormhole/tiles/j20270110c-v7-1.jpg',
+        },
+      ],
+    },
+    reason:
+      'Linnea, 31 Oct: use our own Compost Intensive design, not the repainted slide. Made from her deck 09-11-2026-compost-intensive-january-cohort-readable.pptx with only the words changed (tools/wormhole-visuals/ci_from_deck.py).',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);
