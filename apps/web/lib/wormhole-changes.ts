@@ -9414,6 +9414,45 @@ export const CHANGES: Change[] = [
     },
     reason: 'LinkedIn caption for the Times of India story (Linnea, 31 Oct).',
   },
+  {
+    key: '2026-10-31 p20 jan11 image',
+    post: 'p20',
+    set: {
+      slides: [
+        { text: 'What happens inside a compost pile?', image: '/wormhole/tiles/p20-y1.jpg' },
+        {
+          text: 'Days 1 to 3: bacteria wake up and the pile heats up.',
+          image: '/wormhole/tiles/p20-y2.jpg',
+        },
+        {
+          text: 'The hot phase kills weed seeds and pathogens.',
+          image: '/wormhole/tiles/p20-y3.jpg',
+        },
+        { text: 'You turn it to bring air back in.', image: '/wormhole/tiles/p20-y4.jpg' },
+        { text: 'As it cools, fungi and protozoa move in.', image: '/wormhole/tiles/p20-y5.jpg' },
+        {
+          text: 'Learn it properly in the Compost Intensive, starts 11 January.',
+          image: '/wormhole/tiles/p20-y6-jan11.jpg',
+        },
+      ],
+    },
+    reason:
+      'Compost Intensive starts 11 January: the date on the slide image is fixed too (repainted copy, original kept).',
+  },
+  {
+    key: '2026-10-31 j20270110c jan11 image',
+    post: 'j20270110c',
+    set: {
+      slides: [
+        {
+          text: 'COMPOST INTENSIVE COURSE Last call. The January cohort starts tomorrow, 11 January. Link in bio.',
+          image: '/wormhole/tiles/j20270110c-v6-1.jpg',
+        },
+      ],
+    },
+    reason:
+      'Compost Intensive starts 11 January: the date on the slide image is fixed too (repainted copy, original kept).',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);
