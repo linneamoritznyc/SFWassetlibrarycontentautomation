@@ -9353,6 +9353,13 @@ export const CHANGES: Change[] = [
     },
     reason: 'Times of India Story.',
   },
+  {
+    key: '2026-10-31 toi20261031 shorter caption',
+    post: 'toi20261031',
+    captionText:
+      "We made the Times of India! 🌱\nOn 30 October, the Times of India reported on our Accelerator Workshop in Coimbatore: 46 participants from 10 countries, ten days at Sadhguru's Save Soil Regenerative Revolution farm.\nTogether they built BioComplete™ compost, brewed compost extracts and teas, sampled soil in the field and looked at all of it under the microscope.\nThe workshop ran in collaboration with Isha Outreach, with the Isha Foundation and the Conscious Planet Save Soil movement.\nRead the full article through the link in bio.\n#SoilFoodWeb #SaveSoil #Coimbatore #SoilBiology #Compost #LivingSoil #RegenerativeAgriculture",
+    reason: 'Linnea, 31 Oct: caption 1, shorter.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);
