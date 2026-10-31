@@ -21,7 +21,7 @@ export type Change = {
   set?: Partial<
     Pick<
       WormholePost,
-      'iso_date' | 'date_tbd' | 'topic' | 'slides' | 'link' | 'sources' | 'visual_note'
+      'iso_date' | 'date_tbd' | 'topic' | 'platform' | 'slides' | 'link' | 'sources' | 'visual_note'
     >
   >;
   /** A new post, inserted when no post has this id yet. */
@@ -9359,6 +9359,60 @@ export const CHANGES: Change[] = [
     captionText:
       "We made the Times of India! 🌱\nOn 30 October, the Times of India reported on our Accelerator Workshop in Coimbatore: 46 participants from 10 countries, ten days at Sadhguru's Save Soil Regenerative Revolution farm.\nTogether they built BioComplete™ compost, brewed compost extracts and teas, sampled soil in the field and looked at all of it under the microscope.\nThe workshop ran in collaboration with Isha Outreach, with the Isha Foundation and the Conscious Planet Save Soil movement.\nRead the full article through the link in bio.\n#SoilFoodWeb #SaveSoil #Coimbatore #SoilBiology #Compost #LivingSoil #RegenerativeAgriculture",
     reason: 'Linnea, 31 Oct: caption 1, shorter.',
+  },
+  {
+    key: '2026-10-31 toi20261031 ig fb only',
+    post: 'toi20261031',
+    set: { platform: 'Instagram, Facebook' },
+    reason: 'The LinkedIn version has its own caption: post toi20261031li.',
+  },
+  {
+    key: '2026-10-31 toi20261031li',
+    post: 'toi20261031li',
+    create: {
+      iso_date: '2026-10-31',
+      date_tbd: false,
+      topic: 'In the news (LinkedIn): the Times of India on our India Accelerator Workshop',
+      platform: 'LinkedIn',
+      caption:
+        "The Times of India has covered our Accelerator Workshop in Coimbatore. Forty-six participants from ten countries took part: farmers, soil scientists, microbiologists, consultants and agribusiness professionals.\n\nThe workshop ran for ten days at Sadhguru's Save Soil Regenerative Revolution farm, in collaboration with Isha Outreach. Participants made BioComplete™ compost and brewed compost extracts and teas. Under the microscope, they identified the microorganisms in their own soil, compost and liquid samples.\n\nEvan Buckman, our Executive Director, said the farm's natural farming practices and Save Soil's work with farming communities made it an ideal setting.\n\nOur next Accelerator Workshop runs 18 to 29 January 2027 in Costa Rica. Who in your network should be there?\n\nRead the article: https://timesofindia.indiatimes.com/city/coimbatore/soil-food-web-school-conducts-soil-biology-training-at-ishas-save-soil-model-farm-in-coimbatore/articleshow/135370094.cms\n\n#SoilHealth #RegenerativeAgriculture #SoilBiology",
+      slides: [
+        {
+          text: 'We made the Times of India. Our India Accelerator Workshop, Coimbatore, Tamil Nadu.',
+          image: '/wormhole/tiles/toi20261031-v5-1.jpg',
+        },
+        {
+          text: '46 participants from 10 countries. Farmers, soil scientists, microbiologists and consultants, from seven Indian states and abroad.',
+          image: '/wormhole/tiles/toi20261031-v5-2.jpg',
+        },
+        {
+          text: "At the Save Soil model farm. Ten days at Sadhguru's Save Soil Regenerative Revolution farm, in collaboration with Isha Outreach.",
+          image: '/wormhole/tiles/toi20261031-v5-3.jpg',
+        },
+        {
+          text: 'Compost to microscope. BioComplete™ compost, compost extracts and teas, soil sampling and microscopy sessions.',
+          image: '/wormhole/tiles/toi20261031-v5-4.jpg',
+        },
+        {
+          text: '61 at the seminar first. The two-day Life in the Soil Seminar ran on 16 and 17 October.',
+          image: '/wormhole/tiles/toi20261031-v5-5.jpg',
+        },
+        {
+          text: 'Read the article. The Times of India, 30 October 2026. Link in bio.',
+          image: '/wormhole/tiles/toi20261031-v5-6.jpg',
+        },
+      ],
+      cta: 'Read the article',
+      link: 'https://timesofindia.indiatimes.com/city/coimbatore/soil-food-web-school-conducts-soil-biology-training-at-ishas-save-soil-model-farm-in-coimbatore/articleshow/135370094.cms',
+      sources: [
+        'The Times of India, "Soil Food Web School conducts soil biology training at Isha\'s Save Soil Model Farm in Coimbatore", 30 Oct 2026: https://timesofindia.indiatimes.com/city/coimbatore/soil-food-web-school-conducts-soil-biology-training-at-ishas-save-soil-model-farm-in-coimbatore/articleshow/135370094.cms',
+      ],
+      visual_note:
+        "Family: news card. Same slides as the Instagram post toi20261031 (deck: decks/31-10-2026-times-of-india-coimbatore-workshop-v5.pptx), posted as a LinkedIn carousel. Tag the Times of India, Isha Foundation, Conscious Planet and Evan Buckman. Add the Costa Rica registration link with its UTM (Banjo's sheet), in the post or as the first comment.",
+      note: "Linnea's final LinkedIn caption, 31 Oct.",
+      status: 'draft',
+    },
+    reason: 'LinkedIn caption for the Times of India story (Linnea, 31 Oct).',
   },
 ];
 
