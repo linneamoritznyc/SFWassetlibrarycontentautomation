@@ -8790,6 +8790,62 @@ export const CHANGES: Change[] = [
     reason:
       'Linnea, 30 Oct: the October roundup has to post in October. Sat 31 Oct, beside the website announcement and Leave the leaves (3 posts that day).',
   },
+  {
+    key: '2026-10-31 p17 October stories',
+    post: 'p17',
+    set: {
+      slides: [
+        {
+          text: 'FUN SOIL NEWS Three soil stories for October. YUNNAN, CHINA KONSTANZ, GERMANY ADELAIDE, AUSTRALIA',
+          image: '/wormhole/tiles/p17-f1-1.jpg',
+        },
+        {
+          text: 'YUNNAN, CHINA A giant fungus grows up to 50 cm tall from oak roots. Dianjunus rex, a new family about 65 million years old.',
+          image: '/wormhole/tiles/p17-f1-2.jpg',
+        },
+        {
+          text: 'KONSTANZ, GERMANY Forest soil bacteria eat holes in bioplastic. The films were gone in about 250 to 330 days. Ordinary polyethylene barely changed.',
+          image: '/wormhole/tiles/p17-f1-3.jpg',
+        },
+        {
+          text: 'SOUTH AUSTRALIA Six years after replanting, soil fungi are back at work. Their jobs kept recovering. The mix of species changed far less.',
+          image: '/wormhole/tiles/p17-f1-4.jpg',
+        },
+      ],
+      sources: [
+        'ScienceDaily (Frontiers), "Chinese scientists discover D-rex, a giant fungus with roots stretching back 65 million years", 26 Oct 2026: https://www.sciencedaily.com/releases/2026/10/261025073034.htm . Paper: Frontiers in Fungal Biology 2026, vol. 7, doi:10.3389/ffunb.2026.1940464',
+        'ScienceDaily (University of Konstanz), "Scientists discover a plastic-eating Pac-Man enzyme with a surprising secret", 16 Oct 2026: https://www.sciencedaily.com/releases/2026/10/261014015509.htm . Paper: The ISME Journal 2026, 20(1), doi:10.1093/ismejo/wrag203',
+        'Global Agriculture (Flinders University), "Soil fungi recover unevenly years after farmland is restored, study finds", 26 Oct 2026: https://www.global-agriculture.com/ag-tech-research-news/soil-fungi-recover-unevenly-years-after-farmland-is-restored-study-finds/ . Paper: "Restoration plantings promote functional recovery of soil fungi", Molecular Ecology 2026. Also Carbon Pulse, 19 Oct 2026: https://carbon-pulse.com/561742/',
+        'Maps: Natural Earth 1:50m countries and 1:10m provinces (public domain)',
+      ],
+      link: '',
+      visual_note:
+        'Family: H, diagram (maps). The three verified October 2026 stories that had been put in the January slot by mistake, moved here (Linnea, 30 Oct). Built with tools/wormhole-visuals/fix_1027.py p17: watercolor-style maps from Natural Earth (public domain), the painted bioplastic film. Cover says October. The earlier flower slides (p17-v1) stay in the repo.',
+    },
+    captionText:
+      'Three soil stories from October that made our microscopes jealous. \ud83d\udd2c\ud83c\udf44\n\nYunnan, China: researchers at the Kunming Institute of Botany described Dianjunus rex, nicknamed D-rex. Its fruiting bodies grow up to 50 cm tall and 2.2 kg, straight from the woody roots of Chinese cork oak. That makes it the largest known in the phylum Ascomycota, and its family dates back about 65 million years, roughly a million years after the mass extinction that ended the age of dinosaurs. (Frontiers in Fungal Biology, 2026)\n\nKonstanz, Germany: in forest soil at the University of Konstanz botanical garden, bacteria fully broke down films of new bioplastics in about 250 to 330 days. The team found the enzyme behind it anchored to the outside of the bacterial cell, and they think the cells eat their way into the film, leaving cell-sized holes. Ordinary polyethylene barely changed. (The ISME Journal, 2026)\n\nSouth Australia: Flinders University resampled the same restoration plantings over six years. The jobs soil fungi do, cycling nutrients and breaking down organic matter, kept recovering. The mix of fungal species changed far less, and old fertiliser legacies may be holding it back. (Molecular Ecology, 2026)\n\nWhich one would you put under the microscope first? Tell us below. \ud83d\udc9a\n\n#FunSoilNews #SoilFoodWeb #SoilBiology #Fungi #SoilMicrobiology #LivingSoil',
+    reason:
+      'Linnea, 30 Oct: the October roundup had [VERIFY] placeholders while three verified October stories sat in January. They are October news, so they post now. Note: the Flinders story is also the standalone news post n20261024a (28 Oct).',
+  },
+  {
+    key: '2026-10-31 j20270130 back to a template',
+    post: 'j20270130',
+    set: {
+      slides: [
+        { text: 'Fun Soil News: January 2027.', image: null },
+        { text: 'Story 1. Place in big type, one sentence, source.', image: null },
+        { text: 'Story 2. Place in big type, one sentence, source.', image: null },
+        { text: 'Story 3. Place in big type, one sentence, source.', image: null },
+      ],
+      sources: [],
+      visual_note:
+        'Template. Pick three stories published in January 2027 (news scout, verify every item), then build the visual in the same family as Fun Soil News October (maps), or a new family if the grid needs it.',
+    },
+    captionText:
+      'Three soil stories from January that made our microscopes jealous. \ud83d\udd2c\ud83c\udf44\n[Place: one or two lines per story, with the source.]\nWhich one would you put under the microscope first? Tell us below. \ud83d\udc9a\n#FunSoilNews #SoilFoodWeb #SoilBiology #LivingSoil #SoilHealth',
+    reason:
+      'Linnea, 30 Oct: January news cannot be known in October. The October stories moved to p17 (Fun Soil News October). The old January caption, kept here: Three soil stories from the last few weeks that made our microscopes jealous. \ud83d\udd2c\ud83c\udf44 /  / Yunnan, China: researchers at the Kunming Institute of Botany described Dianjunus rex, nicknamed D-rex. Its fruiting bodies grow up to 50 cm tall and 2.2 kg, straight from the woody roots of Chinese cork oak. That makes it the largest known in the phylum Ascomycota, and its family dates back about 65 million years, roughly a million years after the mass extinction that ended the age of dinosaurs. (Frontiers in Fungal Biology, 2026) /  / Konstanz, Germany: in forest soil at the University of Konstanz botanical garden, bacteria fully broke down films of new bioplastics in about 250 to 330 days. The team found the enzyme behind it anchored to the outside of the bacterial cell, and they think the cells eat their way into the film, leaving cell-sized holes. Ordinary polyethylene barely changed. (The ISME Journal, 2026) /  / South Australia: Flinders University resampled the same restoration plantings over six years. The jobs soil fungi do, cycling nutrients and breaking down organic matter, kept recovering. The mix of fungal species changed far less, and old fertiliser legacies may be holding it back. (Molecular Ecology, 2026) /  / Which one would you put under the microscope first? Tell us below. \ud83d\udc9a /  / #FunSoilNews #SoilFoodWeb #SoilBiology #Fungi #SoilMicrobiology #LivingSoil',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES);

@@ -595,7 +595,7 @@ def world_cover():
         marker(p, x, y, 17)
     im = p.image()
     label(im, "FUN SOIL NEWS", 90, 80)
-    text(im, "Three soil stories for January.", 90, 140, 900, 80, h=200)
+    text(im, f"Three soil stories for {MONTH}.", 90, 140, 900, 84 if MONTH == "October" else 80, h=200)
     d = ImageDraw.Draw(im)
     names = ["YUNNAN, CHINA", "KONSTANZ, GERMANY", "ADELAIDE, AUSTRALIA"]
     offs = [(-40, -70), (-20, -72), (-160, 34)]
@@ -674,10 +674,22 @@ def adelaide():
     return im
 
 
+MONTH = "January"
+
+
 @post("j20270130")
 def news():
     for k, fn in enumerate((world_cover, yunnan, konstanz, adelaide), 1):
         save(fn(), "j20270130", k)
+
+
+@post("p17")
+def news_october():
+    """Linnea, 30 Oct: these are October 2026 stories, so they belong in the October roundup, not January."""
+    global MONTH
+    MONTH = "October"
+    for k, fn in enumerate((world_cover, yunnan, konstanz, adelaide), 1):
+        save(fn(), "p17", k)
 
 
 # ================================================================== 2. j20270124: Field Notes No. 03

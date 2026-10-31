@@ -189,7 +189,6 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
       ),
     [posts, week, status, missingOnly, newsOnly, query],
   );
-  const newsCount = useMemo(() => posts.filter(isNewsPost).length, [posts]);
   const missingCount = useMemo(() => posts.filter(noVisual).length, [posts]);
 
   async function newPost() {
@@ -389,6 +388,16 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
   const onInstagram = (p: WormholePost) => !p.platform.trim() || /instagram/i.test(p.platform);
   const feedPosts = visible.filter((p) => !isStory(p) && onInstagram(p));
   const storyPosts = visible.filter(isStory);
+  const onLinkedIn = (p: WormholePost) => /linkedin/i.test(p.platform);
+  // Counts follow the tab: the grid counts Instagram feed posts, the LinkedIn tab LinkedIn posts.
+  const inView = (p: WormholePost) =>
+    view === 'stories'
+      ? isStory(p)
+      : view === 'linkedin'
+        ? onLinkedIn(p)
+        : !isStory(p) && onInstagram(p);
+  const shownCount = visible.filter(inView).length;
+  const newsCount = posts.filter((p) => isNewsPost(p) && inView(p)).length;
   const gridPosts = [
     ...feedPosts.filter((p) => p.pinned).sort((a, b) => (a.pinned ?? 0) - (b.pinned ?? 0)),
     ...feedPosts.filter((p) => !p.pinned).reverse(),
@@ -543,7 +552,7 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
                   {newsOnly ? 'Showing news posts · show all' : `News posts only (${newsCount})`}
                 </button>
                 <span className="text-base text-neutral-500">
-                  {visible.length} post{visible.length === 1 ? '' : 's'}
+                  {shownCount} post{shownCount === 1 ? '' : 's'}
                 </span>
                 {(missingCount > 0 || missingOnly) && (
                   <button
@@ -582,7 +591,7 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
         {!loaded && !loadError && <p className="text-lg text-neutral-500">Opening the wormhole…</p>}
         {view === 'news' && <News posts={posts} onPlan={planStory} onOpen={(id) => openPost(id)} />}
 
-        {loaded && visible.length === 0 && view !== 'news' && (
+        {loaded && shownCount === 0 && view !== 'news' && (
           <p className="text-lg text-neutral-500">
             {query.trim()
               ? `No posts match “${query.trim()}”${week !== 'all' || status !== 'all' ? ' in this week and status. Try “All weeks” and “Every status”.' : '.'}`
@@ -598,9 +607,7 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
 
         {view === 'linkedin' && (
           <div className="mx-auto max-w-[555px] space-y-8">
-            {visible
-              .filter((p) => /linkedin/i.test(p.platform))
-              .map((p, i, list) => card(p, LinkedInPost, i, list))}
+            {visible.filter(onLinkedIn).map((p, i, list) => card(p, LinkedInPost, i, list))}
           </div>
         )}
 
