@@ -9928,6 +9928,27 @@ export const CHANGES: Change[] = [
     reason:
       'Slide 1 used the banned raised-beds photo (pdc_beds.jpg). Now a type card on Food Web Green (tools/wormhole-visuals/pdc_card.py, deck 20-12-2026-pdc-congratulations-v3.pptx). Still to confirm: the date the PDC cohort finishes.',
   },
+  {
+    key: '2026-10-31 sh-w7-25',
+    post: 'sh-w7-25',
+    create: {
+      iso_date: '2026-10-31',
+      date_tbd: true,
+      topic: 'The 80-20 Rule of Plants',
+      platform: 'Instagram Reels, YouTube Shorts',
+      caption:
+        'Only 5% of vegetation on this planet is allelopathic. 🌱\nIn this clip from our free webinar Designing the Regeneration, Part 3, Geoff Lawton explains his 80-20 rule for plants. In his figures, about 80% of plants are neutral, 15% actively help the life around them, and only 5% are allelopathic, which means they hold back the plants and soil life near them. Choose helpful plants you can cut and let regrow, and you feed organic matter back to the soil and move towards compost.\nThe full webinar is free on our YouTube channel.\n@geofflawtononline\n#Shorts #SoilFoodWeb #Permaculture #GeoffLawton #FoodForest #LivingSoil',
+      slides: [{ text: 'The 80-20 Rule of Plants', image: '/wormhole/tiles/sh-w7-25-v1-1.jpg' }],
+      cta: 'The full webinar is free on our YouTube channel.',
+      link: '',
+      sources: ['Webinar 7, "Designing the Regeneration, Part 3" (clip: Linnea)'],
+      visual_note:
+        'Reel and Short cover, 1080 x 1920, from branch covers/shorts-webinar-1 (covers/shorts/webinar-7/25-the-80-20-rule-of-plants.png). Clip: Linnea, Webinar 7 "Designing the Regeneration, Part 3" (Geoff Lawton), 32:33 to 33:20 of the raw Zoom recording. Video: sfw-reel-studio branch webinar-shorts/geoff-lawton, tools/webinar-shorts/renders/geoff-lawton-01-the-80-20-rule-of-plants.mp4. YouTube Short title: The 80-20 Rule of Plants #Shorts. Collab tag @geofflawtononline.',
+      note: 'Short 1 from Webinar 7, the first one Linnea cut. Geoff\'s figures (80/15/5) stay attributed to him. Date still to set.',
+      status: 'draft',
+    },
+    reason: 'Added 31 Oct: Webinar 7 (Geoff Lawton) Short 1, cut by Linnea in Ivan\'s format, with caption, no date yet.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);
