@@ -9192,6 +9192,103 @@ export const CHANGES: Change[] = [
     },
     reason: 'Linnea, 31 Oct: all news posts follow the news sharing template.',
   },
+  {
+    key: '2026-10-31 cr20261103 early bird day',
+    post: 'cr20261103',
+    set: { topic: 'Costa Rica Accelerator Workshop: early bird ends Wednesday, 4 November' },
+    caption: [
+      [
+        'The early bird for our Costa Rica workshop ends tomorrow.',
+        'The early bird for our Costa Rica workshop ends this Wednesday, 4 November.',
+      ],
+      ['18 to 29 January 2027. The early bird discount ends 4 November.', '18 to 29 January 2027.'],
+    ],
+    reason:
+      "Date audit, 31 Oct: this posts Mon 2 Nov, so 'ends tomorrow' was wrong; the early bird ends Wed 4 Nov. Slides already say November 4.",
+  },
+  {
+    key: '2026-10-31 p20 compost intensive date',
+    post: 'p20',
+    caption: [['It starts January 18.', 'It starts January 11.']],
+    reason:
+      'Date audit, 31 Oct: Compost Intensive starts 11 January 2027 (course page, checked 31 Oct: Jan 11 to Mar 26 cohort). Slide 6 image still says 18 January: fix in Canva before posting.',
+  },
+  {
+    key: '2026-10-31 x20261118 compost intensive date',
+    post: 'x20261118',
+    caption: [
+      ['The next cohort starts January 18, 2027.', 'The next cohort starts January 11, 2027.'],
+    ],
+    reason:
+      'Date audit, 31 Oct: Compost Intensive starts 11 January 2027 (course page, checked 31 Oct: Jan 11 to Mar 26 cohort). ',
+  },
+  {
+    key: '2026-10-31 x20261130 compost intensive date',
+    post: 'x20261130',
+    caption: [
+      [
+        'The next Compost Intensive cohort starts January 18.',
+        'The next Compost Intensive cohort starts January 11.',
+      ],
+    ],
+    reason:
+      'Date audit, 31 Oct: Compost Intensive starts 11 January 2027 (course page, checked 31 Oct: Jan 11 to Mar 26 cohort). ',
+  },
+  {
+    key: '2026-10-31 j20270103 compost intensive date',
+    post: 'j20270103',
+    caption: [['starts the week of January 18.', 'starts January 11.']],
+    reason:
+      'Date audit, 31 Oct: Compost Intensive starts 11 January 2027 (course page, checked 31 Oct: Jan 11 to Mar 26 cohort). ',
+  },
+  {
+    key: '2026-10-31 j20270110c compost intensive date',
+    post: 'j20270110c',
+    caption: [
+      [
+        'The course runs online from the week of January 18 to March 26.',
+        'The course runs online from January 11 to March 26, and the first class is tomorrow.',
+      ],
+    ],
+    reason:
+      "Date audit, 31 Oct: Compost Intensive starts 11 January 2027 (course page, checked 31 Oct: Jan 11 to Mar 26 cohort). Slide 1 image still says 'the week of 18 January': fix before posting.",
+  },
+  {
+    key: '2026-10-31 p14 drop early bird line',
+    post: 'p14',
+    caption: [
+      ['The early bird ends November 4. Register now, link in bio.', 'Register now, link in bio.'],
+    ],
+    reason:
+      'Date audit, 31 Oct: Date TBD, so it may post after the early bird ends on 4 Nov. Slide 4 image still mentions the early bird.',
+  },
+  {
+    key: '2026-10-31 n20261023a date',
+    post: 'n20261023a',
+    set: { iso_date: '2026-11-07', date_tbd: false },
+    reason:
+      'Date audit, 31 Oct: news from 15 Oct cannot wait in Date TBD. Sat 7 Nov, the first light day (2 other posts).',
+  },
+  {
+    key: '2026-10-31 p08 earthworm day 2027',
+    post: 'p08',
+    set: { iso_date: '2027-10-21', date_tbd: true },
+    reason:
+      'Date audit, 31 Oct: World Earthworm Day 2026 has passed. Saved for World Earthworm Day, Thu 21 Oct 2027, as Date TBD so it no longer sits at the top of the grid.',
+  },
+  {
+    key: '2026-10-31 d15 earthworm day 2027',
+    post: 'd15',
+    set: { iso_date: '2027-10-21', date_tbd: true },
+    reason: 'Date audit, 31 Oct: saved for World Earthworm Day, Thu 21 Oct 2027, as Date TBD.',
+  },
+  {
+    key: '2026-10-31 x20261231 duplicate of new year post',
+    post: 'x20261231',
+    set: { date_tbd: true },
+    reason:
+      'Date audit, 31 Oct: same 2027 workshop list as the Jan 1 post (j20270101) one day later. Moved to Date TBD; put back on 31 Dec if Stephanie wants both.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES);

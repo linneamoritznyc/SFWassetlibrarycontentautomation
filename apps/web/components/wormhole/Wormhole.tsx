@@ -398,10 +398,12 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
         : !isStory(p) && onInstagram(p);
   const shownCount = visible.filter(inView).length;
   const newsCount = posts.filter((p) => isNewsPost(p) && inView(p)).length;
+  // The grid is the profile as it will look, so only dated posts go in it. Date TBD posts sit below it.
   const gridPosts = [
     ...feedPosts.filter((p) => p.pinned).sort((a, b) => (a.pinned ?? 0) - (b.pinned ?? 0)),
-    ...feedPosts.filter((p) => !p.pinned).reverse(),
+    ...feedPosts.filter((p) => !p.pinned && !p.date_tbd).reverse(),
   ];
+  const unscheduled = feedPosts.filter((p) => !p.pinned && p.date_tbd);
 
   return (
     <div className="min-h-screen bg-white text-black">
@@ -639,6 +641,21 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
                 <GridTile key={p.id} post={p} onOpen={() => setExpanded(p.id)} />
               ))}
             </div>
+            {unscheduled.length > 0 && (
+              <>
+                <h2 className="mb-3 mt-10 text-lg font-semibold text-neutral-700">
+                  Not scheduled yet (Date TBD) · {unscheduled.length}
+                </h2>
+                <p className="mb-3 text-base text-neutral-500">
+                  Not in the grid above until they get a date.
+                </p>
+                <div className="grid grid-cols-3 gap-px border border-neutral-200 bg-neutral-200">
+                  {unscheduled.map((p) => (
+                    <GridTile key={p.id} post={p} onOpen={() => setExpanded(p.id)} />
+                  ))}
+                </div>
+              </>
+            )}
           </div>
         )}
       </main>

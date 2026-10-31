@@ -297,7 +297,7 @@ LINKEDIN = {
         "consciousplanet.org/save-soil/news", seed=342),
 }
 
-if __name__ == "__main__":
+if __name__ == "__main__" and sys.argv[1:] != ["toi-options"]:
     for pid in sys.argv[1:] or list(POSTS) + list(LINKEDIN):
         if pid in LINKEDIN:
             print(pid, LINKEDIN[pid]())
@@ -309,3 +309,70 @@ if __name__ == "__main__":
                 raise SystemExit(f"exists, not overwriting: {p}")
         names, _ = d.save(TILES, DECKS)
         print(pid, names, d.pptx_name())
+
+
+# ------------------------------------------------------------------ Times of India options (Linnea, 31 Oct)
+TOI_DIR = os.path.dirname(TOI_IMG)
+
+
+def frame(name):
+    return Image.open(os.path.join(TOI_DIR, name + ".jpg")).convert("RGB")
+
+
+def photo_fact(d, k, img, headline, detail):
+    """A fact card with a workshop photo on top: same card, bar and type as the news card."""
+    top = 150
+    box(d, k, "Card", CREAM, CX, top, CW, 1050)
+    d.put(k, "Photo", cover(img, PW, 470, 0.5, 0.5).convert("RGBA"), PX, top + 28, shadowed=False, anchor="tl")
+    hy = top + 28 + 470 + 44
+    bottom = d.text(k, "Headline", headline, PX + 34, hy, PW - 50, 200, 84, kind="montserrat-bold", italic=False,
+                    color=BROWN, lh=1.05, min_size=84)
+    box(d, k, "Bar", LGREEN, PX, hy + 8, 10, round(bottom) - hy - 14)
+    d.text(k, "Details", detail, PX + 34, round(bottom) + 22, PW - 50, top + 1050 - round(bottom) - 40, 52,
+           kind="source-reg", italic=False, color=INK, lh=1.2, min_size=50)
+
+
+TOI_SRC = "timesofindia.indiatimes.com/\narticleshow/135370094.cms"
+TOI_CREDIT = "Photo: Soil Food Web Foundation, Coimbatore"
+
+
+def toi_b():
+    n = 5
+    d = Deck("toi20261031", n, "times-of-india-coimbatore-workshop-v2", "2026-10-31")
+    d.bg(None, grain(W * n, H, 407).convert("RGBA"), name="Background")
+    for k in range(n):
+        d.put(k, "Logo", logo_disc(110), 40, 36, shadowed=False, anchor="tl")
+    card(d, 0, frame("f51"), "The Times of India", TOI_CREDIT, "We made the Times of India",
+         "46 people from 10 countries learned with us in Coimbatore.", TOI_SRC)
+    photo_fact(d, 1, frame("f63"), "46 participants, 10 countries", "Farmers, soil scientists, microbiologists "
+               "and consultants.")
+    photo_fact(d, 2, frame("f45"), "The Save Soil model farm", "Ten days at Sadhguru's Save Soil Regenerative "
+               "Revolution farm.")
+    photo_fact(d, 3, frame("f69"), "Compost to microscope", "BioComplete™ compost, extracts, teas and soil "
+               "sampling.")
+    fact(d, 4, "Read the article", "The Times of India, 30 October 2026. In collaboration with Isha Outreach. "
+         "Link in bio.")
+    return d
+
+
+def toi_c():
+    n = 5
+    d = Deck("toi20261031", n, "times-of-india-coimbatore-workshop-v3", "2026-10-31")
+    d.bg(None, grain(W * n, H, 408).convert("RGBA"), name="Background")
+    for k in range(n):
+        d.put(k, "Logo", logo_disc(110), 40, 36, shadowed=False, anchor="tl")
+    card(d, 0, frame("f81"), "The Times of India", TOI_CREDIT, "From 10 countries to one farm in Coimbatore",
+         "Our India Accelerator Workshop, in the news.", TOI_SRC)
+    fact(d, 1, "46 participants", "From seven Indian states, the Netherlands, Australia, Iran, the United States "
+         "and Costa Rica.")
+    fact(d, 2, "10 days on a working farm", "At Sadhguru's Save Soil Regenerative Revolution farm, in "
+         "collaboration with Isha Outreach.")
+    fact(d, 3, "61 at the seminar first", "The two-day Life in the Soil Seminar ran on 16 and 17 October.")
+    fact(d, 4, "Read the article", "The Times of India, 30 October 2026. Link in bio.")
+    return d
+
+
+if __name__ == "__main__" and sys.argv[1:] == ["toi-options"]:
+    for fn in (toi_b, toi_c):
+        d = fn()
+        print(d.save(TILES, DECKS)[0], d.pptx_name())
