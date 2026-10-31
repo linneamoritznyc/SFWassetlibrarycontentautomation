@@ -398,9 +398,10 @@ export function Wormhole({ editor, docUrl }: { editor: string; docUrl: string | 
         : !isStory(p) && onInstagram(p);
   const shownCount = visible.filter(inView).length;
   const newsCount = posts.filter((p) => isNewsPost(p) && inView(p)).length;
+  // Bank posts (Date TBD) stay off the grid, so the grid shows only what is scheduled.
   const gridPosts = [
     ...feedPosts.filter((p) => p.pinned).sort((a, b) => (a.pinned ?? 0) - (b.pinned ?? 0)),
-    ...feedPosts.filter((p) => !p.pinned).reverse(),
+    ...feedPosts.filter((p) => !p.pinned && !p.date_tbd).reverse(),
   ];
 
   return (
