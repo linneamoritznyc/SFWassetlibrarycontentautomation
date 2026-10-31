@@ -13,6 +13,7 @@ import type { WormholePost } from './wormhole-types';
 import { GAP_CHANGES } from './wormhole-changes-gaps';
 import { JAN_CHANGES } from './wormhole-changes-jan';
 import { OCT27_CHANGES } from './wormhole-changes-1027';
+import { OCT31_CHANGES } from './wormhole-changes-1031';
 
 export type Change = {
   key: string;
@@ -9354,7 +9355,7 @@ export const CHANGES: Change[] = [
   },
 ];
 
-CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES);
+CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);
 
 const editorOf = (c: Change) => `Change: ${c.key}`;
 let done = false;
