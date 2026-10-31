@@ -9289,6 +9289,69 @@ export const CHANGES: Change[] = [
     reason:
       'Date audit, 31 Oct: same 2027 workshop list as the Jan 1 post (j20270101) one day later. Moved to Date TBD; put back on 31 Dec if Stephanie wants both.',
   },
+  {
+    key: '2026-10-31 toi20261031 v5 evan',
+    post: 'toi20261031',
+    set: {
+      slides: [
+        {
+          text: 'We made the Times of India. Our India Accelerator Workshop, Coimbatore, Tamil Nadu.',
+          image: '/wormhole/tiles/toi20261031-v5-1.jpg',
+        },
+        {
+          text: '46 participants from 10 countries. Farmers, soil scientists, microbiologists and consultants, from seven Indian states and abroad.',
+          image: '/wormhole/tiles/toi20261031-v5-2.jpg',
+        },
+        {
+          text: "At the Save Soil model farm. Ten days at Sadhguru's Save Soil Regenerative Revolution farm, in collaboration with Isha Outreach.",
+          image: '/wormhole/tiles/toi20261031-v5-3.jpg',
+        },
+        {
+          text: 'Compost to microscope. BioComplete\u2122 compost, compost extracts and teas, soil sampling and microscopy sessions.',
+          image: '/wormhole/tiles/toi20261031-v5-4.jpg',
+        },
+        {
+          text: '61 at the seminar first. The two-day Life in the Soil Seminar ran on 16 and 17 October.',
+          image: '/wormhole/tiles/toi20261031-v5-5.jpg',
+        },
+        {
+          text: 'Read the article. The Times of India, 30 October 2026. Link in bio.',
+          image: '/wormhole/tiles/toi20261031-v5-6.jpg',
+        },
+      ],
+      visual_note:
+        'Family: news card (the pinned NYT format). Cover photo, Linnea\'s pick: Evan Buckman teaching in Coimbatore (Drive, IN-Workshop Public Photos, file 1JdGCPIREe4n7PKLeoPSdfUIYeoA-fXuR); photo_check: used nowhere else. Deck: decks/31-10-2026-times-of-india-coimbatore-workshop-v5.pptx. Earlier options kept in the repo: v1 (group under the shed), v2/v4 (photo on every slide), v3 (participant portrait). Story: st20261031toi. Tag @consciousplanet and @ishafoundation. LinkedIn: end with a question, e.g. "What would it take to run a training like this in your region?"',
+    },
+    reason: 'Linnea, 31 Oct: the cover photo is Evan teaching.',
+  },
+  {
+    key: '2026-10-31 st20261031toi',
+    post: 'st20261031toi',
+    create: {
+      iso_date: '2026-10-31',
+      date_tbd: false,
+      topic: 'Stories \u00b7 We made the Times of India',
+      platform: 'Instagram Stories',
+      caption:
+        'No caption (Stories). One frame: the Times of India card with Evan teaching. Add a link sticker to the article under the card, where it says "Read the article": https://timesofindia.indiatimes.com/city/coimbatore/soil-food-web-school-conducts-soil-biology-training-at-ishas-save-soil-model-farm-in-coimbatore/articleshow/135370094.cms . Post right after the feed post, and share the feed post to Stories as a second frame.',
+      slides: [
+        {
+          text: 'Story frame 1: We made the Times of India! 46 people from 10 countries learned with us in Coimbatore. Link sticker: Read the article.',
+          image: '/wormhole/tiles/st20261031toi-v1-1.jpg',
+        },
+      ],
+      cta: 'Link sticker: Read the article',
+      link: 'https://timesofindia.indiatimes.com/city/coimbatore/soil-food-web-school-conducts-soil-biology-training-at-ishas-save-soil-model-farm-in-coimbatore/articleshow/135370094.cms',
+      sources: [
+        'The Times of India, 30 Oct 2026: https://timesofindia.indiatimes.com/city/coimbatore/soil-food-web-school-conducts-soil-biology-training-at-ishas-save-soil-model-farm-in-coimbatore/articleshow/135370094.cms',
+      ],
+      visual_note:
+        'Family: news card, Story 1080 x 1920. Text kept out of the top 250 and bottom 300 px. Deck: decks/31-10-2026-times-of-india-story-v1.pptx. Built with tools/wormhole-visuals/toi_evan.py.',
+      note: 'Linnea, 31 Oct: "we should post it on our story".',
+      status: 'draft',
+    },
+    reason: 'Times of India Story.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES);
