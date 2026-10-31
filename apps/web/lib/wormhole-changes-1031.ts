@@ -10,7 +10,15 @@ const STORIES = [
   'j20270118', 'j20270130b', 'd15',
 ];
 
+const FUN_SOIL_NEWS = ['p17', 'pl20261127', 'pl20261218', 'j20270130'];
+
 export const OCT31_CHANGES: Change[] = [
+  ...FUN_SOIL_NEWS.map((post) => ({
+    key: `2026-10-31 remove fun soil news ${post}`,
+    post,
+    remove: true as const,
+    reason: 'Removed (Linnea, 31 Oct): Fun Soil News is dropped as a series.',
+  })),
   ...STORIES.map((post) => ({
     key: `2026-10-31 remove story ${post}`,
     post,
