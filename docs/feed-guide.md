@@ -71,4 +71,4 @@ table, and to `FAMILIES` in grid_check.py.
 - **Banned:** gold (except a donate button, per CLAUDE.md), gradients, photo fades,
   glow, vignettes, film grain, tape strips, tilted photos, italic type, small cutouts
   on plain white, hand-drawn sketchy frames, slide counters, date or "Day 1" tags on
-  slides, stock photos, photos of an audience sitting in a seminar.
+  slides, stock photos.

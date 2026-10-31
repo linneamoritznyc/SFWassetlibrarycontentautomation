@@ -36,5 +36,5 @@ New looks are welcome whenever they follow the brand.
 - Real photos only: our own, the SFW microscope library, or openly licensed with a credit.
 - Leave out: gold, gradients, photo fades, glow, vignettes, film grain, tape strips, tilted
   photos, italic type, small cutouts on plain white, sketchy hand-drawn frames, slide
-  counters, date or "Day 1" tags on slides, stock photos, photos of an audience sitting in
-  a seminar, and any font outside the three above.
+  counters, date or "Day 1" tags on slides, stock photos, and any font outside the
+  three above.
