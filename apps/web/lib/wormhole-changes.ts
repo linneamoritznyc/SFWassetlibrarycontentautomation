@@ -9880,6 +9880,38 @@ export const CHANGES: Change[] = [
     },
     reason: 'Linnea, 31 Oct: Save Soil shoutouts to bigger text.',
   },
+  {
+    key: '2026-10-31 k20261223 india photo',
+    post: 'k20261223',
+    set: {
+      slides: [
+        {
+          text: 'Happy Kisan Diwas. Thank you to every farmer in India.',
+          image: '/wormhole/tiles/k20261223-v3-1.jpg',
+        },
+      ],
+      visual_note:
+        'Family: K, framed photo. Real photo from our India workshop: the group in the arecanut grove at the Save Soil farm (Drive, IN-Workshop Public Photos, b6802170-089b-4df2-9475-2733dda763e7.jpg), used nowhere else. Replaces the photo-and-tag v2 stand-in. Built with tools/wormhole-visuals/india_days.py. Deck: decks/23-12-2026-kisan-diwas-v3.pptx.',
+    },
+    reason:
+      '31 Oct: the India workshop photos arrived; real Coimbatore photo instead of the stand-in.',
+  },
+  {
+    key: '2026-10-31 j20270115b india photo',
+    post: 'j20270115b',
+    set: {
+      slides: [
+        {
+          text: 'Happy Pongal! To every farmer in Tamil Nadu.',
+          image: '/wormhole/tiles/j20270115b-v3-1.jpg',
+        },
+      ],
+      visual_note:
+        'Family: photo on flat colour (Food Web Green). Real photo from our India workshop: the harvest offering on a banana leaf (Drive, IN-Workshop Public Photos, e696061c-21d1-45e0-9686-4bf0d8493664.jpg), used nowhere else. Built with tools/wormhole-visuals/india_days.py. Deck: decks/15-01-2027-happy-pongal-v3.pptx.',
+    },
+    reason:
+      '31 Oct: the India workshop photos arrived; real Coimbatore photo instead of the stand-in.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);
