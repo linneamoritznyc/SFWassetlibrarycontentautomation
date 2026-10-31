@@ -40,6 +40,7 @@ FONT_FILES = {
     ("mont-medium", False): "Montserrat-SemiBold.ttf",
     ("pathway", False): "PathwayGothicOne-Regular.ttf",
     ("source-reg", False): "SourceSans3-Regular.ttf",
+    ("source-reg", True): "SourceSans3-Italic.ttf",
 }
 PPT_FONT = {"garamond": "EB Garamond", "garamond-bold": "EB Garamond", "montserrat": "Montserrat",
             "montserrat-bold": "Montserrat", "source": "Source Sans 3", "fredoka": "Fredoka",

@@ -8846,6 +8846,352 @@ export const CHANGES: Change[] = [
     reason:
       'Linnea, 30 Oct: January news cannot be known in October. The October stories moved to p17 (Fun Soil News October). The old January caption, kept here: Three soil stories from the last few weeks that made our microscopes jealous. \ud83d\udd2c\ud83c\udf44 /  / Yunnan, China: researchers at the Kunming Institute of Botany described Dianjunus rex, nicknamed D-rex. Its fruiting bodies grow up to 50 cm tall and 2.2 kg, straight from the woody roots of Chinese cork oak. That makes it the largest known in the phylum Ascomycota, and its family dates back about 65 million years, roughly a million years after the mass extinction that ended the age of dinosaurs. (Frontiers in Fungal Biology, 2026) /  / Konstanz, Germany: in forest soil at the University of Konstanz botanical garden, bacteria fully broke down films of new bioplastics in about 250 to 330 days. The team found the enzyme behind it anchored to the outside of the bacterial cell, and they think the cells eat their way into the film, leaving cell-sized holes. Ordinary polyethylene barely changed. (The ISME Journal, 2026) /  / South Australia: Flinders University resampled the same restoration plantings over six years. The jobs soil fungi do, cycling nutrients and breaking down organic matter, kept recovering. The mix of fungal species changed far less, and old fertiliser legacies may be holding it back. (Molecular Ecology, 2026) /  / Which one would you put under the microscope first? Tell us below. \ud83d\udc9a /  / #FunSoilNews #SoilFoodWeb #SoilBiology #Fungi #SoilMicrobiology #LivingSoil',
   },
+  {
+    key: '2026-10-31 toi20261031',
+    post: 'toi20261031',
+    create: {
+      iso_date: '2026-10-31',
+      date_tbd: false,
+      topic: 'In the news: the Times of India on our India Accelerator Workshop',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        "We made the Times of India! \ud83c\udf31\nOn 30 October, the Times of India reported on our Accelerator Workshop in Coimbatore: 46 participants from 10 countries, ten days at Sadhguru's Save Soil Regenerative Revolution farm.\nFarmers, soil scientists, microbiologists, consultants and agribusiness professionals came from seven Indian states and from the Netherlands, Australia, Iran, the United States and Costa Rica. Together they built BioComplete\u2122 compost, brewed compost extracts and teas, sampled soil in the field and looked at all of it under the microscope. Before the workshop, 61 people joined our two-day Life in the Soil Seminar on 16 and 17 October.\nThe workshop ran in collaboration with Isha Outreach, with the Isha Foundation and the Conscious Planet Save Soil movement. Thank you to everyone who learned with us.\nRead the full article through the link in bio.\n#SoilFoodWeb #SaveSoil #Coimbatore #SoilBiology #Compost #LivingSoil #RegenerativeAgriculture",
+      slides: [
+        {
+          text: 'The Times of India covered our India workshop Coimbatore, Tamil Nadu. 30 October 2026.',
+          image: '/wormhole/tiles/toi20261031-v1-1.jpg',
+        },
+        {
+          text: '46 participants, 10 countries. Farmers, soil scientists, microbiologists and consultants, from seven Indian states and abroad.',
+          image: '/wormhole/tiles/toi20261031-v1-2.jpg',
+        },
+        {
+          text: "At the Save Soil model farm. Ten days at Sadhguru's Save Soil Regenerative Revolution farm, in collaboration with Isha Outreach.",
+          image: '/wormhole/tiles/toi20261031-v1-3.jpg',
+        },
+        {
+          text: 'Compost to microscope. BioComplete\u2122 compost, compost extracts and teas, soil sampling and microscopy sessions.',
+          image: '/wormhole/tiles/toi20261031-v1-4.jpg',
+        },
+        {
+          text: '61 more at the seminar. The two-day Life in the Soil Seminar came first, on 16 and 17 October.',
+          image: '/wormhole/tiles/toi20261031-v1-5.jpg',
+        },
+        {
+          text: 'Read the article. The Times of India, 30 October 2026. Link in bio.',
+          image: '/wormhole/tiles/toi20261031-v1-6.jpg',
+        },
+      ],
+      cta: 'Read the article, link in bio',
+      link: 'https://timesofindia.indiatimes.com/city/coimbatore/soil-food-web-school-conducts-soil-biology-training-at-ishas-save-soil-model-farm-in-coimbatore/articleshow/135370094.cms',
+      sources: [
+        'The Times of India, "Soil Food Web School conducts soil biology training at Isha\'s Save Soil Model Farm in Coimbatore", 30 Oct 2026: https://timesofindia.indiatimes.com/city/coimbatore/soil-food-web-school-conducts-soil-biology-training-at-ishas-save-soil-model-farm-in-coimbatore/articleshow/135370094.cms',
+      ],
+      visual_note:
+        'Family: news card (the pinned NYT format). Article image: frame at 1:03 of sfw-india-aw-film-draft.mp4 (Linnea\'s Drive), the group under the shed at the Save Soil farm; photo_check: used nowhere else. The article itself has no photo (TOI used a stock placeholder). Deck: decks/31-10-2026-times-of-india-coimbatore-workshop-v1.pptx. Tag @consciousplanet and @ishafoundation. LinkedIn: end with a question, e.g. "What would it take to run a training like this in your region?"',
+      note: 'Linnea, 31 Oct: "WE NEED TO SHARE THIS ASAP". Dated today; Sat 31 Oct already has the website launch, Leave the leaves and Fun Soil News, so Stephanie may want this first or move one of those.',
+      status: 'draft',
+    },
+    reason: 'Times of India story, 30 Oct 2026.',
+  },
+  {
+    key: '2026-10-31 n20261023a news card',
+    post: 'n20261023a',
+    set: {
+      slides: [
+        {
+          text: 'A plant said to skip fungi traded food with one University of Sheffield, Current Biology, 15 Oct 2026.',
+          image: '/wormhole/tiles/n20261023a-nc1-1.jpg',
+        },
+        {
+          text: 'The plant: Arabidopsis. A small mustard plant. Its family lost the genes most plants use to welcome fungal partners.',
+          image: '/wormhole/tiles/n20261023a-nc1-2.jpg',
+        },
+        {
+          text: 'The fungus. A Mucoromycotina fine root endophyte, from an ancient group of soil fungi.',
+          image: '/wormhole/tiles/n20261023a-nc1-3.jpg',
+        },
+        {
+          text: "Nitrogen and phosphorus in. The fungus carried both from the soil into the plant's shoots. The plant grew normally.",
+          image: '/wormhole/tiles/n20261023a-nc1-4.jpg',
+        },
+        {
+          text: "260% more carbon out. In return, the fungus received more than 260% more of the plant's carbon.",
+          image: '/wormhole/tiles/n20261023a-nc1-5.jpg',
+        },
+        {
+          text: 'Next: cabbage and canola. Same plant family. The team wants to learn what this means for crops.',
+          image: '/wormhole/tiles/n20261023a-nc1-6.jpg',
+        },
+        {
+          text: 'Read the study. University of Sheffield, led by Professor Katie Field. Current Biology, October 2026. Link in bio.',
+          image: '/wormhole/tiles/n20261023a-nc1-7.jpg',
+        },
+      ],
+      visual_note:
+        "Family: news card (the pinned NYT / Save Soil format, Linnea 31 Oct: every news post uses it). Built with tools/wormhole-visuals/news_cards.py; article image cropped from this post's own earlier visual. Deck: decks/*-news-nc1.pptx.",
+    },
+    reason: 'Linnea, 31 Oct: all news posts follow the news sharing template.',
+  },
+  {
+    key: '2026-10-31 n20261024a news card',
+    post: 'n20261024a',
+    set: {
+      slides: [
+        {
+          text: 'Soil fungi lag behind replanted land Flinders University, Molecular Ecology, October 2026.',
+          image: '/wormhole/tiles/n20261024a-nc1-1.jpg',
+        },
+        {
+          text: 'Six years later. A team led by Professor Martin Breed sampled the soil fungi in replanted farmland again.',
+          image: '/wormhole/tiles/n20261024a-nc1-2.jpg',
+        },
+        {
+          text: 'The work came back. What the fungi do in the soil, cycling nutrients and breaking down organic matter, kept recovering.',
+          image: '/wormhole/tiles/n20261024a-nc1-3.jpg',
+        },
+        {
+          text: 'The community lagged. The mix of fungal species changed very little.',
+          image: '/wormhole/tiles/n20261024a-nc1-4.jpg',
+        },
+        {
+          text: 'A likely brake. The farming history: soils still rich in leftover nutrients.',
+          image: '/wormhole/tiles/n20261024a-nc1-5.jpg',
+        },
+        {
+          text: 'Measure below ground. Trees are the part of restoration we can see. The soil food web runs on its own timeline.',
+          image: '/wormhole/tiles/n20261024a-nc1-6.jpg',
+        },
+        {
+          text: 'Read the study. Flinders University, Molecular Ecology, October 2026. Link in bio.',
+          image: '/wormhole/tiles/n20261024a-nc1-7.jpg',
+        },
+      ],
+      visual_note:
+        "Family: news card (the pinned NYT / Save Soil format, Linnea 31 Oct: every news post uses it). Built with tools/wormhole-visuals/news_cards.py; article image cropped from this post's own earlier visual. Deck: decks/*-news-nc1.pptx.",
+    },
+    reason: 'Linnea, 31 Oct: all news posts follow the news sharing template.',
+  },
+  {
+    key: '2026-10-31 k20261030 news card',
+    post: 'k20261030',
+    set: {
+      slides: [
+        {
+          text: 'Fungi reach 15 times more soil than cotton roots A pick from our mentor Dr. Carla Portugal.',
+          image: '/wormhole/tiles/k20261030-nc1-1.jpg',
+        },
+        {
+          text: 'About 30 mm out. Mycorrhizal hyphae took up phosphorus and moved it to the plant from up to 3 cm beyond the root.',
+          image: '/wormhole/tiles/k20261030-nc1-2.jpg',
+        },
+        {
+          text: 'Less soluble P, more hyphae. Low soluble phosphorus promoted hyphal growth. High soluble phosphorus held it back.',
+          image: '/wormhole/tiles/k20261030-nc1-3.jpg',
+        },
+        {
+          text: 'A moderate rate won. Cotton took up the most phosphorus at 150 kg P2O5 per hectare.',
+          image: '/wormhole/tiles/k20261030-nc1-4.jpg',
+        },
+        {
+          text: "Carla's caveat. One crop, one field, fungi and soil chemistry only. The rest of the soil food web was not measured.",
+          image: '/wormhole/tiles/k20261030-nc1-5.jpg',
+        },
+        {
+          text: 'Read the paper. Mai et al. 2019, European Journal of Soil Biology 90: 31-35. Link in bio.',
+          image: '/wormhole/tiles/k20261030-nc1-6.jpg',
+        },
+      ],
+      visual_note:
+        "Family: news card (the pinned NYT / Save Soil format, Linnea 31 Oct: every news post uses it). Built with tools/wormhole-visuals/news_cards.py; article image cropped from this post's own earlier visual. Deck: decks/*-news-nc1.pptx.",
+    },
+    reason: 'Linnea, 31 Oct: all news posts follow the news sharing template.',
+  },
+  {
+    key: '2026-10-31 ev-02 news card',
+    post: 'ev-02',
+    set: {
+      slides: [
+        {
+          text: 'An open atlas of soil life from 100,000 samples By Biome Makers: soil life from over 90 countries.',
+          image: '/wormhole/tiles/ev-02-nc1-1.jpg',
+        },
+        {
+          text: 'One protocol, 90+ countries. Every sample is collected, sequenced and analysed the same way, so continents can be compared.',
+          image: '/wormhole/tiles/ev-02-nc1-2.jpg',
+        },
+        {
+          text: 'Open data. Researchers get raw reads and processed data for free.',
+          image: '/wormhole/tiles/ev-02-nc1-3.jpg',
+        },
+        {
+          text: '200+ research partners. And 3,000 datasets so far. Labs can join as contributors.',
+          image: '/wormhole/tiles/ev-02-nc1-4.jpg',
+        },
+        {
+          text: 'Explore the atlas. beopen.earth/atlas. Link in bio.',
+          image: '/wormhole/tiles/ev-02-nc1-5.jpg',
+        },
+      ],
+      visual_note:
+        "Family: news card (the pinned NYT / Save Soil format, Linnea 31 Oct: every news post uses it). Built with tools/wormhole-visuals/news_cards.py; article image cropped from this post's own earlier visual. Deck: decks/*-news-nc1.pptx.",
+    },
+    reason: 'Linnea, 31 Oct: all news posts follow the news sharing template.',
+  },
+  {
+    key: '2026-10-31 p17 news card',
+    post: 'p17',
+    set: {
+      slides: [
+        {
+          text: 'Three soil stories from October A giant fungus, plastic-eating bacteria, returning fungi.',
+          image: '/wormhole/tiles/p17-nc1-1.jpg',
+        },
+        {
+          text: 'A giant fungus grows up to 50 cm tall Dianjunus rex, from oak roots in Yunnan, China.',
+          image: '/wormhole/tiles/p17-nc1-2.jpg',
+        },
+        {
+          text: 'Forest soil bacteria ate bioplastic Films gone in 250 to 330 days. Konstanz, Germany.',
+          image: '/wormhole/tiles/p17-nc1-3.jpg',
+        },
+        {
+          text: 'Soil fungi back at work after replanting Six years of recovery in South Australia.',
+          image: '/wormhole/tiles/p17-nc1-4.jpg',
+        },
+      ],
+      visual_note:
+        "Family: news card (the pinned NYT / Save Soil format, Linnea 31 Oct: every news post uses it). Built with tools/wormhole-visuals/news_cards.py; article image cropped from this post's own earlier visual. Deck: decks/*-news-nc1.pptx.",
+    },
+    reason: 'Linnea, 31 Oct: all news posts follow the news sharing template.',
+  },
+  {
+    key: '2026-10-31 pl20261127 news card',
+    post: 'pl20261127',
+    set: {
+      slides: [
+        {
+          text: 'Fun Soil News: November 2026 5 good stories from the soil this month.',
+          image: '/wormhole/tiles/pl20261127-nc1-1.jpg',
+        },
+        {
+          text: 'Story 1: short headline here One sentence: what happened, where.',
+          image: '/wormhole/tiles/pl20261127-nc1-2.jpg',
+        },
+        {
+          text: 'Story 2: short headline here One sentence: what happened, where.',
+          image: '/wormhole/tiles/pl20261127-nc1-3.jpg',
+        },
+        {
+          text: 'Story 3: short headline here One sentence: what happened, where.',
+          image: '/wormhole/tiles/pl20261127-nc1-4.jpg',
+        },
+        {
+          text: 'Story 4: short headline here One sentence: what happened, where.',
+          image: '/wormhole/tiles/pl20261127-nc1-5.jpg',
+        },
+        {
+          text: 'Story 5: short headline here One sentence: what happened, where.',
+          image: '/wormhole/tiles/pl20261127-nc1-6.jpg',
+        },
+      ],
+      visual_note:
+        "Family: news card (the pinned NYT / Save Soil format, Linnea 31 Oct: every news post uses it). Built with tools/wormhole-visuals/news_cards.py; article image cropped from this post's own earlier visual. Deck: decks/*-news-nc1.pptx.",
+    },
+    reason: 'Linnea, 31 Oct: all news posts follow the news sharing template.',
+  },
+  {
+    key: '2026-10-31 pl20261218 news card',
+    post: 'pl20261218',
+    set: {
+      slides: [
+        {
+          text: 'Fun Soil News: December 2026 5 good stories from the soil this month.',
+          image: '/wormhole/tiles/pl20261218-nc1-1.jpg',
+        },
+        {
+          text: 'Story 1: short headline here One sentence: what happened, where.',
+          image: '/wormhole/tiles/pl20261218-nc1-2.jpg',
+        },
+        {
+          text: 'Story 2: short headline here One sentence: what happened, where.',
+          image: '/wormhole/tiles/pl20261218-nc1-3.jpg',
+        },
+        {
+          text: 'Story 3: short headline here One sentence: what happened, where.',
+          image: '/wormhole/tiles/pl20261218-nc1-4.jpg',
+        },
+        {
+          text: 'Story 4: short headline here One sentence: what happened, where.',
+          image: '/wormhole/tiles/pl20261218-nc1-5.jpg',
+        },
+        {
+          text: 'Story 5: short headline here One sentence: what happened, where.',
+          image: '/wormhole/tiles/pl20261218-nc1-6.jpg',
+        },
+      ],
+      visual_note:
+        "Family: news card (the pinned NYT / Save Soil format, Linnea 31 Oct: every news post uses it). Built with tools/wormhole-visuals/news_cards.py; article image cropped from this post's own earlier visual. Deck: decks/*-news-nc1.pptx.",
+    },
+    reason: 'Linnea, 31 Oct: all news posts follow the news sharing template.',
+  },
+  {
+    key: '2026-10-31 j20270130 news card',
+    post: 'j20270130',
+    set: {
+      slides: [
+        {
+          text: 'Fun Soil News: January 2027 3 good stories from the soil this month.',
+          image: '/wormhole/tiles/j20270130-nc1-1.jpg',
+        },
+        {
+          text: 'Story 1: short headline here One sentence: what happened, where.',
+          image: '/wormhole/tiles/j20270130-nc1-2.jpg',
+        },
+        {
+          text: 'Story 2: short headline here One sentence: what happened, where.',
+          image: '/wormhole/tiles/j20270130-nc1-3.jpg',
+        },
+        {
+          text: 'Story 3: short headline here One sentence: what happened, where.',
+          image: '/wormhole/tiles/j20270130-nc1-4.jpg',
+        },
+      ],
+      visual_note:
+        "Family: news card (the pinned NYT / Save Soil format, Linnea 31 Oct: every news post uses it). Built with tools/wormhole-visuals/news_cards.py; article image cropped from this post's own earlier visual. Deck: decks/*-news-nc1.pptx.",
+    },
+    reason: 'Linnea, 31 Oct: all news posts follow the news sharing template.',
+  },
+  {
+    key: '2026-10-31 j20270109b news card',
+    post: 'j20270109b',
+    set: {
+      slides: [
+        {
+          text: '10 billion microorganisms in one gram of soil. Save Soil\'s article "What\'s Missing? Life." by Lu Yu, citing Dr. Elaine Ingham.',
+          image: '/wormhole/tiles/j20270109b-nc1-1.jpg',
+        },
+      ],
+      visual_note:
+        'Family: news card. LinkedIn single image, 1200 x 627, the savesoil.py LinkedIn card. Built with tools/wormhole-visuals/news_cards.py.',
+    },
+    reason: 'Linnea, 31 Oct: all news posts follow the news sharing template.',
+  },
+  {
+    key: '2026-10-31 j20270123a news card',
+    post: 'j20270123a',
+    set: {
+      slides: [
+        {
+          text: "33 million fertility trees in West Africa. Save Soil's interview with Dr. Nathalie Benziwa Johnson on APAF's agroforestry.",
+          image: '/wormhole/tiles/j20270123a-nc1-1.jpg',
+        },
+      ],
+      visual_note:
+        'Family: news card. LinkedIn single image, 1200 x 627, the savesoil.py LinkedIn card. Built with tools/wormhole-visuals/news_cards.py.',
+    },
+    reason: 'Linnea, 31 Oct: all news posts follow the news sharing template.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES);
