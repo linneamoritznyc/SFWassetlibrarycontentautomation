@@ -9597,6 +9597,289 @@ export const CHANGES: Change[] = [
     reason:
       'Sat 31 Oct had four feed posts once the Times of India story came in. Leave the leaves moves to Tue 10 Nov (two other posts that day); still leaf season.',
   },
+  {
+    key: '2026-10-31 ss-01 big text',
+    post: 'ss-01',
+    set: {
+      slides: [
+        {
+          text: "A coconut farm: 0.86% to 2.33% organic matter. Save Soil's case study of Valluvan's farm in Tamil Nadu.",
+          image: '/wormhole/tiles/ss-01-v3-1.jpg',
+        },
+        {
+          text: '90-100 coconuts per tree, now 140. Nothing changed in the first three years.',
+          image: '/wormhole/tiles/ss-01-v3-2.jpg',
+        },
+        {
+          text: 'Fertiliser: under 10%. Of what he used to spend. Workers: 1, down from 10 to 20.',
+          image: '/wormhole/tiles/ss-01-v3-3.jpg',
+        },
+        {
+          text: '1,200 mm of rain in days. 2018, after two years of drought.',
+          image: '/wormhole/tiles/ss-01-v3-4.jpg',
+        },
+        {
+          text: "Wells 6 to 7 feet higher. His neighbours' open wells stood 6 to 7 feet lower than his.",
+          image: '/wormhole/tiles/ss-01-v3-5.jpg',
+        },
+        {
+          text: 'What he did. Leaf litter trenches between rows, mulch, layered crops, no burning, no summer ploughing.',
+          image: '/wormhole/tiles/ss-01-v3-6.jpg',
+        },
+        {
+          text: 'Read the article. From Save Soil (Isha Foundation). Link in bio.',
+          image: '/wormhole/tiles/ss-01-v3-7.jpg',
+        },
+      ],
+      visual_note:
+        'Family: news card. Rebuilt 31 Oct with big text (84 px headlines, 52 px small text) and the italic green outlet tab, same content as savesoil.py; long facts split into a headline and a detail line. Built with tools/wormhole-visuals/ss_cards.py. Deck: decks/20-11-2026-ss-01-save-soil-shoutout-v3.pptx. The v2 tiles stay in the repo.',
+    },
+    reason: 'Linnea, 31 Oct: Save Soil shoutouts to the slide-rules text sizes.',
+  },
+  {
+    key: '2026-10-31 ss-02 big text',
+    post: 'ss-02',
+    set: {
+      slides: [
+        {
+          text: "5 numbers that show what soil life does. From Save Soil's paper on soil and adaptation.",
+          image: '/wormhole/tiles/ss-02-v3-1.jpg',
+        },
+        {
+          text: '6x faster. Water soaked into regenerative almond orchards 6 times faster. LaCanne et al. 2021',
+          image: '/wormhole/tiles/ss-02-v3-2.jpg',
+        },
+        {
+          text: '133% more microbial carbon. In regenerative organic soils. Mäder et al. 2025',
+          image: '/wormhole/tiles/ss-02-v3-3.jpg',
+        },
+        {
+          text: '2.4 to 13.5x more earthworms. In diversified rotations than in rye monoculture. Bogušas et al. 2022',
+          image: '/wormhole/tiles/ss-02-v3-4.jpg',
+        },
+        {
+          text: '+24% glomalin. The fungal protein that glues soil crumbs together, under perennial pasture. Abán et al. 2025',
+          image: '/wormhole/tiles/ss-02-v3-5.jpg',
+        },
+        {
+          text: '+38 to 137% maize yield. In drought years, in legume and manure systems. Lotter et al. 2003',
+          image: '/wormhole/tiles/ss-02-v3-6.jpg',
+        },
+        {
+          text: 'Read the article. From Save Soil (Isha Foundation). Link in bio.',
+          image: '/wormhole/tiles/ss-02-v3-7.jpg',
+        },
+      ],
+      visual_note:
+        'Family: news card. Rebuilt 31 Oct with big text (84 px headlines, 52 px small text) and the italic green outlet tab, same content as savesoil.py; long facts split into a headline and a detail line. Built with tools/wormhole-visuals/ss_cards.py. Deck: decks/22-11-2026-ss-02-save-soil-shoutout-v3.pptx. The v2 tiles stay in the repo.',
+    },
+    reason: 'Linnea, 31 Oct: Save Soil shoutouts to the slide-rules text sizes.',
+  },
+  {
+    key: '2026-10-31 ss-05 big text',
+    post: 'ss-05',
+    set: {
+      slides: [
+        {
+          text: 'Soil may be home to 59% of all life on Earth. Anthony et al., PNAS 2023, via Save Soil.',
+          image: '/wormhole/tiles/ss-05-v3-1.jpg',
+        },
+      ],
+      visual_note:
+        'Family: news card. Rebuilt 31 Oct with big text (84 px headlines, 52 px small text) and the italic green outlet tab, same content as savesoil.py; long facts split into a headline and a detail line. Built with tools/wormhole-visuals/ss_cards.py. Deck: decks/08-11-2026-ss-05-save-soil-shoutout-v3.pptx. The v2 tiles stay in the repo.',
+    },
+    reason: 'Linnea, 31 Oct: Save Soil shoutouts to the slide-rules text sizes.',
+  },
+  {
+    key: '2026-10-31 ss-06 big text',
+    post: 'ss-06',
+    set: {
+      slides: [
+        {
+          text: "Your soil shapes your gut more than your genes. From Save Soil's paper on soil and human health.",
+          image: '/wormhole/tiles/ss-06-v3-1.jpg',
+        },
+        {
+          text: 'Baboons: soil beat genes 15x. The soil around them shaped their gut microbes 15 times more strongly than their genetics.',
+          image: '/wormhole/tiles/ss-06-v3-2.jpg',
+        },
+        {
+          text: 'Under 8% inherited. Less than 8% of the human gut microbiome is inherited. Rothschild et al. 2018',
+          image: '/wormhole/tiles/ss-06-v3-3.jpg',
+        },
+        {
+          text: 'Fungi carry minerals in. Mycorrhizal fungi carry copper, iron, nitrogen, phosphorus and zinc into crops.',
+          image: '/wormhole/tiles/ss-06-v3-4.jpg',
+        },
+        {
+          text: 'Rhizobia make plant food. Bacteria in legume roots turn nitrogen from the air into plant food.',
+          image: '/wormhole/tiles/ss-06-v3-5.jpg',
+        },
+        {
+          text: 'Read the article. From Save Soil (Isha Foundation). Link in bio.',
+          image: '/wormhole/tiles/ss-06-v3-6.jpg',
+        },
+      ],
+      visual_note:
+        'Family: news card. Rebuilt 31 Oct with big text (84 px headlines, 52 px small text) and the italic green outlet tab, same content as savesoil.py; long facts split into a headline and a detail line. Built with tools/wormhole-visuals/ss_cards.py. Deck: decks/24-11-2026-ss-06-save-soil-shoutout-v3.pptx. The v2 tiles stay in the repo.',
+    },
+    reason: 'Linnea, 31 Oct: Save Soil shoutouts to the slide-rules text sizes.',
+  },
+  {
+    key: '2026-10-31 ss-08 big text',
+    post: 'ss-08',
+    set: {
+      slides: [
+        {
+          text: 'Healthy soil cools the land. From Save Soil\'s report "The Soil Carbon Sponge".',
+          image: '/wormhole/tiles/ss-08-v3-1.jpg',
+        },
+        {
+          text: 'Water carries heat away. Water in soil evaporates through plants and cools the land.',
+          image: '/wormhole/tiles/ss-08-v3-2.jpg',
+        },
+        {
+          text: "Bare soil heats the air. Degraded soil can't hold that water, so the sun heats the air instead.",
+          image: '/wormhole/tiles/ss-08-v3-3.jpg',
+        },
+        {
+          text: 'Cover the ground. Cover crops and mulch keep the ground from baking.',
+          image: '/wormhole/tiles/ss-08-v3-4.jpg',
+        },
+        {
+          text: "Fungi hold the pores open. Fungal threads and bacterial glues keep the sponge's pores open.",
+          image: '/wormhole/tiles/ss-08-v3-5.jpg',
+        },
+        {
+          text: 'Read the article. From Save Soil (Isha Foundation). Link in bio.',
+          image: '/wormhole/tiles/ss-08-v3-6.jpg',
+        },
+      ],
+      visual_note:
+        'Family: news card. Rebuilt 31 Oct with big text (84 px headlines, 52 px small text) and the italic green outlet tab, same content as savesoil.py; long facts split into a headline and a detail line. Built with tools/wormhole-visuals/ss_cards.py. Deck: decks/19-11-2026-ss-08-save-soil-shoutout-v3.pptx. The v2 tiles stay in the repo.',
+    },
+    reason: 'Linnea, 31 Oct: Save Soil shoutouts to the slide-rules text sizes.',
+  },
+  {
+    key: '2026-10-31 ss-03 big text',
+    post: 'ss-03',
+    set: {
+      slides: [
+        {
+          text: "USD 1 trillion for energy. USD 9 billion for agriculture.. Save Soil's analysis of COP30.",
+          image: '/wormhole/tiles/ss-03-v3-1.jpg',
+        },
+      ],
+      visual_note:
+        'Family: news card. LinkedIn single image, 1200 x 627, rebuilt 31 Oct with bigger text and the italic green outlet tab. Built with tools/wormhole-visuals/ss_cards.py.',
+    },
+    reason: 'Linnea, 31 Oct: Save Soil shoutouts to bigger text.',
+  },
+  {
+    key: '2026-10-31 ss-04 big text',
+    post: 'ss-04',
+    set: {
+      slides: [
+        {
+          text: 'Tilled soil released 21% more CO2. In low-carbon soil, 29%. Abdalla et al. 2016, via Save Soil.',
+          image: '/wormhole/tiles/ss-04-v3-1.jpg',
+        },
+      ],
+      visual_note:
+        'Family: news card. LinkedIn single image, 1200 x 627, rebuilt 31 Oct with bigger text and the italic green outlet tab. Built with tools/wormhole-visuals/ss_cards.py.',
+    },
+    reason: 'Linnea, 31 Oct: Save Soil shoutouts to bigger text.',
+  },
+  {
+    key: '2026-10-31 ss-07 big text',
+    post: 'ss-07',
+    set: {
+      slides: [
+        {
+          text: 'Soil is becoming security policy.. "Secure Soil, Save Life", with IUCN WCEL and Save Soil.',
+          image: '/wormhole/tiles/ss-07-v3-1.jpg',
+        },
+      ],
+      visual_note:
+        'Family: news card. LinkedIn single image, 1200 x 627, rebuilt 31 Oct with bigger text and the italic green outlet tab. Built with tools/wormhole-visuals/ss_cards.py.',
+    },
+    reason: 'Linnea, 31 Oct: Save Soil shoutouts to bigger text.',
+  },
+  {
+    key: '2026-10-31 ss-01-li big text',
+    post: 'ss-01-li',
+    set: {
+      slides: [
+        {
+          text: "A coconut farm: 0.86% to 2.33% organic matter. Save Soil's case study of Valluvan's farm.",
+          image: '/wormhole/tiles/ss-01-li-v3-1.jpg',
+        },
+      ],
+      visual_note:
+        'Family: news card. LinkedIn single image, 1200 x 627, rebuilt 31 Oct with bigger text and the italic green outlet tab. Built with tools/wormhole-visuals/ss_cards.py.',
+    },
+    reason: 'Linnea, 31 Oct: Save Soil shoutouts to bigger text.',
+  },
+  {
+    key: '2026-10-31 ss-02-li big text',
+    post: 'ss-02-li',
+    set: {
+      slides: [
+        {
+          text: "5 numbers that show what soil life does. From Save Soil's paper on soil and adaptation.",
+          image: '/wormhole/tiles/ss-02-li-v3-1.jpg',
+        },
+      ],
+      visual_note:
+        'Family: news card. LinkedIn single image, 1200 x 627, rebuilt 31 Oct with bigger text and the italic green outlet tab. Built with tools/wormhole-visuals/ss_cards.py.',
+    },
+    reason: 'Linnea, 31 Oct: Save Soil shoutouts to bigger text.',
+  },
+  {
+    key: '2026-10-31 ss-05-li big text',
+    post: 'ss-05-li',
+    set: {
+      slides: [
+        {
+          text: 'Soil may be home to 59% of all life on Earth. Anthony et al., PNAS 2023, via Save Soil.',
+          image: '/wormhole/tiles/ss-05-li-v3-1.jpg',
+        },
+      ],
+      visual_note:
+        'Family: news card. LinkedIn single image, 1200 x 627, rebuilt 31 Oct with bigger text and the italic green outlet tab. Built with tools/wormhole-visuals/ss_cards.py.',
+    },
+    reason: 'Linnea, 31 Oct: Save Soil shoutouts to bigger text.',
+  },
+  {
+    key: '2026-10-31 ss-06-li big text',
+    post: 'ss-06-li',
+    set: {
+      slides: [
+        {
+          text: "Where you live shapes your gut more than your genes. From Save Soil's paper on soil and health.",
+          image: '/wormhole/tiles/ss-06-li-v3-1.jpg',
+        },
+      ],
+      visual_note:
+        'Family: news card. LinkedIn single image, 1200 x 627, rebuilt 31 Oct with bigger text and the italic green outlet tab. Built with tools/wormhole-visuals/ss_cards.py.',
+    },
+    reason: 'Linnea, 31 Oct: Save Soil shoutouts to bigger text.',
+  },
+  {
+    key: '2026-10-31 ss-08-li big text',
+    post: 'ss-08-li',
+    set: {
+      slides: [
+        {
+          text: 'Healthy soil cools the land. From Save Soil\'s report "The Soil Carbon Sponge".',
+          image: '/wormhole/tiles/ss-08-li-v3-1.jpg',
+        },
+      ],
+      visual_note:
+        'Family: news card. LinkedIn single image, 1200 x 627, rebuilt 31 Oct with bigger text and the italic green outlet tab. Built with tools/wormhole-visuals/ss_cards.py.',
+    },
+    reason: 'Linnea, 31 Oct: Save Soil shoutouts to bigger text.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);
