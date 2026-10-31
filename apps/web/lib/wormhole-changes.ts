@@ -9912,6 +9912,22 @@ export const CHANGES: Change[] = [
     reason:
       '31 Oct: the India workshop photos arrived; real Coimbatore photo instead of the stand-in.',
   },
+  {
+    key: '2026-10-31 x20261220 no banned photo',
+    post: 'x20261220',
+    set: {
+      slides: [
+        {
+          text: 'PERMACULTURE DESIGN CERTIFICATE. Congratulations, class of 2026! Twelve weeks ago you started with a blank map. Now you have a design for a real place.',
+          image: '/wormhole/tiles/x20261220-v3-1.jpg',
+        },
+        { text: 'Photo only: food forest.', image: '/wormhole/tiles/x20261220-v2-2.jpg' },
+        { text: 'Go build it.', image: '/wormhole/tiles/x20261220-v2-3.jpg' },
+      ],
+    },
+    reason:
+      'Slide 1 used the banned raised-beds photo (pdc_beds.jpg). Now a type card on Food Web Green (tools/wormhole-visuals/pdc_card.py, deck 20-12-2026-pdc-congratulations-v3.pptx). Still to confirm: the date the PDC cohort finishes.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);
