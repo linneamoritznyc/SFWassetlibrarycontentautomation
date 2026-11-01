@@ -9949,6 +9949,69 @@ export const CHANGES: Change[] = [
     },
     reason: 'Added 31 Oct: Webinar 7 (Geoff Lawton) Short 1, cut by Linnea in Ivan\'s format, with caption, no date yet.',
   },
+  {
+    key: '2026-11-01 sh-w7-26',
+    post: 'sh-w7-26',
+    create: {
+      iso_date: '2026-11-01',
+      date_tbd: true,
+      topic: 'Growing Coffee With No Inputs',
+      platform: 'Instagram Reels, YouTube Shorts',
+      caption:
+        'I grow coffee where I live, and I have no inputs. ☕\nIn this clip from our free webinar Designing the Regeneration, Part 3, Geoff Lawton explains how coffee grows under his food forest. In his figures, he picks about half the yield of an organic coffee grower in his region, one and a half kilos a bush against their three, without fertilizing, weeding or watering.\nThe full webinar is free on our YouTube channel.\n@geofflawtononline\n#Shorts #SoilFoodWeb #Permaculture #GeoffLawton #FoodForest #LivingSoil',
+      slides: [{ text: 'Growing Coffee With No Inputs', image: '/wormhole/tiles/sh-w7-26-v1-1.jpg' }],
+      cta: 'The full webinar is free on our YouTube channel.',
+      link: '',
+      sources: ['Webinar 7, "Designing the Regeneration, Part 3" (clip: Linnea)'],
+      visual_note:
+        'Reel and Short cover, 1080 x 1920, from branch covers/shorts-webinar-1 (covers/shorts/webinar-7/26-growing-coffee-with-no-inputs.png). Clip: Linnea, Webinar 7 (Geoff Lawton), 37:18.9-37:55.1 + 37:56.8-38:07.0 of the raw Zoom recording. Video: sfw-reel-studio branch webinar-shorts/geoff-lawton, tools/webinar-shorts/renders/geoff-lawton-02-growing-coffee-with-no-inputs.mp4, with B-roll from Linnea’s general Drive B-roll. YouTube Short title: Growing Coffee With No Inputs #Shorts. Collab tag @geofflawtononline.',
+      note: 'Short 2 from Webinar 7. Geoff’s figures stay attributed to him. Date still to set.',
+      status: 'draft',
+    },
+    reason: 'Added 1 Nov: Webinar 7 (Geoff Lawton) Short 2, cut by Linnea in Ivan’s format, with B-roll and caption, no date yet.',
+  },
+  {
+    key: '2026-11-01 sh-w7-27',
+    post: 'sh-w7-27',
+    create: {
+      iso_date: '2026-11-01',
+      date_tbd: true,
+      topic: 'Compost in the Desert',
+      platform: 'Instagram Reels, YouTube Shorts',
+      caption:
+        'Every single day, we\'re producing 53 tons of compost. 🌴\nIn this clip from our free webinar Designing the Regeneration, Part 3, Geoff Lawton talks about one of his largest jobs: 7,000 hectares of organic date farms in Saudi Arabia. In his figures, up to 400 kilos of compost go on each date palm, irrigation water is more than halved, and production is more than doubled.\nThe full webinar is free on our YouTube channel.\n@geofflawtononline\n#Shorts #SoilFoodWeb #Permaculture #GeoffLawton #Compost #LivingSoil',
+      slides: [{ text: 'Compost in the Desert', image: '/wormhole/tiles/sh-w7-27-v1-1.jpg' }],
+      cta: 'The full webinar is free on our YouTube channel.',
+      link: '',
+      sources: ['Webinar 7, "Designing the Regeneration, Part 3" (clip: Linnea)'],
+      visual_note:
+        'Reel and Short cover, 1080 x 1920, from branch covers/shorts-webinar-1 (covers/shorts/webinar-7/27-compost-in-the-desert.png). Clip: Linnea, Webinar 7 (Geoff Lawton), 72:33.9-72:48.9 + 73:19.6-73:25.8 + 73:39.2-73:59.8 of the raw Zoom recording. Video: sfw-reel-studio branch webinar-shorts/geoff-lawton, tools/webinar-shorts/renders/geoff-lawton-03-compost-in-the-desert.mp4, with B-roll from Linnea’s general Drive B-roll. YouTube Short title: Compost in the Desert #Shorts. Collab tag @geofflawtononline.',
+      note: 'Short 3 from Webinar 7. Geoff’s figures stay attributed to him. Date still to set.',
+      status: 'draft',
+    },
+    reason: 'Added 1 Nov: Webinar 7 (Geoff Lawton) Short 3, cut by Linnea in Ivan’s format, with B-roll and caption, no date yet.',
+  },
+  {
+    key: '2026-11-01 sh-w7-28',
+    post: 'sh-w7-28',
+    create: {
+      iso_date: '2026-11-01',
+      date_tbd: true,
+      topic: 'The Tree That Saved a House',
+      platform: 'Instagram Reels, YouTube Shorts',
+      caption:
+        'One tree in a totally blackened landscape saved a house. 🌳\nIn this clip from our free webinar Designing the Regeneration, Part 3, Geoff Lawton explains how trees can help protect a home from wildfire. Broad-leaf deciduous trees like the mulberry, planted in thick belts on swale mounds on the side the fire comes from, keep moisture in the landscape and start to fireproof it.\nThe full webinar is free on our YouTube channel.\n@geofflawtononline\n#Shorts #SoilFoodWeb #Permaculture #GeoffLawton #Wildfire #LivingSoil',
+      slides: [{ text: 'The Tree That Saved a House', image: '/wormhole/tiles/sh-w7-28-v1-1.jpg' }],
+      cta: 'The full webinar is free on our YouTube channel.',
+      link: '',
+      sources: ['Webinar 7, "Designing the Regeneration, Part 3" (clip: Linnea)'],
+      visual_note:
+        'Reel and Short cover, 1080 x 1920, from branch covers/shorts-webinar-1 (covers/shorts/webinar-7/28-the-tree-that-saved-a-house.png). Clip: Linnea, Webinar 7 (Geoff Lawton), 89:33.5-89:59.2 + 90:01.9-90:18.3 of the raw Zoom recording. Video: sfw-reel-studio branch webinar-shorts/geoff-lawton, tools/webinar-shorts/renders/geoff-lawton-04-the-tree-that-saved-a-house.mp4, with B-roll from Linnea’s general Drive B-roll. YouTube Short title: The Tree That Saved a House #Shorts. Collab tag @geofflawtononline.',
+      note: 'Short 4 from Webinar 7. Geoff’s figures stay attributed to him. Date still to set.',
+      status: 'draft',
+    },
+    reason: 'Added 1 Nov: Webinar 7 (Geoff Lawton) Short 4, cut by Linnea in Ivan’s format, with B-roll and caption, no date yet.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);
