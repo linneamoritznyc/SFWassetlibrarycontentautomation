@@ -9944,10 +9944,11 @@ export const CHANGES: Change[] = [
       sources: ['Webinar 7, "Designing the Regeneration, Part 3" (clip: Linnea)'],
       visual_note:
         'Reel and Short cover, 1080 x 1920, from branch covers/shorts-webinar-1 (covers/shorts/webinar-7/25-the-80-20-rule-of-plants.png). Clip: Linnea, Webinar 7 "Designing the Regeneration, Part 3" (Geoff Lawton), 32:33 to 33:20 of the raw Zoom recording. Video: sfw-reel-studio branch webinar-shorts/geoff-lawton, tools/webinar-shorts/renders/geoff-lawton-01-the-80-20-rule-of-plants.mp4. YouTube Short title: The 80-20 Rule of Plants #Shorts. Collab tag @geofflawtononline.',
-      note: 'Short 1 from Webinar 7, the first one Linnea cut. Geoff\'s figures (80/15/5) stay attributed to him. Date still to set.',
+      note: "Short 1 from Webinar 7, the first one Linnea cut. Geoff's figures (80/15/5) stay attributed to him. Date still to set.",
       status: 'draft',
     },
-    reason: 'Added 31 Oct: Webinar 7 (Geoff Lawton) Short 1, cut by Linnea in Ivan\'s format, with caption, no date yet.',
+    reason:
+      "Added 31 Oct: Webinar 7 (Geoff Lawton) Short 1, cut by Linnea in Ivan's format, with caption, no date yet.",
   },
   {
     key: '2026-11-01 sh-w7-26',
@@ -9959,7 +9960,9 @@ export const CHANGES: Change[] = [
       platform: 'Instagram Reels, YouTube Shorts',
       caption:
         'I grow coffee where I live, and I have no inputs. ☕\nIn this clip from our free webinar Designing the Regeneration, Part 3, Geoff Lawton explains how coffee grows under his food forest. In his figures, he picks about half the yield of an organic coffee grower in his region, one and a half kilos a bush against their three, without fertilizing, weeding or watering.\nThe full webinar is free on our YouTube channel.\n@geofflawtononline\n#Shorts #SoilFoodWeb #Permaculture #GeoffLawton #FoodForest #LivingSoil',
-      slides: [{ text: 'Growing Coffee With No Inputs', image: '/wormhole/tiles/sh-w7-26-v1-1.jpg' }],
+      slides: [
+        { text: 'Growing Coffee With No Inputs', image: '/wormhole/tiles/sh-w7-26-v1-1.jpg' },
+      ],
       cta: 'The full webinar is free on our YouTube channel.',
       link: '',
       sources: ['Webinar 7, "Designing the Regeneration, Part 3" (clip: Linnea)'],
@@ -9968,7 +9971,8 @@ export const CHANGES: Change[] = [
       note: 'Short 2 from Webinar 7. Geoff’s figures stay attributed to him. Date still to set.',
       status: 'draft',
     },
-    reason: 'Added 1 Nov: Webinar 7 (Geoff Lawton) Short 2, cut by Linnea in Ivan’s format, with B-roll and caption, no date yet.',
+    reason:
+      'Added 1 Nov: Webinar 7 (Geoff Lawton) Short 2, cut by Linnea in Ivan’s format, with B-roll and caption, no date yet.',
   },
   {
     key: '2026-11-01 sh-w7-27',
@@ -9979,7 +9983,7 @@ export const CHANGES: Change[] = [
       topic: 'Compost in the Desert',
       platform: 'Instagram Reels, YouTube Shorts',
       caption:
-        'Every single day, we\'re producing 53 tons of compost. 🌴\nIn this clip from our free webinar Designing the Regeneration, Part 3, Geoff Lawton talks about one of his largest jobs: 7,000 hectares of organic date farms in Saudi Arabia. In his figures, up to 400 kilos of compost go on each date palm, irrigation water is more than halved, and production is more than doubled.\nThe full webinar is free on our YouTube channel.\n@geofflawtononline\n#Shorts #SoilFoodWeb #Permaculture #GeoffLawton #Compost #LivingSoil',
+        "Every single day, we're producing 53 tons of compost. 🌴\nIn this clip from our free webinar Designing the Regeneration, Part 3, Geoff Lawton talks about one of his largest jobs: 7,000 hectares of organic date farms in Saudi Arabia. In his figures, up to 400 kilos of compost go on each date palm, irrigation water is more than halved, and production is more than doubled.\nThe full webinar is free on our YouTube channel.\n@geofflawtononline\n#Shorts #SoilFoodWeb #Permaculture #GeoffLawton #Compost #LivingSoil",
       slides: [{ text: 'Compost in the Desert', image: '/wormhole/tiles/sh-w7-27-v1-1.jpg' }],
       cta: 'The full webinar is free on our YouTube channel.',
       link: '',
@@ -9989,7 +9993,8 @@ export const CHANGES: Change[] = [
       note: 'Short 3 from Webinar 7. Geoff’s figures stay attributed to him. Date still to set.',
       status: 'draft',
     },
-    reason: 'Added 1 Nov: Webinar 7 (Geoff Lawton) Short 3, cut by Linnea in Ivan’s format, with B-roll and caption, no date yet.',
+    reason:
+      'Added 1 Nov: Webinar 7 (Geoff Lawton) Short 3, cut by Linnea in Ivan’s format, with B-roll and caption, no date yet.',
   },
   {
     key: '2026-11-01 sh-w7-28',
@@ -10010,7 +10015,49 @@ export const CHANGES: Change[] = [
       note: 'Short 4 from Webinar 7. Geoff’s figures stay attributed to him. Date still to set.',
       status: 'draft',
     },
-    reason: 'Added 1 Nov: Webinar 7 (Geoff Lawton) Short 4, cut by Linnea in Ivan’s format, with B-roll and caption, no date yet.',
+    reason:
+      'Added 1 Nov: Webinar 7 (Geoff Lawton) Short 4, cut by Linnea in Ivan’s format, with B-roll and caption, no date yet.',
+  },
+  {
+    key: '2026-11-03 p24 dark v4',
+    post: 'p24',
+    set: {
+      slides: [
+        { text: '440 quintillion nematodes.', image: '/wormhole/tiles/p24-v4-1.jpg' },
+        { text: 'About 57 billion for every person alive.', image: '/wormhole/tiles/p24-v4-2.jpg' },
+        { text: 'Most feed on bacteria and fungi.', image: '/wormhole/tiles/p24-v4-3.jpg' },
+      ],
+      visual_note:
+        "Family: D, photo with box (Linnea, 3 Nov: the first slide's look is good). Dark micrographs, big text in a green box. Slide 2 photo: Johannes Veith; slide 3: Keisha Wheeler (our photo folder, used nowhere else). Built with tools/wormhole-visuals/p24_dark.py. Deck: decks/09-11-2026-soil-in-numbers-nematodes-v4.pptx.",
+    },
+    reason: "Linnea, 3 Nov: visuals for every post in Stephanie's November doc.",
+  },
+  {
+    key: '2026-11-03 p12 leaves v4',
+    post: 'p12',
+    set: {
+      slides: [
+        { text: 'Leave the leaves.', image: '/wormhole/tiles/p12-v4-1.jpg' },
+        { text: 'Leaves are carbon and lignin.', image: '/wormhole/tiles/p12-v4-2.jpg' },
+        { text: 'Fungi break down lignin.', image: '/wormhole/tiles/p12-v4-3.jpg' },
+        { text: 'Leaf litter feeds the fungi.', image: '/wormhole/tiles/p12-v4-4.jpg' },
+        {
+          text: 'Trees love fungal soil. More fungi moves the soil toward the fungal dominance perennials, shrubs and trees prefer.',
+          image: '/wormhole/tiles/p12-v4-5.jpg',
+        },
+        {
+          text: 'A blanket for winter. A litter layer shields the soil from raindrop impact over winter. Fungal residues become stable soil carbon.',
+          image: '/wormhole/tiles/p12-v4-6.jpg',
+        },
+        {
+          text: 'Shred them onto your beds. On lawns: shred the leaves and move them to your beds.',
+          image: '/wormhole/tiles/p12-v4-7.jpg',
+        },
+      ],
+      visual_note:
+        "Family: D, photo with box (Soil Brown, so it differs from the green nematode post the day before), then three type slides on Food Web Green. CC photos: David Lee, Paul VanDerWerf, Jim Whitehead (CC BY 2.0), Matthew Rozanoff (CC BY 4.0); each used nowhere else. Text from Stephanie's November doc. Built with tools/wormhole-visuals/p12_leaves.py. Deck: decks/10-11-2026-leave-the-leaves-v4.pptx.",
+    },
+    reason: "Linnea, 3 Nov: visuals for every post in Stephanie's November doc.",
   },
 ];
 
