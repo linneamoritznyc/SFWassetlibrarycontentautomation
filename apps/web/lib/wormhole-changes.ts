@@ -10147,6 +10147,92 @@ export const CHANGES: Change[] = [
     reason:
       'Linnea, 3 Nov: no myth-busting on slide 1; say how the leaves are useful. Slide 1: "Fall leaves are free food for your soil." Deck: decks/10-11-2026-leave-the-leaves-v6.pptx.',
   },
+  {
+    key: '2026-11-03 web20261111',
+    post: 'web20261111',
+    create: {
+      iso_date: '2026-11-11',
+      date_tbd: false,
+      topic:
+        'Webinar reminder: Johnson-Su compost on real farms, with Juan de la Serna (Thu 12 Nov)',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        'What happens when real farms use Johnson-Su compost? 🌱\nJoin us tomorrow for the next free webinar in our series Exploring the Role of Biological Compost in the Regenerative Movement. Juan de la Serna of Resoilutions shares six years of field trial data from European farms: how BioComplete™ compost affects crop yield and soil health, and the application rates, as low as 4 kg per hectare, that make a measurable difference.\nThursday 12 November, 9am Pacific. Free. Register, link in bio.\n#SoilFoodWeb #JohnsonSu #Compost #FreeWebinar #RegenerativeAgriculture #SoilHealth',
+      slides: [
+        {
+          text: 'JOIN US TOMORROW. Johnson-Su compost on real farms. Juan de la Serna, Resoilutions. Thu 12 Nov, 9am Pacific, free.',
+          image: '/wormhole/tiles/web20261111-v1-1.jpg',
+        },
+      ],
+      cta: 'Register, link in bio',
+      link: 'https://webinar.soilfoodweb.com/reg-webinar-fall-webinars',
+      sources: [
+        'Fall webinar series registration page, checked 3 Nov 2026: https://webinar.soilfoodweb.com/reg-webinar-fall-webinars',
+      ],
+      visual_note:
+        'Family: webinar reminder (the approved Matt Drane reminder look, web20261103-final): photo, JOIN US TOMORROW banner, title strip, speaker in a circle. Text at slide-rules sizes, logo large in a green square. Built with tools/wormhole-visuals/webinar_reminders.py. Deck: decks/11-11-2026-webinar-reminder-juan-de-la-serna-v1.pptx. Background: field walk, Norfolk, June 2025, used nowhere else.',
+      note: 'Linnea, 3 Nov: webinar reminders the day before each talk. November narrows to webinars, bundle, Costa Rica, New Mexico, Cyber Monday and the fundraiser.',
+      status: 'draft',
+    },
+    reason: 'Webinar reminder.',
+  },
+  {
+    key: '2026-11-03 web20261117',
+    post: 'web20261117',
+    create: {
+      iso_date: '2026-11-17',
+      date_tbd: false,
+      topic: 'Webinar reminder: Agriculture beyond glyphosate, with Dr. Don M. Huber (Wed 18 Nov)',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        "Glyphosate doesn't simply disappear once it's sprayed. 🌾\nJoin us tomorrow as Dr. Don M. Huber, Emeritus Professor of Plant Pathology at Purdue University, explains how glyphosate can persist in soil, bind essential minerals and be reactivated years later by common farming practices, and which biological approaches can help break the residues down. Essential viewing if you are moving toward organic or regenerative systems.\nWednesday 18 November, 9am Pacific. Free. Register, link in bio.\n#SoilFoodWeb #Glyphosate #SoilHealth #FreeWebinar #RegenerativeAgriculture #SoilBiology",
+      slides: [
+        {
+          text: 'JOIN US TOMORROW. Agriculture beyond glyphosate. Dr. Don M. Huber, Emeritus Professor of Plant Pathology, Purdue University. Wed 18 Nov, 9am Pacific, free.',
+          image: '/wormhole/tiles/web20261117-v1-1.jpg',
+        },
+      ],
+      cta: 'Register, link in bio',
+      link: 'https://webinar.soilfoodweb.com/reg-webinar-fall-webinars',
+      sources: [
+        'Fall webinar series registration page, checked 3 Nov 2026: https://webinar.soilfoodweb.com/reg-webinar-fall-webinars',
+      ],
+      visual_note:
+        'Family: webinar reminder (the approved Matt Drane reminder look, web20261103-final): photo, JOIN US TOMORROW banner, title strip, speaker in a circle. Text at slide-rules sizes, logo large in a green square. Built with tools/wormhole-visuals/webinar_reminders.py. Deck: decks/17-11-2026-webinar-reminder-don-huber-v1.pptx. Background: Wild Ken Hill, Norfolk, used nowhere else.',
+      note: 'Linnea, 3 Nov: webinar reminders the day before each talk. November narrows to webinars, bundle, Costa Rica, New Mexico, Cyber Monday and the fundraiser.',
+      status: 'draft',
+    },
+    reason: 'Webinar reminder.',
+  },
+  {
+    key: '2026-11-03 web20261201',
+    post: 'web20261201',
+    create: {
+      iso_date: '2026-12-01',
+      date_tbd: false,
+      topic:
+        'Webinar reminder: Why nematodes make great compost, with Dr. Craig Kolodge (Wed 2 Dec)',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        'Why do nematodes make great compost? 🔬\nJoin us tomorrow for a free webinar with Dr. Craig Kolodge. [One or two lines on the talk, from the registration page once it is listed.]\nWednesday 2 December, 9am Pacific. Free. Register, link in bio.\n#SoilFoodWeb #Nematodes #Compost #FreeWebinar #SoilBiology #LivingSoil',
+      slides: [
+        {
+          text: 'JOIN US TOMORROW. Why nematodes make great compost. Dr. Craig Kolodge. Wed 2 Dec, 9am Pacific, free.',
+          image: '/wormhole/tiles/web20261201-v1-1.jpg',
+        },
+      ],
+      cta: 'Register, link in bio',
+      link: 'https://webinar.soilfoodweb.com/reg-webinar-fall-webinars',
+      sources: [
+        'Fall webinar series registration page, checked 3 Nov 2026: https://webinar.soilfoodweb.com/reg-webinar-fall-webinars',
+      ],
+      visual_note:
+        "Family: webinar reminder (the approved Matt Drane reminder look, web20261103-final): photo, JOIN US TOMORROW banner, title strip, speaker in a circle. Text at slide-rules sizes, logo large in a green square. Built with tools/wormhole-visuals/webinar_reminders.py. Deck: decks/01-12-2026-webinar-reminder-craig-kolodge-v1.pptx. Background: bacterial-feeding nematode, Talbot Armstrong, used nowhere else. Not on the webinar page yet (3 Nov): add Craig's headshot in the photo circle, his affiliation and the talk description once it is listed. 2 Dec is also the bundle's last day.",
+      note: 'Linnea, 3 Nov: webinar reminders the day before each talk. November narrows to webinars, bundle, Costa Rica, New Mexico, Cyber Monday and the fundraiser.',
+      status: 'draft',
+    },
+    reason: 'Webinar reminder.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);
