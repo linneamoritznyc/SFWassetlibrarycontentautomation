@@ -67,7 +67,7 @@ def collage_slide(d, k, pieces, text):
 
 
 DOC = [
-    'Myth: "Fall leaves need to be cleaned up."',
+    "Fall leaves are free food for your soil.",
     "Leaf litter is high in carbon, cellulose and lignin.",
     "Saprotrophic fungi are the main decomposers of lignin. Leaf litter feeds fungal biomass.",
     "That pushes the fungal to bacterial ratio toward fungal dominance, which perennials, shrubs and trees prefer.",
@@ -77,7 +77,7 @@ DOC = [
 ]
 
 if __name__ == "__main__":
-    d = Deck("p12", 7, "leave-the-leaves-v5", "2026-11-10")
+    d = Deck("p12", 7, "leave-the-leaves-v6", "2026-11-10")
     photo_slide(d, 0, "leaf-skeleton-1.jpg", DOC[0], "Photo: Jim Whitehead, CC BY 2.0", size=84)
     photo_slide(d, 1, "leaf-skeleton-2.jpg", DOC[1], "Photo: Paul VanDerWerf, CC BY 2.0", fy=0.35)
     collage_slide(d, 2, [("dry-leaves-twigs.png", 560, 60, 120), ("compost-white-fungal-threads.png", 520, 440, 260)],
@@ -88,5 +88,5 @@ if __name__ == "__main__":
     photo_slide(d, 5, "fungal-hypha-2.jpg", DOC[5], "Fungal hyphae. Photo: Matthew Rozanoff, CC BY 4.0", size=66)
     photo_slide(d, 6, "leaf-mold-bin-2.jpg", DOC[6], "Photo: United Diversity, CC BY 2.0", fy=0.35)
     for k in range(1, 8):
-        assert not os.path.exists(os.path.join(TILES, f"p12-v5-{k}.jpg"))
+        assert not os.path.exists(os.path.join(TILES, f"p12-v6-{k}.jpg"))
     print(d.save(TILES, DECKS)[0], d.pptx_name())

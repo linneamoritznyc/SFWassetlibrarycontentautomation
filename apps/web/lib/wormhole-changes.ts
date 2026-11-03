@@ -10112,6 +10112,41 @@ export const CHANGES: Change[] = [
     reason:
       'Linnea, 3 Nov: use the slide text and images from the doc; bigger logo; no flat text slides.',
   },
+  {
+    key: '2026-11-03 p12 v6 no myth',
+    post: 'p12',
+    set: {
+      slides: [
+        { text: 'Fall leaves are free food for your soil.', image: '/wormhole/tiles/p12-v6-1.jpg' },
+        {
+          text: 'Leaf litter is high in carbon, cellulose and lignin.',
+          image: '/wormhole/tiles/p12-v6-2.jpg',
+        },
+        {
+          text: 'Saprotrophic fungi are the main decomposers of lignin. Leaf litter feeds fungal biomass.',
+          image: '/wormhole/tiles/p12-v6-3.jpg',
+        },
+        {
+          text: 'That pushes the fungal to bacterial ratio toward fungal dominance, which perennials, shrubs and trees prefer.',
+          image: '/wormhole/tiles/p12-v6-4.jpg',
+        },
+        {
+          text: 'A litter layer shields soil aggregates from raindrop impact over winter.',
+          image: '/wormhole/tiles/p12-v6-5.jpg',
+        },
+        {
+          text: 'Microbial residues, including fungal necromass, make up a large share of stable soil organic carbon.',
+          image: '/wormhole/tiles/p12-v6-6.jpg',
+        },
+        {
+          text: 'On lawns: shred the leaves and move them to your beds.',
+          image: '/wormhole/tiles/p12-v6-7.jpg',
+        },
+      ],
+    },
+    reason:
+      'Linnea, 3 Nov: no myth-busting on slide 1; say how the leaves are useful. Slide 1: "Fall leaves are free food for your soil." Deck: decks/10-11-2026-leave-the-leaves-v6.pptx.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);
