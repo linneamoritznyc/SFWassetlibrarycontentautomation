@@ -10059,6 +10059,59 @@ export const CHANGES: Change[] = [
     },
     reason: "Linnea, 3 Nov: visuals for every post in Stephanie's November doc.",
   },
+  {
+    key: '2026-11-03 p24 v5 big logo',
+    post: 'p24',
+    set: {
+      slides: [
+        { text: '440 quintillion nematodes.', image: '/wormhole/tiles/p24-v5-1.jpg' },
+        { text: 'About 57 billion for every person alive.', image: '/wormhole/tiles/p24-v5-2.jpg' },
+        { text: 'Most feed on bacteria and fungi.', image: '/wormhole/tiles/p24-v5-3.jpg' },
+      ],
+    },
+    reason:
+      'Linnea, 3 Nov: the logo was too small. v5: white logo in a large green square. Deck: decks/09-11-2026-soil-in-numbers-nematodes-v5.pptx.',
+  },
+  {
+    key: '2026-11-03 p12 v5 doc text',
+    post: 'p12',
+    set: {
+      slides: [
+        {
+          text: 'Myth: "Fall leaves need to be cleaned up."',
+          image: '/wormhole/tiles/p12-v5-1.jpg',
+        },
+        {
+          text: 'Leaf litter is high in carbon, cellulose and lignin.',
+          image: '/wormhole/tiles/p12-v5-2.jpg',
+        },
+        {
+          text: 'Saprotrophic fungi are the main decomposers of lignin. Leaf litter feeds fungal biomass.',
+          image: '/wormhole/tiles/p12-v5-3.jpg',
+        },
+        {
+          text: 'That pushes the fungal to bacterial ratio toward fungal dominance, which perennials, shrubs and trees prefer.',
+          image: '/wormhole/tiles/p12-v5-4.jpg',
+        },
+        {
+          text: 'A litter layer shields soil aggregates from raindrop impact over winter.',
+          image: '/wormhole/tiles/p12-v5-5.jpg',
+        },
+        {
+          text: 'Microbial residues, including fungal necromass, make up a large share of stable soil organic carbon.',
+          image: '/wormhole/tiles/p12-v5-6.jpg',
+        },
+        {
+          text: 'On lawns: shred the leaves and move them to your beds.',
+          image: '/wormhole/tiles/p12-v5-7.jpg',
+        },
+      ],
+      visual_note:
+        "Family: D, photo with box (Soil Brown), slides 3 and 4 collage (fungal threads and leaf cutouts on paper). Exactly as Stephanie's November doc: its 7 slide texts word for word and its image plan (autumn leaves on soil, collage hyphae on 3 and 4, hyphae microscopy on 6). CC photos: Jim Whitehead, Paul VanDerWerf, David Lee, United Diversity (CC BY 2.0), Matthew Rozanoff (CC BY 4.0); each used nowhere else. Large logo in a brown square. Built with tools/wormhole-visuals/p12_leaves.py. Deck: decks/10-11-2026-leave-the-leaves-v5.pptx.",
+    },
+    reason:
+      'Linnea, 3 Nov: use the slide text and images from the doc; bigger logo; no flat text slides.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);

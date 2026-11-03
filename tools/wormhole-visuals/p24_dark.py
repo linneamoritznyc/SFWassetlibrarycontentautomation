@@ -10,6 +10,7 @@ from PIL import Image, ImageOps
 
 from collage import Deck, cover
 from nov_fill import CREAM, DECKS, GREEN, TILES, WHITE, box, logo
+from p12_leaves import big_logo
 
 W, H = 1080, 1350
 NEW = "/home/user/photos/new-2026-10"
@@ -29,14 +30,14 @@ def slide(d, k, img, text, credit):
     box(d, k, "Credit box", GREEN, W - 72 - 640, H - 96, 640, 62)
     d.text(k, "Credit", credit, W - 72 - 620, H - 90, 600, 50, 42, kind="source-reg", italic=False, color=CREAM, lh=1.0,
            align="right", min_size=42)
-    logo(d, k, WHITE, W - 72 - 120, 110, w=120)
+    big_logo(d, k, GREEN)
 
 
 if __name__ == "__main__":
-    d = Deck("p24", 3, "soil-in-numbers-nematodes-v4", "2026-11-09")
+    d = Deck("p24", 3, "soil-in-numbers-nematodes-v5", "2026-11-09")
     first = Image.open(os.path.join(TILES, "p24-v2-1.jpg")).convert("RGB")
     black = Image.new("RGB", (W, H), (0, 0, 0))
-    black.paste(first.crop((0, 170, W, 860)), (0, 230))  # below the old logo
+    black.paste(first.crop((0, 170, W, 860)), (0, 300))  # below the old logo
     slide(d, 0, black, "440 quintillion nematodes.", "Photo: Soil Food Web Foundation")
     slide(d, 1, ImageOps.exif_transpose(Image.open(f"{NEW}/Bacterial-feeding nematode (omnivore), 40x obj, "
                                                    "Johannes Veith.jpg")).convert("RGB"),
@@ -45,5 +46,5 @@ if __name__ == "__main__":
                                                    "Keisha Wheeler.jpg")).convert("RGB"),
           "Most feed on bacteria and fungi.", "Photo: Keisha Wheeler")
     for k in (1, 2, 3):
-        assert not os.path.exists(os.path.join(TILES, f"p24-v4-{k}.jpg"))
+        assert not os.path.exists(os.path.join(TILES, f"p24-v5-{k}.jpg"))
     print(d.save(TILES, DECKS)[0], d.pptx_name())
