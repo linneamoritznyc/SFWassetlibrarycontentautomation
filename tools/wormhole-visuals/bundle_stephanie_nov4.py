@@ -99,19 +99,56 @@ def build(v, plat):
     photo_slide(d, 4, ELAINE_SCOPE, 0.45, 0.4, PURPLE, "Dr. Elaine's legacy webinar archive",
                 "Hundreds of hours recorded live with Dr.\u00a0Elaine and others, going deeper into the Foundation "
                 "Courses and beyond, to deepen your learning and put it into\u00a0action.", hs=84, ph=540)
-    # 6. the discount, just before the QR code
-    d.bg(5, fade("#1E7A3A", "#0E3B1E", (0.5, 0.4), 205), name="Background fade")
-    hh2 = height("off the Foundation Courses + Compost Intensive bundle", 73, 936)
-    total = 380 + 40 + hh2 + 60 + dh
-    y = 60 + (FY - 10 - 60 - total) // 2
-    T(d, 5, "Discount", "Over\n50%", M, y, 936, 390, 180, mn=150, lh=1.0, color="#A8D5B0")
-    y += 380 + 40
-    # $2,700 against the page's $5,900 combined value is 54% off the bundle; against the Foundation Courses alone
-    # ($5,000) it is 46%, so "over 50%" is only true for the whole bundle
-    T(d, 5, "Headline", "off the Foundation Courses + Compost Intensive bundle", M, y, 936, hh2 + 6, 73)
-    y += hh2 + 60
-    T(d, 5, "Details", "Fall Enrollment Special\nUntil 2 December.", (W - 900) // 2, y, 900, dh + 6, 66, bold=False,
-      lh=1.3)
+    # 6. the discount, just before the QR code (Linnea, 4 Nov: more exciting, like a sale)
+    import math
+    from PIL import ImageFilter
+    bg = fade("#1E7A3A", "#0B3018", (0.5, 0.42), 205)
+    rays = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    rd = ImageDraw.Draw(rays)
+    cx, cy = W / 2, 500
+    for n in range(24):   # soft light rays behind the burst
+        a0, a1 = (n * 15 - 3.5) * math.pi / 180, (n * 15 + 3.5) * math.pi / 180
+        rd.polygon([(cx, cy), (cx + 1600 * math.cos(a0), cy + 1600 * math.sin(a0)),
+                    (cx + 1600 * math.cos(a1), cy + 1600 * math.sin(a1))], fill=(255, 255, 255, 16))
+    bg.alpha_composite(rays.filter(ImageFilter.GaussianBlur(6)))
+    d.bg(5, bg, name="Background fade with rays")
+    # a hanging price tag, tilted, in brand colours only (Linnea, 4 Nov: like a sale, no red)
+    from PIL import ImageFont
+    import news_cards as nc
+    tw_, th_ = 520, 640
+    tag = Image.new("RGBA", (tw_ + 40, th_ + 260), (0, 0, 0, 0))
+    td = ImageDraw.Draw(tag)
+    ox, oy = 20, 240
+    body = [(ox + 70, oy), (ox + tw_ - 70, oy), (ox + tw_, oy + 110), (ox + tw_, oy + th_ - 40),
+            (ox + tw_ - 40, oy + th_), (ox + 40, oy + th_), (ox, oy + th_ - 40), (ox, oy + 110)]
+    td.polygon(body, fill=rgb(CREAM) + (255,))
+    td.line([(ox + 40, oy + 150), (ox + tw_ - 40, oy + 150)], fill=rgb("#A8D5B0") + (255,), width=6)
+    hx, hy = ox + tw_ // 2, oy + 75
+    td.ellipse((hx - 30, hy - 30, hx + 30, hy + 30), fill=(0, 0, 0, 0), outline=rgb("#156826") + (255,), width=10)
+    td.line([(hx, hy - 30), (hx - 40, 0)], fill=rgb(CREAM) + (255,), width=6)   # string
+    f = lambda n, z: ImageFont.truetype(os.path.join(nc.FONTS, n), z)
+    def ctext(t, y, font, col):
+        w = td.textlength(t, font=font)
+        td.text((ox + (tw_ - w) / 2, y), t, font=font, fill=rgb(col) + (255,))
+    ctext("OVER", oy + 185, f("Montserrat-Bold.ttf", 80), "#4F3433")
+    ctext("50%", oy + 285, f("Montserrat-Bold.ttf", 190), "#156826")
+    ctext("OFF", oy + 500, f("Montserrat-Bold.ttf", 96), "#4F3433")
+    tag = tag.rotate(-10, resample=Image.BICUBIC, expand=True)
+    sh = Image.new("RGBA", tag.size, (0, 0, 0, 0))
+    sh.putalpha(tag.getchannel("A").point(lambda v: v * 100 // 255))
+    tx, ty = round(cx - tag.width / 2 + 10), 170 - 230
+    d.put(5, "Price tag shadow", sh.filter(ImageFilter.GaussianBlur(20)), tx + 14, ty + 18, shadowed=False, anchor="tl")
+    d.put(5, "Price tag: OVER 50% OFF", tag, tx, ty, shadowed=False, anchor="tl")
+    R = 0
+    cy = ty + tag.height - 60
+    y = cy + R + 44
+    T(d, 5, "Headline", "the Foundation Courses + Compost Intensive bundle", M, y, 936, 170, 66)
+    pill_w, pill_h = 560, 100
+    pill = Image.new("RGBA", (pill_w, pill_h), (0, 0, 0, 0))
+    ImageDraw.Draw(pill).rounded_rectangle((0, 0, pill_w - 1, pill_h - 1), 50, fill=rgb("#A8D5B0") + (255,))
+    py = y + 160
+    d.put(5, "Date pill", pill, (W - pill_w) // 2, py, shadowed=False, anchor="tl")
+    T(d, 5, "Date", "Until 2 December", (W - pill_w) // 2, py + 18, pill_w, 70, 58, color="#0E3B1E")
     footer(d, 5)
     # 7. QR
     b.qr_slide(d, 6)

@@ -12282,6 +12282,45 @@ export const CHANGES: Change[] = [
     },
     reason: 'Linnea, 4 Nov: say 10 weeks.',
   },
+  {
+    key: '2026-11-04 promo-fall-bundle v57',
+    post: 'promo-fall-bundle',
+    set: {
+      slides: [
+        {
+          text: 'Foundation Courses + Compost Intensive. Fall Enrollment Special. Until 2 December. FC1 to FC4 and Compost Intensive badges.',
+          image: '/wormhole/tiles/promo-fall-bundle-v57-1.jpg',
+        },
+        {
+          text: "Photo: Dr. Elaine Ingham. Our 4 flagship Foundation Courses. Dr. Elaine Ingham's seminal lectures on the soil food web and how to restore it. 40+ years of her knowledge, easy to follow and self-paced.",
+          image: '/wormhole/tiles/promo-fall-bundle-v57-2.jpg',
+        },
+        {
+          text: 'Photo: a live Compost Intensive class on Zoom (screenshot from Carla). The Compost Intensive Course. 10 weeks live with Soil Food Web expert mentors who worked extensively alongside Dr. Elaine Ingham, and a global cohort of peers.',
+          image: '/wormhole/tiles/promo-fall-bundle-v57-3.jpg',
+        },
+        {
+          text: 'Photo: Soil Food Web students. Join our student community. A community for Foundation Courses students, and your own Compost Intensive cohort.',
+          image: '/wormhole/tiles/promo-fall-bundle-v57-4.jpg',
+        },
+        {
+          text: "Photo: Dr. Elaine Ingham at the microscope. Dr. Elaine's legacy webinar archive. Hundreds of hours recorded live with Dr. Elaine and others, going deeper into the Foundation Courses and beyond, to deepen your learning and put it into action.",
+          image: '/wormhole/tiles/promo-fall-bundle-v57-5.jpg',
+        },
+        {
+          text: 'Price tag: OVER 50% OFF the Foundation Courses + Compost Intensive bundle. Until 2 December. Fall Enrollment Special. Until 2 December.',
+          image: '/wormhole/tiles/promo-fall-bundle-v57-6.jpg',
+        },
+        {
+          text: 'Foundation Courses + Compost Intensive. QR code (Instagram: https://tr.ee/ce6tWIaOx7). Fall Enrollment Special. Until 2 December.',
+          image: '/wormhole/tiles/promo-fall-bundle-v57-7.jpg',
+        },
+      ],
+      visual_note:
+        'Family: photo panels (Stephanie, 4 Nov). Discount slide: tilted hanging price tag in cream and greens on light rays, date pill. Burst version kept as v56. Built with tools/wormhole-visuals/bundle_stephanie_nov4.py. Deck: decks/04-11-2026-fall-enrollment-bundle-instagram-v57.pptx.',
+    },
+    reason: 'Linnea, 4 Nov: discount slide that looks like a sale, no red.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);
