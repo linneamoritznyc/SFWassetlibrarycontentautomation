@@ -76,8 +76,7 @@ def build(v):
     d.bg(3, fade("#8A6A4A", "#1E3A22", (0.5, 0.26), 43), name="Background fade")
     art(d, 3, "book", 460)
     text(d, 3, "Plus hundreds of hours with Dr. Elaine",
-         "Instant access to our legacy webinar archive, recorded live with Dr. Elaine Ingham. Not available "
-         "anywhere else.", 84)
+         "Instant access to our legacy webinar archive, recorded live with Dr. Elaine Ingham.", 84)
     footer(d, 3)
     # 5. three steps
     d.bg(4, fade("#1E7A3A", "#123B26", (0.5, 0.2), 44), name="Background fade")
