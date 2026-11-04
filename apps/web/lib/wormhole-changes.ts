@@ -10740,6 +10740,67 @@ export const CHANGES: Change[] = [
     },
     reason: 'Review of v9, 4 Nov: "Ends tonight" on its own bold line.',
   },
+  {
+    key: '2026-11-04 x20261125 three styles v11',
+    post: 'x20261125',
+    set: {
+      slides: [
+        {
+          text: 'Two courses, one bundle. Foundation Courses | Compost Intensive. Fall Enrollment Special, until 2 December. Link in bio.',
+          image: '/wormhole/tiles/x20261125-v11-1.jpg',
+        },
+        {
+          text: "The Foundation Courses teach you to work out what your soil needs. 63 lectures and about 150 hours of study, with 40+ years of Dr. Elaine's knowledge.",
+          image: '/wormhole/tiles/x20261125-v11-2.jpg',
+        },
+        {
+          text: 'The Compost Intensive Course teaches you to make it. No prerequisites. Start the Foundation Courses today and build with the cohort as early as January.',
+          image: '/wormhole/tiles/x20261125-v11-3.jpg',
+        },
+      ],
+      visual_note:
+        'Family: split screen, blueprint grid | soil speckle, white line drawings. Text centred, dates kept on one line, QR code to the bundle page with UTM on the last slide (Stephanie, 4 Nov; placeholder UTM utm_source=instagram&utm_medium=social&utm_campaign=fall_enrollment_bundle&utm_content=x20261125 until Stephanie sends hers). Built with tools/wormhole-visuals/bundle_three_styles.py. Deck: decks/18-11-2026-two-courses-one-bundle-v11.pptx. Earlier options kept in the repo: line-art fade v9 and v10.',
+    },
+    reason: 'Linnea, 4 Nov: three separate posts, three different styles, on her three angles.',
+  },
+  {
+    key: '2026-11-04 x20261130 three styles v11',
+    post: 'x20261130',
+    set: {
+      slides: [
+        {
+          text: 'Pick your season. Start the Foundation Courses this winter. Then build with a 2027 cohort: ten weeks, with a live mentor every week. 11 Jan to 26 Mar, 10 May to 25 Jul, 30 Aug to 7 Nov. One week left, until 2 December.',
+          image: '/wormhole/tiles/x20261130-v11-1.jpg',
+        },
+      ],
+      visual_note:
+        'Family: night ink with a glowing 2027 timeline and the sunrise line drawing. Text centred, dates kept on one line, QR code to the bundle page with UTM on the last slide (Stephanie, 4 Nov; placeholder UTM utm_source=instagram&utm_medium=social&utm_campaign=fall_enrollment_bundle&utm_content=x20261130 until Stephanie sends hers). Built with tools/wormhole-visuals/bundle_three_styles.py. Deck: decks/25-11-2026-pick-your-season-v11.pptx. Earlier options kept in the repo: line-art fade v9 and v10.',
+    },
+    reason: 'Linnea, 4 Nov: three separate posts, three different styles, on her three angles.',
+  },
+  {
+    key: '2026-11-04 fes20261130 three styles v11',
+    post: 'fes20261130',
+    set: {
+      slides: [
+        {
+          text: 'Fall Enrollment Special. Ends today. Foundation Courses + Compost Intensive. Link in bio.',
+          image: '/wormhole/tiles/fes20261130-v11-1.jpg',
+        },
+        {
+          text: "“The extraordinary body of knowledge Soil Food Web's Foundation Courses has to offer can certainly empower me with the required knowledge and experience to drive the work I have been developing further.” Clara Santiago, Portugal",
+          image: '/wormhole/tiles/fes20261130-v11-2.jpg',
+        },
+        {
+          text: 'For consultants: the Compost Intensive counts toward the Consultant Pathway. It can be used to satisfy the BioComplete™ Compost Production requirement. Ends today. Link in bio.',
+          image: '/wormhole/tiles/fes20261130-v11-3.jpg',
+        },
+      ],
+      visual_note:
+        'Family: type-led cover on cream, quote card, cream fact card on green. Text centred, dates kept on one line, QR code to the bundle page with UTM on the last slide (Stephanie, 4 Nov; placeholder UTM utm_source=instagram&utm_medium=social&utm_campaign=fall_enrollment_bundle&utm_content=fes20261130 until Stephanie sends hers). Built with tools/wormhole-visuals/bundle_three_styles.py. Deck: decks/02-12-2026-bundle-ends-today-v11.pptx. Earlier options kept in the repo: line-art fade v9 and v10.',
+    },
+    reason: 'Linnea, 4 Nov: three separate posts, three different styles, on her three angles.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);
