@@ -11812,6 +11812,45 @@ export const CHANGES: Change[] = [
       "Last day: our Fall Enrollment Special ends today. 🌱\n\nThe bundle brings together all four Foundation Courses (Introduction to the Soil Food Web, BioComplete™ Compost, BioComplete™ Liquid Amendments and Microscopy), with 63 lectures and about 150 hours of study at your own pace.\n\nIt also includes a seat in a 2027 Compost Intensive cohort. Over ten weeks online, with a 90-minute live session with a mentor every week, you build two compost piles right where you live. Choose January, May or August.\n\nAnd you get Dr. Elaine Ingham's legacy webinar archive: hundreds of hours recorded live with her.\n\nEnroll today, link in bio.\n\n#SoilFoodWeb #FoundationCourses #CompostIntensive #SoilHealth #LivingSoil #RegenerativeAgriculture",
     reason: 'Linnea, 4 Nov: caption for the last-day post (Allison edits).',
   },
+  {
+    key: '2026-11-04 promo-fall-bundle stephanie v44',
+    post: 'promo-fall-bundle',
+    set: {
+      slides: [
+        {
+          text: 'Foundation Courses + Compost Intensive. Fall Enrollment Special. Until 2 December. FC1 to FC4 and Compost Intensive badges.',
+          image: '/wormhole/tiles/promo-fall-bundle-v44-1.jpg',
+        },
+        {
+          text: "Photo: Dr. Elaine Ingham. Dr. Elaine's decades of knowledge, in one easy-to-follow online course. Four Foundation Courses. Self-paced, start the day you enroll.",
+          image: '/wormhole/tiles/promo-fall-bundle-v44-2.jpg',
+        },
+        {
+          text: 'Photo: a live Compost Intensive class on Zoom (screenshot from Carla). The Compost Intensive Course. Live with a mentor every week, alongside a global cohort of peers.',
+          image: '/wormhole/tiles/promo-fall-bundle-v44-3.jpg',
+        },
+        {
+          text: 'Photo: Soil Food Web students. Join our student community. A community for Foundation Courses students, and your own Compost Intensive cohort.',
+          image: '/wormhole/tiles/promo-fall-bundle-v44-4.jpg',
+        },
+        {
+          text: 'Photo: Dr. Elaine Ingham at the microscope. Hundreds of hours of FC webinars. Dr. Elaine and others go deeper into the Foundation Courses and more, to deepen your learning and put it into action.',
+          image: '/wormhole/tiles/promo-fall-bundle-v44-5.jpg',
+        },
+        {
+          text: 'Over 50% off. Foundation Courses + Compost Intensive. Fall Enrollment Special. Until 2 December.',
+          image: '/wormhole/tiles/promo-fall-bundle-v44-6.jpg',
+        },
+        {
+          text: 'Foundation Courses + Compost Intensive. QR code (Instagram: https://tr.ee/ce6tWIaOx7). Fall Enrollment Special. Until 2 December.',
+          image: '/wormhole/tiles/promo-fall-bundle-v44-7.jpg',
+        },
+      ],
+      visual_note:
+        "Family: photo panels (Stephanie, 4 Nov: more photos, fewer words and icons; discount on the slide before the QR code; purple and her photo on the Dr. Elaine slides). Photos: elaine-with-sample-bag, elaine-flower-shirt-microscope, SFW students (CIC page), Zoom class screenshot from Carla (small Drive copy for now; swap in Carla's full-size file). Built with tools/wormhole-visuals/bundle_stephanie_nov4.py. Deck: decks/04-11-2026-fall-enrollment-bundle-instagram-v44.pptx. Facebook and LinkedIn versions after approval.",
+    },
+    reason: 'Stephanie, 4 Nov: feedback on the bundle post.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);
