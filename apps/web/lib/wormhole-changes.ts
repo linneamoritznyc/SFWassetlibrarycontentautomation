@@ -11591,6 +11591,13 @@ export const CHANGES: Change[] = [
     },
     reason: 'Linnea, 4 Nov: bundle summary slide, then the Instagram QR code.',
   },
+  {
+    key: '2026-11-04 tm20261113 caption',
+    post: 'tm20261113',
+    captionText:
+      "Students from Canada to Pakistan share what the Foundation Courses gave them. 🌱\n\nZoë in Canada had fun learning about compost, liquid amendments and \"all the little creatures that help our soils to thrive.\" Anusha in Pakistan wants to help farmers work with nature's biology to regenerate land. Clara in Portugal is taking what she learned into her work as a land steward.\n\nOur Fall Enrollment Special brings together all four Foundation Courses (Introduction to the Soil Food Web, BioComplete™ Compost, BioComplete™ Liquid Amendments and Microscopy) and a seat in a 2027 Compost Intensive cohort. You learn Dr. Elaine Ingham's soil food web science at your own pace, then build two compost piles where you live, with a mentor every week. The bundle also includes Dr. Elaine's webinar archive.\n\nUntil 2 December. Enroll via the link in our bio.\n\n#SoilFoodWeb #FoundationCourses #CompostIntensive #SoilHealth #LivingSoil #SoilBiology",
+    reason: 'Linnea, 4 Nov: caption draft (Allison edits).',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);
