@@ -103,7 +103,7 @@ def build(v):
     d.bg(2, fade("#6B4A3A", "#1E3A22", (0.5, 0.26), 42), name="Background fade")
     stack(d, 2, badge("cic", 300), "The Compost Intensive Course teaches you to make it.", 73,
           "Ten weeks online, with a 90-minute live session with a mentor every week, alongside a global cohort of "
-          "peers. You build 2 compost piles right where you live.")
+          "peers. Several class times each week, to fit your time zone.")
     footer(d, 2)
     # 4. every scale (bundle page: who it's for; CIC FAQ: what it covers)
     d.bg(3, fade("#2F6B5A", "#123B26", (0.5, 0.26), 45), name="Background fade")
