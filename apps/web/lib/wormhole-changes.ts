@@ -10875,6 +10875,63 @@ export const CHANGES: Change[] = [
       'Last day: our Fall Enrollment Special ends today. 🌱\n\n“The extraordinary body of knowledge Soil Food Web’s Foundation Courses has to offer can certainly empower me with the required knowledge and experience to drive the work I have been developing further.” Clara Santiago, Portugal\n\nIf you are working toward our Consultant Pathway, the Compost Intensive Course can be used to satisfy its BioComplete™ Compost Production requirement. Over ten weeks, with a mentor every week and a cohort working through the same process, you build two batches of inoculant-grade compost where you live.\n\nThe bundle pairs it with all four Foundation Courses and Dr. Elaine’s legacy webinar archive. Enroll today, link in bio.\n\n#SoilFoodWeb #CompostIntensive #FoundationCourses #SoilConsultant #RegenerativeAgriculture #SoilHealth',
     reason: 'Linnea, 4 Nov: final bundle captions; v12 visuals.',
   },
+  {
+    key: '2026-11-04 promo-fall-bundle from decks v8',
+    post: 'promo-fall-bundle',
+    set: {
+      slides: [
+        {
+          text: 'Foundation Courses + Compost Intensive. Fall Enrollment Special, until 2 December. FC1 to FC4 badges. + a seat in a 2027 Compost Intensive cohort. 10 weeks, live and online.',
+          image: '/wormhole/tiles/promo-fall-bundle-v8-1.jpg',
+        },
+        {
+          text: 'Learn what your soil needs. Then build it yourself. The Soil Food Web, BioComplete™ Compost, BioComplete™ Liquid Amendments, Microscopy. Self-paced. Start today. Until 2 December.',
+          image: '/wormhole/tiles/promo-fall-bundle-v8-2.jpg',
+        },
+        {
+          text: 'From soil science to compost you made yourself. 01 Start today: 4 courses, self-paced. 02 Pick your cohort: January, May or August. 03 Keep your compost: two batches, at home. Until 2 December.',
+          image: '/wormhole/tiles/promo-fall-bundle-v8-3.jpg',
+        },
+        {
+          text: "Everything in one bundle. 4 Foundation Courses. 10 weeks live with a mentor. 2 batches of compost you keep. 100s of hours of Dr. Elaine's webinars. Until 2 December. Link in bio.",
+          image: '/wormhole/tiles/promo-fall-bundle-v8-4.jpg',
+        },
+      ],
+      visual_note:
+        "Family: course badges on soil and cream, above/below ground, blueprint steps, frosted number tiles. Linnea's own slide ideas (her decks, 4 Nov), rebuilt: centred text, dates on one line, QR with UTM on the last slide (placeholder UTM until Stephanie sends hers). Built with tools/wormhole-visuals/bundle_from_decks.py. Deck: decks/04-11-2026-fall-enrollment-bundle-v8.pptx. Earlier options kept in the repo.",
+    },
+    reason: 'Linnea, 4 Nov: her three deck ideas, made beautiful.',
+  },
+  {
+    key: '2026-11-04 x20261125 from decks v13',
+    post: 'x20261125',
+    set: {
+      slides: [
+        {
+          text: 'Judge it by hand. Then see the life in it. In the Compost Intensive | Microscopy, in the Foundation Courses. Look, Feel, Smell, Structure, Maturity. Until 2 December. Link in bio.',
+          image: '/wormhole/tiles/x20261125-v13-1.jpg',
+        },
+      ],
+      visual_note:
+        "Family: two circles: hands line drawing and a micrograph eyepiece (bacterial-feeding nematode, 40x, photo Keisha Wheeler; photo_check unused). Linnea's own slide ideas (her decks, 4 Nov), rebuilt: centred text, dates on one line, QR with UTM on the last slide (placeholder UTM until Stephanie sends hers). Built with tools/wormhole-visuals/bundle_from_decks.py. Deck: decks/18-11-2026-by-hand-then-microscope-v13.pptx. Earlier options kept in the repo.",
+    },
+    reason: 'Linnea, 4 Nov: her three deck ideas, made beautiful.',
+  },
+  {
+    key: '2026-11-04 x20261130 from decks v13',
+    post: 'x20261130',
+    set: {
+      slides: [
+        {
+          text: 'Start today. Pick your season. Start the Foundation Courses any day. One 2027 Compost Intensive cohort is included. 2027 ring: 11 Jan to 26 Mar, 10 May to 25 Jul, 30 Aug to 7 Nov. One week left, until 2 December.',
+          image: '/wormhole/tiles/x20261130-v13-1.jpg',
+        },
+      ],
+      visual_note:
+        "Family: year ring for 2027 on night blue. Linnea's own slide ideas (her decks, 4 Nov), rebuilt: centred text, dates on one line, QR with UTM on the last slide (placeholder UTM until Stephanie sends hers). Built with tools/wormhole-visuals/bundle_from_decks.py. Deck: decks/25-11-2026-pick-your-season-ring-v13.pptx. Earlier options kept in the repo.",
+    },
+    reason: 'Linnea, 4 Nov: her three deck ideas, made beautiful.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);
