@@ -90,7 +90,7 @@ def build(v, plat):
     # 3. Compost Intensive: the live class
     photo_slide(d, 2, ZOOM, 0.5, 0.5, "#4F3433", "The Compost Intensive Course",
                 "Every week, live with Soil Food Web expert mentors who worked extensively alongside "
-                "Dr.\u00a0Elaine\u00a0Ingham.", hs=84, fit="contain")
+                "Dr.\u00a0Elaine\u00a0Ingham, and a global cohort of peers.", hs=84, fit="contain")
     # 4. community
     photo_slide(d, 3, f"{ST}/sfw-students-graduation.png", 0.5, 0.45, "#156826", "Join our student community",
                 "A community for Foundation Courses students, and your own Compost Intensive cohort.", hs=84)
