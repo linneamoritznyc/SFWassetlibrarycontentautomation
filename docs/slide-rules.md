@@ -45,7 +45,7 @@ Collected from Linnea's notes and her Canva edits of the Costa Rica carousel (30
 - Crop photos so the people and the subject fill them: faces in the top part, the subject centred.
 
 ## Logo
-- The white SFW logo always sits inside a colour box or band, never floating over faces or randomly in the middle.
+- The logo goes straight on the background, never in its own box (Linnea, 4 Nov 2026: "white logo on the background like a normal person"). White logo on dark photos or colour, colour logo on light backgrounds. Keep it big, in a corner, never over faces.
 - Hook slide: large (about 150 px wide) in the box's bottom right, level with the small text.
 - Info card: about 155 px, vertically centred on the right side of the banner, next to the small text.
 - Side band: top-left corner of the band, above the headline.
