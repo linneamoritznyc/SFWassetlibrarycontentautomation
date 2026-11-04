@@ -87,7 +87,7 @@ def stack(d, k, top_img, head, hs, det, below_imgs=None, area=(72, FY - 40), ds=
 
 
 def build(v):
-    d = Deck("promo-fall-bundle", 7, f"fall-enrollment-bundle-final-{v}", "2026-11-04")
+    d = Deck("promo-fall-bundle", 6, f"fall-enrollment-bundle-final-{v}", "2026-11-04")
     # 1. cover
     d.bg(0, fade("#1E7A3A", "#0E3B1E", (0.5, 0.24), 40), name="Background fade")
     stack(d, 0, fit_art("online", 520, 250), "Foundation Courses + Compost Intensive", 84,
@@ -103,7 +103,7 @@ def build(v):
     d.bg(2, fade("#6B4A3A", "#1E3A22", (0.5, 0.26), 42), name="Background fade")
     stack(d, 2, badge("cic", 300), "The Compost Intensive Course teaches you to make it.", 73,
           "Ten weeks online, with a 90-minute live session with a mentor every week, alongside a global cohort of "
-          "peers. Three class times each week, to fit students from all\u00a0over\u00a0the\u00a0world.")
+          "peers. You build 2 compost piles right where you live.")
     footer(d, 2)
     # 4. every scale (bundle page: who it's for; CIC FAQ: what it covers)
     d.bg(3, fade("#2F6B5A", "#123B26", (0.5, 0.26), 45), name="Background fade")
@@ -114,30 +114,12 @@ def build(v):
     # 5. Dr. Elaine's webinar archive
     d.bg(4, fade("#8A6A4A", "#1E3A22", (0.5, 0.26), 43), name="Background fade")
     stack(d, 4, fit_art("book", 380, 300), "Plus hundreds of hours\nwith Dr.\u00a0Elaine", 73,
-          "Instant access to our legacy webinar archive, recorded live with Dr. Elaine Ingham.")
+          "Learn directly from the founder of the Soil Food Web School, in our legacy webinar archive recorded live "
+          "with Dr.\u00a0Elaine\u00a0Ingham. 40+ years of her knowledge, science and land management practices, "
+          "proven across the globe.")
     footer(d, 4)
-    # 6. students (bundle page testimonials, verbatim excerpts)
-    d.bg(5, fade("#4F3433", "#1E3A22", (0.5, 0.2), 46), name="Background fade")
-    qs = [("I had so much fun learning about regenerative agriculture.", "Zoë Unruh, Canada"),
-          ("The classes are absolutely fabulous!", "Rob Mosier, United States"),
-          ("This course really makes a difference.", "Emmanuel Morales, United States"),
-          ("I want to help repair broken food systems by rebuilding life in the soil.", "Anusha Fatima, Pakistan"),
-          ("Extraordinary body of knowledge.", "Clara Santiago, Portugal")]
-    hh = height("From our students", 84, 936)
-    rows = [(height("\u201c" + q + "\u201d", 52, 900, bold=False), q, n) for q, n in qs]
-    gq, gn, gr = 8, 50, 46
-    total = hh + 50 + sum(h + gq + gn for h, _, _ in rows) + gr * (len(rows) - 1)
-    y = 72 + (FY - 40 - 72 - total) // 2
-    T(d, 5, "Headline", "From our students", M, y, 936, hh + 6, 84)
-    y += hh + 50
-    for i, (h, q, n) in enumerate(rows):
-        T(d, 5, f"Quote {i + 1}", "\u201c" + q + "\u201d", (W - 900) // 2, y, 900, h + 6, 52, bold=False)
-        y += h + gq
-        T(d, 5, f"Name {i + 1}", n, M, y, 936, gn, 42, color=MINT, mn=42)
-        y += gn + gr
-    footer(d, 5)
-    # 7. three steps, centred as one block
-    d.bg(6, fade("#1E7A3A", "#123B26", (0.5, 0.2), 44), name="Background fade")
+    # 6. three steps, centred as one block
+    d.bg(5, fade("#1E7A3A", "#123B26", (0.5, 0.2), 44), name="Background fade")
     steps = [("01", "Start today", "4 courses, self-paced"), ("02", "Pick your cohort", "January, May or August 2027"),
              ("03", "Build 2 compost piles", "Right where you live")]
     bh, g = 150, 18
@@ -145,20 +127,20 @@ def build(v):
     dh = height("Fall Enrollment Special\nUntil 2 December.", 52, 936)
     total = hh + GAP_ART + 3 * bh + 2 * g + GAP_ART + dh
     y = 72 + (FY - 40 - 72 - total) // 2
-    T(d, 6, "Headline", "Start today.\nPick your season.", M, y, 936, hh + 6, 84)
+    T(d, 5, "Headline", "Start today.\nPick your season.", M, y, 936, hh + 6, 84)
     top = y + hh + GAP_ART
     for i, (n, t1, t2) in enumerate(steps):
         y0 = top + i * (bh + g)
         bar = Image.new("RGBA", (936, bh), (0, 0, 0, 0))
         ImageDraw.Draw(bar).rounded_rectangle((0, 0, 935, bh - 1), 24, fill=(255, 255, 255, 30),
                                               outline=(255, 255, 255, 80), width=2)
-        d.put(6, f"Step {n} box", bar, M, y0, shadowed=False, anchor="tl")
-        T(d, 6, f"Step {n} number", n, M + 30, y0 + 38, 150, 80, 73, color=MINT, align="left")
-        T(d, 6, f"Step {n} title", t1, M + 200, y0 + 18, 700, 62, 52, align="left")
-        T(d, 6, f"Step {n} text", t2, M + 200, y0 + 80, 700, 62, 52, bold=False, align="left")
-    T(d, 6, "Details", "Fall Enrollment Special\nUntil 2 December.", M, top + 3 * bh + 2 * g + GAP_ART, 936,
+        d.put(5, f"Step {n} box", bar, M, y0, shadowed=False, anchor="tl")
+        T(d, 5, f"Step {n} number", n, M + 30, y0 + 38, 150, 80, 73, color=MINT, align="left")
+        T(d, 5, f"Step {n} title", t1, M + 200, y0 + 18, 700, 62, 52, align="left")
+        T(d, 5, f"Step {n} text", t2, M + 200, y0 + 80, 700, 62, 52, bold=False, align="left")
+    T(d, 5, "Details", "Fall Enrollment Special\nUntil 2 December.", M, top + 3 * bh + 2 * g + GAP_ART, 936,
       dh + 6, 52)
-    footer(d, 6)
+    footer(d, 5)
     return d
 
 
