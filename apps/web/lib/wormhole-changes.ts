@@ -10620,6 +10620,77 @@ export const CHANGES: Change[] = [
     },
     reason: 'Linnea, 4 Nov: cool white line graphics and colour fades.',
   },
+  {
+    key: '2026-11-04 x20261118 lineart',
+    post: 'x20261118',
+    set: {
+      slides: [
+        {
+          text: 'The Compost Intensive Course. Over ten weeks, you build 2 biological compost piles right where you live.',
+          image: '/wormhole/tiles/x20261118-v9-1.jpg',
+        },
+        {
+          text: 'Choose your cohort. January, May or August 2027. Fall Enrollment Special, until 2 December. Link in bio.',
+          image: '/wormhole/tiles/x20261118-v9-2.jpg',
+        },
+      ],
+      visual_note:
+        'Family: line art on colour fades (same look as the bundle carousel v6). White line drawings generated on Replicate, no people, no photos. Words from the sales page only. Built with tools/wormhole-visuals/bundle_posts_lineart.py. Deck: decks/09-11-2026-compost-intensive-lineart-v9.pptx.',
+    },
+    reason: 'Linnea, 4 Nov: keep going in the line-art look.',
+  },
+  {
+    key: '2026-11-04 x20261125 lineart',
+    post: 'x20261125',
+    set: {
+      slides: [
+        {
+          text: "The Foundation Courses. 63 lectures and about 150 hours of study, with 40+ years of Dr. Elaine's knowledge. Self-paced.",
+          image: '/wormhole/tiles/x20261125-v9-1.jpg',
+        },
+        {
+          text: 'Plus a seat in a 2027 Compost Intensive cohort. Fall Enrollment Special, until 2 December. Link in bio.',
+          image: '/wormhole/tiles/x20261125-v9-2.jpg',
+        },
+      ],
+      visual_note:
+        'Family: line art on colour fades (same look as the bundle carousel v6). White line drawings generated on Replicate, no people, no photos. Words from the sales page only. Built with tools/wormhole-visuals/bundle_posts_lineart.py. Deck: decks/18-11-2026-foundation-courses-lineart-v9.pptx.',
+    },
+    reason: 'Linnea, 4 Nov: keep going in the line-art look.',
+  },
+  {
+    key: '2026-11-04 x20261130 lineart',
+    post: 'x20261130',
+    set: {
+      slides: [
+        {
+          text: 'Last week. Fall Enrollment Special: Foundation Courses + Compost Intensive, until 2 December. Link in bio.',
+          image: '/wormhole/tiles/x20261130-v9-1.jpg',
+        },
+      ],
+      visual_note:
+        'Family: line art on colour fades (same look as the bundle carousel v6). White line drawings generated on Replicate, no people, no photos. Words from the sales page only. Built with tools/wormhole-visuals/bundle_posts_lineart.py. Deck: decks/25-11-2026-fall-enrollment-last-week-lineart-v9.pptx.',
+    },
+    reason: 'Linnea, 4 Nov: keep going in the line-art look.',
+  },
+  {
+    key: '2026-11-04 fes20261130 lineart',
+    post: 'fes20261130',
+    set: {
+      slides: [
+        {
+          text: 'Last day. Fall Enrollment Special: Foundation Courses + Compost Intensive. Link in bio.',
+          image: '/wormhole/tiles/fes20261130-v9-1.jpg',
+        },
+      ],
+      visual_note:
+        'Family: line art on colour fades (same look as the bundle carousel v6). White line drawings generated on Replicate, no people, no photos. Words from the sales page only. Built with tools/wormhole-visuals/bundle_posts_lineart.py. Deck: decks/02-12-2026-fall-enrollment-last-day-lineart-v9.pptx.',
+      iso_date: '2026-12-02',
+      date_tbd: false,
+    },
+    reason:
+      'Linnea, 4 Nov: keep going in the line-art look. Last day moved to Wed 2 Dec (Stephanie, 3 Nov: the bundle runs until 2 December).',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);
