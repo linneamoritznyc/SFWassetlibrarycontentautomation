@@ -11713,6 +11713,98 @@ export const CHANGES: Change[] = [
     },
     reason: 'Linnea, 4 Nov: the other bundle posts in the approved look.',
   },
+  {
+    key: '2026-11-04 x20261118 varied',
+    post: 'x20261118',
+    set: {
+      slides: [
+        {
+          text: 'Compost Intensive Course badge. The Compost Intensive Course. No prerequisites. All are welcome.',
+          image: '/wormhole/tiles/x20261118-v11-1.jpg',
+        },
+        {
+          text: 'Ten weeks, online. 10 weeks, online. 90 minutes live with a mentor every week. 2 compost piles you build where you live. 3 2027 cohorts: January, May or August.',
+          image: '/wormhole/tiles/x20261118-v11-2.jpg',
+        },
+        {
+          text: '80%. More than 80% of the people who took our pilot version of this course walked away with successful thermophilic piles that achieved BioComplete™ biological potency. (Compost Intensive page.)',
+          image: '/wormhole/tiles/x20261118-v11-3.jpg',
+        },
+        {
+          text: 'Foundation Courses + Compost Intensive. QR code (Instagram: https://tr.ee/ce6tWIaOx7). Fall Enrollment Special. Until 2 December.',
+          image: '/wormhole/tiles/x20261118-v11-4.jpg',
+        },
+      ],
+      visual_note:
+        'Family: big numbers on soil, frosted tiles. Each bundle post in its own style (Linnea, 4 Nov). Wording from the bundle and Compost Intensive pages. Instagram QR code on its own last slide; Facebook and LinkedIn versions to come. Built with tools/wormhole-visuals/bundle_varied_series.py. Deck: decks/09-11-2026-compost-intensive-numbers-v11.pptx. Earlier options kept in the repo.',
+    },
+    reason: 'Linnea, 4 Nov: not all the same visual style.',
+  },
+  {
+    key: '2026-11-04 x20261125 varied',
+    post: 'x20261125',
+    set: {
+      slides: [
+        {
+          text: 'Look, feel, smell, structure, maturity. In the Compost Intensive Course you assess compost quality using practical field observations.',
+          image: '/wormhole/tiles/x20261125-v18-1.jpg',
+        },
+        {
+          text: 'Foundation Course 4: Microscopy. Learn to use a compound microscope to identify and quantify bacteria, fungi, protozoa and nematodes. Nematode, 40x. Photo: Keisha Wheeler.',
+          image: '/wormhole/tiles/x20261125-v18-2.jpg',
+        },
+        {
+          text: 'Foundation Courses + Compost Intensive. QR code (Instagram: https://tr.ee/ce6tWIaOx7). Fall Enrollment Special. Until 2 December.',
+          image: '/wormhole/tiles/x20261125-v18-3.jpg',
+        },
+      ],
+      visual_note:
+        'Family: dark specimen: hands drawing, then a micrograph eyepiece (nematode, 40x, Keisha Wheeler). Each bundle post in its own style (Linnea, 4 Nov). Wording from the bundle and Compost Intensive pages. Instagram QR code on its own last slide; Facebook and LinkedIn versions to come. Built with tools/wormhole-visuals/bundle_varied_series.py. Deck: decks/18-11-2026-look-feel-smell-microscopy-v18.pptx. Earlier options kept in the repo.',
+    },
+    reason: 'Linnea, 4 Nov: not all the same visual style.',
+  },
+  {
+    key: '2026-11-04 x20261130 varied',
+    post: 'x20261130',
+    set: {
+      slides: [
+        {
+          text: 'One week left. Start the Foundation Courses today. Pick one 2027 Compost Intensive cohort. 2027 ring: 11 Jan to 26 Mar, 10 May to 25 Jul, 30 Aug to 7 Nov.',
+          image: '/wormhole/tiles/x20261130-v18-1.jpg',
+        },
+        {
+          text: 'Foundation Courses + Compost Intensive. QR code (Instagram: https://tr.ee/ce6tWIaOx7). Fall Enrollment Special. Until 2 December.',
+          image: '/wormhole/tiles/x20261130-v18-2.jpg',
+        },
+      ],
+      visual_note:
+        'Family: diagram: 2027 year ring on night blue. Each bundle post in its own style (Linnea, 4 Nov). Wording from the bundle and Compost Intensive pages. Instagram QR code on its own last slide; Facebook and LinkedIn versions to come. Built with tools/wormhole-visuals/bundle_varied_series.py. Deck: decks/25-11-2026-one-week-left-ring-v18.pptx. Earlier options kept in the repo.',
+    },
+    reason: 'Linnea, 4 Nov: not all the same visual style.',
+  },
+  {
+    key: '2026-11-04 fes20261130 varied',
+    post: 'fes20261130',
+    set: {
+      slides: [
+        {
+          text: 'Fall Enrollment Special. Last day. Foundation Courses + Compost Intensive. The special ends today.',
+          image: '/wormhole/tiles/fes20261130-v17-1.jpg',
+        },
+        {
+          text: '4 Foundation Courses: self-paced, 63 lectures and about 150 hours of study. A seat in a 2027 Compost Intensive cohort: ten weeks online, with a 90-minute live session with a mentor every week. Hundreds of hours of webinars: our legacy webinar archive, recorded live with Dr. Elaine Ingham.',
+          image: '/wormhole/tiles/fes20261130-v17-2.jpg',
+        },
+        {
+          text: 'Foundation Courses + Compost Intensive. QR code (Instagram: https://tr.ee/ce6tWIaOx7). Fall Enrollment Special. Ends today.',
+          image: '/wormhole/tiles/fes20261130-v17-3.jpg',
+        },
+      ],
+      visual_note:
+        'Family: type-led cream poster, brown card. Each bundle post in its own style (Linnea, 4 Nov). Wording from the bundle and Compost Intensive pages. Instagram QR code on its own last slide; Facebook and LinkedIn versions to come. Built with tools/wormhole-visuals/bundle_varied_series.py. Deck: decks/02-12-2026-last-day-poster-v17.pptx. Earlier options kept in the repo.',
+    },
+    reason: 'Linnea, 4 Nov: not all the same visual style.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);
