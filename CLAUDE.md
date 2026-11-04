@@ -213,7 +213,7 @@ Before writing about any program, fetch its page and read it all, including FAQs
 ## 10. People
 
 - **Stephanie McDaniel**: communications lead, approves social.
-- **Allison Duck**: marketing, writing and editing; wants field trial reports as case studies.
+- **Allison Duck**: head of copywriting (Linnea, 4 Nov): her call on wording wins. Marketing, writing and editing; wants field trial reports as case studies.
 - **Evan Buckman**: Executive Director.
 - **Delvin Solkinson** (@visionary_permaculture): permaculture partner network, runs PDC collabs.
 - **Carla Portugal**: instructor, mentor, Portuguese/Spanish translator; posts graduate announcements internally, runs office hours.
