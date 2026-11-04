@@ -98,12 +98,14 @@ def build(v, plat):
                 "Courses and beyond.", hs=84)
     # 6. the discount, just before the QR code
     d.bg(5, fade("#1E7A3A", "#0E3B1E", (0.5, 0.4), 205), name="Background fade")
-    hh2 = height("off the Foundation Courses, plus the Compost Intensive Course free", 73, 936)
+    hh2 = height("off the Foundation Courses + Compost Intensive bundle", 73, 936)
     total = 380 + 40 + hh2 + 60 + dh
     y = 60 + (FY - 10 - 60 - total) // 2
     T(d, 5, "Discount", "Over\n50%", M, y, 936, 390, 180, mn=150, lh=1.0, color="#A8D5B0")
     y += 380 + 40
-    T(d, 5, "Headline", "off the Foundation Courses, plus the Compost Intensive Course free", M, y, 936, hh2 + 6, 73)
+    # $2,700 against the page's $5,900 combined value is 54% off the bundle; against the Foundation Courses alone
+    # ($5,000) it is 46%, so "over 50%" is only true for the whole bundle
+    T(d, 5, "Headline", "off the Foundation Courses + Compost Intensive bundle", M, y, 936, hh2 + 6, 73)
     y += hh2 + 60
     T(d, 5, "Details", "Fall Enrollment Special\nUntil 2 December.", (W - 900) // 2, y, 900, dh + 6, 66, bold=False,
       lh=1.3)
