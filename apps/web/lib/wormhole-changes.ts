@@ -10575,6 +10575,28 @@ export const CHANGES: Change[] = [
     reason:
       'Linnea, 4 Nov: new bundle carousel, plain words from the sales page, no workshop photos, until 2 December. Built with tools/wormhole-visuals/bundle_v2.py. Deck: decks/04-11-2026-fall-enrollment-bundle-v2.pptx.',
   },
+  {
+    key: '2026-11-04 promo-fall-bundle v4',
+    post: 'promo-fall-bundle',
+    set: {
+      slides: [
+        {
+          text: 'Foundation Courses + Compost Intensive. Fall Enrollment Special, until 2 December. Link in bio.',
+          image: '/wormhole/tiles/promo-fall-bundle-v4-1.jpg',
+        },
+        {
+          text: 'The Foundation Courses teach you to work out what your soil needs. Introduction to the Soil Food Web, BioComplete™ Compost, BioComplete™ Liquid Amendments and Microscopy. Self-paced, start the day you enroll.',
+          image: '/wormhole/tiles/promo-fall-bundle-v4-2.jpg',
+        },
+        {
+          text: 'The Compost Intensive Course teaches you to make it. Ten weeks online, with a 90-minute live session with a mentor every week. You build two batches of compost where you live, and you keep them.',
+          image: '/wormhole/tiles/promo-fall-bundle-v4-3.jpg',
+        },
+      ],
+    },
+    reason:
+      'Linnea, 4 Nov: her slide text word for word, sales-page wording only. Built with tools/wormhole-visuals/bundle_v4.py. Deck: decks/04-11-2026-fall-enrollment-bundle-v4.pptx.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);
