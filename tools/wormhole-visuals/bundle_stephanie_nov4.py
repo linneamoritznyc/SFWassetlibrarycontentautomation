@@ -83,8 +83,9 @@ def build(v, plat):
     footer(d, 0)
     # 2. Dr. Elaine: purple, her photo
     photo_slide(d, 1, ELAINE_BAG, 0.45, 0.35, PURPLE,
-                "Dr. Elaine's decades of knowledge, in four easy-to-follow online courses",
-                "The Foundation Courses. Self-paced, start the day you enroll.")
+                "Our 4 flagship Foundation Courses",
+                "Dr. Elaine Ingham's seminal lectures on the soil food web and how to restore it. 40+ years of her "
+                "knowledge, self-paced.", hs=84)
     # 3. Compost Intensive: the live class
     photo_slide(d, 2, ZOOM, 0.5, 0.5, "#4F3433", "The Compost Intensive Course",
                 "Live with a mentor every week, alongside a global cohort of peers.", hs=84, fit="contain")
@@ -97,12 +98,12 @@ def build(v, plat):
                 "put it into action.")
     # 6. the discount, just before the QR code
     d.bg(5, fade("#1E7A3A", "#0E3B1E", (0.5, 0.4), 205), name="Background fade")
-    hh2 = height("Foundation Courses + Compost Intensive", 73, 936)
+    hh2 = height("off the Foundation Courses, plus the Compost Intensive Course free", 73, 936)
     total = 380 + 40 + hh2 + 60 + dh
     y = 60 + (FY - 10 - 60 - total) // 2
-    T(d, 5, "Discount", "Over\n50% off", M, y, 936, 390, 180, mn=150, lh=1.0, color="#A8D5B0")
+    T(d, 5, "Discount", "Over\n50%", M, y, 936, 390, 180, mn=150, lh=1.0, color="#A8D5B0")
     y += 380 + 40
-    T(d, 5, "Headline", "Foundation Courses + Compost Intensive", M, y, 936, hh2 + 6, 73)
+    T(d, 5, "Headline", "off the Foundation Courses, plus the Compost Intensive Course free", M, y, 936, hh2 + 6, 73)
     y += hh2 + 60
     T(d, 5, "Details", "Fall Enrollment Special\nUntil 2 December.", (W - 900) // 2, y, 900, dh + 6, 66, bold=False,
       lh=1.3)
