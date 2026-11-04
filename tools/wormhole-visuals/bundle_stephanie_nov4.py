@@ -143,10 +143,10 @@ def build(v, plat):
     cy = ty + tag.height - 60
     y = cy + R + 44
     T(d, 5, "Headline", "the Foundation Courses + Compost Intensive bundle", M, y, 936, 170, 66)
-    pill_w, pill_h = 560, 100
+    pill_w, pill_h = 520, 96
     pill = Image.new("RGBA", (pill_w, pill_h), (0, 0, 0, 0))
     ImageDraw.Draw(pill).rounded_rectangle((0, 0, pill_w - 1, pill_h - 1), 50, fill=rgb("#A8D5B0") + (255,))
-    py = y + 160
+    py = y + 205   # Linnea, 4 Nov: date pill a bit lower
     d.put(5, "Date pill", pill, (W - pill_w) // 2, py, shadowed=False, anchor="tl")
     T(d, 5, "Date", "Until 2 December", (W - pill_w) // 2, py + 18, pill_w, 70, 58, color="#0E3B1E")
     footer(d, 5)
