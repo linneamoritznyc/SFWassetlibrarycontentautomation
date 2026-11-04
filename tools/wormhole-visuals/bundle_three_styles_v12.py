@@ -18,7 +18,9 @@ from collage import Deck, fit
 import qrcode
 from nov_fill import BROWN, CREAM, DECKS, GREEN, INK, LGREEN, TILES, WHITE
 
-V = "v12"
+V = os.environ.get("BUNDLE_V", "v12")
+# Platform short links from Linnea (4 Nov); set by the build scripts. Empty means the placeholder UTM link.
+QR_LINK = os.environ.get("QR_LINK", "")
 M = 72                 # outer margin
 FOOT = 170             # footer row height (QR and logo)
 FY = H - M - FOOT      # footer row top: 1108
@@ -53,7 +55,7 @@ def footer(d, k, line=None, qr_pid=None, white=True, color=CREAM):
     d.put(k, "SFW logo", lg, W - M - FOOT, FY + (FOOT - lg.height) // 2, shadowed=False, anchor="tl")
     if qr_pid:
         q = qrcode.QRCode(border=2, box_size=10)
-        q.add_data(URL + UTM.format(qr_pid))
+        q.add_data(QR_LINK or URL + UTM.format(qr_pid))
         im = q.make_image(fill_color=INK, back_color=CREAM).convert("RGBA").resize((FOOT, FOOT), Image.NEAREST)
         m = Image.new("L", (FOOT, FOOT), 0)
         ImageDraw.Draw(m).rounded_rectangle((0, 0, FOOT - 1, FOOT - 1), 16, fill=255)
@@ -144,7 +146,7 @@ def pick_season():
 
 # ---------- post 3: ends today ----------
 def ends_today():
-    d = Deck("fes20261130", 3, f"bundle-ends-today-{V}", "2026-12-02")
+    d = Deck("fes20261130", 3, f"bundle-ends-today-{os.environ.get('PLATFORM_TAG', '')}{V}", "2026-12-02")
     d.bg(0, grain(Image.new("RGB", (W, H), CREAM), 7, 3), name="Background: cream")
     T(d, 0, "Eyebrow", "FALL ENROLLMENT SPECIAL", M, 130, 936, 70, 52, color=GREEN, mn=50)
     y = T(d, 0, "Headline", "Ends today", M, 210, 936, 200, 160, color=BROWN, mn=120, lh=1.0)

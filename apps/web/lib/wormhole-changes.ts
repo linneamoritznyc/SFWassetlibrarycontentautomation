@@ -10932,6 +10932,86 @@ export const CHANGES: Change[] = [
     },
     reason: 'Linnea, 4 Nov: her three deck ideas, made beautiful.',
   },
+  {
+    key: '2026-11-04 promo-fall-bundle platform QR',
+    post: 'promo-fall-bundle',
+    set: {
+      slides: [
+        {
+          text: 'Foundation Courses + Compost Intensive. Fall Enrollment Special, until 2 December. FC1 to FC4 badges. + a seat in a 2027 Compost Intensive cohort. 10 weeks, live and online.',
+          image: '/wormhole/tiles/promo-fall-bundle-v9-1.jpg',
+        },
+        {
+          text: 'Learn what your soil needs. Then build it yourself. The Soil Food Web, BioComplete™ Compost, BioComplete™ Liquid Amendments, Microscopy. Self-paced. Start today. Until 2 December.',
+          image: '/wormhole/tiles/promo-fall-bundle-v9-2.jpg',
+        },
+        {
+          text: 'From soil science to compost you made yourself. 01 Start today: 4 courses, self-paced. 02 Pick your cohort: January, May or August. 03 Keep your compost: two batches, at home. Until 2 December.',
+          image: '/wormhole/tiles/promo-fall-bundle-v9-3.jpg',
+        },
+        {
+          text: "Everything in one bundle. 4 Foundation Courses. 10 weeks live with a mentor. 2 batches of compost you keep. 100s of hours of Dr. Elaine's webinars. Until 2 December. Link in bio.",
+          image: '/wormhole/tiles/promo-fall-bundle-v9-4.jpg',
+        },
+      ],
+      visual_note:
+        "QR codes now use Linnea's short links (4 Nov): Instagram https://tr.ee/ce6tWIaOx7, Facebook https://www.sfw.one/fccicfall2026fb, LinkedIn https://www.sfw.one/fccicfall2026li. One deck per platform, same design: Instagram: decks/04-11-2026-fall-enrollment-bundle-Instagram-v9.pptx, Facebook: decks/04-11-2026-fall-enrollment-bundle-Facebook-v10.pptx, LinkedIn: decks/04-11-2026-fall-enrollment-bundle-LinkedIn-v11.pptx. Tiles shown are the Instagram version.",
+    },
+    reason: 'Linnea, 4 Nov: QR codes from the platform short links.',
+  },
+  {
+    key: '2026-11-04 x20261125 platform QR',
+    post: 'x20261125',
+    set: {
+      slides: [
+        {
+          text: 'Judge it by hand. Then see the life in it. In the Compost Intensive | Microscopy, in the Foundation Courses. Look, Feel, Smell, Structure, Maturity. Until 2 December. Link in bio.',
+          image: '/wormhole/tiles/x20261125-v14-1.jpg',
+        },
+      ],
+      visual_note:
+        "QR codes now use Linnea's short links (4 Nov): Instagram https://tr.ee/ce6tWIaOx7, Facebook https://www.sfw.one/fccicfall2026fb, LinkedIn https://www.sfw.one/fccicfall2026li. One deck per platform, same design: Instagram: decks/18-11-2026-by-hand-then-microscope-Instagram-v14.pptx, Facebook: decks/18-11-2026-by-hand-then-microscope-Facebook-v15.pptx, LinkedIn: decks/18-11-2026-by-hand-then-microscope-LinkedIn-v16.pptx. Tiles shown are the Instagram version.",
+    },
+    reason: 'Linnea, 4 Nov: QR codes from the platform short links.',
+  },
+  {
+    key: '2026-11-04 x20261130 platform QR',
+    post: 'x20261130',
+    set: {
+      slides: [
+        {
+          text: 'Start today. Pick your season. Start the Foundation Courses any day. One 2027 Compost Intensive cohort is included. 2027 ring: 11 Jan to 26 Mar, 10 May to 25 Jul, 30 Aug to 7 Nov. One week left, until 2 December.',
+          image: '/wormhole/tiles/x20261130-v14-1.jpg',
+        },
+      ],
+      visual_note:
+        "QR codes now use Linnea's short links (4 Nov): Instagram https://tr.ee/ce6tWIaOx7, Facebook https://www.sfw.one/fccicfall2026fb, LinkedIn https://www.sfw.one/fccicfall2026li. One deck per platform, same design: Instagram: decks/25-11-2026-pick-your-season-ring-Instagram-v14.pptx, Facebook: decks/25-11-2026-pick-your-season-ring-Facebook-v15.pptx, LinkedIn: decks/25-11-2026-pick-your-season-ring-LinkedIn-v16.pptx. Tiles shown are the Instagram version.",
+    },
+    reason: 'Linnea, 4 Nov: QR codes from the platform short links.',
+  },
+  {
+    key: '2026-11-04 fes20261130 platform QR',
+    post: 'fes20261130',
+    set: {
+      slides: [
+        {
+          text: 'Fall Enrollment Special. Ends today. Foundation Courses + Compost Intensive. Link in bio.',
+          image: '/wormhole/tiles/fes20261130-v13-1.jpg',
+        },
+        {
+          text: "“The extraordinary body of knowledge Soil Food Web's Foundation Courses has to offer can certainly empower me with the required knowledge and experience to drive the work I have been developing further.” Clara Santiago, Portugal",
+          image: '/wormhole/tiles/fes20261130-v13-2.jpg',
+        },
+        {
+          text: 'For consultants: the Compost Intensive counts toward the Consultant Pathway. It can be used to satisfy the BioComplete™ Compost Production requirement. Ends today. Link in bio.',
+          image: '/wormhole/tiles/fes20261130-v13-3.jpg',
+        },
+      ],
+      visual_note:
+        "QR codes now use Linnea's short links (4 Nov): Instagram https://tr.ee/ce6tWIaOx7, Facebook https://www.sfw.one/fccicfall2026fb, LinkedIn https://www.sfw.one/fccicfall2026li. One deck per platform, same design: Instagram: decks/02-12-2026-bundle-ends-today-Instagram-v13.pptx, Facebook: decks/02-12-2026-bundle-ends-today-Facebook-v14.pptx, LinkedIn: decks/02-12-2026-bundle-ends-today-LinkedIn-v15.pptx. Tiles shown are the Instagram version.",
+    },
+    reason: 'Linnea, 4 Nov: QR codes from the platform short links.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);

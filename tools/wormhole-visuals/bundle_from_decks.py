@@ -34,6 +34,7 @@ SCR = "/tmp/claude-0/-home-user/aa85d233-831d-5e12-bf14-2ae561c4274c/scratchpad"
 BADGES = [f"{SCR}/bundleup/img_0_FC{i}_badge.jpg" for i in (1, 2, 3, 4)]
 CIC = f"{SCR}/bundleup/img_0_CIC_badge.jpg"
 MICRO = "/home/user/photos/new-2026-10/Bacterial-feeding nematode (omnivore), 40x obj, Keisha Wheeler.jpg"
+PLAT, CV, PV = "instagram", "v9", "v14"
 SOIL, NIGHT_BLUE = "#2E211F", "#0E2233"
 TAN, ICE = "#D8B48A", "#9CC9E8"
 
@@ -80,7 +81,7 @@ def frost(w, h, r=26, a=30, line=80):
 
 # ---------------- carousel ----------------
 def carousel():
-    d = Deck("promo-fall-bundle", 4, "fall-enrollment-bundle-v8", "2026-11-04")
+    d = Deck("promo-fall-bundle", 4, f"fall-enrollment-bundle-{PLAT}-{CV}", "2026-11-04")
     # 1. cover: soil top, cream bottom, the four badges across the seam
     seam = 600
     bg = Image.new("RGBA", (W, H))
@@ -218,7 +219,7 @@ def ring(d_px, ticks=True):
 
 
 def by_hand():
-    d = Deck("x20261125", 1, "by-hand-then-microscope-v13", "2026-11-18")
+    d = Deck("x20261125", 1, f"by-hand-then-microscope-{PLAT}-{PV}", "2026-11-18")
     d.bg(0, glow_bg("#16110F", [(285, 520, 420, "#6B4A3A", 0.55), (795, 520, 420, "#2A5A7A", 0.55)], 11),
          name="Background: dark")
     T(d, 0, "Headline", "Judge it by hand.\nThen see the life in it.", M, 70, 936, 200, 84)
@@ -262,7 +263,7 @@ def by_hand():
 
 # ---------------- pick your season: the 2027 ring ----------------
 def season():
-    d = Deck("x20261130", 1, "pick-your-season-ring-v13", "2026-11-25")
+    d = Deck("x20261130", 1, f"pick-your-season-ring-{PLAT}-{PV}", "2026-11-25")
     d.bg(0, glow_bg(NIGHT_BLUE, [(W / 2, 720, 520, "#1F4E79", 0.7)], 13), name="Background: night blue")
     y = T(d, 0, "Headline", "Start today.\nPick your season.", M, 70, 936, 200, 84)
     T(d, 0, "Details", "Start the Foundation Courses any day. One 2027 Compost Intensive cohort is included.", M,
@@ -301,7 +302,13 @@ def season():
 
 
 if __name__ == "__main__":
-    for fn, v in ((carousel, "v8"), (by_hand, "v13"), (season, "v13")):
+    # one version per platform, each with its own QR short link (Linnea, 4 Nov):
+    #   Instagram v9/v14 (tr.ee), Facebook v10/v15 (sfw.one ...fb), LinkedIn v11/v16 (sfw.one ...li)
+    import sys
+    plat = sys.argv[1] if len(sys.argv) > 1 else "instagram"
+    cv, pv = {"instagram": ("v9", "v14"), "facebook": ("v10", "v15"), "linkedin": ("v11", "v16")}[plat]
+    PLAT, CV, PV = plat, cv, pv
+    for fn, v in ((carousel, cv), (by_hand, pv), (season, pv)):
         d = fn()
         for k in range(1, d.n + 1):
             assert not os.path.exists(os.path.join(TILES, f"{d.id}-{v}-{k}.jpg")), d.id
