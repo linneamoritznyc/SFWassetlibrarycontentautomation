@@ -10801,6 +10801,80 @@ export const CHANGES: Change[] = [
     },
     reason: 'Linnea, 4 Nov: three separate posts, three different styles, on her three angles.',
   },
+  {
+    key: '2026-11-04 promo-fall-bundle caption and v12',
+    post: 'promo-fall-bundle',
+    captionText:
+      'Learn what your soil needs. Then learn to build it yourself. 🌱\n\nOur Fall Enrollment Special brings two of our courses together. The four Foundation Courses (Introduction to the Soil Food Web, BioComplete™ Compost, BioComplete™ Liquid Amendments and Microscopy) give you 63 lectures and about 150 hours of Dr. Elaine Ingham’s soil food web science. They are self-paced, and you start the day you enroll.\n\nThe Compost Intensive Course is ten weeks online, with a 90-minute live session with an expert mentor every week. You learn to choose feedstocks, balance recipes, manage temperature and fix problems as they come up, while you build two batches of inoculant-grade biological compost right where you live.\n\nThere are no prerequisites, so you can take both side by side. The bundle also includes Dr. Elaine’s legacy webinar archive.\n\nUntil 2 December. Link in bio.\n\n#SoilFoodWeb #FoundationCourses #CompostIntensive #DrElaineIngham #SoilHealth #LivingSoil',
+    reason: 'Linnea, 4 Nov: final bundle captions; v12 visuals.',
+  },
+  {
+    key: '2026-11-04 x20261125 caption and v12',
+    post: 'x20261125',
+    set: {
+      slides: [
+        {
+          text: 'Two courses, one bundle. Foundation Courses | Compost Intensive. Fall Enrollment Special, until 2 December. Link in bio.',
+          image: '/wormhole/tiles/x20261125-v12-1.jpg',
+        },
+        {
+          text: "The Foundation Courses teach you to work out what your soil needs. 63 lectures and about 150 hours of study, with 40+ years of Dr. Elaine's knowledge.",
+          image: '/wormhole/tiles/x20261125-v12-2.jpg',
+        },
+        {
+          text: 'The Compost Intensive Course teaches you to make it. No prerequisites. Start the Foundation Courses today and build with the cohort as early as January. Link in bio.',
+          image: '/wormhole/tiles/x20261125-v12-3.jpg',
+        },
+      ],
+      visual_note:
+        'Family: split screen, blueprint grid | soil speckle, white line drawings. One fixed grid (Linnea, 4 Nov: better layout): drawing zone on top, centred text, footer row with QR (UTM, placeholder until Stephanie sends hers) and logo. Dates on one line. Built with tools/wormhole-visuals/bundle_three_styles_v12.py. Deck: decks/18-11-2026-two-courses-one-bundle-v12.pptx. Earlier options kept in the repo: v9, v10 (line-art fades), v11.',
+    },
+    captionText:
+      'When your compost starts to stink, goes slimy or won’t break down, you’ll know why and what to change. 🔬\n\nIn the Compost Intensive Course, you learn to judge compost quality by hand, through its look, feel, smell, structure and maturity. You build two batches of inoculant-grade compost where you live, with a 90-minute live session with a mentor every week, and the course includes training on windrows for large-scale production.\n\nIn the Foundation Courses, Microscopy teaches you to identify and quantify the bacteria, fungi, protozoa and nematodes that make that compost work. Together you get the hands-on skill and the science behind every batch.\n\nOur Fall Enrollment Special pairs all four Foundation Courses with a seat in a 2027 Compost Intensive cohort. Until 2 December. Link in bio.\n\n#SoilFoodWeb #CompostIntensive #Microscopy #BioCompleteCompost #SoilBiology #LivingSoil',
+    reason: 'Linnea, 4 Nov: final bundle captions; v12 visuals.',
+  },
+  {
+    key: '2026-11-04 x20261130 caption and v12',
+    post: 'x20261130',
+    set: {
+      slides: [
+        {
+          text: 'Pick your season. Start the Foundation Courses this winter. Then build with a ten-week 2027 cohort, with a live mentor every week. 11 Jan to 26 Mar, 10 May to 25 Jul, 30 Aug to 7 Nov. One week left, until 2 December.',
+          image: '/wormhole/tiles/x20261130-v12-1.jpg',
+        },
+      ],
+      visual_note:
+        'Family: night ink with a glowing 2027 timeline and the sunrise line drawing. One fixed grid (Linnea, 4 Nov: better layout): drawing zone on top, centred text, footer row with QR (UTM, placeholder until Stephanie sends hers) and logo. Dates on one line. Built with tools/wormhole-visuals/bundle_three_styles_v12.py. Deck: decks/25-11-2026-pick-your-season-v12.pptx. Earlier options kept in the repo: v9, v10 (line-art fades), v11.',
+    },
+    captionText:
+      'Your 2027 compost season can start this winter. ❄️\n\nEnroll in our Fall Enrollment Special before 2 December and you start the four Foundation Courses right away, at your own pace. When you enroll, you also choose your 2027 Compost Intensive cohort:\n\nJanuary: 11 January to 26 March\nMay: 10 May to 25 July\nAugust: 30 August to 7 November\n\nEvery cohort runs ten weeks, fully online. Everyone starts and finishes together, with a 90-minute live session with a mentor each week. You build two batches of biological compost right where you live, matched to what you are growing.\n\nOne week left. Link in bio.\n\n#SoilFoodWeb #CompostIntensive #FoundationCourses #Compost #SoilHealth #LivingSoil',
+    reason: 'Linnea, 4 Nov: final bundle captions; v12 visuals.',
+  },
+  {
+    key: '2026-11-04 fes20261130 caption and v12',
+    post: 'fes20261130',
+    set: {
+      slides: [
+        {
+          text: 'Fall Enrollment Special. Ends today. Foundation Courses + Compost Intensive. Link in bio.',
+          image: '/wormhole/tiles/fes20261130-v12-1.jpg',
+        },
+        {
+          text: "“The extraordinary body of knowledge Soil Food Web's Foundation Courses has to offer can certainly empower me with the required knowledge and experience to drive the work I have been developing further.” Clara Santiago, Portugal",
+          image: '/wormhole/tiles/fes20261130-v12-2.jpg',
+        },
+        {
+          text: 'For consultants: the Compost Intensive counts toward the Consultant Pathway. It can be used to satisfy the BioComplete™ Compost Production requirement. Ends today. Link in bio.',
+          image: '/wormhole/tiles/fes20261130-v12-3.jpg',
+        },
+      ],
+      visual_note:
+        'Family: type-led cream cover, quote on brown, brown fact card on cream. One fixed grid (Linnea, 4 Nov: better layout): drawing zone on top, centred text, footer row with QR (UTM, placeholder until Stephanie sends hers) and logo. Dates on one line. Built with tools/wormhole-visuals/bundle_three_styles_v12.py. Deck: decks/02-12-2026-bundle-ends-today-v12.pptx. Earlier options kept in the repo: v9, v10 (line-art fades), v11.',
+    },
+    captionText:
+      'Last day: our Fall Enrollment Special ends today. 🌱\n\n“The extraordinary body of knowledge Soil Food Web’s Foundation Courses has to offer can certainly empower me with the required knowledge and experience to drive the work I have been developing further.” Clara Santiago, Portugal\n\nIf you are working toward our Consultant Pathway, the Compost Intensive Course can be used to satisfy its BioComplete™ Compost Production requirement. Over ten weeks, with a mentor every week and a cohort working through the same process, you build two batches of inoculant-grade compost where you live.\n\nThe bundle pairs it with all four Foundation Courses and Dr. Elaine’s legacy webinar archive. Enroll today, link in bio.\n\n#SoilFoodWeb #CompostIntensive #FoundationCourses #SoilConsultant #RegenerativeAgriculture #SoilHealth',
+    reason: 'Linnea, 4 Nov: final bundle captions; v12 visuals.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);
