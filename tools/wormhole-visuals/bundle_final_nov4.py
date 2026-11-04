@@ -109,7 +109,7 @@ def build(v):
     # 4. every scale (bundle page: who it's for; CIC FAQ: what it covers)
     d.bg(3, fade("#2F6B5A", "#123B26", (0.5, 0.26), 45), name="Background fade")
     stack(d, 3, fit_art("sunrise", 540, 250), "For farmers, ranchers, agronomists, consultants and gardeners", 73,
-          "At any scale. The Compost Intensive covers thermophilic piles, vermicompost, USDA thermal composting "
+          "The Compost Intensive covers thermophilic piles, vermicompost, USDA thermal composting "
           "and large-scale windrows.")
     footer(d, 3)
     # 5. Dr. Elaine's webinar archive
