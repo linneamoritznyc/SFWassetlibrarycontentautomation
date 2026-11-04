@@ -29,12 +29,13 @@ PURPLE = "#6B4C7A"   # Legacy Mulberry, Dr. Elaine only (docs/brand.md)
 ST = "/home/user/sfwlib/social/students"
 ELAINE_BAG = "/home/user/SFW-SocialMedia/assets/photo/web/elaine-with-sample-bag.jpg"
 ELAINE_SCOPE = "/home/user/SFW-SocialMedia/assets/photo/web/elaine-flower-shirt-microscope.jpg"
-ZOOM = os.environ.get("ZOOM", f"{ST}/cic-zoom-call-small.jpg")
+ZOOM = os.environ.get("ZOOM", f"{ST}/cic-zoom-call-blurred.jpg")   # Carla's screenshot, names blurred except hers
 PHOTO_H = 620
 
 
-def photo_slide(d, k, path, fx, fy, panel, head, det, hs=73, fit="cover"):
+def photo_slide(d, k, path, fx, fy, panel, head, det, hs=73, fit="cover", ph=None):
     """Photo across the top, a colour panel below with the headline and one short line."""
+    PHOTO_H = ph or globals()["PHOTO_H"]
     bg = Image.new("RGB", (W, H), panel)
     d.bg(k, grain(bg, 300 + k, 3), name="Background panel")
     im = ImageOps.exif_transpose(Image.open(path)).convert("RGB")
@@ -86,7 +87,7 @@ def build(v, plat):
     photo_slide(d, 1, ELAINE_BAG, 0.45, 0.35, PURPLE,
                 "Our 4 flagship Foundation Courses",
                 "Dr. Elaine Ingham's seminal lectures on the soil food web and how to restore it. 40+ years of her "
-                "knowledge, self-paced.", hs=84)
+                "knowledge, easy to follow and self-paced.", hs=84)
     # 3. Compost Intensive: the live class
     photo_slide(d, 2, ZOOM, 0.5, 0.5, "#4F3433", "The Compost Intensive Course",
                 "Every week, live with Soil Food Web expert mentors who worked extensively alongside "
@@ -97,7 +98,7 @@ def build(v, plat):
     # 5. FC webinars: purple, her photo
     photo_slide(d, 4, ELAINE_SCOPE, 0.45, 0.4, PURPLE, "Dr. Elaine's legacy webinar archive",
                 "Hundreds of hours recorded live with Dr.\u00a0Elaine and others, going deeper into the Foundation "
-                "Courses and beyond.", hs=84)
+                "Courses and beyond, to deepen your learning and put it into\u00a0action.", hs=84, ph=540)
     # 6. the discount, just before the QR code
     d.bg(5, fade("#1E7A3A", "#0E3B1E", (0.5, 0.4), 205), name="Background fade")
     hh2 = height("off the Foundation Courses + Compost Intensive bundle", 73, 936)
