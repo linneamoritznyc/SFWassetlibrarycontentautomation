@@ -11805,6 +11805,13 @@ export const CHANGES: Change[] = [
     },
     reason: 'Linnea, 4 Nov: not all the same visual style.',
   },
+  {
+    key: '2026-11-04 fes20261130 caption',
+    post: 'fes20261130',
+    captionText:
+      "Last day: our Fall Enrollment Special ends today. 🌱\n\nThe bundle brings together all four Foundation Courses (Introduction to the Soil Food Web, BioComplete™ Compost, BioComplete™ Liquid Amendments and Microscopy), with 63 lectures and about 150 hours of study at your own pace.\n\nIt also includes a seat in a 2027 Compost Intensive cohort. Over ten weeks online, with a 90-minute live session with a mentor every week, you build two compost piles right where you live. Choose January, May or August.\n\nAnd you get Dr. Elaine Ingham's legacy webinar archive: hundreds of hours recorded live with her.\n\nEnroll today, link in bio.\n\n#SoilFoodWeb #FoundationCourses #CompostIntensive #SoilHealth #LivingSoil #RegenerativeAgriculture",
+    reason: 'Linnea, 4 Nov: caption for the last-day post (Allison edits).',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);
