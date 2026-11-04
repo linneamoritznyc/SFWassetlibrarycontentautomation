@@ -114,7 +114,7 @@ def build(v):
     footer(d, 3)
     # 5. Dr. Elaine's webinar archive
     d.bg(4, fade("#8A6A4A", "#1E3A22", (0.5, 0.26), 43), name="Background fade")
-    stack(d, 4, fit_art("book", 380, 300), "Plus hundreds of hours\nwith Dr.\u00a0Elaine", 73,
+    stack(d, 4, fit_art("book", 320, 240), "Plus hundreds of hours\nof webinars with Dr.\u00a0Elaine", 73,
           "Learn directly from the founder of the Soil Food Web School, in our legacy webinar archive recorded live "
           "with Dr.\u00a0Elaine\u00a0Ingham. 40+ years of her knowledge, science and land management practices, "
           "proven across the globe.")
