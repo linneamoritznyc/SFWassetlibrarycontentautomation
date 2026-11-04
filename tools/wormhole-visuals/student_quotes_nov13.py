@@ -79,7 +79,7 @@ def paper(seed):
 
 
 def build(v):
-    d = Deck("tm20261113", 1 + len(STUDENTS), f"student-quotes-{v}", "2026-11-13")
+    d = Deck("tm20261113", 3 + len(STUDENTS), f"student-quotes-{v}", "2026-11-13")
     # cover
     d.bg(0, paper(60), name="Background: cream")
     hh = height("From our students", 86, 936)
@@ -129,7 +129,50 @@ def build(v):
         y += ps + 2 * RING + G1
         T(d, k, "Quote", q, (W - QW) // 2, y, QW, qh + 6, 52, bold=False, color=INK, lh=QLH)
         footer(d, k, white=False)
+    # what the bundle is (sales page wording), then the Instagram QR code (Linnea, 4 Nov)
+    k = len(STUDENTS) + 1
+    d.bg(k, paper(70), name="Background: cream")
+    items = [("4 Foundation Courses", "Self-paced, 63 lectures and about 150 hours of study."),
+             ("A seat in a 2027 Compost Intensive cohort", "Ten weeks online, with a 90-minute live session with a "
+              "mentor every week."),
+             ("Hundreds of hours of webinars", "Our legacy webinar archive, recorded live with Dr.\u00a0Elaine\u00a0Ingham.")]
+    hh = height("Foundation Courses + Compost Intensive", 84, 936)
+    rows = [(height(t, 52, 900), height(x, 52, 860, bold=False, lh=1.25)) for t, x in items]
+    total = hh + 70 + sum(a + 8 + b for a, b in rows) + 50 * (len(rows) - 1)
+    y = 60 + (FY - 20 - 60 - total) // 2
+    T(d, k, "Headline", "Foundation Courses + Compost Intensive", M, y, 936, hh + 6, 84, color=BROWN)
+    y += hh + 70
+    for i, ((t, x), (a, b)) in enumerate(zip(items, rows)):
+        T(d, k, f"Item {i + 1}", t, (W - 900) // 2, y, 900, a + 6, 52, color=GREEN)
+        y += a + 8
+        T(d, k, f"Item {i + 1} text", x, (W - 860) // 2, y, 860, b + 6, 52, bold=False, color=INK, lh=1.25)
+        y += b + 50
+    footer(d, k, white=False)
+    # QR
+    import qrcode
+    k += 1
+    d.bg(k, paper(71), name="Background: cream")
+    q = qrcode.QRCode(border=2, box_size=20)
+    q.add_data(QR_LINK)
+    size = 460
+    im = q.make_image(fill_color=INK, back_color=CREAM).convert("RGBA").resize((size, size), Image.NEAREST)
+    frame = Image.new("RGBA", (size + 24, size + 24), (0, 0, 0, 0))
+    ImageDraw.Draw(frame).rounded_rectangle((0, 0, size + 23, size + 23), 30, fill=rgb(LGREEN) + (255,))
+    frame.alpha_composite(im, (12, 12))
+    dh = height("Fall Enrollment Special\nUntil 2 December.", 66, 900, bold=False, lh=1.3)
+    total = hh + 80 + size + 24 + 80 + dh
+    y = 60 + (FY - 20 - 60 - total) // 2
+    T(d, k, "Headline", "Foundation Courses + Compost Intensive", M, y, 936, hh + 6, 84, color=BROWN)
+    y += hh + 80
+    d.put(k, "QR code (Instagram link)", frame, (W - size - 24) // 2, y, shadowed=False, anchor="tl")
+    y += size + 24 + 80
+    T(d, k, "Details", "Fall Enrollment Special\nUntil 2 December.", (W - 900) // 2, y, 900, dh + 6, 66, bold=False,
+      color=INK, lh=1.3)
+    footer(d, k, white=False)
     return d
+
+
+QR_LINK = "https://tr.ee/ce6tWIaOx7"   # Instagram short link (Linnea, 4 Nov)
 
 
 if __name__ == "__main__":
