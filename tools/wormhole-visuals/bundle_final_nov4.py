@@ -51,7 +51,8 @@ def below(d, k, ims, ytop):
         x += im.width + gap
 
 
-GAP_ART, GAP_HEAD, GAP_BADGE = 56, 24, 56   # the same gaps on every slide (Linnea, 4 Nov: spacing)
+GAP_ART, GAP_HEAD, GAP_BADGE = 96, 44, 80
+HLH, DLH, HW, DW = 1.12, 1.38, 936, 800   # line heights and text widths (Linnea, 4 Nov: more spacing)   # the same gaps on every slide (Linnea, 4 Nov: spacing)
 
 
 def fit_art(name, w, maxh):
@@ -62,19 +63,19 @@ def fit_art(name, w, maxh):
 def stack(d, k, top_img, head, hs, det, below_imgs=None, area=(72, FY - 40)):
     """Drawing, headline, details and (optional) a row of badges, centred as one block between the top margin and
     the footer, with fixed gaps."""
-    hh = height(head, hs, 936)
-    dh = height(det, 52, 936, bold=False) if det else 0
+    hh = height(head, hs, HW, lh=HLH)
+    dh = height(det, 52, DW, bold=False, lh=DLH) if det else 0
     bh = max(i.height for i in below_imgs) if below_imgs else 0
     total = top_img.height + GAP_ART + hh + (GAP_HEAD + dh if det else 0) + (GAP_BADGE + bh if below_imgs else 0)
     y = area[0] + (area[1] - area[0] - total) // 2
     d.put(k, "Line drawing" if top_img.mode == "RGBA" else "Image", top_img, (W - top_img.width) // 2, y,
           shadowed=False, anchor="tl")
     y += top_img.height + GAP_ART
-    T(d, k, "Headline", head, M, y, 936, hh + 6, hs)
+    T(d, k, "Headline", head, (W - HW) // 2, y, HW, hh + 6, hs, lh=HLH)
     y += hh
     if det:
         y += GAP_HEAD
-        T(d, k, "Details", det, M, y, 936, dh + 6, 52, bold=False)
+        T(d, k, "Details", det, (W - DW) // 2, y, DW, dh + 6, 52, bold=False, lh=DLH)
         y += dh
     if below_imgs:
         y += GAP_BADGE
@@ -89,30 +90,30 @@ def build(v):
     d = Deck("promo-fall-bundle", 7, f"fall-enrollment-bundle-final-{v}", "2026-11-04")
     # 1. cover
     d.bg(0, fade("#1E7A3A", "#0E3B1E", (0.5, 0.24), 40), name="Background fade")
-    stack(d, 0, fit_art("online", 600, 300), "Foundation Courses + Compost Intensive", 84,
-          "Fall Enrollment Special\nUntil 2 December.", [badge(f"fc{n}", 200) for n in (1, 2, 3, 4)])
+    stack(d, 0, fit_art("online", 520, 250), "Foundation Courses + Compost Intensive", 84,
+          "Fall Enrollment Special\nUntil 2 December.", [badge(f"fc{n}", 180) for n in (1, 2, 3, 4)])
     footer(d, 0)
     # 2. Foundation Courses
     d.bg(1, fade("#3780B8", "#123B26", (0.5, 0.26), 41), name="Background fade")
-    stack(d, 1, fit_art("leaves", 400, 360), "The Foundation Courses teach you to work out what your soil needs.", 73,
+    stack(d, 1, fit_art("leaves", 340, 300), "The Foundation Courses teach you to work out what your soil needs.", 73,
           "Four courses, 63 lectures and about 150 hours of study, with 40+ years of Dr. Elaine's knowledge. "
           "Self-paced, start the day you enroll.")
     footer(d, 1)
     # 3. Compost Intensive: the course's own badge is the one image
     d.bg(2, fade("#6B4A3A", "#1E3A22", (0.5, 0.26), 42), name="Background fade")
-    stack(d, 2, badge("cic", 360), "The Compost Intensive Course teaches you to make it.", 73,
+    stack(d, 2, badge("cic", 300), "The Compost Intensive Course teaches you to make it.", 73,
           "Ten weeks online, with a 90-minute live session with a mentor every week, alongside a global cohort of "
           "peers. You build 2 compost piles right where you live.")
     footer(d, 2)
     # 4. every scale (bundle page: who it's for; CIC FAQ: what it covers)
     d.bg(3, fade("#2F6B5A", "#123B26", (0.5, 0.26), 45), name="Background fade")
-    stack(d, 3, fit_art("sunrise", 620, 300), "For farmers, ranchers, agronomists, consultants and gardeners", 73,
+    stack(d, 3, fit_art("sunrise", 540, 250), "For farmers, ranchers, agronomists, consultants and gardeners", 73,
           "At any scale. The Compost Intensive covers thermophilic piles, vermicompost, USDA thermal composting "
           "and large-scale windrows.")
     footer(d, 3)
     # 5. Dr. Elaine's webinar archive
     d.bg(4, fade("#8A6A4A", "#1E3A22", (0.5, 0.26), 43), name="Background fade")
-    stack(d, 4, fit_art("book", 440, 360), "Plus hundreds of hours with Dr. Elaine", 84,
+    stack(d, 4, fit_art("book", 380, 300), "Plus hundreds of hours\nwith Dr.\u00a0Elaine", 73,
           "Instant access to our legacy webinar archive, recorded live with Dr. Elaine Ingham.")
     footer(d, 4)
     # 6. students (bundle page testimonials, verbatim excerpts)
@@ -124,7 +125,7 @@ def build(v):
           ("Extraordinary body of knowledge.", "Clara Santiago, Portugal")]
     hh = height("From our students", 84, 936)
     rows = [(height("\u201c" + q + "\u201d", 52, 900, bold=False), q, n) for q, n in qs]
-    gq, gn, gr = 6, 50, 34
+    gq, gn, gr = 8, 50, 46
     total = hh + 50 + sum(h + gq + gn for h, _, _ in rows) + gr * (len(rows) - 1)
     y = 72 + (FY - 40 - 72 - total) // 2
     T(d, 5, "Headline", "From our students", M, y, 936, hh + 6, 84)
