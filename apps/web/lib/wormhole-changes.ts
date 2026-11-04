@@ -10323,6 +10323,228 @@ export const CHANGES: Change[] = [
     reason:
       'Linnea, 4 Nov: white logo straight on the background, no box (colour logo on light backgrounds). Deck: decks/01-12-2026-webinar-reminder-craig-kolodge-v2.pptx.',
   },
+  {
+    key: '2026-11-04 st20261105cr',
+    post: 'st20261105cr',
+    create: {
+      iso_date: '2026-11-05',
+      date_tbd: false,
+      topic: 'Stories · Costa Rica: Info session tomorrow',
+      platform: 'Instagram Stories',
+      caption:
+        'No caption (Stories). One frame. Link sticker under the card where it says "Sign up": https://www.addevent.com/event/r4wt0g3yjd4h',
+      slides: [
+        {
+          text: 'Story frame 1: Info session tomorrow. Fri 6 Nov, 12pm Pacific, on Zoom. Free, and recorded. Link sticker: Sign up.',
+          image: '/wormhole/tiles/st20261105cr-v1-1.jpg',
+        },
+      ],
+      cta: 'Link sticker: Sign up',
+      link: 'https://www.addevent.com/event/r4wt0g3yjd4h',
+      sources: [],
+      visual_note:
+        'Family: news card, Story 1080 x 1920, white logo straight on the background. Built with tools/wormhole-visuals/stories_nov.py. Deck: decks/05-11-2026-costa-rica-info-session-story-v1.pptx.',
+      note: 'Linnea, 4 Nov: just make some visuals.',
+      status: 'draft',
+    },
+    reason: 'November Story.',
+  },
+  {
+    key: '2026-11-04 st20261104web',
+    post: 'st20261104web',
+    create: {
+      iso_date: '2026-11-04',
+      date_tbd: false,
+      topic: 'Stories · Free webinar: Live today, 9am Pacific',
+      platform: 'Instagram Stories',
+      caption:
+        'No caption (Stories). One frame. Link sticker under the card where it says "Register": https://webinar.soilfoodweb.com/reg-webinar-fall-webinars',
+      slides: [
+        {
+          text: 'Story frame 1: Live today, 9am Pacific. Matt Drane: 15 years of regenerative corn and soy. Link sticker: Register.',
+          image: '/wormhole/tiles/st20261104web-v1-1.jpg',
+        },
+      ],
+      cta: 'Link sticker: Register',
+      link: 'https://webinar.soilfoodweb.com/reg-webinar-fall-webinars',
+      sources: [],
+      visual_note:
+        'Family: news card, Story 1080 x 1920, white logo straight on the background. Built with tools/wormhole-visuals/stories_nov.py. Deck: decks/04-11-2026-webinar-live-today-matt-drane-v1.pptx.',
+      note: 'Linnea, 4 Nov: just make some visuals.',
+      status: 'draft',
+    },
+    reason: 'November Story.',
+  },
+  {
+    key: '2026-11-04 st20261112web',
+    post: 'st20261112web',
+    create: {
+      iso_date: '2026-11-12',
+      date_tbd: false,
+      topic: 'Stories · Free webinar: Live today, 9am Pacific',
+      platform: 'Instagram Stories',
+      caption:
+        'No caption (Stories). One frame. Link sticker under the card where it says "Register": https://webinar.soilfoodweb.com/reg-webinar-fall-webinars',
+      slides: [
+        {
+          text: 'Story frame 1: Live today, 9am Pacific. Juan de la Serna: Johnson-Su compost on real farms. Link sticker: Register.',
+          image: '/wormhole/tiles/st20261112web-v1-1.jpg',
+        },
+      ],
+      cta: 'Link sticker: Register',
+      link: 'https://webinar.soilfoodweb.com/reg-webinar-fall-webinars',
+      sources: [],
+      visual_note:
+        'Family: news card, Story 1080 x 1920, white logo straight on the background. Built with tools/wormhole-visuals/stories_nov.py. Deck: decks/12-11-2026-webinar-live-today-juan-de-la-serna-v1.pptx.',
+      note: 'Linnea, 4 Nov: just make some visuals.',
+      status: 'draft',
+    },
+    reason: 'November Story.',
+  },
+  {
+    key: '2026-11-04 st20261118web',
+    post: 'st20261118web',
+    create: {
+      iso_date: '2026-11-18',
+      date_tbd: false,
+      topic: 'Stories · Free webinar: Live today, 9am Pacific',
+      platform: 'Instagram Stories',
+      caption:
+        'No caption (Stories). One frame. Link sticker under the card where it says "Register": https://webinar.soilfoodweb.com/reg-webinar-fall-webinars',
+      slides: [
+        {
+          text: 'Story frame 1: Live today, 9am Pacific. Dr. Don M. Huber: agriculture beyond glyphosate. Link sticker: Register.',
+          image: '/wormhole/tiles/st20261118web-v1-1.jpg',
+        },
+      ],
+      cta: 'Link sticker: Register',
+      link: 'https://webinar.soilfoodweb.com/reg-webinar-fall-webinars',
+      sources: [],
+      visual_note:
+        'Family: news card, Story 1080 x 1920, white logo straight on the background. Built with tools/wormhole-visuals/stories_nov.py. Deck: decks/18-11-2026-webinar-live-today-don-huber-v1.pptx.',
+      note: 'Linnea, 4 Nov: just make some visuals.',
+      status: 'draft',
+    },
+    reason: 'November Story.',
+  },
+  {
+    key: '2026-11-04 st20261202web',
+    post: 'st20261202web',
+    create: {
+      iso_date: '2026-12-02',
+      date_tbd: false,
+      topic: 'Stories · Free webinar: Live today, 9am Pacific',
+      platform: 'Instagram Stories',
+      caption:
+        'No caption (Stories). One frame. Link sticker under the card where it says "Register": https://webinar.soilfoodweb.com/reg-webinar-fall-webinars',
+      slides: [
+        {
+          text: 'Story frame 1: Live today, 9am Pacific. Dr. Craig Kolodge: why nematodes make great compost. Link sticker: Register.',
+          image: '/wormhole/tiles/st20261202web-v1-1.jpg',
+        },
+      ],
+      cta: 'Link sticker: Register',
+      link: 'https://webinar.soilfoodweb.com/reg-webinar-fall-webinars',
+      sources: [],
+      visual_note:
+        "Family: news card, Story 1080 x 1920, white logo straight on the background. Built with tools/wormhole-visuals/stories_nov.py. Deck: decks/02-12-2026-webinar-live-today-craig-kolodge-v1.pptx. Add Craig's headshot when it arrives.",
+      note: 'Linnea, 4 Nov: just make some visuals.',
+      status: 'draft',
+    },
+    reason: 'November Story.',
+  },
+  {
+    key: '2026-11-04 st20261125bun',
+    post: 'st20261125bun',
+    create: {
+      iso_date: '2026-11-25',
+      date_tbd: false,
+      topic: 'Stories · Fall Enrollment Special: 1 week left',
+      platform: 'Instagram Stories',
+      caption:
+        'No caption (Stories). One frame. Link sticker under the card where it says "Enroll": https://school.soilfoodweb.com/bundles/foundation-courses-compost-intensive-course',
+      slides: [
+        {
+          text: 'Story frame 1: 1 week left. All four Foundation Courses and a 2027 Compost Intensive seat, in one bundle. Link sticker: Enroll.',
+          image: '/wormhole/tiles/st20261125bun-v1-1.jpg',
+        },
+      ],
+      cta: 'Link sticker: Enroll',
+      link: 'https://school.soilfoodweb.com/bundles/foundation-courses-compost-intensive-course',
+      sources: [],
+      visual_note:
+        'Family: news card, Story 1080 x 1920, white logo straight on the background. Built with tools/wormhole-visuals/stories_nov.py. Deck: decks/25-11-2026-fall-enrollment-one-week-left-v1.pptx.',
+      note: 'Linnea, 4 Nov: just make some visuals.',
+      status: 'draft',
+    },
+    reason: 'November Story.',
+  },
+  {
+    key: '2026-11-04 st20261129bun',
+    post: 'st20261129bun',
+    create: {
+      iso_date: '2026-11-29',
+      date_tbd: false,
+      topic: 'Stories · Fall Enrollment Special: 3 days left',
+      platform: 'Instagram Stories',
+      caption:
+        'No caption (Stories). One frame. Link sticker under the card where it says "Enroll": https://school.soilfoodweb.com/bundles/foundation-courses-compost-intensive-course',
+      slides: [
+        {
+          text: 'Story frame 1: 3 days left. All four Foundation Courses and a 2027 Compost Intensive seat. Link sticker: Enroll.',
+          image: '/wormhole/tiles/st20261129bun-v1-1.jpg',
+        },
+      ],
+      cta: 'Link sticker: Enroll',
+      link: 'https://school.soilfoodweb.com/bundles/foundation-courses-compost-intensive-course',
+      sources: [],
+      visual_note:
+        'Family: news card, Story 1080 x 1920, white logo straight on the background. Built with tools/wormhole-visuals/stories_nov.py. Deck: decks/29-11-2026-fall-enrollment-three-days-left-v1.pptx.',
+      note: 'Linnea, 4 Nov: just make some visuals.',
+      status: 'draft',
+    },
+    reason: 'November Story.',
+  },
+  {
+    key: '2026-11-04 st20261202bun',
+    post: 'st20261202bun',
+    create: {
+      iso_date: '2026-12-02',
+      date_tbd: false,
+      topic: 'Stories · Fall Enrollment Special: Last day',
+      platform: 'Instagram Stories',
+      caption:
+        'No caption (Stories). One frame. Link sticker under the card where it says "Enroll": https://school.soilfoodweb.com/bundles/foundation-courses-compost-intensive-course',
+      slides: [
+        {
+          text: 'Story frame 1: Last day. The bundle closes tonight. All four Foundation Courses, one price. Link sticker: Enroll.',
+          image: '/wormhole/tiles/st20261202bun-v1-1.jpg',
+        },
+      ],
+      cta: 'Link sticker: Enroll',
+      link: 'https://school.soilfoodweb.com/bundles/foundation-courses-compost-intensive-course',
+      sources: [],
+      visual_note:
+        'Family: news card, Story 1080 x 1920, white logo straight on the background. Built with tools/wormhole-visuals/stories_nov.py. Deck: decks/02-12-2026-fall-enrollment-last-day-v1.pptx.',
+      note: 'Linnea, 4 Nov: just make some visuals.',
+      status: 'draft',
+    },
+    reason: 'November Story.',
+  },
+  {
+    key: '2026-11-04 reel20261113 cover',
+    post: 'reel20261113',
+    set: {
+      slides: [
+        {
+          text: 'Cover: Reel thumbnail. Finished the Foundation Courses? Your next step: our Accelerator Workshop, 18 to 29 January 2027.',
+          image: '/wormhole/tiles/reel20261113-v1-1.jpg',
+        },
+      ],
+    },
+    reason:
+      'Reel cover (the grid showed a blank tile). Deck: decks/13-11-2026-costa-rica-reel-cover-v1.pptx.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);
