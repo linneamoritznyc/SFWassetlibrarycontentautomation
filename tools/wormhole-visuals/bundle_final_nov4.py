@@ -60,11 +60,11 @@ def fit_art(name, w, maxh):
     return im if im.height <= maxh else line_art(name, round(w * maxh / im.height))
 
 
-def stack(d, k, top_img, head, hs, det, below_imgs=None, area=(72, FY - 40)):
+def stack(d, k, top_img, head, hs, det, below_imgs=None, area=(72, FY - 40), ds=52):
     """Drawing, headline, details and (optional) a row of badges, centred as one block between the top margin and
     the footer, with fixed gaps."""
     hh = height(head, hs, HW, lh=HLH)
-    dh = height(det, 52, DW, bold=False, lh=DLH) if det else 0
+    dh = height(det, ds, DW, bold=False, lh=DLH) if det else 0
     bh = max(i.height for i in below_imgs) if below_imgs else 0
     total = top_img.height + GAP_ART + hh + (GAP_HEAD + dh if det else 0) + (GAP_BADGE + bh if below_imgs else 0)
     y = area[0] + (area[1] - area[0] - total) // 2
@@ -75,7 +75,7 @@ def stack(d, k, top_img, head, hs, det, below_imgs=None, area=(72, FY - 40)):
     y += hh
     if det:
         y += GAP_HEAD
-        T(d, k, "Details", det, (W - DW) // 2, y, DW, dh + 6, 52, bold=False, lh=DLH)
+        T(d, k, "Details", det, (W - DW) // 2, y, DW, dh + 6, ds, bold=False, lh=DLH)
         y += dh
     if below_imgs:
         y += GAP_BADGE
@@ -91,7 +91,7 @@ def build(v):
     # 1. cover
     d.bg(0, fade("#1E7A3A", "#0E3B1E", (0.5, 0.24), 40), name="Background fade")
     stack(d, 0, fit_art("online", 520, 250), "Foundation Courses + Compost Intensive", 84,
-          "Fall Enrollment Special\nUntil 2 December.", [badge(f"fc{n}", 180) for n in (1, 2, 3, 4)])
+          "Fall Enrollment Special\nUntil 2 December.", [badge(f"fc{n}", 180) for n in (1, 2, 3, 4)], ds=66)
     footer(d, 0)
     # 2. Foundation Courses
     d.bg(1, fade("#3780B8", "#123B26", (0.5, 0.26), 41), name="Background fade")
@@ -168,6 +168,8 @@ if __name__ == "__main__":
     for it in d.items:   # Linnea, 4 Nov: logo a bit lower on every slide (48 px from the bottom edge)
         if it.get("name") == "SFW logo":
             it["y"] += 24
+        elif not str(it.get("name", "")).startswith("Background"):
+            it["y"] += 30   # Linnea, 4 Nov: content a bit lower too
     for k in range(1, d.n + 1):
         assert not os.path.exists(os.path.join(TILES, f"promo-fall-bundle-{v}-{k}.jpg"))
     print(d.save(TILES, DECKS)[0], d.pptx_name())
