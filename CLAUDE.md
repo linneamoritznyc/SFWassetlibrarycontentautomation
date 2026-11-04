@@ -98,6 +98,7 @@ These come from Linnea's edits. Break none of them.
 - "Soil Regenerators" capitalised, always shown with real names, faces, places.
 - Public copy uses plain program names: "start learning", "go professional", "learn in person". Internal acronyms (FC, AP, PDC, AW, CTP) stay out of public captions. Write "Permaculture Design Certificate" and "Accelerator Workshop" in full.
 - BioComplete™ keeps the ™.
+- Never say students keep their compost ("Keep your compost", "and you keep them", "2 batches you keep"). Linnea and Allison, 4 Nov: it is obvious, not a benefit. Don't swap in "and you monitor them" either. Say what they build: "build 2 compost piles right where you live".
 - Retired: "S.O.S. Save Our Soils", "Sign Up + Save" (sales pages only). "Be the Soil-ution" only as a community rally line.
 
 **Partner naming.** Isha Foundation is the organisation. Conscious Planet is Isha's movement; Save Soil is its campaign. The India workshop is "in collaboration with Isha Outreach" and runs "with the Isha Foundation and the Conscious Planet Save Soil movement". Pick this phrasing and keep it identical across posts.

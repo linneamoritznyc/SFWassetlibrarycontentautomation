@@ -230,3 +230,4 @@ field observations such as look, feel, smell, structure, and maturity" and "No M
 - The Early Nematode code (fc-cic-early): it expired 30 October.
 - "5 Courses": there are four.
 - Internal acronyms (FC, CIC, AP) in public captions: write the names in full.
+- "Keep your compost" or "and you keep them": never (Linnea and Allison, 4 Nov). Say "build 2 compost piles right where you live".
