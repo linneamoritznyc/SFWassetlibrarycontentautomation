@@ -112,41 +112,30 @@ def build(v, plat):
                     (cx + 1600 * math.cos(a1), cy + 1600 * math.sin(a1))], fill=(255, 255, 255, 16))
     bg.alpha_composite(rays.filter(ImageFilter.GaussianBlur(6)))
     d.bg(5, bg, name="Background fade with rays")
-    # a hanging price tag, tilted, in brand colours only (Linnea, 4 Nov: like a sale, no red)
-    from PIL import ImageFont
-    import news_cards as nc
-    tw_, th_ = 520, 640
-    tag = Image.new("RGBA", (tw_ + 40, th_ + 260), (0, 0, 0, 0))
-    td = ImageDraw.Draw(tag)
-    ox, oy = 20, 240
-    body = [(ox + 70, oy), (ox + tw_ - 70, oy), (ox + tw_, oy + 110), (ox + tw_, oy + th_ - 40),
-            (ox + tw_ - 40, oy + th_), (ox + 40, oy + th_), (ox, oy + th_ - 40), (ox, oy + 110)]
-    td.polygon(body, fill=rgb(CREAM) + (255,))
-    td.line([(ox + 40, oy + 150), (ox + tw_ - 40, oy + 150)], fill=rgb("#A8D5B0") + (255,), width=6)
-    hx, hy = ox + tw_ // 2, oy + 75
-    td.ellipse((hx - 30, hy - 30, hx + 30, hy + 30), fill=(0, 0, 0, 0), outline=rgb("#156826") + (255,), width=10)
-    td.line([(hx, hy - 30), (hx - 40, 0)], fill=rgb(CREAM) + (255,), width=6)   # string
-    f = lambda n, z: ImageFont.truetype(os.path.join(nc.FONTS, n), z)
-    def ctext(t, y, font, col):
-        w = td.textlength(t, font=font)
-        td.text((ox + (tw_ - w) / 2, y), t, font=font, fill=rgb(col) + (255,))
-    ctext("OVER", oy + 185, f("Montserrat-Bold.ttf", 80), "#4F3433")
-    ctext("50%", oy + 285, f("Montserrat-Bold.ttf", 190), "#156826")
-    ctext("OFF", oy + 500, f("Montserrat-Bold.ttf", 96), "#4F3433")
-    tag = tag.rotate(-10, resample=Image.BICUBIC, expand=True)
-    sh = Image.new("RGBA", tag.size, (0, 0, 0, 0))
-    sh.putalpha(tag.getchannel("A").point(lambda v: v * 100 // 255))
-    tx, ty = round(cx - tag.width / 2 + 10), 170 - 230
-    d.put(5, "Price tag shadow", sh.filter(ImageFilter.GaussianBlur(20)), tx + 14, ty + 18, shadowed=False, anchor="tl")
-    d.put(5, "Price tag: OVER 50% OFF", tag, tx, ty, shadowed=False, anchor="tl")
-    R = 0
-    cy = ty + tag.height - 60
+    # cream starburst (Linnea, 4 Nov: she liked this one better than the price tag, kept in git as v57/v58)
+    T(d, 5, "Eyebrow", "FALL ENROLLMENT SPECIAL", M, 96, 936, 70, 52, color="#A8D5B0", mn=50)
+    R, r = 300, 262
+    pts = []
+    for n in range(48):
+        rr = R if n % 2 == 0 else r
+        a = n * math.pi / 24 - math.pi / 2
+        pts.append((R + 20 + rr * math.cos(a), R + 20 + rr * math.sin(a)))
+    burst = Image.new("RGBA", (2 * R + 40, 2 * R + 40), (0, 0, 0, 0))
+    ImageDraw.Draw(burst).polygon(pts, fill=rgb(CREAM) + (255,))
+    sh = Image.new("RGBA", burst.size, (0, 0, 0, 0))
+    sh.putalpha(burst.getchannel("A").point(lambda v: v * 90 // 255))
+    d.put(5, "Burst shadow", sh.filter(ImageFilter.GaussianBlur(18)), cx - R - 20, cy - R - 20 + 14, shadowed=False,
+          anchor="tl")
+    d.put(5, "Burst", burst, cx - R - 20, cy - R - 20, shadowed=False, anchor="tl")
+    T(d, 5, "Discount over", "OVER", round(cx - 250), round(cy - 195), 500, 90, 73, color="#4F3433")
+    T(d, 5, "Discount", "50%", round(cx - 260), round(cy - 105), 520, 190, 175, mn=150, lh=1.0, color="#156826")
+    T(d, 5, "Discount off", "OFF", round(cx - 250), round(cy + 88), 500, 100, 86, color="#4F3433")
     y = cy + R + 44
     T(d, 5, "Headline", "the Foundation Courses + Compost Intensive bundle", M, y, 936, 170, 66)
-    pill_w, pill_h = 520, 96
+    pill_w, pill_h = 560, 100
     pill = Image.new("RGBA", (pill_w, pill_h), (0, 0, 0, 0))
     ImageDraw.Draw(pill).rounded_rectangle((0, 0, pill_w - 1, pill_h - 1), 50, fill=rgb("#A8D5B0") + (255,))
-    py = y + 205   # Linnea, 4 Nov: date pill a bit lower
+    py = y + 160
     d.put(5, "Date pill", pill, (W - pill_w) // 2, py, shadowed=False, anchor="tl")
     T(d, 5, "Date", "Until 2 December", (W - pill_w) // 2, py + 18, pill_w, 70, 58, color="#0E3B1E")
     footer(d, 5)
