@@ -10545,6 +10545,36 @@ export const CHANGES: Change[] = [
     reason:
       'Reel cover (the grid showed a blank tile). Deck: decks/13-11-2026-costa-rica-reel-cover-v1.pptx.',
   },
+  {
+    key: '2026-11-04 promo-fall-bundle v2',
+    post: 'promo-fall-bundle',
+    set: {
+      slides: [
+        {
+          text: 'Foundation Courses + Compost Intensive. Fall Enrollment Special, until 2 December.',
+          image: '/wormhole/tiles/promo-fall-bundle-v2-1.jpg',
+        },
+        {
+          text: '4 Foundation Courses. Introduction to the Soil Food Web, BioComplete™ Compost, BioComplete™ Liquid Amendments and Microscopy. Self-paced, online.',
+          image: '/wormhole/tiles/promo-fall-bundle-v2-2.jpg',
+        },
+        {
+          text: 'Compost Intensive Course. 10 weeks online. Build 2 compost piles at home, with a weekly live call.',
+          image: '/wormhole/tiles/promo-fall-bundle-v2-3.jpg',
+        },
+        {
+          text: 'Choose your cohort. Compost Intensive cohorts in 2027: January, May, August.',
+          image: '/wormhole/tiles/promo-fall-bundle-v2-4.jpg',
+        },
+        {
+          text: 'FALL ENROLLMENT SPECIAL. Until 2 December. Foundation Courses + Compost Intensive bundle. Link in bio.',
+          image: '/wormhole/tiles/promo-fall-bundle-v2-5.jpg',
+        },
+      ],
+    },
+    reason:
+      'Linnea, 4 Nov: new bundle carousel, plain words from the sales page, no workshop photos, until 2 December. Built with tools/wormhole-visuals/bundle_v2.py. Deck: decks/04-11-2026-fall-enrollment-bundle-v2.pptx.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);
