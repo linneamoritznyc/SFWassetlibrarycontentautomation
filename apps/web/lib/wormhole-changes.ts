@@ -10691,6 +10691,55 @@ export const CHANGES: Change[] = [
     reason:
       'Linnea, 4 Nov: keep going in the line-art look. Last day moved to Wed 2 Dec (Stephanie, 3 Nov: the bundle runs until 2 December).',
   },
+  {
+    key: '2026-11-04 x20261125 lineart v10',
+    post: 'x20261125',
+    set: {
+      slides: [
+        {
+          text: "The Foundation Courses. 63 lectures and about 150 hours of study, with 40+ years of Dr. Elaine's knowledge. Self-paced.",
+          image: '/wormhole/tiles/x20261125-v10-1.jpg',
+        },
+        {
+          text: 'Plus a seat in a 2027 Compost Intensive cohort. Fall Enrollment Special, until 2 December. Link in bio.',
+          image: '/wormhole/tiles/x20261125-v10-2.jpg',
+        },
+      ],
+      visual_note:
+        'Family: line art on colour fades (same look as the bundle carousel v6). v10 after review: smaller drawing on slide 2 so the long headline breathes. Built with tools/wormhole-visuals/bundle_posts_lineart_v10.py (v9 tiles kept). Deck: decks/18-11-2026-foundation-courses-lineart-v10.pptx.',
+    },
+    reason: 'Review of v9, 4 Nov: smaller drawing on slide 2 so the long headline breathes.',
+  },
+  {
+    key: '2026-11-04 x20261130 lineart v10',
+    post: 'x20261130',
+    set: {
+      slides: [
+        {
+          text: 'Last week. Until 2 December. Fall Enrollment Special: Foundation Courses + Compost Intensive. Link in bio.',
+          image: '/wormhole/tiles/x20261130-v10-1.jpg',
+        },
+      ],
+      visual_note:
+        'Family: line art on colour fades (same look as the bundle carousel v6). v10 after review: "Until 2 December" on its own bold line. Built with tools/wormhole-visuals/bundle_posts_lineart_v10.py (v9 tiles kept). Deck: decks/25-11-2026-fall-enrollment-last-week-lineart-v10.pptx.',
+    },
+    reason: 'Review of v9, 4 Nov: "Until 2 December" on its own bold line.',
+  },
+  {
+    key: '2026-11-04 fes20261130 lineart v10',
+    post: 'fes20261130',
+    set: {
+      slides: [
+        {
+          text: 'Last day. Ends tonight. Fall Enrollment Special: Foundation Courses + Compost Intensive. Link in bio.',
+          image: '/wormhole/tiles/fes20261130-v10-1.jpg',
+        },
+      ],
+      visual_note:
+        'Family: line art on colour fades (same look as the bundle carousel v6). v10 after review: "Ends tonight" on its own bold line. Built with tools/wormhole-visuals/bundle_posts_lineart_v10.py (v9 tiles kept). Deck: decks/02-12-2026-fall-enrollment-last-day-lineart-v10.pptx.',
+    },
+    reason: 'Review of v9, 4 Nov: "Ends tonight" on its own bold line.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);
