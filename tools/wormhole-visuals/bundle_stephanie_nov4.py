@@ -83,8 +83,8 @@ def build(v, plat):
     footer(d, 0)
     # 2. Dr. Elaine: purple, her photo
     photo_slide(d, 1, ELAINE_BAG, 0.45, 0.35, PURPLE,
-                "Dr. Elaine's decades of knowledge, in one easy-to-follow online course",
-                "Four Foundation Courses. Self-paced, start the day you enroll.")
+                "Dr. Elaine's decades of knowledge, in four easy-to-follow online courses",
+                "The Foundation Courses. Self-paced, start the day you enroll.")
     # 3. Compost Intensive: the live class
     photo_slide(d, 2, ZOOM, 0.5, 0.5, "#4F3433", "The Compost Intensive Course",
                 "Live with a mentor every week, alongside a global cohort of peers.", hs=84, fit="contain")
