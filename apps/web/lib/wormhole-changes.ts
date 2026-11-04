@@ -12047,6 +12047,45 @@ export const CHANGES: Change[] = [
     reason:
       'Discount wording matches the maths: 54% off the bundle value, 46% off the Foundation Courses alone.',
   },
+  {
+    key: '2026-11-04 promo-fall-bundle v50',
+    post: 'promo-fall-bundle',
+    set: {
+      slides: [
+        {
+          text: 'Foundation Courses + Compost Intensive. Fall Enrollment Special. Until 2 December. FC1 to FC4 and Compost Intensive badges.',
+          image: '/wormhole/tiles/promo-fall-bundle-v50-1.jpg',
+        },
+        {
+          text: "Photo: Dr. Elaine Ingham. Our 4 flagship Foundation Courses. Dr. Elaine Ingham's seminal lectures on the soil food web and how to restore it. 40+ years of her knowledge, self-paced.",
+          image: '/wormhole/tiles/promo-fall-bundle-v50-2.jpg',
+        },
+        {
+          text: 'Photo: a live Compost Intensive class on Zoom (screenshot from Carla). The Compost Intensive Course. Live with a mentor every week, alongside a global cohort of peers.',
+          image: '/wormhole/tiles/promo-fall-bundle-v50-3.jpg',
+        },
+        {
+          text: 'Photo: Soil Food Web students. Join our student community. A community for Foundation Courses students, and your own Compost Intensive cohort.',
+          image: '/wormhole/tiles/promo-fall-bundle-v50-4.jpg',
+        },
+        {
+          text: "Photo: Dr. Elaine Ingham at the microscope. Dr. Elaine's legacy webinar archive. Hundreds of hours recorded live with Dr. Elaine and others, going deeper into the Foundation Courses and beyond.",
+          image: '/wormhole/tiles/promo-fall-bundle-v50-5.jpg',
+        },
+        {
+          text: 'Over 50% off the Foundation Courses + Compost Intensive bundle. Fall Enrollment Special. Until 2 December.',
+          image: '/wormhole/tiles/promo-fall-bundle-v50-6.jpg',
+        },
+        {
+          text: 'Foundation Courses + Compost Intensive. QR code (Instagram: https://tr.ee/ce6tWIaOx7). Fall Enrollment Special. Until 2 December.',
+          image: '/wormhole/tiles/promo-fall-bundle-v50-7.jpg',
+        },
+      ],
+      visual_note:
+        "Family: photo panels (Stephanie, 4 Nov). Cover respaced (fixed gaps, badges centred as one block). Built with tools/wormhole-visuals/bundle_stephanie_nov4.py. Deck: decks/04-11-2026-fall-enrollment-bundle-instagram-v50.pptx. Zoom screenshot: small Drive copy until Carla's full-size file is in Drive.",
+    },
+    reason: 'Linnea, 4 Nov: cover spacing.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);

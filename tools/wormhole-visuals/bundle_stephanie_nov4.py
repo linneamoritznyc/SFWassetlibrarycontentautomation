@@ -64,21 +64,22 @@ def build(v, plat):
     d.bg(0, fade("#1E7A3A", "#0E3B1E", (0.5, 0.35), 200), name="Background fade")
     hh = height("Foundation Courses + Compost Intensive", 86, 936)
     dh = height("Fall Enrollment Special\nUntil 2 December.", 66, 900, bold=False, lh=1.3)
-    fcs = [badge(f"fc{n}", 200) for n in (1, 2, 3, 4)]
-    cic = badge("cic", 300)
-    total = hh + 40 + dh + 70 + 200 + 50 + cic.height
-    y = 60 + (FY - 10 - 60 - total) // 2
+    fcs = [badge(f"fc{n}", 180) for n in (1, 2, 3, 4)]
+    cic = badge("cic", 250)
+    G_DATE, G_ROW, G_CIC = 44, 90, 60   # Linnea, 4 Nov: fix the spacing on the cover
+    total = hh + G_DATE + dh + G_ROW + 180 + G_CIC + cic.height
+    y = 72 + (FY - 30 - 72 - total) // 2
     T(d, 0, "Headline", "Foundation Courses + Compost Intensive", M, y, 936, hh + 6, 86)
-    y += hh + 40
+    y += hh + G_DATE
     T(d, 0, "Details", "Fall Enrollment Special\nUntil 2 December.", (W - 900) // 2, y, 900, dh + 6, 66, bold=False,
       lh=1.3)
-    y += dh + 70
-    gap = (936 - sum(i.width for i in fcs)) // 3
-    x = M
+    y += dh + G_ROW
+    gap = (900 - sum(i.width for i in fcs)) // 3
+    x = (W - 900) // 2
     for n, im in enumerate(fcs):
         d.put(0, f"Badge FC{n + 1}", im, x, y, shadowed=False, anchor="tl")
         x += im.width + gap
-    y += 200 + 50
+    y += 180 + G_CIC
     d.put(0, "Badge Compost Intensive", cic, (W - cic.width) // 2, y, shadowed=False, anchor="tl")
     footer(d, 0)
     # 2. Dr. Elaine: purple, her photo
