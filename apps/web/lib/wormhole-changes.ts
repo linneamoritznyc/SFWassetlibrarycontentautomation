@@ -11012,6 +11012,33 @@ export const CHANGES: Change[] = [
     },
     reason: 'Linnea, 4 Nov: QR codes from the platform short links.',
   },
+  {
+    key: '2026-11-04 promo-fall-bundle lineart centred',
+    post: 'promo-fall-bundle',
+    set: {
+      slides: [
+        {
+          text: 'Foundation Courses + Compost Intensive. Fall Enrollment Special, until 2 December.',
+          image: '/wormhole/tiles/promo-fall-bundle-v12-1.jpg',
+        },
+        {
+          text: 'The Foundation Courses teach you to work out what your soil needs. Introduction to the Soil Food Web, BioComplete™ Compost, BioComplete™ Liquid Amendments and Microscopy. Self-paced, start the day you enroll.',
+          image: '/wormhole/tiles/promo-fall-bundle-v12-2.jpg',
+        },
+        {
+          text: 'The Compost Intensive Course teaches you to make it. Ten weeks online, with a 90-minute live session with a mentor every week. You build two compost piles right where you live.',
+          image: '/wormhole/tiles/promo-fall-bundle-v12-3.jpg',
+        },
+        {
+          text: 'Choose your cohort. January, May or August 2027. Fall Enrollment Special, until 2 December. Link in bio.',
+          image: '/wormhole/tiles/promo-fall-bundle-v12-4.jpg',
+        },
+      ],
+      visual_note:
+        'Family: line art on colour fades (the v6 look Linnea liked, 4 Nov), centred, dates on one line, QR on the last slide. Built with tools/wormhole-visuals/bundle_v6_centered.py. Decks: Instagram decks/04-11-2026-fall-enrollment-bundle-lineart-instagram-v12.pptx (QR https://tr.ee/ce6tWIaOx7), Facebook ...-facebook-v13.pptx (https://www.sfw.one/fccicfall2026fb), LinkedIn ...-linkedin-v14.pptx (https://www.sfw.one/fccicfall2026li). The 4-slide badge carousel (v9 to v11) stays in the repo as an option.',
+    },
+    reason: "Linnea, 4 Nov: today's post in the line-art style she liked.",
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);

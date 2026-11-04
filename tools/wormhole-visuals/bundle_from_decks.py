@@ -144,7 +144,7 @@ def carousel():
     d.bg(2, bg, name="Background: blueprint")
     T(d, 2, "Headline", "From soil science to compost you made yourself.", M, 80, 936, 280, 73)
     cols = [("book", "Start today", "4 courses, self-paced"), ("calendar", "Pick your cohort", "January, May or August"),
-            ("hands", "Keep your compost", "Two batches, at home")]
+            ("hands", "Build 2 piles", "Right where you live")]
     cw3 = 300
     cxs = [M + cw3 / 2 + i * (cw3 + 18) for i in range(3)]
     cyc = 690
@@ -169,7 +169,7 @@ def carousel():
                            (300, 900, 520, "#6B4A3A", 0.6), (800, 900, 520, TAN, 0.35)], 7),
          name="Background: soil with light")
     T(d, 3, "Headline", "Everything in one bundle", M, 80, 936, 200, 84)
-    tiles = [("4", "Foundation Courses"), ("10", "weeks live with a mentor"), ("2", "batches of compost you keep"),
+    tiles = [("4", "Foundation Courses"), ("10", "weeks live with a mentor"), ("2", "compost piles you build"),
              ("100s", "of hours of Dr. Elaine's webinars")]
     tw2, th2, g = 453, 380, 30
     for i, (n, t) in enumerate(tiles):
