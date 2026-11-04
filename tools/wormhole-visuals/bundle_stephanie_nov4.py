@@ -40,7 +40,11 @@ def photo_slide(d, k, path, fx, fy, panel, head, det, hs=73, fit="cover"):
     im = ImageOps.exif_transpose(Image.open(path)).convert("RGB")
     if fit == "cover":
         d.put(k, "Photo", cover(im, W, PHOTO_H, fx, fy).convert("RGBA"), 0, 0, shadowed=False, anchor="tl")
-    else:   # screenshot: whole image, letterboxed on the panel colour
+    else:   # screenshot: crop Zoom's dark window frame away, then show the whole grid of faces
+        import numpy as np
+        g = np.asarray(im.convert("L")) > 60
+        rows, cols = np.where(g.sum(1) > im.width * 0.25)[0], np.where(g.sum(0) > im.height * 0.25)[0]
+        im = im.crop((cols.min(), rows.min(), cols.max() + 1, rows.max() + 1))
         w = W - 2 * 40
         h = round(im.height * w / im.width)
         d.put(k, "Screenshot", im.resize((w, h), Image.LANCZOS).convert("RGBA"), 40, (PHOTO_H - h) // 2 + 20,
@@ -82,7 +86,7 @@ def build(v, plat):
                 "Dr. Elaine's decades of knowledge, in one easy-to-follow online course",
                 "Four Foundation Courses. Self-paced, start the day you enroll.")
     # 3. Compost Intensive: the live class
-    photo_slide(d, 2, ZOOM, 0.5, 0.5, "#1C1F1E", "The Compost Intensive Course",
+    photo_slide(d, 2, ZOOM, 0.5, 0.5, "#4F3433", "The Compost Intensive Course",
                 "Live with a mentor every week, alongside a global cohort of peers.", hs=84, fit="contain")
     # 4. community
     photo_slide(d, 3, f"{ST}/sfw-students-graduation.png", 0.5, 0.45, "#156826", "Join our student community",

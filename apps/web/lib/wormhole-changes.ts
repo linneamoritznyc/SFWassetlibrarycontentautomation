@@ -11851,6 +11851,45 @@ export const CHANGES: Change[] = [
     },
     reason: 'Stephanie, 4 Nov: feedback on the bundle post.',
   },
+  {
+    key: '2026-11-04 promo-fall-bundle v45',
+    post: 'promo-fall-bundle',
+    set: {
+      slides: [
+        {
+          text: 'Foundation Courses + Compost Intensive. Fall Enrollment Special. Until 2 December. FC1 to FC4 and Compost Intensive badges.',
+          image: '/wormhole/tiles/promo-fall-bundle-v45-1.jpg',
+        },
+        {
+          text: "Photo: Dr. Elaine Ingham. Dr. Elaine's decades of knowledge, in one easy-to-follow online course. Four Foundation Courses. Self-paced, start the day you enroll.",
+          image: '/wormhole/tiles/promo-fall-bundle-v45-2.jpg',
+        },
+        {
+          text: 'Photo: a live Compost Intensive class on Zoom (screenshot from Carla). The Compost Intensive Course. Live with a mentor every week, alongside a global cohort of peers.',
+          image: '/wormhole/tiles/promo-fall-bundle-v45-3.jpg',
+        },
+        {
+          text: 'Photo: Soil Food Web students. Join our student community. A community for Foundation Courses students, and your own Compost Intensive cohort.',
+          image: '/wormhole/tiles/promo-fall-bundle-v45-4.jpg',
+        },
+        {
+          text: 'Photo: Dr. Elaine Ingham at the microscope. Hundreds of hours of FC webinars. Dr. Elaine and others go deeper into the Foundation Courses and more, to deepen your learning and put it into action.',
+          image: '/wormhole/tiles/promo-fall-bundle-v45-5.jpg',
+        },
+        {
+          text: 'Over 50% off. Foundation Courses + Compost Intensive. Fall Enrollment Special. Until 2 December.',
+          image: '/wormhole/tiles/promo-fall-bundle-v45-6.jpg',
+        },
+        {
+          text: 'Foundation Courses + Compost Intensive. QR code (Instagram: https://tr.ee/ce6tWIaOx7). Fall Enrollment Special. Until 2 December.',
+          image: '/wormhole/tiles/promo-fall-bundle-v45-7.jpg',
+        },
+      ],
+      visual_note:
+        'Family: photo panels (Stephanie, 4 Nov). Compost Intensive slide on Soil Brown with the Zoom frame cropped away. Photos: elaine-with-sample-bag, elaine-flower-shirt-microscope, SFW students (CIC page), Zoom class screenshot from Carla (small Drive copy until the full-size file is in Drive). Built with tools/wormhole-visuals/bundle_stephanie_nov4.py. Deck: decks/04-11-2026-fall-enrollment-bundle-instagram-v45.pptx.',
+    },
+    reason: 'Linnea, 4 Nov: brand colour on the Compost Intensive slide.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);
