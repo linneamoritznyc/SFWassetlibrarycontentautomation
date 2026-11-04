@@ -11605,6 +11605,114 @@ export const CHANGES: Change[] = [
       'Our Fall Enrollment Special brings together all four Foundation Courses (Introduction to the Soil Food Web, BioComplete™ Compost, BioComplete™ Liquid Amendments and Microscopy) and a seat in a 2027 Compost Intensive cohort. You learn Dr. Elaine Ingham’s soil food web science at your own pace, then build two compost piles where you live, with a mentor every week. The bundle also includes Dr. Elaine’s webinar archive.\n\nUntil 2 December. Enroll via the link in our bio.\n\n#SoilFoodWeb #FoundationCourses #CompostIntensive #SoilHealth #LivingSoil #SoilBiology',
     reason: 'Linnea, 4 Nov: shorter caption.',
   },
+  {
+    key: '2026-11-04 x20261118 lineart series',
+    post: 'x20261118',
+    set: {
+      slides: [
+        {
+          text: 'Compost Intensive Course badge. The Compost Intensive Course. A hands-on, 10-week online training, alongside a global cohort of peers.',
+          image: '/wormhole/tiles/x20261118-v10-1.jpg',
+        },
+        {
+          text: 'Build 2 compost piles right where you live. Over ten weeks you learn to choose feedstocks, balance recipes, manage temperature and moisture, with a 90-minute live session with a mentor every week.',
+          image: '/wormhole/tiles/x20261118-v10-2.jpg',
+        },
+        {
+          text: "No prerequisites. All are welcome. You don't need to finish the Foundation Courses before the Intensive begins.",
+          image: '/wormhole/tiles/x20261118-v10-3.jpg',
+        },
+        {
+          text: 'Choose your 2027 cohort. January: 11 January to 26 March. May: 10 May to 25 July. August: 30 August to 7 November. Part of the Fall Enrollment Special, until 2 December.',
+          image: '/wormhole/tiles/x20261118-v10-4.jpg',
+        },
+        {
+          text: 'Foundation Courses + Compost Intensive. QR code (Instagram: https://tr.ee/ce6tWIaOx7). Fall Enrollment Special. Until 2 December.',
+          image: '/wormhole/tiles/x20261118-v10-5.jpg',
+        },
+      ],
+      visual_note:
+        'Family: line art on colour fades, centred (the look Linnea approved for 4 Nov). Wording from the bundle and Compost Intensive pages. Instagram QR code on its own last slide; Facebook and LinkedIn versions to come. Built with tools/wormhole-visuals/bundle_lineart_series.py. Deck: decks/09-11-2026-compost-intensive-lineart-v10.pptx. Earlier options kept in the repo.',
+    },
+    reason: 'Linnea, 4 Nov: the other bundle posts in the approved look.',
+  },
+  {
+    key: '2026-11-04 x20261125 lineart series',
+    post: 'x20261125',
+    set: {
+      slides: [
+        {
+          text: 'Look, feel, smell, structure, maturity. In the Compost Intensive Course you assess compost quality using practical field observations.',
+          image: '/wormhole/tiles/x20261125-v17-1.jpg',
+        },
+        {
+          text: 'Foundation Course 4: Microscopy. Learn to use a compound microscope to identify and quantify bacteria, fungi, protozoa and nematodes.',
+          image: '/wormhole/tiles/x20261125-v17-2.jpg',
+        },
+        {
+          text: 'Foundation Courses + Compost Intensive. Fall Enrollment Special. Until 2 December. FC1 to FC4 badges.',
+          image: '/wormhole/tiles/x20261125-v17-3.jpg',
+        },
+        {
+          text: 'Foundation Courses + Compost Intensive. QR code (Instagram: https://tr.ee/ce6tWIaOx7). Fall Enrollment Special. Until 2 December.',
+          image: '/wormhole/tiles/x20261125-v17-4.jpg',
+        },
+      ],
+      visual_note:
+        'Family: line art on colour fades, centred (the look Linnea approved for 4 Nov). Wording from the bundle and Compost Intensive pages. Instagram QR code on its own last slide; Facebook and LinkedIn versions to come. Built with tools/wormhole-visuals/bundle_lineart_series.py. Deck: decks/18-11-2026-look-feel-smell-microscopy-lineart-v17.pptx. Earlier options kept in the repo.',
+    },
+    reason: 'Linnea, 4 Nov: the other bundle posts in the approved look.',
+  },
+  {
+    key: '2026-11-04 x20261130 lineart series',
+    post: 'x20261130',
+    set: {
+      slides: [
+        {
+          text: 'One week left. Fall Enrollment Special. Until 2 December.',
+          image: '/wormhole/tiles/x20261130-v17-1.jpg',
+        },
+        {
+          text: 'Start today. Pick your season. January: 11 January to 26 March. May: 10 May to 25 July. August: 30 August to 7 November. Start the Foundation Courses today. Pick one 2027 cohort.',
+          image: '/wormhole/tiles/x20261130-v17-2.jpg',
+        },
+        {
+          text: 'Compost Intensive Course badge. Foundation Courses + Compost Intensive. Four self-paced courses, a seat in a 2027 Compost Intensive cohort, and hundreds of hours of webinars with Dr. Elaine.',
+          image: '/wormhole/tiles/x20261130-v17-3.jpg',
+        },
+        {
+          text: 'Foundation Courses + Compost Intensive. QR code (Instagram: https://tr.ee/ce6tWIaOx7). Fall Enrollment Special. Until 2 December.',
+          image: '/wormhole/tiles/x20261130-v17-4.jpg',
+        },
+      ],
+      visual_note:
+        'Family: line art on colour fades, centred (the look Linnea approved for 4 Nov). Wording from the bundle and Compost Intensive pages. Instagram QR code on its own last slide; Facebook and LinkedIn versions to come. Built with tools/wormhole-visuals/bundle_lineart_series.py. Deck: decks/25-11-2026-one-week-left-lineart-v17.pptx. Earlier options kept in the repo.',
+    },
+    reason: 'Linnea, 4 Nov: the other bundle posts in the approved look.',
+  },
+  {
+    key: '2026-11-04 fes20261130 lineart series',
+    post: 'fes20261130',
+    set: {
+      slides: [
+        {
+          text: 'Last day. The Fall Enrollment Special ends today.',
+          image: '/wormhole/tiles/fes20261130-v16-1.jpg',
+        },
+        {
+          text: 'Foundation Courses + Compost Intensive. Four self-paced courses, a seat in a 2027 Compost Intensive cohort, and hundreds of hours of webinars with Dr. Elaine. FC1 to FC4 badges.',
+          image: '/wormhole/tiles/fes20261130-v16-2.jpg',
+        },
+        {
+          text: 'Foundation Courses + Compost Intensive. QR code (Instagram: https://tr.ee/ce6tWIaOx7). Fall Enrollment Special. Until 2 December.',
+          image: '/wormhole/tiles/fes20261130-v16-3.jpg',
+        },
+      ],
+      visual_note:
+        'Family: line art on colour fades, centred (the look Linnea approved for 4 Nov). Wording from the bundle and Compost Intensive pages. Instagram QR code on its own last slide; Facebook and LinkedIn versions to come. Built with tools/wormhole-visuals/bundle_lineart_series.py. Deck: decks/02-12-2026-last-day-lineart-v16.pptx. Earlier options kept in the repo.',
+    },
+    reason: 'Linnea, 4 Nov: the other bundle posts in the approved look.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);
