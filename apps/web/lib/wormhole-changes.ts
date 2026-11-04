@@ -11158,6 +11158,45 @@ export const CHANGES: Change[] = [
     },
     reason: 'Linnea, 4 Nov: more spacing.',
   },
+  {
+    key: '2026-11-04 promo-fall-bundle v29',
+    post: 'promo-fall-bundle',
+    set: {
+      slides: [
+        {
+          text: 'Foundation Courses + Compost Intensive. Fall Enrollment Special. Until 2 December. FC1 to FC4 badges.',
+          image: '/wormhole/tiles/promo-fall-bundle-v29-1.jpg',
+        },
+        {
+          text: "The Foundation Courses teach you to work out what your soil needs. Four courses, 63 lectures and about 150 hours of study, with 40+ years of Dr. Elaine's knowledge. Self-paced, start the day you enroll.",
+          image: '/wormhole/tiles/promo-fall-bundle-v29-2.jpg',
+        },
+        {
+          text: 'Compost Intensive Course badge. The Compost Intensive Course teaches you to make it. Ten weeks online, with a 90-minute live session with a mentor every week, alongside a global cohort of peers. You build 2 compost piles right where you live.',
+          image: '/wormhole/tiles/promo-fall-bundle-v29-3.jpg',
+        },
+        {
+          text: 'For farmers, ranchers, agronomists, consultants and gardeners. At any scale. The Compost Intensive covers thermophilic piles, vermicompost, USDA thermal composting and large-scale windrows.',
+          image: '/wormhole/tiles/promo-fall-bundle-v29-4.jpg',
+        },
+        {
+          text: 'Plus hundreds of hours with Dr. Elaine. Instant access to our legacy webinar archive, recorded live with Dr. Elaine Ingham.',
+          image: '/wormhole/tiles/promo-fall-bundle-v29-5.jpg',
+        },
+        {
+          text: 'From our students: Zoë Unruh, Canada; Rob Mosier, United States; Emmanuel Morales, United States; Anusha Fatima, Pakistan; Clara Santiago, Portugal.',
+          image: '/wormhole/tiles/promo-fall-bundle-v29-6.jpg',
+        },
+        {
+          text: 'Start today. Pick your season. 01 Start today, 4 courses, self-paced. 02 Pick your cohort, January, May or August 2027. 03 Build 2 compost piles, right where you live. Fall Enrollment Special. Until 2 December.',
+          image: '/wormhole/tiles/promo-fall-bundle-v29-7.jpg',
+        },
+      ],
+      visual_note:
+        'Family: line art on colour fades, centred, one block per slide. 7 slides, logo 48 px from the bottom. No QR codes yet. Built with tools/wormhole-visuals/bundle_final_nov4.py. Deck: decks/04-11-2026-fall-enrollment-bundle-final-v29.pptx. Caption: Allison is editing it.',
+    },
+    reason: 'Linnea, 4 Nov: logo a bit lower.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);

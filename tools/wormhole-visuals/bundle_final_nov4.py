@@ -165,6 +165,9 @@ def build(v):
 if __name__ == "__main__":
     v = sys.argv[1] if len(sys.argv) > 1 else "v21"
     d = build(v)
+    for it in d.items:   # Linnea, 4 Nov: logo a bit lower on every slide (48 px from the bottom edge)
+        if it.get("name") == "SFW logo":
+            it["y"] += 24
     for k in range(1, d.n + 1):
         assert not os.path.exists(os.path.join(TILES, f"promo-fall-bundle-{v}-{k}.jpg"))
     print(d.save(TILES, DECKS)[0], d.pptx_name())
