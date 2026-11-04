@@ -14,7 +14,7 @@ import sys
 from PIL import Image, ImageDraw, ImageOps
 
 from collage import Deck, cover
-from nov_fill import BROWN, CREAM, DECKS, GREEN, INK, TILES, WHITE, box
+from nov_fill import BROWN, COLOR, CREAM, DECKS, GREEN, INK, TILES, WHITE, box
 
 W, H = 1080, 1350
 PH = "/home/user/photos/new-2026-10"
@@ -36,8 +36,8 @@ def placeholder_circle(d=300):
 
 
 def big_logo(d, k, size=170):
-    box(d, k, "Logo box", GREEN, W - 72 - size - 36, 72, size + 36, size + 36)
-    lg = Image.open(WHITE).convert("RGBA")
+    # Linnea, 4 Nov: white logo straight on the photo, no box
+    lg = Image.open(COLOR).convert("RGBA")  # skies and fields are light
     lg = lg.resize((size, round(lg.height * size / lg.width)), Image.LANCZOS)
     d.put(k, "SFW logo", lg, W - 72 - size - 18, 72 + 18 + (size - lg.height) // 2, shadowed=False, anchor="tl")
 
@@ -82,22 +82,22 @@ def head_from_graphic(path):
 if __name__ == "__main__":
     src = sys.argv[1]
     posts = [
-        reminder("web20261111", "2026-11-11", "webinar-reminder-juan-de-la-serna-v1",
+        reminder("web20261111", "2026-11-11", "webinar-reminder-juan-de-la-serna-v2",
                  ImageOps.exif_transpose(Image.open(f"{PH}/community-field-walk-norfolk-jun-2025.jpg")).convert("RGB"),
                  0.5, "Johnson-Su compost on real farms", circle(head_from_graphic(f"{src}/juan.png")),
                  "Juan de la Serna", "Resoilutions", "Thu 12 Nov", "9am Pacific, free",
                  "Field walk, Norfolk, June 2025"),
-        reminder("web20261117", "2026-11-17", "webinar-reminder-don-huber-v1",
+        reminder("web20261117", "2026-11-17", "webinar-reminder-don-huber-v2",
                  ImageOps.exif_transpose(Image.open(f"{PH}/wild-ken-hill-group-in-field.jpg")).convert("RGB"),
                  0.5, "Agriculture beyond glyphosate", circle(head_from_graphic(f"{src}/huber.png")),
                  "Dr. Don M. Huber", "Emeritus Professor of Plant Pathology, Purdue University", "Wed 18 Nov",
                  "9am Pacific, free", "Wild Ken Hill, Norfolk"),
-        reminder("web20261201", "2026-12-01", "webinar-reminder-craig-kolodge-v1",
+        reminder("web20261201", "2026-12-01", "webinar-reminder-craig-kolodge-v2",
                  ImageOps.exif_transpose(Image.open(f"{PH}/Bacterial-feeding nematode, 40x obj, Talbot Armstrong.jpg"))
                  .convert("RGB"), 0.5, "Why nematodes make great compost", placeholder_circle(),
                  "Dr. Craig Kolodge", "[affiliation]", "Wed 2 Dec", "9am Pacific, free",
                  "Bacterial-feeding nematode. Photo: Talbot Armstrong"),
     ]
     for d in posts:
-        assert not os.path.exists(os.path.join(TILES, f"{d.id}-v1-1.jpg")), d.id
+        assert not os.path.exists(os.path.join(TILES, f"{d.id}-v2-1.jpg")), d.id
         print(d.save(TILES, DECKS)[0], d.pptx_name())

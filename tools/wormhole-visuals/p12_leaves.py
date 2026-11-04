@@ -10,7 +10,7 @@ import os
 from PIL import Image, ImageOps
 
 from collage import Deck, cover, paper
-from nov_fill import BROWN, CREAM, DECKS, TILES, WHITE, box
+from nov_fill import BROWN, COLOR, CREAM, DECKS, TILES, WHITE, box
 
 W, H = 1080, 1350
 CC = "/home/user/photos/cc"
@@ -18,9 +18,9 @@ CUT = "/home/user/sfwlib/social/cutouts-soil"
 LOGO_W = 190
 
 
-def big_logo(d, k, color=BROWN):
-    box(d, k, "Logo box", color, W - 72 - LOGO_W - 40, 72, LOGO_W + 40, LOGO_W + 40)
-    lg = Image.open(WHITE).convert("RGBA")
+def big_logo(d, k, color=BROWN, path=None):
+    # Linnea, 4 Nov: white logo straight on the photo, no box
+    lg = Image.open(path or WHITE).convert("RGBA")
     lg = lg.resize((LOGO_W, round(lg.height * LOGO_W / lg.width)), Image.LANCZOS)
     d.put(k, "SFW logo", lg, W - 72 - LOGO_W - 20, 72 + 20 + (LOGO_W - lg.height) // 2, shadowed=False, anchor="tl")
 
@@ -63,7 +63,7 @@ def collage_slide(d, k, pieces, text):
         d.put(k, name.replace(".png", "").replace("-", " ").title(), cutout(name, w), x, y, shadowed=True,
               anchor="tl")
     text_box(d, k, text, 70)
-    big_logo(d, k)
+    big_logo(d, k, path=COLOR)  # light paper: the colour logo
 
 
 DOC = [
@@ -77,7 +77,7 @@ DOC = [
 ]
 
 if __name__ == "__main__":
-    d = Deck("p12", 7, "leave-the-leaves-v6", "2026-11-10")
+    d = Deck("p12", 7, "leave-the-leaves-v7", "2026-11-10")
     photo_slide(d, 0, "leaf-skeleton-1.jpg", DOC[0], "Photo: Jim Whitehead, CC BY 2.0", size=84)
     photo_slide(d, 1, "leaf-skeleton-2.jpg", DOC[1], "Photo: Paul VanDerWerf, CC BY 2.0", fy=0.35)
     collage_slide(d, 2, [("dry-leaves-twigs.png", 560, 60, 120), ("compost-white-fungal-threads.png", 520, 440, 260)],
@@ -88,5 +88,5 @@ if __name__ == "__main__":
     photo_slide(d, 5, "fungal-hypha-2.jpg", DOC[5], "Fungal hyphae. Photo: Matthew Rozanoff, CC BY 4.0", size=66)
     photo_slide(d, 6, "leaf-mold-bin-2.jpg", DOC[6], "Photo: United Diversity, CC BY 2.0", fy=0.35)
     for k in range(1, 8):
-        assert not os.path.exists(os.path.join(TILES, f"p12-v6-{k}.jpg"))
+        assert not os.path.exists(os.path.join(TILES, f"p12-v7-{k}.jpg"))
     print(d.save(TILES, DECKS)[0], d.pptx_name())

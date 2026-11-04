@@ -10233,6 +10233,96 @@ export const CHANGES: Change[] = [
     },
     reason: 'Webinar reminder.',
   },
+  {
+    key: '2026-11-04 p24 v6 logo',
+    post: 'p24',
+    set: {
+      slides: [
+        { text: '440 quintillion nematodes.', image: '/wormhole/tiles/p24-v6-1.jpg' },
+        { text: 'About 57 billion for every person alive.', image: '/wormhole/tiles/p24-v6-2.jpg' },
+        { text: 'Most feed on bacteria and fungi.', image: '/wormhole/tiles/p24-v6-3.jpg' },
+      ],
+    },
+    reason:
+      'Linnea, 4 Nov: white logo straight on the background, no box (colour logo on light backgrounds). Deck: decks/09-11-2026-soil-in-numbers-nematodes-v6.pptx.',
+  },
+  {
+    key: '2026-11-04 p12 v7 logo',
+    post: 'p12',
+    set: {
+      slides: [
+        { text: 'Fall leaves are free food for your soil.', image: '/wormhole/tiles/p12-v7-1.jpg' },
+        {
+          text: 'Leaf litter is high in carbon, cellulose and lignin.',
+          image: '/wormhole/tiles/p12-v7-2.jpg',
+        },
+        {
+          text: 'Saprotrophic fungi are the main decomposers of lignin. Leaf litter feeds fungal biomass.',
+          image: '/wormhole/tiles/p12-v7-3.jpg',
+        },
+        {
+          text: 'That pushes the fungal to bacterial ratio toward fungal dominance, which perennials, shrubs and trees prefer.',
+          image: '/wormhole/tiles/p12-v7-4.jpg',
+        },
+        {
+          text: 'A litter layer shields soil aggregates from raindrop impact over winter.',
+          image: '/wormhole/tiles/p12-v7-5.jpg',
+        },
+        {
+          text: 'Microbial residues, including fungal necromass, make up a large share of stable soil organic carbon.',
+          image: '/wormhole/tiles/p12-v7-6.jpg',
+        },
+        {
+          text: 'On lawns: shred the leaves and move them to your beds.',
+          image: '/wormhole/tiles/p12-v7-7.jpg',
+        },
+      ],
+    },
+    reason:
+      'Linnea, 4 Nov: white logo straight on the background, no box (colour logo on light backgrounds). Deck: decks/10-11-2026-leave-the-leaves-v7.pptx.',
+  },
+  {
+    key: '2026-11-04 web20261111 v2 logo',
+    post: 'web20261111',
+    set: {
+      slides: [
+        {
+          text: 'JOIN US TOMORROW. Johnson-Su compost on real farms. Juan de la Serna, Resoilutions. Thu 12 Nov, 9am Pacific, free.',
+          image: '/wormhole/tiles/web20261111-v2-1.jpg',
+        },
+      ],
+    },
+    reason:
+      'Linnea, 4 Nov: white logo straight on the background, no box (colour logo on light backgrounds). Deck: decks/11-11-2026-webinar-reminder-juan-de-la-serna-v2.pptx.',
+  },
+  {
+    key: '2026-11-04 web20261117 v2 logo',
+    post: 'web20261117',
+    set: {
+      slides: [
+        {
+          text: 'JOIN US TOMORROW. Agriculture beyond glyphosate. Dr. Don M. Huber, Emeritus Professor of Plant Pathology, Purdue University. Wed 18 Nov, 9am Pacific, free.',
+          image: '/wormhole/tiles/web20261117-v2-1.jpg',
+        },
+      ],
+    },
+    reason:
+      'Linnea, 4 Nov: white logo straight on the background, no box (colour logo on light backgrounds). Deck: decks/17-11-2026-webinar-reminder-don-huber-v2.pptx.',
+  },
+  {
+    key: '2026-11-04 web20261201 v2 logo',
+    post: 'web20261201',
+    set: {
+      slides: [
+        {
+          text: 'JOIN US TOMORROW. Why nematodes make great compost. Dr. Craig Kolodge. Wed 2 Dec, 9am Pacific, free.',
+          image: '/wormhole/tiles/web20261201-v2-1.jpg',
+        },
+      ],
+    },
+    reason:
+      'Linnea, 4 Nov: white logo straight on the background, no box (colour logo on light backgrounds). Deck: decks/01-12-2026-webinar-reminder-craig-kolodge-v2.pptx.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);

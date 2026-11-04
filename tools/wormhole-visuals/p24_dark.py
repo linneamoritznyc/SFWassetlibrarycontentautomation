@@ -9,14 +9,14 @@ import os
 from PIL import Image, ImageOps
 
 from collage import Deck, cover
-from nov_fill import CREAM, DECKS, GREEN, TILES, WHITE, box, logo
+from nov_fill import COLOR, CREAM, DECKS, GREEN, TILES, WHITE, box, logo
 from p12_leaves import big_logo
 
 W, H = 1080, 1350
 NEW = "/home/user/photos/new-2026-10"
 
 
-def slide(d, k, img, text, credit):
+def slide(d, k, img, text, credit, logo_path=None):
     d.bg(k, cover(img, W, H, 0.5, 0.45).convert("RGBA"), name="Photo")
     first = len(d.items)
     bottom = d.text(k, "Headline", text, 112, 0, 820, 400, 84, kind="montserrat-bold", italic=False, color=CREAM,
@@ -30,21 +30,21 @@ def slide(d, k, img, text, credit):
     box(d, k, "Credit box", GREEN, W - 72 - 640, H - 96, 640, 62)
     d.text(k, "Credit", credit, W - 72 - 620, H - 90, 600, 50, 42, kind="source-reg", italic=False, color=CREAM, lh=1.0,
            align="right", min_size=42)
-    big_logo(d, k, GREEN)
+    big_logo(d, k, GREEN, path=logo_path)
 
 
 if __name__ == "__main__":
-    d = Deck("p24", 3, "soil-in-numbers-nematodes-v5", "2026-11-09")
+    d = Deck("p24", 3, "soil-in-numbers-nematodes-v6", "2026-11-09")
     first = Image.open(os.path.join(TILES, "p24-v2-1.jpg")).convert("RGB")
     black = Image.new("RGB", (W, H), (0, 0, 0))
     black.paste(first.crop((0, 170, W, 860)), (0, 300))  # below the old logo
     slide(d, 0, black, "440 quintillion nematodes.", "Photo: Soil Food Web Foundation")
     slide(d, 1, ImageOps.exif_transpose(Image.open(f"{NEW}/Bacterial-feeding nematode (omnivore), 40x obj, "
                                                    "Johannes Veith.jpg")).convert("RGB"),
-          "About 57 billion for every person alive.", "Photo: Johannes Veith")
+          "About 57 billion for every person alive.", "Photo: Johannes Veith", logo_path=COLOR)
     slide(d, 2, ImageOps.exif_transpose(Image.open(f"{NEW}/Bacterial-feeding nematode (omnivore), 40x obj, "
                                                    "Keisha Wheeler.jpg")).convert("RGB"),
-          "Most feed on bacteria and fungi.", "Photo: Keisha Wheeler")
+          "Most feed on bacteria and fungi.", "Photo: Keisha Wheeler", logo_path=COLOR)
     for k in (1, 2, 3):
-        assert not os.path.exists(os.path.join(TILES, f"p24-v5-{k}.jpg"))
+        assert not os.path.exists(os.path.join(TILES, f"p24-v6-{k}.jpg"))
     print(d.save(TILES, DECKS)[0], d.pptx_name())
