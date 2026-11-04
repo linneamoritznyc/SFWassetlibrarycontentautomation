@@ -19,6 +19,7 @@ from nov_fill import CREAM, DECKS, TILES
 _put = Deck.put
 Deck.put = lambda self, k, name, im, x, y, **kw: _put(self, k, name, im, round(x), round(y), **kw)
 BADGES = "/home/user/sfwlib/social/course-badges"
+QR = ""   # platform short link for the QR code on the last slide; empty means no QR
 ART_ZONE = (50, 450)
 HEAD_Y = 500
 
@@ -87,7 +88,7 @@ def stack(d, k, top_img, head, hs, det, below_imgs=None, area=(72, FY - 40), ds=
 
 
 def build(v):
-    d = Deck("promo-fall-bundle", 6, f"fall-enrollment-bundle-final-{v}", "2026-11-04")
+    d = Deck("promo-fall-bundle", 7 if QR else 6, f"fall-enrollment-bundle-final-{v}", "2026-11-04")
     # 1. cover
     d.bg(0, fade("#1E7A3A", "#0E3B1E", (0.5, 0.24), 40), name="Background fade")
     stack(d, 0, fit_art("online", 520, 250), "Foundation Courses + Compost Intensive", 84,
@@ -141,11 +142,45 @@ def build(v):
     T(d, 5, "Details", "Fall Enrollment Special\nUntil 2 December.", M, top + 3 * bh + 2 * g + GAP_ART, 936,
       dh + 6, 52)
     footer(d, 5)
+    if QR:
+        qr_slide(d, 6)
     return d
+
+
+def qr_slide(d, k):
+    """Last slide: the platform QR code, big, on its own (Linnea, 4 Nov)."""
+    import qrcode
+    d.bg(k, fade("#1E7A3A", "#0E3B1E", (0.5, 0.45), 47), name="Background fade")
+    q = qrcode.QRCode(border=2, box_size=20)
+    q.add_data(QR)
+    size = 460
+    im = q.make_image(fill_color="#333130", back_color=CREAM).convert("RGBA").resize((size, size), Image.NEAREST)
+    m = Image.new("L", (size, size), 0)
+    ImageDraw.Draw(m).rounded_rectangle((0, 0, size - 1, size - 1), 28, fill=255)
+    im.putalpha(m)
+    hh = height("Foundation Courses + Compost Intensive", 84, HW, lh=HLH)
+    dh = height("Fall Enrollment Special\nUntil 2 December.", 66, DW, bold=False, lh=DLH)
+    total = hh + GAP_ART + size + GAP_ART + dh
+    y = 72 + (FY - 40 - 72 - total) // 2 + 30
+    T(d, k, "Headline", "Foundation Courses + Compost Intensive", (W - HW) // 2, y, HW, hh + 6, 84, lh=HLH)
+    y += hh + GAP_ART
+    d.put(k, "QR code", im, (W - size) // 2, y, shadowed=False, anchor="tl")
+    y += size + GAP_ART
+    T(d, k, "Details", "Fall Enrollment Special\nUntil 2 December.", (W - DW) // 2, y, DW, dh + 6, 66, bold=False,
+      lh=DLH)
+    footer(d, k)
 
 
 if __name__ == "__main__":
     v = sys.argv[1] if len(sys.argv) > 1 else "v21"
+    if len(sys.argv) > 3:   # platform version: <v> <platform> <short link>
+        import bundle_three_styles_v12 as v12
+        QR = v12.QR_LINK = sys.argv[3]
+        _build = build
+        def build(v, _b=_build, plat=sys.argv[2]):
+            d = _b(v)
+            d.slug = f"fall-enrollment-bundle-final-{plat}-{v}"
+            return d
     d = build(v)
     for it in d.items:   # Linnea, 4 Nov: logo a bit lower on every slide (48 px from the bottom edge)
         if it.get("name") == "SFW logo":

@@ -11349,6 +11349,45 @@ export const CHANGES: Change[] = [
     },
     reason: 'Linnea, 4 Nov: quotes out, time zones out, more about Dr. Elaine.',
   },
+  {
+    key: '2026-11-04 promo-fall-bundle v35 qr',
+    post: 'promo-fall-bundle',
+    set: {
+      slides: [
+        {
+          text: 'Foundation Courses + Compost Intensive. Fall Enrollment Special. Until 2 December. FC1 to FC4 badges.',
+          image: '/wormhole/tiles/promo-fall-bundle-v35-1.jpg',
+        },
+        {
+          text: "The Foundation Courses teach you to work out what your soil needs. Four courses, 63 lectures and about 150 hours of study, with 40+ years of Dr. Elaine's knowledge. Self-paced, start the day you enroll.",
+          image: '/wormhole/tiles/promo-fall-bundle-v35-2.jpg',
+        },
+        {
+          text: 'Compost Intensive Course badge. The Compost Intensive Course teaches you to make it. Ten weeks online, with a 90-minute live session with a mentor every week, alongside a global cohort of peers. You build 2 compost piles right where you live.',
+          image: '/wormhole/tiles/promo-fall-bundle-v35-3.jpg',
+        },
+        {
+          text: 'For farmers, ranchers, agronomists, consultants and gardeners. At any scale. The Compost Intensive covers thermophilic piles, vermicompost, USDA thermal composting and large-scale windrows.',
+          image: '/wormhole/tiles/promo-fall-bundle-v35-4.jpg',
+        },
+        {
+          text: 'Plus hundreds of hours with Dr. Elaine. Learn directly from the founder of the Soil Food Web School, in our legacy webinar archive recorded live with Dr. Elaine Ingham. 40+ years of her knowledge, science and land management practices, proven across the globe.',
+          image: '/wormhole/tiles/promo-fall-bundle-v35-5.jpg',
+        },
+        {
+          text: 'Start today. Pick your season. 01 Start today, 4 courses, self-paced. 02 Pick your cohort, January, May or August 2027. 03 Build 2 compost piles, right where you live. Fall Enrollment Special. Until 2 December.',
+          image: '/wormhole/tiles/promo-fall-bundle-v35-6.jpg',
+        },
+        {
+          text: 'Foundation Courses + Compost Intensive. QR code. Fall Enrollment Special. Until 2 December.',
+          image: '/wormhole/tiles/promo-fall-bundle-v35-7.jpg',
+        },
+      ],
+      visual_note:
+        'Family: line art on colour fades, centred. 7 slides, the QR code on its own last slide (Linnea, 4 Nov). One deck per platform, same design, only the QR link differs: Instagram decks/04-11-2026-fall-enrollment-bundle-final-instagram-v35.pptx (https://tr.ee/ce6tWIaOx7), Facebook ...-facebook-v36.pptx (https://www.sfw.one/fccicfall2026fb), LinkedIn ...-linkedin-v37.pptx (https://www.sfw.one/fccicfall2026li). Built with tools/wormhole-visuals/bundle_final_nov4.py. Caption: Allison is editing it.',
+    },
+    reason: 'Linnea, 4 Nov: QR code as its own last slide, one deck per platform.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);
