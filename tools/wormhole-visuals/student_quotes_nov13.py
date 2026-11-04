@@ -90,8 +90,9 @@ def build(v):
     y = 72 + (FY - 40 - 72 - total) // 2
     T(d, 0, "Headline", "From our students", M, y, 936, hh + 6, 86, color=BROWN)
     y += hh + 70
-    gap = (936 - 5 * (ps + 2 * RING)) // 4
-    for i, s in enumerate(STUDENTS):
+    pics = [s for s in STUDENTS if s[2]]   # Linnea, 4 Nov: no initials circle for Emmanuel
+    gap = (936 - len(pics) * (ps + 2 * RING)) // (len(pics) - 1)
+    for i, s in enumerate(pics):
         d.put(0, f"Portrait {s[0]}", portrait(s, ps), M + i * (ps + 2 * RING + gap), y, shadowed=False, anchor="tl")
     y += ps + 2 * RING + 70
     T(d, 0, "Details", "Foundation Courses + Compost Intensive\nFall Enrollment Special\nUntil 2 December.",
@@ -106,6 +107,14 @@ def build(v):
         # photo and name side by side, the quote below: the same layout on every slide
         from collage import font
         nw = max(font("montserrat-bold", False, 52).getlength(s[0]), font("source-reg", False, 52).getlength(s[1]))
+        if not s[2]:   # no photo: just the name and country above the quote
+            total = 132 + G1 + qh
+            y = 60 + (FY - 20 - 60 - total) // 2
+            T(d, k, "Name", s[0], M, y, 936, 70, 52, color=GREEN)
+            T(d, k, "Country", s[1], M, y + 66, 936, 70, 52, bold=False, color=BROWN)
+            T(d, k, "Quote", q, (W - QW) // 2, y + 132 + G1, QW, qh + 6, 52, bold=False, color=INK, lh=QLH)
+            footer(d, k, white=False)
+            continue
         row_w = ps + 2 * RING + 36 + nw
         total = ps + 2 * RING + G1 + qh
         room = FY - 20 - 60
