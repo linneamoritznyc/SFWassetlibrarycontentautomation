@@ -93,9 +93,9 @@ def build(v, plat):
     photo_slide(d, 3, f"{ST}/sfw-students-graduation.png", 0.5, 0.45, "#156826", "Join our student community",
                 "A community for Foundation Courses students, and your own Compost Intensive cohort.", hs=84)
     # 5. FC webinars: purple, her photo
-    photo_slide(d, 4, ELAINE_SCOPE, 0.45, 0.4, PURPLE, "Hundreds of hours of FC webinars",
-                "Dr. Elaine and others go deeper into the Foundation Courses and more, to deepen your learning and "
-                "put it into action.")
+    photo_slide(d, 4, ELAINE_SCOPE, 0.45, 0.4, PURPLE, "Dr. Elaine's legacy webinar archive",
+                "Hundreds of hours recorded live with Dr.\u00a0Elaine and others, going deeper into the Foundation "
+                "Courses and beyond.", hs=84)
     # 6. the discount, just before the QR code
     d.bg(5, fade("#1E7A3A", "#0E3B1E", (0.5, 0.4), 205), name="Background fade")
     hh2 = height("off the Foundation Courses, plus the Compost Intensive Course free", 73, 936)
