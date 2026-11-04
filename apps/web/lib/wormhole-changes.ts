@@ -11466,6 +11466,53 @@ export const CHANGES: Change[] = [
     },
     reason: 'Linnea, 4 Nov: take out at any scale.',
   },
+  {
+    key: '2026-11-04 tm20261113 create',
+    post: 'tm20261113',
+    create: {
+      iso_date: '2026-11-13',
+      date_tbd: false,
+      topic: 'Fall Enrollment Special: from our students',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption: '[Caption to come. Allison edits.]',
+      slides: [
+        {
+          text: 'From our students. Zoë Unruh, Rob Mosier, Emmanuel Morales, Anusha Fatima, Clara Santiago. Foundation Courses + Compost Intensive. Fall Enrollment Special. Until 2 December.',
+          image: '/wormhole/tiles/tm20261113-v1-1.jpg',
+        },
+        {
+          text: 'Zoë Unruh, Canada: “I recently completed my Foundation Courses. I had so much fun learning about regenerative agriculture, creating compost and liquid amendments, and all the little creatures that help our soils to thrive. I am super excited to put all these ideas into practice and to continue learning!”',
+          image: '/wormhole/tiles/tm20261113-v1-2.jpg',
+        },
+        {
+          text: 'Rob Mosier, United States: “I am overwhelmed by the depth and thoroughness of these courses... I am still amazed at the amount of content! The classes are absolutely fabulous!”',
+          image: '/wormhole/tiles/tm20261113-v1-3.jpg',
+        },
+        {
+          text: "Emmanuel Morales, United States: “I've taken classes on microbiology before but this course really makes a difference in the way that a story is put together that unveils a relationship between plants and all those beneficial microoragnisms that we just cannot see without a microscope.”",
+          image: '/wormhole/tiles/tm20261113-v1-4.jpg',
+        },
+        {
+          text: "Anusha Fatima, Pakistan: “I want to help repair broken food systems by rebuilding life in the soil. Through this program, I hope to help farmers understand and work with nature's biology to regenerate land, improve resilience, and grow healthier food.”",
+          image: '/wormhole/tiles/tm20261113-v1-5.jpg',
+        },
+        {
+          text: "Clara Santiago, Portugal: “The extraordinary body of knowledge Soil Food Web's Foundation Courses has to offer can certainly empower me with the required knowledge and experience to drive the work I have been developing further. As a land steward and within the projects I am developing and taking part in, I hope to have a positive impact and a considerable contribution towards soil health, land regeneration, awareness raising and ecological literacy.”",
+          image: '/wormhole/tiles/tm20261113-v1-6.jpg',
+        },
+      ],
+      cta: 'Link in bio',
+      link: 'https://school.soilfoodweb.com/bundles/foundation-courses-compost-intensive-course',
+      sources: [
+        'https://school.soilfoodweb.com/bundles/foundation-courses-compost-intensive-course',
+      ],
+      visual_note:
+        "Family: portrait quote cards on cream. One student per slide, quotes word for word from the bundle sales page Testimonials (Linnea, 4 Nov: use the quotes as is; Emmanuel's 'microoragnisms' typo is on the page). Photos from the same page (photo_check: unused); Emmanuel has no photo there, so his slide uses his initials. No QR code yet. Built with tools/wormhole-visuals/student_quotes_nov13.py. Deck: decks/13-11-2026-student-quotes-v1.pptx.",
+      note: 'Linnea, 4 Nov: student quotes as their own post next week.',
+      status: 'draft',
+    },
+    reason: 'Linnea, 4 Nov: student quotes post for next week.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);
