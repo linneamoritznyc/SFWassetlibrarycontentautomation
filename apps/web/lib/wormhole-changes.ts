@@ -11039,6 +11039,47 @@ export const CHANGES: Change[] = [
     },
     reason: "Linnea, 4 Nov: today's post in the line-art style she liked.",
   },
+  {
+    key: '2026-11-04 promo-fall-bundle final v26 and caption',
+    post: 'promo-fall-bundle',
+    set: {
+      slides: [
+        {
+          text: 'Foundation Courses + Compost Intensive. Fall Enrollment Special. Until 2 December. FC1 to FC4 badges.',
+          image: '/wormhole/tiles/promo-fall-bundle-v26-1.jpg',
+        },
+        {
+          text: "The Foundation Courses teach you to work out what your soil needs. Four courses, 63 lectures and about 150 hours of study, with 40+ years of Dr. Elaine's knowledge. Self-paced, start the day you enroll.",
+          image: '/wormhole/tiles/promo-fall-bundle-v26-2.jpg',
+        },
+        {
+          text: 'Compost Intensive Course badge. The Compost Intensive Course teaches you to make it. Ten weeks online, with a 90-minute live session with a mentor every week, alongside a global cohort of peers. You build 2 compost piles right where you live.',
+          image: '/wormhole/tiles/promo-fall-bundle-v26-3.jpg',
+        },
+        {
+          text: 'For farmers, ranchers, agronomists, consultants and gardeners. At any scale. Thermophilic piles, vermicompost, USDA thermal composting and large-scale windrows.',
+          image: '/wormhole/tiles/promo-fall-bundle-v26-4.jpg',
+        },
+        {
+          text: 'Plus hundreds of hours with Dr. Elaine. Instant access to our legacy webinar archive, recorded live with Dr. Elaine Ingham.',
+          image: '/wormhole/tiles/promo-fall-bundle-v26-5.jpg',
+        },
+        {
+          text: 'From our students: Zoë Unruh, Canada; Rob Mosier, United States; Emmanuel Morales, United States; Anusha Fatima, Pakistan; Clara Santiago, Portugal.',
+          image: '/wormhole/tiles/promo-fall-bundle-v26-6.jpg',
+        },
+        {
+          text: 'Start today. Pick your season. 01 Start today, 4 courses, self-paced. 02 Pick your cohort, January, May or August 2027. 03 Build 2 compost piles, right where you live. Fall Enrollment Special. Until 2 December.',
+          image: '/wormhole/tiles/promo-fall-bundle-v26-7.jpg',
+        },
+      ],
+      visual_note:
+        'Family: line art on colour fades, centred, one block per slide. 7 slides. Course badges and the Compost Intensive badge cut from the course images on our sales pages. No QR codes yet (Linnea, 4 Nov: finalize the visual first). Built with tools/wormhole-visuals/bundle_final_nov4.py. Deck: decks/04-11-2026-fall-enrollment-bundle-final-v26.pptx. Caption: Allison is editing it.',
+    },
+    captionText:
+      "If you’ve been waiting for the right time to join us as a student, NOW is the time!\n\n🍂You will get all four Foundation Courses PLUS the cohort-based Compost Intensive Course, a great opportunity to learn implementation from an experienced Soil Food Web Mentor.\n\nOur Fall Enrollment Special brings together the theory behind the Soil Food Web Approach and how to implement it. You’ll get access to the four Foundation Courses: Introduction to the Soil Food Web, BioComplete™ Compost, BioComplete™ Liquid Amendments and Microscopy.\n\nThese online courses allow you to learn Dr. Elaine Ingham's soil food web science at your own pace, from anywhere. This course bundle also includes a seat in a 2027 Compost Intensive cohort, access to the Foundation Courses student community where you can network with other students, access to Dr. Elaine's student webinar archive and a certificate for each course.\n\nEnroll via the link in our bio and join the soil food web family!\n\n#SoilFoodWeb #FoundationCourses #CompostIntensive #DrElaineIngham #SoilHealth #LivingSoil",
+    reason: 'Linnea, 4 Nov: final 7-slide visual and her caption (Allison editing).',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);
