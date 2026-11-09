@@ -12583,6 +12583,13 @@ export const CHANGES: Change[] = [
     },
     reason: 'Linnea, 9 Nov: better spacing.',
   },
+  {
+    key: '2026-11-09 thx20261126 caption',
+    post: 'thx20261126',
+    captionText:
+      "This Thanksgiving, we asked our team what they are thankful for this year. 🍂\n\nTheir answers: our students' perseverance. The soil organisms that make this world so beautiful. Seasons, and the rest that gets us ready for spring. Being part of the change. A global classroom, with people learning together from every continent. And a deeper connection to the earth and all its living creatures, big and microscopic.\n\nSwipe through to read each answer in full.\n\nFrom all of us at the Soil Food Web School, thank you for being part of this community. Happy Thanksgiving! 💚\n\n#SoilFoodWeb #Thanksgiving #Gratitude #LivingSoil #SoilHealth #SoilBiology",
+    reason: 'Linnea, 9 Nov: caption for the Thanksgiving staff post (Allison edits).',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);
