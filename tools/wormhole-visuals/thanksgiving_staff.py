@@ -55,6 +55,19 @@ STAFF = [  # (name, photo, vertical focus, quote: short version until Allison se
      "classroom."),
 ]
 
+# Full answers from the staff (Linnea, 9 Nov: "don't cut out the text"). Spelling typos fixed, wording kept.
+FULL = {
+"Allison Duck": "I'm thankful for our students' perseverance. In my role in student services, I get the inside perspective on what our students' goals are and I get to help them plan how to map out their pathways to achieve those goals. I'm so impressed by their determination, especially with mastering biologically complete compost creation and using their microscopes to monitor their progress.",
+"Kavi Reddy": "I am thankful for all the soil organisms who help make this world so beautiful, for the evergrowing SFW community of people who understand the value of biodiverse soil life, and for my SFW team for sharing this knowledge across the globe!",
+"Tommy Tepper": "I am thankful for seasons and how in certain seasons it feels nice and cozy to go dormant and to rest more. Similar to what microbes do, in how they move into dormancy and form cysts or spores during certain periods. I am thankful for rest and how certain times of the year encourage or force us to rest so that we are ready when spring (the busy season) comes.",
+"Ayşen Ustunay": "This Thanksgiving, I'm especially grateful for the opportunity to work with many of my students. I want to share the journey about one of my students.\n\nShe is incredibly dedicated, and her journey has truly inspired me. Without land of her own, she faced one difficulty after another, from finding a place to make her compost to losing a farm opportunity just when she was ready to begin her field trial. Yet, she never complained or lost focus. She kept going, found another opportunity through a friend in another country, and even arranged to have part of her compost shipped there!\n\nKnowing that she is now happy and supported by her friends and family, while performing her field trial makes me so happy. I feel genuinely honored to be part of her journey. Students like her remind me how much determination and perseverance people can show when they truly believe in what they are doing.\n\nDr. Elaine would be so proud of her!",
+"Casey Williams": "I am grateful simply for being able to be part of the change. I've always wanted to make a positive difference in the field of agriculture, in as large a way as possible. From where I stand in life at the moment, I'm able to do so in an ever expanding way. Additionally, I have the opportunity to continue to learn, gaining a greater depth of knowledge in this field, which fulfills my love of learning and also expands my capacity for helping heal the world's soils through education and direct action.",
+"Stephanie McDaniel": "Feeling extreme gratitude for my deepening connection to the earth and all its living creatures, big and microscopic. This soil food web experience has given me even more connection and understanding for interests and hobbies I have even beyond gardening. Cooking, sourdough, fermentation of all sorts, it all has benefitted from understanding what Dr. Elaine taught in the Foundation Courses! I have enjoyed bringing it into the raising of my children. Including conversations that provide a deeper understanding of how it is all connected and how the microscopic world holds it all together has been fun and joyful.",
+"Carla Portugal": "I feel blessed to have many reasons to be thankful. This year, I am specially grateful to be part of so many learning and teaching experiences. I am exploring co-adjacent fields of holistic knowledge and integrating it, building a broader view of life. I have been passionate about life since I can remember and this year I am building the best version yet of a life dedicated to learning, teaching, guiding and being guided, working with and being inspired by every person who enters my life. May this be the best year so far!",
+"Delvin Solkinson": "I am so thankful for all the extraordinary people I get to learn with from Africa, Asia, Europe, Oceania, North America and South America, truly a global classroom. This diversity of perspectives from farmers, gardeners, homesteaders and people moving toward deeper nature connection creates a rich and vibrant community of practice and learning. What a joy it is to use technology to connect deeper with people around the world and to get support to connect deeper with nature where I live.",
+}
+
+
 LEAVES = ["leaves-00", "leaves-02", "leaves-04", "leaves-05", "leaves-07", "leaves-08", "leaves-09", "oak-20",
           "oak-21", "oak-22", "oak-23", "oak-24", "oak-25", "oak-19"]
 GROUND = ["acorns-10", "acorns-12", "acorns-13", "acorns-14", "acorns-15", "acorns-16", "acorns-18",
@@ -92,64 +105,95 @@ def logo(d, k, w=150):
     d.put(k, "SFW logo", lg, W - 60 - w, H - 50 - lg.height, shadowed=False, anchor="tl")
 
 
-def frame_cutouts(d, k, x0, y0, x1, y1, seed):
-    """Cut-paper pieces on the frame's edges: a band along the top, a few down the left, acorns and mushrooms at the
+def frame_cutouts(d, k, x0, y0, x1, y1, seed, sc=1.0):
+    """Cut-paper pieces on the frame's edges: a band along the top, a few down the sides, acorns and mushrooms at the
     bottom corners. Same positions on every slide, different pieces, so the set reads as one."""
     rnd = random.Random(seed)
     lv = LEAVES[:]
     rnd.shuffle(lv)
     gr = GROUND[:]
     rnd.shuffle(gr)
-    top = [(x0 - 10, y0 + 10, 190, -25), (x0 + 120, y0 - 40, 150, 15), (x0 + 330, y0 - 55, 130, -8),
-           (x1 - 170, y0 - 45, 160, 22), (x1 + 15, y0 + 30, 185, 35)]
-    left = [(x0 - 55, y0 + 230, 150, -40), (x0 - 40, y0 + 420, 130, 20)]
-    right = [(x1 + 40, y0 + 250, 120, 50)]
-    for i, (cx, cy, w, r) in enumerate(top + left + right):
-        d.put(k, f"Leaf {i + 1}", piece(lv[i % len(lv)], w), cx, cy, rot=r, shadowed=False)
-    bottom = [(x0 - 20, y1 - 40, 150, -12), (x0 + 110, y1 - 10, 120, 8), (x1 - 30, y1 - 30, 160, 10),
-              (x1 + 60, y1 - 100, 120, -15)]
+    fw, fh = x1 - x0, y1 - y0
+    # the pieces sit on the frame's outer edge, never over the middle of the photo (faces)
+    top = [(x0 - 0.08 * fw, y0 + 0.02 * fh, 190, -25), (x0 + 0.16 * fw, y0 - 0.1 * fh, 150, 15),
+           (x1 - 0.2 * fw, y0 - 0.1 * fh, 160, 22), (x1 + 0.1 * fw, y0 + 0.06 * fh, 185, 35)]
+    side = [(x0 - 0.16 * fw, y0 + 0.45 * fh, 150, -40), (x1 + 0.15 * fw, y0 + 0.48 * fh, 120, 50)]
+    for i, (cx, cy, w, r) in enumerate(top + side):
+        d.put(k, f"Leaf {i + 1}", piece(lv[i % len(lv)], round(w * sc)), cx, cy, rot=r, shadowed=False)
+    bottom = [(x0 - 0.12 * fw, y1 - 0.08 * fh, 150, -12), (x0 + 0.08 * fw, y1 + 0.0 * fh, 120, 8),
+              (x1 + 0.02 * fw, y1 - 0.04 * fh, 160, 10), (x1 + 0.2 * fw, y1 - 0.2 * fh, 120, -15)]
     for i, (cx, cy, w, r) in enumerate(bottom):
-        d.put(k, f"Acorn or mushroom {i + 1}", piece(gr[i % len(gr)], w), cx, cy, rot=r, shadowed=False)
+        d.put(k, f"Acorn or mushroom {i + 1}", piece(gr[i % len(gr)], round(w * sc)), cx, cy, rot=r,
+              shadowed=False)
 
 
-def staff_slide(d, k, name, photo, fy, quote):
+def staff_slide(d, k, name, photo, fy, text, seed):
+    """Small framed photo at the top so the whole answer fits below it, never under 42 px."""
     d.bg(k, paper(400 + k), name="Background: Organic Cream")
-    size, x0, y0 = 600, 240, 96
-    fr = framed(photo, fy, size)
-    d.put(k, f"Photo: {name}", fr, x0 - 30, y0 - 30, shadowed=False, anchor="tl")
-    frame_cutouts(d, k, x0, y0, x0 + size, y0 + size, k)
-    T(d, k, "Name", name, 72, 790, 936, 90, 73, color=BROWN)
-    T(d, k, "Quote", "“" + quote + "”", 110, 898, 860, 280, 52, bold=False, color=INK, lh=1.25)
-    logo(d, k)
+    size, y0 = 300, 60
+    x0 = (W - size) // 2
+    d.put(k, f"Photo: {name}", framed(photo, fy, size, border=10), x0 - 30, y0 - 30, shadowed=False, anchor="tl")
+    frame_cutouts(d, k, x0, y0, x0 + size, y0 + size, seed, sc=0.6)
+    T(d, k, "Name", name, 72, y0 + size + 30, 936, 80, 66, color=BROWN)
+    top = y0 + size + 30 + 80 + 10
+    T(d, k, "Quote", text, 72, top, 936, 1180 - top, 48, bold=False, color=INK, lh=1.2, mn=42)
+    logo(d, k, w=140)
 
 
 def cover(d):
+    """"We are thankful for" and words taken from the staff answers (Linnea, 9 Nov), leaves falling across it."""
+    from collage import font
     d.bg(0, paper(399), name="Background: Organic Cream")
-    T(d, 0, "Headline", "What we're\nthankful for", 72, 150, 936, 200, 86, color=BROWN)
-    T(d, 0, "Details", "Our staff share what they are grateful for this year.", 140, 365, 800, 140, 52, bold=False,
-      color=INK, lh=1.25)
-    # the eight staff in a 4 x 2 group, same thin cream border as the staff slides
-    s, g = 228, 20
-    x0 = (W - (4 * s + 3 * g)) // 2
-    for i, (name, photo, fy, _) in enumerate(STAFF):
-        x, y = x0 + (i % 4) * (s + g), 560 + (i // 4) * (s + g)
-        d.put(0, f"Photo: {name}", framed(photo, fy, s, border=7), x - 30, y - 30, shadowed=False, anchor="tl")
-    # leaves falling across the slide
-    fall = [(90, 80, 150, -30, "leaves-07"), (990, 70, 160, 25, "oak-25"), (55, 470, 120, 40, "leaves-00"),
-            (1025, 420, 130, -20, "oak-21"), (330, 545, 110, 60, "oak-23"), (800, 1020, 140, -35, "leaves-04"),
-            (500, 1170, 110, 15, "oak-24"), (150, 1210, 150, -10, "acorns-13"), (60, 960, 120, 5, "leaves-08"),
-            (330, 1240, 120, 30, "mushrooms-small")]
+    T(d, 0, "Headline", "We are thankful for", 72, 150, 936, 110, 86, color=BROWN)
+    TAN = "#9C6B4E"
+    rows = [[("perseverance", 66, GREEN), ("soil organisms", 52, BROWN)],
+            [("seasons", 52, BROWN), ("rest", 66, TAN), ("spring", 52, GREEN)],
+            [("biodiverse soil life", 66, BROWN)],
+            [("determination", 52, GREEN), ("microbes", 66, BROWN)],
+            [("being part of the change", 52, BROWN)],
+            [("a global classroom", 66, GREEN)],
+            [("sourdough", 52, TAN), ("fermentation", 52, BROWN)],
+            [("learning and teaching", 66, BROWN)],
+            [("our students", 52, GREEN), ("our team", 52, TAN)]]
+    y, gap = 320, 34
+    for r, row in enumerate(rows):
+        ws = [font("montserrat-bold" if z >= 66 else "source-reg", False, z).getlength(t) + 8 for t, z, _ in row]
+        h = max(z for _, z, _ in row) * 1.22
+        x = (W - (sum(ws) + gap * (len(row) - 1))) / 2
+        for (t, z, c), w in zip(row, ws):
+            T(d, 0, f"Word: {t}", t, round(x), round(y + (h - z * 1.22) / 2), round(w) + 4, round(z * 1.3), z,
+              bold=z >= 66, color=c, align="left", mn=z)
+            x += w + gap
+        y += h + 18
+    fall = [(90, 80, 150, -30, "leaves-07"), (990, 80, 160, 25, "oak-25"), (60, 520, 120, 40, "leaves-00"),
+            (1025, 470, 130, -20, "oak-21"), (80, 900, 110, 60, "oak-23"), (1010, 860, 140, -35, "leaves-04"),
+            (520, 1230, 110, 15, "oak-24"), (150, 1215, 150, -10, "acorns-13"), (330, 1250, 120, 30, "mushrooms-small"),
+            (760, 1235, 120, 5, "leaves-08")]
     for i, (cx, cy, w, r, n) in enumerate(fall):
         d.put(0, f"Falling leaf {i + 1}", piece(n, w), cx, cy, rot=r, shadowed=False)
     logo(d, 0)
 
 
+def slides():
+    """One slide per person; Ayşen's answer needs two (split at her paragraph break), same frame on both."""
+    out = []
+    for name, photo, fy, _ in STAFF:
+        t = FULL[name]
+        if name.startswith("Ayşen"):
+            cut = t.index("Yet, she never")   # split mid-story, at a sentence, so both halves fit
+            out.append((name, photo, fy, t[:cut].rstrip() + " \u2026"))
+            out.append((name, photo, fy, "\u2026 " + t[cut:]))
+        else:
+            out.append((name, photo, fy, t))
+    return out
+
+
 def build(v, preview=False):
-    people = [STAFF[2]] if preview else STAFF
+    people = slides()
     d = Deck("thx20261126", 1 + len(people), f"what-we-are-thankful-for-{v}", "2026-11-26")
     cover(d)
-    for k, (name, photo, fy, quote) in enumerate(people, start=1):
-        staff_slide(d, k, name, photo, fy, quote)
+    for k, (name, photo, fy, text) in enumerate(people, start=1):
+        staff_slide(d, k, name, photo, fy, text, seed=k)
     return d
 
 
