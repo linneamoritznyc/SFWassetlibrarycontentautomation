@@ -12528,6 +12528,61 @@ export const CHANGES: Change[] = [
     },
     reason: 'Linnea, 9 Nov: start over, fall cut-paper frame, full staff answers.',
   },
+  {
+    key: '2026-11-09 thx20261126 v6 spacing',
+    post: 'thx20261126',
+    set: {
+      slides: [
+        {
+          text: 'We are thankful for: perseverance, soil organisms, seasons, rest, spring, biodiverse soil life, determination, microbes, being part of the change, a global classroom, sourdough, fermentation, learning and teaching, our students, our team.',
+          image: '/wormhole/tiles/thx20261126-v6-1.jpg',
+        },
+        {
+          text: "Allison Duck: I'm thankful for our students' perseverance. In my role in student services, I get the inside perspective on what our students' goals are and I get to help them plan how to map out their pathways to achieve those goals. I'm so impressed by their determination, especially with mastering biologically complete compost creation and using their microscopes to monitor their progress.",
+          image: '/wormhole/tiles/thx20261126-v6-2.jpg',
+        },
+        {
+          text: 'Kavi Reddy: I am thankful for all the soil organisms who help make this world so beautiful, for the evergrowing SFW community of people who understand the value of biodiverse soil life, and for my SFW team for sharing this knowledge across the globe!',
+          image: '/wormhole/tiles/thx20261126-v6-3.jpg',
+        },
+        {
+          text: 'Tommy Tepper: I am thankful for seasons and how in certain seasons it feels nice and cozy to go dormant and to rest more. Similar to what microbes do, in how they move into dormancy and form cysts or spores during certain periods. I am thankful for rest and how certain times of the year encourage or force us to rest so that we are ready when spring (the busy season) comes.',
+          image: '/wormhole/tiles/thx20261126-v6-4.jpg',
+        },
+        {
+          text: "Ayşen Ustunay: This Thanksgiving, I'm especially grateful for the opportunity to work with many of my students. I want to share the journey about one of my students.\n\nShe is incredibly dedicated, and her journey has truly inspired me. Without land of her own, she faced one difficulty after another, from finding a place to make her compost to losing a farm opportunity just when she was ready to begin her field trial. …",
+          image: '/wormhole/tiles/thx20261126-v6-5.jpg',
+        },
+        {
+          text: 'Ayşen Ustunay: … Yet, she never complained or lost focus. She kept going, found another opportunity through a friend in another country, and even arranged to have part of her compost shipped there!\n\nKnowing that she is now happy and supported by her friends and family, while performing her field trial makes me so happy. I feel genuinely honored to be part of her journey. …',
+          image: '/wormhole/tiles/thx20261126-v6-6.jpg',
+        },
+        {
+          text: 'Ayşen Ustunay: … Students like her remind me how much determination and perseverance people can show when they truly believe in what they are doing.\n\nDr. Elaine would be so proud of her!',
+          image: '/wormhole/tiles/thx20261126-v6-7.jpg',
+        },
+        {
+          text: "Casey Williams: I am grateful simply for being able to be part of the change. I've always wanted to make a positive difference in the field of agriculture, in as large a way as possible. From where I stand in life at the moment, I'm able to do so in an ever expanding way. Additionally, I have the opportunity to continue to learn, gaining a greater depth of knowledge in this field, which fulfills my love of learning and also expands my capacity for helping heal the world's soils through education and direct action.",
+          image: '/wormhole/tiles/thx20261126-v6-8.jpg',
+        },
+        {
+          text: 'Stephanie McDaniel: Feeling extreme gratitude for my deepening connection to the earth and all its living creatures, big and microscopic. This soil food web experience has given me even more connection and understanding for interests and hobbies I have even beyond gardening. Cooking, sourdough, fermentation of all sorts, it all has benefitted from understanding what Dr. Elaine taught in the Foundation Courses! I have enjoyed bringing it into the raising of my children. Including conversations that provide a deeper understanding of how it is all connected and how the microscopic world holds it all together has been fun and joyful.',
+          image: '/wormhole/tiles/thx20261126-v6-9.jpg',
+        },
+        {
+          text: 'Carla Portugal: I feel blessed to have many reasons to be thankful. This year, I am specially grateful to be part of so many learning and teaching experiences. I am exploring co-adjacent fields of holistic knowledge and integrating it, building a broader view of life. I have been passionate about life since I can remember and this year I am building the best version yet of a life dedicated to learning, teaching, guiding and being guided, working with and being inspired by every person who enters my life. May this be the best year so far!',
+          image: '/wormhole/tiles/thx20261126-v6-10.jpg',
+        },
+        {
+          text: 'Delvin Solkinson: I am so thankful for all the extraordinary people I get to learn with from Africa, Asia, Europe, Oceania, North America and South America, truly a global classroom. This diversity of perspectives from farmers, gardeners, homesteaders and people moving toward deeper nature connection creates a rich and vibrant community of practice and learning. What a joy it is to use technology to connect deeper with people around the world and to get support to connect deeper with nature where I live.',
+          image: '/wormhole/tiles/thx20261126-v6-11.jpg',
+        },
+      ],
+      visual_note:
+        "Family: cut-paper fall frame (Linnea, 9 Nov). Cover: 'We are thankful for' and words from the staff answers. One slide per person with photo, name and full answer (spelling typos fixed); Ayşen's answer runs over three slides, 11 slides in all. Photo, name and text centred as one block with even gaps; type 42 to 52 px depending on answer length. Every text box editable. Built with tools/wormhole-visuals/thanksgiving_staff.py. Deck: decks/26-11-2026-what-we-are-thankful-for-v6.pptx.",
+    },
+    reason: 'Linnea, 9 Nov: better spacing.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);

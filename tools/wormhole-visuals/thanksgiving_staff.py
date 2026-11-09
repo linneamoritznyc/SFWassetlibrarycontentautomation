@@ -128,16 +128,36 @@ def frame_cutouts(d, k, x0, y0, x1, y1, seed, sc=1.0):
 
 
 def staff_slide(d, k, name, photo, fy, text, seed):
-    """Small framed photo at the top so the whole answer fits below it, never under 42 px."""
+    """Photo, name and answer centred as one block with fixed gaps (Linnea, 9 Nov: spacing). Short answers get a
+    bigger photo and bigger type; the text never goes under 42 px."""
+    from bundle_three_styles_v12 import height
     d.bg(k, paper(400 + k), name="Background: Organic Cream")
-    size, y0 = 300, 60
-    x0 = (W - size) // 2
-    d.put(k, f"Photo: {name}", framed(photo, fy, size, border=10), x0 - 30, y0 - 30, shadowed=False, anchor="tl")
-    frame_cutouts(d, k, x0, y0, x0 + size, y0 + size, seed, sc=0.6)
-    T(d, k, "Name", name, 72, y0 + size + 30, 936, 80, 66, color=BROWN)
-    top = y0 + size + 30 + 80 + 10
-    T(d, k, "Quote", text, 72, top, 936, 1180 - top, 48, bold=False, color=INK, lh=1.2, mn=42)
-    logo(d, k, w=140)
+    TOP, BOT = 110, 1160            # room above for the leaves, below for the acorns and the logo
+    G1, G2, NAME_H, TW = 62, 16, 80, 920
+    best = None
+    for min_ps in (270, 220):   # readable type first, then the biggest photo that still fits
+        for size in (52, 50, 48, 46, 44, 42):
+            th = height(text, size, TW, bold=False, lh=1.2)
+            ps = min(470, BOT - TOP - (G1 + NAME_H + G2 + th))
+            if ps >= min_ps:
+                best = (size, th, ps)
+                break
+        if best:
+            break
+    if best is None:
+        raise SystemExit(f"{name}: answer too long for one slide")
+    size, th, ps = best
+    ps = int(ps)
+    total = ps + G1 + NAME_H + G2 + th
+    y0 = round(TOP + (BOT - TOP - total) / 2)
+    x0 = (W - ps) // 2
+    d.put(k, f"Photo: {name}", framed(photo, fy, ps, border=12), x0 - 30, y0 - 30, shadowed=False, anchor="tl")
+    frame_cutouts(d, k, x0, y0, x0 + ps, y0 + ps, seed, sc=ps / 520)
+    y = y0 + ps + G1
+    T(d, k, "Name", name, 72, y, 936, NAME_H, 66, color=BROWN)
+    y += NAME_H + G2
+    T(d, k, "Quote", text, (W - TW) // 2, y, TW, round(th) + 8, size, bold=False, color=INK, lh=1.2, mn=size)
+    logo(d, k, w=150)
 
 
 def cover(d):
@@ -167,8 +187,8 @@ def cover(d):
         y += h + 18
     fall = [(90, 80, 150, -30, "leaves-07"), (990, 80, 160, 25, "oak-25"), (60, 520, 120, 40, "leaves-00"),
             (1025, 470, 130, -20, "oak-21"), (80, 900, 110, 60, "oak-23"), (1010, 860, 140, -35, "leaves-04"),
-            (520, 1230, 110, 15, "oak-24"), (150, 1215, 150, -10, "acorns-13"), (330, 1250, 120, 30, "mushrooms-small"),
-            (760, 1235, 120, 5, "leaves-08")]
+            (470, 1235, 110, 15, "oak-24"), (130, 1215, 150, -10, "acorns-13"), (300, 1250, 120, 30, "mushrooms-small"),
+            (660, 1240, 110, 5, "leaves-08")]
     for i, (cx, cy, w, r, n) in enumerate(fall):
         d.put(0, f"Falling leaf {i + 1}", piece(n, w), cx, cy, rot=r, shadowed=False)
     logo(d, 0)
@@ -180,9 +200,11 @@ def slides():
     for name, photo, fy, _ in STAFF:
         t = FULL[name]
         if name.startswith("Ayşen"):
-            cut = t.index("Yet, she never")   # split mid-story, at a sentence, so both halves fit
-            out.append((name, photo, fy, t[:cut].rstrip() + " \u2026"))
-            out.append((name, photo, fy, "\u2026 " + t[cut:]))
+            # her answer runs over three slides, split at sentences so each fits with readable type
+            c1, c2 = t.index("Yet, she never"), t.index("Students like her")
+            out.append((name, photo, fy, t[:c1].rstrip() + " \u2026"))
+            out.append((name, photo, fy, "\u2026 " + t[c1:c2].rstrip() + " \u2026"))
+            out.append((name, photo, fy, "\u2026 " + t[c2:]))
         else:
             out.append((name, photo, fy, t))
     return out
