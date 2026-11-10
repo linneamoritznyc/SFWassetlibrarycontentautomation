@@ -243,14 +243,13 @@ def small_business(v):
     y = T(d, 1, "Quote", "Most people have never seen the microbes that make up the soil food web, so I show "
           "pictures and do live microscope demonstrations", M, 320, TW, 460, 62, color=BROWN, align="left", lh=1.12)
     T(d, 1, "Name", "Colleen Dempster", M, round(y) + 30, TW, 70, 52, bold=False, color=INK, align="left")
+    T(d, 1, "Reports", "More than 300\nmicrobial reports\nfrom her lab", M, round(y) + 120, 420, 200, 52, bold=False,
+      color=GREEN, align="left", lh=1.16)
     D2 = 470
-    ph2 = Image.new("RGBA", (D2 * 2, D2 * 2), (0, 0, 0, 0))
-    dr2 = ImageDraw.Draw(ph2)
-    dr2.ellipse((0, 0, D2 * 2 - 1, D2 * 2 - 1), fill=(226, 221, 211, 255), outline=(40, 32, 30, 255), width=18)
-    d.put(1, "Photo space: one of Colleen's own micrographs", ph2.resize((D2, D2), Image.LANCZOS),
+    # Colleen's own micrograph from rewildsoils.com Soils Lab page ("Alpha Compost 7mo Main Assessment 400X")
+    d.put(1, "Micrograph from Colleen's lab: nematode in compost, 400x",
+          eyepiece("/home/user/sfwlib/social/rewild/lab/7a556d32bd164c89a18e7d39ed602b7b.jpg", D2, 0.42, 0.5, 1.0),
           W - 90 - D2, H - 90 - D2, shadowed=False, anchor="tl")
-    T(d, 1, "Photo space label", "PHOTO: one of\nColleen\u2019s own\nmicrographs", W - 90 - D2, H - 90 - D2 // 2 - 80,
-      D2, 170, 44, bold=False, color=BROWN, lh=1.12)
     logo(d, 1, white=False, w=140, x=M, y=H - 80 - 140)
 
     # 3. her path, starting at 2022 (Allison: check she is happy for the stay-at-home line to be public)
@@ -263,10 +262,11 @@ def small_business(v):
     mic = mic.crop(al.getbbox())
     mic = mic.resize((round(mic.width * 320 / mic.height), 320), Image.LANCZOS)
     d.put(2, "Microscope drawing", mic, W - 100 - mic.width, 80, shadowed=False, anchor="tl")
-    steps = [("2022", "started Rewild Soils"),
-             ("Since then", "analysed more than 300 soil and compost samples, re-certified as a Soil Food Web lab every year"),
-             ("Now", "finishing the last steps to become a Soil Food Web Consultant")]
-    y, xs = 440, M + 90
+    # dates from rewildsoils.com (About and homepage, read 10 Nov)
+    steps = [("2018", "making compost and compost\ntea, and analysing samples"),
+             ("2022", "her lab became Soil Food Web\ncertified, re-certified every year"),
+             ("Now", "in the final stages of the Soil\nFood Web Consultant Program")]
+    y, xs = 380, M + 90
     tops = []
     for i, (h1, h2) in enumerate(steps):
         tops.append(y)
@@ -275,13 +275,13 @@ def small_business(v):
         dh = height(h2, 52, 740, bold=False, lh=1.18)
         T(d, 2, f"Step {i + 1} text", h2, xs, y + round(hh) + 10, 740, dh + 6, 52, bold=False, color=INK,
           align="left", lh=1.18)
-        y += round(hh + 10 + dh) + 56
+        y += round(hh + 10 + dh) + 46
     rect(d, 2, "Path line", M + 21, tops[0] + 40, 3, tops[-1] - tops[0], rgb(BROWN) + (255,))
     for i, ty in enumerate(tops):
         rect(d, 2, f"Path node {i + 1}", M, ty + 18, 44, 44, rgb(CREAM) + (255,), r=22, outline=rgb(BROWN) + (255,),
              width=3)
         rect(d, 2, f"Path node {i + 1} centre", M + 12, ty + 30, 20, 20, rgb(GREEN) + (255,), r=10)
-    sfw(2)
+    logo(d, 2, white=False, w=130, x=W - 80 - 130, y=H - 70 - 130)
 
     # 4. her words on a plain page (Allison: text over the fungal photo was hard to read)
     page(3)
