@@ -66,34 +66,17 @@ def photo_box(d, k, label, x, y, w, h, dark=False):
 
 # ---------------- 1. nematodes (p24), Stephanie's comment ----------------
 def nematodes(v):
-    d = Deck("p24", 3, f"soil-in-numbers-nematodes-{v}", "2026-11-11")
+    """One slide (Linnea, 10 Nov: one picture, no green boxes). The nematode on black with the text set straight on
+    the black: cream headline, the number in mint, credit in grey. Sizes 70 / 96 / 46."""
+    d = Deck("p24", 1, f"soil-in-numbers-nematodes-{v}", "2026-11-16")
     first = Image.open(os.path.join(TILES, "p24-v2-1.jpg")).convert("RGB")
     black = Image.new("RGB", (W, H), (0, 0, 0))
-    black.paste(first.crop((0, 170, W, 860)), (0, 270))
+    black.paste(first.crop((0, 170, W, 860)), (0, 300))
     d.bg(0, black.convert("RGBA"), name="Photo: nematode")
-    hh = height("The most common animal on earth", 86, 900)
-    T(d, 0, "Headline", "The most common animal on earth", 72, 110, 936, hh + 6, 86, color=CREAM)   # centred
-    bh = height("440 quintillion nematodes", 84, 820)
-    top = 930
-    rect(d, 0, "Green box", 90, top, 900, round(bh) + 80, rgb(GREEN) + (255,))
-    T(d, 0, "Details", "440 quintillion nematodes", 72, top + 40, 936, bh + 6, 84, color=CREAM)
-    T(d, 0, "Credit", "Photo: Soil Food Web Foundation", 72, top + round(bh) + 100, 936, 56, 42, bold=False,
-      color="#CFC8BC", mn=42)
-    logo(d, 0, w=140)
-    for k, (f, text, credit) in enumerate([
-            ("Bacterial-feeding nematode (omnivore), 40x obj, Johannes Veith.jpg", "About 57 billion for every person alive",
-             "Photo: Johannes Veith"),
-            ("Bacterial-feeding nematode (omnivore), 40x obj, Keisha Wheeler.jpg", "Most feed on bacteria and fungi",
-             "Photo: Keisha Wheeler")], start=1):
-        ph = ImageOps.exif_transpose(Image.open(f"{NEW}/{f}")).convert("RGB")
-        d.bg(k, cover(ph, W, H, 0.5, 0.45).convert("RGBA"), name="Photo: nematode")
-        bh = height(text, 84, 820)
-        top = H - 230 - round(bh)
-        rect(d, k, "Green box", 90, top, 900, round(bh) + 80, rgb(GREEN) + (255,))
-        T(d, k, "Headline", text, 72, top + 40, 936, bh + 6, 84, color=CREAM)
-        rect(d, k, "Credit box", 290, top + round(bh) + 100, 500, 60, rgb(GREEN) + (255,))
-        T(d, k, "Credit", credit, 290, top + round(bh) + 104, 500, 56, 42, bold=False, color=CREAM, mn=42)
-        logo(d, k, w=140)
+    T(d, 0, "Headline", "The most common\nanimal on earth", 72, 120, 936, 170, 70, color=CREAM, lh=1.08)
+    T(d, 0, "Number", "440 quintillion\nnematodes", 72, 990, 936, 210, 96, color=MINT, lh=1.0, mn=90)
+    T(d, 0, "Credit", "Photo: Soil Food Web Foundation", 72, H - 90, 936, 56, 42, bold=False, color="#9C968C", mn=42)
+    logo(d, 0, w=130)
     return d
 
 
