@@ -52,13 +52,16 @@ def build(v):
     rect(d, 0, "Photo space", 80, 80, W - 160, H - 160, rgb("#E2DDD3") + (255,))
     T(d, 0, "Photo space label", "PHOTO: the conference speaker grid,\nunchanged (Linnea uploads)", 72, 600, 936, 150,
       MED, bold=False, color=BROWN)
-    # 2. Carla's session card, unchanged, fitted inside the frame
+    # 2. Carla's session card, unchanged, as large as the frame allows, with a heading and the date
     page(d, 1)
+    T(d, 1, "Headline", "Carla speaks at\nFood as Medicine for All", 72, 120, 936, 170, BIG, color=BROWN, lh=1.06)
     fl = ImageOps.exif_transpose(Image.open(FLYER)).convert("RGB")
-    fw = W - 160
+    fw = W - 120
     fl = fl.resize((fw, round(fl.height * fw / fl.width)), Image.LANCZOS)
-    d.put(1, "Carla's session card (from the organisers)", fl.convert("RGBA"), 80, (H - fl.height) // 2,
-          shadowed=False, anchor="tl")
+    d.put(1, "Carla's session card (from the organisers)", fl.convert("RGBA"), 60, 340, shadowed=True, anchor="tl")
+    T(d, 1, "Date", "Sunday 15 November, 7 to 7:45am Pacific", 72, 340 + fl.height + 50, 936, 70, MED, bold=False,
+      color=BROWN)
+    sfw(d, 1)
     # 3. plants have a gut microbiome too (pre-cropped squares around each organism, from the microbe library)
     page(d, 2)
     T(d, 2, "Headline", "Plants have a gut\nmicrobiome too", 72, 96, 936, 170, BIG, color=BROWN, lh=1.06)
@@ -66,32 +69,32 @@ def build(v):
             ("crop-fungal-hyphae-tanja-dekker.jpg", "Fungi \u00b7 Tanja Dekker"),
             ("crop-nematode-sid-jensen.jpg", "Nematode \u00b7 Sid Jensen"),
             ("crop-ciliate-gerri-gassert.jpg", "Protozoa \u00b7 Gerri Gassert")]
-    D = 310
+    D = 320
     for i, (f, cr) in enumerate(mics):
         cx = W // 2 + (-1 if i % 2 == 0 else 1) * 215
-        top = 290 + (i // 2) * 395
+        top = 270 + (i // 2) * 405
         d.put(2, "Micrograph: " + cr, eyepiece(f"{MIC}/{f}", D, 0.5, 0.5, 1.0), cx - D // 2, top,
               shadowed=False, anchor="tl")
         T(d, 2, f"Credit {i + 1}", cr, cx - 212, top + D + 8, 424, 60, SMALL, bold=False, color=BROWN, mn=SMALL)
-    T(d, 2, "Line", "The soil food web feeds the plant,\nlike gut microbes feed us", 72, 1060, 936, 130, MED,
+    T(d, 2, "Line", "The soil food web feeds the plant,\nlike gut microbes feed us", 72, 1080, 936, 130, MED,
       bold=False, color=BROWN, lh=1.16)
     sfw(d, 2)
     # 4. from soil to plate
     page(d, 3)
-    T(d, 3, "Headline", "From soil to plate", 72, 220, 936, 90, BIG, color=BROWN)
+    T(d, 3, "Headline", "From soil to plate", 72, 170, 936, 90, BIG, color=BROWN)
     steps = [("hands", "Living\nsoil"), ("leaves", "Healthy\nplant"), ("harvest-basket", "Nutritious\nfood")]
-    CW = 310
+    CW = 320
     x0 = (W - 3 * CW) // 2
     for i, (art, lab) in enumerate(steps):
-        im = drawing(art, 290)
-        if im.width > 275:
-            im = im.resize((275, round(im.height * 275 / im.width)), Image.LANCZOS)
+        im = drawing(art, 360)
+        if im.width > 300:
+            im = im.resize((300, round(im.height * 300 / im.width)), Image.LANCZOS)
         cx = x0 + i * CW + CW // 2
-        d.put(3, f"Drawing {i + 1}", im, cx - im.width // 2, 400 + (290 - im.height) // 2, shadowed=False, anchor="tl")
-        T(d, 3, f"Step {i + 1}", lab, cx - 150, 730, 300, 130, MED, bold=False, color=BROWN, lh=1.12)
+        d.put(3, f"Drawing {i + 1}", im, cx - im.width // 2, 330 + (360 - im.height) // 2, shadowed=False, anchor="tl")
+        T(d, 3, f"Step {i + 1}", lab, cx - 150, 720, 300, 130, MED, bold=False, color=BROWN, lh=1.12)
         if i < 2:
-            T(d, 3, f"Arrow {i + 1}", "\u2192", cx + CW // 2 - 40, 510, 80, 80, BIG, color=GREEN)
-    T(d, 3, "Line", "Carla explains how soil biology\nshapes the nutrients in our food", 72, 960, 936, 130, MED,
+            T(d, 3, f"Arrow {i + 1}", "\u2192", cx + CW // 2 - 45, 460, 90, 100, BIG, color=GREEN)
+    T(d, 3, "Line", "Carla explains how soil biology\nshapes the nutrients in our food", 72, 930, 936, 130, MED,
       bold=False, color=BROWN, lh=1.16)
     sfw(d, 3)
     # 5. watch Carla live
