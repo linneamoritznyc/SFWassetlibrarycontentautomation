@@ -304,12 +304,11 @@ def small_business(v):
     rect(d, 4, "Link in bio outline", (W - pw5) // 2, round(y) + 40, pw5, 96, (0, 0, 0, 0), r=48,
          outline=rgb(GREEN) + (255,), width=3)
     T(d, 4, "Link in bio", "Link in bio", 72, round(y) + 40 + 12, 936, 70, 52, color=GREEN)
-    rect(d, 4, "Thanks rule", (W - 120) // 2, 980, 120, 2, rgb(BROWN) + (255,))
-    d.text(4, "Thanks", "WITH THANKS TO COLLEEN DEMPSTER", (W - 700) // 2, 1004, 700, 60, 46, kind="pathway",
+    rect(d, 4, "Thanks rule", (W - 120) // 2, 1010, 120, 2, rgb(BROWN) + (255,))
+    d.text(4, "Thanks", "WITH THANKS TO COLLEEN DEMPSTER", (W - 700) // 2, 1034, 700, 60, 46, kind="pathway",
            italic=False, color=GREEN, lh=1.0, align="center", track=4)
     l5 = lg.resize((230, round(lg.height * 230 / lg.width)), Image.LANCZOS)
-    d.put(4, "Rewild Soils logo", l5, (W - 230) // 2, 1062, shadowed=False, anchor="tl")
-    T(d, 4, "Website", "rewildsoils.com", 72, 1062 + l5.height + 4, 936, 70, 50, bold=False, color=INK)
+    d.put(4, "Rewild Soils logo", l5, (W - 230) // 2, 1100, shadowed=False, anchor="tl")
     logo(d, 4, white=False, w=120, x=W - 80 - 120, y=H - 80 - 120)
     return d
 
