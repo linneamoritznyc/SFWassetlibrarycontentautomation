@@ -284,7 +284,7 @@ def small_business(v):
 
     # 6. learn it yourself
     page(5)
-    y = T(d, 5, "Headline", "The Foundation Courses teach you to work out what your soil needs", M, 150, TW, 340, 73,
+    y = T(d, 5, "Headline", "Our Foundation Courses teach you to work out what your soil needs", M, 150, TW, 340, 73,
           color=BROWN, align="left", lh=1.08)
     y = T(d, 5, "Details", "Learn to assess bacteria, fungi, protozoa, and nematodes", M, round(y) + 34, 760, 140, 54,
           bold=False, color=INK, align="left", lh=1.18)
