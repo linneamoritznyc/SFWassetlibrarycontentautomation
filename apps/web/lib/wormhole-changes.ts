@@ -13010,6 +13010,12 @@ export const CHANGES: Change[] = [
     },
     reason: 'Linnea, 10 Nov: say Our Foundation Courses.',
   },
+  {
+    key: '2026-11-10 p24 nematodes to mon 16',
+    post: 'p24',
+    set: { iso_date: '2026-11-16', date_tbd: false },
+    reason: 'Linnea, 10 Nov: the nematodes post (v7, Stephanie comment done) goes out Mon 16 Nov.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);
