@@ -44,8 +44,7 @@ def wave_pair():
     rises to the seam, dips in slide 3 and sweeps up to the right edge. A lighter wave sits just above for depth.
     Returns (piece for slide 2, piece for slide 3), each W x H."""
     from PIL import ImageDraw
-    pts = [(-40, 1400), (313, 1345), (700, 1185), (1080, 1110), (1320, 1190), (1650, 1290), (1920, 1190),
-           (2200, 980)]
+    pts = [(-60, 1260), (540, 1175), (1080, 1095), (1560, 1115), (1880, 1130), (2220, 1040)]   # one gentle swell
 
     def smooth(p, n=40):
         out = []
@@ -62,7 +61,7 @@ def wave_pair():
     k = 2
     strip = Image.new("RGBA", (2 * W * k, H * k), (0, 0, 0, 0))
     dr = ImageDraw.Draw(strip)
-    for dy, col in ((-55, (89, 166, 108, 150)), (0, (21, 104, 38, 240))):
+    for dy, col in ((-28, (89, 166, 108, 170)), (0, (21, 104, 38, 245))):
         line = [(x * k, (y + dy) * k) for x, y in smooth(pts)]
         dr.polygon(line + [(2 * W * k + 80, H * k + 50), (-80, H * k + 50)], fill=col)
     strip = strip.resize((2 * W, H), Image.LANCZOS)
@@ -87,7 +86,7 @@ def build(v):
     T(d, 1, "Text", t2, 80, 90, 900, 330, 56, bold=False, color=CREAM, align="left", lh=1.22)
     w2, w3 = wave_pair()
     d.put(1, "Green wave", w2, 0, 0, shadowed=False, anchor="tl")
-    logo(d, 1, W - 60 - 170, H - 50 - 170)
+    logo(d, 1, W - 60 - 170, H - 36 - 170)
     # 3 photo only
     # tight on Suzanne, the man in the background cropped out (Linnea, 10 Nov)
     sf = ImageOps.exif_transpose(Image.open(f"{V}/suzanne-conference-walk.jpg")).convert("RGB")
@@ -97,7 +96,7 @@ def build(v):
     sf = sf.crop((0, y0, cw, y0 + ch)).resize((W, H), Image.LANCZOS)
     d.bg(2, grade(sf).convert("RGBA"), name="Photo")
     d.put(2, "Green wave", w3, 0, 0, shadowed=False, anchor="tl")
-    logo(d, 2, W - 60 - 170, H - 50 - 170)
+    logo(d, 2, W - 60 - 170, H - 36 - 170)
     return d
 
 
