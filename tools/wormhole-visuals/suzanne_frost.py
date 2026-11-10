@@ -172,7 +172,6 @@ def field_bg(fx, seed):
     a += (np.clip(1 - r / 0.5, 0, 1) ** 2 * 30) * (yy < hz / H)          # low sun glow on the horizon
     a += np.random.default_rng(seed).normal(0, 2.2, (H, W, 1)).astype(np.float32)
     im = Image.fromarray(a.clip(0, 255).astype("uint8")).convert("RGBA")
-    im.alpha_composite(furrow_grid(hz + 6, hz))
     return im
 
 
