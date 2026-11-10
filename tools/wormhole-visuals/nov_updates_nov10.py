@@ -297,10 +297,13 @@ def small_business(v):
 
     # 6. learn it yourself: a real photo of someone at the microscope
     page(5)
-    cl = ImageOps.exif_transpose(Image.open("/home/user/photos/past-workshop-images/accelerator-workshop-february-2026/"
-                                            "accelerator-workshop-february-2026-04-at-the-microscope.jpg")).convert("RGB")
-    d.put(5, "Photo: a student at the microscope", cover(cl, W - 160, 330, 0.5, 0.3).convert("RGBA"), 80, 80,
-          shadowed=False, anchor="tl")
+    la6 = Image.open("/home/user/sfwlib/social/lineart/online.png").convert("L")
+    al6 = la6.point(lambda v: max(0, min(255, int((v - 40) * 1.6)))).filter(ImageFilter.MaxFilter(3))
+    lap = Image.new("RGBA", la6.size, rgb(BROWN) + (0,))
+    lap.putalpha(al6)
+    lap = lap.crop(al6.getbbox())
+    lap = lap.resize((round(lap.width * 300 / lap.height), 300), Image.LANCZOS)
+    d.put(5, "Drawing: online lesson on a laptop", lap, (W - lap.width) // 2, 110, shadowed=False, anchor="tl")
     y = T(d, 5, "Headline", "Our Foundation Courses\nteach you to work out\nwhat your soil needs", M, 460, TW, 300, 66,
           color=BROWN, align="left", lh=1.06)
     y = T(d, 5, "Details", "Learn to assess bacteria, fungi, protozoa, and nematodes", M, round(y) + 24, 760, 140, 52,
