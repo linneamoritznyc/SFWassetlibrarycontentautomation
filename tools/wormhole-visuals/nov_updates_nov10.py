@@ -237,21 +237,34 @@ def small_business(v):
       52, bold=False, color=INK, align="left", lh=1.18)
     sfw(1)
 
-    # 3. her words, with a second eyepiece view
+    # 3. her words, with an eyepiece view of what she shows people
     page(2)
-    T(d, 2, "Quote mark", "\u201c", M - 6, 260, 200, 200, 240, color=GREEN, align="left")
+    T(d, 2, "Quote mark", "\u201c", M - 6, 110, 200, 200, 240, color=GREEN, align="left")
     y = T(d, 2, "Quote", "Most people have never seen the microbes that make up the soil food web, so I show "
-          "pictures and do live microscope demonstrations", M, 480, TW, 520, 62, color=BROWN, align="left", lh=1.12)
-    T(d, 2, "Name", "Colleen Dempster", M, round(y) + 36, TW, 70, 52, bold=False, color=INK, align="left")
-    sfw(2)
+          "pictures and do live microscope demonstrations", M, 320, TW, 460, 62, color=BROWN, align="left", lh=1.12)
+    T(d, 2, "Name", "Colleen Dempster", M, round(y) + 30, TW, 70, 52, bold=False, color=INK, align="left")
+    D3 = 470
+    d.put(2, "Micrograph: naked amoeba and flagellate, 40x, Jimena Fuentes",
+          eyepiece(f"{MIC}/Naked amoeba (stellate), flagellate, 40x obj, Jimena Fuentes.jpg", D3, 0.62, 0.5, 1.15),
+          W - 90 - D3, H - 90 - D3, shadowed=False, anchor="tl")
+    credit(2, "Naked amoeba and\nflagellate, 40x.\nJimena Fuentes", M, H - 90 - D3 + 60, 380)
+    logo(d, 2, white=False, w=140, x=M, y=H - 80 - 140)
 
-    # 4. her path into the soil food web
+    # 4. her path into the soil food web, with the microscope drawn beside the title
     page(3)
-    T(d, 3, "Headline", "Colleen\u2019s path", M, 130, TW, 90, 73, color=BROWN, align="left")
+    T(d, 3, "Headline", "Colleen\u2019s path", M, 150, 600, 90, 73, color=BROWN, align="left")
+    la = Image.open("/home/user/sfwlib/social/lineart/microscope.png").convert("L").crop((150, 300, 560, 900))
+    al = la.point(lambda v: max(0, min(255, int((v - 40) * 1.6))))
+    mic = Image.new("RGBA", la.size, rgb(BROWN) + (0,))
+    mic.putalpha(al)
+    mic.putalpha(al.filter(ImageFilter.MaxFilter(3)))
+    mic = mic.crop(al.getbbox())
+    mic = mic.resize((round(mic.width * 320 / mic.height), 320), Image.LANCZOS)
+    d.put(3, "Microscope drawing", mic, W - 100 - mic.width, 80, shadowed=False, anchor="tl")
     steps = [("Started slowly", "as a stay-at-home mom, alongside another part-time job"),
              ("2022", "became a Soil Food Web\ncertified lab"),
              ("Now", "finishing the last steps to become a Soil Food Web Consultant")]
-    y, xs = 330, M + 90
+    y, xs = 420, M + 90
     tops = []
     for i, (h1, h2) in enumerate(steps):
         tops.append(y)
@@ -260,7 +273,7 @@ def small_business(v):
         dh = height(h2, 52, 740, bold=False, lh=1.18)
         T(d, 3, f"Step {i + 1} text", h2, xs, y + round(hh) + 10, 740, dh + 6, 52, bold=False, color=INK,
           align="left", lh=1.18)
-        y += round(hh + 10 + dh) + 76
+        y += round(hh + 10 + dh) + 56
     rect(d, 3, "Path line", M + 21, tops[0] + 40, 3, tops[-1] - tops[0], rgb(BROWN) + (255,))
     for i, ty in enumerate(tops):
         rect(d, 3, f"Path node {i + 1}", M, ty + 18, 44, 44, rgb(CREAM) + (255,), r=22, outline=rgb(BROWN) + (255,),
@@ -282,18 +295,21 @@ def small_business(v):
     credit(4, "Fungal hypha, 100x. Marco Trevisan", M, H - 80 - 80, 700)
     sfw(4)
 
-    # 6. learn it yourself
+    # 6. learn it yourself: a real photo of someone at the microscope
     page(5)
-    y = T(d, 5, "Headline", "Our Foundation Courses teach you to work out what your soil needs", M, 150, TW, 340, 73,
-          color=BROWN, align="left", lh=1.08)
-    y = T(d, 5, "Details", "Learn to assess bacteria, fungi, protozoa, and nematodes", M, round(y) + 34, 760, 140, 54,
-          bold=False, color=INK, align="left", lh=1.18)
-    rect(d, 5, "Green pill", M, round(y) + 56, 440, 104, rgb(GREEN) + (255,), r=52)
-    T(d, 5, "Link in bio", "Link in bio", M, round(y) + 56 + 18, 440, 70, 54, color=CREAM)
-    rect(d, 5, "Divider", M, 960, TW, 2, rgb(BROWN) + (255,))
-    T(d, 5, "Thanks", "With thanks to Colleen Dempster", M, 990, TW, 70, 50, bold=False, color=INK, align="left")
-    l6 = lg.resize((300, round(lg.height * 300 / lg.width)), Image.LANCZOS)
-    d.put(5, "Rewild Soils logo", l6, M - 10, 1080, shadowed=False, anchor="tl")
+    cl = ImageOps.exif_transpose(Image.open("/home/user/photos/past-workshop-images/accelerator-workshop-february-2026/"
+                                            "accelerator-workshop-february-2026-04-at-the-microscope.jpg")).convert("RGB")
+    d.put(5, "Photo: a student at the microscope", cover(cl, W - 160, 330, 0.5, 0.3).convert("RGBA"), 80, 80,
+          shadowed=False, anchor="tl")
+    y = T(d, 5, "Headline", "Our Foundation Courses\nteach you to work out\nwhat your soil needs", M, 460, TW, 300, 66,
+          color=BROWN, align="left", lh=1.06)
+    y = T(d, 5, "Details", "Learn to assess bacteria, fungi, protozoa, and nematodes", M, round(y) + 24, 760, 140, 52,
+          bold=False, color=INK, align="left", lh=1.16)
+    rect(d, 5, "Green pill", M, round(y) + 36, 420, 96, rgb(GREEN) + (255,), r=48)
+    T(d, 5, "Link in bio", "Link in bio", M, round(y) + 36 + 14, 420, 70, 52, color=CREAM)
+    T(d, 5, "Thanks", "With thanks to Colleen Dempster", M, 1105, 640, 60, 46, bold=False, color=INK, align="left")
+    l6 = lg.resize((230, round(lg.height * 230 / lg.width)), Image.LANCZOS)
+    d.put(5, "Rewild Soils logo", l6, M - 8, 1165, shadowed=False, anchor="tl")
     sfw(5)
     return d
 
