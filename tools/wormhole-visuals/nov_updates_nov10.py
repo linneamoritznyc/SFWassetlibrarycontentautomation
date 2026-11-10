@@ -218,9 +218,12 @@ def small_business(v):
     page(0)
     d.put(0, "Photo: Colleen at a Compost Toronto microscope event", cover(ph, W - 2 * 80, 700, 0.45, 0.45).convert("RGBA"),
           80, 80, shadowed=False, anchor="tl")
-    T(d, 0, "Eyebrow", "Small Business Saturday", M, 840, TW, 66, 52, color=GREEN, align="left")
-    y = T(d, 0, "Headline", "Meet Colleen\nDempster", M, 915, 640, 190, 86, color=BROWN, align="left", lh=1.06)
-    T(d, 0, "Details", "Rewild Soils, Uxbridge, Ontario", M, round(y) + 22, 700, 70, 52, bold=False, color=INK,
+    # the brand's label face (Pathway Gothic caps) for the eyebrow, with a fine rule running to the frame
+    d.text(0, "Eyebrow", "SMALL BUSINESS SATURDAY", M, 838, 580, 66, 54, kind="pathway", italic=False, color=GREEN,
+           lh=1.0, align="left", track=4)
+    rect(d, 0, "Eyebrow rule", M + 566, 868, TW - 566, 2, rgb(GREEN) + (255,))
+    y = T(d, 0, "Headline", "Colleen\nDempster", M, 920, TW, 190, 86, color=BROWN, align="left", lh=1.0)
+    T(d, 0, "Details", "Rewild Soils, Uxbridge, Ontario", M, round(y) + 26, 700, 70, 52, bold=False, color=INK,
       align="left")
     sfw(0)
 
@@ -295,25 +298,29 @@ def small_business(v):
     credit(4, "Fungal hypha, 100x. Marco Trevisan", M, H - 80 - 80, 700)
     sfw(4)
 
-    # 6. learn it yourself: a real photo of someone at the microscope
+    # 6. learn it yourself: centred, quiet, the laptop drawing on top
     page(5)
     la6 = Image.open("/home/user/sfwlib/social/lineart/online.png").convert("L")
     al6 = la6.point(lambda v: max(0, min(255, int((v - 40) * 1.6)))).filter(ImageFilter.MaxFilter(3))
     lap = Image.new("RGBA", la6.size, rgb(BROWN) + (0,))
     lap.putalpha(al6)
     lap = lap.crop(al6.getbbox())
-    lap = lap.resize((round(lap.width * 300 / lap.height), 300), Image.LANCZOS)
-    d.put(5, "Drawing: online lesson on a laptop", lap, (W - lap.width) // 2, 110, shadowed=False, anchor="tl")
-    y = T(d, 5, "Headline", "Our Foundation Courses\nteach you to work out\nwhat your soil needs", M, 460, TW, 300, 66,
-          color=BROWN, align="left", lh=1.06)
-    y = T(d, 5, "Details", "Learn to assess bacteria, fungi, protozoa, and nematodes", M, round(y) + 24, 760, 140, 52,
-          bold=False, color=INK, align="left", lh=1.16)
-    rect(d, 5, "Green pill", M, round(y) + 36, 420, 96, rgb(GREEN) + (255,), r=48)
-    T(d, 5, "Link in bio", "Link in bio", M, round(y) + 36 + 14, 420, 70, 52, color=CREAM)
-    T(d, 5, "Thanks", "With thanks to Colleen Dempster", M, 1105, 640, 60, 46, bold=False, color=INK, align="left")
-    l6 = lg.resize((230, round(lg.height * 230 / lg.width)), Image.LANCZOS)
-    d.put(5, "Rewild Soils logo", l6, M - 8, 1165, shadowed=False, anchor="tl")
-    sfw(5)
+    lap = lap.resize((round(lap.width * 250 / lap.height), 250), Image.LANCZOS)
+    d.put(5, "Drawing: online lesson on a laptop", lap, (W - lap.width) // 2, 130, shadowed=False, anchor="tl")
+    y = T(d, 5, "Headline", "Our Foundation Courses\nteach you to work out\nwhat your soil needs", 72, 450, 936, 260, 68,
+          color=BROWN, lh=1.08)
+    y = T(d, 5, "Details", "Learn to assess bacteria, fungi,\nprotozoa, and nematodes", 72, round(y) + 28, 936, 140, 52,
+          bold=False, color=INK, lh=1.16)
+    pw6 = 400
+    rect(d, 5, "Link in bio outline", (W - pw6) // 2, round(y) + 44, pw6, 96, (0, 0, 0, 0), r=48,
+         outline=rgb(GREEN) + (255,), width=3)
+    T(d, 5, "Link in bio", "Link in bio", 72, round(y) + 44 + 12, 936, 70, 52, color=GREEN)
+    rect(d, 5, "Thanks rule", (W - 120) // 2, 1020, 120, 2, rgb(BROWN) + (255,))
+    d.text(5, "Thanks", "WITH THANKS TO COLLEEN DEMPSTER", (W - 700) // 2, 1046, 700, 60, 46, kind="pathway",
+           italic=False, color=GREEN, lh=1.0, align="center", track=4)
+    l6 = lg.resize((250, round(lg.height * 250 / lg.width)), Image.LANCZOS)
+    d.put(5, "Rewild Soils logo", l6, (W - 250) // 2, 1112, shadowed=False, anchor="tl")
+    logo(d, 5, white=False, w=120, x=W - 80 - 120, y=H - 80 - 120)
     return d
 
 
