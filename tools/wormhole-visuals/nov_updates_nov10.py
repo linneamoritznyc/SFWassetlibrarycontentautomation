@@ -239,14 +239,9 @@ def small_business(v):
 
     # 3. her words, with a second eyepiece view
     page(2)
-    D3 = 380
-    d.put(2, "Micrograph: testate amoeba, 40x, Cameron Radman",
-          eyepiece(f"{MIC}/Testate amoeba, 40x obj, Cameron Radman.jpg", D3, 0.43, 0.68, 1.6),
-          W - 80 - D3, 80, shadowed=False, anchor="tl")
-    credit(2, "Testate amoeba, 40x.\nCameron Radman", W - 80 - D3, 80 + D3 + 10, D3, align="center")
-    T(d, 2, "Quote mark", "\u201c", M - 6, 420, 200, 200, 240, color=GREEN, align="left")
+    T(d, 2, "Quote mark", "\u201c", M - 6, 260, 200, 200, 240, color=GREEN, align="left")
     y = T(d, 2, "Quote", "Most people have never seen the microbes that make up the soil food web, so I show "
-          "pictures and do live microscope demonstrations", M, 640, TW, 520, 62, color=BROWN, align="left", lh=1.12)
+          "pictures and do live microscope demonstrations", M, 480, TW, 520, 62, color=BROWN, align="left", lh=1.12)
     T(d, 2, "Name", "Colleen Dempster", M, round(y) + 36, TW, 70, 52, bold=False, color=INK, align="left")
     sfw(2)
 
