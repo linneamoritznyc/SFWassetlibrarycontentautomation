@@ -12905,6 +12905,41 @@ export const CHANGES: Change[] = [
     reason:
       'Linnea, 10 Nov: less about what she offers, more about why she is cool and uses our knowledge.',
   },
+  {
+    key: '2026-11-10 x20261128 v19 naturalist page',
+    post: 'x20261128',
+    set: {
+      slides: [
+        {
+          text: 'Small Business Saturday. Meet Colleen Dempster. Rewild Soils, Uxbridge, Ontario',
+          image: '/wormhole/tiles/x20261128-v19-1.jpg',
+        },
+        {
+          text: 'A Soil Food Web certified lab since 2022. Re-certified every year, with more than 300 microbial reports',
+          image: '/wormhole/tiles/x20261128-v19-2.jpg',
+        },
+        {
+          text: 'Most people have never seen the microbes that make up the soil food web, so I show pictures and do live microscope demonstrations. Colleen Dempster',
+          image: '/wormhole/tiles/x20261128-v19-3.jpg',
+        },
+        {
+          text: "Colleen's path. Started slowly, as a stay-at-home mom, alongside another part-time job. 2022: opened a Soil Food Web certified lab. Now: in the final stages of the Soil Food Web Consultant Program",
+          image: '/wormhole/tiles/x20261128-v19-4.jpg',
+        },
+        {
+          text: "Making compost and exploring samples under the microscope will always be something I enjoy. Colleen believes rewilding soils with microbes is about restoring systems and people's connection with the Earth",
+          image: '/wormhole/tiles/x20261128-v19-5.jpg',
+        },
+        {
+          text: 'The Foundation Courses teach you to work out what your soil needs. Learn to assess bacteria, fungi, protozoa, and nematodes. Link in bio. With thanks to Colleen Dempster',
+          image: '/wormhole/tiles/x20261128-v19-6.jpg',
+        },
+      ],
+      visual_note:
+        'Family: naturalist page with eyepiece micrographs. One system across the carousel: cream page, fine brown frame, one left margin, real soil micrographs as round eyepiece views (Robert Kenyon, Cameron Radman testate amoebae; Marco Trevisan fungal hypha, credited on the slides). No tilted photos (Linnea, 10 Nov). About Colleen and why she uses the soil food web, not her services; ends on the Foundation Courses. Built with nov_updates_nov10.py smallbiz. Deck: decks/28-11-2026-small-business-saturday-rewild-soils-v19.pptx.',
+    },
+    reason: 'Linnea, 10 Nov: rebuilt from scratch, never tilt photos.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);

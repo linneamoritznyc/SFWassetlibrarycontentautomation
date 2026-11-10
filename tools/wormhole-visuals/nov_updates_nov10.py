@@ -6,6 +6,8 @@ colours, every text box editable, logo on every slide. Missing photos are marked
   python3 tools/wormhole-visuals/nov_updates_nov10.py <post|all> <version> [tiles dir] [decks dir]
 """
 import math
+
+import numpy as np
 import os
 import sys
 
@@ -164,26 +166,34 @@ def scrim(im, start=0.5, strength=0.78):
     return Image.composite(dark, im.convert("RGB"), g)
 
 
-def reticle(R, ring, disc, line):
-    """A microscope field of view: outer ring, cream disc, faint crosshair with scale ticks."""
-    S = 2 * R + 80
-    im = Image.new("RGBA", (S, S), (0, 0, 0, 0))
-    dr = ImageDraw.Draw(im)
-    dr.ellipse((0, 0, S - 1, S - 1), outline=ring, width=4)
-    dr.ellipse((40, 40, S - 41, S - 41), fill=disc)
-    c = S // 2
-    for a0, a1 in ((c - R + 30, c - 130), (c + 130, c + R - 30)):   # vertical scale above and below the number
-        dr.line((c, a0, c, a1), fill=line, width=2)
-        for yy in range(a0, a1 + 1, 25):
-            t = 16 if (yy - a0) % 75 == 0 else 8
-            dr.line((c - t, yy, c + t, yy), fill=line, width=2)
+MIC = "/home/user/photos/new-2026-10"
+
+
+def eyepiece(path, D, fx=0.5, fy=0.5, zoom=1.0):
+    """A round view down the microscope: circle crop, soft dark vignette at the edge, thin dark rim."""
+    im = ImageOps.exif_transpose(Image.open(path)).convert("RGB")
+    big = cover(im, round(D * zoom), round(D * zoom), fx, fy)
+    o = (big.width - D) // 2
+    im = big.crop((o, o, o + D, o + D))
+    yy, xx = np.mgrid[0:D, 0:D].astype(np.float32)
+    r = np.sqrt((xx - D / 2) ** 2 + (yy - D / 2) ** 2) / (D / 2)
+    shade = np.clip((r - 0.72) / 0.28, 0, 1) ** 2 * 0.75
+    arr = np.asarray(im).astype(np.float32) * (1 - shade[..., None]) + 22 * shade[..., None]
+    im = Image.fromarray(arr.clip(0, 255).astype("uint8")).convert("RGBA")
+    mask = Image.new("L", (D * 4, D * 4), 0)
+    ImageDraw.Draw(mask).ellipse((0, 0, D * 4 - 1, D * 4 - 1), fill=255)
+    im.putalpha(mask.resize((D, D), Image.LANCZOS))
+    rim = Image.new("RGBA", (D * 4, D * 4), (0, 0, 0, 0))
+    ImageDraw.Draw(rim).ellipse((6, 6, D * 4 - 7, D * 4 - 7), outline=(40, 32, 30, 255), width=36)
+    im.alpha_composite(rim.resize((D, D), Image.LANCZOS))
     return im
 
 
 def small_business(v):
-    """Colleen's own answers to the community feature (sent by Linnea 10 Nov) and rewildsoils.com.
-    The post borrows Rewild Soils' hand-drawn botanical look: cream paper, brown ink, the botanical R and fern.
-    Numbers: lab since 2022, annually re-certified, 300+ microbial reports (all from Colleen's note)."""
+    """Colleen Dempster, Rewild Soils (her own answers, sent by Linnea 10 Nov). Linnea: about Colleen and why she
+    uses the soil food web, not her services; never tilt a photo. v16: one design system across the carousel, a
+    cream naturalist's page with a fine brown frame and one left margin, and real soil micrographs as round
+    eyepiece views (Colleen's microscope). Micrograph credits on the slides."""
     d = Deck("x20261128", 6, f"small-business-saturday-rewild-soils-{v}", "2026-11-28")
     ph = ImageOps.exif_transpose(Image.open(RW_PHOTO)).convert("RGB")
     lg = Image.open(f"{RW}/rewild-soils-logo.png").convert("RGBA")
@@ -191,86 +201,105 @@ def small_business(v):
     rr = rr.crop(rr.getchannel("A").point(lambda a: 255 if a > 100 else 0).getbbox())
     fern = lg.crop((386, 15, 462, 330))
     fern = fern.crop(fern.getchannel("A").point(lambda a: 255 if a > 100 else 0).getbbox())
+    M = 110          # the one left margin
+    TW = W - 2 * M   # text width
 
-    def paper(k, seed):
-        d.bg(k, grain(Image.new("RGB", (W, H), CREAM), seed, 4), name="Background: Organic Cream")
+    def page(k):
+        d.bg(k, grain(Image.new("RGB", (W, H), CREAM), 620 + k, 4), name="Background: Organic Cream")
+        rect(d, k, "Page frame", 44, 44, W - 88, H - 88, (0, 0, 0, 0), outline=rgb(BROWN) + (255,), width=2)
 
-    # 1. pinned print + botanical R
-    paper(0, 611)
-    pw, phh = 800, 700
-    pr = Image.new("RGBA", (pw + 32, phh + 32), (255, 253, 248, 255))
-    pr.paste(cover(ph, pw, phh, 0.45, 0.45).convert("RGBA"), (16, 16))
-    d.put(0, "Photo: Compost Toronto microscope event (pinned print)", pr, 92, 86, rot=-2.5, anchor="tl")
-    r1 = rr.resize((330, round(rr.height * 330 / rr.width)), Image.LANCZOS)
-    d.put(0, "Rewild Soils botanical R", r1, W - 72 - 330 + 20, 86 + phh - 250, shadowed=False, anchor="tl")
-    y = T(d, 0, "Headline", "Happy Small\nBusiness Saturday", 72, 880, 936, 190, 84, color=BROWN, lh=1.08)
-    T(d, 0, "Details", "Meet Colleen Dempster\nof Rewild Soils", 72, round(y) + 26, 936, 140, 54, bold=False,
-      color=INK, lh=1.12)
-    logo(d, 0, white=False, w=130, x=W - 56 - 130, y=H - 40 - 130)
+    def credit(k, text, x, y, w=TW, align="left"):
+        T(d, k, "Photo credit", text, x, y, w, 56 * (text.count("\n") + 1), 42, bold=False, color=BROWN, align=align)
 
-    # 2. the lab, under the microscope
-    d.bg(1, grain(Image.new("RGB", (W, H), GREEN), 612, 4), name="Background: Food Web Green")
-    T(d, 1, "Eyebrow", "A Soil Food Web\ncertified lab since", 72, 100, 936, 180, 70, color=CREAM)
-    R = 290
-    d.put(1, "Microscope field of view", reticle(R, rgb(MINT) + (255,), rgb(CREAM) + (255,), rgb(MINT) + (150,)),
-          W // 2 - R - 40, 640 - R - 40, shadowed=False, anchor="tl")
-    T(d, 1, "Big number", "2022", W // 2 - R, 640 - 112, 2 * R, 230, 200, color=GREEN)
-    T(d, 1, "Details", "Re-certified every year, with\nmore than 300 microbial reports", 72, 1010, 936, 140, 54,
-      bold=False, color=CREAM, lh=1.18)
-    logo(d, 1, w=170)
+    def sfw(k):
+        logo(d, k, white=False, w=140, x=W - 80 - 140, y=H - 80 - 140)
 
-    # 3. in her words: showing people the microbes
-    paper(2, 613)
-    f3 = fern.resize((round(fern.width * 330 / fern.height), 330), Image.LANCZOS)
-    d.put(2, "Fern from the Rewild Soils logo", f3, W - 90 - f3.width, 60, shadowed=False, anchor="tl")
-    T(d, 2, "Quote mark", "\u201c", 72, 270, 300, 220, 260, color=GREEN, align="left")
+    # 1. cover: the photo, straight, then the name
+    page(0)
+    d.put(0, "Photo: Colleen at a Compost Toronto microscope event", cover(ph, W - 2 * 80, 700, 0.45, 0.45).convert("RGBA"),
+          80, 80, shadowed=False, anchor="tl")
+    T(d, 0, "Eyebrow", "Small Business Saturday", M, 840, TW, 66, 52, color=GREEN, align="left")
+    y = T(d, 0, "Headline", "Meet Colleen\nDempster", M, 915, 640, 190, 86, color=BROWN, align="left", lh=1.06)
+    T(d, 0, "Details", "Rewild Soils, Uxbridge, Ontario", M, round(y) + 22, 700, 70, 52, bold=False, color=INK,
+      align="left")
+    sfw(0)
+
+    # 2. the lab: an eyepiece view
+    page(1)
+    D = 700
+    d.put(1, "Micrograph: testate amoeba, 40x, Robert Kenyon",
+          eyepiece(f"{MIC}/Testate amoeba (reproducing), 40x obj, Robert Kenyon.jpg", D, 0.52, 0.45, 1.25),
+          (W - D) // 2, 100, shadowed=False, anchor="tl")
+    credit(1, "Testate amoeba, 40x. Robert Kenyon", 0, 100 + D + 14, W, align="center")
+    y = T(d, 1, "Headline", "A Soil Food Web certified lab since 2022", M, 900, TW - 40, 170, 70, color=BROWN,
+          align="left", lh=1.06)
+    T(d, 1, "Details", "Re-certified every year, with more than 300 microbial reports", M, round(y) + 20, 700, 140,
+      52, bold=False, color=INK, align="left", lh=1.18)
+    sfw(1)
+
+    # 3. her words, with a second eyepiece view
+    page(2)
+    D3 = 380
+    d.put(2, "Micrograph: testate amoeba, 40x, Cameron Radman",
+          eyepiece(f"{MIC}/Testate amoeba, 40x obj, Cameron Radman.jpg", D3, 0.43, 0.68, 1.6),
+          W - 80 - D3, 80, shadowed=False, anchor="tl")
+    credit(2, "Testate amoeba, 40x.\nCameron Radman", W - 80 - D3, 80 + D3 + 10, D3, align="center")
+    T(d, 2, "Quote mark", "\u201c", M - 6, 420, 200, 200, 240, color=GREEN, align="left")
     y = T(d, 2, "Quote", "Most people have never seen the microbes that make up the soil food web, so I show "
-          "pictures and do live microscope demonstrations", 100, 550, 880, 620, 62, color=BROWN, align="left", lh=1.14)
-    T(d, 2, "Name", "Colleen Dempster", 100, round(y) + 50, 880, 70, 52, bold=False, color=INK, align="left")
-    logo(d, 2, white=False, w=150)
+          "pictures and do live microscope demonstrations", M, 640, TW, 520, 62, color=BROWN, align="left", lh=1.12)
+    T(d, 2, "Name", "Colleen Dempster", M, round(y) + 36, TW, 70, 52, bold=False, color=INK, align="left")
+    sfw(2)
 
-    # 4. her path into the soil food web (ties to our programs, not her services)
-    d.bg(3, grain(Image.new("RGB", (W, H), GREEN), 614, 4), name="Background: Food Web Green")
-    T(d, 3, "Headline", "Colleen\u2019s path", 72, 130, 936, 100, 73, color=CREAM)
+    # 4. her path into the soil food web
+    page(3)
+    T(d, 3, "Headline", "Colleen\u2019s path", M, 130, TW, 90, 73, color=BROWN, align="left")
     steps = [("Started slowly", "as a stay-at-home mom, alongside another part-time job"),
-             ("2022", "opened a Soil Food Web certified lab"),
+             ("2022", "opened a Soil Food Web\ncertified lab"),
              ("Now", "in the final stages of the Soil Food Web Consultant Program")]
-    y, xs = 340, 260
+    y, xs = 330, M + 90
     tops = []
     for i, (h1, h2) in enumerate(steps):
         tops.append(y)
-        hh = height(h1, 66, 720)
-        T(d, 3, f"Step {i + 1} title", h1, xs, y, 700, hh + 6, 66, color=CREAM, align="left")
-        dh = height(h2, 52, 700, bold=False, lh=1.18)
-        T(d, 3, f"Step {i + 1} text", h2, xs, y + round(hh) + 10, 700, dh + 6, 52, bold=False, color=CREAM,
+        hh = height(h1, 66, 700)
+        T(d, 3, f"Step {i + 1} title", h1, xs, y, 700, hh + 6, 66, color=GREEN, align="left")
+        dh = height(h2, 52, 740, bold=False, lh=1.18)
+        T(d, 3, f"Step {i + 1} text", h2, xs, y + round(hh) + 10, 740, dh + 6, 52, bold=False, color=INK,
           align="left", lh=1.18)
-        y += round(hh + 10 + dh) + 70
-    rect(d, 3, "Path line", 179, tops[0] + 40, 4, tops[-1] - tops[0], rgb(MINT) + (255,))
+        y += round(hh + 10 + dh) + 76
+    rect(d, 3, "Path line", M + 21, tops[0] + 40, 3, tops[-1] - tops[0], rgb(BROWN) + (255,))
     for i, ty in enumerate(tops):
-        rect(d, 3, f"Path dot {i + 1}", 162, ty + 20, 38, 38, rgb(MINT) + (255,), r=19)
-    logo(d, 3, w=170)
+        rect(d, 3, f"Path node {i + 1}", M, ty + 18, 44, 44, rgb(CREAM) + (255,), r=22, outline=rgb(BROWN) + (255,),
+             width=3)
+        rect(d, 3, f"Path node {i + 1} centre", M + 12, ty + 30, 20, 20, rgb(GREEN) + (255,), r=10)
+    sfw(3)
 
-    # 5. in her words: ready when the clients are, and why she does it
-    d.bg(4, grain(Image.new("RGB", (W, H), BROWN), 615, 4), name="Background: Soil Brown")
-    T(d, 4, "Quote mark", "\u201c", 72, 120, 300, 220, 260, color=MINT, align="left")
+    # 5. her words over fungal hyphae, edge to edge inside the frame
+    page(4)
+    hy = ImageOps.exif_transpose(Image.open(f"{MIC}/Fungal hypha, 100x obj, Marco Trevisan.jpg")).convert("RGB")
+    hy = cover(hy, W - 160, H - 160, 0.62, 0.45)
+    hy = Image.blend(hy, Image.new("RGB", hy.size, (244, 241, 234)), 0.45)
+    d.put(4, "Micrograph: fungal hypha, 100x, Marco Trevisan", hy.convert("RGBA"), 80, 80, shadowed=False, anchor="tl")
+    T(d, 4, "Quote mark", "\u201c", M - 6, 150, 200, 200, 240, color=GREEN, align="left")
     y = T(d, 4, "Quote", "Making compost and exploring samples under the microscope will always be something I enjoy",
-          100, 380, 800, 420, 64, color=CREAM, align="left", lh=1.14)
+          M, 380, 800, 420, 66, color=BROWN, align="left", lh=1.1)
     T(d, 4, "Details", "Colleen believes rewilding soils with microbes is about restoring systems and people\u2019s "
-      "connection with the Earth", 100, round(y) + 70, 860, 220, 52, bold=False, color=CREAM, align="left", lh=1.18)
-    logo(d, 4, w=170)
+      "connection with the Earth", M, round(y) + 50, 860, 300, 52, bold=False, color=INK, align="left", lh=1.18)
+    credit(4, "Fungal hypha, 100x. Marco Trevisan", M, H - 80 - 80, 700)
+    sfw(4)
 
-    # 6. learn it yourself (our courses), with thanks to Colleen
-    paper(5, 616)
-    y = T(d, 5, "Headline", "The Foundation Courses teach you to work out what your soil needs", 72, 200, 936, 360, 73,
-          color=BROWN, lh=1.1)
-    y = T(d, 5, "Details", "Learn to assess bacteria, fungi, protozoa, and nematodes", 120, round(y) + 40, 840, 140, 54,
-          bold=False, color=INK, lh=1.18)
-    rect(d, 5, "Green pill", 290, round(y) + 60, 500, 104, rgb(GREEN) + (255,), r=52)
-    T(d, 5, "Link in bio", "Link in bio", 290, round(y) + 60 + 18, 500, 70, 54, color=CREAM)
-    l6 = lg.resize((380, round(lg.height * 380 / lg.width)), Image.LANCZOS)
-    T(d, 5, "Thanks", "With thanks to Colleen Dempster", 72, H - 120 - l6.height - 80, 936, 70, 50, bold=False, color=INK)
-    d.put(5, "Rewild Soils logo", l6, (W - 380) // 2, H - 110 - l6.height, shadowed=False, anchor="tl")
-    logo(d, 5, white=False, w=130)
+    # 6. learn it yourself
+    page(5)
+    y = T(d, 5, "Headline", "The Foundation Courses teach you to work out what your soil needs", M, 150, TW, 340, 73,
+          color=BROWN, align="left", lh=1.08)
+    y = T(d, 5, "Details", "Learn to assess bacteria, fungi, protozoa, and nematodes", M, round(y) + 34, 760, 140, 54,
+          bold=False, color=INK, align="left", lh=1.18)
+    rect(d, 5, "Green pill", M, round(y) + 56, 440, 104, rgb(GREEN) + (255,), r=52)
+    T(d, 5, "Link in bio", "Link in bio", M, round(y) + 56 + 18, 440, 70, 54, color=CREAM)
+    rect(d, 5, "Divider", M, 960, TW, 2, rgb(BROWN) + (255,))
+    T(d, 5, "Thanks", "With thanks to Colleen Dempster", M, 990, TW, 70, 50, bold=False, color=INK, align="left")
+    l6 = lg.resize((300, round(lg.height * 300 / lg.width)), Image.LANCZOS)
+    d.put(5, "Rewild Soils logo", l6, M - 10, 1080, shadowed=False, anchor="tl")
+    sfw(5)
     return d
 
 
