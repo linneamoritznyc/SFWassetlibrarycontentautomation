@@ -226,14 +226,14 @@ def small_business(v):
 
     # 2. the lab: an eyepiece view
     page(1)
-    D = 700
+    D = 640
     d.put(1, "Micrograph: testate amoeba, 40x, Robert Kenyon",
           eyepiece(f"{MIC}/Testate amoeba (reproducing), 40x obj, Robert Kenyon.jpg", D, 0.52, 0.45, 1.25),
           (W - D) // 2, 100, shadowed=False, anchor="tl")
     credit(1, "Testate amoeba, 40x. Robert Kenyon", 0, 100 + D + 14, W, align="center")
-    y = T(d, 1, "Headline", "A Soil Food Web certified lab since 2022", M, 900, TW - 40, 170, 70, color=BROWN,
+    y = T(d, 1, "Headline", "A Soil Food Web certified lab since 2022", M, 830, TW - 40, 170, 70, color=BROWN,
           align="left", lh=1.06)
-    T(d, 1, "Details", "Re-certified every year, with more than 300 microbial reports", M, round(y) + 20, 700, 140,
+    T(d, 1, "Details", "She has analysed more than 300 soil and compost samples under the microscope", M, round(y) + 20, 690, 200,
       52, bold=False, color=INK, align="left", lh=1.18)
     sfw(1)
 
