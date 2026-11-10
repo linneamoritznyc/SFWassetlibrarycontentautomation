@@ -62,8 +62,15 @@ def wave_pair():
     k = 2
     strip = Image.new("RGBA", (2 * W * k, H * k), (0, 0, 0, 0))
     dr = ImageDraw.Draw(strip)
-    for dy, col in ((-30, (44, 72, 138, 255)), (-16, (244, 241, 234, 255)), (0, (21, 104, 38, 255))):   # blue and white lines like the FVC sprout, then green
-        line = [(x * k, (y + dy) * k) for x, y in smooth(pts)]
+    # Linnea's line, steadied: four anchor heights joined, then heavily smoothed so there are no bumps
+    xs = np.arange(-400, 2 * W + 401, dtype=np.float32)
+    ys = np.interp(xs, [-400, 0, 1080, 1650, 2160, 2560], [1420, 1390, 1110, 1270, 1000, 900])
+    g = np.exp(-0.5 * (np.arange(-600, 601) / 190.0) ** 2)
+    ys = np.convolve(ys, g / g.sum(), mode="same")
+    keep = (xs >= -20) & (xs <= 2 * W + 20)
+    curve = list(zip(xs[keep][::4], ys[keep][::4]))
+    for dy, col in ((-30, (44, 72, 138, 255)), (-16, (244, 241, 234, 255)), (0, (21, 104, 38, 255))):
+        line = [(x * k, (y + dy) * k) for x, y in curve]
         dr.polygon(line + [(2 * W * k + 80, H * k + 50), (-80, H * k + 50)], fill=col)
     strip = strip.resize((2 * W, H), Image.LANCZOS)
     return strip.crop((0, 0, W, H)), strip.crop((W, 0, 2 * W, H))
