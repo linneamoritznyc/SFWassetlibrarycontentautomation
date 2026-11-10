@@ -304,56 +304,39 @@ def small_business(v):
     T(d, 3, "Details", b4, M, round(y) + 40, TW, hb + 10, 52, bold=False, color=INK, align="left", lh=1.18)
     sfw(3)
 
-    # 5. Linnea, 10 Nov brief: a Colleen quote, what a Soil Food Web lab can do (3 items, line icons), the directory
-    #    CTA, Rewild Soils logo bottom left and SFW logo bottom right. No hands drawing, no thanks line.
+    # 5. Linnea, 10 Nov (strict type): two fonts (Montserrat Bold for the quote and the pill, Source Sans 3 Regular
+    #    for the rest), three sizes (70 / 54 / 50), Soil Brown text, green only on the quote mark and the pill,
+    #    one left edge, no icons, three clear blocks: quote, list, CTA.
     page(4)
-    BR = rgb(BROWN) + (255,)
-
-    def icon(kind, S=84):
-        """Simple line icons drawn at 4x and scaled down, Soil Brown strokes."""
-        k = 4
-        im = Image.new("RGBA", (S * k, S * k), (0, 0, 0, 0))
-        dr = ImageDraw.Draw(im)
-        w_ = 5 * k
-        if kind == "lens":      # microscope field of view with microbes
-            dr.ellipse((w_, w_, S * k - w_, S * k - w_), outline=BR, width=w_)
-            for cx, cy, r in ((0.38, 0.40, 0.07), (0.62, 0.36, 0.05), (0.55, 0.64, 0.08), (0.33, 0.66, 0.04)):
-                dr.ellipse(((cx - r) * S * k, (cy - r) * S * k, (cx + r) * S * k, (cy + r) * S * k), outline=BR, width=w_ - k)
-        elif kind == "jar":     # a sample jar
-            dr.rounded_rectangle((0.22 * S * k, 0.30 * S * k, 0.78 * S * k, 0.92 * S * k), 8 * k, outline=BR, width=w_)
-            dr.rectangle((0.30 * S * k, 0.12 * S * k, 0.70 * S * k, 0.30 * S * k), outline=BR, width=w_)
-            dr.line((0.22 * S * k, 0.58 * S * k, 0.78 * S * k, 0.58 * S * k), fill=BR, width=w_ - k)
-        else:                   # a leaf with its vein and stem, drawn upright then turned 45 degrees
-            dr.ellipse((0.30 * S * k, 0.06 * S * k, 0.70 * S * k, 0.80 * S * k), outline=BR, width=w_)
-            dr.line((0.50 * S * k, 0.20 * S * k, 0.50 * S * k, 0.96 * S * k), fill=BR, width=w_ - k)
-            im = im.rotate(-40, resample=Image.BICUBIC)
-        return im.resize((S, S), Image.LANCZOS)
-
-    T(d, 4, "Quote mark", "\u201c", M - 6, 60, 200, 200, 240, color=GREEN, align="left")
-    y = T(d, 4, "Quote", "I am ready for when the clients are ready", M, 170, TW, 170, 70, color=BROWN, align="left", lh=1.08)
-    T(d, 4, "Name", "Colleen Dempster", M, round(y) + 18, TW, 64, 50, bold=False, color=INK, align="left")
-    rect(d, 4, "Rule", M, 440, TW, 2, BR)
-    d.text(4, "List heading", "WHAT A SOIL FOOD WEB LAB CAN DO FOR YOU", M, 466, TW, 64, 50, kind="pathway", italic=False,
-           color=GREEN, lh=1.0, align="left", track=3)
-    items = [("lens", "Microbial analysis of your soil"),
-             ("jar", "Quality checks for your compost,\nteas and extracts"),
-             ("leaf", "Advice on what your soil\nneeds next")]
-    y = 556
-    for i, (kind, txt) in enumerate(items):
-        hgt = height(txt, 52, 720, bold=False, lh=1.14)
-        d.put(4, f"Icon {i + 1}", icon(kind), M, y + max(0, round((hgt - 84) / 2)), shadowed=False, anchor="tl")
-        T(d, 4, f"Item {i + 1}", txt, M + 120, y, 720, hgt + 6, 52, bold=False, color=INK, align="left", lh=1.14)
-        y += round(max(hgt, 84)) + 26
-    rect(d, 4, "Rule 2", M, y + 4, TW, 2, BR)
-    T(d, 4, "Find", "Find a Soil Food Web consultant\nor lab near you", M, y + 34, TW, 140, 54, bold=False, color=BROWN,
-      align="left", lh=1.14)
-    # bottom row: Rewild Soils logo left, Link in bio centre, SFW logo right
-    by = H - 80 - 130
-    l5 = lg.resize((240, round(lg.height * 240 / lg.width)), Image.LANCZOS)
-    d.put(4, "Rewild Soils logo", l5, M - 10, by + (130 - l5.height) // 2, shadowed=False, anchor="tl")
-    rect(d, 4, "Green pill", (W - 340) // 2 + 20, by + 17, 340, 96, rgb(GREEN) + (255,), r=48)
-    T(d, 4, "Link in bio", "Link in bio", (W - 340) // 2 + 20, by + 17 + 14, 340, 70, 52, color=CREAM)
-    logo(d, 4, white=False, w=130, x=W - 80 - 30 - 130, y=by)
+    BIG, MED, SMALL = 70, 54, 50
+    # block 1: the quote
+    T(d, 4, "Quote mark", "\u201c", M - 6, 70, 200, 200, 240, color=GREEN, align="left")
+    y = T(d, 4, "Quote", "I am ready for when the clients are ready", M, 180, TW, 170, BIG, color=BROWN, align="left",
+          lh=1.08)
+    y = T(d, 4, "Name", "Colleen Dempster", M, round(y) + 16, TW, 64, SMALL, bold=False, color=BROWN, align="left")
+    # block 2: the list
+    y = round(y) + 110
+    y = T(d, 4, "List heading", "What a Soil Food Web lab can do for you:", M, y, TW, 70, MED, bold=False, color=BROWN,
+          align="left")
+    items = ["Microbial analysis of your soil", "Quality checks for your compost, teas and extracts",
+             "Advice on what your soil needs next"]
+    y = round(y) + 22
+    for i, txt in enumerate(items):
+        hgt = height(txt, MED, TW - 50, bold=False, lh=1.12)
+        rect(d, 4, f"Dot {i + 1}", M + 4, y + 26, 14, 14, rgb(BROWN) + (255,), r=7)
+        T(d, 4, f"Item {i + 1}", txt, M + 50, y, TW - 50, hgt + 6, MED, bold=False, color=BROWN, align="left", lh=1.12)
+        y += round(hgt) + 18
+    # block 3: the CTA
+    y = y + 92
+    y = T(d, 4, "Find", "Find a Soil Food Web consultant\nor lab near you", M, y, TW, 130, SMALL, bold=False,
+          color=BROWN, align="left", lh=1.16)
+    py = round(y) + 24
+    rect(d, 4, "Green pill", M, py, 340, 96, rgb(GREEN) + (255,), r=48)
+    T(d, 4, "Link in bio", "Link in bio", M, py + 14, 340, 70, MED, color=CREAM)
+    logo(d, 4, white=False, w=120, x=W - 80 - 30 - 120, y=py + 48 - 60)
+    l5 = lg.resize((210, round(lg.height * 210 / lg.width)), Image.LANCZOS)
+    d.put(4, "Rewild Soils logo", l5, W - 80 - 30 - 120 - 30 - 210, py + 48 - l5.height // 2, shadowed=False,
+          anchor="tl")
     return d
 
 
