@@ -57,8 +57,13 @@ def build(v):
     T(d, 1, "Text", t2, 80, 90, 900, 330, 56, bold=False, color=CREAM, align="left", lh=1.22)
     logo(d, 1, W - 70 - 120, H - 60 - 120)
     # 3 photo only
-    d.bg(2, grade(cover(ImageOps.exif_transpose(Image.open(f"{V}/suzanne-conference-walk.jpg")).convert("RGB"), W, H,
-                        0.3, 0.5)).convert("RGBA"), name="Photo")
+    # tight on Suzanne, the man in the background cropped out (Linnea, 10 Nov)
+    sf = ImageOps.exif_transpose(Image.open(f"{V}/suzanne-conference-walk.jpg")).convert("RGB")
+    cw = int(sf.width * 0.465)            # stop before the man in the green shirt
+    ch = int(cw * H / W)
+    y0 = sf.height - ch
+    sf = sf.crop((0, y0, cw, y0 + ch)).resize((W, H), Image.LANCZOS)
+    d.bg(2, grade(sf).convert("RGBA"), name="Photo")
     logo(d, 2, W - 70 - 120, H - 60 - 120)
     return d
 
