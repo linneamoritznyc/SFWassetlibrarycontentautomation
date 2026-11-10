@@ -135,12 +135,15 @@ def build_story(v):
                 "Your gift funds scholarships, educational resources and research")
     # 7. close on the land, with the gold donate button in the band
     d.bg(6, Image.new("RGB", (W, H), GREEN).convert("RGBA"), name="Background: Food Web Green")
-    band = 470
+    band = 600
     d.put(6, "Photo: class walking a farm track, Wild Ken Hill, Jun 2025",
-          cover(ph(f"{G}/wkh-farm-track-jun2025.jpg"), W, H - band, 0.45, 0.45).convert("RGBA"), 0, 0, shadowed=False,
+          cover(ph(f"{G}/wkh-farm-track-jun2025.jpg"), W, H - band, 0.45, 0.4).convert("RGBA"), 0, 0, shadowed=False,
           anchor="tl")
-    T(d, 6, "Headline", "The soil can recover. Help us bring it back to life.", 72, H - band + 40, 760, 230, 66,
-      color=CREAM, align="left", lh=1.08)
+    # Allison and Linnea, 10 Nov: the team line closes the post
+    y = T(d, 6, "Headline", "Be the mycelium\nyou want to see\nin the world", 72, H - band + 40, 800, 230, 66,
+          color=CREAM, align="left", lh=1.08)
+    T(d, 6, "Details", "The soil can recover.\nHelp us bring it back to life.", 72, round(y) + 16, 800, 130, 50,
+      bold=False, color=MINT, align="left")
     pw = 620
     pill = Image.new("RGBA", (pw * 4, 100 * 4), (0, 0, 0, 0))
     ImageDraw.Draw(pill).rounded_rectangle((0, 0, pw * 4 - 1, 100 * 4 - 1), 200, fill=rgb(GOLD) + (255,))
