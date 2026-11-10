@@ -13016,6 +13016,36 @@ export const CHANGES: Change[] = [
     set: { iso_date: '2026-11-16', date_tbd: false },
     reason: 'Linnea, 10 Nov: the nematodes post (v7, Stephanie comment done) goes out Mon 16 Nov.',
   },
+  {
+    key: '2026-11-10 x20261201 giving tuesday v10',
+    post: 'x20261201',
+    set: {
+      slides: [
+        { text: 'Why give on Giving Tuesday?', image: '/wormhole/tiles/x20261201-v10-1.jpg' },
+        {
+          text: "We carry Dr. Elaine Ingham's science forward",
+          image: '/wormhole/tiles/x20261201-v10-2.jpg',
+        },
+        {
+          text: '61 farmers in India this October. 46 students from 10 countries at our workshop.',
+          image: '/wormhole/tiles/x20261201-v10-3.jpg',
+        },
+        {
+          text: 'Our goal: 100,000 acres regenerated in 2027',
+          image: '/wormhole/tiles/x20261201-v10-4.jpg',
+        },
+        {
+          text: 'Your gift helps a student learn to restore soil. Link in bio',
+          image: '/wormhole/tiles/x20261201-v10-5.jpg',
+        },
+      ],
+      link: 'https://givebutter.com/sfwf-donate',
+      visual_note:
+        "Family: photo with green band (cover: Cyber Monday sister, green leaf texture and line drawing). Photos: Dr. Elaine (card-elaine-ingham-microscope), India Oct 2026 seminar crowd and workshop participant side by side, India aerial field, students laughing at the microscope. Gifts fund scholarships, educational resources and research (Givebutter campaign text, 10 Nov). 61 farmers and the 100,000 acres goal from Linnea's brief. Built with tools/wormhole-visuals/giving_tuesday.py. Deck: decks/01-12-2026-giving-tuesday-v10.pptx.",
+    },
+    reason:
+      'Linnea, 10 Nov: GivingTuesday carousel with real photos; links to the Givebutter campaign.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);
