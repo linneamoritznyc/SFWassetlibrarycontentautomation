@@ -120,10 +120,11 @@ def veterans(v):
     # 1. type in the sky
     hh = ImageOps.exif_transpose(Image.open(SUZ_PHOTO)).convert("RGB")
     d.bg(0, cover(hh, W, H, 0.5, 0.0).convert("RGBA"), name="Photo: Suzanne Shea planting by the hoop house")
-    y = T(d, 0, "Headline", "Scaling\nSustainably", 460, 96, 580, 200, 86, color="#FFFFFF")
-    T(d, 0, "Details", "A talk by\nSuzanne Shea", 460, round(y) + 30, 580, 140, 54, bold=False,
-      color="#FFFFFF", lh=1.12)
-    logo(d, 0, w=140)
+    # one left edge for both boxes, generous gap between headline and byline, 72 px right margin
+    y = T(d, 0, "Headline", "Scaling\nSustainably", 468, 110, 540, 200, 86, color="#FFFFFF", align="left", lh=1.1)
+    T(d, 0, "Details", "A talk by Suzanne Shea", 468, round(y) + 40, 540, 70, 52, bold=False,
+      color="#FFFFFF", align="left")
+    logo(d, 0, w=210)
     # 2. the conference photo as a matted print
     d.bg(1, grain(Image.new("RGB", (W, H), CREAM), 504, 3), name="Background: Organic Cream")
     fvc = ImageOps.exif_transpose(Image.open(SUZ_FVC)).convert("RGB")
@@ -136,10 +137,10 @@ def veterans(v):
     y = T(d, 1, "Headline", "Suzanne Shea", 72, 80 + ph_ + 50, 936, 86, 73, color=BROWN)
     T(d, 1, "Details", "Farmer Veteran Coalition\nStakeholders Conference", 72, round(y) + 16,
       936, 130, 52, bold=False, color=INK, lh=1.15)
-    logo(d, 1, white=False, w=110, y=H - 40 - 64)
+    logo(d, 1, white=False, w=170)
     # 3. her selfie, edge to edge
     edge_photo(d, 2, "Suzanne Shea on the conference walk", fy=0.5, path=SUZ_WALK, fx=0.12)
-    logo(d, 2, w=140)
+    logo(d, 2, w=210)
     return d
 
 
@@ -164,35 +165,53 @@ def scrim(im, start=0.5, strength=0.78):
 
 
 def small_business(v):
-    """Facts from rewildsoils.com (10 Nov) and Colleen's note to Allison. v5 (Linnea: make it pretty): the photo is
-    used once, edge to edge with a soft scrim and no box; slide 2 is a big-number type card; slide 3 the logo card."""
+    """Facts from rewildsoils.com (10 Nov) and Colleen's note to Allison. v7 (Linnea: put in effort): the post borrows
+    Rewild Soils' own hand-drawn botanical look. Slide 1: cream paper, the photo pinned like a print with the
+    botanical R growing over its corner. Slide 2: a microscope field of view holding 2022. Slide 3: the logo as
+    the hero inside a thin label frame."""
     d = Deck("x20261128", 3, f"small-business-saturday-rewild-soils-{v}", "2026-11-28")
     ph = ImageOps.exif_transpose(Image.open(RW_PHOTO)).convert("RGB")
-    # 1. the photo, edge to edge
-    d.bg(0, scrim(cover(ph, W, H, 0.45, 0.45), 0.35, 0.92).convert("RGBA"), name="Photo: Compost Toronto microscope event")
-    y = T(d, 0, "Headline", "Happy Small\nBusiness Saturday", 72, 930, 936, 190, 86, color=CREAM)
-    T(d, 0, "Details", "Meet Colleen Dempster\nof Rewild Soils", 72, round(y) + 24, 936, 140, 54, bold=False,
-      color=CREAM, lh=1.12)
-    logo(d, 0, w=130)
-    # 2. since 2022
-    d.bg(1, grain(Image.new("RGB", (W, H), GREEN), 602, 4), name="Background: Food Web Green")
-    T(d, 1, "Eyebrow", "A Soil Food Web certified\nmicroscopy lab since", 72, 270, 936, 170, 66, color=CREAM)
-    T(d, 1, "Big number", "2022", 72, 460, 936, 330, 300, color=MINT)
-    T(d, 1, "Details", "Colleen has looked at hundreds\nof soil, compost and compost\ntea samples", 72, 860, 936, 260,
-      54, bold=False, color=CREAM, lh=1.18)
-    logo(d, 1, w=130)
-    # 3. meet Rewild Soils
-    d.bg(2, grain(Image.new("RGB", (W, H), CREAM), 603, 3), name="Background: Organic Cream")
-    T(d, 2, "Headline", "Meet Rewild Soils", 72, 200, 936, 100, 84, color=BROWN)
     lg = Image.open(f"{RW}/rewild-soils-logo.png").convert("RGBA")
-    lg = lg.crop(lg.getchannel("A").point(lambda a: 255 if a > 128 else 0).getbbox())
-    lg = lg.resize((860, round(lg.height * 860 / lg.width)), Image.LANCZOS)
-    d.put(2, "Rewild Soils logo", lg, (W - lg.width) // 2, 360, shadowed=False, anchor="tl")
-    y = T(d, 2, "Details", "Soil microscopy, consulting, workshops\nand Biologically Complete compost,\nfrom Uxbridge, Ontario",
-          72, 360 + lg.height + 50, 936, 200, 52, bold=False, color=INK, lh=1.18)
-    rect(d, 2, "Green pill", 230, round(y) + 50, 620, 104, rgb(GREEN) + (255,), r=52)
-    T(d, 2, "Website", "rewildsoils.com", 230, round(y) + 50 + 18, 620, 70, 54, color=CREAM)
-    logo(d, 2, white=False, w=120)
+    rr = lg.crop((0, 0, 505, lg.height))                       # the botanical R on its own
+    rr = rr.crop(rr.getchannel("A").point(lambda a: 255 if a > 100 else 0).getbbox())
+
+    # 1. pinned print + botanical R
+    d.bg(0, grain(Image.new("RGB", (W, H), CREAM), 611, 4), name="Background: Organic Cream")
+    pw, phh = 800, 700
+    pr = Image.new("RGBA", (pw + 32, phh + 32), (255, 253, 248, 255))
+    pr.paste(cover(ph, pw, phh, 0.45, 0.45).convert("RGBA"), (16, 16))
+    d.put(0, "Photo: Compost Toronto microscope event (pinned print)", pr, 92, 86, rot=-2.5, anchor="tl")
+    r1 = rr.resize((330, round(rr.height * 330 / rr.width)), Image.LANCZOS)
+    d.put(0, "Rewild Soils botanical R", r1, W - 72 - 330 + 20, 86 + phh - 250, shadowed=False, anchor="tl")
+    y = T(d, 0, "Headline", "Happy Small\nBusiness Saturday", 72, 930, 936, 190, 84, color=BROWN, lh=1.08)
+    T(d, 0, "Details", "Meet Colleen Dempster\nof Rewild Soils", 72, round(y) + 26, 936, 140, 54, bold=False,
+      color=INK, lh=1.12)
+    logo(d, 0, white=False, w=130, x=W - 56 - 130, y=H - 40 - 130)
+
+    # 2. the field of view
+    d.bg(1, grain(Image.new("RGB", (W, H), GREEN), 612, 4), name="Background: Food Web Green")
+    T(d, 1, "Eyebrow", "A Soil Food Web certified\nmicroscopy lab since", 72, 110, 936, 170, 66, color=CREAM)
+    cx, cy, R = W // 2, 640, 300
+    ring = Image.new("RGBA", (2 * R + 80, 2 * R + 80), (0, 0, 0, 0))
+    dr = ImageDraw.Draw(ring)
+    dr.ellipse((0, 0, 2 * R + 79, 2 * R + 79), outline=rgb(MINT) + (255,), width=4)
+    dr.ellipse((40, 40, 2 * R + 39, 2 * R + 39), fill=rgb(CREAM) + (255,))
+    d.put(1, "Microscope field of view", ring, cx - R - 40, cy - R - 40, shadowed=False, anchor="tl")
+    T(d, 1, "Big number", "2022", cx - R, cy - 120, 2 * R, 230, 210, color=GREEN)
+    T(d, 1, "Details", "Colleen has looked at hundreds\nof soil, compost and compost\ntea samples", 72, 1010, 936,
+      220, 52, bold=False, color=CREAM, lh=1.18)
+    logo(d, 1, w=170)
+
+    # 3. the logo as hero, in a thin label frame
+    d.bg(2, grain(Image.new("RGB", (W, H), CREAM), 613, 3), name="Background: Organic Cream")
+    rect(d, 2, "Label frame", 56, 56, W - 112, H - 112, (0, 0, 0, 0), r=28, outline=rgb(BROWN) + (255,), width=3)
+    l3 = lg.resize((820, round(lg.height * 820 / lg.width)), Image.LANCZOS)
+    d.put(2, "Rewild Soils logo", l3, (W - 820) // 2, 220, shadowed=False, anchor="tl")
+    y = T(d, 2, "Details", "Soil microscopy, consulting,\nworkshops and Biologically\nComplete compost from\nUxbridge, Ontario",
+          72, 220 + l3.height + 60, 936, 300, 54, bold=False, color=INK, lh=1.18)
+    rect(d, 2, "Green pill", 240, round(y) + 50, 600, 104, rgb(GREEN) + (255,), r=52)
+    T(d, 2, "Website", "rewildsoils.com", 240, round(y) + 50 + 18, 600, 70, 54, color=CREAM)
+    logo(d, 2, white=False, w=130, x=W - 100 - 130, y=H - 100 - 130)
     return d
 
 

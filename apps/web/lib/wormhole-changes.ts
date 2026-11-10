@@ -12787,6 +12787,52 @@ export const CHANGES: Change[] = [
     },
     reason: 'Linnea, 10 Nov: make it pretty.',
   },
+  {
+    key: '2026-11-10 vet20261111 v8 spacing logo',
+    post: 'vet20261111',
+    set: {
+      slides: [
+        {
+          text: 'Scaling Sustainably. A talk by Suzanne Shea',
+          image: '/wormhole/tiles/vet20261111-v8-1.jpg',
+        },
+        {
+          text: 'Suzanne Shea. Farmer Veteran Coalition Stakeholders Conference',
+          image: '/wormhole/tiles/vet20261111-v8-2.jpg',
+        },
+        {
+          text: 'Photo only: Suzanne on the conference walk',
+          image: '/wormhole/tiles/vet20261111-v8-3.jpg',
+        },
+      ],
+      visual_note:
+        "Family: photo-led editorial. Type left-aligned in the sky, matted print with label, selfie edge to edge, bigger logos. No 'Happy Veterans Day' text (Linnea, 10 Nov). The man beside Suzanne is not named. Built with nov_updates_nov10.py veterans. Deck: decks/11-11-2026-veterans-day-v8.pptx.",
+    },
+    reason: 'Linnea, 10 Nov: fix the text spacing; logo too small.',
+  },
+  {
+    key: '2026-11-10 x20261128 v9 botanical',
+    post: 'x20261128',
+    set: {
+      slides: [
+        {
+          text: 'Happy Small Business Saturday. Meet Colleen Dempster of Rewild Soils',
+          image: '/wormhole/tiles/x20261128-v9-1.jpg',
+        },
+        {
+          text: 'A Soil Food Web certified microscopy lab since 2022. Colleen has looked at hundreds of soil, compost and compost tea samples',
+          image: '/wormhole/tiles/x20261128-v9-2.jpg',
+        },
+        {
+          text: 'Rewild Soils. Soil microscopy, consulting, workshops and Biologically Complete compost from Uxbridge, Ontario. rewildsoils.com',
+          image: '/wormhole/tiles/x20261128-v9-3.jpg',
+        },
+      ],
+      visual_note:
+        "Family: partner botanical (borrows Rewild Soils' hand-drawn look). Pinned print with the botanical R, a microscope field of view for 2022, the logo in a label frame. Built with nov_updates_nov10.py smallbiz. Deck: decks/28-11-2026-small-business-saturday-rewild-soils-v9.pptx.",
+    },
+    reason: 'Linnea, 10 Nov: put in effort, make it beautiful.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);
