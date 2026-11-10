@@ -127,7 +127,7 @@ def build(v):
     z.putalpha(m)
     ImageDraw.Draw(z).rounded_rectangle((1, 1, z.width - 2, z.height - 2), 22, outline=(244, 241, 234, 150), width=2)
     d.put(0, "CIC call photo", z, cx + 30, cy + 30, shadowed=True, anchor="tl", off=(0, 10), blur=18, alpha=0.5)
-    head = "What our students\nenjoyed about the\nCompost Intensive\nCourse"
+    head = "What students\ntake away from the\nCompost Intensive\nCourse"
     hh = height(head, 86, 840, lh=1.06)
     top = cy + 30 + z.height
     y = top + (cy + ch - top - round(hh)) // 2 - 10
