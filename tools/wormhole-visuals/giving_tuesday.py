@@ -121,24 +121,17 @@ def build_story(v):
     photo_slide(0, f"{IND}/40c702d3-e6e9-4387-b187-2a1798fef626.jpg", 0.45, 0.4,
                 "There is a farmer somewhere right now watching their soil fail")
     type_slide(1, "Not from drought or bad luck, but from a century of practices that stripped the living biology "
-               "from the ground", art="hands", hs=66)
+               "from the ground", hs=66)
     photo_slide(2, f"{NEW}/card-elaine-ingham-microscope.jpg", 0.5, 0.35,
                 "Dr. Elaine Ingham spent decades proving that soil is a living community")
-    type_slide(3, "The science is sound.\nThe methodology works.\nThe problem is reach.", art="microscope", hs=66)
+    type_slide(3, "The science is sound.\nThe methodology works.\nThe problem is reach.", hs=66)
     photo_slide(4, f"{NEW}/community-laughing-at-microscope.jpg", 0.5, 0.4,
                 "There are students who know this is their calling but cannot afford the next step")
-    # 6. what a gift funds, with the campaign progress (update the number on the day)
+    # 6. what a gift funds (Linnea, 10 Nov: no live total on the slide, it goes stale)
     type_slide(5, "Every gift at any level funds scholarships, educational resources, and research",
-               "$50,985 raised of our $100,000 goal")
-    bar_w, bar_y = 760, 1000
-    track = Image.new("RGBA", (bar_w * 2, 36 * 2), (0, 0, 0, 0))
-    dr = ImageDraw.Draw(track)
-    dr.rounded_rectangle((0, 0, bar_w * 2 - 1, 71), 36, fill=rgb(CREAM) + (70,))
-    dr.rounded_rectangle((0, 0, round(bar_w * 2 * 0.51), 71), 36, fill=rgb(GOLD) + (255,))
-    d.put(5, "Progress bar (51%)", track.resize((bar_w, 36), Image.LANCZOS), (W - bar_w) // 2, bar_y, shadowed=False,
-          anchor="tl")
+               "Help us reach our $100,000 goal")
     # 7. close: the soil can recover, gold donate button
-    type_slide(6, "The soil can recover.\nIt wants to.", None, art="seedling-fungi")
+    type_slide(6, "The soil can recover.\nIt wants to.", None, hs=86)
     pw = 720
     pill = Image.new("RGBA", (pw * 4, 110 * 4), (0, 0, 0, 0))
     ImageDraw.Draw(pill).rounded_rectangle((0, 0, pw * 4 - 1, 110 * 4 - 1), 220, fill=rgb(GOLD) + (255,))
