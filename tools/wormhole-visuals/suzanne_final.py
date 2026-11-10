@@ -62,7 +62,7 @@ def wave_pair():
     k = 2
     strip = Image.new("RGBA", (2 * W * k, H * k), (0, 0, 0, 0))
     dr = ImageDraw.Draw(strip)
-    for dy, col in ((-22, (89, 166, 108, 255)), (0, (21, 104, 38, 255))):   # solid, no see-through fade
+    for dy, col in ((-30, (44, 72, 138, 255)), (-16, (244, 241, 234, 255)), (0, (21, 104, 38, 255))):   # blue and white lines like the FVC sprout, then green
         line = [(x * k, (y + dy) * k) for x, y in smooth(pts)]
         dr.polygon(line + [(2 * W * k + 80, H * k + 50), (-80, H * k + 50)], fill=col)
     strip = strip.resize((2 * W, H), Image.LANCZOS)
