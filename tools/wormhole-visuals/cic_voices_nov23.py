@@ -35,6 +35,7 @@ PRATIK = ("“The live sessions with fellow students and mentors have definitely
 
 
 STRAW = "/home/user/sfwlib/social/cic/straw-linnea.jpg"
+COMPOST = "/home/user/sfwlib/social/cic/compost-linnea.jpg"
 SOIL = "/home/user/sfwlib/social/cic/soil-linnea.jpg"
 MONT = "/root/.fonts/Montserrat-Bold.ttf"
 ZOOM = "/home/user/sfwlib/social/students/cic-zoom-call-blurred.jpg"   # Carla's CIC call screenshot
@@ -46,8 +47,8 @@ def logo(d, k, x, y, w=150):
     d.put(k, "SFW logo", lg, x, y, shadowed=False, anchor="tl")
 
 
-def straw_bg(fy=0.5, dark=0.42):
-    im = cover(Image.open(STRAW).convert("RGB"), W, H, 0.5, fy)
+def straw_bg(fy=0.5, dark=0.42, src=None):
+    im = cover(Image.open(src or STRAW).convert("RGB"), W, H, 0.5, fy)
     a = np.asarray(im).astype(np.float32) * dark
     yy, xx = np.mgrid[0:H, 0:W].astype(np.float32)
     v = 1 - 0.35 * (((xx - W / 2) / (W / 2)) ** 2 + ((yy - H / 2) / (H / 2)) ** 2) / 2
@@ -56,10 +57,10 @@ def straw_bg(fy=0.5, dark=0.42):
     return Image.fromarray((a * (v * e)[..., None]).clip(0, 255).astype("uint8")).convert("RGBA")
 
 
-def glass(bg, x, y, w, h, r=36, alpha=0.86, fx=0.5, fy=0.5):
+def glass(bg, x, y, w, h, r=36, alpha=0.95, fx=0.5, fy=0.5):
     """See-through box filled with Linnea's soil photo at 86%: straw shows faintly through, thin cream edge."""
     soil = cover(Image.open(SOIL).convert("RGB"), w, h, fx, fy)
-    a = np.asarray(soil.filter(ImageFilter.GaussianBlur(2))).astype(np.float32) * 0.68
+    a = np.asarray(soil).astype(np.float32) * 1.0
     pan = Image.fromarray(a.clip(0, 255).astype("uint8")).convert("RGBA")
     m = Image.new("L", (w, h), 0)
     ImageDraw.Draw(m).rounded_rectangle((0, 0, w - 1, h - 1), r, fill=round(255 * alpha))
@@ -88,7 +89,7 @@ def faces():
 
 
 def quote_slide(d, k, text, name, fy):
-    bg = straw_bg(fy)
+    bg = straw_bg(fy, 0.6, COMPOST) if k == 1 else straw_bg(fy)
     d.bg(k, bg, name="Straw texture")
     pw, pad = 960, 60
     qh = height(text, 50, pw - 2 * pad, bold=False, lh=1.18)
