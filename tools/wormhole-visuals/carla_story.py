@@ -26,10 +26,10 @@ def build(v):
         rect(d, 0, "Page frame", 44, 44, W - 88, SH - 88, (0, 0, 0, 0), outline=rgb(BROWN) + (255,), width=2)
         # just her photo and the talk (Linnea, 10 Nov: no microbes, more text). Sizes 54 / 70 / 50.
         D = 340
-        d.put(0, "Photo: Carla Portugal", eyepiece(PORTRAIT, D, 0.5, 0.4, 1.1), (W - D) // 2, 190, shadowed=False,
+        d.put(0, "Photo: Carla Portugal", eyepiece(PORTRAIT, D, 0.5, 0.4, 1.1), (W - D) // 2, 120, shadowed=False,
               anchor="tl")
-        T(d, 0, "Eyebrow", "Tomorrow, live \u00b7 Carla Portugal", 72, 560, 936, 70, 54, bold=False, color=GREEN)
-        y = T(d, 0, "Headline", "Restoring the soil food web to grow nutrition your patients need", 100, 635, 880,
+        T(d, 0, "Eyebrow", "Tomorrow, live \u00b7 Carla Portugal", 72, 490, 936, 70, 54, bold=False, color=GREEN)
+        y = T(d, 0, "Headline", "Restoring the soil food web to grow nutrition your patients need", 100, 565, 880,
               330, 70, color=BROWN, lh=1.08)
         # exact terms from her session card (Linnea, 10 Nov), one box each with a gap between
         y = round(y) + 36
