@@ -34,7 +34,7 @@ def dial(D):
     c = S / 2
     dr.ellipse((0, 0, S - 1, S - 1), fill=rgb("#D8C3A5") + (255,))            # sand bezel
     dr.ellipse((26 * k, 26 * k, S - 26 * k, S - 26 * k), fill=rgb(CREAM) + (255,))
-    f_lab = ImageFont.truetype(FONT, 34 * k)
+    f_lab = ImageFont.truetype(FONT, int(S * 0.042))
     for i in range(0, 21):
         f = i / 20
         a = ang(f)
@@ -44,15 +44,15 @@ def dial(D):
                 fill=rgb(BROWN) + (255,), width=(7 if i % 5 == 0 else 4) * k)
         if i % 5 == 0:
             lab = "$0" if i == 0 else f"${i * 5}k"
-            rl = r0 - 52 * k
+            rl = r0 - S * 0.075
             tw = dr.textlength(lab, font=f_lab)
-            dr.text((c + rl * math.cos(a) - tw / 2, c - rl * math.sin(a) - 22 * k), lab, font=f_lab,
+            dr.text((c + rl * math.cos(a) - tw / 2, c - rl * math.sin(a) - S * 0.022), lab, font=f_lab,
                     fill=rgb(BROWN) + (255,))
     # green arc for the goal zone
     dr.arc((60 * k, 60 * k, S - 60 * k, S - 60 * k), start=-A0, end=-A1, fill=rgb(GREEN) + (255,), width=6 * k)
-    f_small = ImageFont.truetype(FONT, 30 * k)
+    f_small = ImageFont.truetype(FONT, int(S * 0.034))
     t = "GOAL $100,000"
-    dr.text((c - dr.textlength(t, font=f_small) / 2, c + 120 * k), t, font=f_small, fill=rgb(GREEN) + (255,))
+    dr.text((c - dr.textlength(t, font=f_small) / 2, c + S * 0.27), t, font=f_small, fill=rgb(GREEN) + (255,))
     return im.resize((D, D), Image.LANCZOS)
 
 
