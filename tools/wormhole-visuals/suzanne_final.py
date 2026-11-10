@@ -39,6 +39,19 @@ def logo(d, k, x, y, w=170):
     d.put(k, "SFW logo", lg, x, y, shadowed=False, anchor="tl")
 
 
+def wave(h=250):
+    """Two soft overlapping green waves across the bottom edge, for the logo to sit on."""
+    import math
+    from PIL import ImageDraw
+    k = 3
+    im = Image.new("RGBA", (W * k, h * k), (0, 0, 0, 0))
+    dr = ImageDraw.Draw(im)
+    for amp, per, ph, base, col in ((26, 1.1, 0.6, 70, (89, 166, 108, 150)), (22, 0.9, 2.2, 110, (21, 104, 38, 235))):
+        pts = [(x * k, (base + amp * math.sin(2 * math.pi * per * x / W + ph)) * k) for x in range(0, W + 1, 6)]
+        dr.polygon(pts + [(W * k, h * k), (0, h * k)], fill=col)
+    return im.resize((W, h), Image.LANCZOS)
+
+
 def build(v):
     d = Deck("vet20261111", 3, f"veterans-day-{v}", "2026-11-11")
     # 1
@@ -55,6 +68,7 @@ def build(v):
     d.bg(1, frost(f"{V}/suzanne-hoop-house.jpg", 0.55, 0.7, 0.55, 0.8, top=True), name="Photo with soft frosted fade")
     t2 = "Her presentation taught veteran farmers about scalable sustainability through the Soil Food Web Approach."
     T(d, 1, "Text", t2, 80, 90, 900, 330, 56, bold=False, color=CREAM, align="left", lh=1.22)
+    d.put(1, "Green wave", wave(), 0, H - 250, shadowed=False, anchor="tl")
     logo(d, 1, W - 60 - 170, H - 50 - 170)
     # 3 photo only
     # tight on Suzanne, the man in the background cropped out (Linnea, 10 Nov)
@@ -64,6 +78,7 @@ def build(v):
     y0 = sf.height - ch
     sf = sf.crop((0, y0, cw, y0 + ch)).resize((W, H), Image.LANCZOS)
     d.bg(2, grade(sf).convert("RGBA"), name="Photo")
+    d.put(2, "Green wave", wave(), 0, H - 250, shadowed=False, anchor="tl")
     logo(d, 2, W - 60 - 170, H - 50 - 170)
     return d
 
