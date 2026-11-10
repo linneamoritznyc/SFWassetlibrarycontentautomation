@@ -31,10 +31,12 @@ def build(v):
         T(d, 0, "Eyebrow", "Tomorrow, live \u00b7 Carla Portugal", 72, 670, 936, 70, 54, bold=False, color=GREEN)
         y = T(d, 0, "Headline", "Restoring the soil food web to grow nutrition your patients need", 100, 745, 880,
               330, 70, color=BROWN, lh=1.08)
-        # from her session card
-        y = T(d, 0, "Talk", "How soil microbes shape our food\nWhat the evidence does and doesn\u2019t "
-              "support\nA sourcing checklist for food pantries\nand community farms", 72, round(y) + 36, 936, 420, 50,
-              bold=False, color=BROWN, lh=1.3)
+        # exact terms from her session card (Linnea, 10 Nov), one box each with a gap between
+        y = round(y) + 36
+        for i, t in enumerate(["The plant\u2019s \u201cgut microbiome\u201d", "Crop antioxidants, vitamins, and minerals",
+                               "What the peer-reviewed evidence\ndoes (and doesn\u2019t) support",
+                               "Live polling, hands-on checklist\npractice, and real-time Q&A"]):
+            y = round(T(d, 0, f"Talk {i + 1}", t, 72, y, 936, 140, 50, bold=False, color=BROWN, lh=1.18)) + 22
         rect(d, 0, "Rule", (W - 120) // 2, round(y) + 30, 120, 2, rgb(BROWN) + (255,))
         T(d, 0, "Date", "Sunday 15 November, 7 to 7:45am Pacific\nFood as Medicine for All \u00b7 Livestream", 72,
           round(y) + 60, 936, 140, 54, bold=False, color=BROWN, lh=1.2)
