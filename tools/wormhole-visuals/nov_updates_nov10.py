@@ -113,31 +113,33 @@ def edge_photo(d, k, label, fy=0.4, path=None, fx=0.5):
 
 
 def veterans(v):
-    """Suzanne presented at the Farmer Veteran Coalition Stakeholders Conference (Williamsburg, Virginia, Oct 2026).
-    Warm and respectful, no flags or military imagery. The photo runs edge to edge; text sits in a Soil Brown box."""
+    """Suzanne Shea's own photos (Linnea, 10 Nov). v6: no boxes. Slide 1 sets the type in the blue sky of the
+    hoop-house photo; slide 2 hangs the conference photo like a print in a cream mat with a museum-style label;
+    slide 3 is her selfie edge to edge."""
     d = Deck("vet20261111", 3, f"veterans-day-{v}", "2026-11-11")
-    # 1
-    edge_photo(d, 0, "Suzanne Shea planting by the hoop house", fy=0.3)
-    hh = height("Happy Veterans Day", 86, 840)
-    bh = round(hh + 24 + 70 + 100)
-    rect(d, 0, "Brown box", 72, H - 72 - bh, 936, bh, rgb(BROWN) + (255,))
-    T(d, 0, "Headline", "Happy Veterans Day", 72, H - 72 - bh + 50, 936, hh + 6, 86, color=CREAM)
-    T(d, 0, "Details", "To every veteran who now farms", 72, H - 72 - bh + 50 + round(hh) + 24, 936, 70, 52,
-      bold=False, color=CREAM)
-    logo(d, 0, w=140, x=W - 72 - 140 - 10, y=60)
-    # 2
-    edge_photo(d, 1, "Suzanne Shea at the Farmer Veteran Coalition conference", fy=0.25, path=SUZ_FVC)
-    hh = height("Scaling Sustainably", 84, 840)
-    dh = height("Suzanne Shea at the Farmer Veteran Coalition Stakeholders Conference", 52, 820, bold=False, lh=1.22)
-    bh = round(hh + 24 + dh + 100)
-    rect(d, 1, "Brown box", 72, H - 72 - bh, 936, bh, rgb(BROWN) + (255,))
-    T(d, 1, "Headline", "Scaling Sustainably", 72, H - 72 - bh + 50, 936, hh + 6, 84, color=CREAM)
-    T(d, 1, "Details", "Suzanne Shea at the Farmer Veteran Coalition Stakeholders Conference", 130,
-      H - 72 - bh + 50 + round(hh) + 24, 820, dh + 6, 52, bold=False, color=CREAM, lh=1.22)
-    logo(d, 1, w=140, x=W - 72 - 140 - 10, y=60)
-    # 3: Suzanne on the conference walk, photo only
+    # 1. type in the sky
+    hh = ImageOps.exif_transpose(Image.open(SUZ_PHOTO)).convert("RGB")
+    d.bg(0, cover(hh, W, H, 0.5, 0.0).convert("RGBA"), name="Photo: Suzanne Shea planting by the hoop house")
+    y = T(d, 0, "Headline", "Scaling\nSustainably", 470, 120, 560, 230, 86, color="#FFFFFF")
+    T(d, 0, "Details", "A talk by\nSuzanne Shea", 470, round(y) + 24, 560, 140, 52, bold=False,
+      color="#FFFFFF", lh=1.15)
+    logo(d, 0, w=140)
+    # 2. the conference photo as a matted print
+    d.bg(1, grain(Image.new("RGB", (W, H), CREAM), 504, 3), name="Background: Organic Cream")
+    fvc = ImageOps.exif_transpose(Image.open(SUZ_FVC)).convert("RGB")
+    pw, ph_ = 760, 860
+    pr = cover(fvc, pw, ph_, 0.5, 0.42).convert("RGBA")
+    mat = Image.new("RGBA", (pw + 2, ph_ + 2), rgb(BROWN) + (255,))   # brown hairline round the print
+    mat.paste(pr, (1, 1))
+    d.put(1, "Photo: Suzanne Shea at the Farmer Veteran Coalition conference", mat, (W - pw) // 2, 90,
+          anchor="tl", shadowed=True)
+    y = T(d, 1, "Headline", "Suzanne Shea", 72, 1000, 936, 90, 70, color=BROWN)
+    T(d, 1, "Details", "Farmer Veteran Coalition\nStakeholders Conference", 72, round(y) + 14,
+      936, 130, 50, bold=False, color=INK, lh=1.2)
+    logo(d, 1, white=False, w=120, y=H - 50 - 70)
+    # 3. her selfie, edge to edge
     edge_photo(d, 2, "Suzanne Shea on the conference walk", fy=0.5, path=SUZ_WALK, fx=0.12)
-    logo(d, 2, w=140, x=W - 72 - 140 - 10, y=60)
+    logo(d, 2, w=140)
     return d
 
 
