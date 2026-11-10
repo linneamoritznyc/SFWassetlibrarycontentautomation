@@ -39,17 +39,34 @@ def logo(d, k, x, y, w=170):
     d.put(k, "SFW logo", lg, x, y, shadowed=False, anchor="tl")
 
 
-def wave(h=250):
-    """Two soft overlapping green waves across the bottom edge, for the logo to sit on."""
-    import math
+def wave_pair():
+    """One continuous green wave across slides 2 and 3 (Linnea's sketch, 10 Nov): starts low on the left of slide 2,
+    rises to the seam, dips in slide 3 and sweeps up to the right edge. A lighter wave sits just above for depth.
+    Returns (piece for slide 2, piece for slide 3), each W x H."""
     from PIL import ImageDraw
-    k = 3
-    im = Image.new("RGBA", (W * k, h * k), (0, 0, 0, 0))
-    dr = ImageDraw.Draw(im)
-    for amp, per, ph, base, col in ((26, 1.1, 0.6, 70, (89, 166, 108, 150)), (22, 0.9, 2.2, 110, (21, 104, 38, 235))):
-        pts = [(x * k, (base + amp * math.sin(2 * math.pi * per * x / W + ph)) * k) for x in range(0, W + 1, 6)]
-        dr.polygon(pts + [(W * k, h * k), (0, h * k)], fill=col)
-    return im.resize((W, h), Image.LANCZOS)
+    pts = [(-40, 1400), (313, 1345), (700, 1185), (1080, 1110), (1320, 1190), (1650, 1290), (1920, 1190),
+           (2200, 980)]
+
+    def smooth(p, n=40):
+        out = []
+        P = [p[0]] + p + [p[-1]]
+        for i in range(1, len(P) - 2):
+            p0, p1, p2, p3 = P[i - 1], P[i], P[i + 1], P[i + 2]
+            for j in range(n):
+                t = j / n
+                out.append(tuple(0.5 * ((2 * p1[c]) + (-p0[c] + p2[c]) * t + (2 * p0[c] - 5 * p1[c] + 4 * p2[c] - p3[c]) * t * t
+                                        + (-p0[c] + 3 * p1[c] - 3 * p2[c] + p3[c]) * t ** 3) for c in (0, 1)))
+        out.append(p[-1])
+        return out
+
+    k = 2
+    strip = Image.new("RGBA", (2 * W * k, H * k), (0, 0, 0, 0))
+    dr = ImageDraw.Draw(strip)
+    for dy, col in ((-55, (89, 166, 108, 150)), (0, (21, 104, 38, 240))):
+        line = [(x * k, (y + dy) * k) for x, y in smooth(pts)]
+        dr.polygon(line + [(2 * W * k + 80, H * k + 50), (-80, H * k + 50)], fill=col)
+    strip = strip.resize((2 * W, H), Image.LANCZOS)
+    return strip.crop((0, 0, W, H)), strip.crop((W, 0, 2 * W, H))
 
 
 def build(v):
@@ -68,7 +85,8 @@ def build(v):
     d.bg(1, frost(f"{V}/suzanne-hoop-house.jpg", 0.55, 0.7, 0.55, 0.8, top=True), name="Photo with soft frosted fade")
     t2 = "Her presentation taught veteran farmers about scalable sustainability through the Soil Food Web Approach."
     T(d, 1, "Text", t2, 80, 90, 900, 330, 56, bold=False, color=CREAM, align="left", lh=1.22)
-    d.put(1, "Green wave", wave(), 0, H - 250, shadowed=False, anchor="tl")
+    w2, w3 = wave_pair()
+    d.put(1, "Green wave", w2, 0, 0, shadowed=False, anchor="tl")
     logo(d, 1, W - 60 - 170, H - 50 - 170)
     # 3 photo only
     # tight on Suzanne, the man in the background cropped out (Linnea, 10 Nov)
@@ -78,7 +96,7 @@ def build(v):
     y0 = sf.height - ch
     sf = sf.crop((0, y0, cw, y0 + ch)).resize((W, H), Image.LANCZOS)
     d.bg(2, grade(sf).convert("RGBA"), name="Photo")
-    d.put(2, "Green wave", wave(), 0, H - 250, shadowed=False, anchor="tl")
+    d.put(2, "Green wave", w3, 0, 0, shadowed=False, anchor="tl")
     logo(d, 2, W - 60 - 170, H - 50 - 170)
     return d
 
