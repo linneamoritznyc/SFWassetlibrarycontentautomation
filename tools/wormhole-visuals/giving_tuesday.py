@@ -124,12 +124,13 @@ def build_story(v):
                "from the ground", hs=66)
     photo_slide(2, f"{NEW}/card-elaine-ingham-microscope.jpg", 0.5, 0.35,
                 "Dr. Elaine Ingham spent decades proving that soil is a living community")
-    type_slide(3, "The science is sound.\nThe methodology works.\nThe problem is reach.", hs=66)
-    photo_slide(4, f"{NEW}/community-laughing-at-microscope.jpg", 0.5, 0.4,
+    photo_slide(3, "/home/user/sfwlib/social/giving/class-live-microscopy-cr-oct2025.jpg", 0.55, 0.45,
+                "The science is sound. The methodology works. The problem is reach.")
+    photo_slide(4, f"{NEW}/students-laughing-at-compost-cage.jpg", 0.6, 0.4,
                 "There are students who know this is their calling but cannot afford the next step")
     # 6. what a gift funds (Linnea, 10 Nov: no live total on the slide, it goes stale)
-    type_slide(5, "Every gift at any level funds scholarships, educational resources, and research",
-               "Help us reach our $100,000 goal")
+    photo_slide(5, f"{NEW}/students-high-five-at-compost.jpg", 0.5, 0.35,
+                "Every gift at any level funds scholarships, educational resources, and research")
     # 7. close: the soil can recover, gold donate button
     type_slide(6, "The soil can recover.\nIt wants to.", None, hs=86)
     pw = 720
