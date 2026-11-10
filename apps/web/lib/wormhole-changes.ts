@@ -12590,6 +12590,36 @@ export const CHANGES: Change[] = [
       "This Thanksgiving, we asked our team what they are thankful for this year. 🍂\n\nTheir answers: our students' perseverance. The soil organisms that make this world so beautiful. Seasons, and the rest that gets us ready for spring. Being part of the change. A global classroom, with people learning together from every continent. And a deeper connection to the earth and all its living creatures, big and microscopic.\n\nSwipe through to read each answer in full.\n\nFrom all of us at the Soil Food Web School, thank you for being part of this community. Happy Thanksgiving! 💚\n\n#SoilFoodWeb #Thanksgiving #Gratitude #LivingSoil #SoilHealth #SoilBiology",
     reason: 'Linnea, 9 Nov: caption for the Thanksgiving staff post (Allison edits).',
   },
+  {
+    key: '2026-11-10 fam20261110 create',
+    post: 'fam20261110',
+    create: {
+      iso_date: '2026-11-10',
+      date_tbd: false,
+      topic: 'Dr. Carla Portugal at Food as Medicine for All (Sun 15 Nov)',
+      platform: 'Instagram, Facebook, LinkedIn',
+      caption:
+        'Our Science Lead, Dr. Carla Portugal, is speaking at the 2026 Food as Medicine for All Livestream Conference. 🌱\n\nHer talk, "Restoring the Soil Food Web to Grow Nutrition Your Patients Need," is for nutrition specialists and anyone who prescribes food. The nutrient density of food is partly a biological property of the soil it grew in. Carla shows how bacteria, fungi, nematodes and mycorrhizal networks work like the plant\'s gut microbiome, and what the peer-reviewed evidence does and doesn\'t support.\n\nSunday 15 November, 7 to 7:45am Pacific, online. The conference runs 14 to 15 November and offers up to 10 CE credits for Certified Nutrition Specialists.\n\nUse code FOODASMEDICINE20 for 20% off registration. Link in bio.\n\n#SoilFoodWeb #FoodAsMedicine #SoilHealth #Nutrition #LivingSoil #SoilBiology',
+      slides: [
+        {
+          text: 'Food as Medicine for All. Dr. Carla Portugal speaks on soil and nutrition. Sunday 15 November, 7 to 7:45am Pacific. Livestream conference.',
+          image: '/wormhole/tiles/fam20261110-v1-1.jpg',
+        },
+        {
+          text: 'Her talk: Restoring the Soil Food Web to Grow Nutrition Your Patients Need. The nutrient density of food is partly a biological property of the soil it grew in. Carla translates soil biology into clinical language for nutrition specialists. 2026 Food as Medicine for All, 14 to 15 November. Link in bio.',
+          image: '/wormhole/tiles/fam20261110-v1-2.jpg',
+        },
+      ],
+      cta: 'Link in bio',
+      link: '',
+      sources: ['https://aihm.org/?p=270968'],
+      visual_note:
+        "Family: portrait speaker card + type slide. Facts from the conference flyer and Linnea (10 Nov). Carla's photo is cropped from the flyer (small, 234 px wide); swap in a full-size copy if we get one. Built with tools/wormhole-visuals/nov_updates_nov10.py fam. Deck: decks/10-11-2026-carla-food-as-medicine-v1.pptx. Linnea: post Mon or Tue of Week 2 (Nov 9-15). Registration link still needed for the bio.",
+      note: 'Linnea, 10 Nov: for Allison, work into Mon or Tue of Week 2.',
+      status: 'draft',
+    },
+    reason: 'Linnea, 10 Nov: Carla speaks at Food as Medicine for All.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);
