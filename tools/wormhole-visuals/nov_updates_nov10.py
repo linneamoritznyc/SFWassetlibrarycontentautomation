@@ -286,14 +286,12 @@ def small_business(v):
     # 4. her words on a plain page. Linnea, 10 Nov: quote centred vertically with the mark directly above it,
     #    body full width, the sprout big and centred at the bottom with its roots running to the frame edge.
     page(3)
-    sp = drawing("sprout", 480)
-    d.put(3, "Sprout with roots drawing", sp, (W - sp.width) // 2, H - 46 - sp.height + 60, shadowed=False, anchor="tl")
     q4 = "Making compost and exploring samples under the microscope will always be something I enjoy"
     b4 = "Colleen believes rewilding soils with microbes is about restoring systems and people\u2019s connection with the Earth"
     hq = height(q4, 66, TW, lh=1.1)
     hb = height(b4, 52, TW, bold=False, lh=1.18)
     MARK = 112
-    top, bottom = 70, H - 46 - sp.height - 20
+    top, bottom = 80, H - 80
     y0 = round(top + (bottom - top - (MARK + hq + 40 + hb)) / 2)
     T(d, 3, "Quote mark", "\u201c", M - 6, y0 - 40, 200, 200, 240, color=GREEN, align="left")
     y = T(d, 3, "Quote", q4, M, y0 + MARK, TW, hq + 10, 66, color=BROWN, align="left", lh=1.1)
