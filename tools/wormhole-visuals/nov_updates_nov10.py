@@ -295,7 +295,6 @@ def small_business(v):
           M, 380, 800, 420, 66, color=BROWN, align="left", lh=1.1)
     T(d, 4, "Details", "Colleen believes rewilding soils with microbes is about restoring systems and people\u2019s "
       "connection with the Earth", M, round(y) + 50, 860, 300, 52, bold=False, color=INK, align="left", lh=1.18)
-    credit(4, "Fungal hypha, 100x. Marco Trevisan", M, H - 80 - 80, 700)
     sfw(4)
 
     # 6. learn it yourself: centred, quiet, the laptop drawing on top
