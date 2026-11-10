@@ -32,10 +32,6 @@ def build(v):
         T(d, 0, "Date", "Sunday 15 November\n7 to 7:45am Pacific", 72, 1080, 936, 140, 54, bold=False, color=BROWN,
           lh=1.18)
         T(d, 0, "Event", "Food as Medicine for All · Livestream", 72, 1240, 936, 70, 54, bold=False, color=BROWN)
-        # space for Instagram's link sticker, placed in the app
-        rect(d, 0, "Link sticker space", (W - 560) // 2, 1380, 560, 110, (0, 0, 0, 0), r=55,
-             outline=rgb(GREEN) + (255,), width=3)
-        T(d, 0, "Link sticker label", "LINK STICKER HERE", 72, 1400, 936, 70, 42, bold=False, color=GREEN, mn=42)
         logo(d, 0, white=False, w=150, x=(W - 150) // 2, y=SH - 300 - 20)
         return d.save(TILES, DECKS)[0]
     finally:
