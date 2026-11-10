@@ -82,18 +82,19 @@ def build(v):
     # 4. from soil to plate
     page(d, 3)
     T(d, 3, "Headline", "From soil to plate", 72, 170, 936, 90, BIG, color=BROWN)
-    steps = [("hands", "Living\nsoil"), ("leaves", "Healthy\nplant"), ("harvest-basket", "Nutritious\nfood")]
-    CW = 320
+    # real photos in eyepiece circles (Linnea, 10 Nov: no hands or basket drawings). Living soil: mushroom in the
+    # soil under grapes; healthy plant: Armonia greenhouse, Costa Rica Jul 2024; food: Costa Rica Oct 2025 kitchen
+    steps = [("sq-living-soil.jpg", "Living\nsoil"), ("sq-healthy-plant.jpg", "Healthy\nplant"),
+             ("sq-food.jpg", "Nutritious\nfood")]
+    CW, DC = 320, 270
     x0 = (W - 3 * CW) // 2
-    for i, (art, lab) in enumerate(steps):
-        im = drawing(art, 360)
-        if im.width > 300:
-            im = im.resize((300, round(im.height * 300 / im.width)), Image.LANCZOS)
+    for i, (f, lab) in enumerate(steps):
         cx = x0 + i * CW + CW // 2
-        d.put(3, f"Drawing {i + 1}", im, cx - im.width // 2, 330 + (360 - im.height) // 2, shadowed=False, anchor="tl")
-        T(d, 3, f"Step {i + 1}", lab, cx - 150, 720, 300, 130, MED, bold=False, color=BROWN, lh=1.12)
+        d.put(3, f"Photo {i + 1}: " + lab.replace("\n", " "), eyepiece(f"{MIC}/{f}", DC, 0.5, 0.5, 1.0), cx - DC // 2,
+              400, shadowed=False, anchor="tl")
+        T(d, 3, f"Step {i + 1}", lab, cx - 150, 700, 300, 130, MED, bold=False, color=BROWN, lh=1.12)
         if i < 2:
-            T(d, 3, f"Arrow {i + 1}", "\u2192", cx + CW // 2 - 45, 460, 90, 100, BIG, color=GREEN)
+            T(d, 3, f"Arrow {i + 1}", "\u2192", cx + CW // 2 - 45, 480, 90, 100, BIG, color=GREEN)
     T(d, 3, "Line", "Carla explains how soil biology\nshapes the nutrients in our food", 72, 930, 936, 130, MED,
       bold=False, color=BROWN, lh=1.16)
     sfw(d, 3)
