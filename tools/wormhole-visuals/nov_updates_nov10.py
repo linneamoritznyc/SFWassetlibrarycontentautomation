@@ -229,40 +229,48 @@ def small_business(v):
     T(d, 2, "Name", "Colleen Dempster", 100, round(y) + 50, 880, 70, 52, bold=False, color=INK, align="left")
     logo(d, 2, white=False, w=150)
 
-    # 4. what Rewild Soils offers
-    paper(3, 614)
-    T(d, 3, "Headline", "What Rewild Soils offers", 72, 110, 936, 100, 73, color=BROWN)
-    items = ["Microbial analysis reports", "Compost, compost teas\nand extracts", "Compost tea brew kits",
-             "Consulting and soil\nhealth testing", "Workshops and talks", "Hiwassee 100X\nExtractor rental"]
-    y = 290
-    for i, it in enumerate(items):
-        rect(d, 3, f"Bullet {i + 1}", 220, y + 20, 26, 26, rgb(GREEN) + (255,), r=13)
-        hgt = height(it, 54, 700, bold=False, lh=1.12)
-        T(d, 3, f"Item {i + 1}", it, 280, y, 700, hgt + 8, 54, bold=False, color=INK, align="left", lh=1.12)
-        y += round(hgt) + 34
-    r4 = rr.resize((200, round(rr.height * 200 / rr.width)), Image.LANCZOS)
-    d.put(3, "Rewild Soils botanical R", r4, 72, H - 60 - r4.height, shadowed=False, anchor="tl")
-    logo(d, 3, white=False, w=150)
+    # 4. her path into the soil food web (ties to our programs, not her services)
+    d.bg(3, grain(Image.new("RGB", (W, H), GREEN), 614, 4), name="Background: Food Web Green")
+    T(d, 3, "Headline", "Colleen\u2019s path", 72, 130, 936, 100, 73, color=CREAM)
+    steps = [("Started slowly", "as a stay-at-home mom, alongside another part-time job"),
+             ("2022", "opened a Soil Food Web certified lab"),
+             ("Now", "in the final stages of the Soil Food Web Consultant Program")]
+    y, xs = 340, 260
+    tops = []
+    for i, (h1, h2) in enumerate(steps):
+        tops.append(y)
+        hh = height(h1, 66, 720)
+        T(d, 3, f"Step {i + 1} title", h1, xs, y, 700, hh + 6, 66, color=CREAM, align="left")
+        dh = height(h2, 52, 700, bold=False, lh=1.18)
+        T(d, 3, f"Step {i + 1} text", h2, xs, y + round(hh) + 10, 700, dh + 6, 52, bold=False, color=CREAM,
+          align="left", lh=1.18)
+        y += round(hh + 10 + dh) + 70
+    rect(d, 3, "Path line", 179, tops[0] + 40, 4, tops[-1] - tops[0], rgb(MINT) + (255,))
+    for i, ty in enumerate(tops):
+        rect(d, 3, f"Path dot {i + 1}", 162, ty + 20, 38, 38, rgb(MINT) + (255,), r=19)
+    logo(d, 3, w=170)
 
-    # 5. in her words: ready when the clients are
+    # 5. in her words: ready when the clients are, and why she does it
     d.bg(4, grain(Image.new("RGB", (W, H), BROWN), 615, 4), name="Background: Soil Brown")
     T(d, 4, "Quote mark", "\u201c", 72, 120, 300, 220, 260, color=MINT, align="left")
     y = T(d, 4, "Quote", "Making compost and exploring samples under the microscope will always be something I enjoy",
           100, 380, 800, 420, 64, color=CREAM, align="left", lh=1.14)
-    T(d, 4, "Details", "Colleen is in the final stages of the\nSoil Food Web Consultant Program", 100, round(y) + 70, 880,
-      140, 52, bold=False, color=CREAM, align="left", lh=1.18)
+    T(d, 4, "Details", "Colleen believes rewilding soils with microbes is about restoring systems and people\u2019s "
+      "connection with the Earth", 100, round(y) + 70, 860, 220, 52, bold=False, color=CREAM, align="left", lh=1.18)
     logo(d, 4, w=170)
 
-    # 6. the logo as hero, in a thin label frame
+    # 6. learn it yourself (our courses), with thanks to Colleen
     paper(5, 616)
-    rect(d, 5, "Label frame", 56, 56, W - 112, H - 112, (0, 0, 0, 0), r=28, outline=rgb(BROWN) + (255,), width=3)
-    l3 = lg.resize((820, round(lg.height * 820 / lg.width)), Image.LANCZOS)
-    d.put(5, "Rewild Soils logo", l3, (W - 820) // 2, 220, shadowed=False, anchor="tl")
-    y = T(d, 5, "Details", "Soil microscopy, consulting,\nworkshops and compost\nfrom Uxbridge, Ontario",
-          72, 220 + l3.height + 60, 936, 240, 54, bold=False, color=INK, lh=1.18)
-    rect(d, 5, "Green pill", 240, round(y) + 50, 600, 104, rgb(GREEN) + (255,), r=52)
-    T(d, 5, "Website", "rewildsoils.com", 240, round(y) + 50 + 18, 600, 70, 54, color=CREAM)
-    logo(d, 5, white=False, w=130, x=W - 100 - 130, y=H - 100 - 130)
+    y = T(d, 5, "Headline", "The Foundation Courses teach you to work out what your soil needs", 72, 200, 936, 360, 73,
+          color=BROWN, lh=1.1)
+    y = T(d, 5, "Details", "Learn to assess bacteria, fungi, protozoa, and nematodes", 120, round(y) + 40, 840, 140, 54,
+          bold=False, color=INK, lh=1.18)
+    rect(d, 5, "Green pill", 290, round(y) + 60, 500, 104, rgb(GREEN) + (255,), r=52)
+    T(d, 5, "Link in bio", "Link in bio", 290, round(y) + 60 + 18, 500, 70, 54, color=CREAM)
+    l6 = lg.resize((380, round(lg.height * 380 / lg.width)), Image.LANCZOS)
+    T(d, 5, "Thanks", "With thanks to Colleen Dempster", 72, H - 120 - l6.height - 80, 936, 70, 50, bold=False, color=INK)
+    d.put(5, "Rewild Soils logo", l6, (W - 380) // 2, H - 110 - l6.height, shadowed=False, anchor="tl")
+    logo(d, 5, white=False, w=130)
     return d
 
 
