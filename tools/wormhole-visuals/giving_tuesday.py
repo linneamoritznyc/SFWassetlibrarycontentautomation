@@ -118,27 +118,35 @@ def build_story(v):
             T(d, k, "Details", line, 110, y + round(hh) + 36, 860, lh + 8, 54, bold=False, color=MINT, lh=1.22)
         logo(d, k)
 
+    # v17 (Linnea, 10 Nov: "you can change the text too"): a real photo on every slide, tighter lines from the
+    # Givebutter campaign (https://givebutter.com/sfwf-donate), one idea per slide
+    G = "/home/user/sfwlib/social/giving"
     photo_slide(0, f"{IND}/40c702d3-e6e9-4387-b187-2a1798fef626.jpg", 0.45, 0.4,
-                "There is a farmer somewhere right now watching their soil fail")
-    type_slide(1, "Not from drought or bad luck, but from a century of practices that stripped the living biology "
-               "from the ground", hs=66)
+                "Somewhere right now, a farmer is watching their soil fail")
+    photo_slide(1, "/home/user/SFW-SocialMedia/assets/photo/web/fist-of-dry-soil.jpg", 0.5, 0.45,
+                "A century of practices stripped the living biology from the ground")
     photo_slide(2, f"{NEW}/card-elaine-ingham-microscope.jpg", 0.5, 0.35,
-                "Dr. Elaine Ingham spent decades proving that soil is a living community")
-    photo_slide(3, "/home/user/sfwlib/social/giving/class-live-microscopy-cr-oct2025.jpg", 0.55, 0.45,
-                "The science is sound. The methodology works. The problem is reach.")
+                "Dr. Elaine Ingham spent decades proving soil is a living community")
+    photo_slide(3, f"{G}/class-live-microscopy-cr-oct2025.jpg", 0.55, 0.45,
+                "The science works. The problem is reach.")
     photo_slide(4, f"{NEW}/students-laughing-at-compost-cage.jpg", 0.6, 0.4,
-                "There are students who know this is their calling but cannot afford the next step")
-    # 6. what a gift funds (Linnea, 10 Nov: no live total on the slide, it goes stale)
+                "Students know this is their calling, but can\u2019t afford the next step")
     photo_slide(5, f"{NEW}/students-high-five-at-compost.jpg", 0.5, 0.35,
-                "Every gift at any level funds scholarships, educational resources, and research")
-    # 7. close: the soil can recover, gold donate button
-    type_slide(6, "The soil can recover.\nIt wants to.", None, hs=86)
-    pw = 720
-    pill = Image.new("RGBA", (pw * 4, 110 * 4), (0, 0, 0, 0))
-    ImageDraw.Draw(pill).rounded_rectangle((0, 0, pw * 4 - 1, 110 * 4 - 1), 220, fill=rgb(GOLD) + (255,))
-    d.put(6, "Donate button (gold)", pill.resize((pw, 110), Image.LANCZOS), (W - pw) // 2, 1090, shadowed=False,
+                "Your gift funds scholarships, educational resources and research")
+    # 7. close on the land, with the gold donate button in the band
+    d.bg(6, Image.new("RGB", (W, H), GREEN).convert("RGBA"), name="Background: Food Web Green")
+    band = 470
+    d.put(6, "Photo: class walking a farm track, Wild Ken Hill, Jun 2025",
+          cover(ph(f"{G}/wkh-farm-track-jun2025.jpg"), W, H - band, 0.45, 0.45).convert("RGBA"), 0, 0, shadowed=False,
           anchor="tl")
-    T(d, 6, "Donate", "Donate \u00b7 Link in bio", 72, 1108, 936, 70, 54, color="#4F3433")
+    T(d, 6, "Headline", "The soil can recover. Help us bring it back to life.", 72, H - band + 40, 760, 230, 66,
+      color=CREAM, align="left", lh=1.08)
+    pw = 620
+    pill = Image.new("RGBA", (pw * 4, 100 * 4), (0, 0, 0, 0))
+    ImageDraw.Draw(pill).rounded_rectangle((0, 0, pw * 4 - 1, 100 * 4 - 1), 200, fill=rgb(GOLD) + (255,))
+    d.put(6, "Donate button (gold)", pill.resize((pw, 100), Image.LANCZOS), 74, H - 140, shadowed=False, anchor="tl")
+    T(d, 6, "Donate", "Donate \u00b7 Link in bio", 74, H - 126, pw, 70, 52, color="#4F3433")
+    logo(d, 6)
     return d
 
 
