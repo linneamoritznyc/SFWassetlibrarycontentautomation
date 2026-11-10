@@ -249,8 +249,8 @@ def small_business(v):
     page(3)
     T(d, 3, "Headline", "Colleen\u2019s path", M, 130, TW, 90, 73, color=BROWN, align="left")
     steps = [("Started slowly", "as a stay-at-home mom, alongside another part-time job"),
-             ("2022", "opened a Soil Food Web\ncertified lab"),
-             ("Now", "in the final stages of the Soil Food Web Consultant Program")]
+             ("2022", "became a Soil Food Web\ncertified lab"),
+             ("Now", "finishing the last steps to become a Soil Food Web Consultant")]
     y, xs = 330, M + 90
     tops = []
     for i, (h1, h2) in enumerate(steps):
