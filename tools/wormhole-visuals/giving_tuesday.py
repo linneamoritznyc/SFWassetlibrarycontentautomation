@@ -138,7 +138,7 @@ def build_story(v):
     pill0 = Image.new("RGBA", (pw0 * 4, 100 * 4), (0, 0, 0, 0))
     ImageDraw.Draw(pill0).rounded_rectangle((0, 0, pw0 * 4 - 1, 100 * 4 - 1), 200, fill=rgb(GOLD) + (255,))
     d.put(0, "Give button (gold)", pill0.resize((pw0, 100), Image.LANCZOS), 74, 990, shadowed=False, anchor="tl")
-    T(d, 0, "Give", "Give today \u00b7 Link in bio", 74, 1004, pw0, 70, 50, color="#4F3433")
+    T(d, 0, "Give", "Give today", 74, 1004, pw0, 70, 50, color="#4F3433")
     logo(d, 0)
     photo_slide(1, "/home/user/SFW-SocialMedia/assets/photo/web/fist-of-dry-soil.jpg", 0.5, 0.45,
                 "The soil under our feet is alive. For decades we\u2019ve farmed it like it was dead.")
@@ -162,7 +162,7 @@ def build_story(v):
     pill = Image.new("RGBA", (pw * 4, 100 * 4), (0, 0, 0, 0))
     ImageDraw.Draw(pill).rounded_rectangle((0, 0, pw * 4 - 1, 100 * 4 - 1), 200, fill=rgb(GOLD) + (255,))
     d.put(6, "Donate button (gold)", pill.resize((pw, 100), Image.LANCZOS), 74, H - 170, shadowed=False, anchor="tl")
-    T(d, 6, "Donate", "Donate \u00b7 Link in bio", 74, H - 156, pw, 70, 52, color="#4F3433")
+    T(d, 6, "Donate", "Donate today", 74, H - 156, pw, 70, 52, color="#4F3433")
     logo(d, 6)
     return d
 

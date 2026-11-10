@@ -74,37 +74,43 @@ def needle(D, f):
     return im.resize((D, D), Image.LANCZOS)
 
 
-def build(v, f):
+def build(v, fracs):
     collage.H = SH
     try:
-        d = Deck("st20261201give", 1, f"giving-tuesday-thermometer-story-{v}", "2026-12-01")
-        d.bg(0, leaf_texture(770).resize((W, SH)), name="Background: green leaf texture")
-        T(d, 0, "Eyebrow", "GivingTuesday · December 1", 72, 270, 936, 70, 54, bold=False, color=MINT)
-        T(d, 0, "Headline", "Help us reach\nour goal", 72, 380, 936, 200, 86, color=CREAM, lh=1.04)
+        d = Deck("st20261201give", len(fracs), f"giving-tuesday-thermometer-story-{v}", "2026-12-01")
+        for k, f in enumerate(fracs):
+            one(d, k, f)
+        return d.save(TILES, DECKS)[0]
+    finally:
+        collage.H = 1350
+
+
+def one(d, k, f):
+    if True:
+        d.bg(k, leaf_texture(770).resize((W, SH)), name="Background: green leaf texture")
+        T(d, k, "Eyebrow", "GivingTuesday · December 1", 72, 300, 936, 70, 54, bold=False, color=MINT)
+        T(d, k, "Headline", "We did it.\nThank you!" if f >= 1 else "Help us reach\nour goal", 72, 380, 936, 200, 86, color=CREAM, lh=1.04)
         D = 760
         x, y = (W - D) // 2, 620
         stem_w, stem_h = 34, 200
         stem = Image.new("RGBA", (stem_w * 4, stem_h * 4), (0, 0, 0, 0))   # the long compost-thermometer stem, pointed
         ImageDraw.Draw(stem).polygon([(0, 0), (stem_w * 4, 0), (stem_w * 4, (stem_h - 40) * 4), (stem_w * 2, stem_h * 4),
                                       (0, (stem_h - 40) * 4)], fill=rgb("#D8C3A5") + (255,))
-        d.put(0, "Thermometer stem", stem.resize((stem_w, stem_h), Image.LANCZOS), (W - stem_w) // 2, y + D - 20,
+        d.put(k, "Thermometer stem", stem.resize((stem_w, stem_h), Image.LANCZOS), (W - stem_w) // 2, y + D - 20,
               shadowed=False, anchor="tl")
-        d.put(0, "Thermometer dial", dial(D), x, y, shadowed=False, anchor="tl")
-        d.put(0, "Needle (rotate around its centre to the current total)", needle(D, f), x, y, shadowed=False,
+        d.put(k, "Thermometer dial", dial(D), x, y, shadowed=False, anchor="tl")
+        d.put(k, "Needle (rotate around its centre to the current total)", needle(D, f), x, y, shadowed=False,
               anchor="tl")
         pw = 600
         pill = Image.new("RGBA", (pw * 4, 110 * 4), (0, 0, 0, 0))
         ImageDraw.Draw(pill).rounded_rectangle((0, 0, pw * 4 - 1, 110 * 4 - 1), 220, fill=rgb(GOLD) + (255,))
-        d.put(0, "Give button (gold)", pill.resize((pw, 110), Image.LANCZOS), (W - pw) // 2, 1590, shadowed=False,
+        d.put(k, "Give button (gold)", pill.resize((pw, 110), Image.LANCZOS), (W - pw) // 2, 1590, shadowed=False,
               anchor="tl")
-        T(d, 0, "Give", "Give · Link in bio", 72, 1608, 936, 70, 54, color=BROWN)
+        T(d, k, "Give", "Give today", 72, 1608, 936, 70, 54, color=BROWN)
         lg = Image.open("/home/user/SFWassetlibrarycontentautomation/apps/web/public/wormhole/brand/sfw-foundation-logo-white.png").convert("RGBA")
         lg = lg.resize((130, round(lg.height * 130 / lg.width)), Image.LANCZOS)
-        d.put(0, "SFW logo", lg, (W - 130) // 2, 120, shadowed=False, anchor="tl")
-        return d.save(TILES, DECKS)[0]
-    finally:
-        collage.H = 1350
+        d.put(k, "SFW logo", lg, (W - 130) // 2, 120, shadowed=False, anchor="tl")
 
 
 if __name__ == "__main__":
-    print(build(sys.argv[1], float(sys.argv[2]) if len(sys.argv) > 2 else 0.5))
+    print(build(sys.argv[1], [0.1, 0.25, 0.5, 0.75, 1.0]))

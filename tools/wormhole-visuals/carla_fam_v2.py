@@ -105,10 +105,6 @@ def build(v):
     T(d, 4, "Headline", "Watch Carla live", 72, 730, 936, 90, BIG, color=BROWN)
     T(d, 4, "Date", "Sunday 15 November, 7 to 7:45am Pacific", 72, 840, 936, 70, MED, bold=False, color=BROWN)
     T(d, 4, "Event", "Food as Medicine for All \u00b7 Livestream", 72, 910, 936, 70, MED, bold=False, color=BROWN)
-    pill = Image.new("RGBA", (340 * 4, 96 * 4), (0, 0, 0, 0))
-    ImageDraw.Draw(pill).rounded_rectangle((0, 0, 340 * 4 - 1, 96 * 4 - 1), 192, fill=rgb(GREEN) + (255,))
-    d.put(4, "Green pill", pill.resize((340, 96), Image.LANCZOS), (W - 340) // 2, 1040, shadowed=False, anchor="tl")
-    T(d, 4, "Link in bio", "Link in bio", 72, 1054, 936, 70, MED, color=CREAM)
     sfw(d, 4)
     return d
 
