@@ -43,12 +43,12 @@ def build(v):
     d = Deck("vet20261111", 3, f"veterans-day-{v}", "2026-11-11")
     # 1
     d.bg(0, frost(f"{V}/suzanne-fvc-conference.jpg", 0.45, 0.62, 0.55, 0.8), name="Photo with soft frosted fade")
-    head = "We salute our veteran farmers and soil food web practicioners!"
+    head = "Veteran farmers\nbuilding living soil"
     det = "Consultant Suzanne Shea presented at the Farmer Veteran Coalition Stakeholders Conference"
-    hh = height(head, 66, 920, lh=1.06)
+    hh = height(head, 80, 920, lh=1.04)
     dh = height(det, 48, 780, bold=False, lh=1.2)
     y = H - 70 - round(dh) - 22 - round(hh)
-    y = T(d, 0, "Headline", head, 80, y, 920, hh + 8, 66, color=CREAM, align="left", lh=1.06)
+    y = T(d, 0, "Headline", head, 80, y, 920, hh + 8, 80, color=CREAM, align="left", lh=1.04)
     T(d, 0, "Details", det, 80, round(y) + 22, 780, dh + 8, 48, bold=False, color=CREAM, align="left", lh=1.2)
     logo(d, 0, W - 70 - 120, H - 60 - 120)
     # 2
