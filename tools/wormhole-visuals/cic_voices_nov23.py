@@ -127,13 +127,13 @@ def build(v):
     z.putalpha(m)
     ImageDraw.Draw(z).rounded_rectangle((1, 1, z.width - 2, z.height - 2), 22, outline=(244, 241, 234, 150), width=2)
     d.put(0, "CIC call photo", z, cx + 30, cy + 30, shadowed=True, anchor="tl", off=(0, 10), blur=18, alpha=0.5)
-    head = "Will we see\nyou in the CIC\nnext year?"
+    head = "What our students\nsay about our\nCompost Intensive\nCourse"
     hh = height(head, 86, 840, lh=1.06)
     top = cy + 30 + z.height
     y = top + (cy + ch - top - round(hh)) // 2 - 10
     d.put(0, "Mint rule", Image.new("RGBA", (110, 6), (169, 211, 178, 255)), cx + 60, y - 40, shadowed=False,
           anchor="tl")
-    T(d, 0, "Headline", head, cx + 60, y, 700, hh + 8, 86, color=CREAM, align="left", lh=1.06)
+    T(d, 0, "Headline", head, cx + 60, y, 860, hh + 8, 86, color=CREAM, align="left", lh=1.06)
     logo(d, 0, cx + cw - 150 - 50, cy + ch - 150 - 45)
     quote_slide(d, 1, KAMAI, "–Fatemah Kamai, Libya", 0.25)
     quote_slide(d, 2, PRATIK, "–Pratik Thomas, India", 0.75)
