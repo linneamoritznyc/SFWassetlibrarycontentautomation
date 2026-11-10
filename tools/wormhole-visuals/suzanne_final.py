@@ -19,11 +19,11 @@ V = "/home/user/sfwlib/social/veterans"
 LOGO = "/home/user/SFWassetlibrarycontentautomation/apps/web/public/wormhole/brand/sfw-foundation-logo-white.png"
 
 
-def frost(path, fx, fy, a0, a1, top=False):
+def frost(path, fx, fy, a0, a1, top=False, deep=(20, 50, 30), mix=0.62):
     sharp = grade(cover(ImageOps.exif_transpose(Image.open(path)).convert("RGB"), W, H, fx, fy))
     blur = np.asarray(sharp.filter(ImageFilter.GaussianBlur(30))).astype(np.float32)
-    deep = np.array([20, 50, 30], np.float32)
-    frost_ = blur * 0.38 + deep * 0.62
+    deep = np.array(deep, np.float32)
+    frost_ = blur * (1 - mix) + deep * mix
     y = np.linspace(0, 1, H, dtype=np.float32)
     if top:
         y = 1 - y
@@ -102,7 +102,7 @@ def swoosh3():
     ys = np.convolve(ys, g / g.sum(), mode="same")
     keep = (xs >= -20) & (xs <= N * W + 20)
     curve = list(zip(xs[keep][::4], ys[keep][::4]))
-    for dy, col in ((-14, (244, 241, 234, 255)), (0, (21, 104, 38, 255))):
+    for dy, col in ((0, (21, 104, 38, 255)),):  # no cream line (Linnea, 10 Nov)
         line = [(x * k, (y + dy) * k) for x, y in curve]
         dr.polygon(line + [(N * W * k + 80, H * k + 50), (-80, H * k + 50)], fill=col)
     # real straw texture at 50% inside the green (Linnea, 10 Nov)
@@ -127,14 +127,8 @@ def build(v):
     d = Deck("vet20261111", 3, f"veterans-day-{v}", "2026-11-11")
     sw = swoosh3()
     # 1. no swoosh (Linnea, 10 Nov): photo with the soft frosted fade, text on the fade
-    bg0 = frost(f"{V}/suzanne-fvc-conference.jpg", 0.45, 0.62, 0.55, 0.8)
-    tex0 = straw(W, H).convert("RGBA")
-    yy = np.linspace(0, 1, H, dtype=np.float32)
-    tt = np.clip((yy - 0.6) / 0.22, 0, 1)
-    tt = tt * tt * (3 - 2 * tt) * 0.5
-    tex0.putalpha(Image.fromarray(np.repeat((tt * 255)[:, None], W, axis=1).astype("uint8")))
-    bg0.alpha_composite(tex0)
-    d.bg(0, bg0, name="Photo with soft frosted fade and straw texture")
+    bg0 = frost(f"{V}/suzanne-fvc-conference.jpg", 0.45, 0.62, 0.55, 0.8, deep=(55, 128, 184), mix=0.8)  # brand blue #3780B8 (Linnea, 10 Nov)
+    d.bg(0, bg0, name="Photo with soft frosted fade")
     head = "Veteran farmers\nbuilding living soil"
     det = "Consultant Suzanne Shea presented at the Farmer Veteran Coalition Stakeholders Conference"
     hh = height(head, 80, 920, lh=1.04)
