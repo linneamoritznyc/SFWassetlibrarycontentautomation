@@ -194,7 +194,7 @@ def small_business(v):
     uses the soil food web, not her services; never tilt a photo. v16: one design system across the carousel, a
     cream naturalist's page with a fine brown frame and one left margin, and real soil micrographs as round
     eyepiece views (Colleen's microscope). Micrograph credits on the slides."""
-    d = Deck("x20261128", 6, f"small-business-saturday-rewild-soils-{v}", "2026-11-28")
+    d = Deck("x20261128", 5, f"small-business-saturday-rewild-soils-{v}", "2026-11-28")
     ph = ImageOps.exif_transpose(Image.open(RW_PHOTO)).convert("RGB")
     lg = Image.open(f"{RW}/rewild-soils-logo.png").convert("RGBA")
     rr = lg.crop((0, 0, 505, lg.height))
@@ -227,99 +227,90 @@ def small_business(v):
       align="left")
     sfw(0)
 
-    # 2. the lab: an eyepiece view
+    def drawing(name, h, thick=3):
+        """A line drawing from sfwlib/social/lineart, recoloured Soil Brown on transparent."""
+        la_ = Image.open(f"/home/user/sfwlib/social/lineart/{name}.png").convert("L")
+        al_ = la_.point(lambda v: max(0, min(255, int((v - 40) * 1.6)))).filter(ImageFilter.MaxFilter(thick))
+        im_ = Image.new("RGBA", la_.size, rgb(BROWN) + (0,))
+        im_.putalpha(al_)
+        im_ = im_.crop(al_.getbbox())
+        return im_.resize((round(im_.width * h / im_.height), h), Image.LANCZOS)
+
+    # 2. her words, with a space for one of her own micrographs (Allison, 10 Nov: the student micrographs
+    #    would read as hers; ask Colleen for her own)
     page(1)
-    D = 640
-    d.put(1, "Micrograph: testate amoeba, 40x, Robert Kenyon",
-          eyepiece(f"{MIC}/Testate amoeba (reproducing), 40x obj, Robert Kenyon.jpg", D, 0.52, 0.45, 1.25),
-          (W - D) // 2, 100, shadowed=False, anchor="tl")
-    credit(1, "Testate amoeba, 40x. Robert Kenyon", 0, 100 + D + 14, W, align="center")
-    y = T(d, 1, "Headline", "A Soil Food Web certified lab since 2022", M, 830, TW - 40, 170, 70, color=BROWN,
-          align="left", lh=1.06)
-    T(d, 1, "Details", "She has analysed more than 300 soil and compost samples under the microscope", M, round(y) + 20, 690, 200,
-      52, bold=False, color=INK, align="left", lh=1.18)
-    sfw(1)
-
-    # 3. her words, with an eyepiece view of what she shows people
-    page(2)
-    T(d, 2, "Quote mark", "\u201c", M - 6, 110, 200, 200, 240, color=GREEN, align="left")
-    y = T(d, 2, "Quote", "Most people have never seen the microbes that make up the soil food web, so I show "
+    T(d, 1, "Quote mark", "\u201c", M - 6, 110, 200, 200, 240, color=GREEN, align="left")
+    y = T(d, 1, "Quote", "Most people have never seen the microbes that make up the soil food web, so I show "
           "pictures and do live microscope demonstrations", M, 320, TW, 460, 62, color=BROWN, align="left", lh=1.12)
-    T(d, 2, "Name", "Colleen Dempster", M, round(y) + 30, TW, 70, 52, bold=False, color=INK, align="left")
-    D3 = 470
-    d.put(2, "Micrograph: naked amoeba and flagellate, 40x, Jimena Fuentes",
-          eyepiece(f"{MIC}/Naked amoeba (stellate), flagellate, 40x obj, Jimena Fuentes.jpg", D3, 0.62, 0.5, 1.15),
-          W - 90 - D3, H - 90 - D3, shadowed=False, anchor="tl")
-    credit(2, "Naked amoeba and\nflagellate, 40x.\nJimena Fuentes", M, H - 90 - D3 + 60, 380)
-    logo(d, 2, white=False, w=140, x=M, y=H - 80 - 140)
+    T(d, 1, "Name", "Colleen Dempster", M, round(y) + 30, TW, 70, 52, bold=False, color=INK, align="left")
+    D2 = 470
+    ph2 = Image.new("RGBA", (D2 * 2, D2 * 2), (0, 0, 0, 0))
+    dr2 = ImageDraw.Draw(ph2)
+    dr2.ellipse((0, 0, D2 * 2 - 1, D2 * 2 - 1), fill=(226, 221, 211, 255), outline=(40, 32, 30, 255), width=18)
+    d.put(1, "Photo space: one of Colleen's own micrographs", ph2.resize((D2, D2), Image.LANCZOS),
+          W - 90 - D2, H - 90 - D2, shadowed=False, anchor="tl")
+    T(d, 1, "Photo space label", "PHOTO: one of\nColleen\u2019s own\nmicrographs", W - 90 - D2, H - 90 - D2 // 2 - 80,
+      D2, 170, 44, bold=False, color=BROWN, lh=1.12)
+    logo(d, 1, white=False, w=140, x=M, y=H - 80 - 140)
 
-    # 4. her path into the soil food web, with the microscope drawn beside the title
-    page(3)
-    T(d, 3, "Headline", "Colleen\u2019s path", M, 150, 600, 90, 73, color=BROWN, align="left")
+    # 3. her path, starting at 2022 (Allison: check she is happy for the stay-at-home line to be public)
+    page(2)
+    T(d, 2, "Headline", "Colleen\u2019s path", M, 150, 600, 90, 73, color=BROWN, align="left")
     la = Image.open("/home/user/sfwlib/social/lineart/microscope.png").convert("L").crop((150, 300, 560, 900))
     al = la.point(lambda v: max(0, min(255, int((v - 40) * 1.6))))
     mic = Image.new("RGBA", la.size, rgb(BROWN) + (0,))
-    mic.putalpha(al)
     mic.putalpha(al.filter(ImageFilter.MaxFilter(3)))
     mic = mic.crop(al.getbbox())
     mic = mic.resize((round(mic.width * 320 / mic.height), 320), Image.LANCZOS)
-    d.put(3, "Microscope drawing", mic, W - 100 - mic.width, 80, shadowed=False, anchor="tl")
-    steps = [("Started slowly", "as a stay-at-home mom, alongside another part-time job"),
-             ("2022", "became a Soil Food Web\ncertified lab"),
+    d.put(2, "Microscope drawing", mic, W - 100 - mic.width, 80, shadowed=False, anchor="tl")
+    steps = [("2022", "started Rewild Soils"),
+             ("Since then", "analysed more than 300 soil and compost samples, re-certified as a Soil Food Web lab every year"),
              ("Now", "finishing the last steps to become a Soil Food Web Consultant")]
-    y, xs = 420, M + 90
+    y, xs = 440, M + 90
     tops = []
     for i, (h1, h2) in enumerate(steps):
         tops.append(y)
         hh = height(h1, 66, 700)
-        T(d, 3, f"Step {i + 1} title", h1, xs, y, 700, hh + 6, 66, color=GREEN, align="left")
+        T(d, 2, f"Step {i + 1} title", h1, xs, y, 700, hh + 6, 66, color=GREEN, align="left")
         dh = height(h2, 52, 740, bold=False, lh=1.18)
-        T(d, 3, f"Step {i + 1} text", h2, xs, y + round(hh) + 10, 740, dh + 6, 52, bold=False, color=INK,
+        T(d, 2, f"Step {i + 1} text", h2, xs, y + round(hh) + 10, 740, dh + 6, 52, bold=False, color=INK,
           align="left", lh=1.18)
         y += round(hh + 10 + dh) + 56
-    rect(d, 3, "Path line", M + 21, tops[0] + 40, 3, tops[-1] - tops[0], rgb(BROWN) + (255,))
+    rect(d, 2, "Path line", M + 21, tops[0] + 40, 3, tops[-1] - tops[0], rgb(BROWN) + (255,))
     for i, ty in enumerate(tops):
-        rect(d, 3, f"Path node {i + 1}", M, ty + 18, 44, 44, rgb(CREAM) + (255,), r=22, outline=rgb(BROWN) + (255,),
+        rect(d, 2, f"Path node {i + 1}", M, ty + 18, 44, 44, rgb(CREAM) + (255,), r=22, outline=rgb(BROWN) + (255,),
              width=3)
-        rect(d, 3, f"Path node {i + 1} centre", M + 12, ty + 30, 20, 20, rgb(GREEN) + (255,), r=10)
+        rect(d, 2, f"Path node {i + 1} centre", M + 12, ty + 30, 20, 20, rgb(GREEN) + (255,), r=10)
+    sfw(2)
+
+    # 4. her words on a plain page (Allison: text over the fungal photo was hard to read)
+    page(3)
+    sp = drawing("sprout", 330)
+    d.put(3, "Sprout drawing", sp, W - 100 - sp.width, H - 230 - sp.height, shadowed=False, anchor="tl")
+    T(d, 3, "Quote mark", "\u201c", M - 6, 130, 200, 200, 240, color=GREEN, align="left")
+    y = T(d, 3, "Quote", "Making compost and exploring samples under the microscope will always be something I enjoy",
+          M, 350, 820, 420, 66, color=BROWN, align="left", lh=1.1)
+    T(d, 3, "Details", "Colleen believes rewilding soils with microbes is about restoring systems and people\u2019s "
+      "connection with the Earth", M, round(y) + 50, 600, 360, 52, bold=False, color=INK, align="left", lh=1.18)
     sfw(3)
 
-    # 5. her words over fungal hyphae, edge to edge inside the frame
+    # 5. find someone near you (Allison: the consultant directory), ending on rewildsoils.com
     page(4)
-    hy = ImageOps.exif_transpose(Image.open(f"{MIC}/Fungal hypha, 100x obj, Marco Trevisan.jpg")).convert("RGB")
-    hy = cover(hy, W - 160, H - 160, 0.62, 0.45)
-    hy = Image.blend(hy, Image.new("RGB", hy.size, (244, 241, 234)), 0.45)
-    d.put(4, "Micrograph: fungal hypha, 100x, Marco Trevisan", hy.convert("RGBA"), 80, 80, shadowed=False, anchor="tl")
-    T(d, 4, "Quote mark", "\u201c", M - 6, 150, 200, 200, 240, color=GREEN, align="left")
-    y = T(d, 4, "Quote", "Making compost and exploring samples under the microscope will always be something I enjoy",
-          M, 380, 800, 420, 66, color=BROWN, align="left", lh=1.1)
-    T(d, 4, "Details", "Colleen believes rewilding soils with microbes is about restoring systems and people\u2019s "
-      "connection with the Earth", M, round(y) + 50, 860, 300, 52, bold=False, color=INK, align="left", lh=1.18)
-    sfw(4)
-
-    # 6. learn it yourself: centred, quiet, the laptop drawing on top
-    page(5)
-    la6 = Image.open("/home/user/sfwlib/social/lineart/online.png").convert("L")
-    al6 = la6.point(lambda v: max(0, min(255, int((v - 40) * 1.6)))).filter(ImageFilter.MaxFilter(3))
-    lap = Image.new("RGBA", la6.size, rgb(BROWN) + (0,))
-    lap.putalpha(al6)
-    lap = lap.crop(al6.getbbox())
-    lap = lap.resize((round(lap.width * 250 / lap.height), 250), Image.LANCZOS)
-    d.put(5, "Drawing: online lesson on a laptop", lap, (W - lap.width) // 2, 130, shadowed=False, anchor="tl")
-    y = T(d, 5, "Headline", "Our Foundation Courses\nteach you to work out\nwhat your soil needs", 72, 450, 936, 260, 68,
-          color=BROWN, lh=1.08)
-    y = T(d, 5, "Details", "Learn to assess bacteria, fungi,\nprotozoa, and nematodes", 72, round(y) + 28, 936, 140, 52,
-          bold=False, color=INK, lh=1.16)
-    pw6 = 400
-    rect(d, 5, "Link in bio outline", (W - pw6) // 2, round(y) + 44, pw6, 96, (0, 0, 0, 0), r=48,
+    hd = drawing("hands", 280)
+    d.put(4, "Hands holding soil drawing", hd, (W - hd.width) // 2, 120, shadowed=False, anchor="tl")
+    y = T(d, 4, "Headline", "Find a Soil Food Web\nconsultant or lab\nnear you", 72, 460, 936, 260, 70, color=BROWN,
+          lh=1.08)
+    pw5 = 400
+    rect(d, 4, "Link in bio outline", (W - pw5) // 2, round(y) + 40, pw5, 96, (0, 0, 0, 0), r=48,
          outline=rgb(GREEN) + (255,), width=3)
-    T(d, 5, "Link in bio", "Link in bio", 72, round(y) + 44 + 12, 936, 70, 52, color=GREEN)
-    rect(d, 5, "Thanks rule", (W - 120) // 2, 1020, 120, 2, rgb(BROWN) + (255,))
-    d.text(5, "Thanks", "WITH THANKS TO COLLEEN DEMPSTER", (W - 700) // 2, 1046, 700, 60, 46, kind="pathway",
+    T(d, 4, "Link in bio", "Link in bio", 72, round(y) + 40 + 12, 936, 70, 52, color=GREEN)
+    rect(d, 4, "Thanks rule", (W - 120) // 2, 980, 120, 2, rgb(BROWN) + (255,))
+    d.text(4, "Thanks", "WITH THANKS TO COLLEEN DEMPSTER", (W - 700) // 2, 1004, 700, 60, 46, kind="pathway",
            italic=False, color=GREEN, lh=1.0, align="center", track=4)
-    l6 = lg.resize((250, round(lg.height * 250 / lg.width)), Image.LANCZOS)
-    d.put(5, "Rewild Soils logo", l6, (W - 250) // 2, 1112, shadowed=False, anchor="tl")
-    logo(d, 5, white=False, w=120, x=W - 80 - 120, y=H - 80 - 120)
+    l5 = lg.resize((230, round(lg.height * 230 / lg.width)), Image.LANCZOS)
+    d.put(4, "Rewild Soils logo", l5, (W - 230) // 2, 1062, shadowed=False, anchor="tl")
+    T(d, 4, "Website", "rewildsoils.com", 72, 1062 + l5.height + 4, 936, 70, 50, bold=False, color=INK)
+    logo(d, 4, white=False, w=120, x=W - 80 - 120, y=H - 80 - 120)
     return d
 
 
