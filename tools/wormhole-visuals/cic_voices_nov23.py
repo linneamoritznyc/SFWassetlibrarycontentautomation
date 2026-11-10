@@ -53,7 +53,7 @@ def logo(d, k, x, y, w=150):
     d.put(k, "SFW logo", lg, x, y, shadowed=False, anchor="tl")
 
 
-def straw_bg(fy=0.5, dark=0.42, src=None):
+def straw_bg(fy=0.5, dark=0.24, src=None):
     im = cover(Image.open(src or STRAW).convert("RGB"), W, H, 0.5, fy)
     a = np.asarray(im).astype(np.float32) * dark
     yy, xx = np.mgrid[0:H, 0:W].astype(np.float32)
@@ -95,14 +95,14 @@ def faces():
 
 
 def quote_slide(d, k, text, name, fy, size=50):
-    bg = straw_bg(fy, 0.6, COMPOST) if k % 2 == 1 else straw_bg(fy)
+    bg = straw_bg(fy, 0.32, COMPOST) if k % 2 == 1 else straw_bg(fy)
     d.bg(k, bg, name="Straw texture")
     pw, pad = 960, 60
     qh = height(text, size, pw - 2 * pad, bold=False, lh=1.18)
     nh = height(name, 52, pw - 2 * pad, lh=1.1)
     ph = round(pad + 30 + qh + 30 + nh + pad)
     py = max(95, (H - ph) // 2 + 30)
-    d.put(k, "Frosted panel", glass(bg, 60, py, pw, ph), 60, py, shadowed=True, anchor="tl")
+    d.put(k, "Frosted panel", glass(bg, 60, py, pw, ph, dim=0.45), 60, py, shadowed=True, anchor="tl")
     qm = qmark()
     d.put(k, "Quote mark", qm, 60 + pad - 10, py - qm.height // 2 - 10, shadowed=False, anchor="tl")
     y = T(d, k, "Quote", text, 60 + pad, py + pad + 30, pw - 2 * pad, qh + 8, size, bold=False, color=CREAM,
@@ -117,7 +117,7 @@ def build(v):
     bg = straw_bg(0.3)
     d.bg(0, bg, name="Straw texture")
     cx, cy, cw, ch = 60, 85, 960, H - 170
-    d.put(0, "Soil card", glass(bg, cx, cy, cw, ch, dim=0.62), cx, cy, shadowed=True, anchor="tl")
+    d.put(0, "Soil card", glass(bg, cx, cy, cw, ch, dim=0.45), cx, cy, shadowed=True, anchor="tl")
     z = Image.open(ZOOM).convert("RGB")
     z = z.crop((int(z.width * 0.062), int(z.height * 0.068), int(z.width * 0.93), int(z.height * 0.72)))
     pw = cw - 60
