@@ -15,7 +15,7 @@ from nov_fill import DECKS, TILES
 from nov_updates_nov10 import BROWN, CREAM, GREEN, eyepiece, logo, rect
 
 W, SH = 1080, 1920
-PORTRAIT = "/home/user/sfwlib/social/carla-portugal-fam-flyer.jpg"
+PORTRAIT = "/home/user/sfwlib/social/carla-fam/carla-sfw-team.jpg"   # soilfoodweb.com team page
 
 
 def build(v):
@@ -25,7 +25,7 @@ def build(v):
         d.bg(0, grain(Image.new("RGB", (W, SH), CREAM), 661, 4), name="Background: Organic Cream")
         rect(d, 0, "Page frame", 44, 44, W - 88, SH - 88, (0, 0, 0, 0), outline=rgb(BROWN) + (255,), width=2)
         D = 520
-        d.put(0, "Photo: Carla Portugal", eyepiece(PORTRAIT, D, 0.5, 0.42, 1.25), (W - D) // 2, 290, shadowed=False,
+        d.put(0, "Photo: Carla Portugal", eyepiece(PORTRAIT, D, 0.5, 0.4, 1.1), (W - D) // 2, 290, shadowed=False,
               anchor="tl")
         T(d, 0, "Eyebrow", "Tomorrow", 72, 870, 936, 70, 54, bold=False, color=GREEN)
         T(d, 0, "Headline", "Watch Carla live", 72, 950, 936, 100, 86, color=BROWN)

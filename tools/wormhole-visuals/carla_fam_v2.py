@@ -23,7 +23,7 @@ from nov_updates_nov10 import BROWN, CREAM, GREEN, eyepiece, logo, rect
 
 MIC = "/home/user/sfwlib/social/carla-fam"
 FLYER = f"{MIC}/session-card.webp"   # Carla's session card from the organisers
-PORTRAIT = "/home/user/sfwlib/social/carla-portugal-fam-flyer.jpg"   # Carla's own portrait
+PORTRAIT = "/home/user/sfwlib/social/carla-fam/carla-sfw-team.jpg"   # soilfoodweb.com team page
 BIG, MED, SMALL = 70, 50, 42
 
 
@@ -99,7 +99,7 @@ def build(v):
     sfw(d, 3)
     # 5. watch Carla live
     page(d, 4)
-    d.put(4, "Photo: Carla Portugal", eyepiece(PORTRAIT, 460, 0.5, 0.42, 1.25), (W - 460) // 2, 190, shadowed=False,
+    d.put(4, "Photo: Carla Portugal", eyepiece(PORTRAIT, 460, 0.5, 0.4, 1.1), (W - 460) // 2, 190, shadowed=False,
           anchor="tl")
     T(d, 4, "Headline", "Watch Carla live", 72, 730, 936, 90, BIG, color=BROWN)
     T(d, 4, "Date", "Sunday 15 November, 7 to 7:45am Pacific", 72, 840, 936, 70, MED, bold=False, color=BROWN)
