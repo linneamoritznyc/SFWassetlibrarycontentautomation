@@ -48,21 +48,25 @@ def logo(d, k, w=150):
     d.put(k, "SFW logo", lg, W - 70 - w, H - 60 - lg.height, shadowed=False, anchor="tl")
 
 
+def lineart(name, h, color=CREAM):
+    from PIL import ImageFilter
+    la = Image.open(f"/home/user/sfwlib/social/lineart/{name}.png").convert("L")
+    al = la.point(lambda v: max(0, min(255, int((v - 40) * 1.6)))).filter(ImageFilter.MaxFilter(3))
+    im = Image.new("RGBA", la.size, rgb(color) + (0,))
+    im.putalpha(al)
+    im = im.crop(al.getbbox())
+    return im.resize((round(im.width * h / im.height), h), Image.LANCZOS)
+
+
 def build(v):
-    """Slide 1 is calm (Linnea, 10 Nov: nothing promotional on the first slide): the course badges and the dates."""
-    from bundle_final_nov4 import badge
+    """Slide 1 is calm (Linnea, 10 Nov: nothing promotional on the first slide, and it must not look like the
+    FC + CIC bundle, which is not in the sale): the laptop drawing, Cyber Monday and the dates."""
     d = Deck("nmw10rs3la2i", 1, f"cyber-monday-{v}", "2026-11-30")
     d.bg(0, leaf_texture(731), name="Background: green fade with leaf texture")
-    T(d, 0, "Headline", "Cyber Monday", 72, 200, 936, 110, 86, color=CREAM)
-    T(d, 0, "Details", "Online courses \u00b7 Nov 30 to Dec 4", 72, 330, 936, 70, 54, bold=False, color=MINT)
-    fcs = [badge(f"fc{n}", 220) for n in (1, 2, 3, 4)]
-    gap = (1000 - sum(i.width for i in fcs)) // 3
-    x, y = (W - 1000) // 2, 520
-    for n, im in enumerate(fcs):
-        d.put(0, f"Badge FC{n + 1}", im, x, y, shadowed=False, anchor="tl")
-        x += im.width + gap
-    cic = badge("cic", 300)
-    d.put(0, "Badge Compost Intensive", cic, (W - cic.width) // 2, 800, shadowed=False, anchor="tl")
+    lap = lineart("online", 400)
+    d.put(0, "Drawing: online lesson on a laptop", lap, (W - lap.width) // 2, 300, shadowed=False, anchor="tl")
+    T(d, 0, "Headline", "Cyber Monday", 72, 800, 936, 110, 86, color=CREAM)
+    T(d, 0, "Details", "Online courses \u00b7 Nov 30 to Dec 4", 72, 930, 936, 70, 54, bold=False, color=MINT)
     logo(d, 0)
     return d
 
