@@ -57,10 +57,10 @@ def straw_bg(fy=0.5, dark=0.42, src=None):
     return Image.fromarray((a * (v * e)[..., None]).clip(0, 255).astype("uint8")).convert("RGBA")
 
 
-def glass(bg, x, y, w, h, r=36, alpha=0.95, fx=0.5, fy=0.5):
+def glass(bg, x, y, w, h, r=36, alpha=0.95, fx=0.5, fy=0.5, dim=1.0):
     """See-through box filled with Linnea's soil photo at 86%: straw shows faintly through, thin cream edge."""
     soil = cover(Image.open(SOIL).convert("RGB"), w, h, fx, fy)
-    a = np.asarray(soil).astype(np.float32) * 1.0
+    a = np.asarray(soil).astype(np.float32) * dim
     pan = Image.fromarray(a.clip(0, 255).astype("uint8")).convert("RGBA")
     m = Image.new("L", (w, h), 0)
     ImageDraw.Draw(m).rounded_rectangle((0, 0, w - 1, h - 1), r, fill=round(255 * alpha))
@@ -106,17 +106,29 @@ def quote_slide(d, k, text, name, fy):
 
 def build(v):
     d = Deck("cic20261123", 3, f"cic-student-voices-{v}", "2026-11-23")
-    # 1. Carla's CIC call faces fading into straw, the caption's question on a frosted panel
+    # 1. one soil card on the hay, like a mounted print: Carla's CIC call photo crisp at the top (no fade),
+    #    the caption's question below, logo bottom right
     bg = straw_bg(0.3)
-    bg.alpha_composite(faces())
-    d.bg(0, bg, name="Straw texture with CIC call faces fading in")
+    d.bg(0, bg, name="Straw texture")
+    cx, cy, cw, ch = 60, 85, 960, H - 170
+    d.put(0, "Soil card", glass(bg, cx, cy, cw, ch, dim=0.62), cx, cy, shadowed=True, anchor="tl")
+    z = Image.open(ZOOM).convert("RGB")
+    z = z.crop((int(z.width * 0.062), int(z.height * 0.068), int(z.width * 0.93), int(z.height * 0.72)))
+    pw = cw - 60
+    z = grade(z.resize((pw, round(z.height * pw / z.width)), Image.LANCZOS)).convert("RGBA")
+    m = Image.new("L", z.size, 0)
+    ImageDraw.Draw(m).rounded_rectangle((0, 0, z.width - 1, z.height - 1), 22, fill=255)
+    z.putalpha(m)
+    ImageDraw.Draw(z).rounded_rectangle((1, 1, z.width - 2, z.height - 2), 22, outline=(244, 241, 234, 150), width=2)
+    d.put(0, "CIC call photo", z, cx + 30, cy + 30, shadowed=True, anchor="tl", off=(0, 10), blur=18, alpha=0.5)
     head = "Will we see\nyou in the CIC\nnext year?"
     hh = height(head, 86, 840, lh=1.06)
-    ph = round(hh + 120)
-    py = H - 110 - ph
-    d.put(0, "Frosted panel", glass(bg, 60, py, 960, ph), 60, py, shadowed=True, anchor="tl")
-    T(d, 0, "Headline", head, 120, py + 60, 840, hh + 8, 86, color=CREAM, align="left", lh=1.06)
-    logo(d, 0, W - 60 - 150 - 50, py + ph - 150 - 40)
+    top = cy + 30 + z.height
+    y = top + (cy + ch - top - round(hh)) // 2 - 10
+    d.put(0, "Mint rule", Image.new("RGBA", (110, 6), (169, 211, 178, 255)), cx + 60, y - 40, shadowed=False,
+          anchor="tl")
+    T(d, 0, "Headline", head, cx + 60, y, 700, hh + 8, 86, color=CREAM, align="left", lh=1.06)
+    logo(d, 0, cx + cw - 150 - 50, cy + ch - 150 - 45)
     quote_slide(d, 1, KAMAI, "–Fatemah Kamai, Libya", 0.25)
     quote_slide(d, 2, PRATIK, "–Pratik Thomas, India", 0.75)
     return d
