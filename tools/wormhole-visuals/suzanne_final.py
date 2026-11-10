@@ -76,17 +76,28 @@ def wave_pair():
     return strip.crop((0, 0, W, H)), strip.crop((W, 0, 2 * W, H))
 
 
+def straw(w, h, seed=0):
+    """Wheat field (photo Linnea sent, 10 Nov), tinted into the brand green, used at 50% inside the green."""
+    src = Image.open(f"{V}/wheat-linnea.jpg").convert("RGB")
+    t = np.asarray(cover(src, w, h, 0.5, 0.75).convert("L")).astype(np.float32) / 255
+    t = np.clip((t - t.mean()) * 1.8 + 0.5, 0, 1)
+    g = np.array([16, 84, 30], np.float32)
+    light = np.array([196, 214, 150], np.float32)
+    rgb = g * (1 - t[..., None]) + light * t[..., None]
+    return Image.fromarray(rgb.clip(0, 255).astype("uint8"))
+
+
 def swoosh3():
     """One green swoosh across all 3 slides that carries the text (Linnea, 10 Nov): tall on slide 1, easing up over
     slide 2, dipping low on slide 3 to end at the logo. One green, one thin cream line on top; heights meet at seams."""
     from PIL import ImageDraw
     k = 2
-    N = 3
+    N = 2
     strip = Image.new("RGBA", (N * W * k, H * k), (0, 0, 0, 0))
     dr = ImageDraw.Draw(strip)
     xs = np.arange(-400, N * W + 401, dtype=np.float32)
-    ys = np.interp(xs, [-400, 0, 700, 1080, 1700, 2160, 2650, 3000, 3240, 3640],
-                   [840, 845, 875, 885, 900, 960, 1185, 1175, 1120, 1080])
+    ys = np.interp(xs, [-400, 0, 620, 1080, 1570, 1920, 2160, 2560],
+                   [930, 935, 950, 1000, 1185, 1175, 1120, 1080])
     g = np.exp(-0.5 * (np.arange(-600, 601) / 170.0) ** 2)
     ys = np.convolve(ys, g / g.sum(), mode="same")
     keep = (xs >= -20) & (xs <= N * W + 20)
@@ -94,45 +105,13 @@ def swoosh3():
     for dy, col in ((-14, (244, 241, 234, 255)), (0, (21, 104, 38, 255))):
         line = [(x * k, (y + dy) * k) for x, y in curve]
         dr.polygon(line + [(N * W * k + 80, H * k + 50), (-80, H * k + 50)], fill=col)
-    # tone-on-tone leaves inside the green, drawn in code: an almond leaf with a midrib and side veins
-    import math
-    import random
-    rnd = random.Random(14)
+    # real straw texture at 50% inside the green (Linnea, 10 Nov)
     mask = Image.new("L", strip.size, 0)
-    ImageDraw.Draw(mask).polygon([(x * k, (y + 18) * k) for x, y in curve] + [(N * W * k + 80, H * k + 50),
-                                                                              (-80, H * k + 50)], fill=255)
-    leaves = Image.new("RGBA", strip.size, (0, 0, 0, 0))
-    for _ in range(95):
-        L = rnd.uniform(70, 150) * k
-        wdt = L * rnd.uniform(0.34, 0.45)
-        leaf = Image.new("RGBA", (int(L), int(L)), (0, 0, 0, 0))
-        ld = ImageDraw.Draw(leaf)
-        c = L / 2
-        pts = []
-        for i in range(41):
-            t = i / 40
-            x = c - L * 0.45 + L * 0.9 * t
-            pts.append((x, c - wdt / 2 * math.sin(math.pi * t) ** 0.8))
-        for i in range(40, -1, -1):
-            t = i / 40
-            x = c - L * 0.45 + L * 0.9 * t
-            pts.append((x, c + wdt / 2 * math.sin(math.pi * t) ** 0.8))
-        tone = rnd.choice([(46, 128, 60), (34, 116, 50), (14, 86, 30)])
-        ld.polygon(pts, fill=tone + (rnd.randint(70, 120),))
-        ld.line((c - L * 0.45, c, c + L * 0.45, c), fill=(21, 104, 38, 140), width=max(2, int(L * 0.02)))
-        for j in range(1, 6):
-            xj = c - L * 0.35 + j * L * 0.12
-            ld.line((xj, c, xj + L * 0.07, c - wdt * 0.35), fill=(21, 104, 38, 110), width=max(1, int(L * 0.012)))
-            ld.line((xj, c, xj + L * 0.07, c + wdt * 0.35), fill=(21, 104, 38, 110), width=max(1, int(L * 0.012)))
-        leaf = leaf.rotate(rnd.uniform(0, 360), resample=Image.BICUBIC)
-        lx = int(rnd.uniform(-60, N * W + 60) * k)
-        cy = float(np.interp(lx / k, [p[0] for p in curve], [p[1] for p in curve]))
-        ly = int(rnd.uniform(cy + 40, H + 40) * k)
-        leaves.alpha_composite(leaf, (max(0, min(leaves.width - leaf.width, lx - leaf.width // 2)),
-                                      max(0, min(leaves.height - leaf.height, ly - leaf.height // 2))))
-    la = np.asarray(leaves).copy()
-    la[..., 3] = (la[..., 3].astype(np.float32) * np.asarray(mask, np.float32) / 255).astype("uint8")
-    strip.alpha_composite(Image.fromarray(la))
+    ImageDraw.Draw(mask).polygon([(x * k, y * k) for x, y in curve] + [(N * W * k + 80, H * k + 50),
+                                                                       (-80, H * k + 50)], fill=128)
+    tex = straw(N * W * k, H * k).convert("RGBA")
+    tex.putalpha(mask)
+    strip.alpha_composite(tex)
     strip = strip.resize((N * W, H), Image.LANCZOS)
     return [strip.crop((i * W, 0, (i + 1) * W, H)) for i in range(N)]
 
@@ -147,17 +126,26 @@ def plain(path, fx, fy, crop=None):
 def build(v):
     d = Deck("vet20261111", 3, f"veterans-day-{v}", "2026-11-11")
     sw = swoosh3()
-    # 1. text on the swoosh (no dark fade)
-    d.bg(0, plain(f"{V}/suzanne-fvc-conference.jpg", 0.45, 0.45), name="Photo")
-    d.put(0, "Green swoosh", sw[0], 0, 0, shadowed=False, anchor="tl")
-    y = T(d, 0, "Headline", "Veteran farmers\nbuilding living soil", 80, 925, 920, 170, 76, color=CREAM, align="left",
-          lh=1.04)
-    T(d, 0, "Details", "Consultant Suzanne Shea presented at\nthe Farmer Veteran Coalition\nStakeholders Conference",
-      80, round(y) + 18, 740, 180, 46, bold=False, color=CREAM, align="left", lh=1.18, mn=42)
+    # 1. no swoosh (Linnea, 10 Nov): photo with the soft frosted fade, text on the fade
+    bg0 = frost(f"{V}/suzanne-fvc-conference.jpg", 0.45, 0.62, 0.55, 0.8)
+    tex0 = straw(W, H).convert("RGBA")
+    yy = np.linspace(0, 1, H, dtype=np.float32)
+    tt = np.clip((yy - 0.6) / 0.22, 0, 1)
+    tt = tt * tt * (3 - 2 * tt) * 0.5
+    tex0.putalpha(Image.fromarray(np.repeat((tt * 255)[:, None], W, axis=1).astype("uint8")))
+    bg0.alpha_composite(tex0)
+    d.bg(0, bg0, name="Photo with soft frosted fade and straw texture")
+    head = "Veteran farmers\nbuilding living soil"
+    det = "Consultant Suzanne Shea presented at the Farmer Veteran Coalition Stakeholders Conference"
+    hh = height(head, 80, 920, lh=1.04)
+    dh = height(det, 48, 780, bold=False, lh=1.2)
+    y = H - 70 - round(dh) - 22 - round(hh)
+    y = T(d, 0, "Headline", head, 80, y, 920, hh + 8, 80, color=CREAM, align="left", lh=1.04)
+    T(d, 0, "Details", det, 80, round(y) + 22, 780, dh + 8, 48, bold=False, color=CREAM, align="left", lh=1.2)
     logo(d, 0, W - 60 - 170, H - 40 - 170)
     # 2. text moved down onto the swoosh (no teal fade)
     d.bg(1, plain(f"{V}/suzanne-hoop-house.jpg", 0.55, 0.35), name="Photo")
-    d.put(1, "Green swoosh", sw[1], 0, 0, shadowed=False, anchor="tl")
+    d.put(1, "Green swoosh", sw[0], 0, 0, shadowed=False, anchor="tl")
     T(d, 1, "Text", "Her presentation taught veteran farmers about scalable sustainability through the Soil Food Web "
       "Approach.", 80, 1000, 740, 290, 50, bold=False, color=CREAM, align="left", lh=1.2, mn=46)
     logo(d, 1, W - 60 - 170, H - 40 - 170)
@@ -167,7 +155,7 @@ def build(v):
     ch = int(cw * H / W)
     sf = sf.crop((0, sf.height - ch, cw, sf.height)).resize((W, H), Image.LANCZOS)
     d.bg(2, grade(sf).convert("RGBA"), name="Photo")
-    d.put(2, "Green swoosh", sw[2], 0, 0, shadowed=False, anchor="tl")
+    d.put(2, "Green swoosh", sw[1], 0, 0, shadowed=False, anchor="tl")
     logo(d, 2, W - 60 - 170, H - 30 - 170)
     return d
 
