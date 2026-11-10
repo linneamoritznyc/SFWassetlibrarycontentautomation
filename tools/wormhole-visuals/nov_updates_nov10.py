@@ -283,15 +283,21 @@ def small_business(v):
         rect(d, 2, f"Path node {i + 1} centre", M + 12, ty + 30, 20, 20, rgb(GREEN) + (255,), r=10)
     logo(d, 2, white=False, w=130, x=W - 80 - 130, y=H - 70 - 130)
 
-    # 4. her words on a plain page (Allison: text over the fungal photo was hard to read)
+    # 4. her words on a plain page. Linnea, 10 Nov: quote centred vertically with the mark directly above it,
+    #    body full width, the sprout big and centred at the bottom with its roots running to the frame edge.
     page(3)
-    sp = drawing("sprout", 330)
-    d.put(3, "Sprout drawing", sp, W - 100 - sp.width, H - 230 - sp.height, shadowed=False, anchor="tl")
-    T(d, 3, "Quote mark", "\u201c", M - 6, 130, 200, 200, 240, color=GREEN, align="left")
-    y = T(d, 3, "Quote", "Making compost and exploring samples under the microscope will always be something I enjoy",
-          M, 350, 820, 420, 66, color=BROWN, align="left", lh=1.1)
-    T(d, 3, "Details", "Colleen believes rewilding soils with microbes is about restoring systems and people\u2019s "
-      "connection with the Earth", M, round(y) + 50, 600, 360, 52, bold=False, color=INK, align="left", lh=1.18)
+    sp = drawing("sprout", 480)
+    d.put(3, "Sprout with roots drawing", sp, (W - sp.width) // 2, H - 46 - sp.height + 60, shadowed=False, anchor="tl")
+    q4 = "Making compost and exploring samples under the microscope will always be something I enjoy"
+    b4 = "Colleen believes rewilding soils with microbes is about restoring systems and people\u2019s connection with the Earth"
+    hq = height(q4, 66, TW, lh=1.1)
+    hb = height(b4, 52, TW, bold=False, lh=1.18)
+    MARK = 112
+    top, bottom = 70, H - 46 - sp.height - 20
+    y0 = round(top + (bottom - top - (MARK + hq + 40 + hb)) / 2)
+    T(d, 3, "Quote mark", "\u201c", M - 6, y0 - 40, 200, 200, 240, color=GREEN, align="left")
+    y = T(d, 3, "Quote", q4, M, y0 + MARK, TW, hq + 10, 66, color=BROWN, align="left", lh=1.1)
+    T(d, 3, "Details", b4, M, round(y) + 40, TW, hb + 10, 52, bold=False, color=INK, align="left", lh=1.18)
     sfw(3)
 
     # 5. find someone near you (Allison: the consultant directory), ending on rewildsoils.com
