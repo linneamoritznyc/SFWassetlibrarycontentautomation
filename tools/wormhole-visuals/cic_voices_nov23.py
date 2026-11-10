@@ -117,8 +117,8 @@ def build(v):
     d.put(0, "Frosted panel", glass(bg, 60, py, 960, ph), 60, py, shadowed=True, anchor="tl")
     T(d, 0, "Headline", head, 120, py + 60, 840, hh + 8, 86, color=CREAM, align="left", lh=1.06)
     logo(d, 0, W - 60 - 150 - 50, py + ph - 150 - 40)
-    quote_slide(d, 1, KAMAI, "–Kamai Fatma", 0.25)
-    quote_slide(d, 2, PRATIK, "–Pratik Thomas", 0.75)
+    quote_slide(d, 1, KAMAI, "–Fatemah Kamai, Libya", 0.25)
+    quote_slide(d, 2, PRATIK, "–Pratik Thomas, India", 0.75)
     return d
 
 
