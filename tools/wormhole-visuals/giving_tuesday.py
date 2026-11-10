@@ -94,13 +94,17 @@ def build_story(v):
     def ph(path):
         return ImageOps.exif_transpose(Image.open(path)).convert("RGB")
 
-    def photo_slide(k, path, fx, fy, text):
-        d.bg(k, Image.new("RGB", (W, H), GREEN).convert("RGBA"), name="Background: Food Web Green")
-        th = height(text, 66, 760)
-        band = max(340, round(th) + 150)
-        d.put(k, "Photo", cover(ph(path), W, H - band, fx, fy).convert("RGBA"), 0, 0, shadowed=False, anchor="tl")
-        T(d, k, "Headline", text, 72, H - band + (band - round(th)) // 2 - 6, 760, th + 8, 66, color=CREAM,
-          align="left", lh=1.08)
+    def photo_slide(k, path, fx, fy, text, small=None):
+        """Full-bleed photo, soft dark fade at the bottom, cream text straight on the photo (Linnea, 10 Nov: no green
+        boxes)."""
+        from nov_updates_nov10 import scrim
+        d.bg(k, scrim(cover(ph(path), W, H, fx, fy), 0.42, 0.88).convert("RGBA"), name="Photo")
+        th = height(text, 70, 820, lh=1.08)
+        sh = height(small, 50, 820, bold=False, lh=1.2) if small else 0
+        y = H - 110 - round(th) - (round(sh) + 24 if small else 0)
+        y = T(d, k, "Headline", text, 72, y, 820, th + 8, 70, color=CREAM, align="left", lh=1.08)
+        if small:
+            T(d, k, "Details", small, 72, round(y) + 24, 820, sh + 8, 50, bold=False, color=MINT, align="left", lh=1.2)
         logo(d, k)
 
     def type_slide(k, head, line=None, art=None, seed=750, hs=73):
@@ -121,34 +125,44 @@ def build_story(v):
     # v17 (Linnea, 10 Nov: "you can change the text too"): a real photo on every slide, tighter lines from the
     # Givebutter campaign (https://givebutter.com/sfwf-donate), one idea per slide
     G = "/home/user/sfwlib/social/giving"
-    photo_slide(0, f"{IND}/40c702d3-e6e9-4387-b187-2a1798fef626.jpg", 0.45, 0.4,
-                "Somewhere right now, a farmer is watching their soil fail")
+    # v21 (Linnea, 10 Nov): the mission copy (tagline + SOP-SFWF-001 core idea + Givebutter funding line)
+    G = "/home/user/sfwlib/social/giving"
+    # cover: a fundraising cover names the day, the goal and the ask (gold = donate)
+    from nov_updates_nov10 import scrim
+    d.bg(0, leaf_texture(760), name="Background: green fade with leaf texture")
+    T(d, 0, "Eyebrow", "GivingTuesday \u00b7 December 1", 72, 420, 900, 70, 54, bold=False, color=MINT, align="left")
+    T(d, 0, "Headline", "Healing soil.\nFeeding humanity.\nRestoring the\nliving world.", 72, 510, 900, 330, 74,
+      color=CREAM, align="left", lh=1.06)
+    T(d, 0, "Details", "Help us raise $100,000", 72, 880, 900, 70, 54, bold=False, color=CREAM, align="left")
+    pw0 = 680
+    pill0 = Image.new("RGBA", (pw0 * 4, 100 * 4), (0, 0, 0, 0))
+    ImageDraw.Draw(pill0).rounded_rectangle((0, 0, pw0 * 4 - 1, 100 * 4 - 1), 200, fill=rgb(GOLD) + (255,))
+    d.put(0, "Give button (gold)", pill0.resize((pw0, 100), Image.LANCZOS), 74, 990, shadowed=False, anchor="tl")
+    T(d, 0, "Give", "Give today \u00b7 Link in bio", 74, 1004, pw0, 70, 50, color="#4F3433")
+    logo(d, 0)
     photo_slide(1, "/home/user/SFW-SocialMedia/assets/photo/web/fist-of-dry-soil.jpg", 0.5, 0.45,
-                "A century of practices stripped the living biology from the ground")
+                "The soil under our feet is alive. For decades we\u2019ve farmed it like it was dead.")
     photo_slide(2, f"{NEW}/card-elaine-ingham-microscope.jpg", 0.5, 0.35,
-                "Dr. Elaine Ingham spent decades proving soil is a living community")
+                "Healthy food comes from healthy soil")
     photo_slide(3, f"{G}/class-live-microscopy-cr-oct2025.jpg", 0.55, 0.45,
-                "The science works. The problem is reach.")
+                "We teach farmers, agronomists and consultants to restore the living web in their soil")
     photo_slide(4, f"{NEW}/students-laughing-at-compost-cage.jpg", 0.6, 0.4,
-                "Students know this is their calling, but can\u2019t afford the next step")
-    photo_slide(5, f"{NEW}/students-high-five-at-compost.jpg", 0.5, 0.35,
-                "Your gift funds scholarships, educational resources and research")
-    # 7. close on the land, with the gold donate button in the band
-    d.bg(6, Image.new("RGB", (W, H), GREEN).convert("RGBA"), name="Background: Food Web Green")
-    band = 600
-    d.put(6, "Photo: class walking a farm track, Wild Ken Hill, Jun 2025",
-          cover(ph(f"{G}/wkh-farm-track-jun2025.jpg"), W, H - band, 0.45, 0.4).convert("RGBA"), 0, 0, shadowed=False,
-          anchor="tl")
-    # Allison and Linnea, 10 Nov: the team line closes the post
-    y = T(d, 6, "Headline", "Be the mycelium\nyou want to see\nin the world", 72, H - band + 40, 800, 230, 66,
-          color=CREAM, align="left", lh=1.08)
-    T(d, 6, "Details", "The soil can recover.\nHelp us bring it back to life.", 72, round(y) + 16, 800, 130, 50,
-      bold=False, color=MINT, align="left")
+                "One trained farmer changes a whole farm. Then the neighbours ask how.")
+    photo_slide(5, f"{IND}/17c01e4d-cbfa-4f9c-8058-9e225aa30c5f.jpg", 0.5, 0.5,
+                "Farm by farm, in Costa Rica, New Mexico, England, Cyprus and India")
+    # 7. close on the land: the team line, the funding line and the gold donate button
+    from nov_updates_nov10 import scrim
+    d.bg(6, scrim(cover(ph(f"{G}/wkh-farm-track-jun2025.jpg"), W, H, 0.45, 0.35), 0.35, 0.9).convert("RGBA"),
+         name="Photo: class walking a farm track, Wild Ken Hill, Jun 2025")
+    T(d, 6, "Headline", "Be the mycelium\nyou want to see\nin the world", 72, 700, 820, 240, 70, color=CREAM,
+      align="left", lh=1.06)
+    T(d, 6, "Details", "We\u2019re raising $100,000 for scholarships,\neducational resources and research", 72, 960,
+      880, 140, 50, bold=False, color=MINT, align="left", lh=1.2)
     pw = 620
     pill = Image.new("RGBA", (pw * 4, 100 * 4), (0, 0, 0, 0))
     ImageDraw.Draw(pill).rounded_rectangle((0, 0, pw * 4 - 1, 100 * 4 - 1), 200, fill=rgb(GOLD) + (255,))
-    d.put(6, "Donate button (gold)", pill.resize((pw, 100), Image.LANCZOS), 74, H - 140, shadowed=False, anchor="tl")
-    T(d, 6, "Donate", "Donate \u00b7 Link in bio", 74, H - 126, pw, 70, 52, color="#4F3433")
+    d.put(6, "Donate button (gold)", pill.resize((pw, 100), Image.LANCZOS), 74, H - 170, shadowed=False, anchor="tl")
+    T(d, 6, "Donate", "Donate \u00b7 Link in bio", 74, H - 156, pw, 70, 52, color="#4F3433")
     logo(d, 6)
     return d
 
