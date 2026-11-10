@@ -26,6 +26,12 @@ KAMAI = ("“What I really enjoyed about this course was the opportunity to enga
          "especially when discussing region-specific challenges. Given that I live in a different climate, I found it "
          "particularly beneficial to learn how composting techniques can be adapted to various environments, enabling "
          "me to apply this knowledge effectively no matter where I am.”")
+ERIC = ("“I liked the deeper attention to understanding what was a quality material and what was not. The water level "
+        "and soaking times for materials was also helpful. I feel like I now have a better understanding of the overall "
+        "texture and how to work with materials (whatever they may be) that I can source locally.”")
+LISE = ("“The clear, step by step instructions and the interactions between the teachers and students.  Even though the "
+        "actual work was done independently, I felt more supported by seeing other people going through the same "
+        "process. It was very motivating and very interesting.”")
 PRATIK = ("“The live sessions with fellow students and mentors have definitely been helpful for me personally. I prefer "
           "this format, especially when it goes beyond just theory-based content to include live teaching and "
           "discussions in our course. This approach allows me to grasp concepts more effectively and retain them "
@@ -88,24 +94,24 @@ def faces():
     return z
 
 
-def quote_slide(d, k, text, name, fy):
-    bg = straw_bg(fy, 0.6, COMPOST) if k == 1 else straw_bg(fy)
+def quote_slide(d, k, text, name, fy, size=50):
+    bg = straw_bg(fy, 0.6, COMPOST) if k % 2 == 1 else straw_bg(fy)
     d.bg(k, bg, name="Straw texture")
     pw, pad = 960, 60
-    qh = height(text, 50, pw - 2 * pad, bold=False, lh=1.18)
+    qh = height(text, size, pw - 2 * pad, bold=False, lh=1.18)
     nh = height(name, 52, pw - 2 * pad, lh=1.1)
     ph = round(pad + 30 + qh + 30 + nh + pad)
     py = max(95, (H - ph) // 2 + 30)
     d.put(k, "Frosted panel", glass(bg, 60, py, pw, ph), 60, py, shadowed=True, anchor="tl")
     qm = qmark()
     d.put(k, "Quote mark", qm, 60 + pad - 10, py - qm.height // 2 - 10, shadowed=False, anchor="tl")
-    y = T(d, k, "Quote", text, 60 + pad, py + pad + 30, pw - 2 * pad, qh + 8, 50, bold=False, color=CREAM,
+    y = T(d, k, "Quote", text, 60 + pad, py + pad + 30, pw - 2 * pad, qh + 8, size, bold=False, color=CREAM,
           align="left", lh=1.18)
     T(d, k, "Name", name, 60 + pad, round(y) + 30, pw - 2 * pad, nh + 8, 52, color=MINT, align="left", lh=1.1)
 
 
 def build(v):
-    d = Deck("cic20261123", 3, f"cic-student-voices-{v}", "2026-11-23")
+    d = Deck("cic20261123", 5, f"cic-student-voices-{v}", "2026-11-23")
     # 1. one soil card on the hay, like a mounted print: Carla's CIC call photo crisp at the top (no fade),
     #    the caption's question below, logo bottom right
     bg = straw_bg(0.3)
@@ -131,6 +137,8 @@ def build(v):
     logo(d, 0, cx + cw - 150 - 50, cy + ch - 150 - 45)
     quote_slide(d, 1, KAMAI, "–Fatemah Kamai, Libya", 0.25)
     quote_slide(d, 2, PRATIK, "–Pratik Thomas, India", 0.75)
+    quote_slide(d, 3, ERIC, "–Eric Daine, United States", 0.6, size=60)
+    quote_slide(d, 4, LISE, "–Lise Marcell, United States", 0.1, size=60)
     return d
 
 
