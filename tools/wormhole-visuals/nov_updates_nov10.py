@@ -78,6 +78,20 @@ def nematodes(v):
     T(d, 0, "Credit", "Photo: Soil Food Web Foundation", 72, top + round(bh) + 100, 936, 56, 42, bold=False,
       color="#CFC8BC", mn=42)
     logo(d, 0, w=140)
+    for k, (f, text, credit) in enumerate([
+            ("Bacterial-feeding nematode (omnivore), 40x obj, Johannes Veith.jpg", "About 57 billion for every person alive",
+             "Photo: Johannes Veith"),
+            ("Bacterial-feeding nematode (omnivore), 40x obj, Keisha Wheeler.jpg", "Most feed on bacteria and fungi",
+             "Photo: Keisha Wheeler")], start=1):
+        ph = ImageOps.exif_transpose(Image.open(f"{NEW}/{f}")).convert("RGB")
+        d.bg(k, cover(ph, W, H, 0.5, 0.45).convert("RGBA"), name="Photo: nematode")
+        bh = height(text, 84, 820)
+        top = H - 230 - round(bh)
+        rect(d, k, "Green box", 90, top, 900, round(bh) + 80, rgb(GREEN) + (255,))
+        T(d, k, "Headline", text, 72, top + 40, 936, bh + 6, 84, color=CREAM)
+        rect(d, k, "Credit box", 290, top + round(bh) + 100, 500, 60, rgb(GREEN) + (255,))
+        T(d, k, "Credit", credit, 290, top + round(bh) + 104, 500, 56, 42, bold=False, color=CREAM, mn=42)
+        logo(d, k, w=140)
     return d
 
 
@@ -172,7 +186,7 @@ def small_business(v):
 
 # ---------------- 5. Cyber Monday: calm cover, a real photo and a brand-colour box (Linnea: nothing salesy) ----------
 def cyber(v):
-    d = Deck("nmw10rs3la2i", 1, f"cyber-monday-{v}", "2026-11-30")
+    d = Deck("nmw10rs3la2i", 3, f"cyber-monday-{v}", "2026-11-30")
     d.bg(0, grain(Image.new("RGB", (W, H), GREEN), 701, 4), name="Background: Food Web Green")
     ph = ImageOps.exif_transpose(Image.open(f"{NEW}/card-classroom-microscope-notebook.jpg")).convert("RGB")
     d.put(0, "Photo: microscopy notes", cover(ph, W, 850, 0.45, 0.5).convert("RGBA"), 0, 0, shadowed=False,
@@ -181,6 +195,25 @@ def cyber(v):
     T(d, 0, "Details", "[DISCOUNT] off online courses\nNov 30 to Dec 4", 72, 1030, 760, 160, 52, bold=False,
       color=CREAM, lh=1.25)
     logo(d, 0, w=150)
+    # 2. the programs in the sale (the FC + CIC bundle and the workshops are excluded)
+    d.bg(1, grain(Image.new("RGB", (W, H), CREAM), 702, 3), name="Background: Organic Cream")
+    T(d, 1, "Headline", "Online courses in the sale", 72, 90, 936, 110, 73, color=BROWN)
+    names = ["Foundation Courses", "Compost Intensive", "Permaculture Design Certificate", "Complete Practicum",
+             "Advanced Programs", "Intro to the Foundation Courses"]
+    tw, th, g = 453, 250, 30
+    for n, name in enumerate(names):
+        x, y = 72 + (n % 2) * (tw + g), 250 + (n // 2) * (th + g)
+        rect(d, 1, f"Badge {n + 1}", x, y, tw, th, rgb(GREEN) + (255,), r=28)
+        T(d, 1, f"Badge {n + 1} name", name, x + 12, y + 30, tw - 24, th - 60, 52, color=CREAM, mn=50, lh=1.15)
+    T(d, 1, "Details", "[DISCOUNT] off, Nov 30 to Dec 4", 72, 1120, 760, 70, 52, bold=False, color=INK)
+    logo(d, 1, white=False, w=150)
+    # 3. link in bio
+    d.bg(2, grain(Image.new("RGB", (W, H), GREEN), 703, 4), name="Background: Food Web Green")
+    T(d, 2, "Headline", "Link in bio", 72, 520, 936, 110, 86, color=CREAM)
+    T(d, 2, "Details", "Cyber Monday, Nov 30 to Dec 4", 72, 650, 936, 70, 52, bold=False, color=CREAM)
+    lg = Image.open(WHITE_LOGO).convert("RGBA")
+    lg = lg.resize((300, round(lg.height * 300 / lg.width)), Image.LANCZOS)
+    d.put(2, "SFW logo", lg, (W - 300) // 2, 820, shadowed=False, anchor="tl")
     return d
 
 

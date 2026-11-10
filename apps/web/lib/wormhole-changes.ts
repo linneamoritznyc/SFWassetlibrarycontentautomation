@@ -12620,6 +12620,84 @@ export const CHANGES: Change[] = [
     },
     reason: 'Linnea, 10 Nov: Carla speaks at Food as Medicine for All.',
   },
+  {
+    key: '2026-11-10 p24 nematodes v7',
+    post: 'p24',
+    set: {
+      iso_date: '2026-11-11',
+      slides: [
+        {
+          text: 'The most common animal on earth. 440 quintillion nematodes',
+          image: '/wormhole/tiles/p24-v7-1.jpg',
+        },
+        { text: 'About 57 billion for every person alive', image: '/wormhole/tiles/p24-v7-2.jpg' },
+        { text: 'Most feed on bacteria and fungi', image: '/wormhole/tiles/p24-v7-3.jpg' },
+      ],
+      visual_note:
+        'Family: specimen (microscopy on black). Built with tools/wormhole-visuals/nov_updates_nov10.py nematodes. Deck: decks/11-11-2026-soil-in-numbers-nematodes-v7.pptx. Micrographs: Johannes Veith, Keisha Wheeler.',
+    },
+    reason: 'Linnea, 10 Nov: November posts updated and sent as editable pptx.',
+  },
+  {
+    key: '2026-11-10 vet20261111 v4',
+    post: 'vet20261111',
+    set: {
+      slides: [
+        {
+          text: 'Happy Veterans Day. To every veteran who now farms',
+          image: '/wormhole/tiles/vet20261111-v4-1.jpg',
+        },
+        {
+          text: 'Scaling Sustainably. Suzanne Shea at the Farmer Veteran Coalition Stakeholders Conference',
+          image: '/wormhole/tiles/vet20261111-v4-2.jpg',
+        },
+        { text: 'More from Suzanne (photo spaces)', image: '/wormhole/tiles/vet20261111-v4-3.jpg' },
+      ],
+      visual_note:
+        'Family: portrait photo. Built with nov_updates_nov10.py veterans. Deck: decks/11-11-2026-veterans-day-v4.pptx. Photo spaces until the hoop-house photo is in Drive (rebuild with SUZ_PHOTO). Suzanne is not a veteran (her husband served 32 years); Allison to confirm whether Lynn is Warlinda Walker.',
+    },
+    reason: 'Linnea, 10 Nov: November posts updated and sent as editable pptx.',
+  },
+  {
+    key: '2026-11-10 x20261128 v4 rewild',
+    post: 'x20261128',
+    set: {
+      slides: [
+        {
+          text: 'Happy Small Business Saturday. Meet Colleen Dempster of Rewild Soils',
+          image: '/wormhole/tiles/x20261128-v4-1.jpg',
+        },
+        {
+          text: 'A Soil Food Web certified microscopy lab since 2022',
+          image: '/wormhole/tiles/x20261128-v4-2.jpg',
+        },
+        { text: 'Meet Rewild Soils. rewildsoils.com', image: '/wormhole/tiles/x20261128-v4-3.jpg' },
+      ],
+      visual_note:
+        'Family: partner photo + logo card. Built with nov_updates_nov10.py smallbiz. Deck: decks/28-11-2026-small-business-saturday-rewild-soils-v4.pptx. Photo: Compost Toronto microscope; a larger photo would help.',
+    },
+    reason: 'Linnea, 10 Nov: November posts updated and sent as editable pptx.',
+  },
+  {
+    key: '2026-11-10 nmw10rs3la2i cyber v2',
+    post: 'nmw10rs3la2i',
+    set: {
+      slides: [
+        {
+          text: 'Cyber Monday. [DISCOUNT] off online courses, Nov 30 to Dec 4',
+          image: '/wormhole/tiles/nmw10rs3la2i-v2-1.jpg',
+        },
+        { text: 'Online courses in the sale', image: '/wormhole/tiles/nmw10rs3la2i-v2-2.jpg' },
+        {
+          text: 'Link in bio. Cyber Monday, Nov 30 to Dec 4',
+          image: '/wormhole/tiles/nmw10rs3la2i-v2-3.jpg',
+        },
+      ],
+      visual_note:
+        'Family: calm photo cover + type tiles. Built with nov_updates_nov10.py cyber. Deck: decks/30-11-2026-cyber-monday-v2.pptx. [DISCOUNT] stays a placeholder until Stephanie confirms the amount.',
+    },
+    reason: 'Linnea, 10 Nov: November posts updated and sent as editable pptx.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);
