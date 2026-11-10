@@ -81,8 +81,8 @@ def straw(w, h, seed=0):
     src = Image.open(f"{V}/wheat-linnea.jpg").convert("RGB")
     t = np.asarray(cover(src, w, h, 0.5, 0.75).convert("L")).astype(np.float32) / 255
     t = np.clip((t - t.mean()) * 1.8 + 0.5, 0, 1)
-    g = np.array([16, 84, 30], np.float32)
-    light = np.array([196, 214, 150], np.float32)
+    g = np.array([30, 82, 128], np.float32)  # brand blue to Mist Blue (Linnea, 10 Nov)
+    light = np.array([167, 198, 217], np.float32)
     rgb = g * (1 - t[..., None]) + light * t[..., None]
     return Image.fromarray(rgb.clip(0, 255).astype("uint8"))
 
@@ -102,7 +102,7 @@ def swoosh3():
     ys = np.convolve(ys, g / g.sum(), mode="same")
     keep = (xs >= -20) & (xs <= N * W + 20)
     curve = list(zip(xs[keep][::4], ys[keep][::4]))
-    for dy, col in ((0, (21, 104, 38, 255)),):  # no cream line (Linnea, 10 Nov)
+    for dy, col in ((0, (55, 128, 184, 255)),):  # no cream line (Linnea, 10 Nov)
         line = [(x * k, (y + dy) * k) for x, y in curve]
         dr.polygon(line + [(N * W * k + 80, H * k + 50), (-80, H * k + 50)], fill=col)
     # real straw texture at 50% inside the green (Linnea, 10 Nov)
