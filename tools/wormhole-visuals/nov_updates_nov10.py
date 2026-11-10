@@ -96,13 +96,17 @@ def nematodes(v):
 
 
 # ---------------- 2. Veterans Day: Suzanne Shea's talk (Linnea's updated brief, 10 Nov) ----------------
-SUZ_PHOTO = os.environ.get("SUZ_PHOTO", "")   # Suzanne planting by the hoop house, blue sky (to come)
+VET = "/home/user/sfwlib/social/veterans"   # Suzanne's own photos, sent by Linnea 10 Nov
+SUZ_PHOTO = os.environ.get("SUZ_PHOTO", f"{VET}/suzanne-hoop-house.jpg")
+SUZ_FVC = f"{VET}/suzanne-fvc-conference.jpg"
+SUZ_WALK = f"{VET}/suzanne-conference-walk.jpg"
 
 
-def edge_photo(d, k, label, fy=0.4):
-    if SUZ_PHOTO and os.path.exists(SUZ_PHOTO):
-        ph = ImageOps.exif_transpose(Image.open(SUZ_PHOTO)).convert("RGB")
-        d.bg(k, cover(ph, W, H, 0.5, fy).convert("RGBA"), name=f"Photo: {label}")
+def edge_photo(d, k, label, fy=0.4, path=None, fx=0.5):
+    path = path or SUZ_PHOTO
+    if path and os.path.exists(path):
+        ph = ImageOps.exif_transpose(Image.open(path)).convert("RGB")
+        d.bg(k, cover(ph, W, H, fx, fy).convert("RGBA"), name=f"Photo: {label}")
     else:
         d.bg(k, grain(Image.new("RGB", (W, H), CREAM), 500 + k, 3), name="Background: Organic Cream")
         photo_box(d, k, label, 0, 0, W, H)
@@ -113,7 +117,7 @@ def veterans(v):
     Warm and respectful, no flags or military imagery. The photo runs edge to edge; text sits in a Soil Brown box."""
     d = Deck("vet20261111", 3, f"veterans-day-{v}", "2026-11-11")
     # 1
-    edge_photo(d, 0, "Suzanne Shea planting by the hoop house (edge to edge)")
+    edge_photo(d, 0, "Suzanne Shea planting by the hoop house", fy=0.3)
     hh = height("Happy Veterans Day", 86, 840)
     bh = round(hh + 24 + 70 + 100)
     rect(d, 0, "Brown box", 72, H - 72 - bh, 936, bh, rgb(BROWN) + (255,))
@@ -122,7 +126,7 @@ def veterans(v):
       bold=False, color=CREAM)
     logo(d, 0, w=140, x=W - 72 - 140 - 10, y=60)
     # 2
-    edge_photo(d, 1, "Suzanne Shea at the conference", fy=0.3)
+    edge_photo(d, 1, "Suzanne Shea at the Farmer Veteran Coalition conference", fy=0.25, path=SUZ_FVC)
     hh = height("Scaling Sustainably", 84, 840)
     dh = height("Suzanne Shea at the Farmer Veteran Coalition Stakeholders Conference", 52, 820, bold=False, lh=1.22)
     bh = round(hh + 24 + dh + 100)
@@ -131,11 +135,9 @@ def veterans(v):
     T(d, 1, "Details", "Suzanne Shea at the Farmer Veteran Coalition Stakeholders Conference", 130,
       H - 72 - bh + 50 + round(hh) + 24, 820, dh + 6, 52, bold=False, color=CREAM, lh=1.22)
     logo(d, 1, w=140, x=W - 72 - 140 - 10, y=60)
-    # 3: room for more of Suzanne's photos
-    d.bg(2, grain(Image.new("RGB", (W, H), CREAM), 503, 3), name="Background: Organic Cream")
-    photo_box(d, 2, "More from Suzanne", 72, 72, 936, 560)
-    photo_box(d, 2, "More from Suzanne", 72, 660, 936, 480)
-    logo(d, 2, white=False, w=150)
+    # 3: Suzanne on the conference walk, photo only
+    edge_photo(d, 2, "Suzanne Shea on the conference walk", fy=0.5, path=SUZ_WALK, fx=0.12)
+    logo(d, 2, w=140, x=W - 72 - 140 - 10, y=60)
     return d
 
 

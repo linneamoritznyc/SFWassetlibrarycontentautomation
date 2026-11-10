@@ -12698,6 +12698,29 @@ export const CHANGES: Change[] = [
     },
     reason: 'Linnea, 10 Nov: November posts updated and sent as editable pptx.',
   },
+  {
+    key: '2026-11-10 vet20261111 v5 photos',
+    post: 'vet20261111',
+    set: {
+      slides: [
+        {
+          text: 'Happy Veterans Day. To every veteran who now farms',
+          image: '/wormhole/tiles/vet20261111-v5-1.jpg',
+        },
+        {
+          text: 'Scaling Sustainably. Suzanne Shea at the Farmer Veteran Coalition Stakeholders Conference',
+          image: '/wormhole/tiles/vet20261111-v5-2.jpg',
+        },
+        {
+          text: 'Photo only: Suzanne on the conference walk',
+          image: '/wormhole/tiles/vet20261111-v5-3.jpg',
+        },
+      ],
+      visual_note:
+        "Family: portrait photo. Suzanne's own photos (sent by Linnea 10 Nov): hoop house, Farmer Veteran Coalition backdrop, conference walk. The man beside her on slide 2 is not named (unknown). Built with nov_updates_nov10.py veterans. Deck: decks/11-11-2026-veterans-day-v5.pptx.",
+    },
+    reason: "Linnea, 10 Nov: Veterans Day with Suzanne's photos.",
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);
