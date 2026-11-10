@@ -120,23 +120,23 @@ def veterans(v):
     # 1. type in the sky
     hh = ImageOps.exif_transpose(Image.open(SUZ_PHOTO)).convert("RGB")
     d.bg(0, cover(hh, W, H, 0.5, 0.0).convert("RGBA"), name="Photo: Suzanne Shea planting by the hoop house")
-    y = T(d, 0, "Headline", "Scaling\nSustainably", 470, 120, 560, 230, 86, color="#FFFFFF")
-    T(d, 0, "Details", "A talk by\nSuzanne Shea", 470, round(y) + 24, 560, 140, 52, bold=False,
-      color="#FFFFFF", lh=1.15)
+    y = T(d, 0, "Headline", "Scaling\nSustainably", 460, 96, 580, 200, 86, color="#FFFFFF")
+    T(d, 0, "Details", "A talk by\nSuzanne Shea", 460, round(y) + 30, 580, 140, 54, bold=False,
+      color="#FFFFFF", lh=1.12)
     logo(d, 0, w=140)
     # 2. the conference photo as a matted print
     d.bg(1, grain(Image.new("RGB", (W, H), CREAM), 504, 3), name="Background: Organic Cream")
     fvc = ImageOps.exif_transpose(Image.open(SUZ_FVC)).convert("RGB")
-    pw, ph_ = 760, 860
-    pr = cover(fvc, pw, ph_, 0.5, 0.42).convert("RGBA")
+    pw, ph_ = 860, 860
+    pr = cover(fvc, pw, ph_, 0.5, 0.45).convert("RGBA")
     mat = Image.new("RGBA", (pw + 2, ph_ + 2), rgb(BROWN) + (255,))   # brown hairline round the print
     mat.paste(pr, (1, 1))
-    d.put(1, "Photo: Suzanne Shea at the Farmer Veteran Coalition conference", mat, (W - pw) // 2, 90,
+    d.put(1, "Photo: Suzanne Shea at the Farmer Veteran Coalition conference", mat, (W - pw) // 2, 80,
           anchor="tl", shadowed=True)
-    y = T(d, 1, "Headline", "Suzanne Shea", 72, 1000, 936, 90, 70, color=BROWN)
-    T(d, 1, "Details", "Farmer Veteran Coalition\nStakeholders Conference", 72, round(y) + 14,
-      936, 130, 50, bold=False, color=INK, lh=1.2)
-    logo(d, 1, white=False, w=120, y=H - 50 - 70)
+    y = T(d, 1, "Headline", "Suzanne Shea", 72, 80 + ph_ + 50, 936, 86, 73, color=BROWN)
+    T(d, 1, "Details", "Farmer Veteran Coalition\nStakeholders Conference", 72, round(y) + 16,
+      936, 130, 52, bold=False, color=INK, lh=1.15)
+    logo(d, 1, white=False, w=110, y=H - 40 - 64)
     # 3. her selfie, edge to edge
     edge_photo(d, 2, "Suzanne Shea on the conference walk", fy=0.5, path=SUZ_WALK, fx=0.12)
     logo(d, 2, w=140)
@@ -154,37 +154,45 @@ def framed(im, w, h, fx=0.5, fy=0.5, border=14):
     return out.convert("RGBA")
 
 
+def scrim(im, start=0.5, strength=0.78):
+    """Darken the lower part of a photo with a soft gradient so cream type reads without a box."""
+    w, h = im.size
+    g = Image.linear_gradient("L").resize((w, h))
+    g = g.point(lambda v: 0 if v < start * 255 else int(((v - start * 255) / (255 - start * 255)) ** 1.4 * 255 * strength))
+    dark = Image.new("RGB", (w, h), (20, 26, 18))
+    return Image.composite(dark, im.convert("RGB"), g)
+
+
 def small_business(v):
-    """Facts from rewildsoils.com (10 Nov) and Colleen's note to Allison."""
+    """Facts from rewildsoils.com (10 Nov) and Colleen's note to Allison. v5 (Linnea: make it pretty): the photo is
+    used once, edge to edge with a soft scrim and no box; slide 2 is a big-number type card; slide 3 the logo card."""
     d = Deck("x20261128", 3, f"small-business-saturday-rewild-soils-{v}", "2026-11-28")
     ph = ImageOps.exif_transpose(Image.open(RW_PHOTO)).convert("RGB")
-    # 1. photo over a green box
-    d.bg(0, grain(Image.new("RGB", (W, H), GREEN), 601, 4), name="Background: Food Web Green")
-    d.put(0, "Photo: Compost Toronto microscope event", cover(ph, W, 850, 0.5, 0.4).convert("RGBA"), 0, 0,
-          shadowed=False, anchor="tl")
-    T(d, 0, "Headline", "Happy Small Business Saturday", 72, 890, 936, 200, 84, color=CREAM)
-    T(d, 0, "Details", "Meet Colleen Dempster of Rewild Soils", 72, 1090, 760, 140, 52, bold=False, color=CREAM)
-    logo(d, 0, w=150)
-    # 2. her microscope work
-    d.bg(1, grain(Image.new("RGB", (W, H), CREAM), 602, 3), name="Background: Organic Cream")
-    d.put(1, "Photo: compost under the microscope", framed(ph, 760, 600, 0.75, 0.55), 160, 90, shadowed=False,
-          anchor="tl")
-    y = T(d, 1, "Headline", "A Soil Food Web certified microscopy lab since 2022", 72, 740, 936, 230, 66, color=BROWN)
-    T(d, 1, "Details", "Colleen has looked at hundreds of soil, compost and compost tea samples. Here she shows "
-      "compost on the monitor at a Compost Toronto event.", 110, round(y) + 24, 860, 320, 50, bold=False, color=INK,
-      lh=1.22)
-    logo(d, 1, white=False, w=150)
+    # 1. the photo, edge to edge
+    d.bg(0, scrim(cover(ph, W, H, 0.45, 0.45), 0.35, 0.92).convert("RGBA"), name="Photo: Compost Toronto microscope event")
+    y = T(d, 0, "Headline", "Happy Small\nBusiness Saturday", 72, 930, 936, 190, 86, color=CREAM)
+    T(d, 0, "Details", "Meet Colleen Dempster\nof Rewild Soils", 72, round(y) + 24, 936, 140, 54, bold=False,
+      color=CREAM, lh=1.12)
+    logo(d, 0, w=130)
+    # 2. since 2022
+    d.bg(1, grain(Image.new("RGB", (W, H), GREEN), 602, 4), name="Background: Food Web Green")
+    T(d, 1, "Eyebrow", "A Soil Food Web certified\nmicroscopy lab since", 72, 270, 936, 170, 66, color=CREAM)
+    T(d, 1, "Big number", "2022", 72, 460, 936, 330, 300, color=MINT)
+    T(d, 1, "Details", "Colleen has looked at hundreds\nof soil, compost and compost\ntea samples", 72, 860, 936, 260,
+      54, bold=False, color=CREAM, lh=1.18)
+    logo(d, 1, w=130)
     # 3. meet Rewild Soils
     d.bg(2, grain(Image.new("RGB", (W, H), CREAM), 603, 3), name="Background: Organic Cream")
-    T(d, 2, "Headline", "Meet Rewild Soils", 72, 130, 936, 110, 86, color=BROWN)
+    T(d, 2, "Headline", "Meet Rewild Soils", 72, 200, 936, 100, 84, color=BROWN)
     lg = Image.open(f"{RW}/rewild-soils-logo.png").convert("RGBA")
-    lg = lg.resize((800, round(lg.height * 800 / lg.width)), Image.LANCZOS)
-    d.put(2, "Rewild Soils logo", lg, (W - lg.width) // 2, 300, shadowed=False, anchor="tl")
-    T(d, 2, "Details", "Soil microscopy, consulting, workshops and Biologically Complete compost, from Uxbridge, "
-      "Ontario", 120, 300 + lg.height + 60, 840, 220, 52, bold=False, color=INK, lh=1.22)
-    rect(d, 2, "Green box", 190, 1040, 700, 110, rgb(GREEN) + (255,), r=55)
-    T(d, 2, "Website", "rewildsoils.com", 190, 1060, 700, 72, 58, color=CREAM)
-    logo(d, 2, white=False, w=150)
+    lg = lg.crop(lg.getchannel("A").point(lambda a: 255 if a > 128 else 0).getbbox())
+    lg = lg.resize((860, round(lg.height * 860 / lg.width)), Image.LANCZOS)
+    d.put(2, "Rewild Soils logo", lg, (W - lg.width) // 2, 360, shadowed=False, anchor="tl")
+    y = T(d, 2, "Details", "Soil microscopy, consulting, workshops\nand Biologically Complete compost,\nfrom Uxbridge, Ontario",
+          72, 360 + lg.height + 50, 936, 200, 52, bold=False, color=INK, lh=1.18)
+    rect(d, 2, "Green pill", 230, round(y) + 50, 620, 104, rgb(GREEN) + (255,), r=52)
+    T(d, 2, "Website", "rewildsoils.com", 230, round(y) + 50 + 18, 620, 70, 54, color=CREAM)
+    logo(d, 2, white=False, w=120)
     return d
 
 

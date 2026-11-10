@@ -12744,6 +12744,49 @@ export const CHANGES: Change[] = [
     },
     reason: 'Linnea, 10 Nov: more beautiful, and no Veterans Day greeting.',
   },
+  {
+    key: '2026-11-10 vet20261111 v7 sizes',
+    post: 'vet20261111',
+    set: {
+      slides: [
+        {
+          text: 'Scaling Sustainably. A talk by Suzanne Shea',
+          image: '/wormhole/tiles/vet20261111-v7-1.jpg',
+        },
+        {
+          text: 'Suzanne Shea. Farmer Veteran Coalition Stakeholders Conference',
+          image: '/wormhole/tiles/vet20261111-v7-2.jpg',
+        },
+        {
+          text: 'Photo only: Suzanne on the conference walk',
+          image: '/wormhole/tiles/vet20261111-v7-3.jpg',
+        },
+      ],
+      visual_note:
+        "Family: photo-led editorial. Type in the sky, matted print with label, selfie edge to edge. No 'Happy Veterans Day' text (Linnea, 10 Nov). The man beside Suzanne is not named. Built with nov_updates_nov10.py veterans. Deck: decks/11-11-2026-veterans-day-v7.pptx.",
+    },
+    reason: 'Linnea, 10 Nov: work on sizes and spacing.',
+  },
+  {
+    key: '2026-11-10 x20261128 v6 pretty',
+    post: 'x20261128',
+    set: {
+      slides: [
+        {
+          text: 'Happy Small Business Saturday. Meet Colleen Dempster of Rewild Soils',
+          image: '/wormhole/tiles/x20261128-v6-1.jpg',
+        },
+        {
+          text: 'A Soil Food Web certified microscopy lab since 2022. Colleen has looked at hundreds of soil, compost and compost tea samples',
+          image: '/wormhole/tiles/x20261128-v6-2.jpg',
+        },
+        { text: 'Meet Rewild Soils. rewildsoils.com', image: '/wormhole/tiles/x20261128-v6-3.jpg' },
+      ],
+      visual_note:
+        'Family: photo cover + big number + logo card. The Compost Toronto photo is used once, edge to edge with a soft scrim, no box. Built with nov_updates_nov10.py smallbiz. Deck: decks/28-11-2026-small-business-saturday-rewild-soils-v6.pptx.',
+    },
+    reason: 'Linnea, 10 Nov: make it pretty.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);
