@@ -164,54 +164,105 @@ def scrim(im, start=0.5, strength=0.78):
     return Image.composite(dark, im.convert("RGB"), g)
 
 
+def reticle(R, ring, disc, line):
+    """A microscope field of view: outer ring, cream disc, faint crosshair with scale ticks."""
+    S = 2 * R + 80
+    im = Image.new("RGBA", (S, S), (0, 0, 0, 0))
+    dr = ImageDraw.Draw(im)
+    dr.ellipse((0, 0, S - 1, S - 1), outline=ring, width=4)
+    dr.ellipse((40, 40, S - 41, S - 41), fill=disc)
+    c = S // 2
+    for a0, a1 in ((c - R + 30, c - 130), (c + 130, c + R - 30)):   # vertical scale above and below the number
+        dr.line((c, a0, c, a1), fill=line, width=2)
+        for yy in range(a0, a1 + 1, 25):
+            t = 16 if (yy - a0) % 75 == 0 else 8
+            dr.line((c - t, yy, c + t, yy), fill=line, width=2)
+    return im
+
+
 def small_business(v):
-    """Facts from rewildsoils.com (10 Nov) and Colleen's note to Allison. v7 (Linnea: put in effort): the post borrows
-    Rewild Soils' own hand-drawn botanical look. Slide 1: cream paper, the photo pinned like a print with the
-    botanical R growing over its corner. Slide 2: a microscope field of view holding 2022. Slide 3: the logo as
-    the hero inside a thin label frame."""
-    d = Deck("x20261128", 3, f"small-business-saturday-rewild-soils-{v}", "2026-11-28")
+    """Colleen's own answers to the community feature (sent by Linnea 10 Nov) and rewildsoils.com.
+    The post borrows Rewild Soils' hand-drawn botanical look: cream paper, brown ink, the botanical R and fern.
+    Numbers: lab since 2022, annually re-certified, 300+ microbial reports (all from Colleen's note)."""
+    d = Deck("x20261128", 6, f"small-business-saturday-rewild-soils-{v}", "2026-11-28")
     ph = ImageOps.exif_transpose(Image.open(RW_PHOTO)).convert("RGB")
     lg = Image.open(f"{RW}/rewild-soils-logo.png").convert("RGBA")
-    rr = lg.crop((0, 0, 505, lg.height))                       # the botanical R on its own
+    rr = lg.crop((0, 0, 505, lg.height))
     rr = rr.crop(rr.getchannel("A").point(lambda a: 255 if a > 100 else 0).getbbox())
+    fern = lg.crop((386, 15, 462, 330))
+    fern = fern.crop(fern.getchannel("A").point(lambda a: 255 if a > 100 else 0).getbbox())
+
+    def paper(k, seed):
+        d.bg(k, grain(Image.new("RGB", (W, H), CREAM), seed, 4), name="Background: Organic Cream")
 
     # 1. pinned print + botanical R
-    d.bg(0, grain(Image.new("RGB", (W, H), CREAM), 611, 4), name="Background: Organic Cream")
+    paper(0, 611)
     pw, phh = 800, 700
     pr = Image.new("RGBA", (pw + 32, phh + 32), (255, 253, 248, 255))
     pr.paste(cover(ph, pw, phh, 0.45, 0.45).convert("RGBA"), (16, 16))
     d.put(0, "Photo: Compost Toronto microscope event (pinned print)", pr, 92, 86, rot=-2.5, anchor="tl")
     r1 = rr.resize((330, round(rr.height * 330 / rr.width)), Image.LANCZOS)
     d.put(0, "Rewild Soils botanical R", r1, W - 72 - 330 + 20, 86 + phh - 250, shadowed=False, anchor="tl")
-    y = T(d, 0, "Headline", "Happy Small\nBusiness Saturday", 72, 930, 936, 190, 84, color=BROWN, lh=1.08)
+    y = T(d, 0, "Headline", "Happy Small\nBusiness Saturday", 72, 880, 936, 190, 84, color=BROWN, lh=1.08)
     T(d, 0, "Details", "Meet Colleen Dempster\nof Rewild Soils", 72, round(y) + 26, 936, 140, 54, bold=False,
       color=INK, lh=1.12)
     logo(d, 0, white=False, w=130, x=W - 56 - 130, y=H - 40 - 130)
 
-    # 2. the field of view
+    # 2. the lab, under the microscope
     d.bg(1, grain(Image.new("RGB", (W, H), GREEN), 612, 4), name="Background: Food Web Green")
-    T(d, 1, "Eyebrow", "A Soil Food Web certified\nmicroscopy lab since", 72, 110, 936, 170, 66, color=CREAM)
-    cx, cy, R = W // 2, 640, 300
-    ring = Image.new("RGBA", (2 * R + 80, 2 * R + 80), (0, 0, 0, 0))
-    dr = ImageDraw.Draw(ring)
-    dr.ellipse((0, 0, 2 * R + 79, 2 * R + 79), outline=rgb(MINT) + (255,), width=4)
-    dr.ellipse((40, 40, 2 * R + 39, 2 * R + 39), fill=rgb(CREAM) + (255,))
-    d.put(1, "Microscope field of view", ring, cx - R - 40, cy - R - 40, shadowed=False, anchor="tl")
-    T(d, 1, "Big number", "2022", cx - R, cy - 120, 2 * R, 230, 210, color=GREEN)
-    T(d, 1, "Details", "Colleen has looked at hundreds\nof soil, compost and compost\ntea samples", 72, 1010, 936,
-      220, 52, bold=False, color=CREAM, lh=1.18)
+    T(d, 1, "Eyebrow", "A Soil Food Web\ncertified lab since", 72, 100, 936, 180, 70, color=CREAM)
+    R = 290
+    d.put(1, "Microscope field of view", reticle(R, rgb(MINT) + (255,), rgb(CREAM) + (255,), rgb(MINT) + (150,)),
+          W // 2 - R - 40, 640 - R - 40, shadowed=False, anchor="tl")
+    T(d, 1, "Big number", "2022", W // 2 - R, 640 - 112, 2 * R, 230, 200, color=GREEN)
+    T(d, 1, "Details", "Re-certified every year, with\nmore than 300 microbial reports", 72, 1010, 936, 140, 54,
+      bold=False, color=CREAM, lh=1.18)
     logo(d, 1, w=170)
 
-    # 3. the logo as hero, in a thin label frame
-    d.bg(2, grain(Image.new("RGB", (W, H), CREAM), 613, 3), name="Background: Organic Cream")
-    rect(d, 2, "Label frame", 56, 56, W - 112, H - 112, (0, 0, 0, 0), r=28, outline=rgb(BROWN) + (255,), width=3)
+    # 3. in her words: showing people the microbes
+    paper(2, 613)
+    f3 = fern.resize((round(fern.width * 330 / fern.height), 330), Image.LANCZOS)
+    d.put(2, "Fern from the Rewild Soils logo", f3, W - 90 - f3.width, 60, shadowed=False, anchor="tl")
+    T(d, 2, "Quote mark", "\u201c", 72, 270, 300, 220, 260, color=GREEN, align="left")
+    y = T(d, 2, "Quote", "Most people have never seen the microbes that make up the soil food web, so I show "
+          "pictures and do live microscope demonstrations", 100, 550, 880, 620, 62, color=BROWN, align="left", lh=1.14)
+    T(d, 2, "Name", "Colleen Dempster", 100, round(y) + 50, 880, 70, 52, bold=False, color=INK, align="left")
+    logo(d, 2, white=False, w=150)
+
+    # 4. what Rewild Soils offers
+    paper(3, 614)
+    T(d, 3, "Headline", "What Rewild Soils offers", 72, 110, 936, 100, 73, color=BROWN)
+    items = ["Microbial analysis reports", "Compost, compost teas\nand extracts", "Compost tea brew kits",
+             "Consulting and soil\nhealth testing", "Workshops and talks", "Hiwassee 100X\nExtractor rental"]
+    y = 290
+    for i, it in enumerate(items):
+        rect(d, 3, f"Bullet {i + 1}", 220, y + 20, 26, 26, rgb(GREEN) + (255,), r=13)
+        hgt = height(it, 54, 700, bold=False, lh=1.12)
+        T(d, 3, f"Item {i + 1}", it, 280, y, 700, hgt + 8, 54, bold=False, color=INK, align="left", lh=1.12)
+        y += round(hgt) + 34
+    r4 = rr.resize((200, round(rr.height * 200 / rr.width)), Image.LANCZOS)
+    d.put(3, "Rewild Soils botanical R", r4, 72, H - 60 - r4.height, shadowed=False, anchor="tl")
+    logo(d, 3, white=False, w=150)
+
+    # 5. in her words: ready when the clients are
+    d.bg(4, grain(Image.new("RGB", (W, H), BROWN), 615, 4), name="Background: Soil Brown")
+    T(d, 4, "Quote mark", "\u201c", 72, 120, 300, 220, 260, color=MINT, align="left")
+    y = T(d, 4, "Quote", "Making compost and exploring samples under the microscope will always be something I enjoy",
+          100, 380, 800, 420, 64, color=CREAM, align="left", lh=1.14)
+    T(d, 4, "Details", "Colleen is in the final stages of the\nSoil Food Web Consultant Program", 100, round(y) + 70, 880,
+      140, 52, bold=False, color=CREAM, align="left", lh=1.18)
+    logo(d, 4, w=170)
+
+    # 6. the logo as hero, in a thin label frame
+    paper(5, 616)
+    rect(d, 5, "Label frame", 56, 56, W - 112, H - 112, (0, 0, 0, 0), r=28, outline=rgb(BROWN) + (255,), width=3)
     l3 = lg.resize((820, round(lg.height * 820 / lg.width)), Image.LANCZOS)
-    d.put(2, "Rewild Soils logo", l3, (W - 820) // 2, 220, shadowed=False, anchor="tl")
-    y = T(d, 2, "Details", "Soil microscopy, consulting,\nworkshops and Biologically\nComplete compost from\nUxbridge, Ontario",
-          72, 220 + l3.height + 60, 936, 300, 54, bold=False, color=INK, lh=1.18)
-    rect(d, 2, "Green pill", 240, round(y) + 50, 600, 104, rgb(GREEN) + (255,), r=52)
-    T(d, 2, "Website", "rewildsoils.com", 240, round(y) + 50 + 18, 600, 70, 54, color=CREAM)
-    logo(d, 2, white=False, w=130, x=W - 100 - 130, y=H - 100 - 130)
+    d.put(5, "Rewild Soils logo", l3, (W - 820) // 2, 220, shadowed=False, anchor="tl")
+    y = T(d, 5, "Details", "Soil microscopy, consulting,\nworkshops and compost\nfrom Uxbridge, Ontario",
+          72, 220 + l3.height + 60, 936, 240, 54, bold=False, color=INK, lh=1.18)
+    rect(d, 5, "Green pill", 240, round(y) + 50, 600, 104, rgb(GREEN) + (255,), r=52)
+    T(d, 5, "Website", "rewildsoils.com", 240, round(y) + 50 + 18, 600, 70, 54, color=CREAM)
+    logo(d, 5, white=False, w=130, x=W - 100 - 130, y=H - 100 - 130)
     return d
 
 

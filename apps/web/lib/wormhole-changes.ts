@@ -12833,6 +12833,42 @@ export const CHANGES: Change[] = [
     },
     reason: 'Linnea, 10 Nov: put in effort, make it beautiful.',
   },
+  {
+    key: '2026-11-10 x20261128 v12 colleen feature',
+    post: 'x20261128',
+    set: {
+      slides: [
+        {
+          text: 'Happy Small Business Saturday. Meet Colleen Dempster of Rewild Soils',
+          image: '/wormhole/tiles/x20261128-v12-1.jpg',
+        },
+        {
+          text: 'A Soil Food Web certified lab since 2022. Re-certified every year, with more than 300 microbial reports',
+          image: '/wormhole/tiles/x20261128-v12-2.jpg',
+        },
+        {
+          text: 'Most people have never seen the microbes that make up the soil food web, so I show pictures and do live microscope demonstrations. Colleen Dempster',
+          image: '/wormhole/tiles/x20261128-v12-3.jpg',
+        },
+        {
+          text: 'What Rewild Soils offers: microbial analysis reports; compost, compost teas and extracts; compost tea brew kits; consulting and soil health testing; workshops and talks; Hiwassee 100X Extractor rental',
+          image: '/wormhole/tiles/x20261128-v12-4.jpg',
+        },
+        {
+          text: 'Making compost and exploring samples under the microscope will always be something I enjoy. Colleen is in the final stages of the Soil Food Web Consultant Program',
+          image: '/wormhole/tiles/x20261128-v12-5.jpg',
+        },
+        {
+          text: 'Rewild Soils. Soil microscopy, consulting, workshops and compost from Uxbridge, Ontario. rewildsoils.com',
+          image: '/wormhole/tiles/x20261128-v12-6.jpg',
+        },
+      ],
+      visual_note:
+        "Family: partner botanical (borrows Rewild Soils' hand-drawn look). 6 slides from Colleen's own answers to the community feature (sent by Linnea 10 Nov): pinned print with the botanical R, microscope field of view for 2022, two quotes, services list, logo card. Numbers from Colleen: lab since 2022, re-certified annually, 300+ microbial reports. Built with nov_updates_nov10.py smallbiz. Deck: decks/28-11-2026-small-business-saturday-rewild-soils-v12.pptx.",
+      link: 'https://www.rewildsoils.com',
+    },
+    reason: 'Linnea, 10 Nov: Colleen sent her community feature answers.',
+  },
 ];
 
 CHANGES.push(...GAP_CHANGES, ...JAN_CHANGES, ...OCT27_CHANGES, ...OCT31_CHANGES);
