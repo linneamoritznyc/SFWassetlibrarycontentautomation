@@ -331,7 +331,7 @@ def cyber(v):
     d.put(0, "Photo: microscopy notes", cover(ph, W, 850, 0.45, 0.5).convert("RGBA"), 0, 0, shadowed=False,
           anchor="tl")
     T(d, 0, "Headline", "Cyber Monday", 72, 900, 936, 110, 86, color=CREAM)
-    T(d, 0, "Details", "[DISCOUNT] off online courses\nNov 30 to Dec 4", 72, 1030, 760, 160, 52, bold=False,
+    T(d, 0, "Details", "Sale on online courses\nNov 30 to Dec 4", 72, 1030, 760, 160, 52, bold=False,
       color=CREAM, lh=1.25)
     logo(d, 0, w=150)
     # 2. the programs in the sale (the FC + CIC bundle and the workshops are excluded)
@@ -344,7 +344,7 @@ def cyber(v):
         x, y = 72 + (n % 2) * (tw + g), 250 + (n // 2) * (th + g)
         rect(d, 1, f"Badge {n + 1}", x, y, tw, th, rgb(GREEN) + (255,), r=28)
         T(d, 1, f"Badge {n + 1} name", name, x + 12, y + 30, tw - 24, th - 60, 52, color=CREAM, mn=50, lh=1.15)
-    T(d, 1, "Details", "[DISCOUNT] off, Nov 30 to Dec 4", 72, 1120, 760, 70, 52, bold=False, color=INK)
+    T(d, 1, "Details", "On sale Nov 30 to Dec 4", 72, 1120, 760, 70, 52, bold=False, color=INK)
     logo(d, 1, white=False, w=150)
     # 3. link in bio
     d.bg(2, grain(Image.new("RGB", (W, H), GREEN), 703, 4), name="Background: Food Web Green")
