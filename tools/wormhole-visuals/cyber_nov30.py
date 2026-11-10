@@ -49,12 +49,20 @@ def logo(d, k, w=150):
 
 
 def build(v):
+    """Slide 1 is calm (Linnea, 10 Nov: nothing promotional on the first slide): the course badges and the dates."""
+    from bundle_final_nov4 import badge
     d = Deck("nmw10rs3la2i", 1, f"cyber-monday-{v}", "2026-11-30")
     d.bg(0, leaf_texture(731), name="Background: green fade with leaf texture")
-    # two fonts (Montserrat Bold, Source Sans 3), three sizes (54 / 300 / 54), cream text, mint accent
-    T(d, 0, "Eyebrow", "Cyber Monday · Online courses", 72, 300, 936, 70, 54, bold=False, color=MINT)
-    T(d, 0, "Discount", "[X]%\nOFF", 72, 400, 936, 600, 300, color=CREAM, lh=0.95, mn=200)
-    T(d, 0, "Details", "Nov 30 to Dec 4 · Link in bio", 72, 1030, 936, 70, 54, bold=False, color=CREAM)
+    T(d, 0, "Headline", "Cyber Monday", 72, 200, 936, 110, 86, color=CREAM)
+    T(d, 0, "Details", "Online courses \u00b7 Nov 30 to Dec 4", 72, 330, 936, 70, 54, bold=False, color=MINT)
+    fcs = [badge(f"fc{n}", 220) for n in (1, 2, 3, 4)]
+    gap = (1000 - sum(i.width for i in fcs)) // 3
+    x, y = (W - 1000) // 2, 520
+    for n, im in enumerate(fcs):
+        d.put(0, f"Badge FC{n + 1}", im, x, y, shadowed=False, anchor="tl")
+        x += im.width + gap
+    cic = badge("cic", 300)
+    d.put(0, "Badge Compost Intensive", cic, (W - cic.width) // 2, 800, shadowed=False, anchor="tl")
     logo(d, 0)
     return d
 

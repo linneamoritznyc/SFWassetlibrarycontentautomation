@@ -129,6 +129,7 @@ These come from Linnea's edits. Break none of them.
 - **Big, readable text, always. Read docs/slide-rules.md before building any slide or deck** (Linnea's rules, 30 Oct): hook and info-card headlines 84 to 86 px, other headlines 66 to 73 px (never under 64), small text 52 to 54 px (never under 50, floor 42). Cut words, never shrink type. Headline one text box, small text one text box, every object named and separate.
 - **Check Wormhole and the repo first.** Before building any visual, search Wormhole and the repo for an existing post or design for that topic.
 - **News posts use the news card format** (savesoil.py: cream card on Food Web Green, article image with outlet tab, headline beside a green bar, Read More and source), with the text sizes from docs/slide-rules.md. Long carousels are fine when the content needs them.
+- Sale posts (Cyber Monday, Black Friday): nothing promotional on slide 1, no discount, no % OFF, no starbursts (Linnea, 10 Nov: it makes the feed tacky). The discount goes on a later slide.
 - Never tilt or rotate a photo (Linnea, 10 Nov: she hates tilted pictures). Photos sit straight.
 - Banned photo: the raised wooden garden beds with onions and cabbage (`pdc_beds.jpg`). Linnea hates it; never use it on socials.
 
