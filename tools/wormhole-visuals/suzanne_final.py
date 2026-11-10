@@ -33,7 +33,7 @@ def frost(path, fx, fy, a0, a1, top=False):
     return Image.fromarray(out.clip(0, 255).astype("uint8")).convert("RGBA")
 
 
-def logo(d, k, x, y, w=120):
+def logo(d, k, x, y, w=170):
     lg = Image.open(LOGO).convert("RGBA")
     lg = lg.resize((w, round(lg.height * w / lg.width)), Image.LANCZOS)
     d.put(k, "SFW logo", lg, x, y, shadowed=False, anchor="tl")
@@ -50,12 +50,12 @@ def build(v):
     y = H - 70 - round(dh) - 22 - round(hh)
     y = T(d, 0, "Headline", head, 80, y, 920, hh + 8, 80, color=CREAM, align="left", lh=1.04)
     T(d, 0, "Details", det, 80, round(y) + 22, 780, dh + 8, 48, bold=False, color=CREAM, align="left", lh=1.2)
-    logo(d, 0, W - 70 - 120, H - 60 - 120)
+    logo(d, 0, W - 60 - 170, H - 50 - 170)
     # 2
     d.bg(1, frost(f"{V}/suzanne-hoop-house.jpg", 0.55, 0.7, 0.55, 0.8, top=True), name="Photo with soft frosted fade")
     t2 = "Her presentation taught veteran farmers about scalable sustainability through the Soil Food Web Approach."
     T(d, 1, "Text", t2, 80, 90, 900, 330, 56, bold=False, color=CREAM, align="left", lh=1.22)
-    logo(d, 1, W - 70 - 120, H - 60 - 120)
+    logo(d, 1, W - 60 - 170, H - 50 - 170)
     # 3 photo only
     # tight on Suzanne, the man in the background cropped out (Linnea, 10 Nov)
     sf = ImageOps.exif_transpose(Image.open(f"{V}/suzanne-conference-walk.jpg")).convert("RGB")
@@ -64,7 +64,7 @@ def build(v):
     y0 = sf.height - ch
     sf = sf.crop((0, y0, cw, y0 + ch)).resize((W, H), Image.LANCZOS)
     d.bg(2, grade(sf).convert("RGBA"), name="Photo")
-    logo(d, 2, W - 70 - 120, H - 60 - 120)
+    logo(d, 2, W - 60 - 170, H - 50 - 170)
     return d
 
 
