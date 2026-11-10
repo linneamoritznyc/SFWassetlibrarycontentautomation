@@ -286,6 +286,12 @@ def small_business(v):
     # 4. her words on a plain page. Linnea, 10 Nov: quote centred vertically with the mark directly above it,
     #    body full width, the sprout big and centred at the bottom with its roots running to the frame edge.
     page(3)
+    # Linnea liked the faded micrograph background; this one is Colleen's own (leaf mould compost, her lab page)
+    bgm = ImageOps.exif_transpose(Image.open("/home/user/sfwlib/social/rewild/lab/15eb67838c2640729439e8cbae5eb89d.jpg")).convert("RGB")
+    bgm = cover(bgm, W - 160, H - 160, 0.3, 0.5).filter(ImageFilter.GaussianBlur(7))
+    bgm = Image.blend(bgm, Image.new("RGB", bgm.size, (244, 241, 234)), 0.58)
+    d.put(3, "Micrograph from Colleen's lab: fungal threads in leaf mould compost (faded)", bgm.convert("RGBA"), 80, 80,
+          shadowed=False, anchor="tl")
     q4 = "Making compost and exploring samples under the microscope will always be something I enjoy"
     b4 = "Colleen believes rewilding soils with microbes is about restoring systems and people\u2019s connection with the Earth"
     hq = height(q4, 66, TW, lh=1.1)
