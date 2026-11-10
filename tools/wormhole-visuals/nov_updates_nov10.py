@@ -71,10 +71,10 @@ def nematodes(v):
     d = Deck("p24", 1, f"soil-in-numbers-nematodes-{v}", "2026-11-16")
     first = Image.open(os.path.join(TILES, "p24-v2-1.jpg")).convert("RGB")
     black = Image.new("RGB", (W, H), (0, 0, 0))
-    black.paste(first.crop((0, 170, W, 860)), (0, 300))
+    black.paste(first.crop((0, 170, W, 860)), (0, 210))
     d.bg(0, black.convert("RGBA"), name="Photo: nematode")
     T(d, 0, "Headline", "The most common\nanimal on earth", 72, 120, 936, 170, 70, color=CREAM, lh=1.08)
-    T(d, 0, "Number", "440 quintillion\nnematodes", 72, 990, 936, 210, 96, color=MINT, lh=1.0, mn=90)
+    T(d, 0, "Number", "440 quintillion\nnematodes", 72, 920, 936, 210, 96, color="#59A66C", lh=1.0, mn=90)   # Regenerative Green
     T(d, 0, "Credit", "Photo: Soil Food Web Foundation", 72, H - 90, 936, 56, 42, bold=False, color="#9C968C", mn=42)
     logo(d, 0, w=130)
     return d
