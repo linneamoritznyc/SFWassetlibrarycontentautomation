@@ -61,41 +61,13 @@ def lineart(name, h, color=CREAM, thick=3):
 def build(v):
     """Slide 1 is calm (Linnea, 10 Nov: nothing promotional on the first slide, and it must not look like the
     FC + CIC bundle, which is not in the sale): the laptop drawing, Cyber Monday and the dates."""
-    d = Deck("nmw10rs3la2i", 2, f"cyber-monday-{v}", "2026-11-30")
+    d = Deck("nmw10rs3la2i", 1, f"cyber-monday-{v}", "2026-11-30")
     d.bg(0, leaf_texture(731), name="Background: green fade with leaf texture")
     lap = lineart("online", 400)
     d.put(0, "Drawing: online lesson on a laptop", lap, (W - lap.width) // 2, 300, shadowed=False, anchor="tl")
     T(d, 0, "Headline", "Cyber Monday", 72, 800, 936, 110, 86, color=CREAM)
     T(d, 0, "Details", "Online courses \u00b7 Nov 30 to Dec 4", 72, 930, 936, 70, 54, bold=False, color=MINT)
     logo(d, 0)
-
-    # 2. the six online courses in the sale, one matching set of round line badges (FC + CIC bundle and workshops
-    #    are not in the sale). Three sizes: 73 heading, 54 subline and pill, 50 course names.
-    d.bg(1, leaf_texture(732), name="Background: green fade with leaf texture")
-    T(d, 1, "Headline", "Learn from anywhere", 72, 80, 936, 90, 73, color=CREAM)
-    T(d, 1, "Details", "[X]% off online courses", 72, 180, 936, 70, 54, bold=False, color=MINT)
-    courses = [("book", "Foundation Courses"), ("compost", "Compost Intensive"),
-               ("leaves", "Permaculture Design Certificate"), ("microscope", "Complete Practicum"),
-               ("steps", "Advanced Programs"), ("sunrise", "Intro to the Foundation Courses")]
-    from PIL import ImageDraw
-    D, CW = 190, 320
-    x0 = (W - 3 * CW) // 2
-    for i, (art, name) in enumerate(courses):
-        cx = x0 + (i % 3) * CW + CW // 2
-        top = 300 + (i // 3) * 400
-        ring = Image.new("RGBA", (D * 4, D * 4), (0, 0, 0, 0))
-        ImageDraw.Draw(ring).ellipse((8, 8, D * 4 - 9, D * 4 - 9), outline=rgb(CREAM) + (255,), width=20)
-        d.put(1, f"Badge ring {i + 1}", ring.resize((D, D), Image.LANCZOS), cx - D // 2, top, shadowed=False, anchor="tl")
-        ic = lineart(art, 132, thick=7)
-        if ic.width > 140:
-            ic = ic.resize((140, round(ic.height * 140 / ic.width)), Image.LANCZOS)
-        d.put(1, f"Badge icon {i + 1}", ic, cx - ic.width // 2, top + (D - ic.height) // 2, shadowed=False, anchor="tl")
-        T(d, 1, f"Course {i + 1}", name, cx - 150, top + D + 14, 300, 180, 50, bold=False, color=CREAM, lh=1.1)
-    rect_pill = Image.new("RGBA", (360 * 4, 100 * 4), (0, 0, 0, 0))
-    ImageDraw.Draw(rect_pill).rounded_rectangle((0, 0, 360 * 4 - 1, 100 * 4 - 1), 200, fill=rgb(CREAM) + (255,))
-    d.put(1, "Pill", rect_pill.resize((360, 100), Image.LANCZOS), (W - 360) // 2, 1110, shadowed=False, anchor="tl")
-    T(d, 1, "Link in bio", "Link in bio", 72, 1126, 936, 70, 54, color="#156826")
-    logo(d, 1)
     return d
 
 
