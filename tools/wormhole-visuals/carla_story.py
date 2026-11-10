@@ -25,18 +25,18 @@ def build(v):
         d.bg(0, grain(Image.new("RGB", (W, SH), CREAM), 661, 4), name="Background: Organic Cream")
         rect(d, 0, "Page frame", 44, 44, W - 88, SH - 88, (0, 0, 0, 0), outline=rgb(BROWN) + (255,), width=2)
         # just her photo and the talk (Linnea, 10 Nov: no microbes, more text). Sizes 54 / 70 / 50.
-        D = 400
-        d.put(0, "Photo: Carla Portugal", eyepiece(PORTRAIT, D, 0.5, 0.4, 1.1), (W - D) // 2, 230, shadowed=False,
+        D = 340
+        d.put(0, "Photo: Carla Portugal", eyepiece(PORTRAIT, D, 0.5, 0.4, 1.1), (W - D) // 2, 190, shadowed=False,
               anchor="tl")
-        T(d, 0, "Eyebrow", "Tomorrow, live \u00b7 Carla Portugal", 72, 670, 936, 70, 54, bold=False, color=GREEN)
-        y = T(d, 0, "Headline", "Restoring the soil food web to grow nutrition your patients need", 100, 745, 880,
+        T(d, 0, "Eyebrow", "Tomorrow, live \u00b7 Carla Portugal", 72, 560, 936, 70, 54, bold=False, color=GREEN)
+        y = T(d, 0, "Headline", "Restoring the soil food web to grow nutrition your patients need", 100, 635, 880,
               330, 70, color=BROWN, lh=1.08)
         # exact terms from her session card (Linnea, 10 Nov), one box each with a gap between
         y = round(y) + 36
         for i, t in enumerate(["The plant\u2019s \u201cgut microbiome\u201d", "Crop antioxidants, vitamins, and minerals",
                                "What the peer-reviewed evidence\ndoes (and doesn\u2019t) support",
                                "Live polling, hands-on checklist\npractice, and real-time Q&A"]):
-            y = round(T(d, 0, f"Talk {i + 1}", t, 72, y, 936, 140, 50, bold=False, color=BROWN, lh=1.18)) + 22
+            y = round(T(d, 0, f"Talk {i + 1}", t, 72, y, 936, 140, 50, bold=False, color=BROWN, lh=1.18)) + 14
         rect(d, 0, "Rule", (W - 120) // 2, round(y) + 30, 120, 2, rgb(BROWN) + (255,))
         T(d, 0, "Date", "Sunday 15 November, 7 to 7:45am Pacific\nFood as Medicine for All \u00b7 Livestream", 72,
           round(y) + 60, 936, 140, 54, bold=False, color=BROWN, lh=1.2)
