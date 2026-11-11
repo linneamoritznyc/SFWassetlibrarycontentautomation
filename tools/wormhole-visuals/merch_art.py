@@ -175,8 +175,6 @@ def mycelium_bloom():
     text_c(dr, S / 2, S * 0.81, "Be the mycelium", f1, CREAM + (255,))
     f2 = font(FELLSC, 120 * K)
     text_c(dr, S / 2, S * 0.81 + 310, "you want to see in the world", f2, MINT + (255,), track=8)
-    f3 = font(TYPE, 58 * K)
-    text_c(dr, S / 2, S * 0.81 + 520, "FIG. 1 \u2014 FUNGAL HYPHAE", f3, MINT + (255,), track=10)
     return down(base)
 
 
