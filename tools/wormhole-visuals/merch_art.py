@@ -322,8 +322,7 @@ def preview(art, garment, path, scale=1100):
 if __name__ == "__main__":
     out = sys.argv[1]
     os.makedirs(out, exist_ok=True)
-    for name, fn, garment in (("mycelium-bloom", mycelium_bloom, DEEP), ("soil-horizon", soil_horizon, GREEN),
-                              ("look-closer", look_closer, (30, 36, 30))):
+    for name, fn, garment in (("mycelium-bloom", mycelium_bloom, DEEP),):  # soil-horizon, look-closer dropped
         art = fn()
         art.save(f"{out}/{name}-print.png")
         preview(art, garment, f"{out}/{name}-preview.jpg")
