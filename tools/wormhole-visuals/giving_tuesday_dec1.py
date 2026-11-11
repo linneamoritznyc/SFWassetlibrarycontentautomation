@@ -92,5 +92,57 @@ def build(v):
     return d
 
 
+
+
+# ---------------- direction B: the compost-thermometer dial on the green leaf texture ----------------
+def build_b(v):
+    from cyber_nov30 import leaf_texture
+    from giving_thermometer import dial, needle
+    d = Deck("gt20261201b", 3, f"giving-tuesday-dec1-dial-{v}", "2026-12-01")
+    leaf = leaf_texture(770).resize((W, H)).convert("RGBA")
+    # 1. the dial
+    d.bg(0, leaf, name="Background: green leaf texture")
+    T(d, 0, "Eyebrow", "GivingTuesday · December 1", 72, 110, 936, 70, 52, bold=False, color=MINT, align="center")
+    T(d, 0, "Headline", "Help us reach\nour goal", 72, 190, 936, 200, 86, color=CREAM, align="center", lh=1.04)
+    D = 700
+    x, y = (W - D) // 2, 440
+    stem_w, stem_h = 30, 150
+    st = Image.new("RGBA", (stem_w * 4, stem_h * 4), (0, 0, 0, 0))
+    ImageDraw.Draw(st).polygon([(0, 0), (stem_w * 4, 0), (stem_w * 4, (stem_h - 34) * 4), (stem_w * 2, stem_h * 4),
+                                (0, (stem_h - 34) * 4)], fill=(216, 195, 165, 255))
+    d.put(0, "Thermometer stem", st.resize((stem_w, stem_h), Image.LANCZOS), (W - stem_w) // 2, y + D - 20,
+          shadowed=False, anchor="tl")
+    d.put(0, "Thermometer dial", dial(D), x, y, shadowed=False, anchor="tl")
+    d.put(0, "Needle (rotate around its centre to the current total)", needle(D, 0.0), x, y, shadowed=False, anchor="tl")
+    logo(d, 0, W - 60 - 130, H - 40 - 130, w=130)
+    # 2. recovery, the match and the ask
+    d.bg(1, leaf, name="Background: green leaf texture")
+    head = "The soil can recover.\nIt wants to."
+    small = "A generous donor is matching every gift through the end of the year, so your donation goes twice as far."
+    hh = height(head, 86, 920, lh=1.06)
+    sh = height(small, 52, 880, bold=False, lh=1.22)
+    y = (H - (round(hh) + 50 + round(sh) + 70 + 116)) // 2
+    y = T(d, 1, "Headline", head, 80, y, 920, hh + 8, 86, color=CREAM, align="center", lh=1.06)
+    y = T(d, 1, "Small text", small, 100, round(y) + 50, 880, sh + 8, 52, bold=False, color=CREAM, align="center",
+          lh=1.22)
+    from PIL import ImageFont
+    bw = round(ImageFont.truetype("/home/user/fonts/Montserrat-Bold.ttf", 54).getlength("Donate today")) + 120
+    button(d, 1, (W - bw) // 2, round(y) + 70)
+    # 3. India workshop (same as direction A)
+    ph = 880
+    g = grade(cover(ImageOps.exif_transpose(Image.open(GROUP)).convert("RGB"), W, ph, 0.5, 0.62))
+    bg = Image.new("RGB", (W, H), DEEP)
+    bg.paste(g, (0, 0))
+    d.bg(2, fade(bg, ph - 230, ph, 1.0), name="India workshop group with dark fade")
+    txt = ("We partnered with the Isha Foundation to host our first in-person Accelerator Workshop in India! "
+           "This group featured 46 students from 10 countries")
+    th = height(txt, 54, 920, bold=False, lh=1.2)
+    T(d, 2, "Text", txt, 80, 900 + (H - 900 - 170 - round(th)) // 2, 920, th + 8, 54, bold=False, color=CREAM,
+      align="left", lh=1.2)
+    logo(d, 2, W - 60 - 150, H - 40 - 150)
+    return d
+
+
 if __name__ == "__main__":
-    print(build(sys.argv[1]).save(TILES, DECKS)[0])
+    fn = build_b if len(sys.argv) > 2 and sys.argv[2] == "b" else build
+    print(fn(sys.argv[1]).save(TILES, DECKS)[0])
