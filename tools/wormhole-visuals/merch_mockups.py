@@ -248,6 +248,155 @@ def sticker(art_dark, name, out):
     bg.convert("RGB").save(f"{out}/{name}.jpg", quality=92)
 
 
+# ------------------------------------------------------------------ hoodie / crewneck
+def sweat(art, colour, name, out, hood=True):
+    bg = surface()
+    dk = lambda f: tuple(round(c * f) for c in colour)
+    tex = weave(strength=0.05, scale=1.1)
+    one = np.ones((N, N), np.float32)
+    yy, xx = np.mgrid[0:N, 0:N].astype(np.float32)
+    ny = 430 if hood else 400
+    neck = [(600 + i * 400 / 30, 330 + math.sin(math.pi * i / 30) * (ny - 330)) for i in range(31)]
+    poly = [(600, 330), (470, 375), (360, 450), (212, 1165), (365, 1180), (445, 690), (452, 1300), (1148, 1300),
+            (1155, 690), (1235, 1180), (1388, 1165), (1240, 450), (1130, 375), (1000, 330)] + neck[::-1]
+    body = smooth_mask(poly, 1.6)
+    parts = Image.new("L", (N, N), 0)
+    pd = ImageDraw.Draw(parts)
+    pd.rectangle((452, 1290, 1148, 1400), fill=255)                       # waistband
+    pd.polygon([(212, 1160), (365, 1175), (360, 1265), (205, 1250)], fill=255)    # cuffs
+    pd.polygon([(1388, 1160), (1235, 1175), (1240, 1265), (1395, 1250)], fill=255)
+    parts = parts.filter(ImageFilter.GaussianBlur(1.2))
+    allm = ImageChops.lighter(body, parts)
+    if hood:
+        hm = Image.new("L", (N * K, N * K), 0)
+        ImageDraw.Draw(hm).ellipse((585 * K, 110 * K, 1015 * K, 560 * K), fill=255)
+        hm = hm.resize((N, N), Image.LANCZOS)
+        allm = ImageChops.lighter(allm, hm)
+    bg.alpha_composite(shadow(allm))
+    if hood:
+        bg.alpha_composite(fabric_fill(hm, dk(0.93), tex, 1 - 0.08 * ((yy - 330) / 230) ** 2))
+        inner = Image.new("L", (N * K, N * K), 0)
+        ImageDraw.Draw(inner).ellipse((650 * K, 175 * K, 950 * K, 470 * K), fill=255)
+        inner = inner.resize((N, N), Image.LANCZOS).filter(ImageFilter.GaussianBlur(3))
+        bg.alpha_composite(fabric_fill(inner, dk(0.62), tex, one))
+    shade = (1 - 0.07 * ((xx - 800) / 420) ** 2) * folds(lines=[((455, 700), (520, 1290)), ((1145, 700), (1080, 1290)),
+                                                               ((300, 700), (260, 1150)), ((1300, 700), (1340, 1150))],
+                                                        width=55, depth=0.08)
+    bg.alpha_composite(fabric_fill(body, colour, tex, shade))
+    rib = np.where((xx.astype(int) // 7) % 2 == 0, 0.95, 1.02).astype(np.float32)
+    bg.alpha_composite(fabric_fill(parts, dk(0.94), tex * rib, one))
+    d = ImageDraw.Draw(bg)
+    if not hood:
+        d.line([(x, y + 20) for x, y in neck], fill=dk(0.9) + (255,), width=34, joint="curve")
+    else:
+        d.line([(x, y + 6) for x, y in neck], fill=dk(0.8) + (255,), width=10, joint="curve")
+        # pocket
+        pk = [(590, 1010), (1010, 1010), (1075, 1286), (525, 1286)]
+        d.line(pk + [pk[0]], fill=dk(0.82) + (255,), width=4)
+        d.line((590, 1010, 545, 1200), fill=dk(0.78) + (255,), width=5)
+        d.line((1010, 1010, 1055, 1200), fill=dk(0.78) + (255,), width=5)
+        for x0, x1 in ((745, 735), (855, 865)):                        # drawstrings
+            d.line((x0, 420, x1, 560), fill=CREAM + (255,), width=11)
+            d.rounded_rectangle((x1 - 9, 550, x1 + 9, 595), 6, fill=(200, 196, 186, 255))
+    print_on(bg, art, (600, 615, 400) if hood else (590, 450, 420), tex)
+    bg.convert("RGB").save(f"{out}/{name}.jpg", quality=92)
+
+
+# ------------------------------------------------------------------ cap
+def cap(art, colour, name, out):
+    bg = surface()
+    dk = lambda f: tuple(round(c * f) for c in colour)
+    tex = weave(strength=0.06, scale=0.8)
+    yy, xx = np.mgrid[0:N, 0:N].astype(np.float32)
+    brim = Image.new("L", (N * K, N * K), 0)
+    ImageDraw.Draw(brim).ellipse((330 * K, 800 * K, 1270 * K, 1110 * K), fill=255)
+    brim = brim.resize((N, N), Image.LANCZOS)
+    crown = smooth_mask([(800 + 410 * math.cos(a), 905 - 520 * math.sin(a)) for a in np.linspace(0, math.pi, 90)] +
+                        [(390 + i * 820 / 40, 905 + 55 * math.sin(math.pi * i / 40)) for i in range(41)][::-1], 1.2)
+    bg.alpha_composite(shadow(ImageChops.lighter(brim, crown), off=(0, 24)))
+    bg.alpha_composite(fabric_fill(brim, dk(0.86), tex, 1 - 0.12 * ((yy - 955) / 150) ** 2))
+    sh = (1 - 0.16 * ((xx - 800) / 410) ** 2) * (1 - 0.06 * ((yy - 400) / 500))
+    bg.alpha_composite(fabric_fill(crown, colour, tex, sh))
+    d = ImageDraw.Draw(bg)
+    for side in (-1, 1):
+        pts = curve(800, 392, 800 + side * 260, 930, side * -120)
+        d.line(pts, fill=dk(0.82) + (220,), width=4)
+    d.line((800, 392, 800, 520), fill=dk(0.82) + (180,), width=3)
+    d.ellipse((780, 372, 820, 404), fill=dk(0.8) + (255,))
+    for i in range(8):  # brim stitching
+        d.arc((400 + i * 0, 830 + i * 16, 1200, 1080 - i * 0), 20, 160, fill=dk(0.7) + (120,), width=2) if i < 3 else None
+    print_on(bg, art, (640, 520, 320), tex, ink=0.97)
+    bg.convert("RGB").save(f"{out}/{name}.jpg", quality=92)
+
+
+def curve(x0, y0, x1, y1, bend, n=30):
+    mx, my = (x0 + x1) / 2 + bend, (y0 + y1) / 2
+    return [((1 - t) ** 2 * x0 + 2 * (1 - t) * t * mx + t * t * x1,
+             (1 - t) ** 2 * y0 + 2 * (1 - t) * t * my + t * t * y1) for t in (i / n for i in range(n + 1))]
+
+
+# ------------------------------------------------------------------ notebook, phone case, bottle
+def notebook(art, colour, name, out):
+    bg = surface()
+    x0, y0, x1, y1 = 455, 210, 1145, 1390
+    m = Image.new("L", (N * K, N * K), 0)
+    ImageDraw.Draw(m).rounded_rectangle((x0 * K, y0 * K, x1 * K, y1 * K), 26 * K, fill=255)
+    m = m.resize((N, N), Image.LANCZOS)
+    bg.alpha_composite(shadow(m, off=(10, 20)))
+    tex = weave(strength=0.08, scale=0.7)
+    xx = np.mgrid[0:N, 0:N][1].astype(np.float32)
+    bg.alpha_composite(fabric_fill(m, colour, tex, 1 - 0.18 * np.exp(-((xx - x0) / 30) ** 2)))
+    print_on(bg, art, (x0 + 95, y0 + 210, (x1 - x0) - 190), tex, ink=0.96)
+    d = ImageDraw.Draw(bg)
+    d.rectangle((x1 - 92, y0, x1 - 66, y1), fill=(20, 20, 18, 255))      # elastic band
+    d.line((x0 + 22, y0, x0 + 22, y1), fill=tuple(round(c * 0.8) for c in colour) + (160,), width=3)
+    bg.convert("RGB").save(f"{out}/{name}.jpg", quality=92)
+
+
+def phone(art, name, out):
+    bg = surface()
+    x0, y0, x1, y1 = 545, 170, 1055, 1430
+    m = Image.new("L", (N * K, N * K), 0)
+    ImageDraw.Draw(m).rounded_rectangle((x0 * K, y0 * K, x1 * K, y1 * K), 92 * K, fill=255)
+    m = m.resize((N, N), Image.LANCZOS)
+    bg.alpha_composite(shadow(m, off=(0, 22)))
+    xx = np.mgrid[0:N, 0:N][1].astype(np.float32)
+    sh = 1 - 0.1 * ((xx - 800) / 255) ** 4
+    bg.alpha_composite(fabric_fill(m, DEEP, np.ones((N, N), np.float32), sh))
+    print_on(bg, art, (x0 + 40, y0 + 390, (x1 - x0) - 80), np.ones((N, N), np.float32), ink=1.0)
+    d = ImageDraw.Draw(bg)
+    d.rounded_rectangle((x0 + 40, y0 + 40, x0 + 250, y0 + 260), 48, fill=(8, 34, 16, 255))
+    for cx, cy in ((x0 + 95, y0 + 98), (x0 + 95, y0 + 200), (x0 + 195, y0 + 148)):
+        d.ellipse((cx - 38, cy - 38, cx + 38, cy + 38), fill=(20, 22, 22, 255), outline=(60, 70, 64, 255), width=6)
+        d.ellipse((cx - 14, cy - 14, cx + 14, cy + 14), fill=(40, 52, 70, 255))
+    bg.convert("RGB").save(f"{out}/{name}.jpg", quality=92)
+
+
+def bottle(art, colour, name, out):
+    bg = surface()
+    x0, x1, y0, y1 = 630, 970, 360, 1440
+    m = Image.new("L", (N * K, N * K), 0)
+    md = ImageDraw.Draw(m)
+    md.rounded_rectangle((x0 * K, y0 * K, x1 * K, y1 * K), 60 * K, fill=255)
+    md.rounded_rectangle((690 * K, 300 * K, 910 * K, 400 * K), 30 * K, fill=255)       # shoulder/neck
+    m = m.resize((N, N), Image.LANCZOS)
+    capm = Image.new("L", (N * K, N * K), 0)
+    ImageDraw.Draw(capm).rounded_rectangle((700 * K, 150 * K, 900 * K, 312 * K), 26 * K, fill=255)
+    capm = capm.resize((N, N), Image.LANCZOS)
+    bg.alpha_composite(shadow(ImageChops.lighter(m, capm), off=(12, 22)))
+    u = np.clip((np.arange(N, dtype=np.float32) - x0) / (x1 - x0), 0, 1)
+    cyl = np.repeat((0.76 + 0.28 * np.clip(np.sin(np.pi * u), 0, 1) ** 0.6 +
+                     0.14 * np.exp(-((u - 0.3) / 0.06) ** 2))[None], N, 0)
+    bg.alpha_composite(fabric_fill(m, colour, np.ones((N, N), np.float32), cyl))
+    bg.alpha_composite(fabric_fill(capm, (34, 36, 34), np.ones((N, N), np.float32), cyl))
+    w = x1 - x0 - 30
+    a = art.resize((w, w), Image.LANCZOS)
+    arr = np.asarray(a).astype(np.float32)
+    arr[..., :3] *= cyl[0, x0 + 15:x0 + 15 + w][None, :, None]
+    bg.alpha_composite(Image.fromarray(arr.clip(0, 255).astype("uint8")), (x0 + 15, 640))
+    bg.convert("RGB").save(f"{out}/{name}.jpg", quality=92)
+
+
 if __name__ == "__main__":
     src, out = sys.argv[1], sys.argv[2]
     os.makedirs(out, exist_ok=True)
@@ -260,4 +409,10 @@ if __name__ == "__main__":
     mug(dark, "mug", out)
     poster(light, "poster", out)
     sticker(light, "sticker", out)
+    sweat(light, DEEP, "hoodie-forest", out)
+    sweat(dark, (226, 214, 192), "hoodie-oat", out)
+    sweat(dark, (176, 192, 166), "crewneck-sage", out, hood=False)
+    notebook(light, GREEN, "notebook", out)
+    phone(light, "phone-case", out)
+    bottle(dark, (240, 238, 232), "bottle", out)
     print("done")
