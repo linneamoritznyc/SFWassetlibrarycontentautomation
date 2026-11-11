@@ -16,6 +16,9 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 FONTS = "/home/user/fonts"
+ARCH = "/home/user/fonts/dl/arch"
+FELL, FELLI, FELLSC, TYPE = (f"{ARCH}/IMFeENrm28P.ttf", f"{ARCH}/IMFeENit28P.ttf", f"{ARCH}/IMFeENsc28P.ttf",
+                             f"{ARCH}/CourierPrime-Regular.ttf")
 GREEN = (21, 104, 38)
 DEEP = (12, 52, 24)
 MINT = (169, 211, 178)
@@ -28,7 +31,7 @@ K = 2             # supersample
 
 
 def font(name, size):
-    return ImageFont.truetype(os.path.join(FONTS, name), size)
+    return ImageFont.truetype(name if name.startswith('/') else os.path.join(FONTS, name), size)
 
 
 def lerp(a, b, t):
@@ -36,7 +39,7 @@ def lerp(a, b, t):
 
 
 # ---------------------------------------------------------------- growth
-def grow(seeds, rng, steps=420, step=7.0, branch=0.035, wander=0.16, pull=None, limit=None, maxw=7.0):
+def grow(seeds, rng, steps=420, step=7.0, branch=0.035, wander=0.16, pull=None, limit=None, maxw=7.0, die=0.0):
     """Hyphae / roots: tips walk with a little wander, branch now and then, and get thinner each generation.
     Returns segments (x0, y0, x1, y1, width, generation, distance-travelled)."""
     tips = [dict(x=x, y=y, a=a, w=maxw, g=0, d=0.0) for x, y, a in seeds]
@@ -49,6 +52,8 @@ def grow(seeds, rng, steps=420, step=7.0, branch=0.035, wander=0.16, pull=None, 
                 a = pull(t, a)
             x1, y1 = t["x"] + math.cos(a) * step, t["y"] + math.sin(a) * step
             if limit and not limit(x1, y1):
+                continue
+            if die and rng.random() < die * (1 + t['g'] * 0.6):
                 continue
             segs.append((t["x"], t["y"], x1, y1, t["w"], t["g"], t["d"]))
             t.update(x=x1, y=y1, a=a, w=max(1.2, t["w"] * 0.996), d=t["d"] + step)
@@ -133,20 +138,25 @@ def mycelium_bloom():
     rng = random.Random(7)
     im, dr = canvas()
     cx, cy, R = S / 2, S * 0.43, S * 0.42
-    seeds = [(cx + rng.uniform(-30, 30), cy + rng.uniform(-30, 30), 2 * math.pi * i / 22 + rng.uniform(-.1, .1))
-             for i in range(16)]
+    ph = [rng.uniform(0, 6.28) for _ in range(3)]
+
+    def edge(a):  # uneven, organic outline instead of a fade
+        return 0.86 + 0.07 * math.sin(3 * a + ph[0]) + 0.05 * math.sin(5 * a + ph[1]) + 0.03 * math.sin(9 * a + ph[2])
+
+    seeds = [(cx + rng.uniform(-30, 30), cy + rng.uniform(-30, 30), 2 * math.pi * i / 24 + rng.uniform(-.1, .1))
+             for i in range(24)]
 
     def pull(t, a):  # keep heading outward
         out = math.atan2(t["y"] - cy, t["x"] - cx)
         return a + 0.06 * math.sin(out - a)
 
-    segs = grow(seeds, rng, steps=230, step=7, branch=0.032, wander=0.22, pull=pull,
-                limit=lambda x, y: math.hypot(x - cx, y - cy) < R, maxw=8)
+    segs = grow(seeds, rng, steps=175, step=7, branch=0.04, wander=0.22, pull=pull,
+                limit=lambda x, y: math.hypot(x - cx, y - cy) < R * 1.3, maxw=8, die=0.0025)
 
     def col(x, y, w, g, d):
         t = min(1, math.hypot(x - cx, y - cy) / R)
         c = lerp(MINT, CREAM, t ** 0.8)
-        return c + (round(255 * max(0, 1 - t ** 1.5)),)
+        return c + (255,)
 
     stroke(dr, sorted(segs, key=lambda s: -s[4]), col)
     # spores glowing at the tips
@@ -154,17 +164,19 @@ def mycelium_bloom():
         t = math.hypot(x1 - cx, y1 - cy) / R
         if t > 0.55:
             r = rng.uniform(3, 7)
-            dr.ellipse(((x1 - r) * K, (y1 - r) * K, (x1 + r) * K, (y1 + r) * K),
-                       fill=CREAM + (round(230 * (1 - t ** 3)),))
-    glow = im.filter(ImageFilter.GaussianBlur(14 * K))
+            dr.ellipse(((x1 - r) * K, (y1 - r) * K, (x1 + r) * K, (y1 + r) * K), fill=CREAM + (255,))
+    glow = im.filter(ImageFilter.GaussianBlur(10 * K))
+    glow.putalpha(glow.getchannel('A').point(lambda v: v // 3))
     base = Image.new("RGBA", im.size, (0, 0, 0, 0))
     base.alpha_composite(glow)
     base.alpha_composite(im)
     dr = ImageDraw.Draw(base)
-    f1 = font("eb-garamond-latin-500-italic.ttf", 250 * K)
-    text_c(dr, S / 2, S * 0.82, "Be the mycelium", f1, CREAM + (255,))
-    f2 = font("Montserrat-SemiBold.ttf", 96 * K)
-    text_c(dr, S / 2, S * 0.82 + 300, "YOU WANT TO SEE IN THE WORLD", f2, MINT + (255,), track=14)
+    f1 = font(FELLI, 270 * K)
+    text_c(dr, S / 2, S * 0.81, "Be the mycelium", f1, CREAM + (255,))
+    f2 = font(FELLSC, 120 * K)
+    text_c(dr, S / 2, S * 0.81 + 310, "you want to see in the world", f2, MINT + (255,), track=8)
+    f3 = font(TYPE, 58 * K)
+    text_c(dr, S / 2, S * 0.81 + 520, "FIG. 1 \u2014 FUNGAL HYPHAE", f3, MINT + (255,), track=10)
     return down(base)
 
 
@@ -222,10 +234,10 @@ def soil_horizon():
     la[..., 3] = (la[..., 3].astype(np.float32) * (np.asarray(m) / 255)).astype("uint8")
     art.alpha_composite(Image.fromarray(la))
     dr = ImageDraw.Draw(art)
-    f1 = font("Montserrat-Bold.ttf", 150 * K)
-    f2 = font("eb-garamond-latin-500-italic.ttf", 150 * K)
+    f1 = font(FELLSC, 190 * K)
+    f2 = font(FELLI, 160 * K)
     y0 = hy + R + 110
-    text_c(dr, cx, y0, "HEALING SOIL", f1, CREAM + (255,), track=22)
+    text_c(dr, cx, y0, "healing soil", f1, CREAM + (255,), track=14)
     text_c(dr, cx, y0 + 210, "Feeding Humanity.", f2, MINT + (255,))
     text_c(dr, cx, y0 + 390, "Restoring the Living World.", f2, MINT + (255,))
     return down(art)
@@ -293,8 +305,8 @@ def look_closer():
     art.alpha_composite(Image.fromarray(la))
     dr = ImageDraw.Draw(art)
     dr.ellipse(((cx - R) * K, (cy - R) * K, (cx + R) * K, (cy + R) * K), outline=CREAM + (255,), width=10 * K)
-    f1 = font("eb-garamond-latin-500-italic.ttf", 270 * K)
-    f2 = font("Montserrat-SemiBold.ttf", 110 * K)
+    f1 = font(FELLI, 290 * K)
+    f2 = font(TYPE, 100 * K)
     text_c(dr, cx, cy + R + 110, "Look closer.", f1, CREAM + (255,))
     text_c(dr, cx, cy + R + 450, "THERE'S LIFE", f2, MINT + (255,), track=22)
     return down(art)
