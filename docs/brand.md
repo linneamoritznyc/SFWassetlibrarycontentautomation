@@ -16,7 +16,7 @@ guide "our old one", so where the two differ, the colour guidelines win.
 | Warm Sand | `#D8C3A5` | Content blocks, panels |
 | Natural Tan | `#C89B7B` | Secondary background (style guide) |
 | Mist Blue | `#A7C6D9` | Secondary data, charts |
-| Harvest Gold | `#C9A227` | Primary CTAs, donations, key stats. Never more than 10-15% of a layout. |
+| Harvest Gold | `#C9A227` | **Do not use** (Linnea, 12 Nov: never gold, not even on donate buttons). |
 | Legacy Mulberry (Dr. E's purple) | `#6B4C7A` | Dr. Elaine only: founder quotes, memorial, legacy programmes. Max 10%, never a CTA, never with gold. |
 
 Mix: about 60% neutral (cream, sand), 25% primary (brown, green, blue), 10% accent,

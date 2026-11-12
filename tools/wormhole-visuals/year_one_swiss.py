@@ -4,7 +4,7 @@
 - type scale: display 300 / 150 / 72 (Montserrat Light), labels 42-60 (Montserrat SemiBold caps), body 52-56 (Source Sans)
 - grounds: Linnea's textures in brand colours (straw in cream, compost and soil in Food Web Green), real photos
   full width across the top so no one is cropped
-- thermometer on slide 1, gold only on the Donate button
+- thermometer on slide 1; no gold anywhere (cream Donate button)
 
   python3 tools/wormhole-visuals/year_one_swiss.py <version>
 """
@@ -211,10 +211,10 @@ def s10(d, k):
     f = ImageFont.truetype("/home/user/fonts/Montserrat-Bold.ttf", 52)
     bw, bh = round(f.getlength("Donate today") + 140), 116
     im = Image.new("RGBA", (bw * 3, bh * 3), (0, 0, 0, 0))
-    ImageDraw.Draw(im).rounded_rectangle((0, 0, bw * 3 - 1, bh * 3 - 1), bh * 3 // 2, fill=GOLD + (255,))
-    d.put(k, "Donate button", im.resize((bw, bh), Image.LANCZOS), M, 860, shadowed=True, anchor="tl")
+    ImageDraw.Draw(im).rounded_rectangle((0, 0, bw * 3 - 1, bh * 3 - 1), bh * 3 // 2, fill=CREAMC + (255,))
+    d.put(k, "Donate button (cream)", im.resize((bw, bh), Image.LANCZOS), M, 860, shadowed=True, anchor="tl")
     d.text(k, "Donate button text", "Donate today", M, 886, bw, 70, 52, kind="montserrat-bold", italic=False,
-           color=BROWN, align="center", lh=1.1, min_size=52)
+           color=FWG, align="center", lh=1.1, min_size=52)
     logo(d, k, M, H - 90 - 150, 150)
 
 

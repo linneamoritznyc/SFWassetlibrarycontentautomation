@@ -70,7 +70,7 @@ def needle(D, f):
     p2 = (c + w * math.cos(a - math.pi / 2), c - w * math.sin(a - math.pi / 2))
     dr.polygon([tip, p1, p2], fill=rgb(BROWN) + (255,))
     dr.ellipse((c - 34 * k, c - 34 * k, c + 34 * k, c + 34 * k), fill=rgb(BROWN) + (255,))
-    dr.ellipse((c - 12 * k, c - 12 * k, c + 12 * k, c + 12 * k), fill=rgb(GOLD) + (255,))
+    dr.ellipse((c - 12 * k, c - 12 * k, c + 12 * k, c + 12 * k), fill=rgb("#F4F1EA") + (255,))  # no gold (Linnea, 12 Nov)
     return im.resize((D, D), Image.LANCZOS)
 
 
@@ -103,7 +103,7 @@ def one(d, k, f):
               anchor="tl")
         pw = 600
         pill = Image.new("RGBA", (pw * 4, 110 * 4), (0, 0, 0, 0))
-        ImageDraw.Draw(pill).rounded_rectangle((0, 0, pw * 4 - 1, 110 * 4 - 1), 220, fill=rgb(GOLD) + (255,))
+        ImageDraw.Draw(pill).rounded_rectangle((0, 0, pw * 4 - 1, 110 * 4 - 1), 220, fill=rgb("#F4F1EA") + (255,))  # no gold (Linnea, 12 Nov)
         d.put(k, "Give button (gold)", pill.resize((pw, 110), Image.LANCZOS), (W - pw) // 2, 1590, shadowed=False,
               anchor="tl")
         T(d, k, "Give", "Give today", 72, 1608, 936, 70, 54, color=BROWN)
