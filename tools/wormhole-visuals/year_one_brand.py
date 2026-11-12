@@ -35,9 +35,17 @@ _LEAF = None
 
 
 def leaf():
+    """Food Web Green ground with a very faint grain from Linnea's soil photo (no leaves: those belong to Cyber
+    Monday)."""
     global _LEAF
     if _LEAF is None:
-        _LEAF = leaf_texture(770).resize((W, H)).convert("RGBA")
+        soil = np.asarray(cover(Image.open("/home/user/sfwlib/social/cic/soil-linnea.jpg").convert("L"), W, H, 0.5,
+                                0.5)).astype(np.float32) / 255
+        g = np.array(rgb(GREEN), np.float32)
+        yy, xx = np.mgrid[0:H, 0:W].astype(np.float32)
+        light = 1.06 - 0.14 * (((xx - W * 0.4) / W) ** 2 + ((yy - H * 0.3) / H) ** 2)
+        a = g * (light * (0.94 + 0.12 * soil))[..., None]
+        _LEAF = Image.fromarray(a.clip(0, 255).astype("uint8")).convert("RGBA")
     return _LEAF.copy()
 
 
@@ -87,7 +95,7 @@ def tint(im, colour):
 # ------------------------------------------------------------------ slides
 def s1(d, k):
     from giving_thermometer import dial, needle
-    d.bg(k, leaf(), name="Background: green leaf texture")
+    d.bg(k, leaf(), name="Background: Food Web Green")
     logo(d, k, (W - 150) // 2, 70, 150)
     label(d, k, "Eyebrow", "SOIL FOOD WEB FOUNDATION", 60, 250, 960, 52, MINT, "center")
     head(d, k, "Headline", "GIVING TUESDAY", 40, 315, 1000, 100, CREAM, "center")
@@ -106,7 +114,7 @@ def s1(d, k):
 
 
 def s2(d, k):
-    d.bg(k, leaf(), name="Background: green leaf texture")
+    d.bg(k, leaf(), name="Background: Food Web Green")
     card(d, k, 56, 56, 968, 1238)
     x = 120
     label(d, k, "Eyebrow", "AT A GLANCE", x, 110, 840)
@@ -123,7 +131,7 @@ def s2(d, k):
 
 
 def s3(d, k):
-    d.bg(k, leaf(), name="Background: green leaf texture")
+    d.bg(k, leaf(), name="Background: Food Web Green")
     d.put(k, "Photo in arch", arch(PH["scholar"], 760, 660, 0.5, 0.45), 160, 80, shadowed=True, anchor="tl")
     card(d, k, 56, 790, 968, 504)
     label(d, k, "Eyebrow", "OPENING THE DOOR", 120, 840, 840, 52)
@@ -132,7 +140,7 @@ def s3(d, k):
 
 
 def s4(d, k):
-    d.bg(k, leaf(), name="Background: green leaf texture")
+    d.bg(k, leaf(), name="Background: Food Web Green")
     card(d, k, 56, 56, 968, 1238)
     head(d, k, "Big 4", "4", 110, 70, 300, 330, GREEN)
     label(d, k, "Eyebrow", "IN PERSON", 420, 130, 560, 52)
@@ -164,7 +172,7 @@ def s5(d, k):
 
 
 def s6(d, k):
-    d.bg(k, leaf(), name="Background: green leaf texture")
+    d.bg(k, leaf(), name="Background: Food Web Green")
     d.put(k, "Laptop line art", lineart(LAPTOP, 560), 260, 50, shadowed=False, anchor="tl")
     head(d, k, "Number", "35+", 90, 480, 520, 210, CREAM)
     label(d, k, "Label", "FREE\nLIVE\nEVENTS", 640, 500, 380, 66, MINT)
@@ -175,7 +183,7 @@ def s6(d, k):
 
 
 def s7(d, k):
-    d.bg(k, leaf(), name="Background: green leaf texture")
+    d.bg(k, leaf(), name="Background: Food Web Green")
     label(d, k, "Eyebrow", "NEW PROGRAMS", 70, 80, 940, 52, MINT)
     head(d, k, "Headline", "TWO NEW WAYS TO LEARN", 70, 140, 940, 62, CREAM)
     cols = [(56, "sprout", "100", "students from 23 countries", "PERMACULTURE\nDESIGN\nCERTIFICATE",
@@ -193,7 +201,7 @@ def s7(d, k):
 
 
 def s8(d, k):
-    d.bg(k, leaf(), name="Background: green leaf texture")
+    d.bg(k, leaf(), name="Background: Food Web Green")
     d.put(k, "Photo in arch", arch(PH["lab"], 420, 1060, 0.45, 0.5), 604, 150, shadowed=True, anchor="tl")
     card(d, k, 56, 150, 520, 1060)
     label(d, k, "Eyebrow", "FOR OUR STUDENTS", 104, 195, 440, 50)
