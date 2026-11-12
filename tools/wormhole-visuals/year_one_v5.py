@@ -199,18 +199,33 @@ def s5(d, k):
 
 
 def s6(d, k):
-    """Centred, three even bands: the number as the hook, the laptop drawing, the guests."""
-    d.bg(k, green_ground(COMPOSTP, 0.3), name="Background: compost texture in Food Web Green")
-    display(d, k, "Number", "35+", 60, 110, 960, 300, CREAM, "center", 0)
-    caps(d, k, "Label", "FREE LIVE EVENTS", 60, 440, 960, 56, MINT, "center", 8)
+    """Number band on a deepened texture, the laptop drawing on a soft glow, the guests on a cream card."""
+    bg = duo(COMPOSTP, (14, 78, 30), (34, 122, 54), 0.5, 0.3, 1.0)
+    a = np.asarray(bg).astype(np.float32)
+    yy, xx = np.mgrid[0:H, 0:W].astype(np.float32)
+    dark = 0.62 + 0.38 * np.clip(np.hypot((xx - W / 2) / (W * 0.55), (yy - 640) / (H * 0.42)), 0, 1) ** 1.5
+    a[..., :3] *= (1.0 - 0.45 * (1 - np.clip(dark, 0, 1)) - 0.25)[..., None] if False else 1.0
+    band = np.clip(1 - np.abs(yy - 270) / 260, 0, 1) ** 1.2
+    a[..., :3] = a[..., :3] * (1 - 0.35 * band[..., None]) + np.array((8, 40, 18), np.float32) * 0.35 * band[..., None]
+    glow = np.exp(-(((xx - W / 2) / 380) ** 2 + ((yy - 660) / 190) ** 2))
+    a[..., :3] = a[..., :3] * (1 - 0.30 * glow[..., None]) + np.array((10, 48, 22), np.float32) * 0.30 * glow[..., None]
+    d.bg(k, Image.fromarray(a.clip(0, 255).astype("uint8")), name="Compost texture, deepened behind the text")
+    display(d, k, "Number", "35+", 80, 40, 470, 270, CREAM, "left", 0)
+    caps(d, k, "Label", "FREE\nLIVE\nEVENTS", 560, 102, 430, 60, MINT, "left", 6)
+    line = Image.new("RGBA", (900, 3), (207, 230, 211, 200))
+    d.put(k, "Mint line", line, 90, 440, shadowed=False, anchor="tl")
     art = lineart(LAPTOP, 900)
     art = art.crop(art.getchannel("A").point(lambda v: 255 if v > 30 else 0).getbbox())
-    art = art.resize((620, round(art.height * 620 / art.width)), Image.LANCZOS)
-    d.put(k, "Laptop line art", art, (W - art.width) // 2, 560 + (370 - art.height) // 2, shadowed=False,
-          anchor="tl")
-    caps(d, k, "Eyebrow", "SOME OF OUR WEBINAR GUESTS:", 60, 970, 960, 42, MINT, "center", 3)
-    body(d, k, "Guests 1", "Vandana Shiva\nGeoff Lawton\nNicole Masters", 110, 1040, 420, 54, CREAM, "right")
-    body(d, k, "Guests 2", "Mary Reynolds\nDavid Holmgren\nDr. Mary Cole", 590, 1040, 420, 54, CREAM, "left")
+    art = art.resize((560, round(art.height * 560 / art.width)), Image.LANCZOS)
+    d.put(k, "Laptop line art", art, (W - art.width) // 2, 645 - art.height // 2, shadowed=False, anchor="tl")
+    cw, ch, cx, cy = 900, 410, 90, 850
+    card = Image.new("RGBA", (cw * 3, ch * 3), (0, 0, 0, 0))
+    ImageDraw.Draw(card).rounded_rectangle((0, 0, cw * 3 - 1, ch * 3 - 1), 84, fill=CREAMC + (255,))
+    d.put(k, "Cream card", card.resize((cw, ch), Image.LANCZOS), cx, cy, shadowed=True, anchor="tl")
+    caps(d, k, "Eyebrow", "SOME OF OUR WEBINAR GUESTS:", cx + 50, cy + 52, cw - 80, 42, FWG, "left", 1)
+    d.put(k, "Green line", Image.new("RGBA", (90, 4), GREEN + (255,)), cx + 50, cy + 117, shadowed=False, anchor="tl")
+    body(d, k, "Guests 1", "Vandana Shiva\nGeoff Lawton\nNicole Masters", cx + 50, cy + 150, 420, 54, BROWN)
+    body(d, k, "Guests 2", "Mary Reynolds\nDavid Holmgren\nDr. Mary Cole", 560, cy + 150, 400, 54, BROWN)
 
 
 def s7(d, k):
