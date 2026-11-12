@@ -199,15 +199,18 @@ def s5(d, k):
 
 
 def s6(d, k):
-    """One centred column with even gaps: line art, the number, the guests."""
+    """Centred, three even bands: the number as the hook, the laptop drawing, the guests."""
     d.bg(k, green_ground(COMPOSTP, 0.3), name="Background: compost texture in Food Web Green")
-    d.put(k, "Laptop line art", lineart(LAPTOP, 600), 240, 110, shadowed=False, anchor="tl")
-    d.put(k, "Specimen: omnivore nematode", specimen("omni", 190, CREAMC, 1.1), 860, 70, shadowed=True, anchor="tl")
-    display(d, k, "Number", "35+", 120, 540, 520, 230, CREAM, track=0)
-    caps(d, k, "Label", "FREE\nLIVE\nEVENTS", 650, 585, 360, 56, MINT)
-    caps(d, k, "Eyebrow", "SOME OF OUR WEBINAR GUESTS:", 120, 900, 900, 42, MINT, track=2)
-    body(d, k, "Guests 1", "Vandana Shiva\nGeoff Lawton\nNicole Masters", 120, 975, 420, 56, CREAM)
-    body(d, k, "Guests 2", "Mary Reynolds\nDavid Holmgren\nDr. Mary Cole", 590, 975, 420, 56, CREAM)
+    display(d, k, "Number", "35+", 60, 110, 960, 300, CREAM, "center", 0)
+    caps(d, k, "Label", "FREE LIVE EVENTS", 60, 440, 960, 56, MINT, "center", 8)
+    art = lineart(LAPTOP, 900)
+    art = art.crop(art.getchannel("A").point(lambda v: 255 if v > 30 else 0).getbbox())
+    art = art.resize((620, round(art.height * 620 / art.width)), Image.LANCZOS)
+    d.put(k, "Laptop line art", art, (W - art.width) // 2, 560 + (370 - art.height) // 2, shadowed=False,
+          anchor="tl")
+    caps(d, k, "Eyebrow", "SOME OF OUR WEBINAR GUESTS:", 60, 970, 960, 42, MINT, "center", 3)
+    body(d, k, "Guests 1", "Vandana Shiva\nGeoff Lawton\nNicole Masters", 110, 1040, 420, 54, CREAM, "right")
+    body(d, k, "Guests 2", "Mary Reynolds\nDavid Holmgren\nDr. Mary Cole", 590, 1040, 420, 54, CREAM, "left")
 
 
 def s7(d, k):
