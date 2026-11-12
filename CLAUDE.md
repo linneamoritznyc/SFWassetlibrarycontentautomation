@@ -132,6 +132,7 @@ These come from Linnea's edits. Break none of them.
 - **News posts use the news card format** (savesoil.py: cream card on Food Web Green, article image with outlet tab, headline beside a green bar, Read More and source), with the text sizes from docs/slide-rules.md. Long carousels are fine when the content needs them.
 - Sale posts (Cyber Monday, Black Friday): nothing promotional on slide 1, no discount, no % OFF, no starbursts (Linnea, 10 Nov: it makes the feed tacky). The discount goes on a later slide.
 - Never put "Link in bio" on a slide (Linnea, 10 Nov). It belongs in the caption only. Buttons say "Give today", "Donate today" or the action itself.
+- **Never number slides** (no "01 / 10", no "Nº 1", no page counters of any kind; Linnea, 12 Nov).
 - Never tilt or rotate a photo (Linnea, 10 Nov: she hates tilted pictures). Photos sit straight.
 - Never crop in the middle of a face or person (Linnea, 12 Nov). A crop edge falls between people or the whole group stays in frame; check every crop before sending.
 - Banned photo: the raised wooden garden beds with onions and cabbage (`pdc_beds.jpg`). Linnea hates it; never use it on socials.
