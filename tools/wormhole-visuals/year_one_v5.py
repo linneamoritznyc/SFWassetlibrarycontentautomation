@@ -155,10 +155,19 @@ def s2(d, k):
 
 
 def s3(d, k):
-    d.bg(k, photo_fade(PH["scholar"], 0.5, 0.3, 0.58, 0.86, strength=0.94), name="Scholarship photo with soft fade")
-    caps(d, k, "Eyebrow", "OPENING THE DOOR", 90, 945, 900, 44, MINT)
-    display(d, k, "Number", "$300,000+", 82, 1000, 920, 140, CREAM, track=0)
-    body(d, k, "Text", "in scholarships awarded for our various courses and workshops", 90, 1170, 820, 52, CREAM)
+    """Whole group in frame: the photo runs the full width at the top (no one cut), fading into green."""
+    bg = green_ground(SOIL, 0.6)
+    ph = 760
+    im = cover(grade(ImageOps.exif_transpose(Image.open(PH["scholar"])).convert("RGB")), W, ph, 0.5, 0.45)
+    a = np.asarray(im.convert("RGBA")).astype(np.float32)
+    y = np.linspace(0, 1, ph, dtype=np.float32)
+    t = np.clip((y - 0.72) / 0.28, 0, 1)
+    a[..., 3] = 255 * (1 - t * t * (3 - 2 * t))[:, None]
+    bg.alpha_composite(Image.fromarray(a.astype("uint8")), (0, 0))
+    d.bg(k, bg, name="Scholarship photo fading into the soil texture")
+    caps(d, k, "Eyebrow", "OPENING THE DOOR", 90, 820, 900, 44, MINT)
+    display(d, k, "Number", "$300,000+", 82, 878, 920, 150, CREAM, track=0)
+    body(d, k, "Text", "in scholarships awarded for our various courses and workshops", 90, 1068, 820, 54, CREAM)
 
 
 def s4(d, k):
@@ -190,14 +199,15 @@ def s5(d, k):
 
 
 def s6(d, k):
+    """One centred column with even gaps: line art, the number, the guests."""
     d.bg(k, green_ground(COMPOSTP, 0.3), name="Background: compost texture in Food Web Green")
-    d.put(k, "Laptop line art", lineart(LAPTOP, 620), 230, 40, shadowed=False, anchor="tl")
-    d.put(k, "Specimen: omnivore nematode", specimen("omni", 190, CREAMC, 1.1), 860, 60, shadowed=True, anchor="tl")
-    display(d, k, "Number", "35+", 84, 500, 560, 230, CREAM, track=0)
-    caps(d, k, "Label", "FREE\nLIVE\nEVENTS", 640, 540, 380, 56, MINT)
-    caps(d, k, "Eyebrow", "SOME OF OUR WEBINAR GUESTS:", 90, 850, 920, 42, MINT, track=2)
-    body(d, k, "Guests 1", "Vandana Shiva\nGeoff Lawton\nNicole Masters", 90, 920, 440, 54, CREAM)
-    body(d, k, "Guests 2", "Mary Reynolds\nDavid Holmgren\nDr. Mary Cole", 570, 920, 440, 54, CREAM)
+    d.put(k, "Laptop line art", lineart(LAPTOP, 600), 240, 110, shadowed=False, anchor="tl")
+    d.put(k, "Specimen: omnivore nematode", specimen("omni", 190, CREAMC, 1.1), 860, 70, shadowed=True, anchor="tl")
+    display(d, k, "Number", "35+", 120, 540, 520, 230, CREAM, track=0)
+    caps(d, k, "Label", "FREE\nLIVE\nEVENTS", 650, 585, 360, 56, MINT)
+    caps(d, k, "Eyebrow", "SOME OF OUR WEBINAR GUESTS:", 120, 900, 900, 42, MINT, track=2)
+    body(d, k, "Guests 1", "Vandana Shiva\nGeoff Lawton\nNicole Masters", 120, 975, 420, 56, CREAM)
+    body(d, k, "Guests 2", "Mary Reynolds\nDavid Holmgren\nDr. Mary Cole", 590, 975, 420, 56, CREAM)
 
 
 def s7(d, k):
@@ -220,17 +230,24 @@ def s7(d, k):
 
 
 def s8(d, k):
-    d.bg(k, green_ground(SOIL, 0.5), name="Background: soil texture in Food Web Green")
-    d.put(k, "Photo", rect_photo(PH["lab"], 470, H, 0.45, 0.5), W - 470, 0, shadowed=False, anchor="tl")
-    caps(d, k, "Eyebrow", "FOR OUR STUDENTS", 80, 140, 540, 42, MINT, track=2)
-    display(d, k, "Headline", "A BETTER\nPLACE TO\nLEARN", 76, 205, 520, 80, CREAM, track=4)
+    """All five people in frame: photo across the top, fading into green; headline left, list right."""
+    bg = green_ground(SOIL, 0.5)
+    ph = 820
+    im = cover(grade(ImageOps.exif_transpose(Image.open(PH["lab"])).convert("RGB")), W, ph, 0.5, 0.3)
+    a = np.asarray(im.convert("RGBA")).astype(np.float32)
+    y = np.linspace(0, 1, ph, dtype=np.float32)
+    t = np.clip((y - 0.7) / 0.3, 0, 1)
+    a[..., 3] = 255 * (1 - t * t * (3 - 2 * t))[:, None]
+    bg.alpha_composite(Image.fromarray(a.astype("uint8")), (0, 0))
+    d.bg(k, bg, name="Microscopy class photo fading into the soil texture")
+    caps(d, k, "Eyebrow", "FOR OUR STUDENTS", 80, 770, 920, 42, MINT, track=2)
+    display(d, k, "Headline", "A BETTER PLACE\nTO LEARN", 76, 822, 920, 70, CREAM, track=3)
     items = [("phone", "Student mobile app"), ("microscope", "Updated Microbe Library"),
              ("laptop", "New learning platform"), ("people", "Free public community")]
-    y = 590
-    for kind, t in items:
-        d.put(k, f"Icon {kind}", icon(kind, 70, (207, 230, 211)), 80, y + 4, shadowed=False, anchor="tl")
-        yy = body(d, k, f"Item {kind}", t, 176, y, 360, 52, CREAM)
-        y = max(round(yy), y + 70) + 56
+    for i, (kind, t) in enumerate(items):
+        x, y = 80 + (i % 2) * 480, 1010 + (i // 2) * 150
+        d.put(k, f"Icon {kind}", icon(kind, 60, (207, 230, 211)), x, y + 2, shadowed=False, anchor="tl")
+        body(d, k, f"Item {kind}", t, x + 82, y, 360, 48, CREAM)
 
 
 def s9(d, k):

@@ -132,6 +132,7 @@ These come from Linnea's edits. Break none of them.
 - Sale posts (Cyber Monday, Black Friday): nothing promotional on slide 1, no discount, no % OFF, no starbursts (Linnea, 10 Nov: it makes the feed tacky). The discount goes on a later slide.
 - Never put "Link in bio" on a slide (Linnea, 10 Nov). It belongs in the caption only. Buttons say "Give today", "Donate today" or the action itself.
 - Never tilt or rotate a photo (Linnea, 10 Nov: she hates tilted pictures). Photos sit straight.
+- Never crop in the middle of a face or person (Linnea, 12 Nov). A crop edge falls between people or the whole group stays in frame; check every crop before sending.
 - Banned photo: the raised wooden garden beds with onions and cabbage (`pdc_beds.jpg`). Linnea hates it; never use it on socials.
 
 - Variety across the grid: docs/feed-guide.md. Neighbouring posts never share a style family; write the family in each visual note and check with tools/wormhole-visuals/grid_check.py.
