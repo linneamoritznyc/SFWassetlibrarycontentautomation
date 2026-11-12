@@ -121,17 +121,17 @@ def rect_photo(path, w, h, fx=0.5, fy=0.5):
 # ------------------------------------------------------------------ slides
 def s1(d, k):
     from giving_thermometer import dial, needle
-    d.bg(k, cream_ground(0.3), name="Background: straw texture in cream")
-    logo(d, k, (W - 150) // 2, 64, 150, colour=True)
-    caps(d, k, "Eyebrow", "SOIL FOOD WEB FOUNDATION", 60, 250, 960, 42, LEAFG, "center")
-    display(d, k, "Headline", "GIVING TUESDAY", 40, 305, 1000, 96, FWG, "center", 6)
-    body(d, k, "Subline", "What we grew together in our first year", 100, 425, 880, 52, BROWN, "center")
-    D = 620
-    x, y = (W - D) // 2, 540
-    sw, sh = 30, 140
+    d.bg(k, green_ground(COMPOSTP, 0.35), name="Background: compost texture in Food Web Green")
+    logo(d, k, (W - 150) // 2, 70, 150)
+    caps(d, k, "Eyebrow", "SOIL FOOD WEB FOUNDATION", 60, 268, 960, 42, MINT, "center", 6)
+    display(d, k, "Headline", "GIVING TUESDAY", 40, 322, 1000, 100, CREAM, "center", 6)
+    body(d, k, "Subline", "What we grew together in our first year", 100, 448, 880, 54, CREAM, "center")
+    D = 600
+    x, y = (W - D) // 2, 578
+    sw, sh = 30, 120
     st = Image.new("RGBA", (sw * 4, sh * 4), (0, 0, 0, 0))
     ImageDraw.Draw(st).polygon([(0, 0), (sw * 4, 0), (sw * 4, (sh - 30) * 4), (sw * 2, sh * 4), (0, (sh - 30) * 4)],
-                               fill=(79, 52, 51, 255))
+                               fill=(216, 195, 165, 255))
     d.put(k, "Thermometer stem", st.resize((sw, sh), Image.LANCZOS), (W - sw) // 2, y + D - 18, shadowed=False,
           anchor="tl")
     d.put(k, "Thermometer dial", dial(D), x, y, shadowed=True, anchor="tl")
@@ -143,7 +143,7 @@ def s2(d, k):
     d.bg(k, cream_ground(0.6), name="Background: straw texture in cream")
     caps(d, k, "Eyebrow", "AT A GLANCE", 100, 110, 880)
     display(d, k, "Headline", "OUR FIRST YEAR\nIN NUMBERS", 100, 160, 880, 70, BROWN, track=4)
-    d.put(k, "Specimen: fungal hypha", specimen("hypha", 230, GREEN, 1.4), 810, 50, shadowed=True, anchor="tl")
+    d.put(k, "Specimen: fungal hypha", specimen("testate", 210, GREEN, 1.2), 810, 70, shadowed=True, anchor="tl")
     display(d, k, "Number", "$300,000+", 92, 360, 900, 150, FWG, track=0)
     caps(d, k, "Label", "IN SCHOLARSHIPS AWARDED", 100, 535, 880, 42, BROWN)
     cells = [("35+", "FREE LIVE EVENTS", 100, 680), ("4", "WORKSHOPS", 580, 680),
@@ -155,10 +155,10 @@ def s2(d, k):
 
 
 def s3(d, k):
-    d.bg(k, photo_fade(PH["scholar"], 0.5, 0.35, 0.45, 0.82, strength=0.92), name="Scholarship photo with soft fade")
-    caps(d, k, "Eyebrow", "OPENING THE DOOR", 90, 885, 900, 44, MINT)
-    display(d, k, "Number", "$300,000+", 82, 940, 920, 150, CREAM, track=0)
-    body(d, k, "Text", "in scholarships awarded for our various courses and workshops", 90, 1120, 820, 52, CREAM)
+    d.bg(k, photo_fade(PH["scholar"], 0.5, 0.3, 0.58, 0.86, strength=0.94), name="Scholarship photo with soft fade")
+    caps(d, k, "Eyebrow", "OPENING THE DOOR", 90, 945, 900, 44, MINT)
+    display(d, k, "Number", "$300,000+", 82, 1000, 920, 140, CREAM, track=0)
+    body(d, k, "Text", "in scholarships awarded for our various courses and workshops", 90, 1170, 820, 52, CREAM)
 
 
 def s4(d, k):
@@ -166,26 +166,27 @@ def s4(d, k):
     display(d, k, "Big 4", "4", 80, 40, 320, 420, FWG, track=0)
     caps(d, k, "Eyebrow", "IN PERSON", 420, 140, 600, 42, LEAFG)
     display(d, k, "Headline", "WORKSHOPS\nON 4\nCONTINENTS", 420, 190, 600, 66, BROWN, track=4)
-    places = [("cr", "COSTA RICA", "Oct 2025", 0.5, 0.35), ("us", "UNITED\nSTATES", "Feb 2026", 0.55, 0.45),
+    places = [("cr", "COSTA\nRICA", "Oct 2025", 0.5, 0.35), ("us", "UNITED\nSTATES", "Feb 2026", 0.55, 0.45),
               ("uk", "ENGLAND", "Jun 2026", 0.5, 0.4), ("india_walk", "INDIA", "Oct 2026", 0.45, 0.4)]
-    pw, ph, gap = 212, 360, 16
+    pw, ph, gap = 214, 410, 14
     x0 = (W - (4 * pw + 3 * gap)) // 2
     for i, (key, name, date, fx, fy) in enumerate(places):
         x = x0 + i * (pw + gap)
         d.put(k, f"Photo {i + 1}", rect_photo(PH[key], pw, ph, fx, fy), x, 500, shadowed=True, anchor="tl")
-        caps(d, k, f"Place {i + 1}", name, x - 6, 885, pw + 12, 42, FWG, "center", track=0)
-        body(d, k, f"Date {i + 1}", date, x, 985, pw, 44, BROWN, "center")
-    body(d, k, "Text", "Hands-on training with our mentors, on four farms", 100, 1110, 760, 52, BROWN)
+        caps(d, k, f"Place {i + 1}", name, x - 6, 945 + (0 if "\n" in name else 52), pw + 12, 42, FWG, "center",
+             track=0)
+        body(d, k, f"Date {i + 1}", date, x, 1050, pw, 44, BROWN, "center")
+    body(d, k, "Text", "Hands-on training with our mentors, on four farms", 100, 1160, 820, 52, BROWN)
 
 
 def s5(d, k):
-    d.bg(k, photo_fade(PH["india_group"], 0.5, 0.3, 0.38, 0.68, strength=0.95), name="India photo with soft fade")
-    caps(d, k, "Eyebrow", "FIRST WORKSHOP IN INDIA", 90, 760, 900, 44, MINT)
-    display(d, k, "Number 46", "46", 84, 815, 420, 170, CREAM, track=0)
-    body(d, k, "Text 46", "participants from 10 countries", 90, 1000, 400, 52, CREAM)
-    display(d, k, "Number 61", "61", 574, 815, 420, 170, CREAM, track=0)
-    body(d, k, "Text 61", "at the Life in the Soils seminar", 580, 1000, 420, 52, CREAM)
-    body(d, k, "Partner line", "We partnered with Isha Foundation and Save Soil", 90, 1180, 900, 46, MINT)
+    d.bg(k, photo_fade(PH["india_group"], 0.5, 0.25, 0.5, 0.74, strength=0.96), name="India photo with soft fade")
+    caps(d, k, "Eyebrow", "FIRST WORKSHOP IN INDIA", 90, 850, 900, 44, MINT)
+    display(d, k, "Number 46", "46", 84, 900, 420, 150, CREAM, track=0)
+    body(d, k, "Text 46", "participants from 10 countries", 90, 1065, 400, 52, CREAM)
+    display(d, k, "Number 61", "61", 574, 900, 420, 150, CREAM, track=0)
+    body(d, k, "Text 61", "at the Life in the Soils seminar", 580, 1065, 420, 52, CREAM)
+    body(d, k, "Partner line", "We partnered with Isha Foundation and Save Soil", 90, 1225, 960, 44, MINT)
 
 
 def s6(d, k):
@@ -201,9 +202,9 @@ def s6(d, k):
 
 def s7(d, k):
     d.bg(k, cream_ground(0.8), name="Background: straw texture in cream")
-    d.put(k, "Specimen: testate amoeba", specimen("testate", 200, GREEN, 1.2), 850, 290, shadowed=True, anchor="tl")
+    d.put(k, "Specimen: testate amoeba", specimen("hypha", 190, GREEN, 1.6), 850, 1110, shadowed=True, anchor="tl")
     caps(d, k, "Eyebrow", "NEW PROGRAMS", 90, 110, 900)
-    display(d, k, "Headline", "TWO NEW WAYS TO LEARN", 84, 160, 940, 56, BROWN, track=1)
+    display(d, k, "Headline", "TWO NEW WAYS TO LEARN", 84, 170, 940, 58, BROWN, track=1)
     cols = [(90, "sprout", "100", "students from 23 countries", "PERMACULTURE\nDESIGN\nCERTIFICATE",
              "With the Permaculture Association (UK)"),
             (580, "compost", "10", "weeks, live online", "COMPOST\nINTENSIVE COURSE",
@@ -236,8 +237,8 @@ def s9(d, k):
     d.bg(k, photo_fade(PH["hills"], 0.5, 0.5, 0.42, 0.72, strength=0.95), name="Hills photo with soft fade")
     caps(d, k, "Eyebrow", "OUR GOAL FOR 2027", 90, 820, 900, 44, MINT)
     display(d, k, "Number", "100,000", 82, 875, 920, 180, CREAM, track=0)
-    caps(d, k, "Label", "ACRES REGENERATED", 90, 1070, 900, 52, CREAM)
-    body(d, k, "Text", "by our community of students and graduates", 90, 1150, 820, 52, MINT)
+    caps(d, k, "Label", "ACRES REGENERATED", 90, 1085, 900, 52, CREAM)
+    body(d, k, "Text", "by our community of students and graduates", 90, 1165, 820, 52, MINT)
 
 
 def s10(d, k):
