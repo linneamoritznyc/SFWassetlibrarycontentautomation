@@ -1,0 +1,82 @@
+# Exact text for the three fundraising documents (from Evan's latest drafts).
+DONOR = dict(
+    key='Donor Overview', short='Donor Overview',
+    cover=dict(eyebrow='Soil Food Web Foundation: Donor Overview', title='Healthy soil. Healthy food.\nA living legacy.',
+               intro="The Soil Food Web Foundation carries forward the life's work of Dr. Elaine Ingham, the scientist who showed the world that soil is alive. This October we celebrate our first year as a nonprofit. Our mission is to honor and grow Elaine's legacy of empowering communities to restore and protect the Earth's soil and living systems. We would not be here without the donors who have supported us and shown up. Your gift goes a long way here: $5,000 delivers comprehensive training from theory to full implementation, and together we are working to change the global food system.",
+               photo='poppies-hi.jpg', fy=0.62, alt='Group in a poppy field'),
+    blocks=[
+        ('section', 'Why living soil matters now', ["When soil loses its biology, farmers must replace it with costly synthetic fertilizers and pesticides that wash into our rivers. When soil life is restored, farms use fewer chemicals, hold more water, store more carbon and grow more nutritious food. The missing piece is knowledge, and we share it openly. Nothing we teach is proprietary. One farmer in Illinois, Adam York, reported saving about $1 million a year after implementing the Soil Food Web Approach on 10,000 acres of corn and soy, after working with Soil Food Web Consultant, Todd Harrington. Now he runs a company called Agribio Systems, servicing hundreds of thousands of acres of farmland in his region and helping other farmers transform their operations."]),
+        ('grid', 'What we do', [('Teach.', 'Build soil biology literacy, from free public education to professional soil consulting, for students in 140 countries.'),
+                                ('Research.', "Build on Elaine's experiments to advance the science, and share our data openly so practice rests on evidence."),
+                                ('Practice.', 'Partner with farmers and organizations to demonstrate soil food web methods in different regions and climates.'),
+                                ('Connect.', 'Grow a worldwide community of practitioners and leaders who share what works and support each other.')]),
+        ('photo', 'group-field.jpg', 0.92, 'Workshop group in a field'),
+        ('list', 'Our first year', ["Became a nonprofit and received all of the school's intellectual property, now held for the public good",
+                                    "Redesigned our core courses and launched a Permaculture Design Certificate with the Permaculture Association UK (100 students from 23 countries)",
+                                    "Awarded over $300,000 in scholarships in 2026, and grew our student community to nearly 10,000 individuals from 140 countries. Our organizational scholarships reach partners such as iCow in East Africa and TrashIt in Pakistan. Both of TrashIt's founders completed our foundation courses on scholarships, and TrashIt now offers microbial soil testing and reached 600+ people across 10+ districts in one Soil Health Week."]),
+        ('rows', 'What your gift makes possible', None, [('Scholarships', 'open our courses to students who could not otherwise attend.', None),
+                                                         ('Sponsored workshop seats', 'bring hands-on training to farming communities that need it most.', None),
+                                                         ('New programs', 'such as our compost cohort, with liquid amendments and microscopy programs in development.', None),
+                                                         ('Unrestricted gifts', 'go where the need is greatest and help us grow.', None)]),
+    ],
+    closing=dict(goal='Goal: raise $300,000 by December 31', quote='"Let me teach you so that you can do this for yourself."', attr='— Dr. Elaine Ingham',
+                 more="Celebrate our first year and help carry Dr. Elaine's work forward. Giving pathways: one-time gifts, monthly giving, workshop and scholarship sponsorships, and legacy gifts.",
+                 give='Give online: soilfoodweb.com/donations · Giving Tuesday: December 1 · Contact: Evan Buckman, Executive Director, evan@soilfoodweb.com, (512) 359-5206 · www.soilfoodweb.com',
+                 legal='Soil Food Web Foundation is a 501(c)(3) public charity, and gifts are tax-deductible as allowed by law, EIN 39-4439236.',
+                 photo='walk.jpg', fy=1.0, alt='Students walking through a farm in India'),
+)
+
+CASE = dict(
+    key='Case for Support', short='Case for Support',
+    cover=dict(eyebrow='Soil Food Web Foundation: Case for Support', title='Restoring living soil.\nGrowing a global community.',
+               intro="The Soil Food Web Foundation carries forward the life's work of Dr. Elaine Ingham, who showed the world that soil is alive, and provided a practical, scientific roadmap for restoring it. This October marks our first year as a nonprofit, created so that her essential teachings and the community of practice that has grown around them can live on for many generations to come.",
+               photo='palms.jpg', fy=0.9, alt='Students in a palm farm', fade='#FFFFFF', keep=0.86),
+    blocks=[
+        ('quote', '"The paradigm shift she shows us, that soil is alive and that soil microbiology matters, has profound meaning not just for agriculture, but for human life itself on the planet."', 'Leslie Lewis, Board Chair and graduate of our consultant training program'),
+        ('section', 'Why it matters now', ["The green revolution brought immense change to the global food system. We saw huge increases in the total pounds of food produced around the world, which came at the cost of topsoil loss, fertility decline, lower nutrient density in our food, toxic chemicals in our bodies, food and water, extreme loss of biodiversity, and the erosion of farmer profitability.",
+                                           "The world is waking up to this reality; soil health and regenerative agriculture initiatives abound from governments to corporations to grassroots initiatives.",
+                                           "The problem is, almost all of these initiatives are ignorant to the reality of life in the soil which is absolutely fundamental. The Soil Food Web Foundation fulfills a unique role by teaching farmers, agricultural professionals, gardeners and land stewards to understand, measure, and restore the life in their soil. We empower them to transform locally available organic residues into potent biological inoculants that have proven successful for decades in improving soil health, food quality, and farmers profitability.",
+                                           "Elaine’s teachings have influenced millions of people around the world, and our school has welcomed nearly 10,000 students from 140 countries into our educational programs. Our students themselves have gone on to touch and transform the lives of millions of farmers and transform millions of acres of land - from Illinois, to Kenya, to India. Our students are working every day to put these teachings into practice and are leaders in the regenerative movement.",
+                                           "The demand for this knowledge is far greater than we currently have the resources to provide. Farmers around the world, for whom the knowledge of how to grow sufficient food without relying on synthetic, imported fertilizers and toxic chemicals, could mean the difference between nourishment and hunger, are eager to attain these skills. Our scholarship programs are expanding, we are hosting live workshops in new locations, working directly with farmers to implement and demonstrate this work, and actively growing our global community."]),
+        ('photo', 'students-duo.jpg', 0.12, 'Students in class'),
+        ('photo_top', 'talk-back-duo.jpg', 0.4, 'Teaching a full room in India', 510),
+        ('rows', None, ('Barriers to change', 'Our response', None), [('Few farmers and agronomists are taught how soil biology works', 'Free public education and webinars, intensive theoretical online courses, and in person practical intensives', None),
+                                                                      ('Inputs and training many cannot afford', 'Over $300,000 in scholarships in 2026, and compost made from free local materials', None),
+                                                                      ('Methods that do not fit local soils', 'Hands-on workshops, mentors and step-by-step guides, region by region', None)]),
+        ('rows', 'What your gift makes possible', ('Gift', 'Impact', None), [('$5,000', 'funds a full scholarship for someone to become a SFW Consultant: our Foundation Courses and The Complete Practicum', None),
+                                                                             ('$10,000', 'sponsors an all inclusive scholarship at a two-week hands-on workshop', None),
+                                                                             ('$25,000', 'sponsors a group of courses for a community in need', None),
+                                                                             ('$100,000', 'sponsors a whole workshop in a new region, such as Kenya or Brazil', None)]),
+    ],
+    closing=dict(goal='GOAL: RAISE $300,000 BY DECEMBER 31, 2026.', quote='"We see a more beautiful world, and we dedicate our lives to restoring the invisible layers of life that make that world possible."', attr='Evan Buckman, Executive Director',
+                 more=None,
+                 give='Give today at soilfoodweb.com/donations or scan the QR code. One-time gifts, monthly giving, sponsorships, and legacy gifts. For customized giving, contact Evan Buckman, Executive Director, at evan@soilfoodweb.com or (512) 359-5206. 501(c)(3) public charity, and gifts are tax-deductible as allowed by law, EIN 39-4439236.',
+                 legal=None, photo='shed.jpg', fy=0.95, alt='Workshop group under a shed in India'),
+)
+
+FUNDING = dict(
+    key='Funding the Vision Ahead', short='Funding the Vision Ahead',
+    cover=dict(eyebrow='Soil Food Web Foundation: Funding the Vision Ahead', title='2027 and Beyond:\nFunding the Vision Ahead',
+               intro="We would not be here without the donors who have supported us and shown up. Gifts go a long way here: $5,000 delivers $10,000 of training. Every student we train builds soil biology literacy and joins a worldwide network of practitioners and leaders working to change the global food system.",
+               photo='microscope.jpg', fy=0.22, cfy=0.2, alt='Student at the microscope', fade='#FFFFFF', dark=True,
+               stats=[('~10,000', 'students'), ('140', 'countries'), ('$300K+', 'scholarships, 2026')]),
+    blocks=[
+        ('rows', 'Top priorities', ('Priority', None, 'Investment'), [
+            ('Scholarship Fund.', "Opens our courses to students anywhere in the world, regardless of means. Hundreds of people who make a strong impact in their communities are waiting for support. Organizational scholarships reach even further: both founders of TrashIt in Pakistan trained with us, and TrashIt now offers microbial soil testing to farmers. $5,000 funds a full scholarship for our Foundation Courses and The Complete Practicum, a $10,000 value. We awarded over $300,000 in scholarships in 2026.", '$100,000'),
+            ('New and Updated Programs.', 'Draw on decades of experience teaching the Soil Food Web Approach, using modern pedagogy to improve our learning experience and launch new programs.', '$100,000'),
+            ('Hands-On Workshops.', 'Bring two-week hands-on workshops to new places. $10,000 sponsors a group of seats in a new location, and $100,000 sponsors a whole workshop in a new region such as Kenya or Brazil.', '$10,000 to $100,000'),
+            ('Open Research.', "Build on Elaine's experiments to advance the science of the Soil Food Web itself. We publish our trial and case study data openly so anyone can see why the methods work. $100,000 starts this work, and major studies range from $500,000 to $3 million.", '$100,000+'),
+            ('Elaine Ingham Legacy Fund.', "Fund field research in Elaine's name, across a global network of demonstration farms where farmers can see the results on working farms.", 'Transformational gift')]),
+        ('photo', 'shed.jpg', 0.9, 'Workshop group under a shed in India'),
+        ('rows', 'More ways to invest', ('Way to give', 'What it does', 'Investment'), [
+            ('Living Soil Circle', 'Monthly donors whose steady support funds scholarships all year. Join on our GiveButter page.', '$100+ per month'),
+            ('Founders Circle', 'Leaders who give $10,000 or more a year during our founding years and share the mission with friends.', '$10,000+ per year'),
+            ('Named Scholarship', 'Fund a full scholarship in honor of a loved one, family or farm.', '$5,000'),
+            ('Sponsor a Workshop or Event', 'Underwrite a compost workshop or gathering for students, farmers and supporters.', '$5,000 to $20,000'),
+            ('Unrestricted Annual Fund', 'Goes where the need is greatest: scholarships, teaching and research.', 'Any amount')]),
+    ],
+    closing=dict(goal=None, quote=None, attr=None, more=None,
+                 give='Give today at soilfoodweb.com/donations · For customized giving, contact Evan Buckman, Executive Director, evan@soilfoodweb.com, (512) 359-5206 · www.soilfoodweb.com',
+                 legal=None, photo='chat.jpg', fy=0.4, alt='Students talking after a talk'),
+)
+DOCS = [DONOR, CASE, FUNDING]
