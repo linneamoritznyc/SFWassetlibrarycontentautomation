@@ -34,10 +34,10 @@ for i, s in enumerate(p.slides):
     top = q.top // PX
     bottom = (panel.top + panel.height) // PX - 70
     avail = bottom - top
-    width = q.width // PX * 0.93              # wrap as if 7% narrower: Canva's text runs wider
+    width = q.width // PX * 0.90 / 1.08   # assume Canva sets text up to 8% bigger and wraps wider
     name_px = 52
     for size in range(54, 41, -1):            # px; never below 42
-        need = lines(text, size, width) * size * 1.22 + 34 + name_px * 1.2
+        need = (lines(text, size, width) * size * 1.22 + 34 + name_px * 1.2) * 1.08
         if need <= avail:
             break
     # name becomes a second paragraph in the quote box, so they can never overlap
