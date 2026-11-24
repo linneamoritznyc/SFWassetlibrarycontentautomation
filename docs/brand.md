@@ -32,8 +32,22 @@ CLAUDE.md adds: cream works as a shape on a green or photographic background.
 - **Montserrat**: headlines.
 - **Pathway Gothic One**: condensed caps for labels and section titles (the guide's page headers).
 - **Source Sans Pro** (now Source Sans 3): body text.
+- **EB Garamond**: serif for names, quotes and body text on warm, editorial posts (Linnea, 23 Nov: Thanksgiving staff carousel and cover).
 
-All three are free Google Fonts (OFL).
+All four are free Google Fonts (OFL).
+
+### Canva Brand Kit text styles (Linnea, 24 Nov)
+
+| Style | Font | Size | Weight |
+|---|---|---|---|
+| Title | Montserrat | | Bold |
+| Subtitle | Source Sans 3 | | Regular |
+| Heading | Montserrat | 32 | Bold |
+| Subheading | Source Sans 3 | | Bold |
+| Section header | Source Sans 3 | 20 | Italic |
+| Body | EB Garamond | 16 | Regular |
+| Caption | EB Garamond | 14 | Regular |
+| Quote | EB Garamond | | Italic |
 
 ## Logo
 
